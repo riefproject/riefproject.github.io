@@ -1,0 +1,5 @@
+.vscode/
+.idea/
+*.iml
+.hintrc
+hcaptcha-keys.json

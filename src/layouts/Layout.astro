@@ -1,0 +1,449 @@
+---
+import '../styles/global.css';
+import { contact, profile, socials } from '../data/profile';
+import ThemeToggle from '../components/ThemeToggle.vue';
+import LangToggle from '../components/LangToggle.vue';
+import LocaleText from '../components/i18n/LocaleText.astro';
+
+type LayoutProps = {
+	title?: string;
+	description?: string;
+};
+
+const locale = (en: string, id: string) => ({ en, id });
+
+const navItems = [
+	{ label: locale('Home', 'Beranda'), href: '#beranda' },
+	{ label: locale('About', 'Tentang'), href: '#tentang' },
+	{ label: locale('Skills', 'Keahlian'), href: '#skills' },
+	{ label: locale('Experience', 'Pengalaman'), href: '#experience' },
+	{ label: locale('Projects', 'Proyek'), href: '#proyek' },
+	{ label: locale('Achievements', 'Pencapaian'), href: '#achievements' },
+	{ label: locale('Education', 'Pendidikan'), href: '#education' },
+	{ label: locale('Contact', 'Kontak'), href: '#kontak' },
+];
+
+const layoutCopy = {
+	skip: locale('Skip to content', 'Lewati ke konten'),
+	menu: locale('Menu', 'Menu'),
+	menuInfo: locale('navigation', 'navigasi'),
+	explore: locale('Explore work', 'Explore karya'),
+	cta: locale('Submit a project', 'Ajukan proyek'),
+	footerThanks: locale('Thanks for stopping by', 'Terima kasih sudah mampir'),
+	footerBuilt: locale('Built with Astro · Vue · Tailwind', 'Dibuat dengan Astro · Vue · Tailwind'),
+};
+
+const {
+	title = `${profile.name} — ${profile.role.en}`,
+	description = profile.intro.en,
+}: LayoutProps = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<script is:inline>
+			(() => {
+				const storageKey = 'portfolio-theme';
+				let initial = 'light';
+				try {
+					const stored = typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : null;
+					if (stored) {
+						initial = stored;
+					} else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+						initial = 'dark';
+					}
+				} catch (err) {
+					initial = 'light';
+				}
+				if (initial === 'dark') {
+					document.documentElement.classList.add('dark');
+				} else {
+					document.documentElement.classList.remove('dark');
+				}
+			})();
+		</script>
+		<script is:inline>
+			(() => {
+				const storageKey = 'portfolio-lang';
+				const applyLanguage = (lang) => {
+					const root = document.documentElement;
+					root.classList.toggle('lang-id', lang === 'id');
+					root.classList.toggle('lang-en', lang !== 'id');
+					root.setAttribute('lang', lang === 'id' ? 'id' : 'en');
+					const attribute = lang === 'id' ? 'data-i18n-id' : 'data-i18n-en';
+					document.querySelectorAll('[data-i18n]').forEach((element) => {
+						const value = element.getAttribute(attribute);
+						if (value !== null && element.textContent !== value) {
+							element.textContent = value;
+						}
+					});
+					const placeholderAttr =
+						lang === 'id' ? 'data-i18n-placeholder-id' : 'data-i18n-placeholder-en';
+					document.querySelectorAll('[data-i18n-placeholder-en]').forEach((element) => {
+						const value = element.getAttribute(placeholderAttr);
+						if (value !== null) {
+							element.setAttribute('placeholder', value);
+						}
+					});
+				};
+
+				window.__applyLanguage = applyLanguage;
+
+				let initial = 'en';
+				try {
+					const stored = typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : null;
+					if (stored) {
+						initial = stored;
+					}
+				} catch (err) {
+					initial = 'en';
+				}
+
+				const init = () => applyLanguage(initial);
+				if (document.readyState === 'loading') {
+					document.addEventListener('DOMContentLoaded', init, { once: true });
+				} else {
+					init();
+				}
+			})();
+		</script>
+	</head>
+	<body>
+		<div class="global-toggles">
+			<ThemeToggle client:load />
+			<LangToggle client:load />
+		</div>
+		<a class="skip-link" href="#konten-utama">
+			<LocaleText as="span" text={layoutCopy.skip} />
+		</a>
+		<div class="page page-grid">
+			<button class="sidebar-toggle" type="button" data-sidebar-toggle>
+				<LocaleText as="span" text={layoutCopy.menu} />
+				<span><LocaleText as="span" text={layoutCopy.menuInfo} /></span>
+			</button>
+			<aside class="sidebar" aria-label="Navigasi utama">
+				<div class="sidebar__brand">
+					<p class="eyebrow">
+						<LocaleText as="span" text={profile.role} />
+					</p>
+					<h1>{profile.name}</h1>
+					<p class="sidebar__tagline">
+						<LocaleText as="span" text={profile.tagline} />
+					</p>
+					<p class="sidebar__location">
+						<LocaleText as="span" text={profile.location} />
+					</p>
+				</div>
+				<p class="sidebar__focus">
+					<LocaleText as="span" text={profile.focusStack} />
+				</p>
+				<nav class="sidebar__nav">
+					{navItems.map((item) => (
+						<a data-nav-link href={item.href}>
+							<LocaleText as="span" text={item.label} />
+						</a>
+					))}
+				</nav>
+				<div class="sidebar__cta">
+					<a class="btn primary" href="#proyek">
+						<LocaleText as="span" text={layoutCopy.explore} />
+					</a>
+					<a class="btn ghost" href={`mailto:${contact.email}`}>
+						<LocaleText as="span" text={layoutCopy.cta} />
+					</a>
+				</div>
+			</aside>
+			<div class="page-content">
+				<main id="konten-utama">
+					<slot />
+				</main>
+				<footer class="site-footer section">
+						<div class="surface footer-card">
+							<div>
+								<p class="eyebrow">
+									<LocaleText as="span" text={layoutCopy.footerThanks} />
+								</p>
+								<h3>{profile.name}</h3>
+								<p>
+									<LocaleText as="span" text={profile.availability} />
+								</p>
+							</div>
+						<div class="social-list">
+							{socials.map((item) => (
+								<a href={item.url} target="_blank" rel="noreferrer" aria-label={item.label}>
+									{item.label}
+								</a>
+							))}
+						</div>
+					</div>
+						<p class="footer-meta">
+							© {new Date().getFullYear()} {profile.name}.{' '}
+							<LocaleText as="span" text={layoutCopy.footerBuilt} />
+						</p>
+					</footer>
+			</div>
+			<div class="sidebar-overlay" data-sidebar-overlay></div>
+		</div>
+		<script is:inline>
+			const root = document.documentElement;
+			const toggle = document.querySelector('[data-sidebar-toggle]');
+			const overlay = document.querySelector('[data-sidebar-overlay]');
+			const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+
+			const closeSidebar = () => {
+				root.classList.remove('sidebar-open');
+			};
+
+			toggle?.addEventListener('click', () => {
+				root.classList.toggle('sidebar-open');
+			});
+			overlay?.addEventListener('click', closeSidebar);
+			navLinks.forEach((link) =>
+				link.addEventListener('click', () => {
+					closeSidebar();
+				}),
+			);
+
+			const setActiveNav = (id) => {
+				navLinks.forEach((link) => {
+					const targetId = link.getAttribute('href')?.replace('#', '');
+					if (targetId === id) {
+						link.classList.add('active');
+						link.setAttribute('aria-current', 'true');
+					} else {
+						link.classList.remove('active');
+						link.removeAttribute('aria-current');
+					}
+				});
+			};
+
+			const sectionEntries = navLinks
+				.map((link) => {
+					const id = link.getAttribute('href')?.replace('#', '');
+					if (!id) return null;
+					const element = document.getElementById(id);
+					return element ? { id, element } : null;
+				})
+				.filter(Boolean);
+
+			if (sectionEntries.length) {
+				setActiveNav(sectionEntries[0].id);
+				const observer = new IntersectionObserver(
+					(entries) => {
+						const visible = entries
+							.filter((entry) => entry.isIntersecting)
+							.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+						if (!visible.length) {
+							return;
+						}
+
+						const id = visible[0].target.getAttribute('id');
+						if (id) {
+							setActiveNav(id);
+						}
+					},
+					{ rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
+				);
+				sectionEntries.forEach(({ element }) => observer.observe(element));
+			}
+		</script>
+	</body>
+</html>
+
+<style>
+	.global-toggles {
+		position: fixed;
+		top: 1rem;
+		right: 1rem;
+		display: flex;
+		gap: 0.5rem;
+		z-index: 30;
+	}
+
+	.page-grid {
+		display: grid;
+		grid-template-columns: 260px 1fr;
+		min-height: 100vh;
+		position: relative;
+	}
+
+	.sidebar {
+		position: sticky;
+		top: 0;
+		align-self: start;
+		height: 100vh;
+		padding: 2.5rem 2rem;
+		background: var(--sidebar-bg);
+		border-right: 1px solid var(--border);
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.sidebar__brand h1 {
+		margin: 0.2rem 0;
+		font-size: 1.6rem;
+	}
+
+	.sidebar__tagline {
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+
+	.sidebar__location {
+		margin: 0.2rem 0 0;
+		font-size: 0.85rem;
+		color: var(--muted);
+	}
+
+	.sidebar__focus {
+		font-size: 0.9rem;
+		color: var(--muted);
+	}
+
+	.sidebar__nav {
+		display: flex;
+		flex-direction: column;
+		gap: 0.4rem;
+	}
+
+	.sidebar__nav a {
+		padding: 0.6rem 0.8rem;
+		border-radius: 0.75rem;
+		color: var(--muted);
+		font-weight: 500;
+		transition: background 0.2s, color 0.2s;
+	}
+
+	.sidebar__nav a:hover,
+	.sidebar__nav a.active {
+		background: var(--surface-muted);
+		color: var(--accent-strong);
+	}
+
+	.sidebar__cta {
+		margin-top: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.page-content {
+		padding: 0 0 4rem;
+	}
+
+	.sidebar-toggle {
+		display: none;
+		position: fixed;
+		top: 4.5rem;
+		right: 1rem;
+		z-index: 20;
+		padding: 0.6rem 1rem;
+		border-radius: 999px;
+		background: var(--sidebar-bg);
+		color: var(--text);
+		border: 1px solid var(--border);
+		font-weight: 600;
+		gap: 0.4rem;
+		align-items: center;
+	}
+
+	.sidebar-toggle span {
+		font-size: 0.85rem;
+		font-weight: 400;
+		color: var(--muted);
+	}
+
+	.sidebar-overlay {
+		display: none;
+	}
+
+	.site-footer {
+		padding-bottom: 4rem;
+	}
+
+	.footer-card {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1.5rem;
+		flex-wrap: wrap;
+	}
+
+	.footer-card h3 {
+		margin: 0 0 0.5rem;
+		font-size: 1.5rem;
+	}
+
+	.footer-meta {
+		margin-top: 1.5rem;
+		text-align: center;
+		font-size: 0.9rem;
+		color: var(--muted);
+	}
+
+	@media (max-width: 1100px) {
+		.page-grid {
+			grid-template-columns: 220px 1fr;
+		}
+	}
+
+	@media (max-width: 900px) {
+		.global-toggles {
+			top: 0.75rem;
+			right: 0.75rem;
+		}
+
+		.page-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.sidebar {
+			position: fixed;
+			inset: 0;
+			height: 100vh;
+			transform: translateX(-100%);
+			transition: transform 0.3s ease;
+			z-index: 15;
+		}
+
+		.sidebar-toggle {
+			display: inline-flex;
+		}
+
+		.sidebar-overlay {
+			display: block;
+			position: fixed;
+			inset: 0;
+			background: rgba(0, 0, 0, 0.55);
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.3s ease;
+			z-index: 10;
+		}
+
+		html.sidebar-open .sidebar {
+			transform: translateX(0);
+		}
+
+		html.sidebar-open .sidebar-overlay {
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		.page-content {
+			padding-top: 4rem;
+		}
+	}
+</style>

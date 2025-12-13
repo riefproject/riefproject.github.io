@@ -1,0 +1,101 @@
+---
+import type { Achievement } from '../../data/profile';
+import LocaleText from '../i18n/LocaleText.astro';
+
+type Props = {
+	achievements: Achievement[];
+};
+
+const { achievements }: Props = Astro.props;
+const highlight = achievements.find((item) => item.type === 'competitions');
+---
+
+{highlight && (
+	<section class="section legacy-ach" id="legacy-ach">
+		<div class="legacy-ach__grid surface">
+			<div class="legacy-ach__media">
+				<div class="badge">OSN</div>
+				<p>Informatics</p>
+			</div>
+			<div class="legacy-ach__details">
+				<p class="eyebrow">Achievements</p>
+				<h3>
+					<LocaleText as="span" text={highlight.title} />
+				</h3>
+				<p class="issuer">
+					<LocaleText as="span" text={highlight.issuer} />
+				</p>
+				<p class="date">{highlight.date}</p>
+				<p>
+					<LocaleText
+						as="span"
+						text={{
+							en: 'Prestigious national olympiad focused on algorithms, programming, and high-speed problem solving.',
+							id: 'Kompetisi nasional bergengsi yang berfokus pada algoritma, pemrograman, dan problem solving cepat.',
+						}}
+					/>
+				</p>
+				{highlight.highlight && (
+					<p class="highlight">
+						<LocaleText as="span" text={highlight.highlight} />
+					</p>
+				)}
+			</div>
+		</div>
+	</section>
+)}
+
+<style>
+	.legacy-ach__grid {
+		display: grid;
+		grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+		gap: 1.5rem;
+		align-items: center;
+	}
+
+	.legacy-ach__media {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(160deg, #1d4ed8, #9333ea);
+		color: #fff;
+		border-radius: 1.5rem;
+		min-height: 200px;
+		gap: 0.5rem;
+	}
+
+	.badge {
+		font-size: clamp(2rem, 4vw, 3rem);
+		font-weight: 700;
+		letter-spacing: 0.12em;
+	}
+
+	.legacy-ach__details h3 {
+		margin: 0.25rem 0;
+		font-size: 1.9rem;
+	}
+
+	.issuer,
+	.date {
+		margin: 0;
+		color: var(--muted);
+	}
+
+	.date {
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+
+	.highlight {
+		margin-top: 1rem;
+		font-weight: 600;
+		color: var(--accent);
+	}
+
+	@media (max-width: 900px) {
+		.legacy-ach__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

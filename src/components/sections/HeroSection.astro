@@ -1,0 +1,259 @@
+---
+import type {
+	Contact,
+	Highlight,
+	Profile,
+	SocialLink,
+	Stat,
+} from '../../data/profile';
+import LocaleText from '../i18n/LocaleText.astro';
+
+const locale = (en: string, id: string) => ({ en, id });
+
+type HeroProps = {
+	profile: Profile;
+	contact: Contact;
+	highlights: Highlight[];
+	stats: Stat[];
+	socials: SocialLink[];
+	toolbox: string[];
+};
+
+const { profile, contact, highlights, stats, socials, toolbox }: HeroProps = Astro.props;
+
+const heroCopy = {
+	greeting: locale('Hi, I’m', 'Hai, saya'),
+	viewProjects: locale('See selected work', 'Lihat proyek pilihan'),
+	contact: locale('Contact me', 'Hubungi saya'),
+	availabilityTitle: locale('Availability', 'Ketersediaan'),
+	toolboxTitle: locale('Tooling I rely on', 'Tooling andalan'),
+	toolboxHint: locale(
+		'Stacks I rely on when building and debugging.',
+		'Stack andalan untuk membangun dan debugging.',
+	),
+};
+---
+
+<section id="beranda" class="section hero">
+	<div class="hero__content surface">
+		<p class="eyebrow">
+			<LocaleText as="span" text={heroCopy.greeting} /> {profile.name}
+		</p>
+		<h1>
+			<LocaleText as="span" text={profile.role} />
+			<span>
+				<LocaleText as="span" text={profile.tagline} />
+			</span>
+		</h1>
+		<p class="hero__location">
+			<LocaleText as="span" text={profile.location} />
+		</p>
+		<p class="lead">
+			<LocaleText as="span" text={profile.intro} />
+		</p>
+		<p class="hero__stack">
+			<LocaleText as="span" text={profile.focusStack} />
+		</p>
+		<div class="hero__cta">
+			<a class="btn primary" href="#proyek">
+				<LocaleText as="span" text={heroCopy.viewProjects} />
+			</a>
+			<a class="btn ghost" href={`mailto:${contact.email}`}>
+				<LocaleText as="span" text={heroCopy.contact} />
+			</a>
+		</div>
+		<ul class="hero__highlights">
+			{highlights.map((item) => (
+				<li>
+					<span><LocaleText as="span" text={item.label} /></span>
+					<strong><LocaleText as="span" text={item.detail} /></strong>
+				</li>
+			))}
+		</ul>
+	</div>
+	<div class="hero__meta grid">
+		<div class="surface hero__stats">
+			{stats.map((stat) => (
+				<div>
+					<strong>{stat.value}</strong>
+					<p>
+						<LocaleText as="span" text={stat.label} />
+					</p>
+					{stat.helper && (
+						<small>
+							<LocaleText as="span" text={stat.helper} />
+						</small>
+					)}
+				</div>
+			))}
+		</div>
+		<div class="surface hero__availability">
+			<p class="eyebrow">
+				<LocaleText as="span" text={heroCopy.availabilityTitle} />
+			</p>
+			<strong>
+				<LocaleText as="span" text={profile.availability} />
+			</strong>
+			<p>
+				<LocaleText as="span" text={contact.availabilityNote} />
+			</p>
+			<div class="social-list">
+				{socials.map((social) => (
+					<a href={social.url} target="_blank" rel="noreferrer">
+						{social.label}
+					</a>
+				))}
+			</div>
+		</div>
+		<div class="surface hero__toolbox">
+			<p class="eyebrow">
+				<LocaleText as="span" text={heroCopy.toolboxTitle} />
+			</p>
+			<p class="toolbox-hint">
+				<LocaleText as="span" text={heroCopy.toolboxHint} />
+			</p>
+			<div class="toolbox-grid">
+				{toolbox.map((item) => (
+					<span class="tag">{item}</span>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		display: grid;
+		grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+		gap: 1.5rem;
+		align-items: start;
+	}
+
+	.hero__content h1 {
+		font-size: clamp(2.9rem, 6vw, 3.9rem);
+		margin: 0 0 0.75rem;
+		line-height: 1.05;
+	}
+
+	.hero__content {
+		display: grid;
+		gap: 0.75rem;
+		align-content: start;
+	}
+
+	.hero__content h1 span {
+		display: block;
+		color: var(--accent);
+		font-size: 1.1rem;
+		margin-top: 0.35rem;
+	}
+
+	.hero__location {
+		color: var(--muted);
+		margin: 0 0 1rem;
+		font-size: 0.95rem;
+	}
+
+	.lead {
+		font-size: 1.05rem;
+		margin-bottom: 1rem;
+		color: var(--muted);
+	}
+
+	.hero__stack {
+		margin: 0 0 1.25rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		font-size: 0.85rem;
+		color: var(--accent-strong);
+	}
+
+	.hero__cta {
+		display: flex;
+		gap: 0.75rem;
+		flex-wrap: wrap;
+		margin-bottom: 1.5rem;
+	}
+
+	.hero__highlights {
+		list-style: none;
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+		gap: 1rem;
+		padding: 0;
+		margin: 0;
+	}
+
+	.hero__highlights li {
+		padding: 0.75rem 1rem;
+		border-radius: 1rem;
+		border: 1px solid var(--border);
+		background: var(--surface-muted);
+	}
+
+	.hero__highlights span {
+		display: block;
+		font-size: 0.8rem;
+		color: var(--muted);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		margin-bottom: 0.35rem;
+	}
+
+	.hero__highlights strong {
+		font-size: 1rem;
+		color: var(--text);
+	}
+
+	.hero__meta {
+		align-content: start;
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+	.hero__availability strong {
+		display: block;
+		font-size: 1.1rem;
+		margin-bottom: 0.5rem;
+	}
+
+	.hero__stats {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+		gap: 1rem;
+		text-align: left;
+	}
+
+	.hero__stats strong {
+		font-size: 2rem;
+		color: var(--text);
+	}
+
+	.hero__stats small {
+		color: var(--muted);
+		font-size: 0.85rem;
+	}
+
+	.toolbox-hint {
+		margin: 0 0 0.75rem;
+		color: var(--muted);
+		font-size: 0.9rem;
+	}
+
+	.hero__toolbox .toolbox-grid {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+	}
+
+	@media (max-width: 960px) {
+		.hero {
+			grid-template-columns: 1fr;
+		}
+
+		.hero__content {
+			order: 2;
+		}
+	}
+</style>

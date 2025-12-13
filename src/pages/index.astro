@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/sections/HeroSection.astro';
+import AboutSection from '../components/sections/AboutSection.astro';
+import SkillsSection from '../components/sections/SkillsSection.astro';
+import ProjectsSection from '../components/sections/ProjectsSection.astro';
+import ExperienceLegacy from '../components/sections/ExperienceLegacy.astro';
+import AchievementsSection from '../components/sections/AchievementsSection.astro';
+import EducationSection from '../components/sections/EducationSection.astro';
+import ContactSection from '../components/sections/ContactSection.astro';
+import {
+	achievements,
+	achievementTabs,
+	contact,
+	education,
+	experiences,
+	focusAreas,
+	heroHighlights,
+	projects,
+	profile,
+	skillCategories,
+	socials,
+	stats,
+	toolbox,
+} from '../data/profile';
+---
+
+<Layout>
+	<HeroSection
+		profile={profile}
+		contact={contact}
+		highlights={heroHighlights}
+		stats={stats}
+		socials={socials}
+		toolbox={toolbox}
+	/>
+	<AboutSection profile={profile} focusAreas={focusAreas} />
+	<SkillsSection categories={skillCategories} />
+	<ExperienceLegacy experiences={experiences} />
+	<ProjectsSection projects={projects} />
+	<AchievementsSection items={achievements} tabs={achievementTabs} />
+	<EducationSection education={education} />
+	<ContactSection contact={contact} socials={socials} />
+</Layout>

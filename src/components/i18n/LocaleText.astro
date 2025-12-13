@@ -1,0 +1,23 @@
+---
+import type { LocaleText } from '../../data/profile';
+
+type Props = {
+	text: LocaleText;
+	as?: keyof HTMLElementTagNameMap;
+	class?: string;
+	[key: string]: any;
+};
+
+const { text, as = 'span', class: className, ...rest }: Props = Astro.props;
+const Tag = as;
+---
+
+<Tag
+	data-i18n
+	data-i18n-en={text.en}
+	data-i18n-id={text.id}
+	class={className}
+	{...rest}
+>
+	{text.en}
+</Tag>

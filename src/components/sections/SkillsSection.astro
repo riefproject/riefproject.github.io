@@ -1,0 +1,90 @@
+---
+import type { SkillCategory } from '../../data/profile';
+import LocaleText from '../i18n/LocaleText.astro';
+
+const locale = (en: string, id: string) => ({ en, id });
+const copy = {
+	eyebrow: locale('Core skills', 'Keahlian inti'),
+	heading: locale('C/C++ focus with a habit of building reliable systems.', 'Fokus C/C++ dengan kebiasaan membangun sistem yang andal.'),
+	intro: locale(
+		'I map skills into language, architecture, toolchain, and collaboration so they fit real-world builds.',
+		'Saya memetakan skill ke bahasa, arsitektur, toolchain, dan kolaborasi agar pas ke proyek nyata.',
+	),
+};
+
+type SkillsProps = {
+	categories: SkillCategory[];
+};
+
+const { categories }: SkillsProps = Astro.props;
+---
+
+<section id="skills" class="section skills">
+	<div class="skills__intro surface">
+		<p class="eyebrow">
+			<LocaleText as="span" text={copy.eyebrow} />
+		</p>
+		<h2>
+			<LocaleText as="span" text={copy.heading} />
+		</h2>
+		<p>
+			<LocaleText as="span" text={copy.intro} />
+		</p>
+	</div>
+	<div class="skills__grid">
+		{categories.map((category) => (
+			<article class="surface">
+				<header>
+					<h3>
+						<LocaleText as="span" text={category.title} />
+					</h3>
+					{category.helper && (
+						<small>
+							<LocaleText as="span" text={category.helper} />
+						</small>
+					)}
+				</header>
+				<ul>
+					{category.items.map((item) => (
+						<li>
+							<LocaleText as="span" text={item} />
+						</li>
+					))}
+				</ul>
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.skills {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.skills__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1rem;
+	}
+
+	.skills__grid article h3 {
+		margin: 0;
+		font-size: 1.1rem;
+	}
+
+	.skills__grid article small {
+		color: var(--muted);
+	}
+
+	.skills__grid ul {
+		margin: 0.75rem 0 0;
+		padding-left: 1rem;
+		color: var(--muted);
+	}
+
+	.skills__grid li + li {
+		margin-top: 0.25rem;
+	}
+</style>

@@ -1,0 +1,68 @@
+---
+import type { Stat } from '../../data/profile';
+import LocaleText from '../i18n/LocaleText.astro';
+
+type StatsProps = {
+	stats: Stat[];
+};
+
+const { stats }: StatsProps = Astro.props;
+---
+
+<section class="section stats">
+	<div class="stats__grid">
+		{stats.map((stat) => (
+			<article class="stat-card surface">
+				<p class="stat-value">{stat.value}</p>
+				<p class="stat-label">
+					<LocaleText as="span" text={stat.label} />
+				</p>
+				{stat.helper && (
+					<p class="stat-helper">
+						<LocaleText as="span" text={stat.helper} />
+					</p>
+				)}
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.stats {
+		padding-top: 1rem;
+	}
+
+	.stats__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+		gap: 1rem;
+	}
+
+	.stat-card {
+		text-align: left;
+		padding: 1.75rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+	}
+
+	.stat-value {
+		font-size: clamp(2rem, 4vw, 2.8rem);
+		font-weight: 700;
+		margin: 0;
+		color: var(--accent);
+	}
+
+	.stat-label {
+		margin: 0;
+		font-size: 1rem;
+		font-weight: 600;
+		color: var(--text);
+	}
+
+	.stat-helper {
+		margin: 0;
+		font-size: 0.9rem;
+		color: var(--muted);
+	}
+</style>

@@ -1,0 +1,22 @@
+---
+import type { Achievement, AchievementTab } from '../../data/profile';
+import Achievements from '../Achievements.vue';
+
+type AchievementsProps = {
+	items: Achievement[];
+	tabs: AchievementTab[];
+};
+
+const { items, tabs }: AchievementsProps = Astro.props;
+---
+
+<section id="achievements" class="section achievements">
+	<Achievements client:load items={items} tabs={tabs} />
+</section>
+
+<style>
+	.achievements {
+		padding-top: clamp(2rem, 4vw, 4rem);
+		padding-bottom: clamp(2rem, 4vw, 4rem);
+	}
+</style>

@@ -1,0 +1,206 @@
+---
+import type { Contact, SocialLink } from '../../data/profile';
+import LocaleText from '../i18n/LocaleText.astro';
+
+const locale = (en: string, id: string) => ({ en, id });
+const copy = {
+	eyebrow: locale('Contact', 'Kontak'),
+	heading: locale('Ready to collaborate on your next idea.', 'Siap kolaborasi untuk ide berikutnya.'),
+	nameLabel: locale('Name', 'Nama'),
+	namePlaceholder: locale('Full name', 'Nama lengkap'),
+	emailLabel: locale('Email', 'Email'),
+	emailPlaceholder: locale('email@example.com', 'email@contoh.com'),
+	subjectLabel: locale('Subject', 'Perihal'),
+	subjectPlaceholder: locale('Audit, redesign, mentoring, etc.', 'Audit, redesign, mentoring, dll.'),
+	messageLabel: locale('Message', 'Pesan'),
+	messagePlaceholder: locale('Share what you want to build.', 'Ceritakan apa yang ingin dibangun.'),
+	submit: locale('Send message', 'Kirim pesan'),
+	formHint: locale('Replace the Formspree endpoint with your preferred service.', 'Ganti endpoint Formspree sesuai layanan pilihan Anda.'),
+	emailDt: locale('Email', 'Email'),
+	waDt: locale('WhatsApp', 'WhatsApp'),
+	formEyebrow: locale('Send a note', 'Kirim pesan'),
+};
+
+type ContactProps = {
+	contact: Contact;
+	socials: SocialLink[];
+};
+
+const { contact, socials }: ContactProps = Astro.props;
+---
+
+<section id="kontak" class="section contact">
+	<div class="surface contact__details">
+		<p class="eyebrow">
+			<LocaleText as="span" text={copy.eyebrow} />
+		</p>
+		<h2>
+			<LocaleText as="span" text={copy.heading} />
+		</h2>
+		<p>
+			<LocaleText as="span" text={contact.message} />
+		</p>
+		<dl>
+			<div>
+				<dt>
+					<LocaleText as="span" text={copy.emailDt} />
+				</dt>
+				<dd><a href={`mailto:${contact.email}`}>{contact.email}</a></dd>
+			</div>
+			<div>
+				<dt>
+					<LocaleText as="span" text={copy.waDt} />
+				</dt>
+				<dd><a href={`https://wa.me/${contact.phone.replace(/\D/g, '')}`}>{contact.phone}</a></dd>
+			</div>
+		</dl>
+		<p class="availability">
+			<LocaleText as="span" text={contact.availabilityNote} />
+		</p>
+		<div class="social-list">
+			{socials.map((social) => (
+				<a href={social.url} target="_blank" rel="noreferrer">
+					{social.label}
+				</a>
+			))}
+		</div>
+	</div>
+	<form
+		class="surface contact__form"
+		method="POST"
+		action="https://formspree.io/f/mzzeavab"
+	>
+		<p class="eyebrow">
+			<LocaleText as="span" text={copy.formEyebrow} />
+		</p>
+		<label>
+			<span>
+				<LocaleText as="span" text={copy.nameLabel} />
+			</span>
+			<input
+				type="text"
+				name="name"
+				placeholder={copy.namePlaceholder.en}
+				data-i18n-placeholder-en={copy.namePlaceholder.en}
+				data-i18n-placeholder-id={copy.namePlaceholder.id}
+				required
+			/>
+		</label>
+		<label>
+			<span>
+				<LocaleText as="span" text={copy.emailLabel} />
+			</span>
+			<input
+				type="email"
+				name="email"
+				placeholder={copy.emailPlaceholder.en}
+				data-i18n-placeholder-en={copy.emailPlaceholder.en}
+				data-i18n-placeholder-id={copy.emailPlaceholder.id}
+				required
+			/>
+		</label>
+		<label>
+			<span>
+				<LocaleText as="span" text={copy.subjectLabel} />
+			</span>
+			<input
+				type="text"
+				name="subject"
+				placeholder={copy.subjectPlaceholder.en}
+				data-i18n-placeholder-en={copy.subjectPlaceholder.en}
+				data-i18n-placeholder-id={copy.subjectPlaceholder.id}
+			/>
+		</label>
+		<label>
+			<span>
+				<LocaleText as="span" text={copy.messageLabel} />
+			</span>
+			<textarea
+				name="message"
+				rows="4"
+				placeholder={copy.messagePlaceholder.en}
+				data-i18n-placeholder-en={copy.messagePlaceholder.en}
+				data-i18n-placeholder-id={copy.messagePlaceholder.id}
+				required
+			></textarea>
+		</label>
+		<button class="btn primary" type="submit">
+			<LocaleText as="span" text={copy.submit} />
+		</button>
+		<small class="form-hint">
+			<LocaleText as="span" text={copy.formHint} />
+		</small>
+	</form>
+</section>
+
+<style>
+	.contact {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 1.5rem;
+	}
+
+	dl {
+		display: grid;
+		gap: 0.5rem;
+		margin: 1rem 0;
+	}
+
+	dt {
+		font-weight: 600;
+		color: var(--muted);
+	}
+
+	dd {
+		margin: 0;
+		font-size: 1.1rem;
+	}
+
+	.contact__form {
+		display: flex;
+		flex-direction: column;
+		gap: 0.9rem;
+	}
+
+	label {
+		display: flex;
+		flex-direction: column;
+		gap: 0.35rem;
+		font-size: 0.9rem;
+		color: var(--muted);
+	}
+
+	input,
+	textarea {
+		background: var(--bg-elevated);
+		border: 1px solid var(--border);
+		border-radius: 0.8rem;
+		padding: 0.85rem;
+		font-size: 1rem;
+		color: var(--text);
+		font-family: inherit;
+		resize: vertical;
+	}
+
+	input:focus,
+	textarea:focus {
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
+	}
+
+	.form-hint {
+		color: var(--muted);
+	}
+
+	.availability {
+		margin-bottom: 1rem;
+		font-size: 0.95rem;
+		color: var(--muted);
+	}
+
+	@media (max-width: 900px) {
+		.contact {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

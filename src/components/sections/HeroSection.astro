@@ -26,12 +26,15 @@ const heroCopy = {
 	viewProjects: locale('See selected work', 'Lihat proyek pilihan'),
 	contact: locale('Contact me', 'Hubungi saya'),
 	availabilityTitle: locale('Availability', 'Ketersediaan'),
-	toolboxTitle: locale('Tooling I rely on', 'Tooling andalan'),
-	toolboxHint: locale(
-		'Stacks I rely on when building and debugging.',
-		'Stack andalan untuk membangun dan debugging.',
-	),
 };
+
+const initials = profile.name
+	.split(' ')
+	.filter(Boolean)
+	.map((part) => part[0])
+	.slice(0, 2)
+	.join('')
+	.toUpperCase();
 ---
 
 <section id="beranda" class="section hero">
@@ -102,19 +105,6 @@ const heroCopy = {
 					<a href={social.url} target="_blank" rel="noreferrer">
 						{social.label}
 					</a>
-				))}
-			</div>
-		</div>
-		<div class="surface hero__toolbox">
-			<p class="eyebrow">
-				<LocaleText as="span" text={heroCopy.toolboxTitle} />
-			</p>
-			<p class="toolbox-hint">
-				<LocaleText as="span" text={heroCopy.toolboxHint} />
-			</p>
-			<div class="toolbox-grid">
-				{toolbox.map((item) => (
-					<span class="tag">{item}</span>
 				))}
 			</div>
 		</div>
@@ -233,18 +223,6 @@ const heroCopy = {
 	.hero__stats small {
 		color: var(--muted);
 		font-size: 0.85rem;
-	}
-
-	.toolbox-hint {
-		margin: 0 0 0.75rem;
-		color: var(--muted);
-		font-size: 0.9rem;
-	}
-
-	.hero__toolbox .toolbox-grid {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
 	}
 
 	@media (max-width: 960px) {

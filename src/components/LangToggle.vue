@@ -5,7 +5,9 @@
 		class="toggle-btn"
 		:aria-label="ariaLabel"
 	>
-		{{ $lang === 'en' ? 'ID' : 'EN' }}
+		<span class="segment" :class="{ active: $lang === 'en' }">EN</span>
+		<span class="divider">/</span>
+		<span class="segment" :class="{ active: $lang === 'id' }">ID</span>
 	</button>
 </template>
 
@@ -37,19 +39,38 @@ watchEffect(() => {
 
 <style scoped>
 .toggle-btn {
-	padding: 0.35rem 0.85rem;
-	border-radius: 0.75rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.3rem;
+	padding: 0.35rem 0.6rem;
+	border-radius: 0.9rem;
 	border: 1px solid var(--border);
 	background: var(--bg-elevated);
 	color: var(--text);
-	font-weight: 600;
-	font-size: 0.85rem;
-	text-transform: uppercase;
-	letter-spacing: 0.08em;
-	transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+	font-weight: 700;
+	font-size: 0.9rem;
+	letter-spacing: 0.02em;
+	transition: background 0.2s ease, border 0.2s ease;
 }
 
 .toggle-btn:hover {
 	background: var(--surface-muted);
+}
+
+.segment {
+	padding: 0.25rem 0.45rem;
+	border-radius: 0.7rem;
+	color: var(--muted);
+}
+
+.segment.active {
+	background: var(--chip-bg);
+	color: var(--accent-strong);
+	border: 1px solid var(--border);
+}
+
+.divider {
+	color: var(--muted);
+	font-size: 0.9rem;
 }
 </style>

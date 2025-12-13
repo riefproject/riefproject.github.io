@@ -3,11 +3,13 @@ import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/sections/HeroSection.astro';
 import AboutSection from '../components/sections/AboutSection.astro';
 import SkillsSection from '../components/sections/SkillsSection.astro';
+import StackSection from '../components/sections/StackSection.astro';
 import ProjectsSection from '../components/sections/ProjectsSection.astro';
 import ExperienceLegacy from '../components/sections/ExperienceLegacy.astro';
 import AchievementsSection from '../components/sections/AchievementsSection.astro';
 import EducationSection from '../components/sections/EducationSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
+import CPProfilesSection from '../components/sections/CPProfilesSection.astro';
 import {
 	achievements,
 	achievementTabs,
@@ -16,12 +18,14 @@ import {
 	experiences,
 	focusAreas,
 	heroHighlights,
+	cpProfiles,
 	projects,
 	profile,
 	skillCategories,
 	socials,
 	stats,
 	toolbox,
+	stackShowcase,
 } from '../data/profile';
 ---
 
@@ -36,7 +40,9 @@ import {
 	/>
 	<AboutSection profile={profile} focusAreas={focusAreas} />
 	<SkillsSection categories={skillCategories} />
+	<StackSection items={stackShowcase} />
 	<ExperienceLegacy experiences={experiences} />
+	<CPProfilesSection profiles={cpProfiles} />
 	<ProjectsSection projects={projects} />
 	<AchievementsSection items={achievements} tabs={achievementTabs} />
 	<EducationSection education={education} />

@@ -14,6 +14,7 @@ type EducationProps = {
 };
 
 const { education }: EducationProps = Astro.props;
+const getBadge = (text?: string) => (text ? text : '');
 ---
 
 <section id="education" class="section education">
@@ -31,7 +32,14 @@ const { education }: EducationProps = Astro.props;
 	<div class="education__list">
 		{education.map((edu) => (
 			<article class="surface education-card">
-				<header>
+				<header class="education-card__header">
+					{edu.logo ? (
+						<div class="edu-badge edu-badge--image">
+							<img src={edu.logo} alt={edu.institution} loading="lazy" />
+						</div>
+					) : (
+						<div class="edu-badge">{getBadge(edu.institution.slice(0, 3).toUpperCase())}</div>
+					)}
 					<div>
 						<p class="eyebrow">{edu.period}</p>
 						<h3>{edu.institution}</h3>
@@ -60,8 +68,8 @@ const { education }: EducationProps = Astro.props;
 
 	.education__list {
 		margin-top: 1.5rem;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+		display: flex;
+		flex-direction: column;
 		gap: 1rem;
 	}
 
@@ -84,5 +92,37 @@ const { education }: EducationProps = Astro.props;
 
 	.education-card ul li + li {
 		margin-top: 0.3rem;
+	}
+
+	.education-card__header {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.75rem;
+		align-items: center;
+	}
+
+	.edu-badge {
+		width: 56px;
+		height: 56px;
+		border-radius: 16px;
+		display: grid;
+		place-items: center;
+		font-weight: 700;
+		font-size: 0.9rem;
+		color: #0f172a;
+		background: linear-gradient(135deg, #c7d2fe, #a5b4fc, #c7d2fe);
+		border: 1px solid var(--border);
+		text-align: center;
+		padding: 0.35rem;
+	}
+
+	.edu-badge--image {
+		background: var(--bg-elevated);
+	}
+
+	.edu-badge--image img {
+		max-height: 44px;
+		width: auto;
+		display: block;
 	}
 </style>

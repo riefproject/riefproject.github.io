@@ -14,9 +14,15 @@ const secondary = experiences.slice(1);
 <section id="experience" class="section legacy-exp">
 	<div class="legacy-exp__content">
 		<div class="legacy-exp__media">
-			<div class="badge">
-				<span>Brainware<br />of SMANSA</span>
-			</div>
+			{primary.logo ? (
+				<div class="badge badge--image">
+					<img src={primary.logo} alt={primary.company} loading="lazy" />
+				</div>
+			) : (
+				<div class="badge">
+					<span>{primary.company}</span>
+				</div>
+			)}
 		</div>
 		<div class="legacy-exp__details surface">
 			<p class="eyebrow">
@@ -41,8 +47,17 @@ const secondary = experiences.slice(1);
 			{secondary.map((exp) => (
 				<article class="surface">
 					<header>
-						<h4>{exp.company}</h4>
-						<p class="period">{exp.period}</p>
+						{exp.logo ? (
+							<div class="legacy-exp__badge legacy-exp__badge--image">
+								<img src={exp.logo} alt={exp.company} loading="lazy" />
+							</div>
+						) : (
+							<div class="legacy-exp__badge">{exp.company.slice(0, 2).toUpperCase()}</div>
+						)}
+						<div>
+							<h4>{exp.company}</h4>
+							<p class="period">{exp.period}</p>
+						</div>
 					</header>
 					<p>
 						<LocaleText as="span" text={exp.summary} />
@@ -86,6 +101,21 @@ const secondary = experiences.slice(1);
 		line-height: 1.4;
 		text-transform: uppercase;
 		letter-spacing: 0.04em;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.badge--image {
+		background: rgba(255, 255, 255, 0.08);
+		border-radius: 1rem;
+		padding: 0.75rem 1rem;
+	}
+
+	.badge--image img {
+		max-height: 60px;
+		width: auto;
+		display: block;
 	}
 
 	.legacy-exp__details h3 {
@@ -119,6 +149,38 @@ const secondary = experiences.slice(1);
 		margin: 0.75rem 0 0;
 		padding-left: 1.2rem;
 		color: var(--muted);
+	}
+
+	.legacy-exp__list header {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		align-items: center;
+		gap: 0.6rem;
+	}
+
+	.legacy-exp__badge {
+		width: 46px;
+		height: 46px;
+		border-radius: 14px;
+		display: grid;
+		place-items: center;
+		font-weight: 700;
+		color: #0f172a;
+		background: linear-gradient(135deg, #c7d2fe, #a5b4fc, #c7d2fe);
+		border: 1px solid var(--border);
+		font-size: 0.9rem;
+		text-align: center;
+		padding: 0.3rem;
+	}
+
+	.legacy-exp__badge--image {
+		background: var(--bg-elevated);
+	}
+
+	.legacy-exp__badge--image img {
+		max-height: 40px;
+		width: auto;
+		display: block;
 	}
 
 	@media (max-width: 960px) {

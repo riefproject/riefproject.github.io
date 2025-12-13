@@ -1,0 +1,149 @@
+---
+import type { CPProfile } from '../../data/profile';
+import LocaleText from '../i18n/LocaleText.astro';
+
+const locale = (en: string, id: string) => ({ en, id });
+const copy = {
+	eyebrow: locale('Competitive programming', 'Competitive programming'),
+	heading: locale('Profiles where I learn, compete, and track progress.', 'Profil tempat saya belajar, berkompetisi, dan memantau progres.'),
+	body: locale(
+		'Handles and links to the platforms I actively use for contests, upsolving, and drills.',
+		'Handle dan tautan ke platform yang aktif saya pakai untuk kontes, upsolve, dan latihan.',
+	),
+	viewProfile: locale('View profile', 'Lihat profil'),
+};
+
+type Props = {
+	profiles: CPProfile[];
+};
+
+const { profiles }: Props = Astro.props;
+---
+
+<section id="cp-profiles" class="section cp-profiles">
+	<div class="surface cp-profiles__intro">
+		<p class="eyebrow">
+			<LocaleText as="span" text={copy.eyebrow} />
+		</p>
+		<h2>
+			<LocaleText as="span" text={copy.heading} />
+		</h2>
+		<p>
+			<LocaleText as="span" text={copy.body} />
+		</p>
+	</div>
+	<div class="cp-profiles__grid">
+		{profiles.map((item) => (
+			<article class="surface cp-card">
+				<div class="cp-card__header">
+					{item.logo ? (
+						<div class="cp-badge cp-badge--image">
+							<img src={item.logo} alt={item.platform} loading="lazy" />
+						</div>
+					) : (
+						<div class="cp-badge">{item.platform.slice(0, 2).toUpperCase()}</div>
+					)}
+					<div>
+						<p class="eyebrow platform">{item.platform}</p>
+						<h3>{item.handle}</h3>
+					</div>
+				</div>
+				{item.note && (
+					<p class="cp-card__note">
+						<LocaleText as="span" text={item.note} />
+					</p>
+				)}
+				<a class="cp-card__link" href={item.url} target="_blank" rel="noreferrer">
+					<LocaleText as="span" text={copy.viewProfile} />
+				</a>
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.cp-profiles {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+
+	.cp-profiles__intro h2 {
+		margin: 0 0 0.5rem;
+		font-size: clamp(2rem, 4vw, 2.3rem);
+	}
+
+	.cp-profiles__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+		gap: 1rem;
+	}
+
+	.cp-card {
+		display: grid;
+		gap: 0.5rem;
+	}
+
+	.cp-card__header {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 0.75rem;
+		align-items: center;
+	}
+
+	.cp-badge {
+		width: 48px;
+		height: 48px;
+		border-radius: 14px;
+		display: grid;
+		place-items: center;
+		font-weight: 700;
+		color: #0f172a;
+		background: linear-gradient(135deg, #c7d2fe, #a5b4fc, #c7d2fe);
+		border: 1px solid var(--border);
+	}
+
+	.cp-badge--image {
+		background: var(--bg-elevated);
+	}
+
+	.cp-badge--image img {
+		max-height: 40px;
+		width: auto;
+		display: block;
+	}
+
+	.cp-card h3 {
+		margin: 0;
+		font-size: 1.1rem;
+	}
+
+	.platform {
+		margin: 0;
+	}
+
+	.cp-card__note {
+		margin: 0;
+		color: var(--muted);
+		font-size: 0.95rem;
+	}
+
+	.cp-card__link {
+		margin-top: auto;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.55rem 1rem;
+		border-radius: 0.85rem;
+		border: 1px solid var(--border);
+		font-weight: 600;
+		color: var(--accent);
+		transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+	}
+
+	.cp-card__link:hover {
+		background: var(--chip-bg);
+		border-color: var(--accent);
+		color: var(--accent-strong);
+	}
+</style>

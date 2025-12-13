@@ -1,0 +1,60 @@
+---
+import type { TechStack } from '../../data/profile';
+import LocaleText from '../i18n/LocaleText.astro';
+import StackGallery from '../stacks/StackGallery.vue';
+
+const locale = (en: string, id: string) => ({ en, id });
+const copy = {
+	eyebrow: locale('Stacks & tools', 'Stack & tools'),
+	heading: locale('Technologies I build with most often.', 'Teknologi yang paling sering dipakai.'),
+	body: locale('Quick view of languages, frameworks, and tools—kept concise for easy scanning.', 'Ringkasan bahasa, framework, dan tools—ringkas agar mudah dipindai.'),
+};
+
+type Props = {
+	items: TechStack[];
+};
+
+const { items }: Props = Astro.props;
+
+const categoriesMap: Record<TechStack['category'], { en: string; id: string }> = {
+	language: { en: 'Languages', id: 'Bahasa' },
+	framework: { en: 'Frameworks', id: 'Framework' },
+	tool: { en: 'Tools', id: 'Tools' },
+};
+
+const categories = [
+	{ key: 'all', label: locale('All', 'Semua') },
+	...Array.from(new Set(items.map((item) => item.category))).map((key) => ({
+		key,
+		label: locale(categoriesMap[key]?.en ?? key, categoriesMap[key]?.id ?? key),
+	})),
+];
+---
+
+<section id="stack" class="section stack">
+	<div class="surface stack__intro">
+		<p class="eyebrow">
+			<LocaleText as="span" text={copy.eyebrow} />
+		</p>
+		<h2>
+			<LocaleText as="span" text={copy.heading} />
+		</h2>
+		<p>
+			<LocaleText as="span" text={copy.body} />
+		</p>
+	</div>
+	<StackGallery client:load items={items} categories={categories} />
+</section>
+
+<style>
+	.stack {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.stack__intro h2 {
+		margin: 0 0 0.5rem;
+		font-size: clamp(2rem, 4vw, 2.3rem);
+	}
+</style>

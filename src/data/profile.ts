@@ -10,6 +10,7 @@ export type Profile = {
 	role: LocaleText;
 	tagline: LocaleText;
 	location: LocaleText;
+	photo?: string;
 	availability: LocaleText;
 	intro: LocaleText;
 	bio: LocaleText;
@@ -33,6 +34,20 @@ export type SocialLink = {
 	hint?: string;
 };
 
+export type CPProfile = {
+	platform: string;
+	handle: string;
+	url: string;
+	logo?: string;
+	note?: LocaleText;
+};
+
+export type TechStack = {
+	name: string;
+	category: 'language' | 'framework' | 'tool';
+	logo?: string;
+};
+
 export type FocusArea = {
 	title: LocaleText;
 	description: LocaleText;
@@ -47,6 +62,7 @@ export type SkillCategory = {
 
 export type Experience = {
 	company: string;
+	logo?: string;
 	role: LocaleText;
 	period: string;
 	summary: LocaleText;
@@ -56,6 +72,7 @@ export type Experience = {
 
 export type Education = {
 	institution: string;
+	logo?: string;
 	program: LocaleText;
 	period: string;
 	details: LocaleText[];
@@ -166,6 +183,37 @@ export const socials: SocialLink[] = [
 	{ label: 'Email', url: 'mailto:talktorief@gmail.com', hint: 'Kirim pesan langsung' },
 ];
 
+export const cpProfiles: CPProfile[] = [
+	{
+		platform: 'Codeforces',
+		handle: 'your-handle',
+		url: 'https://codeforces.com/profile/your-handle',
+		logo: '/img/codeforces.webp',
+		note: t('Regular contests and upsolving logs.', 'Kontes rutin dan catatan upsolve.'),
+	},
+	{
+		platform: 'TLX',
+		handle: 'your-handle',
+		url: 'https://tlx.toki.id/users/your-handle',
+		logo: '/img/tlx.png',
+		note: t('Practice sets and local contests.', 'Latihan set dan kontes lokal.'),
+	},
+	{
+		platform: 'LeetCode',
+		handle: 'your-handle',
+		url: 'https://leetcode.com/your-handle',
+		logo: '/img/leetcode.png',
+		note: t('Daily drills for data structures and algorithms.', 'Latihan harian struktur data dan algoritma.'),
+	},
+	{
+		platform: 'AtCoder',
+		handle: 'your-handle',
+		url: 'https://atcoder.jp/users/your-handle',
+		logo: '/img/HackerRank.png',
+		note: t('Weekend rounds and speed benchmarks.', 'Round akhir pekan dan tolok ukur kecepatan.'),
+	},
+];
+
 export const focusAreas: FocusArea[] = [
 	{
 		title: t('Competitive programming mindset', 'Competitive programming mindset'),
@@ -259,9 +307,32 @@ export const toolbox: string[] = [
 	'MySQL',
 ];
 
+export const stackShowcase: TechStack[] = [
+	{ name: 'C', category: 'language', logo: '' },
+	{ name: 'C++', category: 'language', logo: '' },
+	{ name: 'C#', category: 'language', logo: '' },
+	{ name: 'Java', category: 'language', logo: '' },
+	{ name: 'JavaScript', category: 'language', logo: '' },
+	{ name: 'Python', category: 'language', logo: '' },
+	{ name: 'PHP', category: 'language', logo: '' },
+	{ name: 'React.js', category: 'framework', logo: '' },
+	{ name: 'Vue.js', category: 'framework', logo: '' },
+	{ name: 'Astro', category: 'framework', logo: '' },
+	{ name: 'Tailwind CSS', category: 'framework', logo: '' },
+	{ name: 'Bootstrap', category: 'framework', logo: '' },
+	{ name: 'Express', category: 'framework', logo: '' },
+	{ name: 'Laravel', category: 'framework', logo: '' },
+	{ name: 'PostgreSQL', category: 'tool', logo: '' },
+	{ name: 'MongoDB', category: 'tool', logo: '' },
+	{ name: 'Git', category: 'tool', logo: '' },
+	{ name: 'GitHub', category: 'tool', logo: '' },
+	{ name: 'GitLab', category: 'tool', logo: '' },
+];
+
 export const experiences: Experience[] = [
 	{
 		company: 'Brainware of SMANSA (BIoS)',
+		logo: '/img/biossmansa.png',
 		role: t('Head of Programming Division', 'Kepala Divisi Programming'),
 		period: '2022 — 2023',
 		summary: t(
@@ -286,6 +357,7 @@ export const experiences: Experience[] = [
 	},
 	{
 		company: 'Independent Competitive Programming Journey',
+		logo: '/img/codeforces.webp',
 		role: t('Problem Solver & Coach', 'Problem Solver & Coach'),
 		period: '2021 — Sekarang',
 		summary: t(
@@ -303,16 +375,8 @@ export const experiences: Experience[] = [
 
 export const education: Education[] = [
 	{
-		institution: 'SMA Negeri 1 Subang',
-		program: t('Mathematics & Natural Sciences', 'Matematika & Ilmu Pengetahuan Alam'),
-		period: '2021 — 2024',
-		details: [
-			t('Started as member, later led Brainware of SMANSA.', 'Mulai sebagai anggota, lalu memimpin Brainware of SMANSA.'),
-			t('Represented school in OSN Informatics and programming showcases.', 'Mewakili sekolah di OSN Informatika dan showcase programming.'),
-		],
-	},
-	{
 		institution: 'Politeknik Negeri Bandung',
+		logo: '/img/polban.png',
 		program: t('D3 Informatics Engineering', 'D3 Teknik Informatika'),
 		period: '2022 — Sekarang',
 		details: [
@@ -322,6 +386,16 @@ export const education: Education[] = [
 			),
 			t('Merit scholarship recipient and OSN Informatics finalist.', 'Penerima beasiswa prestasi akademik dan finalis OSN Informatika.'),
 			t('Coordinator for the Competitive Programming & System Design lab.', 'Koordinator lab Competitive Programming & System Design di kampus.'),
+		],
+	},
+	{
+		institution: 'SMA Negeri 1 Subang',
+		logo: '/img/smansa.png',
+		program: t('Mathematics & Natural Sciences', 'Matematika & Ilmu Pengetahuan Alam'),
+		period: '2021 — 2024',
+		details: [
+			t('Started as member, later led Brainware of SMANSA.', 'Mulai sebagai anggota, lalu memimpin Brainware of SMANSA.'),
+			t('Represented school in OSN Informatics and programming showcases.', 'Mewakili sekolah di OSN Informatika dan showcase programming.'),
 		],
 	},
 ];

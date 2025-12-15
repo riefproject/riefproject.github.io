@@ -8,7 +8,7 @@ type Props = {
 	[key: string]: any;
 };
 
-const { text, as = 'span', class: className, ...rest }: Props = Astro.props;
+const { text, as = 'span', class: className, ...rest } = Astro.props as Props;
 const Tag = as;
 ---
 

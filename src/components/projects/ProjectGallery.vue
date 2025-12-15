@@ -24,12 +24,14 @@ const copy = computed(() =>
 				searchPlaceholder: 'Cari judul, deskripsi, atau teknologi',
 				resultSuffix: 'proyek',
 				empty: 'Tidak ada proyek yang cocok dengan filter saat ini.',
+				impactLabel: 'Hasil',
 		  }
 		: {
 				searchLabel: 'Search',
 				searchPlaceholder: 'Search titles, descriptions, or technologies',
 				resultSuffix: 'projects',
 				empty: 'No projects match the current filters.',
+				impactLabel: 'Result',
 		  },
 );
 
@@ -57,7 +59,7 @@ const setCategory = (category: string) => {
 </script>
 
 <template>
-	<div class="flex flex-col gap-6">
+	<div class="project-gallery flex flex-col gap-6 is-visible">
 		<div class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
 			<p class="text-sm font-semibold text-muted lg:pt-2">
 				{{ activeCount }} {{ copy.resultSuffix }}
@@ -73,7 +75,7 @@ const setCategory = (category: string) => {
 							v-model="searchTerm"
 							type="search"
 							:placeholder="copy.searchPlaceholder"
-							class="rounded-xl border border-border bg-bg-elevated px-4 py-2.5 text-base text-text focus:outline-none focus:ring-2 focus:ring-accent/40"
+							class="project-search rounded-xl border border-border px-4 py-2.5 text-base text-text focus:outline-none focus:ring-2 focus:ring-accent/40"
 						/>
 					</label>
 				</div>
@@ -106,9 +108,11 @@ const setCategory = (category: string) => {
 			<article
 				v-for="project in filteredProjects"
 				:key="project.title.en"
-				class="flex h-full flex-col gap-4 rounded-2xl border border-border bg-bg-elevated/90 p-5 shadow-lg shadow-slate-900/5"
+				class="project-card flex h-full flex-col gap-4 rounded-2xl border border-border p-5 shadow-lg shadow-slate-900/5"
 			>
-				<div class="rounded-xl border border-border bg-gradient-to-br from-sky-200 via-blue-100 to-slate-100 text-4xl font-semibold text-slate-900 h-40 flex items-center justify-center">
+				<div
+					class="rounded-xl border border-accent/40 bg-gradient-to-br from-sky-300 via-cyan-200 to-emerald-200 dark:from-sky-900 dark:via-slate-900 dark:to-emerald-900 text-4xl font-semibold text-slate-900 dark:text-white h-40 flex items-center justify-center shadow-md shadow-accent/15"
+				>
 					{{ resolveText(project.title).charAt(0) }}
 				</div>
 				<header class="space-y-1">
@@ -122,6 +126,10 @@ const setCategory = (category: string) => {
 				<p class="text-sm text-muted">
 					{{ resolveText(project.description) }}
 				</p>
+				<p v-if="project.impact" class="text-sm font-semibold text-text">
+					{{ copy.impactLabel }}:
+					<span class="font-normal text-muted">{{ resolveText(project.impact) }}</span>
+				</p>
 				<ul class="space-y-1 text-sm text-muted list-disc pl-5">
 					<li v-for="highlight in project.highlights" :key="highlight.en">
 						{{ resolveText(highlight) }}
@@ -131,26 +139,56 @@ const setCategory = (category: string) => {
 					<span
 						v-for="tool in project.stack"
 						:key="tool"
-						class="rounded-full border border-border bg-chip-bg px-3 py-1 text-xs font-semibold text-muted"
+						class="project-chip rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted"
 					>
 						{{ tool }}
 					</span>
 				</div>
-				<a
-					v-if="project.link"
-					class="mt-auto inline-flex items-center justify-center rounded-full border border-accent px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent hover:text-white"
-					:href="project.link.url"
-					target="_blank"
+				<div
+					v-if="project.links && project.links.length"
+					class="mt-auto flex flex-wrap gap-2"
 				>
-					{{ resolveText(project.link.label) }}
-				</a>
+					<a
+						v-for="link in project.links"
+						:key="link.url"
+						class="inline-flex items-center justify-center rounded-full border border-accent px-4 py-2 text-sm font-semibold text-accent transition hover:bg-accent hover:text-white"
+						:href="link.url"
+						target="_blank"
+					>
+						{{ resolveText(link.label) }}
+					</a>
+				</div>
 			</article>
 		</div>
 		<div
 			v-else
-			class="rounded-2xl border border-dashed border-border bg-bg-elevated/60 p-6 text-center text-sm text-muted"
+			class="project-empty rounded-2xl border border-dashed border-border p-6 text-center text-sm text-muted"
 		>
 			{{ copy.empty }}
 		</div>
 	</div>
 </template>
+
+<style scoped>
+.project-card {
+	background: var(--bg-elevated);
+}
+
+.project-gallery {
+	opacity: 1;
+	transform: none;
+}
+
+.project-search {
+	background: var(--bg-elevated);
+}
+
+.project-chip {
+	background: var(--chip-bg);
+}
+
+.project-empty {
+	background: var(--bg-elevated);
+	background: color-mix(in srgb, var(--bg-elevated) 70%, transparent);
+}
+</style>

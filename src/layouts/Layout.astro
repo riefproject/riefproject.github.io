@@ -16,9 +16,7 @@ const navItems = [
 	{ label: locale('Home', 'Beranda'), href: '#beranda' },
 	{ label: locale('About', 'Tentang'), href: '#tentang' },
 	{ label: locale('Skills', 'Keahlian'), href: '#skills' },
-	{ label: locale('Stack', 'Stack'), href: '#stack' },
 	{ label: locale('Experience', 'Pengalaman'), href: '#experience' },
-	{ label: locale('CP Profiles', 'Profil CP'), href: '#cp-profiles' },
 	{ label: locale('Projects', 'Proyek'), href: '#proyek' },
 	{ label: locale('Achievements', 'Pencapaian'), href: '#achievements' },
 	{ label: locale('Education', 'Pendidikan'), href: '#education' },
@@ -29,8 +27,10 @@ const layoutCopy = {
 	skip: locale('Skip to content', 'Lewati ke konten'),
 	menu: locale('Menu', 'Menu'),
 	menuInfo: locale('navigation', 'navigasi'),
+	close: locale('Close menu', 'Tutup menu'),
 	explore: locale('Explore work', 'Explore karya'),
 	cta: locale('Submit a project', 'Ajukan proyek'),
+	downloadCv: locale('Download CV', 'Unduh CV'),
 	footerThanks: locale('Thanks for stopping by', 'Terima kasih sudah mampir'),
 	footerBuilt: locale('Built with Astro · Vue · Tailwind', 'Dibuat dengan Astro · Vue · Tailwind'),
 };
@@ -121,26 +121,38 @@ const {
 	</head>
 	<body>
 		<div class="global-toggles">
-			<ThemeToggle client:load />
-			<LangToggle client:load />
+			<button
+				class="sidebar-toggle"
+				type="button"
+				data-sidebar-toggle
+				aria-label={layoutCopy.menu.en}
+			>
+				<svg viewBox="0 0 24 24" aria-hidden="true" class="sidebar-toggle__icon">
+					<path
+						d="M4 7h16M4 12h16M4 17h16"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+					/>
+				</svg>
+			</button>
+			<div class="global-toggles__controls">
+				<ThemeToggle client:load />
+				<LangToggle client:load />
+			</div>
 		</div>
 		<a class="skip-link" href="#konten-utama">
 			<LocaleText as="span" text={layoutCopy.skip} />
 		</a>
 		<div class="page page-grid">
-			<button class="sidebar-toggle" type="button" data-sidebar-toggle>
-				<LocaleText as="span" text={layoutCopy.menu} />
-				<span><LocaleText as="span" text={layoutCopy.menuInfo} /></span>
-			</button>
 			<aside class="sidebar" aria-label="Navigasi utama">
+				<button class="sidebar__close" type="button" data-sidebar-close>
+					<span aria-hidden="true">×</span>
+					<LocaleText as="span" text={layoutCopy.close} />
+				</button>
 				<div class="sidebar__brand">
 					<h1>{profile.name}</h1>
-					<p class="sidebar__tagline">
-						<LocaleText as="span" text={profile.tagline} />
-					</p>
-					<p class="sidebar__location">
-						<LocaleText as="span" text={profile.location} />
-					</p>
 				</div>
 				<p class="sidebar__focus">
 					<LocaleText as="span" text={profile.focusStack} />
@@ -159,6 +171,11 @@ const {
 					<a class="btn ghost" href={`mailto:${contact.email}`}>
 						<LocaleText as="span" text={layoutCopy.cta} />
 					</a>
+					{profile.resumeUrl && (
+						<a class="btn ghost" href={profile.resumeUrl} target="_blank" rel="noreferrer">
+							<LocaleText as="span" text={layoutCopy.downloadCv} />
+						</a>
+					)}
 				</div>
 			</aside>
 			<div class="page-content">
@@ -197,6 +214,7 @@ const {
 			const toggle = document.querySelector('[data-sidebar-toggle]');
 			const overlay = document.querySelector('[data-sidebar-overlay]');
 			const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+			const closeButtons = Array.from(document.querySelectorAll('[data-sidebar-close]'));
 
 			const closeSidebar = () => {
 				root.classList.remove('sidebar-open');
@@ -206,11 +224,18 @@ const {
 				root.classList.toggle('sidebar-open');
 			});
 			overlay?.addEventListener('click', closeSidebar);
+			closeButtons.forEach((btn) => btn.addEventListener('click', closeSidebar));
 			navLinks.forEach((link) =>
 				link.addEventListener('click', () => {
 					closeSidebar();
 				}),
 			);
+
+			window.addEventListener('keydown', (event) => {
+				if (event.key === 'Escape') {
+					closeSidebar();
+				}
+			});
 
 			const setActiveNav = (id) => {
 				navLinks.forEach((link) => {
@@ -255,24 +280,66 @@ const {
 				);
 				sectionEntries.forEach(({ element }) => observer.observe(element));
 			}
+
+			const animatedItems = Array.from(new Set(document.querySelectorAll('.section, [data-animate]')));
+			const animateObserver = 'IntersectionObserver' in window
+				? new IntersectionObserver(
+						(entries) => {
+							entries.forEach((entry) => {
+								if (entry.isIntersecting) {
+									entry.target.classList.add('is-visible');
+									animateObserver.unobserve(entry.target);
+								}
+							});
+						},
+						{ rootMargin: '0px 0px -10% 0px', threshold: 0.1 },
+				  )
+				: null;
+
+			const maxRevealDelay = 400;
+			const revealStep = 35;
+			animatedItems.forEach((item, index) => {
+				item.classList.add('reveal');
+				item.style.setProperty(
+					'--reveal-delay',
+					`${Math.min(index * revealStep, maxRevealDelay)}ms`,
+				);
+				if (animateObserver) {
+					animateObserver.observe(item);
+				} else {
+					item.classList.add('is-visible');
+				}
+			});
 		</script>
 	</body>
 </html>
 
 <style>
 	.global-toggles {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
 		position: fixed;
 		top: 1rem;
 		right: 1rem;
+		z-index: 16;
+		background: linear-gradient(135deg, rgba(14, 165, 233, 0.14), rgba(34, 197, 94, 0.12));
+		border: 1px solid var(--border);
+		border-radius: 0 0 14px 14px;
+		padding: 0.35rem 0.5rem;
+		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+	}
+
+	.global-toggles__controls {
 		display: flex;
+		align-items: center;
 		gap: 0.5rem;
-		z-index: 30;
 	}
 
 	.page-grid {
 		display: grid;
-		grid-template-columns: 280px 1fr;
-		min-height: 100vh;
+		grid-template-columns: 300px 1fr;
+		min-height: 100svh;
 		position: relative;
 	}
 
@@ -280,13 +347,14 @@ const {
 		position: sticky;
 		top: 0;
 		align-self: start;
-		height: 100vh;
-		padding: 2.5rem 2rem;
+		height: 100svh;
+		max-height: 100svh;
+		padding: 1.8rem 1.5rem;
 		background: var(--sidebar-bg);
 		border-right: 1px solid var(--border);
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 1.1rem;
 	}
 
 	.sidebar__brand h1 {
@@ -314,11 +382,11 @@ const {
 	.sidebar__nav {
 		display: flex;
 		flex-direction: column;
-		gap: 0.4rem;
+		gap: 0.35rem;
 	}
 
 	.sidebar__nav a {
-		padding: 0.6rem 0.8rem;
+		padding: 0.55rem 0.75rem;
 		border-radius: 0.75rem;
 		color: var(--muted);
 		font-weight: 500;
@@ -344,28 +412,46 @@ const {
 
 	.sidebar-toggle {
 		display: none;
-		position: fixed;
-		top: 4.5rem;
-		right: 1rem;
-		z-index: 20;
-		padding: 0.6rem 1rem;
-		border-radius: 999px;
+		justify-content: center;
+		padding: 0.45rem 0.6rem;
+		border-radius: 0.9rem;
 		background: var(--sidebar-bg);
 		color: var(--text);
 		border: 1px solid var(--border);
-		font-weight: 600;
-		gap: 0.4rem;
+		gap: 0.2rem;
 		align-items: center;
+		box-shadow: var(--shadow-soft);
+		white-space: nowrap;
+		flex-shrink: 0;
+		width: 2.75rem;
+		height: 2.75rem;
 	}
 
-	.sidebar-toggle span {
-		font-size: 0.85rem;
-		font-weight: 400;
-		color: var(--muted);
+	.sidebar-toggle__icon {
+		width: 1.3rem;
+		height: 1.3rem;
 	}
 
 	.sidebar-overlay {
 		display: none;
+	}
+
+	.sidebar__close {
+		display: none;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.3rem 0.75rem;
+		margin: -0.5rem -0.5rem 1rem auto;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		background: var(--bg-elevated);
+		color: var(--muted);
+		font-weight: 600;
+	}
+
+	.sidebar__close span[aria-hidden='true'] {
+		font-size: 1.2rem;
+		line-height: 1;
 	}
 
 	.site-footer {
@@ -394,14 +480,34 @@ const {
 
 	@media (max-width: 1100px) {
 		.page-grid {
-			grid-template-columns: 260px 1fr;
+			grid-template-columns: 280px 1fr;
 		}
 	}
 
 	@media (max-width: 900px) {
 		.global-toggles {
-			top: 0.75rem;
-			right: 0.75rem;
+			position: sticky;
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 100%;
+			padding: 0.65rem 1rem;
+			background: linear-gradient(135deg, rgba(14, 165, 233, 0.14), rgba(34, 197, 94, 0.12));
+			border-bottom: 1px solid var(--border);
+			box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+			justify-content: space-between;
+			z-index: 16;
+			gap: 0.75rem;
+			border-radius: 0 0 14px 14px;
+		}
+
+		.global-toggles__controls {
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+			flex: 1;
+			justify-content: flex-end;
+			flex-wrap: wrap;
 		}
 
 		.page-grid {
@@ -411,10 +517,14 @@ const {
 		.sidebar {
 			position: fixed;
 			inset: 0;
-			height: 100vh;
+			height: 100svh;
+			max-height: 100svh;
+			padding: 1.5rem;
+			overflow-y: auto;
+			-webkit-overflow-scrolling: touch;
 			transform: translateX(-100%);
 			transition: transform 0.3s ease;
-			z-index: 15;
+			z-index: 24;
 		}
 
 		.sidebar-toggle {
@@ -429,7 +539,7 @@ const {
 			opacity: 0;
 			pointer-events: none;
 			transition: opacity 0.3s ease;
-			z-index: 10;
+			z-index: 20;
 		}
 
 		html.sidebar-open .sidebar {
@@ -442,7 +552,16 @@ const {
 		}
 
 		.page-content {
-			padding-top: 4rem;
+			padding-top: 1.5rem;
+		}
+
+		.sidebar__close {
+			display: inline-flex;
+		}
+
+		.sidebar__nav a {
+			padding: 0.75rem 1rem;
+			font-size: 1rem;
 		}
 	}
 </style>

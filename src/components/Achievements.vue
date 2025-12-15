@@ -173,7 +173,7 @@ const visibleItems = computed(() => groupedAchievements.value[activeTab.value] ?
 
 .achievements-shell h2 {
 	margin: 0 0 0.5rem;
-	font-size: clamp(2rem, 4vw, 2.75rem);
+	font-size: clamp(2rem, 4svw, 2.75rem);
 	color: var(--text);
 }
 

@@ -7,6 +7,7 @@ import type {
   LocaleText,
 } from "../types/profile.types";
 import { lang as langStore } from "../stores/uiStore.js";
+import CertificateModal from "./CertificateModal.vue";
 
 type AchievementsProps = {
   items: Achievement[];
@@ -16,6 +17,26 @@ type AchievementsProps = {
 const props = withDefaults(defineProps<AchievementsProps>(), {
   items: () => [],
 });
+
+// Modal state
+const isModalOpen = ref(false);
+const selectedAchievement = ref<Achievement | null>(null);
+
+const openModal = (achievement: Achievement) => {
+  if (achievement.type === "certifications" && achievement.certificateImage) {
+    selectedAchievement.value = achievement;
+    isModalOpen.value = true;
+    // Prevent body scroll when modal is open
+    document.body.style.overflow = "hidden";
+  }
+};
+
+const closeModal = () => {
+  isModalOpen.value = false;
+  selectedAchievement.value = null;
+  // Restore body scroll
+  document.body.style.overflow = "";
+};
 
 const defaultTabs: AchievementTab[] = [
   { id: "competitions", name: { en: "Competitions", id: "Kompetisi" } },
@@ -135,12 +156,26 @@ const visibleItems = computed(
       <article
         v-for="item in visibleItems"
         :key="item.title.en + item.date"
-        class="achievement-card">
+        class="achievement-card"
+        :class="{
+          clickable: item.type === 'certifications' && item.certificateImage,
+        }"
+        @click="
+          item.type === 'certifications' && item.certificateImage
+            ? openModal(item)
+            : null
+        ">
         <div class="achievement-card__header">
           <div>
             <h3>{{ resolveText(item.title) }}</h3>
             <p>{{ resolveText(item.issuer) }}</p>
           </div>
+          <!-- Show logo for certifications -->
+          <img
+            v-if="item.type === 'certifications' && item.logo"
+            :src="item.logo"
+            :alt="resolveText(item.issuer)"
+            class="cert-logo" />
         </div>
         <p class="achievement-card__date">{{ item.date }}</p>
         <div v-if="item.highlight" class="highlight-tags">
@@ -148,8 +183,30 @@ const visibleItems = computed(
             tag
           }}</span>
         </div>
+        <!-- Show "View Certificate" for certs with images, "View credential" for others -->
+        <div v-if="item.type === 'certifications' && item.certificateImage">
+          <button class="view-cert-btn" type="button">
+            {{ locale === "id" ? "Lihat sertifikat" : "View certificate" }}
+            <svg
+              class="credential-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+          </button>
+        </div>
         <a
-          v-if="item.link"
+          v-else-if="item.link"
           :href="item.link"
           target="_blank"
           rel="noreferrer"
@@ -173,6 +230,12 @@ const visibleItems = computed(
     <p v-else class="empty-state">
       {{ copy.empty }}
     </p>
+
+    <!-- Certificate Modal -->
+    <CertificateModal
+      :achievement="selectedAchievement"
+      :is-open="isModalOpen"
+      @close="closeModal" />
   </div>
 </template>
 
@@ -264,6 +327,16 @@ const visibleItems = computed(
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.achievement-card.clickable {
+  cursor: pointer;
+}
+
+.achievement-card.clickable:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover, 0 8px 16px rgba(0, 0, 0, 0.1));
 }
 
 .achievement-card__header {
@@ -324,6 +397,31 @@ const visibleItems = computed(
 .credential-icon {
   width: 1rem;
   height: 1rem;
+}
+
+.cert-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.view-cert-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--accent);
+  font-weight: 600;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: inherit;
+}
+
+.view-cert-btn:hover {
+  text-decoration: underline;
 }
 
 .empty-state {

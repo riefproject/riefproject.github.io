@@ -89,6 +89,10 @@ export type Achievement = {
   date: string;
   highlight?: LocaleText;
   link?: string;
+  logo?: string;
+  credentialId?: string;
+  credentialUrl?: string;
+  certificateImage?: string;
 };
 
 export type AchievementTab = {

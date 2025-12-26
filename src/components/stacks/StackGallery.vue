@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useStore } from "@nanostores/vue";
-import type { LocaleText, TechStack } from "../../data/profile";
+import type { LocaleText, TechStack } from "../../types/profile.types";
 import {
   lang as langStore,
   theme as themeStore,

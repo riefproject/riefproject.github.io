@@ -1,12 +1,12 @@
 ---
-import type { Stat } from '../../data/profile';
+import type { Stat } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
 
 type StatsProps = {
-	stats: Stat[];
+	stats?: Stat[];
 };
 
-const { stats }: StatsProps = Astro.props;
+const { stats = [] }: StatsProps = Astro.props;
 ---
 
 <section class="section stats">

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useStore } from "@nanostores/vue";
-import type { LocaleText, Project } from "../../data/profile";
+import type { LocaleText, Project } from "../../types/profile.types";
 import { lang as langStore } from "../../stores/uiStore.js";
 
 type Category = { key: string; label: LocaleText };

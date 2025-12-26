@@ -1,5 +1,5 @@
 ---
-import type { Education } from '../../data/profile';
+import type { Education } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
 
 const locale = (en: string, id: string) => ({ en, id });
@@ -10,10 +10,10 @@ const copy = {
 };
 
 type EducationProps = {
-	education: Education[];
+	education?: Education[];
 };
 
-const { education }: EducationProps = Astro.props;
+const { education = [] }: EducationProps = Astro.props;
 const getBadge = (text?: string) => (text ? text : '');
 ---
 

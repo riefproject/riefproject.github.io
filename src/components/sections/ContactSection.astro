@@ -1,5 +1,5 @@
 ---
-import type { Contact, SocialLink } from '../../data/profile';
+import type { Contact, SocialLink } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
 
 const locale = (en: string, id: string) => ({ en, id });
@@ -21,12 +21,12 @@ const copy = {
 	formEyebrow: locale('Send a note', 'Kirim pesan'),
 };
 
-type ContactProps = {
+interface Props {
 	contact: Contact;
 	socials: SocialLink[];
-};
+}
 
-const { contact, socials }: ContactProps = Astro.props;
+const { contact, socials } = Astro.props;
 ---
 
 <section id="kontak" class="section contact">
@@ -58,7 +58,7 @@ const { contact, socials }: ContactProps = Astro.props;
 			<LocaleText as="span" text={contact.availabilityNote} />
 		</p>
 		<div class="social-list">
-			{socials.map((social) => (
+			{socials.map((social: SocialLink) => (
 				<a href={social.url} target="_blank" rel="noreferrer">
 					{social.label}
 				</a>

@@ -1,15 +1,15 @@
 ---
-import type { Project } from '../../data/profile';
+import type { Project } from '../../types/profile.types';
 import ProjectGallery from '../projects/ProjectGallery.vue';
 import LocaleText from '../i18n/LocaleText.astro';
 
 const locale = (en: string, id: string) => ({ en, id });
 
 type ProjectsProps = {
-	projects: Project[];
+	projects?: Project[];
 };
 
-const { projects }: ProjectsProps = Astro.props;
+const { projects = [] }: ProjectsProps = Astro.props;
 const categoryMap = new Map<string, Project['category']>();
 projects.forEach((project) => {
 	if (!categoryMap.has(project.categoryKey)) {

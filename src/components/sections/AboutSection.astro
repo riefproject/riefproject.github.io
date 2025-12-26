@@ -1,5 +1,5 @@
 ---
-import type { FocusArea, Profile } from '../../data/profile';
+import type { FocusArea, Profile } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
 
 const locale = (en: string, id: string) => ({ en, id });
@@ -13,7 +13,7 @@ type AboutProps = {
 	focusAreas: FocusArea[];
 };
 
-const { profile, focusAreas }: AboutProps = Astro.props;
+const { profile, focusAreas } = Astro.props as AboutProps;
 ---
 
 <section id="tentang" class="section about">

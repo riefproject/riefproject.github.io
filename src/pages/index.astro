@@ -11,22 +11,21 @@ import EducationSection from '../components/sections/EducationSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
 import CPProfilesSection from '../components/sections/CPProfilesSection.astro';
 import {
-	achievements,
-	achievementTabs,
-	contact,
-	education,
-	experiences,
-	focusAreas,
-	heroHighlights,
-	cpProfiles,
-	projects,
 	profile,
-	skillCategories,
-	socials,
+	heroHighlights,
 	stats,
+	cpProfiles,
+	focusAreas,
+	skillCategories,
 	toolbox,
-	stackShowcase,
 } from '../data/profile';
+import { socials } from '../data/social';
+import { stackShowcase } from '../data/stack-showcase';
+import { experiences } from '../data/experiences';
+import { projects } from '../data/projects';
+import { achievements, achievementTabs } from '../data/achievements';
+import { education } from '../data/education';
+import { contact } from '../data/contact';
 ---
 
 <Layout>

@@ -1,5 +1,5 @@
 ---
-import type { SkillCategory } from '../../data/profile';
+import type { SkillCategory } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
 
 const locale = (en: string, id: string) => ({ en, id });
@@ -13,10 +13,10 @@ const copy = {
 };
 
 type SkillsProps = {
-	categories: SkillCategory[];
+	categories?: SkillCategory[];
 };
 
-const { categories }: SkillsProps = Astro.props;
+const { categories = [] }: SkillsProps = Astro.props;
 ---
 
 <section id="skills" class="section skills">

@@ -1,5 +1,5 @@
 ---
-import type { CPProfile } from '../../data/profile';
+import type { CPProfile } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
 
 const locale = (en: string, id: string) => ({ en, id });
@@ -14,10 +14,10 @@ const copy = {
 };
 
 type Props = {
-	profiles: CPProfile[];
+	profiles?: CPProfile[];
 };
 
-const { profiles }: Props = Astro.props;
+const { profiles = [] }: Props = Astro.props;
 ---
 
 <section id="cp-profiles" class="section cp-profiles">

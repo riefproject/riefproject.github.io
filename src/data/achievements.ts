@@ -5,6 +5,20 @@ export const achievements: Achievement[] = [
   {
     type: "competitions",
     title: t(
+      "ICPC Asia Jakarta Regional Contest 2025",
+      "ICPC Asia Jakarta Regional Contest 2025"
+    ),
+    issuer: t(
+      "ICPC Foundation · BINUS University",
+      "ICPC Foundation · BINUS University"
+    ),
+    date: "2025",
+    highlight: t("Honorable Mention", "Honorable Mention"),
+    link: "https://icpc.global/",
+  },
+  {
+    type: "competitions",
+    title: t(
       "Indonesia National Contest 2025 (ICPC Indonesia)",
       "Indonesia National Contest 2025 (ICPC Indonesia)"
     ),
@@ -14,31 +28,17 @@ export const achievements: Achievement[] = [
     ),
     date: "2025",
     highlight: t(
-      "Ranked · 55th · Qualified to ICPC Asia · Honorable Mention",
-      "Ranked · Peringkat 55 · Lolos ke ICPC Asia · Honorable Mention"
+      "Honorable Mention · Qualified to ICPC Regional Asia",
+      "Honorable Mention · Lolos ke ICPC Regional Asia"
     ),
     link: "https://icpc.global/",
   },
   {
     type: "competitions",
     title: t(
-      "ICPC Asia Jakarta Regional Contest 2025",
-      "ICPC Asia Jakarta Regional Contest 2025"
+      "National Science Olympiad in Informatics 2022",
+      "Olimpiade Sains Nasional Informatika 2022"
     ),
-    issuer: t(
-      "ICPC Foundation · BINUS University",
-      "ICPC Foundation · BINUS University"
-    ),
-    date: "2025",
-    highlight: t(
-      "Ranked · 45th · Honorable Mention",
-      "Ranked · Peringkat 45 · Honorable Mention"
-    ),
-    link: "https://icpc.global/",
-  },
-  {
-    type: "competitions",
-    title: t("NOI in Informatics 2022", "OSN Informatika 2022"),
     issuer: t(
       "National Achievement Center (Puspresnas)",
       "Pusat Prestasi Nasional (Puspresnas)"
@@ -63,19 +63,62 @@ export const achievements: Achievement[] = [
   },
   {
     type: "certifications",
-    title: t("Fundamental C++ Programming", "Belajar Dasar Pemrograman C++"),
-    issuer: t("Dicoding Indonesia", "Dicoding Indonesia"),
-    date: "2024",
-    highlight: t("Official Certificate", "Sertifikat Resmi"),
-    link: "https://www.dicoding.com/certificates/cpp-basic",
+    title: t("Software Engineer", "Software Engineer"),
+    issuer: t("HackerRank", "HackerRank"),
+    date: "2025",
+    highlight: t("Role Certificate", "Sertifikat Role"),
+    link: "https://www.hackerrank.com/",
   },
   {
     type: "certifications",
-    title: t("Database Design & SQL", "Database Design & SQL"),
-    issuer: t("Udemy", "Udemy"),
-    date: "2024",
-    highlight: t("Completion", "Sertifikasi"),
-    link: "https://example.com/sql-cert",
+    title: t("Software Engineer Intern", "Software Engineer Intern"),
+    issuer: t("HackerRank", "HackerRank"),
+    date: "2025",
+    highlight: t("Role Certificate", "Sertifikat Role"),
+    link: "https://www.hackerrank.com/",
+  },
+  {
+    type: "certifications",
+    title: t("SQL (Advanced)", "SQL (Advanced)"),
+    issuer: t("HackerRank", "HackerRank"),
+    date: "2025",
+    highlight: t("Advanced Level", "Level Advanced"),
+    link: "https://www.hackerrank.com/",
+  },
+  {
+    type: "certifications",
+    title: t(
+      "Problem Solving (Intermediate)",
+      "Problem Solving (Intermediate)"
+    ),
+    issuer: t("HackerRank", "HackerRank"),
+    date: "2025",
+    highlight: t("Intermediate Level", "Level Intermediate"),
+    link: "https://www.hackerrank.com/",
+  },
+  {
+    type: "certifications",
+    title: t("Java (Basic)", "Java (Basic)"),
+    issuer: t("HackerRank", "HackerRank"),
+    date: "2025",
+    highlight: t("Programming Language", "Bahasa Pemrograman"),
+    link: "https://www.hackerrank.com/",
+  },
+  {
+    type: "certifications",
+    title: t("Python (Basic)", "Python (Basic)"),
+    issuer: t("HackerRank", "HackerRank"),
+    date: "2025",
+    highlight: t("Programming Language", "Bahasa Pemrograman"),
+    link: "https://www.hackerrank.com/",
+  },
+  {
+    type: "certifications",
+    title: t("JavaScript (Basic)", "JavaScript (Basic)"),
+    issuer: t("HackerRank", "HackerRank"),
+    date: "2025",
+    highlight: t("Programming Language", "Bahasa Pemrograman"),
+    link: "https://www.hackerrank.com/",
   },
   {
     type: "bootcamps",

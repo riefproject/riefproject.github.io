@@ -3,52 +3,81 @@ import { t } from "../types/profile.types";
 
 export const experiences: Experience[] = [
   {
+    company: "Himpunan Mahasiswa Komputer Politeknik Negeri Bandung",
+    logo: "/img/himakom.png",
+    role: t("Junior Staff Member", "Staf Muda"),
+    period: "2025 — Sekarang",
+    summary: t(
+      "Supporting academic program development and competition management within the Computer Science Department.",
+      "Mendukung pengembangan program akademik dan manajemen kompetisi di lingkungan Jurusan Teknik Informatika."
+    ),
+    stack: ["Program Management", "Event Coordination", "Academic Support"],
+    achievements: [
+      t(
+        "Assisted in organizing cross-program academic sharing sessions within Informatics Department.",
+        "Membantu penyusunan dan pelaksanaan program sharing akademik lintas program studi di Jurusan Teknik Informatika."
+      ),
+      t(
+        "Involved in bootcamp and competition training management, including participant coordination and academic resource management.",
+        "Terlibat dalam pengelolaan kegiatan bootcamp dan pembinaan lomba, termasuk manajemen peserta dan koordinasi kebutuhan akademik."
+      ),
+      t(
+        "Supported student competition preparation through administrative and technical assistance.",
+        "Mendukung persiapan dan keberlangsungan kegiatan kompetisi mahasiswa, baik secara administratif maupun teknis."
+      ),
+    ],
+  },
+  {
     company: "Brainware of SMANSA (BIoS)",
     logo: "/img/biossmansa.png",
     role: t("Head of Programming Division", "Kepala Divisi Programming"),
     period: "2022 — 2023",
     summary: t(
-      "Led SMANSA’s computer club—built training tracks, ran competitions, and kept the community active.",
-      "Memimpin klub komputer SMANSA—menyusun jalur latihan, mengadakan kompetisi, dan menjaga komunitas tetap aktif."
+      "Led school computer club programming division, coordinating training programs and member development initiatives.",
+      "Memimpin divisi pemrograman klub komputer sekolah, mengkoordinasikan program pelatihan dan inisiatif pengembangan anggota."
     ),
-    stack: ["Leadership", "Curriculum Design", "C/C++", "Community"],
+    stack: ["Leadership", "Curriculum Design", "C/C++", "Mentoring"],
     achievements: [
       t(
-        "Designed multi-level programming bootcamps so newcomers and seniors each had a track.",
-        "Menyusun bootcamp bertahap sehingga anggota baru maupun senior punya jalur belajar."
+        "Coordinated programming activities and collaborative projects among club members.",
+        "Mengkoordinasikan kegiatan pemrograman dan proyek bersama anggota klub."
       ),
       t(
-        "Hosted showcases and talks to build interest in product building and problem solving.",
-        "Mengadakan showcase dan sesi berbagi untuk menumbuhkan minat membangun produk dan problem solving."
+        "Developed and executed training programs covering basic to advanced programming concepts.",
+        "Menyusun dan menjalankan program pelatihan pemrograman dasar hingga lanjutan."
       ),
       t(
-        "Mentored juniors for NOI/OSN so their algorithm foundations stick.",
-        "Mementori junior jelang NOI/OSN agar fondasi algoritmanya mantap."
+        "Mentored members in project development and problem-solving skill enhancement.",
+        "Membimbing anggota dalam pengembangan proyek dan peningkatan kemampuan problem solving."
+      ),
+      t(
+        "Presented project results at school events to promote collaboration and innovation.",
+        "Mempresentasikan hasil proyek pada kegiatan sekolah untuk mendorong kolaborasi dan inovasi."
       ),
     ],
   },
   {
     company: "Independent Competitive Programming Journey",
     logo: "/img/codeforces.webp",
-    role: t("Problem Solver & Coach", "Problem Solver & Coach"),
+    role: t("Problem Solver & Mentor", "Problem Solver & Mentor"),
     period: "2021 — Sekarang",
     summary: t(
-      "Solving problems on TLX, LeetCode, Codeforces, then turning the lessons into mentoring sessions.",
-      "Menyelesaikan soal di TLX, LeetCode, Codeforces, lalu menerjemahkan pelajarannya ke sesi mentoring."
+      "Continuous problem-solving practice across multiple platforms while sharing knowledge through mentoring sessions.",
+      "Latihan problem solving berkelanjutan di berbagai platform sambil berbagi pengetahuan melalui sesi mentoring."
     ),
     stack: ["C++", "Python", "TLX", "LeetCode", "Codeforces"],
     achievements: [
       t(
-        "300+ problems solved with notes and templates reused by peers.",
-        "300+ soal terselesaikan dengan catatan & template yang dipakai ulang."
+        "Solved 300+ problems with documented notes and reusable templates shared with peers.",
+        "Menyelesaikan 300+ soal dengan catatan terdokumentasi dan template yang dapat digunakan ulang oleh rekan."
       ),
       t(
-        "Created visual aids to explain tricky DS/Algo concepts to friends.",
-        "Membuat visualisasi untuk menjelaskan konsep DS/Algo yang sulit."
+        "Created visual explanations for complex data structures and algorithm concepts.",
+        "Membuat penjelasan visual untuk konsep struktur data dan algoritma yang kompleks."
       ),
       t(
-        "Hosted sharing sessions and micro-challenges for classmates.",
-        "Mengadakan sharing session dan micro-challenge untuk teman sekelas."
+        "Conducted knowledge-sharing sessions and micro-challenges for classmates and juniors.",
+        "Mengadakan sesi berbagi pengetahuan dan micro-challenge untuk teman sekelas dan junior."
       ),
     ],
   },

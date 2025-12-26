@@ -6,24 +6,24 @@ export const education: Education[] = [
     institution: "Politeknik Negeri Bandung",
     logo: "/img/polban.png",
     program: t("D3 Informatics Engineering", "D3 Teknik Informatika"),
-    period: "2022 — Sekarang",
+    period: "2024 — Sekarang",
     details: [
       t(
-        "Focusing on distributed systems, databases, and software engineering foundations.",
-        "Fokus pada sistem terdistribusi, database, dan dasar software engineering."
+        "Focusing on software architecture, clean code practices, and systematic problem analysis.",
+        "Fokus pada arsitektur perangkat lunak, praktik clean code, dan analisis masalah sistematis."
       ),
       t(
-        "Merit scholarship recipient and OSN Informatics finalist.",
-        "Penerima beasiswa prestasi akademik dan finalis OSN Informatika."
+        "Active member of Himpunan Mahasiswa Komputer, supporting academic programs and competition management.",
+        "Anggota aktif Himpunan Mahasiswa Komputer, mendukung program akademik dan manajemen kompetisi."
       ),
       t(
-        "Coordinator for the Competitive Programming & System Design lab.",
-        "Koordinator lab Competitive Programming & System Design di kampus."
+        "Developing enterprise applications with complex domain logic and layered architectures.",
+        "Mengembangkan aplikasi enterprise dengan logika domain kompleks dan arsitektur berlapis."
       ),
     ],
   },
   {
-    institution: "SMA Negeri 1 Subang",
+    institution: "SMAN 1 Subang",
     logo: "/img/smansa.png",
     program: t(
       "Mathematics & Natural Sciences",
@@ -32,12 +32,16 @@ export const education: Education[] = [
     period: "2021 — 2024",
     details: [
       t(
-        "Started as member, later led Brainware of SMANSA.",
-        "Mulai sebagai anggota, lalu memimpin Brainware of SMANSA."
+        "Head of Programming Division at Brainware of SMANSA computer club.",
+        "Ketua Divisi Pemrograman di klub komputer Brainware of SMANSA."
       ),
       t(
-        "Represented school in OSN Informatics and programming showcases.",
-        "Mewakili sekolah di OSN Informatika dan showcase programming."
+        "District Champion in National Science Olympiad (OSN) Informatics 2022.",
+        "Juara Kabupaten Olimpiade Sains Nasional (OSN) Informatika 2022."
+      ),
+      t(
+        "Led training programs and mentored members in competitive programming and project development.",
+        "Memimpin program pelatihan dan mentoring anggota dalam competitive programming dan pengembangan proyek."
       ),
     ],
   },

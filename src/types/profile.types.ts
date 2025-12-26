@@ -110,6 +110,7 @@ export type Project = {
     label: LocaleText;
     url: string;
   }[];
+  featured?: boolean;
 };
 
 export type Contact = {

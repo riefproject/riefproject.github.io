@@ -13,6 +13,7 @@ const props = defineProps<{
 
 const searchTerm = ref("");
 const selectedCategory = ref(props.categories[0]?.key ?? "all");
+const showAllProjects = ref(false);
 const $lang = useStore(langStore);
 const locale = computed(() => ($lang.value === "id" ? "id" : "en"));
 const resolveText = (value: LocaleText) => value[locale.value] ?? value.en;
@@ -25,6 +26,10 @@ const copy = computed(() =>
         resultSuffix: "proyek",
         empty: "Tidak ada proyek yang cocok dengan filter saat ini.",
         impactLabel: "Hasil",
+        viewMore: "Lihat Proyek Lainnya",
+        viewLess: "Sembunyikan",
+        featuredLabel: "Proyek Unggulan",
+        otherLabel: "Proyek Lainnya",
       }
     : {
         searchLabel: "Search",
@@ -32,12 +37,28 @@ const copy = computed(() =>
         resultSuffix: "projects",
         empty: "No projects match the current filters.",
         impactLabel: "Result",
+        viewMore: "View More Projects",
+        viewLess: "Show Less",
+        featuredLabel: "Featured Projects",
+        otherLabel: "Other Projects",
       }
 );
 
+const featuredProjects = computed(() => {
+  return props.projects.filter((p) => p.featured);
+});
+
+const otherProjects = computed(() => {
+  return props.projects.filter((p) => !p.featured);
+});
+
 const filteredProjects = computed(() => {
   const term = searchTerm.value.trim().toLowerCase();
-  return props.projects.filter((project) => {
+  const projectsToFilter = showAllProjects.value
+    ? props.projects
+    : featuredProjects.value;
+
+  return projectsToFilter.filter((project) => {
     const matchesCategory =
       selectedCategory.value === "all" ||
       project.categoryKey === selectedCategory.value;
@@ -56,6 +77,10 @@ const activeCount = computed(() => filteredProjects.value.length);
 
 const setCategory = (category: string) => {
   selectedCategory.value = category;
+};
+
+const toggleViewMore = () => {
+  showAllProjects.value = !showAllProjects.value;
 };
 </script>
 
@@ -107,18 +132,16 @@ const setCategory = (category: string) => {
         v-for="project in filteredProjects"
         :key="project.title.en"
         class="project-card flex h-full flex-col gap-4 rounded-2xl border border-border p-5 shadow-lg shadow-slate-900/5">
-        <div
-          v-if="project.img"
-          class="rounded-xl border border-accent/40 overflow-hidden h-40 flex items-center justify-center shadow-md shadow-accent/15">
-          <img
-            :src="project.img"
-            :alt="resolveText(project.title)"
-            class="w-full h-full object-cover" />
-        </div>
-        <div
-          v-else
-          class="rounded-xl border border-accent/40 bg-gradient-to-br from-sky-300 via-cyan-200 to-emerald-200 dark:from-sky-900 dark:via-slate-900 dark:to-emerald-900 text-4xl font-semibold text-slate-900 dark:text-white h-40 flex items-center justify-center shadow-md shadow-accent/15">
-          {{ resolveText(project.title).charAt(0) }}
+        <div class="project-thumbnail">
+          <div v-if="project.img" class="project-thumbnail-img">
+            <img
+              :src="project.img"
+              :alt="resolveText(project.title)"
+              class="w-full h-full object-cover" />
+          </div>
+          <div v-else class="project-thumbnail-placeholder">
+            {{ resolveText(project.title).charAt(0) }}
+          </div>
         </div>
         <header class="space-y-1">
           <p
@@ -170,6 +193,30 @@ const setCategory = (category: string) => {
       class="project-empty rounded-2xl border border-dashed border-border p-6 text-center text-sm text-muted">
       {{ copy.empty }}
     </div>
+
+    <div
+      v-if="otherProjects.length > 0 && searchTerm.trim().length === 0"
+      class="flex justify-center mt-4">
+      <button
+        @click="toggleViewMore"
+        class="inline-flex items-center justify-center rounded-full border-2 border-accent px-6 py-3 text-base font-semibold text-accent transition hover:bg-accent hover:text-white">
+        {{ showAllProjects ? copy.viewLess : copy.viewMore }}
+        <svg
+          :class="[
+            'ml-2 h-5 w-5 transition-transform',
+            showAllProjects ? 'rotate-180' : '',
+          ]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M19 9l-7 7-7-7" />
+        </svg>
+      </button>
+    </div>
   </div>
 </template>
 
@@ -181,6 +228,41 @@ const setCategory = (category: string) => {
 .project-gallery {
   opacity: 1;
   transform: none;
+}
+
+.project-thumbnail {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.project-thumbnail-img,
+.project-thumbnail-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid rgb(var(--accent-rgb) / 0.4);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+    0 2px 4px -2px rgb(var(--accent-rgb) / 0.15);
+}
+
+.project-thumbnail-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    135deg,
+    rgb(var(--accent-rgb) / 0.2),
+    rgb(var(--accent-rgb) / 0.5)
+  );
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text);
 }
 
 .project-search {

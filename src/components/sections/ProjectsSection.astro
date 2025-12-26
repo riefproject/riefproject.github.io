@@ -1,6 +1,5 @@
 ---
 import type { Project } from '../../types/profile.types';
-import ProjectGallery from '../projects/ProjectGallery.vue';
 import LocaleText from '../i18n/LocaleText.astro';
 
 const locale = (en: string, id: string) => ({ en, id });
@@ -10,24 +9,23 @@ type ProjectsProps = {
 };
 
 const { projects = [] }: ProjectsProps = Astro.props;
-const categoryMap = new Map<string, Project['category']>();
-projects.forEach((project) => {
-	if (!categoryMap.has(project.categoryKey)) {
-		categoryMap.set(project.categoryKey, project.category);
-	}
-});
-const categories = [
-	{ key: 'all', label: locale('All', 'Semua') },
-	...Array.from(categoryMap.entries()).map(([key, label]) => ({ key, label })),
-];
+
+// Get only featured projects (max 3)
+const featuredProjects = projects.filter(p => p.featured).slice(0, 3);
 
 const copy = {
-	eyebrow: locale('Selected projects', 'Proyek pilihan'),
+	eyebrow: locale('Featured projects', 'Proyek unggulan'),
 	heading: locale('Recent builds and experiments I enjoyed shipping.', 'Build dan eksperimen terbaru yang paling saya nikmati.'),
 	body: locale(
-		'I start from a clear problem, ship quickly, and iterate. Here are a few highlights.',
-		'Berawal dari masalah yang jelas, dieksekusi cepat, lalu iterasi. Berikut beberapa sorotan.',
+		'I start from a clear problem, ship quickly, and iterate. Here are my top projects.',
+		'Berawal dari masalah yang jelas, dieksekusi cepat, lalu iterasi. Berikut proyek terbaik saya.',
 	),
+	viewAll: locale('View All Projects', 'Lihat Semua Proyek'),
+};
+
+const resolveText = (text: { en: string; id: string }) => {
+	// Simple check for locale, default to 'en' if not available
+	return text.en; // You can add proper locale detection if needed
 };
 ---
 
@@ -43,18 +41,254 @@ const copy = {
 			<LocaleText as="span" text={copy.body} />
 		</p>
 	</div>
-	<ProjectGallery client:load projects={projects} categories={categories} />
+
+	<div class="projects-grid">
+		{featuredProjects.map((project) => (
+			<article class="project-card">
+				{project.img ? (
+					<div class="project-image">
+						<img src={project.img} alt={project.title.en} />
+					</div>
+				) : (
+					<div class="project-placeholder">
+						{project.title.en.charAt(0)}
+					</div>
+				)}
+				<div class="project-content">
+					<header class="project-header">
+						<p class="project-meta">
+							{project.year} · <LocaleText as="span" text={project.category} />
+						</p>
+						<h3 class="project-title">
+							<LocaleText as="span" text={project.title} />
+						</h3>
+					</header>
+					<p class="project-description">
+						<LocaleText as="span" text={project.description} />
+					</p>
+					{project.impact && (
+						<p class="project-impact">
+							<LocaleText as="span" text={project.impact} />
+						</p>
+					)}
+					<ul class="project-highlights">
+						{project.highlights.slice(0, 3).map((highlight) => (
+							<li><LocaleText as="span" text={highlight} /></li>
+						))}
+					</ul>
+					<div class="project-stack">
+						{project.stack.slice(0, 5).map((tech) => (
+							<span class="stack-chip">{tech}</span>
+						))}
+						{project.stack.length > 5 && (
+							<span class="stack-chip">+{project.stack.length - 5}</span>
+						)}
+					</div>
+				</div>
+			</article>
+		))}
+	</div>
+
+	<div class="projects-cta">
+		<a href="/projects" class="cta-link">
+			<LocaleText as="span" text={copy.viewAll} />
+			<svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+			</svg>
+		</a>
+	</div>
 </section>
 
 <style>
 	.projects {
 		display: flex;
 		flex-direction: column;
-		gap: 1.5rem;
+		gap: 2rem;
 	}
 
 	.projects__intro h2 {
 		margin: 0 0 0.5rem;
 		font-size: clamp(2rem, 4svw, 2.4rem);
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.project-card {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		padding: 1.5rem;
+		border: 1px solid var(--border);
+		border-radius: 1rem;
+		background: var(--bg-elevated);
+		transition: all 0.3s;
+	}
+
+	.project-card:hover {
+		border-color: var(--accent);
+		box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+		transform: translateY(-2px);
+	}
+
+	.project-image {
+		position: relative;
+		width: 100%;
+		padding-top: 56.25%; /* 16:9 Aspect Ratio */
+		border-radius: 0.75rem;
+		overflow: hidden;
+		border: 1px solid var(--accent-subtle);
+	}
+
+	.project-image img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
+
+	.project-placeholder {
+		position: relative;
+		width: 100%;
+		padding-top: 56.25%; /* 16:9 Aspect Ratio */
+		border-radius: 0.75rem;
+		overflow: hidden;
+	}
+
+	.project-placeholder::before {
+		content: attr(data-initial);
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: linear-gradient(135deg, var(--accent-subtle), var(--accent));
+		font-size: 3rem;
+		font-weight: 700;
+		color: white;
+	}
+
+	.project-content {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		flex: 1;
+	}
+
+	.project-meta {
+		margin: 0;
+		font-size: 0.75rem;
+		font-weight: 600;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		color: var(--accent);
+	}
+
+	.project-title {
+		margin: 0;
+		font-size: 1.25rem;
+		font-weight: 600;
+		color: var(--text);
+	}
+
+	.project-description {
+		margin: 0;
+		font-size: 0.875rem;
+		line-height: 1.6;
+		color: var(--text-muted);
+	}
+
+	.project-impact {
+		margin: 0.5rem 0 0;
+		padding: 0.75rem;
+		font-size: 0.8125rem;
+		line-height: 1.5;
+		color: var(--text-muted);
+		background: var(--bg);
+		border-left: 3px solid var(--accent);
+		border-radius: 0.25rem;
+	}
+
+	.project-highlights {
+		margin: 0.5rem 0 0;
+		padding-left: 1.25rem;
+		list-style: disc;
+	}
+
+	.project-highlights li {
+		margin: 0.25rem 0;
+		font-size: 0.8125rem;
+		line-height: 1.5;
+		color: var(--text-muted);
+	}
+
+	.project-stack {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 0.75rem;
+		padding-top: 0.75rem;
+		border-top: 1px solid var(--border);
+	}
+
+	.stack-chip {
+		padding: 0.25rem 0.75rem;
+		font-size: 0.75rem;
+		font-weight: 600;
+		background: var(--chip-bg);
+		border: 1px solid var(--border);
+		border-radius: 9999px;
+		color: var(--text-muted);
+	}
+
+	.projects-cta {
+		display: flex;
+		justify-content: center;
+		margin-top: 3rem;
+	}
+
+	.cta-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.625rem;
+		padding: 0.75rem 1.5rem;
+		font-size: 0.9375rem;
+		font-weight: 600;
+		color: var(--accent);
+		background: transparent;
+		border: 1.5px solid var(--accent);
+		border-radius: 9999px;
+		text-decoration: none;
+		transition: all 0.25s ease;
+	}
+
+	.cta-link:hover {
+		background: var(--accent);
+		color: white;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.3);
+	}
+
+	.cta-link svg {
+		transition: transform 0.25s ease;
+	}
+
+	.cta-link:hover svg {
+		transform: translateX(4px);
+	}
+
+	@media (min-width: 768px) {
+		.projects-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
 	}
 </style>

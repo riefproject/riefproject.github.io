@@ -12,21 +12,21 @@ export const profile: Profile = {
   name: "Arief F-sa Wijaya",
   role: t("Informatics Engineering Student", "Mahasiswa D3 Teknik Informatika"),
   tagline: t(
-    "Problem solver and competitive programming enthusiast who ships fast with care.",
-    "Problem solver dan pecinta competitive programming yang suka eksekusi cepat dan rapi."
+    "Software engineer with competitive programming foundation—delivering structured, maintainable solutions.",
+    "Software engineer dengan basis competitive programming—menghasilkan solusi terstruktur dan maintainable."
   ),
-  location: t("West Bandung, Indonesia", "Bandung Barat, Indonesia"),
+  location: t("Bandung, West Java", "Bandung, Jawa Barat"),
   availability: t(
-    "Available for internships, collaborations, and mentoring sessions.",
-    "Siap untuk internship, kolaborasi, dan sesi mentoring."
+    "Available for internships, collaborations, and software development projects.",
+    "Tersedia untuk internship, kolaborasi, dan proyek pengembangan perangkat lunak."
   ),
   intro: t(
-    "OSN-bred problem solver pairing algorithmic rigor with practical shipping—turning constraints into working features.",
-    "Problem solver jebolan OSN yang memadukan ketelitian algoritma dengan eksekusi praktis—menerjemahkan constraint jadi fitur yang jalan."
+    "4th semester informatics student with strong foundation in software architecture and systematic problem-solving. Experienced in designing scalable solutions and managing complexity through structured approaches.",
+    "Mahasiswa informatika semester 4 dengan fondasi kuat dalam arsitektur perangkat lunak dan pemecahan masalah sistematis. Berpengalaman merancang solusi scalable dan mengelola kompleksitas melalui pendekatan terstruktur."
   ),
   bio: t(
-    "Currently studying Informatics Engineering at Politeknik Negeri Bandung while growing Brainware of SMANSA. Balances competitive programming, backend tinkering, and mentoring with a focus on efficient, reliable systems that feel good to use.",
-    "Sedang menempuh Teknik Informatika di Politeknik Negeri Bandung sambil membesarkan Brainware of SMANSA. Menyeimbangkan competitive programming, oprek backend, dan mentoring dengan fokus pada sistem efisien, andal, dan nyaman dipakai."
+    "Currently studying D3 Informatics Engineering at Politeknik Negeri Bandung with focus on software architecture, clean code practices, and systematic problem analysis. Background in competitive programming shapes analytical thinking and efficiency-oriented approach in building modular, readable, and maintainable software systems.",
+    "Saat ini menempuh D3 Teknik Informatika di Politeknik Negeri Bandung dengan fokus pada arsitektur perangkat lunak, praktik clean code, dan analisis masalah sistematis. Latar belakang competitive programming membentuk pola pikir analitis dan pendekatan berorientasi efisiensi dalam membangun sistem perangkat lunak yang modular, mudah dibaca, dan maintainable."
   ),
   focusStack: t(
     "C/C++ · Competitive Programming · Backend & Automation",
@@ -37,24 +37,24 @@ export const profile: Profile = {
 
 export const heroHighlights: Highlight[] = [
   {
+    label: t("Software Architecture", "Arsitektur Perangkat Lunak"),
+    detail: t(
+      "Design patterns, layered MVC, and modular system architecture",
+      "Design patterns, layered MVC, dan arsitektur sistem modular"
+    ),
+  },
+  {
     label: t("Competitive Programming", "Competitive Programming"),
     detail: t(
-      "10+ contests from school scrims to NOI/OSN stages",
-      "10+ kontes dari sparing sekolah sampai tahapan NOI/OSN"
+      "ICPC Regional Asia participant, 300+ problems solved",
+      "Peserta ICPC Regional Asia, 300+ soal terselesaikan"
     ),
   },
   {
-    label: t("Leadership", "Leadership"),
+    label: t("Development Focus", "Fokus Pengembangan"),
     detail: t(
-      "Led Brainware SMANSA; labs stayed active (2022–2023)",
-      "Memimpin Brainware SMANSA; lab tetap aktif (2022–2023)"
-    ),
-  },
-  {
-    label: t("Core Interests", "Fokus Utama"),
-    detail: t(
-      "Backend automation, diagnostic tools, and mentoring juniors",
-      "Backend automation, tools diagnostik, dan mentoring junior"
+      "Clean code, systematic problem analysis, and scalable solutions",
+      "Clean code, analisis masalah sistematis, dan solusi scalable"
     ),
   },
 ];
@@ -196,59 +196,81 @@ export const focusAreas: FocusArea[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: t("Summary", "Ringkasan"),
+    title: t("Software Engineering", "Rekayasa Perangkat Lunak"),
     items: [
       t(
-        "Problem solving & pattern finding",
-        "Problem solving & menemukan pola"
+        "Software architecture & design patterns",
+        "Arsitektur perangkat lunak & design patterns"
       ),
       t(
-        "Competitive programming & contest prep",
-        "Competitive programming & persiapan kontes"
+        "Full-stack web development (Laravel, Vue.js)",
+        "Pengembangan web full-stack (Laravel, Vue.js)"
       ),
-      t("Data structures & algorithms", "Data structure & algorithm"),
       t(
-        "Web/backend fundamentals for shipping prototypes",
-        "Dasar web/backend untuk eksekusi prototipe"
+        "Database design & advanced SQL",
+        "Desain database & SQL tingkat lanjut"
       ),
-      t("Leadership & mentoring juniors", "Leadership & mentoring junior"),
+      t(
+        "Clean code practices & maintainable systems",
+        "Praktik clean code & sistem maintainable"
+      ),
+      t(
+        "MVC architecture & layered design",
+        "Arsitektur MVC & desain berlapis"
+      ),
     ],
   },
   {
-    title: t("Programming languages", "Bahasa pemrograman"),
+    title: t("Programming Languages", "Bahasa Pemrograman"),
     items: [
-      t("C / C++ (primary)", "C / C++ (utama)"),
-      t("Python for automation & tooling", "Python untuk automation & tooling"),
       t(
-        "JavaScript for web & prototyping",
-        "JavaScript untuk web & prototyping"
+        "C/C++ (Competitive Programming & Systems)",
+        "C/C++ (Competitive Programming & Sistem)"
       ),
-      t("Java basics for coursework", "Java dasar untuk tugas kuliah"),
-    ],
-    helper: t(
-      "Also touches PHP, HTML/CSS, and SQL basics",
-      "Menjelajah PHP, HTML/CSS, dan dasar SQL"
-    ),
-  },
-  {
-    title: t("Tools & frameworks", "Perangkat & framework"),
-    items: [
-      t("Raylib for game experiments", "Raylib buat eksperimen gim"),
-      t("Qt for desktop interfaces", "Qt buat antarmuka desktop"),
-      t("Node.js & Express fundamentals", "Dasar Node.js & Express"),
-      t("Git / GitHub for collaboration", "Git / GitHub buat kolaborasi"),
+      t("Java (Desktop Applications & OOP)", "Java (Aplikasi Desktop & OOP)"),
+      t("PHP (Laravel Framework)", "PHP (Framework Laravel)"),
+      t(
+        "JavaScript/TypeScript (Vue.js, Node.js)",
+        "JavaScript/TypeScript (Vue.js, Node.js)"
+      ),
+      t("Python (Automation & Scripting)", "Python (Automation & Scripting)"),
     ],
   },
   {
-    title: t("Soft skills & community", "Soft skill & komunitas"),
+    title: t("Algorithms & Problem Solving", "Algoritma & Problem Solving"),
     items: [
       t(
-        "Club leadership & event planning",
-        "Kepemimpinan klub & perencanaan acara"
+        "Advanced data structures & algorithms",
+        "Struktur data & algoritma tingkat lanjut"
       ),
-      t("Curriculum design for juniors", "Desain kurikulum untuk junior"),
-      t("Public speaking & presentation", "Public speaking & presentasi"),
-      t("Documentation & knowledge sharing", "Dokumentasi & berbagi ilmu"),
+      t(
+        "Dynamic programming & graph algorithms",
+        "Dynamic programming & algoritma graf"
+      ),
+      t(
+        "Complexity analysis & optimization",
+        "Analisis kompleksitas & optimasi"
+      ),
+      t(
+        "Competitive programming (ICPC, OSN)",
+        "Competitive programming (ICPC, OSN)"
+      ),
+    ],
+  },
+  {
+    title: t("Tools & Technologies", "Tools & Teknologi"),
+    items: [
+      t("Git & GitHub (Version Control)", "Git & GitHub (Version Control)"),
+      t("MySQL, PostgreSQL, SQLite", "MySQL, PostgreSQL, SQLite"),
+      t(
+        "JavaFX, Qt (Desktop Development)",
+        "JavaFX, Qt (Pengembangan Desktop)"
+      ),
+      t("Raylib (Game Development)", "Raylib (Pengembangan Game)"),
+      t(
+        "Unit Testing & Code Quality Tools",
+        "Unit Testing & Tools Kualitas Kode"
+      ),
     ],
   },
 ];

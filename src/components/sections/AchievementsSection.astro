@@ -7,7 +7,7 @@ type AchievementsProps = {
 	tabs: AchievementTab[];
 };
 
-const { items, tabs }: AchievementsProps = Astro.props;
+const { items, tabs } = Astro.props as AchievementsProps;
 ---
 
 <section id="achievements" class="section achievements">

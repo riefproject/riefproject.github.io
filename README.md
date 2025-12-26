@@ -8,8 +8,8 @@ side.
 
 ```sh
 npm install
-npm run dev    # http://localhost:4321
-npm run build  # output ke dist/
+npm run dev
+npm run build
 ```
 
 ## Struktur utama

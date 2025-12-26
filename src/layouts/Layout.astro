@@ -322,20 +322,27 @@ const {
 		align-items: center;
 		gap: 0.75rem;
 		position: fixed;
-		top: 1rem;
-		right: 1rem;
+		top: 0;
+		right: 0;
 		z-index: 16;
 		background: linear-gradient(135deg, rgba(14, 165, 233, 0.14), rgba(34, 197, 94, 0.12));
 		border: 1px solid var(--border);
-		border-radius: 0 0 14px 14px;
-		padding: 0.35rem 0.5rem;
+		border-top: none;
+		border-right: none;
+		border-radius: 0 0 0 14px;
+		padding: 0.5rem 0.75rem;
 		box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 	}
 
 	.global-toggles__controls {
 		display: flex;
-		align-items: center;
+		align-items: stretch;
 		gap: 0.5rem;
+		height: 2.5rem;
+	}
+
+	.global-toggles__controls > :global(*) {
+		height: 100%;
 	}
 
 	.page-grid {
@@ -415,23 +422,22 @@ const {
 	.sidebar-toggle {
 		display: none;
 		justify-content: center;
-		padding: 0.45rem 0.6rem;
+		padding: 0;
 		border-radius: 0.9rem;
 		background: var(--sidebar-bg);
 		color: var(--text);
 		border: 1px solid var(--border);
-		gap: 0.2rem;
 		align-items: center;
 		box-shadow: var(--shadow-soft);
 		white-space: nowrap;
 		flex-shrink: 0;
-		width: 2.75rem;
-		height: 2.75rem;
+		width: 2.5rem;
+		height: 2.5rem;
 	}
 
 	.sidebar-toggle__icon {
-		width: 1.3rem;
-		height: 1.3rem;
+		width: 1.25rem;
+		height: 1.25rem;
 	}
 
 	.sidebar-overlay {
@@ -505,11 +511,16 @@ const {
 
 		.global-toggles__controls {
 			display: flex;
-			align-items: center;
+			align-items: stretch;
 			gap: 0.5rem;
 			flex: 1;
 			justify-content: flex-end;
 			flex-wrap: wrap;
+			height: 2.5rem;
+		}
+
+		.global-toggles__controls > :global(*) {
+			height: 100%;
 		}
 
 		.page-grid {

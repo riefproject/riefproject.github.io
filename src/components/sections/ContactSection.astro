@@ -15,7 +15,6 @@ const copy = {
 	messageLabel: locale('Message', 'Pesan'),
 	messagePlaceholder: locale('Share what you want to build.', 'Ceritakan apa yang ingin dibangun.'),
 	submit: locale('Send message', 'Kirim pesan'),
-	formHint: locale('Replace the Formspree endpoint with your preferred service.', 'Ganti endpoint Formspree sesuai layanan pilihan Anda.'),
 	emailDt: locale('Email', 'Email'),
 	waDt: locale('WhatsApp', 'WhatsApp'),
 	formEyebrow: locale('Send a note', 'Kirim pesan'),
@@ -121,9 +120,6 @@ const { contact, socials } = Astro.props;
 		<button class="btn primary" type="submit">
 			<LocaleText as="span" text={copy.submit} />
 		</button>
-		<small class="form-hint">
-			<LocaleText as="span" text={copy.formHint} />
-		</small>
 	</form>
 </section>
 

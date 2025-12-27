@@ -171,8 +171,8 @@ const visibleItems = computed(
             tag
           }}</span>
         </div>
-        <!-- CTA unified: always show View certificate -->
-        <div v-if="item.type === 'certifications' && item.certificateImage">
+        <!-- CTA unified: show certificate when available, otherwise open modal with details -->
+        <div v-if="item.certificateImage">
           <button
             class="view-cert-btn"
             type="button"

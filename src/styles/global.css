@@ -22,6 +22,7 @@
   --chip-bg: rgba(14, 165, 233, 0.12);
   --social-bg: rgba(14, 165, 233, 0.1);
   --gradient-top: rgba(14, 165, 233, 0.14);
+  --bg-subtle: rgba(14, 165, 233, 0.08);
 }
 
 :root.dark {
@@ -40,6 +41,7 @@
   --chip-bg: rgba(34, 211, 238, 0.08);
   --social-bg: rgba(56, 189, 248, 0.08);
   --gradient-top: rgba(34, 211, 238, 0.14);
+  --bg-subtle: rgba(255, 255, 255, 0.05);
 }
 
 *,
@@ -78,7 +80,7 @@ body {
     ),
     var(--bg);
   color: var(--text);
-  line-height: 1.5;
+  line-height: 1.7;
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
 }
@@ -86,6 +88,7 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 p {
@@ -111,13 +114,13 @@ main {
 .section {
   width: min(1200px, 100% - 2.5rem);
   margin: 0 auto;
-  padding: clamp(2.5rem, 5svw, 4rem) 0;
+  padding: clamp(3rem, 6svw, 5rem) 0;
   border-bottom: 1px solid var(--border);
 }
 
 .section p,
 .section li {
-  line-height: 1.5;
+  line-height: 1.75;
 }
 
 .section:last-of-type {

@@ -50,9 +50,7 @@ const resolveText = (text: { en: string; id: string }) => {
 						<img src={project.img} alt={project.title.en} />
 					</div>
 				) : (
-					<div class="project-placeholder">
-						{project.title.en.charAt(0)}
-					</div>
+					<div class="project-placeholder" data-initial={project.title.en.charAt(0)}></div>
 				)}
 				<div class="project-content">
 					<header class="project-header">

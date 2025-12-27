@@ -7,6 +7,7 @@ import type {
 	Stat,
 } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
+import CvDownloadButton from '../CvDownloadButton.vue';
 
 const locale = (en: string, id: string) => ({ en, id });
 
@@ -76,11 +77,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 			<a class="btn ghost" href={`mailto:${contact.email}`}>
 				<LocaleText as="span" text={heroCopy.contact} />
 			</a>
-			{profile.resumeUrl && (
-				<a class="btn ghost" href={profile.resumeUrl} target="_blank" rel="noreferrer">
-					<LocaleText as="span" text={heroCopy.downloadCv} />
-				</a>
-			)}
+			<CvDownloadButton client:only="vue" />
 		</div>
 		{toolboxPreview.length > 0 && (
 			<div class="hero__toolbox" aria-label="Toolbox highlight">

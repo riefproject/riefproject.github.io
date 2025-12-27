@@ -5,6 +5,7 @@ import { profile } from '../data/profile';
 import { socials } from '../data/social';
 import ThemeToggle from '../components/ThemeToggle.vue';
 import LangToggle from '../components/LangToggle.vue';
+import CvDownloadButton from '../components/CvDownloadButton.vue';
 import LocaleText from '../components/i18n/LocaleText.astro';
 
 type LayoutProps = {
@@ -162,17 +163,13 @@ const {
 					))}
 				</nav>
 				<div class="sidebar__cta">
+					<CvDownloadButton client:only="vue" />
 					<a class="btn primary" href="#proyek">
 						<LocaleText as="span" text={layoutCopy.explore} />
 					</a>
 					<a class="btn ghost" href={`mailto:${contact.email}`}>
 						<LocaleText as="span" text={layoutCopy.cta} />
 					</a>
-					{profile.resumeUrl && (
-						<a class="btn ghost" href={profile.resumeUrl} target="_blank" rel="noreferrer">
-							<LocaleText as="span" text={layoutCopy.downloadCv} />
-						</a>
-					)}
 				</div>
 			</aside>
 			<div class="page-content">

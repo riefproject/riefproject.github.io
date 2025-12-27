@@ -15,6 +15,13 @@ export const achievements: Achievement[] = [
     date: "2025",
     highlight: t("Honorable Mention", "Honorable Mention"),
     link: "https://icpc.global/",
+    logo: "/img/icpc.png",
+    certificateImage: [
+      "/img/certs/competitions/icpc25-rc-me.png",
+      "/img/certs/competitions/icpc25-rc-team.png",
+    ],
+    credentialId: "2MH9AC3UUDJ6",
+    credentialUrl: "https://icpc.global/ICPCID/2MH9AC3UUDJ6",
   },
   {
     type: "competitions",
@@ -32,6 +39,13 @@ export const achievements: Achievement[] = [
       "Honorable Mention · Lolos ke ICPC Regional Asia"
     ),
     link: "https://icpc.global/",
+    logo: "/img/icpc.png",
+    certificateImage: [
+      "/img/certs/competitions/inc25-me.png",
+      "/img/certs/competitions/inc25-team.png",
+    ],
+    credentialId: "2MH9AC3UUDJ6",
+    credentialUrl: "https://icpc.global/ICPCID/2MH9AC3UUDJ6",
   },
   {
     type: "competitions",
@@ -49,10 +63,20 @@ export const achievements: Achievement[] = [
       "Juara Kabupaten · Peserta Provinsi"
     ),
     link: "https://puspresnas.kemdikbud.go.id/",
+    logo: "/img/osn.png",
+    certificateImage: [
+      "/img/certs/competitions/osnk22.png",
+      "/img/certs/competitions/osnp22.png",
+    ],
+    credentialUrl:
+      "https://simt.kemendikdasmen.go.id/resume?id=dPwcK-slbCWHKUBlgc1IsA&name=arief-f-sa-wijaya",
   },
   {
     type: "competitions",
-    title: t("NOI in Informatics 2023", "OSN Informatika 2023"),
+    title: t(
+      "National Science Olympiad in Informatics 2023",
+      "Olimpiade Sains Nasional Informatika 2023"
+    ),
     issuer: t(
       "National Achievement Center (Puspresnas)",
       "Pusat Prestasi Nasional (Puspresnas)"
@@ -60,12 +84,14 @@ export const achievements: Achievement[] = [
     date: "2023",
     highlight: t("District Contestant", "Peserta Kabupaten"),
     link: "https://puspresnas.kemdikbud.go.id/",
+    logo: "/img/osn.png",
+    certificateImage: "/img/certs/competitions/osnk23.png",
   },
   {
     type: "certifications",
     title: t("Software Engineer", "Software Engineer"),
     issuer: t("HackerRank", "HackerRank"),
-    date: "2024",
+    date: "2025",
     highlight: t("Role Certificate", "Sertifikat Role"),
     link: "https://www.hackerrank.com/",
     logo: "/img/certs/hackerrank.png",
@@ -77,7 +103,7 @@ export const achievements: Achievement[] = [
     type: "certifications",
     title: t("Software Engineer Intern", "Software Engineer Intern"),
     issuer: t("HackerRank", "HackerRank"),
-    date: "2024",
+    date: "2025",
     highlight: t("Role Certificate", "Sertifikat Role"),
     link: "https://www.hackerrank.com/",
     logo: "/img/certs/hackerrank.png",
@@ -89,7 +115,7 @@ export const achievements: Achievement[] = [
     type: "certifications",
     title: t("SQL (Advanced)", "SQL (Advanced)"),
     issuer: t("HackerRank", "HackerRank"),
-    date: "2024",
+    date: "2025",
     highlight: t("Advanced Level", "Level Advanced"),
     link: "https://www.hackerrank.com/",
     logo: "/img/certs/hackerrank.png",
@@ -104,7 +130,7 @@ export const achievements: Achievement[] = [
       "Problem Solving (Intermediate)"
     ),
     issuer: t("HackerRank", "HackerRank"),
-    date: "2024",
+    date: "2025",
     highlight: t("Intermediate Level", "Level Intermediate"),
     link: "https://www.hackerrank.com/",
     logo: "/img/certs/hackerrank.png",
@@ -116,7 +142,7 @@ export const achievements: Achievement[] = [
     type: "certifications",
     title: t("Java (Basic)", "Java (Basic)"),
     issuer: t("HackerRank", "HackerRank"),
-    date: "2024",
+    date: "2025",
     highlight: t("Programming Language", "Bahasa Pemrograman"),
     link: "https://www.hackerrank.com/",
     logo: "/img/certs/hackerrank.png",
@@ -128,7 +154,7 @@ export const achievements: Achievement[] = [
     type: "certifications",
     title: t("Python (Basic)", "Python (Basic)"),
     issuer: t("HackerRank", "HackerRank"),
-    date: "2024",
+    date: "2025",
     highlight: t("Programming Language", "Bahasa Pemrograman"),
     link: "https://www.hackerrank.com/",
     logo: "/img/certs/hackerrank.png",
@@ -140,7 +166,7 @@ export const achievements: Achievement[] = [
     type: "certifications",
     title: t("JavaScript (Basic)", "JavaScript (Basic)"),
     issuer: t("HackerRank", "HackerRank"),
-    date: "2024",
+    date: "2025",
     highlight: t("Programming Language", "Bahasa Pemrograman"),
     link: "https://www.hackerrank.com/",
     logo: "/img/certs/hackerrank.png",
@@ -152,7 +178,7 @@ export const achievements: Achievement[] = [
     type: "certifications",
     title: t("Go (Basic)", "Go (Basic)"),
     issuer: t("HackerRank", "HackerRank"),
-    date: "2024",
+    date: "2025",
     highlight: t("Programming Language", "Bahasa Pemrograman"),
     link: "https://www.hackerrank.com/",
     logo: "/img/certs/hackerrank.png",
@@ -162,11 +188,17 @@ export const achievements: Achievement[] = [
   },
   {
     type: "bootcamps",
-    title: t("Brainware Internal Training", "Bootcamp Internal Brainware"),
-    issuer: t("Brainware of SMANSA", "Brainware of SMANSA"),
-    date: "2022 — 2023",
-    highlight: t("Instructor & mentor", "Instruktur & mentor"),
-    link: "https://www.instagram.com/brainwareofsmansa/",
+    title: t(
+      "Code Generation and Optimization",
+      "Code Generation and Optimization"
+    ),
+    issuer: t("IBM x Hacktiv8", "IBM x Hacktiv8"),
+    date: "2025",
+    // highlight: t("", "Instruktur & mentor"),
+    credentialUrl:
+      "https://www.credly.com/badges/2b415526-526c-4cdb-a016-753936d0f07b/",
+    logo: "/img/ibm.png",
+    certificateImage: "/img/certs/courses/IBM-CGO.jpeg",
   },
 ];
 

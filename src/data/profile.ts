@@ -49,8 +49,8 @@ export const heroHighlights: Highlight[] = [
   {
     label: t("Competitive Programming", "Competitive Programming"),
     detail: t(
-      "ICPC Regional Asia participant, 300+ problems solved",
-      "Peserta ICPC Regional Asia, 300+ soal terselesaikan"
+      "ICPC Regional Asia participant, 400+ problems solved",
+      "Peserta ICPC Regional Asia, 400+ soal terselesaikan"
     ),
   },
   {

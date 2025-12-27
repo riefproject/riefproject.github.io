@@ -23,18 +23,14 @@ const isModalOpen = ref(false);
 const selectedAchievement = ref<Achievement | null>(null);
 
 const openModal = (achievement: Achievement) => {
-  if (achievement.type === "certifications" && achievement.certificateImage) {
-    selectedAchievement.value = achievement;
-    isModalOpen.value = true;
-    // Prevent body scroll when modal is open
-    document.body.style.overflow = "hidden";
-  }
+  selectedAchievement.value = achievement;
+  isModalOpen.value = true;
+  document.body.style.overflow = "hidden";
 };
 
 const closeModal = () => {
   isModalOpen.value = false;
   selectedAchievement.value = null;
-  // Restore body scroll
   document.body.style.overflow = "";
 };
 
@@ -155,23 +151,16 @@ const visibleItems = computed(
       <article
         v-for="item in visibleItems"
         :key="item.title.en + item.date"
-        class="achievement-card"
-        :class="{
-          clickable: item.type === 'certifications' && item.certificateImage,
-        }"
-        @click="
-          item.type === 'certifications' && item.certificateImage
-            ? openModal(item)
-            : null
-        ">
+        class="achievement-card clickable"
+        @click="openModal(item)">
         <div class="achievement-card__header">
           <div>
             <h3>{{ resolveText(item.title) }}</h3>
             <p>{{ resolveText(item.issuer) }}</p>
           </div>
-          <!-- Show logo for certifications -->
+          <!-- Show logo when provided on any item -->
           <img
-            v-if="item.type === 'certifications' && item.logo"
+            v-if="item.logo"
             :src="item.logo"
             :alt="resolveText(item.issuer)"
             class="cert-logo" />
@@ -182,9 +171,12 @@ const visibleItems = computed(
             tag
           }}</span>
         </div>
-        <!-- Show "View Certificate" for certs with images, "View credential" for others -->
+        <!-- CTA unified: always show View certificate -->
         <div v-if="item.type === 'certifications' && item.certificateImage">
-          <button class="view-cert-btn" type="button">
+          <button
+            class="view-cert-btn"
+            type="button"
+            @click.stop="openModal(item)">
             {{ locale === "id" ? "Lihat sertifikat" : "View certificate" }}
             <svg
               class="credential-icon"
@@ -204,26 +196,29 @@ const visibleItems = computed(
             </svg>
           </button>
         </div>
-        <a
+        <button
           v-else-if="item.link"
-          :href="item.link"
-          target="_blank"
-          rel="noreferrer"
-          class="credential-link">
-          {{ locale === "id" ? "Lihat kredensial" : "View credential" }}
+          type="button"
+          class="credential-link"
+          @click.stop="openModal(item)">
+          {{ locale === "id" ? "Lihat sertifikat" : "View certificate" }}
           <svg
             class="credential-icon"
             fill="none"
             stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg">
+            viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
               stroke-width="2"
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
           </svg>
-        </a>
+        </button>
       </article>
     </div>
     <p v-else class="empty-state">
@@ -387,6 +382,11 @@ const visibleItems = computed(
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
 }
 
 .credential-link:hover {

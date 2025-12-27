@@ -14,6 +14,14 @@ const emit = defineEmits<{
 const copySuccess = ref(false);
 const currentImageIndex = ref(0);
 
+const highlightTags = computed(() => {
+  const raw = props.achievement?.highlight?.en || "";
+  return raw
+    .split(/[,·\|/]/)
+    .map((tag) => tag.trim())
+    .filter(Boolean);
+});
+
 const images = computed(() => {
   if (!props.achievement?.certificateImage) return [];
   return Array.isArray(props.achievement.certificateImage)
@@ -200,10 +208,16 @@ onUnmounted(() => {
                       </p>
                     </div>
                   </div>
-                  <span
-                    class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-[var(--chip-bg)] text-[var(--accent-strong)]">
-                    {{ achievement.highlight?.en || "" }}
-                  </span>
+                  <div
+                    v-if="highlightTags.length"
+                    class="flex flex-wrap gap-1.5">
+                    <span
+                      v-for="tag in highlightTags"
+                      :key="tag"
+                      class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-[var(--chip-bg)] text-[var(--accent-strong)]">
+                      {{ tag }}
+                    </span>
+                  </div>
                 </div>
 
                 <!-- Credential Info -->

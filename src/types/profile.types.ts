@@ -92,7 +92,7 @@ export type Achievement = {
   logo?: string;
   credentialId?: string;
   credentialUrl?: string;
-  certificateImage?: string;
+  certificateImage?: string | string[];
 };
 
 export type AchievementTab = {

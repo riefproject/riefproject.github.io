@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, onMounted, onUnmounted, computed, watch } from "vue";
 import type { Achievement } from "../types/profile.types";
 
 const props = defineProps<{
@@ -12,6 +12,37 @@ const emit = defineEmits<{
 }>();
 
 const copySuccess = ref(false);
+const currentImageIndex = ref(0);
+
+const images = computed(() => {
+  if (!props.achievement?.certificateImage) return [];
+  return Array.isArray(props.achievement.certificateImage)
+    ? props.achievement.certificateImage
+    : [props.achievement.certificateImage];
+});
+
+const nextImage = () => {
+  if (currentImageIndex.value < images.value.length - 1) {
+    currentImageIndex.value++;
+  } else {
+    currentImageIndex.value = 0;
+  }
+};
+
+const prevImage = () => {
+  if (currentImageIndex.value > 0) {
+    currentImageIndex.value--;
+  } else {
+    currentImageIndex.value = images.value.length - 1;
+  }
+};
+
+watch(
+  () => props.achievement,
+  () => {
+    currentImageIndex.value = 0;
+  }
+);
 
 const copyToClipboard = async (text: string) => {
   try {
@@ -60,15 +91,15 @@ onUnmounted(() => {
         "
         @click="handleBackdropClick">
         <div
-          class="modal-content relative bg-white dark:bg-gray-900 shadow-2xl overflow-y-auto rounded-2xl border border-gray-200 dark:border-gray-700 w-[90vw] max-h-[85vh] md:w-full md:max-w-5xl md:h-auto md:max-h-[90vh]"
+          class="modal-content relative bg-[var(--bg-elevated)] shadow-2xl overflow-y-auto rounded-2xl border border-[var(--border)] w-[90vw] max-h-[85vh] md:w-full md:max-w-5xl md:h-auto md:max-h-[90vh]"
           @click.stop>
           <!-- Close Button -->
           <button
             @click="emit('close')"
-            class="sticky top-3 right-3 z-10 p-1.5 md:p-2 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors float-right mt-3 mr-3"
+            class="sticky top-3 right-3 z-10 p-1.5 md:p-2 rounded-full bg-[var(--surface-muted)] hover:bg-[var(--border)] transition-colors float-right mt-3 mr-3"
             aria-label="Close modal">
             <svg
-              class="w-5 h-5 md:w-4 md:h-4 text-gray-600 dark:text-gray-300"
+              class="w-5 h-5 md:w-4 md:h-4 text-[var(--muted)]"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24">
@@ -85,14 +116,67 @@ onUnmounted(() => {
             <div class="flex flex-col lg:flex-row gap-4 lg:gap-6">
               <!-- Left: Certificate Image (Show first on mobile) -->
               <div
-                v-if="achievement.certificateImage"
+                v-if="images.length > 0"
                 class="lg:flex-1 flex items-center justify-center lg:order-1 order-1">
                 <div
-                  class="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 w-full max-w-md lg:max-w-none mx-auto">
+                  class="relative rounded-lg overflow-hidden border border-[var(--border)] w-full max-w-md lg:max-w-none mx-auto group">
                   <img
-                    :src="achievement.certificateImage"
+                    :src="images[currentImageIndex]"
                     :alt="`${achievement.title.en} Certificate`"
                     class="w-full h-auto" />
+
+                  <!-- Navigation Buttons -->
+                  <template v-if="images.length > 1">
+                    <button
+                      @click.stop="prevImage"
+                      class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+                      aria-label="Previous image">
+                      <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+
+                    <button
+                      @click.stop="nextImage"
+                      class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+                      aria-label="Next image">
+                      <svg
+                        class="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+
+                    <!-- Indicators -->
+                    <div
+                      class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                      <button
+                        v-for="(_, idx) in images"
+                        :key="idx"
+                        @click.stop="currentImageIndex = idx"
+                        class="w-2 h-2 rounded-full transition-all"
+                        :class="
+                          idx === currentImageIndex
+                            ? 'bg-white scale-110'
+                            : 'bg-white/50 hover:bg-white/80'
+                        "
+                        :aria-label="`Go to image ${idx + 1}`" />
+                    </div>
+                  </template>
                 </div>
               </div>
 
@@ -108,17 +192,16 @@ onUnmounted(() => {
                       class="w-8 h-8 object-contain" />
                     <div>
                       <h2
-                        class="text-xl text-start font-bold text-gray-900 dark:text-white">
+                        class="text-xl text-start font-bold text-[var(--text)]">
                         {{ achievement.title.en }}
                       </h2>
-                      <p
-                        class="text-xs text-start text-gray-600 dark:text-gray-400">
+                      <p class="text-xs text-start text-[var(--muted)]">
                         {{ achievement.issuer.en }} · {{ achievement.date }}
                       </p>
                     </div>
                   </div>
                   <span
-                    class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">
+                    class="px-2.5 py-0.5 text-xs font-semibold rounded-full bg-[var(--chip-bg)] text-[var(--accent-strong)]">
                     {{ achievement.highlight?.en || "" }}
                   </span>
                 </div>
@@ -128,26 +211,26 @@ onUnmounted(() => {
                   <!-- Credential ID -->
                   <div v-if="achievement.credentialId">
                     <label
-                      class="block text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400 mb-2">
+                      class="block text-xs font-semibold uppercase tracking-wide text-[var(--muted)] mb-2">
                       Credential ID
                     </label>
                     <div
-                      class="flex items-center gap-2 bg-gray-50 dark:bg-gray-800/50 rounded-xl p-3 border border-gray-200 dark:border-gray-700">
+                      class="flex items-center gap-2 bg-[var(--bg)] rounded-xl p-3 border border-[var(--border)]">
                       <code
-                        class="flex-1 text-sm font-mono text-gray-900 dark:text-white break-all">
+                        class="flex-1 text-sm font-mono text-[var(--text)] break-all">
                         {{ achievement.credentialId }}
                       </code>
                       <button
                         @click="copyToClipboard(achievement.credentialId)"
-                        class="flex-shrink-0 p-2 rounded-lg bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 transition-all border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500"
+                        class="flex-shrink-0 p-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--surface-muted)] transition-all border border-[var(--border)]"
                         :class="{
-                          'bg-green-50 dark:bg-green-900/20 border-green-500 dark:border-green-500':
+                          'bg-[var(--chip-bg)] border-[var(--accent)]':
                             copySuccess,
                         }"
                         aria-label="Copy credential ID">
                         <svg
                           v-if="!copySuccess"
-                          class="w-4 h-4 text-gray-600 dark:text-gray-300"
+                          class="w-4 h-4 text-[var(--muted)]"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24">
@@ -159,7 +242,7 @@ onUnmounted(() => {
                         </svg>
                         <svg
                           v-else
-                          class="w-4 h-4 text-green-600 dark:text-green-400"
+                          class="w-4 h-4 text-[var(--accent-strong)]"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24">
@@ -179,7 +262,7 @@ onUnmounted(() => {
                       :href="achievement.credentialUrl"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md">
+                      class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[var(--accent)] hover:bg-[var(--accent-strong)] text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md">
                       <span>Verify Credential</span>
                       <svg
                         class="w-4 h-4"

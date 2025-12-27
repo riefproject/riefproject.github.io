@@ -68,8 +68,8 @@ export const experiences: Experience[] = [
     stack: ["C++", "Python", "TLX", "LeetCode", "Codeforces"],
     achievements: [
       t(
-        "Solved 300+ problems with documented notes and reusable templates shared with peers.",
-        "Menyelesaikan 300+ soal dengan catatan terdokumentasi dan template yang dapat digunakan ulang oleh rekan."
+        "Solved 400+ problems with documented notes and reusable templates shared with peers.",
+        "Menyelesaikan 400+ soal dengan catatan terdokumentasi dan template yang dapat digunakan ulang oleh rekan."
       ),
       t(
         "Created visual explanations for complex data structures and algorithm concepts.",

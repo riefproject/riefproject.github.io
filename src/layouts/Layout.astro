@@ -48,12 +48,30 @@ const {
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<meta name="generator" content={Astro.generator} />
+		
+		<!-- Primary Meta Tags -->
 		<title>{title}</title>
+		<meta name="title" content={title} />
 		<meta name="description" content={description} />
+		<meta name="author" content={profile.name} />
+
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:type" content="website" />
+		<meta property="og:image" content={new URL('/og-image.jpg', Astro.url)} />
+
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={Astro.url} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
+
 		<script is:inline>
 			(() => {
 				const storageKey = 'portfolio-theme';
@@ -127,9 +145,8 @@ const {
 		</a>
 		<div class="page page-grid">
 			<aside class="sidebar" aria-label="Navigasi utama">
-				<button class="sidebar__close" type="button" data-sidebar-close>
+				<button class="sidebar__close" type="button" data-sidebar-close aria-label="Close menu">
 					<span aria-hidden="true">×</span>
-					<LocaleText as="span" text={layoutCopy.close} />
 				</button>
 				<div class="sidebar__brand">
 					<h1>{profile.name}</h1>
@@ -447,19 +464,27 @@ const {
 	.sidebar__close {
 		display: none;
 		align-items: center;
-		gap: 0.4rem;
-		padding: 0.3rem 0.75rem;
-		margin: -0.5rem -0.5rem 1rem auto;
-		border-radius: 999px;
-		border: 1px solid var(--border);
-		background: var(--bg-elevated);
+		justify-content: center;
+		width: 3rem;
+		height: 3rem;
+		padding: 0;
+		margin: -0.5rem -0.5rem 0.5rem auto;
+		border-radius: 50%;
+		border: none;
+		background: transparent;
 		color: var(--muted);
-		font-weight: 600;
+		transition: all 0.2s ease;
+	}
+
+	.sidebar__close:hover {
+		color: var(--text);
+		transform: rotate(90deg) scale(1.1);
 	}
 
 	.sidebar__close span[aria-hidden='true'] {
-		font-size: 1.2rem;
+		font-size: 2.5rem;
 		line-height: 1;
+		font-weight: 300;
 	}
 
 	.site-footer {
@@ -533,6 +558,7 @@ const {
 			height: 100svh;
 			max-height: 100svh;
 			padding: 1.5rem;
+			padding-top: 5.5rem;
 			overflow-y: auto;
 			-webkit-overflow-scrolling: touch;
 			transform: translateX(-100%);

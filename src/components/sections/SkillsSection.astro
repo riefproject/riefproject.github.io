@@ -87,4 +87,13 @@ const { categories = [] }: SkillsProps = Astro.props;
 	.skills__grid li + li {
 		margin-top: 0.25rem;
 	}
+
+	.skills__grid li {
+		transition: color 0.2s ease, transform 0.2s ease;
+	}
+
+	.skills__grid li:hover {
+		color: var(--accent-strong);
+		transform: translateX(4px);
+	}
 </style>

@@ -3,7 +3,6 @@ import { t } from "../types/profile.types";
 
 export const contact: Contact = {
   email: "talktorief@gmail.com",
-  phone: "+62 812-0000-0000",
   message: t(
     "Have an idea or tricky problem? Let’s discuss and ship a solid solution.",
     "Punya ide atau masalah sulit? Yuk diskusikan dan eksekusi solusinya."

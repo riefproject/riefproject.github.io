@@ -96,7 +96,7 @@ onUnmounted(() => {
           <!-- Close Button -->
           <button
             @click="emit('close')"
-            class="sticky top-3 right-3 z-10 p-1.5 md:p-2 rounded-full bg-[var(--surface-muted)] hover:bg-[var(--border)] transition-colors float-right mt-3 mr-3"
+            class="sticky top-3 right-3 z-10 p-1.5 md:p-2 rounded-full bg-[var(--surface-muted)] hover:bg-[var(--border)] transition-all hover:scale-110 active:scale-95 float-right mt-3 mr-3"
             aria-label="Close modal">
             <svg
               class="w-5 h-5 md:w-4 md:h-4 text-[var(--muted)]"
@@ -129,7 +129,7 @@ onUnmounted(() => {
                   <template v-if="images.length > 1">
                     <button
                       @click.stop="prevImage"
-                      class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+                      class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100 focus:opacity-100"
                       aria-label="Previous image">
                       <svg
                         class="w-5 h-5"
@@ -146,7 +146,7 @@ onUnmounted(() => {
 
                     <button
                       @click.stop="nextImage"
-                      class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100"
+                      class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100 focus:opacity-100"
                       aria-label="Next image">
                       <svg
                         class="w-5 h-5"

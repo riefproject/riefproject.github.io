@@ -46,7 +46,7 @@ const resolveText = (text: { en: string; id: string }) => {
 		{featuredProjects.map((project) => (
 			<article class="project-card">
 				{project.img ? (
-					<div class="project-image">
+					<div class="project-image img-zoom-container">
 						<img src={project.img} alt={project.title.en} />
 					</div>
 				) : (

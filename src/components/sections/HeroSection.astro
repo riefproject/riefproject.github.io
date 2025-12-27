@@ -85,14 +85,14 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 		{toolboxPreview.length > 0 && (
 			<div class="hero__toolbox" aria-label="Toolbox highlight">
 				{toolboxPreview.map((item) => (
-					<span class="hero__tool">{item}</span>
+					<span class="hero__tool hover-scale">{item}</span>
 				))}
-				{extraTools > 0 && <span class="hero__tool ghost">+{extraTools} more</span>}
+				{extraTools > 0 && <span class="hero__tool ghost hover-scale">+{extraTools} more</span>}
 			</div>
 		)}
 		<ul class="hero__highlights">
 			{highlights.map((item) => (
-				<li>
+				<li class="card-hover">
 					<span><LocaleText as="span" text={item.label} /></span>
 					<strong><LocaleText as="span" text={item.detail} /></strong>
 				</li>
@@ -180,6 +180,12 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 		font-weight: 700;
 		letter-spacing: 0.08em;
 		color: var(--text);
+		animation: float 6s ease-in-out infinite;
+	}
+
+	@keyframes float {
+		0%, 100% { transform: translateY(0); }
+		50% { transform: translateY(-6px); }
 	}
 
 	.hero__content h1 span {

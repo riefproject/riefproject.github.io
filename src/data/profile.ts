@@ -15,7 +15,10 @@ export const profile: Profile = {
     "Software engineer with competitive programming foundation—delivering structured, maintainable solutions.",
     "Software engineer dengan basis competitive programming—menghasilkan solusi terstruktur dan maintainable."
   ),
-  location: t("Bandung, West Java", "Bandung, Jawa Barat"),
+  location: t(
+    "Bandung, West Java, Indonesia",
+    "Bandung, Jawa Barat, Indonesia"
+  ),
   availability: t(
     "Available for internships, collaborations, and software development projects.",
     "Tersedia untuk internship, kolaborasi, dan proyek pengembangan perangkat lunak."
@@ -64,13 +67,13 @@ export const stats: Stat[] = [
     label: t("Contests tackled", "Kompetisi diikuti"),
     value: "10+",
     helper: t(
-      "NOI/OSN plus internal scrims and showcases",
-      "NOI/OSN plus sparing internal dan showcase"
+      "OSN, ACM/ICPC, plus internal scrims and showcases",
+      "NOI, ACM/ICPC, plus sparing internal dan showcase"
     ),
   },
   {
     label: t("Problems solved", "Soal terselesaikan"),
-    value: "300+",
+    value: "400+",
     helper: t(
       "TLX, LeetCode, Codeforces, and others",
       "TLX, LeetCode, Codeforces, dan lainnya"
@@ -97,8 +100,8 @@ export const stats: Stat[] = [
 export const cpProfiles: CPProfile[] = [
   {
     platform: "Codeforces",
-    handle: "your-handle",
-    url: "https://codeforces.com/profile/your-handle",
+    handle: "Feeera",
+    url: "https://codeforces.com/profile/feeera",
     logo: "/img/codeforces.webp",
     note: t(
       "Regular contests and upsolving logs.",
@@ -107,8 +110,8 @@ export const cpProfiles: CPProfile[] = [
   },
   {
     platform: "TLX",
-    handle: "your-handle",
-    url: "https://tlx.toki.id/users/your-handle",
+    handle: "fsarf_",
+    url: "https://tlx.toki.id/profiles/fsarf_",
     logo: "/img/tlx.png",
     note: t(
       "Practice sets and local contests.",
@@ -117,8 +120,8 @@ export const cpProfiles: CPProfile[] = [
   },
   {
     platform: "LeetCode",
-    handle: "your-handle",
-    url: "https://leetcode.com/your-handle",
+    handle: "Fsaree",
+    url: "https://leetcode.com/u/fsaree/",
     logo: "/img/leetcode.png",
     note: t(
       "Daily drills for data structures and algorithms.",
@@ -127,8 +130,8 @@ export const cpProfiles: CPProfile[] = [
   },
   {
     platform: "HackerRank",
-    handle: "your-handle",
-    url: "https://hackerrank.com/your-handle",
+    handle: "Areee",
+    url: "https://www.hackerrank.com/profile/areee",
     logo: "/img/HackerRank.png",
     note: t(
       "Weekend rounds and speed benchmarks.",

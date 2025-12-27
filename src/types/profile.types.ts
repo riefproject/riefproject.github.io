@@ -119,7 +119,6 @@ export type Project = {
 
 export type Contact = {
   email: string;
-  phone: string;
   message: LocaleText;
   availabilityNote: LocaleText;
 };

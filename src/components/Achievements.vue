@@ -134,7 +134,6 @@ const visibleItems = computed(
 
     <div class="achievements-toolbar">
       <label class="search">
-        <span>{{ copy.search }}</span>
         <input v-model="searchQuery" type="search" :placeholder="copy.search" />
       </label>
 

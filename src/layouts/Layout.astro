@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import { contact } from '../data/contact';
 import { profile } from '../data/profile';
-import { socials } from '../data/social';
 import ThemeToggle from '../components/ThemeToggle.vue';
 import LangToggle from '../components/LangToggle.vue';
 import CvDownloadButton from '../components/CvDownloadButton.vue';
@@ -24,7 +23,11 @@ const navItems = [
 	{ label: locale('Achievements', 'Pencapaian'), href: '#achievements' },
 	{ label: locale('Education', 'Pendidikan'), href: '#education' },
 	{ label: locale('Contact', 'Kontak'), href: '#kontak' },
-];
+].map((item) => ({
+	...item,
+	id: item.href.replace('#', ''),
+	to: `/#${item.href.replace('#', '')}`,
+}));
 
 const layoutCopy = {
 	skip: locale('Skip to content', 'Lewati ke konten'),
@@ -157,17 +160,17 @@ const {
 				</p>
 				<nav class="sidebar__nav">
 					{navItems.map((item) => (
-						<a data-nav-link href={item.href}>
+						<a data-nav-link data-target={item.id} href={item.to}>
 							<LocaleText as="span" text={item.label} />
 						</a>
 					))}
 				</nav>
 				<div class="sidebar__cta">
 					<CvDownloadButton client:only="vue" />
-					<a class="btn primary" href="#proyek">
+					<a class="btn ghost" href="/#proyek">
 						<LocaleText as="span" text={layoutCopy.explore} />
 					</a>
-					<a class="btn ghost" href={`mailto:${contact.email}`}>
+					<a class="btn primary" href={`mailto:${contact.email}`}>
 						<LocaleText as="span" text={layoutCopy.cta} />
 					</a>
 				</div>
@@ -177,24 +180,9 @@ const {
 					<slot />
 				</main>
 				<footer class="site-footer section">
-						<div class="surface footer-card">
-							<div>
-								<p class="eyebrow">
-									<LocaleText as="span" text={layoutCopy.footerThanks} />
-								</p>
-								<h3>{profile.name}</h3>
-								<p>
-									<LocaleText as="span" text={profile.availability} />
-								</p>
-							</div>
-						<div class="social-list">
-							{socials.map((item) => (
-								<a href={item.url} target="_blank" rel="noreferrer" aria-label={item.label}>
-									{item.label}
-								</a>
-							))}
-						</div>
-					</div>
+						<p class="thanks-word" style="text-align: center;">
+							<LocaleText as="span" text={layoutCopy.footerThanks} />
+						</p>
 						<p class="footer-meta">
 							© {new Date().getFullYear()} {profile.name}.{' '}
 							<LocaleText as="span" text={layoutCopy.footerBuilt} />
@@ -255,7 +243,7 @@ const {
 
 			const setActiveNav = (id) => {
 				navLinks.forEach((link) => {
-					const targetId = link.getAttribute('href')?.replace('#', '');
+					const targetId = link.getAttribute('data-target');
 					if (targetId === id) {
 						link.classList.add('active');
 						link.setAttribute('aria-current', 'true');
@@ -268,12 +256,19 @@ const {
 
 			const sectionEntries = navLinks
 				.map((link) => {
-					const id = link.getAttribute('href')?.replace('#', '');
+					const id = link.getAttribute('data-target');
 					if (!id) return null;
 					const element = document.getElementById(id);
 					return element ? { id, element } : null;
 				})
 				.filter(Boolean);
+
+			const hashTarget = window.location.hash?.replace('#', '');
+			if (hashTarget) {
+				setActiveNav(hashTarget);
+			} else if (window.location.pathname.startsWith('/projects')) {
+				setActiveNav('proyek');
+			}
 
 			if (sectionEntries.length) {
 				setActiveNav(sectionEntries[0].id);
@@ -488,6 +483,14 @@ const {
 		padding-bottom: 4rem;
 	}
 
+	.thanks-word {
+		font-size: 0.85rem;
+		text-transform: uppercase;
+		font-weight: 600;
+		color: var(--accent);
+		text-align: center;
+	}
+
 	.footer-card {
 		display: flex;
 		align-items: center;
@@ -502,7 +505,7 @@ const {
 	}
 
 	.footer-meta {
-		margin-top: 1.5rem;
+		margin-top: 0.75rem;
 		text-align: center;
 		font-size: 0.9rem;
 		color: var(--muted);

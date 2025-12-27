@@ -13,7 +13,7 @@ export const socials: SocialLink[] = [
   },
   {
     label: "Instagram",
-    url: "https://instagram.com/fsarf_",
+    url: "https://instagram.com/arfsa_",
     hint: "Aktivitas harian",
   },
   {

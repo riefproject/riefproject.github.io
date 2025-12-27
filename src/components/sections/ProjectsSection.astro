@@ -76,6 +76,26 @@ const resolveText = (text: { en: string; id: string }) => {
 							<li><LocaleText as="span" text={highlight} /></li>
 						))}
 					</ul>
+					{project.links?.length && (
+						<div class="project-links">
+							{project.links.slice(0, 2).map((link) => (
+								<a
+									class="project-link"
+									href={link.url}
+									target="_blank"
+									rel="noreferrer">
+									<LocaleText as="span" text={link.label} />
+									<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+										<path
+											stroke-linecap="round"
+											stroke-linejoin="round"
+											stroke-width="2"
+											d="M10 6h8m0 0v8m0-8L6 18" />
+									</svg>
+								</a>
+							))}
+						</div>
+					)}
 					<div class="project-stack">
 						{project.stack.slice(0, 5).map((tech) => (
 							<span class="stack-chip">{tech}</span>
@@ -229,6 +249,34 @@ const resolveText = (text: { en: string; id: string }) => {
 		font-size: 0.8125rem;
 		line-height: 1.5;
 		color: var(--text-muted);
+	}
+
+	.project-links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 0.75rem;
+	}
+
+	.project-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		padding: 0.6rem 0.9rem;
+		border-radius: 999px;
+		border: 1px solid var(--border);
+		background: var(--bg);
+		color: var(--accent-strong);
+		font-weight: 600;
+		font-size: 0.85rem;
+		text-decoration: none;
+		transition: all 0.2s ease;
+	}
+
+	.project-link:hover {
+		border-color: var(--accent);
+		box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+		transform: translateY(-1px);
 	}
 
 	.project-stack {

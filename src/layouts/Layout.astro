@@ -29,6 +29,8 @@ const navItems = [
 	to: `/#${item.href.replace('#', '')}`,
 }));
 
+const SITE_URL = "https://riefproject.my.id";
+
 const layoutCopy = {
 	skip: locale('Skip to content', 'Lewati ke konten'),
 	menu: locale('Menu', 'Menu'),
@@ -69,19 +71,20 @@ const {
 		<meta name="description" content={description} />
 		<meta name="author" content={profile.name} />
 
-		<!-- Open Graph / Facebook -->
+		<link rel="canonical" href={SITE_URL} />
+
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={Astro.url} />
+		<meta property="og:url" content={SITE_URL} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={new URL('/og-image.jpg', Astro.url)} />
+		<meta property="og:image" content={`${SITE_URL}/og-image.jpg`} />
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={Astro.url} />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={new URL('/og-image.jpg', Astro.url)} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:url" content={SITE_URL} />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={`${SITE_URL}/og-image.jpg`} />
+
 
 		<script is:inline>
 			(() => {

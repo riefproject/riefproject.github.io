@@ -32,8 +32,8 @@ export const profile: Profile = {
     "Saat ini menempuh D3 Teknik Informatika di Politeknik Negeri Bandung dengan fokus pada arsitektur perangkat lunak, praktik clean code, dan analisis masalah sistematis. Latar belakang competitive programming membentuk pola pikir analitis dan pendekatan berorientasi efisiensi dalam membangun sistem perangkat lunak yang modular, mudah dibaca, dan maintainable."
   ),
   focusStack: t(
-    "C/C++ · Competitive Programming · Backend & Automation",
-    "C/C++ · Competitive Programming · Backend & Automation"
+    "C/C++ · Competitive Programmer · Backend & Automation",
+    "C/C++ · Competitive Programmer · Backend & Automation"
   ),
   resumeUrl: "https://example.com/your-cv.pdf",
 };

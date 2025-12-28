@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://riefproject.my.id/sitemap-index.xml

@@ -209,4 +209,97 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    title: t("AlpenliCloud File Manager", "AlpenliCloud File Manager"),
+    img: "/img/projects/Alpenlicloud.png",
+    description: t(
+      "Cross-platform GUI file manager inspired by Windows Explorer, built in C with raylib/raygui and 4 core ADTs (tree, stack, queue, linked list).",
+      "File manager GUI lintas OS terinspirasi Windows Explorer, dibangun dengan C, raylib/raygui, dan 4 ADT utama (tree, stack, queue, linked list)."
+    ),
+    impact: t(
+      "Shipped a desktop file manager for 3 OSes with 10+ keyboard shortcuts, undo/redo, trash recovery, and bulk-operation progress feedback.",
+      "Merilis file manager desktop untuk 3 OS dengan 10+ shortcut keyboard, undo/redo, trash recovery, dan progress feedback untuk operasi massal."
+    ),
+    year: 2025,
+    category: t("Desktop Application", "Aplikasi Desktop"),
+    categoryKey: "desktop-app",
+    featured: true,
+    stack: ["C", "raylib", "raygui", "Data Structures", "Platform APIs"],
+    highlights: [
+      t(
+        "Non-binary tree powers directory hierarchy and sidebar navigation.",
+        "Non-binary tree menggerakkan hierarki direktori dan navigasi sidebar."
+      ),
+      t(
+        "Stack-based undo/redo across create, delete, rename, and paste actions.",
+        "Undo/redo berbasis stack untuk create, delete, rename, dan paste."
+      ),
+      t(
+        "Queue-based clipboard workflow with progress UI for 10+ items.",
+        "Alur clipboard berbasis queue dengan UI progress untuk 10+ item."
+      ),
+      t(
+        "Custom window chrome with resizable layout and modern toolbar.",
+        "Window chrome kustom dengan layout resizable dan toolbar modern."
+      ),
+      t(
+        "Cross-platform build flow with bundled raylib and system fallback.",
+        "Build lintas OS dengan raylib bundling dan fallback ke sistem."
+      ),
+    ],
+    links: [
+      {
+        label: t("View repository", "Lihat repositori"),
+        url: "https://github.com/riefproject/AlpenliCloud",
+      },
+    ],
+  },
+  {
+    title: t(
+      "reeshape – Shape Playground (Pattern Block Activity)",
+      "reeshape – Shape Playground (Pattern Block Activity)"
+    ),
+    img: "/img/projects/reeshape.png",
+    description: t(
+      "Interactive 2D pattern-block puzzle built in Godot 4 (C#) with manual 2D transforms, snap-based validation, and custom stage templates.",
+      "Puzzle pattern-block 2D interaktif di Godot 4 (C#) dengan transformasi 2D manual, validasi berbasis snapping, dan template stage custom."
+    ),
+    impact: t(
+      "Shipped a complete gameplay loop with 3 curated 720p challenges, persistent progress + best-time tracking, and a JSON-based Template Builder so users can create and replay patterns.",
+      "Menghadirkan gameplay lengkap dengan 3 challenge 720p, penyimpanan progres + best time persisten, serta Template Builder berbasis JSON agar pengguna bisa membuat dan memainkan ulang pola."
+    ),
+    year: 2025,
+    category: t("Game Project", "Proyek Game"),
+    categoryKey: "game",
+    featured: true,
+    stack: ["Godot 4", "C#", ".NET", "2D Graphics", "JSON"],
+    highlights: [
+      t(
+        "Manual 2D transform pipeline plus training-focused mechanics (snapping, hit testing, geometric composition).",
+        "Pipeline transform 2D manual plus latihan grafika (snapping, hit test, komposisi geometri)."
+      ),
+      t(
+        "Snap-to-slot validation that locks shapes, triggers 100% completion, and stores persistent progress + best time.",
+        "Validasi snap-to-slot yang mengunci shape, memicu completion 100%, serta menyimpan progres dan best time."
+      ),
+      t(
+        "Full input system: drag-and-drop, Q/E rotation, WASD/arrow micro-move, right-click reset.",
+        "Sistem input lengkap: drag-and-drop, rotasi Q/E, translasi presisi WASD/panah, klik kanan reset."
+      ),
+      t(
+        "Modular stage/template system (TemplateShapeStage, TemplateLoader) with JSON receipts.",
+        "Sistem stage/template modular (TemplateShapeStage, TemplateLoader) dengan JSON receipt."
+      ),
+      t(
+        "Template Builder workflow (build -> export JSON -> replay in My Patterns) optimized for desktop Windows/macOS/Linux at 1280x720.",
+        "Workflow Template Builder (build -> export JSON -> replay di My Patterns) optimal untuk desktop Windows/macOS/Linux di 1280x720."
+      ),
+    ],
+    links: [
+      {
+        label: t("View repository", "Lihat repositori"),
+        url: "https://github.com/riefproject/reeshape",
+      },
+    ],
+  },
 ];

@@ -42,7 +42,7 @@ export const projects: Project[] = [
     links: [
       {
         label: t("View repository", "Lihat repositori"),
-        url: "https://github.com/riefproject/polbancoo",
+        url: "https://github.com/riefproject/Koperasi-Syariah",
       },
     ],
   },

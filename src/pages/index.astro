@@ -21,7 +21,11 @@ import {
 } from '../data/profile';
 import { socials } from '../data/social';
 import { stackShowcase } from '../data/stack-showcase';
-import { experiences } from '../data/experiences';
+import {
+	workExperiences,
+	organizationalExperiences,
+	personalExperiences,
+} from '../data/experiences';
 import { projects } from '../data/projects';
 import { achievements, achievementTabs } from '../data/achievements';
 import { education } from '../data/education';
@@ -40,7 +44,11 @@ import { contact } from '../data/contact';
 	<AboutSection profile={profile} focusAreas={focusAreas} />
 	<SkillsSection categories={skillCategories} />
 	<StackSection items={stackShowcase} />
-	<ExperienceLegacy experiences={experiences} />
+	<ExperienceLegacy
+		workExperiences={workExperiences}
+		organizationalExperiences={organizationalExperiences}
+		personalExperiences={personalExperiences}
+	/>
 	<CPProfilesSection profiles={cpProfiles} />
 	<ProjectsSection projects={projects} />
 	<AchievementsSection items={achievements} tabs={achievementTabs} />

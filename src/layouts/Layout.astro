@@ -129,42 +129,103 @@ const {
 				}
 			})();
 		</script>
-		<script is:inline>
-			(() => {
-				const storageKey = 'portfolio-lang';
-				const applyLanguage = (lang) => {
-					const root = document.documentElement;
-					root.classList.toggle('lang-id', lang === 'id');
-					root.classList.toggle('lang-en', lang !== 'id');
-					root.setAttribute('lang', lang === 'id' ? 'id' : 'en');
-					const attribute = lang === 'id' ? 'data-i18n-id' : 'data-i18n-en';
-					document.querySelectorAll('[data-i18n]').forEach((element) => {
-						const value = element.getAttribute(attribute);
-						if (value !== null && element.textContent !== value) {
-							element.textContent = value;
+			<script is:inline>
+				(() => {
+					const storageKey = 'portfolio-lang';
+					const normalizeLang = (value) => {
+						if (typeof value !== 'string') return 'en';
+						const normalized = value.toLowerCase();
+						if (normalized === 'id' || normalized === 'in' || normalized.startsWith('id-')) {
+							return 'id';
+						}
+						return 'en';
+					};
+					const persistLang = (lang) => {
+						try {
+							if (typeof localStorage !== 'undefined') {
+								localStorage.setItem(storageKey, lang);
+							}
+						} catch (err) {
+							// ignore storage write failure
+						}
+					};
+
+					const applyLanguage = (rawLang) => {
+						const lang = normalizeLang(rawLang);
+						const root = document.documentElement;
+						root.classList.toggle('lang-id', lang === 'id');
+							root.classList.toggle('lang-en', lang !== 'id');
+							root.setAttribute('lang', lang === 'id' ? 'id' : 'en');
+							const attribute = lang === 'id' ? 'data-i18n-id' : 'data-i18n-en';
+							document.querySelectorAll('[data-i18n]').forEach((element) => {
+								const value = element.getAttribute(attribute);
+								if (value !== null && element.textContent !== value) {
+									element.textContent = value;
+								}
+							});
+							const placeholderAttr =
+								lang === 'id' ? 'data-i18n-placeholder-id' : 'data-i18n-placeholder-en';
+							document.querySelectorAll('[data-i18n-placeholder-en]').forEach((element) => {
+								const value = element.getAttribute(placeholderAttr);
+								if (value !== null) {
+									element.setAttribute('placeholder', value);
+								}
+							});
+							document.querySelectorAll('[data-lang-toggle-fallback]').forEach((button) => {
+								const segments = button.querySelectorAll('.segment');
+								if (segments.length >= 2) {
+									segments[0].classList.toggle('active', lang === 'en');
+									segments[1].classList.toggle('active', lang === 'id');
+								}
+								button.setAttribute(
+									'aria-label',
+									lang === 'en' ? 'Switch language to Indonesian' : 'Change language to English',
+								);
+							});
+						};
+					const fallbackToggleLanguage = () => {
+						const current = normalizeLang(
+							(typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : null) ??
+								document.documentElement.getAttribute('lang') ??
+								'en',
+						);
+						const next = current === 'en' ? 'id' : 'en';
+						persistLang(next);
+						applyLanguage(next);
+					};
+
+					window.__applyLanguage = applyLanguage;
+					window.addEventListener('portfolio:lang-change', (event) => {
+						const langFromEvent =
+							event instanceof CustomEvent ? normalizeLang(event.detail) : document.documentElement.lang;
+						applyLanguage(langFromEvent);
+					});
+					window.addEventListener('storage', (event) => {
+						if (event.key === storageKey && event.newValue) {
+							applyLanguage(normalizeLang(event.newValue));
 						}
 					});
-					const placeholderAttr =
-						lang === 'id' ? 'data-i18n-placeholder-id' : 'data-i18n-placeholder-en';
-					document.querySelectorAll('[data-i18n-placeholder-en]').forEach((element) => {
-						const value = element.getAttribute(placeholderAttr);
-						if (value !== null) {
-							element.setAttribute('placeholder', value);
-						}
+					document.addEventListener('click', (event) => {
+						const target =
+							event.target instanceof Element
+								? event.target.closest('[data-lang-toggle-fallback]')
+								: null;
+						if (!target) return;
+						const island = target.closest('astro-island');
+						if (island && !island.hasAttribute('ssr')) return;
+						event.preventDefault();
+						fallbackToggleLanguage();
 					});
-				};
 
-				window.__applyLanguage = applyLanguage;
-
-				let initial = 'en';
-				try {
-					const stored = typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : null;
-					if (stored) {
-						initial = stored;
+					let initial = 'en';
+					try {
+						const stored = typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : null;
+						if (stored) {
+							initial = normalizeLang(stored);
+						}
+					} catch (err) {
+						initial = 'en';
 					}
-				} catch (err) {
-					initial = 'en';
-				}
 
 				const init = () => applyLanguage(initial);
 				if (document.readyState === 'loading') {

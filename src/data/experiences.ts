@@ -1,12 +1,49 @@
 import type { Experience } from "../types/profile.types";
 import { t } from "../types/profile.types";
 
-export const experiences: Experience[] = [
+export const workExperiences: Experience[] = [
+  {
+    company: "Friendly Study Buddy",
+    logo: "/img/friendlystudybuddy.png",
+    role: t("Coding & Informatics Tutor", "Tutor Coding & Informatika"),
+    period: t("Jan 2026 — Now", "Jan 2026 — Sekarang"),
+    summary: t(
+      "Teaching coding and informatics fundamentals in a part-time remote role, with personalized guidance for learners from diverse ages and backgrounds.",
+      "Mengajar dasar coding dan informatika secara paruh waktu jarak jauh, dengan pendampingan yang dipersonalisasi untuk pelajar dari beragam usia dan latar belakang."
+    ),
+    stack: [
+      "Project-Based Learning",
+      "Computational Thinking",
+      "Problem Solving",
+      "Mentoring",
+    ],
+    achievements: [
+      t(
+        "Designed adaptive learning paths based on each learner's goals, pace, and prior experience.",
+        "Menyusun jalur belajar adaptif berdasarkan tujuan, kecepatan belajar, dan pengalaman awal tiap pelajar."
+      ),
+      t(
+        "Applied project-based learning to guide learners in building contextual real-world projects while strengthening programming fundamentals.",
+        "Menerapkan project-based learning untuk membimbing pelajar membangun proyek kontekstual dunia nyata sambil memperkuat fundamental pemrograman."
+      ),
+      t(
+        "Improved learners' problem-solving, computational thinking, and logical reasoning through practical exercises.",
+        "Meningkatkan kemampuan problem solving, computational thinking, dan penalaran logis melalui latihan yang praktis."
+      ),
+      t(
+        "Encouraged independent and collaborative exploration to prepare learners for self-directed study, automation tasks, and professional use cases.",
+        "Mendorong eksplorasi mandiri maupun kolaboratif untuk mempersiapkan pelajar ke pembelajaran mandiri, tugas otomasi, dan kebutuhan profesional."
+      ),
+    ],
+  },
+];
+
+export const organizationalExperiences: Experience[] = [
   {
     company: "Himpunan Mahasiswa Komputer Politeknik Negeri Bandung",
     logo: "/img/himakom.png",
     role: t("Junior Staff Member", "Staf Muda"),
-    period: "2025 — Sekarang",
+    period: t("2025 — Now", "2025 — Sekarang"),
     summary: t(
       "Supporting academic program development and competition management within the Computer Science Department.",
       "Mendukung pengembangan program akademik dan manajemen kompetisi di lingkungan Jurusan Teknik Informatika."
@@ -31,7 +68,7 @@ export const experiences: Experience[] = [
     company: "Brainware of SMANSA (BIoS)",
     logo: "/img/biossmansa.png",
     role: t("Head of Programming Division", "Kepala Divisi Programming"),
-    period: "2022 — 2023",
+    period: t("2022 — 2023", "2022 — 2023"),
     summary: t(
       "Led school computer club programming division, coordinating training programs and member development initiatives.",
       "Memimpin divisi pemrograman klub komputer sekolah, mengkoordinasikan program pelatihan dan inisiatif pengembangan anggota."
@@ -56,11 +93,14 @@ export const experiences: Experience[] = [
       ),
     ],
   },
+];
+
+export const personalExperiences: Experience[] = [
   {
     company: "Independent Competitive Programming Journey",
     logo: "/img/codeforces.webp",
     role: t("Problem Solver & Mentor", "Problem Solver & Mentor"),
-    period: "2021 — Sekarang",
+    period: t("2021 — Now", "2021 — Sekarang"),
     summary: t(
       "Continuous problem-solving practice across multiple platforms while sharing knowledge through mentoring sessions.",
       "Latihan problem solving berkelanjutan di berbagai platform sambil berbagi pengetahuan melalui sesi mentoring."
@@ -81,4 +121,10 @@ export const experiences: Experience[] = [
       ),
     ],
   },
+];
+
+export const experiences: Experience[] = [
+  ...workExperiences,
+  ...organizationalExperiences,
+  ...personalExperiences,
 ];

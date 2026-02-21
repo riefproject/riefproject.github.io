@@ -2,6 +2,7 @@
 	<button
 		type="button"
 		@click="toggleLang"
+		data-lang-toggle-fallback
 		class="toggle-btn"
 		:aria-label="ariaLabel"
 	>

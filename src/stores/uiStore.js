@@ -3,6 +3,15 @@ import { atom } from 'nanostores';
 const THEME_KEY = 'portfolio-theme';
 const LANG_KEY = 'portfolio-lang';
 
+const normalizeLang = (value) => {
+	if (typeof value !== 'string') return 'en';
+	const normalized = value.toLowerCase();
+	if (normalized === 'id' || normalized === 'in' || normalized.startsWith('id-')) {
+		return 'id';
+	}
+	return 'en';
+};
+
 const hasStorage = () => {
 	try {
 		return typeof window !== 'undefined' && typeof window.localStorage !== 'undefined';
@@ -29,7 +38,7 @@ const writeStorage = (key, value) => {
 	}
 };
 
-const initialLang = readStorage(LANG_KEY, 'en');
+const initialLang = normalizeLang(readStorage(LANG_KEY, 'en'));
 const prefersDark =
 	typeof window !== 'undefined' && typeof window.matchMedia === 'function'
 		? window.matchMedia('(prefers-color-scheme: dark)').matches
@@ -38,8 +47,13 @@ const initialTheme = readStorage(THEME_KEY, prefersDark ? 'dark' : 'light');
 
 export const lang = atom(initialLang);
 export function setLang(newLang) {
-	lang.set(newLang);
-	writeStorage(LANG_KEY, newLang);
+	const normalized = normalizeLang(newLang);
+	lang.set(normalized);
+	writeStorage(LANG_KEY, normalized);
+	if (typeof window !== 'undefined') {
+		window.__applyLanguage?.(normalized);
+		window.dispatchEvent(new CustomEvent('portfolio:lang-change', { detail: normalized }));
+	}
 }
 
 export const theme = atom(initialTheme);

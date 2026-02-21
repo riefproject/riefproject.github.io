@@ -66,7 +66,7 @@ export type Experience = {
   company: string;
   logo?: string;
   role: LocaleText;
-  period: string;
+  period: LocaleText;
   summary: LocaleText;
   stack: string[];
   achievements: LocaleText[];

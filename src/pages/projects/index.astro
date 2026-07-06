@@ -2,7 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import ProjectGallery from '../../components/projects/ProjectGallery.vue';
 import LocaleText from '../../components/i18n/LocaleText.astro';
-import { projects } from '../../data/projects';
+import { getCollection } from 'astro:content';
+const projectsCollection = await getCollection('projects');
+const projects = projectsCollection.map(p => p.data);
 
 const locale = (en: string, id: string) => ({ en, id });
 

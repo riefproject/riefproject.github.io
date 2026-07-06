@@ -1,0 +1,38 @@
+{
+  "company": "Independent Competitive Programming Journey",
+  "logo": "/img/codeforces.webp",
+  "role": {
+    "en": "Problem Solver & Mentor",
+    "id": "Problem Solver & Mentor"
+  },
+  "period": {
+    "en": "2021 — Now",
+    "id": "2021 — Sekarang"
+  },
+  "summary": {
+    "en": "Continuous problem-solving practice across multiple platforms while sharing knowledge through mentoring sessions.",
+    "id": "Latihan problem solving berkelanjutan di berbagai platform sambil berbagi pengetahuan melalui sesi mentoring."
+  },
+  "stack": [
+    "C++",
+    "Python",
+    "TLX",
+    "LeetCode",
+    "Codeforces"
+  ],
+  "achievements": [
+    {
+      "en": "Solved 400+ problems with documented notes and reusable templates shared with peers.",
+      "id": "Menyelesaikan 400+ soal dengan catatan terdokumentasi dan template yang dapat digunakan ulang oleh rekan."
+    },
+    {
+      "en": "Created visual explanations for complex data structures and algorithm concepts.",
+      "id": "Membuat penjelasan visual untuk konsep struktur data dan algoritma yang kompleks."
+    },
+    {
+      "en": "Conducted knowledge-sharing sessions and micro-challenges for classmates and juniors.",
+      "id": "Mengadakan sesi berbagi pengetahuan dan micro-challenge untuk teman sekelas dan junior."
+    }
+  ],
+  "type": "personal"
+}

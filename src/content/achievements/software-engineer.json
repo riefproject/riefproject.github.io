@@ -1,0 +1,23 @@
+{
+  "type": "certifications",
+  "title": {
+    "en": "Software Engineer",
+    "id": "Software Engineer"
+  },
+  "issuer": {
+    "en": "HackerRank",
+    "id": "HackerRank"
+  },
+  "date": "2025",
+  "highlight": {
+    "en": "Role Certificate",
+    "id": "Sertifikat Role"
+  },
+  "link": "https://www.hackerrank.com/",
+  "logo": "/img/certs/hackerrank.png",
+  "credentialId": "E078188D01D3",
+  "credentialUrl": "https://www.hackerrank.com/certificates/e078188d01d3",
+  "certificateImage": [
+    "/img/certs/HackerRank_SE.png"
+  ]
+}

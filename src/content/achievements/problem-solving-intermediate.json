@@ -1,0 +1,23 @@
+{
+  "type": "certifications",
+  "title": {
+    "en": "Problem Solving (Intermediate)",
+    "id": "Problem Solving (Intermediate)"
+  },
+  "issuer": {
+    "en": "HackerRank",
+    "id": "HackerRank"
+  },
+  "date": "2025",
+  "highlight": {
+    "en": "Intermediate Level",
+    "id": "Level Intermediate"
+  },
+  "link": "https://www.hackerrank.com/",
+  "logo": "/img/certs/hackerrank.png",
+  "credentialId": "384E0124DE3B",
+  "credentialUrl": "https://www.hackerrank.com/certificates/384e0124de3b",
+  "certificateImage": [
+    "/img/certs/HackerRank_ProbSolving.png"
+  ]
+}

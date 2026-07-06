@@ -1,0 +1,23 @@
+{
+  "type": "certifications",
+  "title": {
+    "en": "Python (Basic)",
+    "id": "Python (Basic)"
+  },
+  "issuer": {
+    "en": "HackerRank",
+    "id": "HackerRank"
+  },
+  "date": "2025",
+  "highlight": {
+    "en": "Programming Language",
+    "id": "Bahasa Pemrograman"
+  },
+  "link": "https://www.hackerrank.com/",
+  "logo": "/img/certs/hackerrank.png",
+  "credentialId": "BFC0F850134D",
+  "credentialUrl": "https://www.hackerrank.com/certificates/bfc0f850134d",
+  "certificateImage": [
+    "/img/certs/HackerRank_Python.png"
+  ]
+}

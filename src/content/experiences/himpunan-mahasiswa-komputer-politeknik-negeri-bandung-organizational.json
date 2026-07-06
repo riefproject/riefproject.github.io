@@ -1,0 +1,36 @@
+{
+  "company": "Himpunan Mahasiswa Komputer Politeknik Negeri Bandung",
+  "logo": "/img/himakom.png",
+  "role": {
+    "en": "Junior Staff Member",
+    "id": "Staf Muda"
+  },
+  "period": {
+    "en": "2025 — Now",
+    "id": "2025 — Sekarang"
+  },
+  "summary": {
+    "en": "Supporting academic program development and competition management within the Computer Science Department.",
+    "id": "Mendukung pengembangan program akademik dan manajemen kompetisi di lingkungan Jurusan Teknik Informatika."
+  },
+  "stack": [
+    "Program Management",
+    "Event Coordination",
+    "Academic Support"
+  ],
+  "achievements": [
+    {
+      "en": "Assisted in organizing cross-program academic sharing sessions within Informatics Department.",
+      "id": "Membantu penyusunan dan pelaksanaan program sharing akademik lintas program studi di Jurusan Teknik Informatika."
+    },
+    {
+      "en": "Involved in bootcamp and competition training management, including participant coordination and academic resource management.",
+      "id": "Terlibat dalam pengelolaan kegiatan bootcamp dan pembinaan lomba, termasuk manajemen peserta dan koordinasi kebutuhan akademik."
+    },
+    {
+      "en": "Supported student competition preparation through administrative and technical assistance.",
+      "id": "Mendukung persiapan dan keberlangsungan kegiatan kompetisi mahasiswa, baik secara administratif maupun teknis."
+    }
+  ],
+  "type": "organizational"
+}

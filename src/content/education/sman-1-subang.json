@@ -1,0 +1,23 @@
+{
+  "institution": "SMAN 1 Subang",
+  "logo": "/img/smansa.png",
+  "program": {
+    "en": "Mathematics & Natural Sciences",
+    "id": "Matematika & Ilmu Pengetahuan Alam"
+  },
+  "period": "2021 — 2024",
+  "details": [
+    {
+      "en": "Head of Programming Division at Brainware of SMANSA computer club.",
+      "id": "Ketua Divisi Pemrograman di klub komputer Brainware of SMANSA."
+    },
+    {
+      "en": "District Champion in National Science Olympiad (OSN) Informatics 2022.",
+      "id": "Juara Kabupaten Olimpiade Sains Nasional (OSN) Informatika 2022."
+    },
+    {
+      "en": "Led training programs and mentored members in competitive programming and project development.",
+      "id": "Memimpin program pelatihan dan mentoring anggota dalam competitive programming dan pengembangan proyek."
+    }
+  ]
+}

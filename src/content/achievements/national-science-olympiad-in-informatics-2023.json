@@ -1,0 +1,21 @@
+{
+  "type": "competitions",
+  "title": {
+    "en": "National Science Olympiad in Informatics 2023",
+    "id": "Olimpiade Sains Nasional Informatika 2023"
+  },
+  "issuer": {
+    "en": "National Achievement Center (Puspresnas)",
+    "id": "Pusat Prestasi Nasional (Puspresnas)"
+  },
+  "date": "2023",
+  "highlight": {
+    "en": "District Contestant",
+    "id": "Peserta Kabupaten"
+  },
+  "link": "https://puspresnas.kemdikbud.go.id/",
+  "logo": "/img/osn.png",
+  "certificateImage": [
+    "/img/certs/competitions/osnk23.png"
+  ]
+}

@@ -1,0 +1,306 @@
+{
+  "name": "Arief F-sa Wijaya",
+  "role": {
+    "en": "Informatics Engineering Student",
+    "id": "Mahasiswa D3 Teknik Informatika"
+  },
+  "tagline": {
+    "en": "Software engineer with competitive programming foundation—delivering structured, maintainable solutions.",
+    "id": "Software engineer dengan basis competitive programming—menghasilkan solusi terstruktur dan maintainable."
+  },
+  "location": {
+    "en": "Bandung, West Java, Indonesia",
+    "id": "Bandung, Jawa Barat, Indonesia"
+  },
+  "availability": {
+    "en": "Available for internships, collaborations, and software development projects.",
+    "id": "Tersedia untuk internship, kolaborasi, dan proyek pengembangan perangkat lunak."
+  },
+  "intro": {
+    "en": "4th semester informatics student with strong foundation in software architecture and systematic problem-solving. Experienced in designing scalable solutions and managing complexity through structured approaches.",
+    "id": "Mahasiswa informatika semester 4 dengan fondasi kuat dalam arsitektur perangkat lunak dan pemecahan masalah sistematis. Berpengalaman merancang solusi scalable dan mengelola kompleksitas melalui pendekatan terstruktur."
+  },
+  "bio": {
+    "en": "Currently studying D3 Informatics Engineering at Politeknik Negeri Bandung with focus on software architecture, clean code practices, and systematic problem analysis. Background in competitive programming shapes analytical thinking and efficiency-oriented approach in building modular, readable, and maintainable software systems.",
+    "id": "Saat ini menempuh D3 Teknik Informatika di Politeknik Negeri Bandung dengan fokus pada arsitektur perangkat lunak, praktik clean code, dan analisis masalah sistematis. Latar belakang competitive programming membentuk pola pikir analitis dan pendekatan berorientasi efisiensi dalam membangun sistem perangkat lunak yang modular, mudah dibaca, dan maintainable."
+  },
+  "focusStack": {
+    "en": "C/C++ · Competitive Programmer · Backend & Automation",
+    "id": "C/C++ · Competitive Programmer · Backend & Automation"
+  },
+  "resumeUrl": "https://example.com/your-cv.pdf",
+  "heroHighlights": [
+    {
+      "label": {
+        "en": "Software Architecture",
+        "id": "Arsitektur Perangkat Lunak"
+      },
+      "detail": {
+        "en": "Design patterns, layered MVC, and modular system architecture",
+        "id": "Design patterns, layered MVC, dan arsitektur sistem modular"
+      }
+    },
+    {
+      "label": {
+        "en": "Competitive Programming",
+        "id": "Competitive Programming"
+      },
+      "detail": {
+        "en": "ICPC Regional Asia participant, 400+ problems solved",
+        "id": "Peserta ICPC Regional Asia, 400+ soal terselesaikan"
+      }
+    },
+    {
+      "label": {
+        "en": "Development Focus",
+        "id": "Fokus Pengembangan"
+      },
+      "detail": {
+        "en": "Clean code, systematic problem analysis, and scalable solutions",
+        "id": "Clean code, analisis masalah sistematis, dan solusi scalable"
+      }
+    }
+  ],
+  "stats": [
+    {
+      "label": {
+        "en": "Contests tackled",
+        "id": "Kompetisi diikuti"
+      },
+      "value": "10+",
+      "helper": {
+        "en": "OSN, ACM/ICPC, plus internal scrims and showcases",
+        "id": "NOI, ACM/ICPC, plus sparing internal dan showcase"
+      }
+    },
+    {
+      "label": {
+        "en": "Problems solved",
+        "id": "Soal terselesaikan"
+      },
+      "value": "400+",
+      "helper": {
+        "en": "TLX, LeetCode, Codeforces, and others",
+        "id": "TLX, LeetCode, Codeforces, dan lainnya"
+      }
+    },
+    {
+      "label": {
+        "en": "Languages used",
+        "id": "Bahasa yang dikuasai"
+      },
+      "value": "8+",
+      "helper": {
+        "en": "C, C++, Python, JavaScript, Java, plus supporting scripts",
+        "id": "C, C++, Python, JavaScript, Java, plus skrip pendukung"
+      }
+    },
+    {
+      "label": {
+        "en": "Projects delivered",
+        "id": "Proyek selesai"
+      },
+      "value": "10+",
+      "helper": {
+        "en": "School, club, and personal builds",
+        "id": "Proyek sekolah, komunitas, dan proyek pribadi"
+      }
+    }
+  ],
+  "focusAreas": [
+    {
+      "title": {
+        "en": "Competitive programming mindset",
+        "id": "Competitive programming mindset"
+      },
+      "description": {
+        "en": "Apply olympiad-style thinking to daily engineering: test constraints, budget time, and choose clean patterns quickly.",
+        "id": "Pakai pola pikir olimpiade ke engineering harian: uji constraint, atur time budget, dan pilih pola yang rapi dengan cepat."
+      },
+      "items": [
+        {
+          "en": "Contest-grade algorithm reviews",
+          "id": "Review algoritma setingkat kontes"
+        },
+        {
+          "en": "Structured drills and training modules",
+          "id": "Drill terstruktur dan modul latihan"
+        },
+        {
+          "en": "Data-driven retrospectives and scorecards",
+          "id": "Retrospektif berbasis data dan scorecard"
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "Backend & tooling",
+        "id": "Backend & tooling"
+      },
+      "description": {
+        "en": "Build lightweight C/C++ systems with a focus on automation, diagnostics, and developer comfort.",
+        "id": "Membangun sistem C/C++ yang ringan dengan fokus otomasi, diagnostik, dan kenyamanan developer."
+      },
+      "items": [
+        {
+          "en": "CLI and desktop utilities with clear flows",
+          "id": "CLI dan desktop utility dengan alur jelas"
+        },
+        {
+          "en": "Raylib / Qt playgrounds for UI and graphics",
+          "id": "Playground Raylib / Qt untuk UI dan grafis"
+        },
+        {
+          "en": "Structured logging and reporting teams can act on",
+          "id": "Logging dan reporting terstruktur yang mudah ditindak"
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "Mentorship & community",
+        "id": "Mentorship & community"
+      },
+      "description": {
+        "en": "Grow together via Brainware of SMANSA—mentoring juniors, sharing playbooks, and keeping resources open.",
+        "id": "Berkembang bersama lewat Brainware of SMANSA—mentoring junior, berbagi playbook, dan menjaga resource tetap terbuka."
+      },
+      "items": [
+        {
+          "en": "Club leadership & workshops",
+          "id": "Kepemimpinan klub & workshop"
+        },
+        {
+          "en": "Mentoring for NOI hopefuls",
+          "id": "Mentoring untuk calon NOI"
+        },
+        {
+          "en": "Open resources & documentation",
+          "id": "Resource & dokumentasi terbuka"
+        }
+      ]
+    }
+  ],
+  "skillCategories": [
+    {
+      "title": {
+        "en": "Software Engineering",
+        "id": "Rekayasa Perangkat Lunak"
+      },
+      "items": [
+        {
+          "en": "Software architecture & design patterns",
+          "id": "Arsitektur perangkat lunak & design patterns"
+        },
+        {
+          "en": "Full-stack web development (Laravel, Vue.js)",
+          "id": "Pengembangan web full-stack (Laravel, Vue.js)"
+        },
+        {
+          "en": "Database design & advanced SQL",
+          "id": "Desain database & SQL tingkat lanjut"
+        },
+        {
+          "en": "Clean code practices & maintainable systems",
+          "id": "Praktik clean code & sistem maintainable"
+        },
+        {
+          "en": "MVC architecture & layered design",
+          "id": "Arsitektur MVC & desain berlapis"
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "Programming Languages",
+        "id": "Bahasa Pemrograman"
+      },
+      "items": [
+        {
+          "en": "C/C++ (Competitive Programming & Systems)",
+          "id": "C/C++ (Competitive Programming & Sistem)"
+        },
+        {
+          "en": "Java (Desktop Applications & OOP)",
+          "id": "Java (Aplikasi Desktop & OOP)"
+        },
+        {
+          "en": "PHP (Laravel Framework)",
+          "id": "PHP (Framework Laravel)"
+        },
+        {
+          "en": "JavaScript/TypeScript (Vue.js, Node.js)",
+          "id": "JavaScript/TypeScript (Vue.js, Node.js)"
+        },
+        {
+          "en": "Python (Automation & Scripting)",
+          "id": "Python (Automation & Scripting)"
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "Algorithms & Problem Solving",
+        "id": "Algoritma & Problem Solving"
+      },
+      "items": [
+        {
+          "en": "Advanced data structures & algorithms",
+          "id": "Struktur data & algoritma tingkat lanjut"
+        },
+        {
+          "en": "Dynamic programming & graph algorithms",
+          "id": "Dynamic programming & algoritma graf"
+        },
+        {
+          "en": "Complexity analysis & optimization",
+          "id": "Analisis kompleksitas & optimasi"
+        },
+        {
+          "en": "Competitive programming (ICPC, OSN)",
+          "id": "Competitive programming (ICPC, OSN)"
+        }
+      ]
+    },
+    {
+      "title": {
+        "en": "Tools & Technologies",
+        "id": "Tools & Teknologi"
+      },
+      "items": [
+        {
+          "en": "Git & GitHub (Version Control)",
+          "id": "Git & GitHub (Version Control)"
+        },
+        {
+          "en": "MySQL, PostgreSQL, SQLite",
+          "id": "MySQL, PostgreSQL, SQLite"
+        },
+        {
+          "en": "JavaFX, Qt (Desktop Development)",
+          "id": "JavaFX, Qt (Pengembangan Desktop)"
+        },
+        {
+          "en": "Raylib (Game Development)",
+          "id": "Raylib (Pengembangan Game)"
+        },
+        {
+          "en": "Unit Testing & Code Quality Tools",
+          "id": "Unit Testing & Tools Kualitas Kode"
+        }
+      ]
+    }
+  ],
+  "toolbox": [
+    "C",
+    "C++",
+    "Python",
+    "JavaScript",
+    "Raylib",
+    "Qt",
+    "Node.js",
+    "Express",
+    "Git & GitHub",
+    "MySQL"
+  ]
+}

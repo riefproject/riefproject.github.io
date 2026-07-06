@@ -1,0 +1,23 @@
+{
+  "type": "certifications",
+  "title": {
+    "en": "Go (Basic)",
+    "id": "Go (Basic)"
+  },
+  "issuer": {
+    "en": "HackerRank",
+    "id": "HackerRank"
+  },
+  "date": "2025",
+  "highlight": {
+    "en": "Programming Language",
+    "id": "Bahasa Pemrograman"
+  },
+  "link": "https://www.hackerrank.com/",
+  "logo": "/img/certs/hackerrank.png",
+  "credentialId": "E49F9D4AA14C",
+  "credentialUrl": "https://www.hackerrank.com/certificates/E49F9D4AA14C",
+  "certificateImage": [
+    "/img/certs/HackerRank_Go.png"
+  ]
+}

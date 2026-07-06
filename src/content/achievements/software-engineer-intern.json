@@ -1,0 +1,23 @@
+{
+  "type": "certifications",
+  "title": {
+    "en": "Software Engineer Intern",
+    "id": "Software Engineer Intern"
+  },
+  "issuer": {
+    "en": "HackerRank",
+    "id": "HackerRank"
+  },
+  "date": "2025",
+  "highlight": {
+    "en": "Role Certificate",
+    "id": "Sertifikat Role"
+  },
+  "link": "https://www.hackerrank.com/",
+  "logo": "/img/certs/hackerrank.png",
+  "credentialId": "B182F21F4D48",
+  "credentialUrl": "https://www.hackerrank.com/certificates/b182f21f4d48",
+  "certificateImage": [
+    "/img/certs/HackerRank_SEI.png"
+  ]
+}

@@ -10,26 +10,44 @@ import AchievementsSection from '../components/sections/AchievementsSection.astr
 import EducationSection from '../components/sections/EducationSection.astro';
 import ContactSection from '../components/sections/ContactSection.astro';
 import CPProfilesSection from '../components/sections/CPProfilesSection.astro';
-import {
-	profile,
-	heroHighlights,
-	stats,
-	cpProfiles,
-	focusAreas,
-	skillCategories,
-	toolbox,
-} from '../data/profile';
-import { socials } from '../data/social';
-import { stackShowcase } from '../data/stack-showcase';
-import {
-	workExperiences,
-	organizationalExperiences,
-	personalExperiences,
-} from '../data/experiences';
-import { projects } from '../data/projects';
-import { achievements, achievementTabs } from '../data/achievements';
-import { education } from '../data/education';
-import { contact } from '../data/contact';
+import { getCollection, getEntry } from 'astro:content';
+
+const projectsCollection = await getCollection('projects');
+const projects = projectsCollection.map(p => p.data).sort((a, b) => b.year - a.year);
+
+const exps = await getCollection('experiences');
+const workExperiences = exps.filter(e => e.data.type === 'work').map(e => e.data);
+const organizationalExperiences = exps.filter(e => e.data.type === 'organizational').map(e => e.data);
+const personalExperiences = exps.filter(e => e.data.type === 'personal').map(e => e.data);
+
+const achievementsCollection = await getCollection('achievements');
+const achievements = achievementsCollection.map(a => a.data);
+
+const eduCollection = await getCollection('education');
+const education = eduCollection.map(e => e.data);
+
+const cpProfilesCollection = await getCollection('cp-profiles');
+const cpProfiles = cpProfilesCollection.map(c => c.data);
+
+const stackCollection = await getCollection('stack-showcase');
+const stackShowcase = stackCollection.map(s => s.data);
+
+const profileEntry = await getEntry('singletons', 'profile');
+const { name, role, tagline, location, availability, intro, bio, focusStack, heroHighlights, stats, focusAreas, skillCategories, toolbox } = profileEntry.data;
+const profile = { name, role, tagline, location, availability, intro, bio, focusStack };
+
+const contactEntry = await getEntry('singletons', 'contact');
+const contact = contactEntry.data;
+
+const socialEntry = await getEntry('singletons', 'social');
+const socials = socialEntry.data.socials;
+
+// We need achievementTabs fallback since it was in data
+const achievementTabs = [
+  { id: 'competitions', name: { en: 'Competitions', id: 'Kompetisi' } },
+  { id: 'certifications', name: { en: 'Certifications', id: 'Sertifikasi' } },
+  { id: 'bootcamps', name: { en: 'Bootcamps', id: 'Bootcamp' } }
+];
 ---
 
 <Layout>

@@ -14,8 +14,9 @@ export default {
         border: "var(--border)",
       },
       fontFamily: {
-        display: ['"Space Grotesk"', '"Inter"', "system-ui", "sans-serif"],
+        display: ['"JetBrains Mono"', '"Inter"', "system-ui", "sans-serif"],
         sans: ['"Inter"', "system-ui", "sans-serif"],
+        mono: ['"JetBrains Mono"', 'monospace'],
       },
       boxShadow: {
         soft: "0 20px 70px rgba(15, 23, 42, 0.45)",

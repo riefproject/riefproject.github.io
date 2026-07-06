@@ -1,47 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  font-family: "Space Grotesk", "Inter", "Segoe UI", system-ui, -apple-system,
-    BlinkMacSystemFont, sans-serif;
-  --bg: #f6f8fb;
-  --bg-soft: #e3edff;
-  --bg-elevated: rgba(255, 255, 255, 0.9);
-  --surface-muted: rgba(14, 165, 233, 0.08);
-  --text: #0b1224;
-  --muted: #55607a;
-  --accent: #0ea5e9;
-  --accent-strong: #0284c7;
-  --border: rgba(11, 18, 36, 0.12);
-  --shadow-soft: 0 18px 60px rgba(11, 18, 36, 0.14);
-  --sidebar-bg: rgba(247, 250, 255, 0.92);
-  --chip-bg: rgba(14, 165, 233, 0.12);
-  --social-bg: rgba(14, 165, 233, 0.1);
-  --gradient-top: rgba(14, 165, 233, 0.14);
-  --bg-subtle: rgba(14, 165, 233, 0.08);
+  color-scheme: dark;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  
+  /* The Interactive Lab - Deep Dark IDE Theme */
+  --bg: #0d1117;
+  --bg-soft: #161b22;
+  --bg-elevated: rgba(22, 27, 34, 0.85);
+  --surface-muted: rgba(0, 255, 204, 0.05);
+  --text: #c9d1d9;
+  --muted: #8b949e;
+  --accent: #00ffcc; /* Cyber Blue / Neon */
+  --accent-strong: #00ccaa;
+  --border: #30363d;
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.8);
+  --sidebar-bg: rgba(13, 17, 23, 0.95);
+  --chip-bg: rgba(0, 255, 204, 0.1);
+  --social-bg: rgba(0, 255, 204, 0.08);
+  --gradient-top: rgba(0, 255, 204, 0.15);
+  --bg-subtle: rgba(255, 255, 255, 0.03);
 }
 
-:root.dark {
-  color-scheme: dark;
-  --bg: #050912;
-  --bg-soft: #0b1224;
-  --bg-elevated: rgba(9, 14, 26, 0.92);
-  --surface-muted: rgba(255, 255, 255, 0.05);
-  --text: #e6edf7;
-  --muted: #a0aec0;
-  --accent: #38bdf8;
-  --accent-strong: #22d3ee;
-  --border: rgba(255, 255, 255, 0.08);
-  --shadow-soft: 0 20px 60px rgba(0, 0, 0, 0.42);
-  --sidebar-bg: rgba(5, 9, 18, 0.95);
-  --chip-bg: rgba(34, 211, 238, 0.08);
-  --social-bg: rgba(56, 189, 248, 0.08);
-  --gradient-top: rgba(34, 211, 238, 0.14);
-  --bg-subtle: rgba(255, 255, 255, 0.05);
+/* Force dark theme for The Interactive Lab */
+:root.light {
+  color-scheme: light;
+  --bg: #f0f2f5;
+  --bg-soft: #ffffff;
+  --bg-elevated: rgba(255, 255, 255, 0.9);
+  --surface-muted: rgba(0, 204, 170, 0.05);
+  --text: #0d1117;
+  --muted: #57606a;
+  --accent: #008877;
+  --accent-strong: #006655;
+  --border: #d0d7de;
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --sidebar-bg: rgba(240, 242, 245, 0.95);
+  --chip-bg: rgba(0, 204, 170, 0.1);
+  --social-bg: rgba(0, 204, 170, 0.08);
+  --gradient-top: rgba(0, 204, 170, 0.15);
+  --bg-subtle: rgba(0, 0, 0, 0.03);
 }
 
 *,
@@ -94,6 +96,12 @@ a {
 p {
   margin: 0;
   color: var(--muted);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "JetBrains Mono", monospace;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
 img {

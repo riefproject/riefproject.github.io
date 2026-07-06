@@ -1,0 +1,41 @@
+{
+  "company": "Brainware of SMANSA (BIoS)",
+  "logo": "/img/biossmansa.png",
+  "role": {
+    "en": "Head of Programming Division",
+    "id": "Kepala Divisi Programming"
+  },
+  "period": {
+    "en": "2022 — 2023",
+    "id": "2022 — 2023"
+  },
+  "summary": {
+    "en": "Led school computer club programming division, coordinating training programs and member development initiatives.",
+    "id": "Memimpin divisi pemrograman klub komputer sekolah, mengkoordinasikan program pelatihan dan inisiatif pengembangan anggota."
+  },
+  "stack": [
+    "Leadership",
+    "Curriculum Design",
+    "C/C++",
+    "Mentoring"
+  ],
+  "achievements": [
+    {
+      "en": "Coordinated programming activities and collaborative projects among club members.",
+      "id": "Mengkoordinasikan kegiatan pemrograman dan proyek bersama anggota klub."
+    },
+    {
+      "en": "Developed and executed training programs covering basic to advanced programming concepts.",
+      "id": "Menyusun dan menjalankan program pelatihan pemrograman dasar hingga lanjutan."
+    },
+    {
+      "en": "Mentored members in project development and problem-solving skill enhancement.",
+      "id": "Membimbing anggota dalam pengembangan proyek dan peningkatan kemampuan problem solving."
+    },
+    {
+      "en": "Presented project results at school events to promote collaboration and innovation.",
+      "id": "Mempresentasikan hasil proyek pada kegiatan sekolah untuk mendorong kolaborasi dan inovasi."
+    }
+  ],
+  "type": "organizational"
+}

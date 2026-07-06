@@ -1,0 +1,17 @@
+{
+  "type": "bootcamps",
+  "title": {
+    "en": "Code Generation and Optimization",
+    "id": "Code Generation and Optimization"
+  },
+  "issuer": {
+    "en": "IBM x Hacktiv8",
+    "id": "IBM x Hacktiv8"
+  },
+  "date": "2025",
+  "credentialUrl": "https://www.credly.com/badges/2b415526-526c-4cdb-a016-753936d0f07b/",
+  "logo": "/img/ibm.png",
+  "certificateImage": [
+    "/img/certs/courses/IBM-CGO.jpeg"
+  ]
+}

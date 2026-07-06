@@ -1,0 +1,23 @@
+{
+  "type": "certifications",
+  "title": {
+    "en": "Java (Basic)",
+    "id": "Java (Basic)"
+  },
+  "issuer": {
+    "en": "HackerRank",
+    "id": "HackerRank"
+  },
+  "date": "2025",
+  "highlight": {
+    "en": "Programming Language",
+    "id": "Bahasa Pemrograman"
+  },
+  "link": "https://www.hackerrank.com/",
+  "logo": "/img/certs/hackerrank.png",
+  "credentialId": "C7E8AE598DF0",
+  "credentialUrl": "https://www.hackerrank.com/certificates/c7e8ae598df0",
+  "certificateImage": [
+    "/img/certs/HackerRank_Java.png"
+  ]
+}

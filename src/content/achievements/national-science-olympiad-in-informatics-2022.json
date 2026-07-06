@@ -1,0 +1,23 @@
+{
+  "type": "competitions",
+  "title": {
+    "en": "National Science Olympiad in Informatics 2022",
+    "id": "Olimpiade Sains Nasional Informatika 2022"
+  },
+  "issuer": {
+    "en": "National Achievement Center (Puspresnas)",
+    "id": "Pusat Prestasi Nasional (Puspresnas)"
+  },
+  "date": "2022",
+  "highlight": {
+    "en": "District Champion · Provincial Contestant",
+    "id": "Juara Kabupaten · Peserta Provinsi"
+  },
+  "link": "https://puspresnas.kemdikbud.go.id/",
+  "logo": "/img/osn.png",
+  "certificateImage": [
+    "/img/certs/competitions/osnk22.png",
+    "/img/certs/competitions/osnp22.png"
+  ],
+  "credentialUrl": "https://simt.kemendikdasmen.go.id/resume?id=dPwcK-slbCWHKUBlgc1IsA&name=arief-f-sa-wijaya"
+}

@@ -1,0 +1,48 @@
+{
+  "title": {
+    "en": "Competitive Programming Repository",
+    "id": "Competitive Programming Repository"
+  },
+  "description": {
+    "en": "A living repository of solutions, notes, and templates from various judges.",
+    "id": "Repo hidup berisi solusi, catatan, dan template dari berbagai judge."
+  },
+  "impact": {
+    "en": "Used as a reference for mentees and club practice sessions.",
+    "id": "Jadi referensi untuk mentee dan sesi latihan klub."
+  },
+  "year": 2021,
+  "category": {
+    "en": "Community & Learning",
+    "id": "Komunitas & Pembelajaran"
+  },
+  "categoryKey": "community",
+  "stack": [
+    "C++",
+    "Python",
+    "Problem Notes"
+  ],
+  "highlights": [
+    {
+      "en": "Covers TLX, Codeforces, LeetCode, and more.",
+      "id": "Mencakup TLX, Codeforces, LeetCode, dan lainnya."
+    },
+    {
+      "en": "Clean, well-commented implementations you can reuse.",
+      "id": "Implementasi bersih dengan komentar yang mudah digunakan ulang."
+    },
+    {
+      "en": "Includes micro-challenges for mentees.",
+      "id": "Memuat micro-challenge untuk mentee."
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "View repository",
+        "id": "Lihat repositori"
+      },
+      "url": "https://github.com/riefproject/Competitive-Programming"
+    }
+  ]
+}

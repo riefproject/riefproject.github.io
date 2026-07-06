@@ -1,0 +1,60 @@
+{
+  "title": {
+    "en": "AlpenliCloud File Manager",
+    "id": "AlpenliCloud File Manager"
+  },
+  "img": "/img/projects/Alpenlicloud.png",
+  "description": {
+    "en": "Cross-platform GUI file manager inspired by Windows Explorer, built in C with raylib/raygui and 4 core ADTs (tree, stack, queue, linked list).",
+    "id": "File manager GUI lintas OS terinspirasi Windows Explorer, dibangun dengan C, raylib/raygui, dan 4 ADT utama (tree, stack, queue, linked list)."
+  },
+  "impact": {
+    "en": "Shipped a desktop file manager for 3 OSes with 10+ keyboard shortcuts, undo/redo, trash recovery, and bulk-operation progress feedback.",
+    "id": "Merilis file manager desktop untuk 3 OS dengan 10+ shortcut keyboard, undo/redo, trash recovery, dan progress feedback untuk operasi massal."
+  },
+  "year": 2025,
+  "category": {
+    "en": "Desktop Application",
+    "id": "Aplikasi Desktop"
+  },
+  "categoryKey": "desktop-app",
+  "featured": true,
+  "stack": [
+    "C",
+    "raylib",
+    "raygui",
+    "Data Structures",
+    "Platform APIs"
+  ],
+  "highlights": [
+    {
+      "en": "Non-binary tree powers directory hierarchy and sidebar navigation.",
+      "id": "Non-binary tree menggerakkan hierarki direktori dan navigasi sidebar."
+    },
+    {
+      "en": "Stack-based undo/redo across create, delete, rename, and paste actions.",
+      "id": "Undo/redo berbasis stack untuk create, delete, rename, dan paste."
+    },
+    {
+      "en": "Queue-based clipboard workflow with progress UI for 10+ items.",
+      "id": "Alur clipboard berbasis queue dengan UI progress untuk 10+ item."
+    },
+    {
+      "en": "Custom window chrome with resizable layout and modern toolbar.",
+      "id": "Window chrome kustom dengan layout resizable dan toolbar modern."
+    },
+    {
+      "en": "Cross-platform build flow with bundled raylib and system fallback.",
+      "id": "Build lintas OS dengan raylib bundling dan fallback ke sistem."
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "View repository",
+        "id": "Lihat repositori"
+      },
+      "url": "https://github.com/riefproject/AlpenliCloud"
+    }
+  ]
+}

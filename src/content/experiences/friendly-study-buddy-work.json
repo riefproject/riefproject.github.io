@@ -1,0 +1,41 @@
+{
+  "company": "Friendly Study Buddy",
+  "logo": "/img/friendlystudybuddy.png",
+  "role": {
+    "en": "Coding & Informatics Tutor",
+    "id": "Tutor Coding & Informatika"
+  },
+  "period": {
+    "en": "Jan 2026 — Now",
+    "id": "Jan 2026 — Sekarang"
+  },
+  "summary": {
+    "en": "Teaching coding and informatics fundamentals in a part-time remote role, with personalized guidance for learners from diverse ages and backgrounds.",
+    "id": "Mengajar dasar coding dan informatika secara paruh waktu jarak jauh, dengan pendampingan yang dipersonalisasi untuk pelajar dari beragam usia dan latar belakang."
+  },
+  "stack": [
+    "Project-Based Learning",
+    "Computational Thinking",
+    "Problem Solving",
+    "Mentoring"
+  ],
+  "achievements": [
+    {
+      "en": "Designed adaptive learning paths based on each learner's goals, pace, and prior experience.",
+      "id": "Menyusun jalur belajar adaptif berdasarkan tujuan, kecepatan belajar, dan pengalaman awal tiap pelajar."
+    },
+    {
+      "en": "Applied project-based learning to guide learners in building contextual real-world projects while strengthening programming fundamentals.",
+      "id": "Menerapkan project-based learning untuk membimbing pelajar membangun proyek kontekstual dunia nyata sambil memperkuat fundamental pemrograman."
+    },
+    {
+      "en": "Improved learners' problem-solving, computational thinking, and logical reasoning through practical exercises.",
+      "id": "Meningkatkan kemampuan problem solving, computational thinking, dan penalaran logis melalui latihan yang praktis."
+    },
+    {
+      "en": "Encouraged independent and collaborative exploration to prepare learners for self-directed study, automation tasks, and professional use cases.",
+      "id": "Mendorong eksplorasi mandiri maupun kolaboratif untuk mempersiapkan pelajar ke pembelajaran mandiri, tugas otomasi, dan kebutuhan profesional."
+    }
+  ],
+  "type": "work"
+}

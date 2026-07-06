@@ -1,0 +1,56 @@
+{
+  "title": {
+    "en": "Integrated Sharia Cooperative System",
+    "id": "Sistem Koperasi Syariah Terintegrasi"
+  },
+  "img": "/img/projects/KopSy.png",
+  "description": {
+    "en": "Full-stack integrated sharia cooperative application with complex domain logic handling savings, murabahah-based installments, POS cash system, and inventory management.",
+    "id": "Aplikasi koperasi syariah terintegrasi fullstack dengan logika domain kompleks yang menangani simpanan, cicilan berbasis murabahah, sistem POS cash, dan manajemen stok."
+  },
+  "impact": {
+    "en": "Implemented feature-based end-to-end development approach ensuring consistent data flow across financial and inventory modules.",
+    "id": "Mengimplementasikan pendekatan pengembangan end-to-end berbasis fitur yang memastikan aliran data konsisten lintas modul keuangan dan inventori."
+  },
+  "year": 2025,
+  "category": {
+    "en": "Enterprise Web Application",
+    "id": "Aplikasi Web Enterprise"
+  },
+  "categoryKey": "enterprise",
+  "featured": true,
+  "stack": [
+    "Laravel",
+    "Vue.js",
+    "PHP",
+    "JavaScript",
+    "PostgreSQL"
+  ],
+  "highlights": [
+    {
+      "en": "Complex domain modeling for sharia-compliant financial operations.",
+      "id": "Pemodelan domain kompleks untuk operasi keuangan sesuai syariah."
+    },
+    {
+      "en": "Multi-role access control with centralized authorization system.",
+      "id": "Kontrol akses multi-role dengan sistem otorisasi terpusat."
+    },
+    {
+      "en": "Synchronized data structure across financial and inventory modules.",
+      "id": "Struktur data tersinkronisasi lintas modul keuangan dan inventori."
+    },
+    {
+      "en": "Feature-based fullstack development for maintainable codebase.",
+      "id": "Pengembangan fullstack berbasis fitur untuk kode yang maintainable."
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "View repository",
+        "id": "Lihat repositori"
+      },
+      "url": "https://github.com/riefproject/Koperasi-Syariah"
+    }
+  ]
+}

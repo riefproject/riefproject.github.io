@@ -1,0 +1,60 @@
+{
+  "title": {
+    "en": "Productivity Application (Java Desktop)",
+    "id": "Productivity Application (Java Desktop)"
+  },
+  "img": "/img/projects/Pomodone.png",
+  "description": {
+    "en": "Cross-platform desktop productivity application with layered MVC architecture, implementing multiple design patterns for modularity and scalability.",
+    "id": "Aplikasi desktop produktivitas cross-platform dengan arsitektur layered MVC, mengimplementasikan berbagai design pattern untuk modularitas dan skalabilitas."
+  },
+  "impact": {
+    "en": "Delivered cross-platform installable application with comprehensive testing and database fallback system ensuring data persistence across operating systems.",
+    "id": "Menghasilkan aplikasi installable cross-platform dengan testing komprehensif dan sistem fallback database yang memastikan persistensi data lintas sistem operasi."
+  },
+  "year": 2025,
+  "category": {
+    "en": "Desktop Application",
+    "id": "Aplikasi Desktop"
+  },
+  "categoryKey": "desktop-app",
+  "featured": true,
+  "stack": [
+    "Java",
+    "JavaFX",
+    "PostgreSQL",
+    "SQLite",
+    "Design Patterns"
+  ],
+  "highlights": [
+    {
+      "en": "Layered MVC architecture with strict separation of concerns.",
+      "id": "Arsitektur layered MVC dengan separation of concerns yang ketat."
+    },
+    {
+      "en": "Multiple design patterns for maintainable and scalable codebase.",
+      "id": "Berbagai design pattern untuk kode yang maintainable dan scalable."
+    },
+    {
+      "en": "PostgreSQL with SQLite fallback stored in cross-platform user directory.",
+      "id": "PostgreSQL dengan fallback SQLite tersimpan di direktori pengguna cross-platform."
+    },
+    {
+      "en": "Comprehensive unit testing and structured input-output validation.",
+      "id": "Unit testing komprehensif dan validasi input-output terstruktur."
+    },
+    {
+      "en": "Focus on UI/UX readability and user workflow optimization.",
+      "id": "Fokus pada keterbacaan UI/UX dan optimasi alur pengguna."
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "View repository",
+        "id": "Lihat repositori"
+      },
+      "url": "https://github.com/riefproject/pomodone"
+    }
+  ]
+}

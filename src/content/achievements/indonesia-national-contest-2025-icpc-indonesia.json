@@ -1,0 +1,24 @@
+{
+  "type": "competitions",
+  "title": {
+    "en": "Indonesia National Contest 2025 (ICPC Indonesia)",
+    "id": "Indonesia National Contest 2025 (ICPC Indonesia)"
+  },
+  "issuer": {
+    "en": "ICPC Indonesia · BINUS University",
+    "id": "ICPC Indonesia · BINUS University"
+  },
+  "date": "2025",
+  "highlight": {
+    "en": "Honorable Mention · Qualified to ICPC Regional Asia",
+    "id": "Honorable Mention · Lolos ke ICPC Regional Asia"
+  },
+  "link": "https://icpc.global/",
+  "logo": "/img/icpc.png",
+  "certificateImage": [
+    "/img/certs/competitions/inc25-me.png",
+    "/img/certs/competitions/inc25-team.png"
+  ],
+  "credentialId": "2MH9AC3UUDJ6",
+  "credentialUrl": "https://icpc.global/ICPCID/2MH9AC3UUDJ6"
+}

@@ -1,0 +1,10 @@
+{
+  "platform": "LeetCode",
+  "handle": "your-handle",
+  "url": "https://leetcode.com/your-handle",
+  "logo": "/img/leetcode.png",
+  "note": {
+    "en": "Daily drills for data structures and algorithms.",
+    "id": "Latihan harian struktur data dan algoritma."
+  }
+}

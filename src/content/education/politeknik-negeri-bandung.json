@@ -1,0 +1,23 @@
+{
+  "institution": "Politeknik Negeri Bandung",
+  "logo": "/img/polban.png",
+  "program": {
+    "en": "D3 Informatics Engineering",
+    "id": "D3 Teknik Informatika"
+  },
+  "period": "2024 — Sekarang",
+  "details": [
+    {
+      "en": "Focusing on software architecture, clean code practices, and systematic problem analysis.",
+      "id": "Fokus pada arsitektur perangkat lunak, praktik clean code, dan analisis masalah sistematis."
+    },
+    {
+      "en": "Active member of Himpunan Mahasiswa Komputer, supporting academic programs and competition management.",
+      "id": "Anggota aktif Himpunan Mahasiswa Komputer, mendukung program akademik dan manajemen kompetisi."
+    },
+    {
+      "en": "Developing enterprise applications with complex domain logic and layered architectures.",
+      "id": "Mengembangkan aplikasi enterprise dengan logika domain kompleks dan arsitektur berlapis."
+    }
+  ]
+}

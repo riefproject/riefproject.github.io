@@ -1,0 +1,49 @@
+{
+  "title": {
+    "en": "Bioskopku CLI Ticketing",
+    "id": "Bioskopku CLI Ticketing"
+  },
+  "img": "/img/projects/Bioskopku.png",
+  "description": {
+    "en": "CLI cinema ticketing system in pure C with real-time validation and role-based access controls, optimized for terminal workflows.",
+    "id": "Sistem tiket bioskop CLI berbasis C murni dengan validasi realtime dan kontrol akses berbasis peran, dioptimalkan untuk alur terminal."
+  },
+  "impact": {
+    "en": "Reduced seat-assignment errors in class projects through validation system and structured CSV reporting.",
+    "id": "Mengurangi kesalahan assign kursi di proyek kuliah melalui sistem validasi dan pelaporan CSV terstruktur."
+  },
+  "year": 2024,
+  "category": {
+    "en": "CLI Tool",
+    "id": "CLI Tool"
+  },
+  "categoryKey": "cli",
+  "stack": [
+    "C",
+    "Modular Architecture",
+    "CSV Storage"
+  ],
+  "highlights": [
+    {
+      "en": "Modular seat management with clean architecture and clear structure.",
+      "id": "Manajemen kursi modular dengan arsitektur bersih dan struktur jelas."
+    },
+    {
+      "en": "Multi-role access controls (admin, manager, staff, customer).",
+      "id": "Kontrol akses multi-role (admin, manager, staff, customer)."
+    },
+    {
+      "en": "Automated scheduling, validation, and structured CSV reports.",
+      "id": "Penjadwalan otomatis, validasi, dan laporan CSV terstruktur."
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "View repository",
+        "id": "Lihat repositori"
+      },
+      "url": "https://github.com/riefproject/21IF1001-DDPFinalProject-Bioskopku"
+    }
+  ]
+}

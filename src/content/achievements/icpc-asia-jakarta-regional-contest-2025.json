@@ -1,0 +1,24 @@
+{
+  "type": "competitions",
+  "title": {
+    "en": "ICPC Asia Jakarta Regional Contest 2025",
+    "id": "ICPC Asia Jakarta Regional Contest 2025"
+  },
+  "issuer": {
+    "en": "ICPC Foundation · BINUS University",
+    "id": "ICPC Foundation · BINUS University"
+  },
+  "date": "2025",
+  "highlight": {
+    "en": "Honorable Mention",
+    "id": "Honorable Mention"
+  },
+  "link": "https://icpc.global/",
+  "logo": "/img/icpc.png",
+  "certificateImage": [
+    "/img/certs/competitions/icpc25-rc-me.png",
+    "/img/certs/competitions/icpc25-rc-team.png"
+  ],
+  "credentialId": "2MH9AC3UUDJ6",
+  "credentialUrl": "https://icpc.global/ICPCID/2MH9AC3UUDJ6"
+}

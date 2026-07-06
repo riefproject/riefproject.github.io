@@ -1,0 +1,54 @@
+{
+  "title": {
+    "en": "Block Shooter Game",
+    "id": "Block Shooter Game"
+  },
+  "img": "/img/projects/BlockShooter.png",
+  "description": {
+    "en": "2D arcade shooter game built with C and Raylib, implementing low-level data structures, game loop mechanics, and persistent game state management.",
+    "id": "Game arcade shooter 2D yang dibangun dengan C dan Raylib, mengimplementasikan struktur data tingkat rendah, mekanika game loop, dan manajemen state permainan persisten."
+  },
+  "impact": {
+    "en": "Led team development focusing on object behavior design, game loop optimization, and user experience management throughout the development cycle.",
+    "id": "Memimpin pengembangan tim dengan fokus pada desain perilaku objek, optimasi game loop, dan manajemen pengalaman pengguna sepanjang siklus pengembangan."
+  },
+  "year": 2025,
+  "category": {
+    "en": "Game Project",
+    "id": "Proyek Game"
+  },
+  "categoryKey": "game",
+  "featured": true,
+  "stack": [
+    "C",
+    "Raylib",
+    "Low-Level Programming"
+  ],
+  "highlights": [
+    {
+      "en": "Manual implementation of data structures at low level.",
+      "id": "Implementasi manual struktur data di tingkat rendah."
+    },
+    {
+      "en": "Optimized game loop for responsive gameplay and object behavior.",
+      "id": "Game loop teroptimasi untuk gameplay responsif dan perilaku objek."
+    },
+    {
+      "en": "Persistent game state and local high-score tracking system.",
+      "id": "State permainan persisten dan sistem tracking high-score lokal."
+    },
+    {
+      "en": "Team collaboration and leadership in game development workflow.",
+      "id": "Kolaborasi tim dan kepemimpinan dalam alur pengembangan game."
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "View repository",
+        "id": "Lihat repositori"
+      },
+      "url": "https://github.com/riefproject/21IF009-Project2-A5"
+    }
+  ]
+}

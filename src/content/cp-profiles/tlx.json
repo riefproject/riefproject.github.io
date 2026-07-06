@@ -1,0 +1,10 @@
+{
+  "platform": "TLX",
+  "handle": "your-handle",
+  "url": "https://tlx.toki.id/users/your-handle",
+  "logo": "/img/tlx.png",
+  "note": {
+    "en": "Practice sets and local contests.",
+    "id": "Latihan set dan kontes lokal."
+  }
+}

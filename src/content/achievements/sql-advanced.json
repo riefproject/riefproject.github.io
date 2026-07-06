@@ -1,0 +1,23 @@
+{
+  "type": "certifications",
+  "title": {
+    "en": "SQL (Advanced)",
+    "id": "SQL (Advanced)"
+  },
+  "issuer": {
+    "en": "HackerRank",
+    "id": "HackerRank"
+  },
+  "date": "2025",
+  "highlight": {
+    "en": "Advanced Level",
+    "id": "Level Advanced"
+  },
+  "link": "https://www.hackerrank.com/",
+  "logo": "/img/certs/hackerrank.png",
+  "credentialId": "64462224B762",
+  "credentialUrl": "https://www.hackerrank.com/certificates/64462224b762",
+  "certificateImage": [
+    "/img/certs/HackerRank_SQL.png"
+  ]
+}

@@ -54,33 +54,55 @@ const { profile, focusAreas } = Astro.props as AboutProps;
 
 <style>
 	.about__intro h2 {
-		margin: 0 0 0.75rem;
-		font-size: clamp(2rem, 4svw, 2.4rem);
+		font-family: inherit;
+		margin: 0 0 1rem;
+		font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		color: var(--text);
+	}
+
+	.about__intro p {
+		color: var(--muted);
+		line-height: 1.7;
+		font-size: 1rem;
 	}
 
 	.about__areas {
-		margin-top: 1.5rem;
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		margin-top: 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 	}
 
 	.about__areas article h3 {
+		font-family: inherit;
 		margin: 0 0 0.5rem;
-		font-size: 1.2rem;
+		font-size: 1.15rem;
+		font-weight: 600;
+		color: var(--text);
+	}
+
+	.about__areas article p {
+		color: var(--muted);
+		font-size: 0.95rem;
+		line-height: 1.6;
 	}
 
 	.about__areas ul {
 		padding-left: 1.1rem;
 		margin: 0.75rem 0 0;
 		color: var(--muted);
+		font-size: 0.9rem;
+		line-height: 1.6;
 	}
 
 	.about__areas li {
-		margin-bottom: 0.3rem;
+		margin-bottom: 0.25rem;
 	}
 
 	.about__availability {
 		color: var(--muted);
-		font-size: 0.95rem;
-		margin-top: 0.75rem;
+		font-size: 0.9rem;
+		margin-top: 1rem;
 	}
 </style>

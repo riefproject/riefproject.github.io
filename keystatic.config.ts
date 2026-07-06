@@ -7,12 +7,23 @@ const localeText = (label: string) => fields.object({
 
 export default config({
   storage: { kind: 'local' },
+  ui: {
+    brand: {
+      name: 'Portfolio CMS',
+    },
+    navigation: {
+      'Content Management': ['projects', 'experiences', 'achievements', 'education'],
+      'Skills & Profiles': ['stackShowcase', 'cpProfiles'],
+      'Site Settings': ['layout', 'profile', 'contact', 'social'],
+    },
+  },
   collections: {
     projects: collection({
       label: 'Projects',
       slugField: 'slug',
       path: 'src/content/projects/*',
       format: { data: 'json' },
+      previewUrl: '/projects',
       schema: {
         slug: fields.text({ label: 'Slug' }),
         title: localeText('Title'),
@@ -40,6 +51,7 @@ export default config({
       slugField: 'slug',
       path: 'src/content/experiences/*',
       format: { data: 'json' },
+      previewUrl: '/',
       schema: {
         slug: fields.text({ label: 'Slug' }),
         type: fields.select({
@@ -69,6 +81,7 @@ export default config({
       slugField: 'slug',
       path: 'src/content/achievements/*',
       format: { data: 'json' },
+      previewUrl: '/',
       schema: {
         slug: fields.text({ label: 'Slug' }),
         type: fields.select({
@@ -104,6 +117,7 @@ export default config({
       slugField: 'slug',
       path: 'src/content/education/*',
       format: { data: 'json' },
+      previewUrl: '/',
       schema: {
         slug: fields.text({ label: 'Slug' }),
         institution: fields.text({ label: 'Institution' }),
@@ -122,6 +136,7 @@ export default config({
       slugField: 'slug',
       path: 'src/content/cp-profiles/*',
       format: { data: 'json' },
+      previewUrl: '/',
       schema: {
         slug: fields.text({ label: 'Slug' }),
         platform: fields.text({ label: 'Platform' }),
@@ -140,6 +155,7 @@ export default config({
       slugField: 'slug',
       path: 'src/content/stack-showcase/*',
       format: { data: 'json' },
+      previewUrl: '/',
       schema: {
         slug: fields.text({ label: 'Slug' }),
         name: fields.text({ label: 'Name' }),
@@ -162,6 +178,7 @@ export default config({
       label: 'Profile & Settings',
       path: 'src/content/singletons/profile',
       format: { data: 'json' },
+      previewUrl: '/',
       schema: {
         name: fields.text({ label: 'Name' }),
         role: localeText('Role'),
@@ -206,6 +223,7 @@ export default config({
       label: 'Contact Information',
       path: 'src/content/singletons/contact',
       format: { data: 'json' },
+      previewUrl: '/',
       schema: {
         email: fields.text({ label: 'Email' }),
         message: localeText('Message'),
@@ -216,6 +234,7 @@ export default config({
       label: 'Social Links',
       path: 'src/content/singletons/social',
       format: { data: 'json' },
+      previewUrl: '/',
       schema: {
         socials: fields.array(
           fields.object({
@@ -224,6 +243,26 @@ export default config({
             hint: fields.text({ label: 'Hint' })
           }),
           { label: 'Socials', itemLabel: p => p.fields.label.value }
+        )
+      }
+    }),
+    layout: singleton({
+      label: 'Homepage Layout (Sorting)',
+      path: 'src/content/singletons/layout',
+      format: { data: 'json' },
+      previewUrl: '/',
+      schema: {
+        projectsOrder: fields.array(
+          fields.relationship({ label: 'Project', collection: 'projects' }),
+          { label: 'Featured Projects Order', itemLabel: p => p.value || 'Project' }
+        ),
+        experiencesOrder: fields.array(
+          fields.relationship({ label: 'Experience', collection: 'experiences' }),
+          { label: 'Experiences Order', itemLabel: p => p.value || 'Experience' }
+        ),
+        achievementsOrder: fields.array(
+          fields.relationship({ label: 'Achievement', collection: 'achievements' }),
+          { label: 'Achievements Order', itemLabel: p => p.value || 'Achievement' }
         )
       }
     })

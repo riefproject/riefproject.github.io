@@ -12,16 +12,36 @@ import ContactSection from '../components/sections/ContactSection.astro';
 import CPProfilesSection from '../components/sections/CPProfilesSection.astro';
 import { getCollection, getEntry } from 'astro:content';
 
-const projectsCollection = await getCollection('projects');
-const projects = projectsCollection.map(p => p.data).sort((a, b) => b.year - a.year);
+const layoutEntry = await getEntry('singletons', 'layout');
+const layout = layoutEntry?.data || { projectsOrder: [], experiencesOrder: [], achievementsOrder: [] };
 
-const exps = await getCollection('experiences');
-const workExperiences = exps.filter(e => e.data.type === 'work').map(e => e.data);
-const organizationalExperiences = exps.filter(e => e.data.type === 'organizational').map(e => e.data);
-const personalExperiences = exps.filter(e => e.data.type === 'personal').map(e => e.data);
+const sortByOrder = (collection: any[], orderSlugs: string[]) => {
+  return collection.sort((a, b) => {
+    const slugA = a.id.replace('.json', '');
+    const slugB = b.id.replace('.json', '');
+    const idxA = orderSlugs.indexOf(slugA);
+    const idxB = orderSlugs.indexOf(slugB);
+    if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+    if (idxA !== -1) return -1;
+    if (idxB !== -1) return 1;
+    return 0;
+  });
+};
+
+const projectsCollection = await getCollection('projects');
+const projectsUnordered = projectsCollection.map(p => ({ ...p.data, id: p.id })).sort((a, b) => b.year - a.year);
+const projects = sortByOrder(projectsUnordered, layout.projectsOrder || []);
+
+const expsCollection = await getCollection('experiences');
+const expsUnordered = expsCollection.map(e => ({ ...e.data, id: e.id }));
+const expsSorted = sortByOrder(expsUnordered, layout.experiencesOrder || []);
+const workExperiences = expsSorted.filter(e => e.type === 'work');
+const organizationalExperiences = expsSorted.filter(e => e.type === 'organizational');
+const personalExperiences = expsSorted.filter(e => e.type === 'personal');
 
 const achievementsCollection = await getCollection('achievements');
-const achievements = achievementsCollection.map(a => a.data);
+const achievementsUnordered = achievementsCollection.map(a => ({ ...a.data, id: a.id }));
+const achievements = sortByOrder(achievementsUnordered, layout.achievementsOrder || []);
 
 const eduCollection = await getCollection('education');
 const education = eduCollection.map(e => e.data);
@@ -51,25 +71,26 @@ const achievementTabs = [
 ---
 
 <Layout>
-	<HeroSection
-		profile={profile}
-		contact={contact}
-		highlights={heroHighlights}
-		stats={stats}
-		socials={socials}
-		toolbox={toolbox}
-	/>
-	<AboutSection profile={profile} focusAreas={focusAreas} />
-	<SkillsSection categories={skillCategories} />
-	<StackSection items={stackShowcase} />
-	<ExperienceLegacy
-		workExperiences={workExperiences}
-		organizationalExperiences={organizationalExperiences}
-		personalExperiences={personalExperiences}
-	/>
-	<CPProfilesSection profiles={cpProfiles} />
-	<ProjectsSection projects={projects} />
-	<AchievementsSection items={achievements} tabs={achievementTabs} />
-	<EducationSection education={education} />
-	<ContactSection contact={contact} socials={socials} />
+  <HeroSection
+    profile={profile}
+    contact={contact}
+    highlights={heroHighlights}
+    stats={stats}
+    socials={socials}
+    toolbox={toolbox}
+  />
+  <AboutSection profile={profile} focusAreas={focusAreas} />
+  <SkillsSection categories={skillCategories} />
+  <StackSection items={stackShowcase} />
+  <ExperienceLegacy
+    workExperiences={workExperiences}
+    organizationalExperiences={organizationalExperiences}
+    personalExperiences={personalExperiences}
+  />
+  <CPProfilesSection profiles={cpProfiles} />
+  <ProjectsSection projects={projects} />
+  <AchievementsSection items={achievements} tabs={achievementTabs} />
+  <EducationSection education={education} />
+  <ContactSection contact={contact} socials={socials} />
 </Layout>
+

@@ -162,22 +162,22 @@ const { contact, socials } = Astro.props;
 
 	input,
 	textarea {
-		background: rgba(0, 0, 0, 0.4);
+		background: var(--bg-soft);
 		border: 1px solid var(--border);
-		border-radius: 0.25rem;
+		border-radius: 8px;
 		padding: 0.85rem;
 		font-size: 0.95rem;
-		color: var(--accent);
-		font-family: "JetBrains Mono", monospace;
+		color: var(--text);
+		font-family: inherit;
 		resize: vertical;
-		transition: border-color 0.2s ease, box-shadow 0.2s ease;
+		transition: border-color 0.2s ease;
 	}
 
 	input:focus,
 	textarea:focus {
-		outline: none;
+		outline: 2px solid var(--accent);
+		outline-offset: 2px;
 		border-color: var(--accent);
-		box-shadow: 0 0 0 1px var(--accent), 0 0 15px rgba(0, 255, 204, 0.1);
 	}
 
 	.form-hint {

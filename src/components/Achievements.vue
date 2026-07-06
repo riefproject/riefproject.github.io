@@ -244,6 +244,7 @@ const visibleItems = computed(
 .achievements-shell h2 {
   margin: 0 0 0.5rem;
   font-size: clamp(2rem, 4svw, 2.75rem);
+  font-family: inherit;
   color: var(--text);
 }
 
@@ -269,12 +270,13 @@ const visibleItems = computed(
 }
 
 .search input {
-  border-radius: 0.9rem;
+  border-radius: 8px;
   border: 1px solid var(--border);
   padding: 0.85rem 1rem;
-  background: var(--bg-elevated);
+  background: var(--bg-soft);
   color: var(--text);
   font-size: 1rem;
+  font-family: inherit;
 }
 
 .search input:focus {
@@ -285,24 +287,30 @@ const visibleItems = computed(
 .tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0;
   justify-content: center;
+  border-bottom: 1px solid var(--border);
 }
 
 .tab-btn {
-  padding: 0.6rem 1rem;
-  border-radius: 999px;
-  border: 1px solid var(--border);
+  padding: 0.6rem 1.2rem;
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid transparent;
   background: transparent;
   color: var(--muted);
   font-weight: 600;
-  transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+  cursor: pointer;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: var(--text);
 }
 
 .tab-btn.active {
-  background: var(--chip-bg);
-  color: var(--text);
-  border-color: var(--accent);
+  color: var(--accent);
+  border-bottom-color: var(--accent);
 }
 
 .achievements-grid {
@@ -314,14 +322,13 @@ const visibleItems = computed(
 
 .achievement-card {
   padding: 1.5rem;
-  border-radius: 1.25rem;
+  border-radius: 12px;
   border: 1px solid var(--border);
-  background: var(--bg-elevated);
-  box-shadow: var(--shadow-soft);
+  background: var(--bg-soft);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transition: border-color 0.2s ease;
 }
 
 .achievement-card.clickable {
@@ -329,8 +336,7 @@ const visibleItems = computed(
 }
 
 .achievement-card.clickable:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-hover, 0 8px 16px rgba(0, 0, 0, 0.1));
+  border-color: var(--accent);
 }
 
 .achievement-card__header {
@@ -343,6 +349,7 @@ const visibleItems = computed(
 .achievement-card__header h3 {
   margin: 0;
   font-size: 1.2rem;
+  font-family: inherit;
   color: var(--text);
 }
 
@@ -364,8 +371,8 @@ const visibleItems = computed(
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
   border: 1px solid var(--border);
-  color: var(--accent-strong);
-  background: var(--chip-bg);
+  color: var(--accent);
+  background: var(--bg);
   font-weight: 600;
 }
 

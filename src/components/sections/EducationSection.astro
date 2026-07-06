@@ -64,6 +64,7 @@ const getBadge = (text?: string) => (text ? text : '');
 	.education__intro h2 {
 		margin: 0 0 0.5rem;
 		font-size: clamp(2rem, 4svw, 2.4rem);
+		font-family: inherit;
 	}
 
 	.education__list {
@@ -76,6 +77,7 @@ const getBadge = (text?: string) => (text ? text : '');
 	.education-card h3 {
 		margin: 0;
 		font-size: 1.4rem;
+		font-family: inherit;
 	}
 
 	.education-card .program {
@@ -104,20 +106,20 @@ const getBadge = (text?: string) => (text ? text : '');
 	.edu-badge {
 		width: 56px;
 		height: 56px;
-		border-radius: 16px;
+		border-radius: 12px;
 		display: grid;
 		place-items: center;
 		font-weight: 700;
 		font-size: 0.9rem;
-		color: #0f172a;
-		background: linear-gradient(135deg, #c7d2fe, #a5b4fc, #c7d2fe);
+		color: var(--accent);
+		background: var(--bg-soft);
 		border: 1px solid var(--border);
 		text-align: center;
 		padding: 0.35rem;
 	}
 
 	.edu-badge--image {
-		background: var(--bg-elevated);
+		background: var(--bg-soft);
 	}
 
 	.edu-badge--image img {

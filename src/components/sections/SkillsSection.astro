@@ -72,6 +72,7 @@ const { categories = [] }: SkillsProps = Astro.props;
 	.skills__grid article h3 {
 		margin: 0;
 		font-size: 1.1rem;
+		font-family: inherit;
 	}
 
 	.skills__grid article small {
@@ -89,11 +90,10 @@ const { categories = [] }: SkillsProps = Astro.props;
 	}
 
 	.skills__grid li {
-		transition: color 0.2s ease, transform 0.2s ease;
+		transition: color 0.2s ease;
 	}
 
 	.skills__grid li:hover {
-		color: var(--accent-strong);
-		transform: translateX(4px);
+		color: var(--accent);
 	}
 </style>

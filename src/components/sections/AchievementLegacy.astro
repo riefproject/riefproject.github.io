@@ -58,9 +58,10 @@ const highlight = achievements.find((item) => item.type === 'competitions');
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		background: linear-gradient(160deg, #1d4ed8, #9333ea);
-		color: #fff;
-		border-radius: 1.5rem;
+		background: var(--bg-soft);
+		border: 1px solid var(--border);
+		color: var(--text);
+		border-radius: 12px;
 		min-height: 200px;
 		gap: 0.5rem;
 	}
@@ -69,11 +70,13 @@ const highlight = achievements.find((item) => item.type === 'competitions');
 		font-size: clamp(2rem, 4svw, 3rem);
 		font-weight: 700;
 		letter-spacing: 0.12em;
+		color: var(--accent);
 	}
 
 	.legacy-ach__details h3 {
 		margin: 0.25rem 0;
 		font-size: 1.9rem;
+		font-family: inherit;
 	}
 
 	.issuer,

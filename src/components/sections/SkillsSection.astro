@@ -5,10 +5,10 @@ import LocaleText from '../i18n/LocaleText.astro';
 const locale = (en: string, id: string) => ({ en, id });
 const copy = {
 	eyebrow: locale('Technical Skills', 'Keahlian Teknis'),
-	heading: locale('Full-stack development with strong algorithmic foundation.', 'Pengembangan full-stack dengan fondasi algoritma yang kuat.'),
+	heading: locale('Cross-platform development anchored by a strong algorithmic foundation.', 'Pengembangan lintas platform dengan fondasi algoritma yang kuat.'),
 	intro: locale(
-		'Building enterprise applications and solving complex problems through systematic software engineering practices.',
-		'Membangun aplikasi enterprise dan menyelesaikan masalah kompleks melalui praktik rekayasa perangkat lunak sistematis.',
+		'Building scalable backend services and responsive mobile applications through systematic software engineering practices.',
+		'Membangun layanan backend terukur dan aplikasi mobile yang responsif melalui praktik rekayasa perangkat lunak sistematis.',
 	),
 };
 
@@ -61,6 +61,12 @@ const { categories = [] }: SkillsProps = Astro.props;
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
+	}
+
+	.skills__intro h2 {
+		margin: 0 0 0.5rem;
+		font-family: inherit;
+		font-size: clamp(2rem, 4svw, 2.4rem);
 	}
 
 	.skills__grid {

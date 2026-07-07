@@ -110,73 +110,73 @@
   "focusAreas": [
     {
       "title": {
-        "en": "Competitive programming mindset",
-        "id": "Competitive programming mindset"
+        "en": "Competitive Programming Mindset",
+        "id": "Mindset Competitive Programming"
       },
       "description": {
-        "en": "Apply olympiad-style thinking to daily engineering: test constraints, budget time, and choose clean patterns quickly.",
-        "id": "Pakai pola pikir olimpiade ke engineering harian: uji constraint, atur time budget, dan pilih pola yang rapi dengan cepat."
+        "en": "Applying olympiad-style thinking to daily engineering: analyzing constraints, anticipating edge cases, and delivering optimized solutions quickly.",
+        "id": "Menerapkan pola pikir olimpiade ke engineering harian: menganalisis batasan (constraints), mengantisipasi edge case, dan memberikan solusi optimal dengan cepat."
       },
       "items": [
         {
-          "en": "Contest-grade algorithm reviews",
-          "id": "Review algoritma setingkat kontes"
+          "en": "Edge-case first problem solving",
+          "id": "Problem solving dengan antisipasi edge-case"
         },
         {
-          "en": "Structured drills and training modules",
-          "id": "Drill terstruktur dan modul latihan"
+          "en": "Algorithmic optimization for performance",
+          "id": "Optimasi algoritma untuk efisiensi performa"
         },
         {
-          "en": "Data-driven retrospectives and scorecards",
-          "id": "Retrospektif berbasis data dan scorecard"
+          "en": "Systematic debugging & logical structuring",
+          "id": "Debugging sistematis & penataan logika kode"
         }
       ]
     },
     {
       "title": {
-        "en": "Backend & tooling",
-        "id": "Backend & tooling"
+        "en": "Backend & Mobile Apps",
+        "id": "Backend & Aplikasi Mobile"
       },
       "description": {
-        "en": "Build lightweight C/C++ systems with a focus on automation, diagnostics, and developer comfort.",
-        "id": "Membangun sistem C/C++ yang ringan dengan fokus otomasi, diagnostik, dan kenyamanan developer."
+        "en": "Building scalable backend services and responsive cross-platform mobile applications with a focus on clean architecture.",
+        "id": "Membangun layanan backend terukur dan aplikasi mobile cross-platform yang responsif dengan fokus pada clean architecture."
       },
       "items": [
         {
-          "en": "CLI and desktop utilities with clear flows",
-          "id": "CLI dan desktop utility dengan alur jelas"
+          "en": "Scalable Go & Node.js backend services",
+          "id": "Layanan backend Go & Node.js yang terukur"
         },
         {
-          "en": "Raylib / Qt playgrounds for UI and graphics",
-          "id": "Playground Raylib / Qt untuk UI dan grafis"
+          "en": "Cross-platform mobile apps with Flutter",
+          "id": "Aplikasi mobile cross-platform dengan Flutter"
         },
         {
-          "en": "Structured logging and reporting teams can act on",
-          "id": "Logging dan reporting terstruktur yang mudah ditindak"
+          "en": "Modular architecture & state management",
+          "id": "Arsitektur modular & pengelolaan state (state management)"
         }
       ]
     },
     {
       "title": {
-        "en": "Mentorship & community",
-        "id": "Mentorship & community"
+        "en": "Olympiad Mentorship & Talent Incubation",
+        "id": "Mentorship OSN & Inkubasi Talenta"
       },
       "description": {
-        "en": "Grow together via Brainware of SMANSA—mentoring juniors, sharing playbooks, and keeping resources open.",
-        "id": "Berkembang bersama lewat Brainware of SMANSA—mentoring junior, berbagi playbook, dan menjaga resource tetap terbuka."
+        "en": "Empowering the next generation of competitive programmers by structuring rigorous training modules and guiding students toward National Olympiad in Informatics (NOI) medals.",
+        "id": "Memberdayakan talenta masa depan dengan menyusun modul pelatihan yang ketat dan membimbing siswa untuk meraih medali di Olimpiade Sains Nasional (OSN/NOI) bidang Informatika."
       },
       "items": [
         {
-          "en": "Club leadership & workshops",
-          "id": "Kepemimpinan klub & workshop"
+          "en": "Strategic training programs for NOI / OSN",
+          "id": "Program pelatihan strategis untuk OSN / NOI"
         },
         {
-          "en": "Mentoring for NOI hopefuls",
-          "id": "Mentoring untuk calon NOI"
+          "en": "Algorithmic thinking & problem decomposition",
+          "id": "Penalaran algoritmik & dekomposisi masalah"
         },
         {
-          "en": "Open resources & documentation",
-          "id": "Resource & dokumentasi terbuka"
+          "en": "Open-sourcing competitive programming playbooks",
+          "id": "Membagikan playbook competitive programming secara terbuka"
         }
       ]
     }
@@ -189,24 +189,24 @@
       },
       "items": [
         {
-          "en": "Software architecture & design patterns",
-          "id": "Arsitektur perangkat lunak & design patterns"
+          "en": "Clean architecture & systematic design patterns",
+          "id": "Clean architecture & design patterns sistematis"
         },
         {
-          "en": "Full-stack web development (Laravel, Vue.js)",
-          "id": "Pengembangan web full-stack (Laravel, Vue.js)"
+          "en": "Scalable backend & RESTful API development",
+          "id": "Pengembangan backend terukur & RESTful API"
         },
         {
-          "en": "Database design & advanced SQL",
-          "id": "Desain database & SQL tingkat lanjut"
+          "en": "Cross-platform mobile development (Flutter)",
+          "id": "Pengembangan mobile cross-platform (Flutter)"
         },
         {
-          "en": "Clean code practices & maintainable systems",
-          "id": "Praktik clean code & sistem maintainable"
+          "en": "Database design & state management",
+          "id": "Desain database & state management"
         },
         {
-          "en": "MVC architecture & layered design",
-          "id": "Arsitektur MVC & desain berlapis"
+          "en": "Code maintainability & performance optimization",
+          "id": "Maintainability kode & optimasi performa"
         }
       ]
     },
@@ -217,24 +217,28 @@
       },
       "items": [
         {
+          "en": "Dart (Cross-platform Mobile Development)",
+          "id": "Dart (Pengembangan Mobile Cross-platform)"
+        },
+        {
+          "en": "Go (Scalable Backend Services)",
+          "id": "Go (Layanan Backend Terukur)"
+        },
+        {
           "en": "C/C++ (Competitive Programming & Systems)",
           "id": "C/C++ (Competitive Programming & Sistem)"
         },
         {
-          "en": "Java (Desktop Applications & OOP)",
-          "id": "Java (Aplikasi Desktop & OOP)"
-        },
-        {
-          "en": "PHP (Laravel Framework)",
-          "id": "PHP (Framework Laravel)"
-        },
-        {
-          "en": "JavaScript/TypeScript (Vue.js, Node.js)",
-          "id": "JavaScript/TypeScript (Vue.js, Node.js)"
+          "en": "JavaScript/TypeScript (Web & Node.js)",
+          "id": "JavaScript/TypeScript (Web & Node.js)"
         },
         {
           "en": "Python (Automation & Scripting)",
           "id": "Python (Automation & Scripting)"
+        },
+        {
+          "en": "Java & PHP (Enterprise & Web Stacks)",
+          "id": "Java & PHP (Stack Enterprise & Web)"
         }
       ]
     },
@@ -273,16 +277,20 @@
           "id": "Git & GitHub (Version Control)"
         },
         {
-          "en": "MySQL, PostgreSQL, SQLite",
-          "id": "MySQL, PostgreSQL, SQLite"
+          "en": "Flutter & Dart (Cross-platform Mobile)",
+          "id": "Flutter & Dart (Mobile Cross-platform)"
         },
         {
-          "en": "JavaFX, Qt (Desktop Development)",
-          "id": "JavaFX, Qt (Pengembangan Desktop)"
+          "en": "MySQL, PostgreSQL, Supabase",
+          "id": "MySQL, PostgreSQL, Supabase"
         },
         {
-          "en": "Raylib (Game Development)",
-          "id": "Raylib (Pengembangan Game)"
+          "en": "Astro, Vite & Modern Web Tooling",
+          "id": "Astro, Vite & Tooling Web Modern"
+        },
+        {
+          "en": "REST API Design & Postman",
+          "id": "Desain REST API & Postman"
         },
         {
           "en": "Unit Testing & Code Quality Tools",
@@ -292,15 +300,16 @@
     }
   ],
   "toolbox": [
-    "C",
     "C++",
+    "Go",
     "Python",
     "JavaScript",
-    "Raylib",
-    "Qt",
-    "Node.js",
-    "Express",
-    "Git & GitHub",
-    "MySQL"
+    "TypeScript",
+    "Flutter",
+    "Dart",
+    "Vue.js",
+    "Laravel",
+    "PostgreSQL",
+    "Git"
   ]
 }

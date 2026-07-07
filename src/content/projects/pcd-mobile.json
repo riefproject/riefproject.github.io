@@ -1,0 +1,65 @@
+{
+  "title": {
+    "en": "PCD Mobile – Digital Image Processing & AI Vision",
+    "id": "PCD Mobile – Pengolahan Citra Digital & AI Vision"
+  },
+  "img": "/img/projects/pcd-mobile/img.svg",
+  "description": {
+    "en": "Cross-platform Flutter mobile application implementing digital image processing algorithms and real-time AI Vision, covering image acquisition, color model manipulation, frequency-domain filtering, and object detection with OpenCV.",
+    "id": "Aplikasi mobile Flutter lintas platform yang mengimplementasikan algoritma Pengolahan Citra Digital dan AI Vision secara real-time, mencakup akuisisi citra, manipulasi model warna, filtering domain frekuensi, dan deteksi objek dengan OpenCV."
+  },
+  "impact": {
+    "en": "Delivered an end-to-end mobile lab environment for digital image processing exploration — from camera acquisition and histogram equalization to Fourier-domain filtering and real-time human/pothole detection — with a clean feature-based architecture.",
+    "id": "Menghadirkan lingkungan lab mobile end-to-end untuk eksplorasi pengolahan citra digital — mulai akuisisi kamera dan histogram equalization hingga filtering domain Fourier dan deteksi real-time manusia/pothole — dengan arsitektur berbasis fitur yang bersih."
+  },
+  "year": 2026,
+  "category": {
+    "en": "Mobile Application",
+    "id": "Aplikasi Mobile"
+  },
+  "categoryKey": "mobile-app",
+  "featured": true,
+  "stack": [
+    "Flutter",
+    "Dart",
+    "OpenCV (opencv_dart)",
+    "Camera API",
+    "Image Processing",
+    "AI Vision"
+  ],
+  "highlights": [
+    {
+      "en": "Onboarding & mock-auth module with rate-limited login lockout for access-control demonstration.",
+      "id": "Modul onboarding & mock-auth dengan pembatasan login (rate-limiting lockout) untuk demonstrasi kontrol akses."
+    },
+    {
+      "en": "Full digital image processing pipeline: grayscale, RGB manipulation, histogram, histogram equalization, convolution filters, and sharpening.",
+      "id": "Pipeline pengolahan citra digital lengkap: grayscale, manipulasi RGB, histogram, histogram equalization, filter konvolusi, dan sharpening."
+    },
+    {
+      "en": "Frequency-domain operations (FFT-based low/high/band-pass filtering) via native OpenCV bindings.",
+      "id": "Operasi domain frekuensi (filtering low/high/band-pass berbasis FFT) melalui native OpenCV bindings."
+    },
+    {
+      "en": "Real-time AI Vision mode for human entity detection and pothole inspection with bounding-box overlay using CustomPainter.",
+      "id": "Mode AI Vision real-time untuk deteksi entitas manusia dan inspeksi pothole dengan overlay bounding-box menggunakan CustomPainter."
+    },
+    {
+      "en": "Camera Overlay Processor: burn-in composite of live camera frame + AI detection layer saved directly to device storage as a static image file.",
+      "id": "Camera Overlay Processor: composite burn-in frame kamera live + layer deteksi AI yang disimpan langsung ke storage perangkat sebagai file gambar statis."
+    },
+    {
+      "en": "Feature-based folder structure with strict Separation of Concerns (View, Controller, Service, Painter, Model).",
+      "id": "Struktur folder berbasis fitur dengan Separation of Concerns ketat (View, Controller, Service, Painter, Model)."
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "View repository",
+        "id": "Lihat repositori"
+      },
+      "url": "https://github.com/riefproject/dip-mobile"
+    }
+  ]
+}

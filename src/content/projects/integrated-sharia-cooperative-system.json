@@ -3,7 +3,7 @@
     "en": "Integrated Sharia Cooperative System",
     "id": "Sistem Koperasi Syariah Terintegrasi"
   },
-  "img": "/img/projects/KopSy.png",
+  "img": "/img/projects/integrated-sharia-cooperative-system/KopSy.png",
   "description": {
     "en": "Full-stack integrated sharia cooperative application with complex domain logic handling savings, murabahah-based installments, POS cash system, and inventory management.",
     "id": "Aplikasi koperasi syariah terintegrasi fullstack dengan logika domain kompleks yang menangani simpanan, cicilan berbasis murabahah, sistem POS cash, dan manajemen stok."

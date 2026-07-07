@@ -1,0 +1,60 @@
+{
+  "title": {
+    "en": "AlpenQuiz – Offline-First Quiz Platform",
+    "id": "AlpenQuiz – Platform Kuis Offline-First"
+  },
+  "img": "/img/projects/alpenquiz-offline-first-quiz-platform/img.svg",
+  "description": {
+    "en": "Cross-platform mobile quiz platform built with Flutter that prioritizes network resilience through an offline-first architecture, local Hive storage, background sync, and real-time LAN broadcasting for classroom environments.",
+    "id": "Platform kuis seluler lintas platform berbasis Flutter yang mengutamakan ketahanan jaringan melalui arsitektur offline-first, penyimpanan lokal Hive, sinkronisasi latar belakang, dan siaran LAN real-time untuk lingkungan kelas."
+  },
+  "impact": {
+    "en": "Eliminated quiz interruptions in low-connectivity environments by shifting all quiz processing to the client device, enabling seamless end-to-end participation and automatic score sync when the connection is restored.",
+    "id": "Menghilangkan gangguan kuis di lingkungan koneksi rendah dengan memindahkan seluruh pemrosesan ke perangkat klien, memungkinkan partisipasi penuh tanpa jeda dan sinkronisasi skor otomatis saat koneksi pulih."
+  },
+  "year": 2025,
+  "category": {
+    "en": "Mobile Application",
+    "id": "Aplikasi Mobile"
+  },
+  "categoryKey": "mobile-app",
+  "featured": true,
+  "stack": [
+    "Flutter",
+    "Dart",
+    "Hive",
+    "MongoDB",
+    "WebSocket"
+  ],
+  "highlights": [
+    {
+      "en": "True offline-first: entire quiz packages downloaded to encrypted local Hive NoSQL DB, eliminating per-question network calls.",
+      "id": "Offline-first sejati: seluruh paket kuis diunduh ke Hive NoSQL lokal yang terenkripsi, menghilangkan pemanggilan jaringan per soal."
+    },
+    {
+      "en": "Background connectivity monitor queues all activity locally and auto-syncs scores to MongoDB when a stable connection is detected.",
+      "id": "Monitor konektivitas latar belakang mengantrekan semua aktivitas secara lokal dan otomatis sinkronisasi skor ke MongoDB saat koneksi stabil terdeteksi."
+    },
+    {
+      "en": "LAN Broadcasting mode: Host device acts as a local WebSocket server, enabling real-time multi-participant quizzes over Wi-Fi with zero internet traffic.",
+      "id": "Mode Siaran LAN: perangkat Host bertindak sebagai server WebSocket lokal untuk kuis multi-peserta real-time via Wi-Fi tanpa lalu lintas internet."
+    },
+    {
+      "en": "Dual-role system (Host & Participant) with role-specific UIs for quiz creation, management, and live session control.",
+      "id": "Sistem dua peran (Host & Peserta) dengan UI khusus peran untuk pembuatan kuis, manajemen, dan kontrol sesi langsung."
+    },
+    {
+      "en": "Feature-driven architecture with real-time client-side input validation, cryptographic password hashing, and QR-code session joining.",
+      "id": "Arsitektur berbasis fitur dengan validasi input sisi klien real-time, hashing kata sandi kriptografis, dan bergabung sesi via QR code."
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "View repository",
+        "id": "Lihat repositori"
+      },
+      "url": "https://github.com/riefproject/quiz-offline-first"
+    }
+  ]
+}

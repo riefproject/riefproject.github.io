@@ -1,20 +1,27 @@
 {
   "projectsOrder": [
+    "integrated-sharia-cooperative-system",
+    "alpenquiz-offline-first-quiz-platform",
+    "alpen-ai-camera",
     "alpenlicloud-file-manager",
-    "bioskopku-cli-ticketing",
+    "pcd-mobile",
+    "reeshape-shape-playground-pattern-block-activity",
     "block-shooter-game",
     "competitive-programming-repository",
-    "integrated-sharia-cooperative-system",
     "productivity-application-java-desktop",
-    "reeshape-shape-playground-pattern-block-activity"
+    "bioskopku-cli-ticketing"
   ],
   "experiencesOrder": [
-    "brainware-of-smansa-bios-organizational",
+    "work-rolling-glory",
+    "noi-mentoring",
     "friendly-study-buddy-work",
     "himpunan-mahasiswa-komputer-politeknik-negeri-bandung-organizational",
+    "brainware-of-smansa-bios-organizational",
     "independent-competitive-programming-journey-personal"
   ],
   "achievementsOrder": [
+    "findit-2026",
+    "cat-2026",
     "code-generation-and-optimization",
     "go-basic",
     "icpc-asia-jakarta-regional-contest-2025",

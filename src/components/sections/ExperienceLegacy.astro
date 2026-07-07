@@ -101,13 +101,25 @@ const groups = [
 						<p>
 							<LocaleText as="span" text={primary.summary} />
 						</p>
-						<ul>
-							{primary.achievements.map((item) => (
-								<li>
-									<LocaleText as="span" text={item} />
-								</li>
-							))}
-						</ul>
+						{primary.achievements && primary.achievements.length > 0 && (
+							<div class="mt-4 relative">
+								<input type="checkbox" id={`toggle-${primary.company.replace(/\\s+/g, '-')}`} class="legacy-exp__toggle hidden" />
+								<div class="legacy-exp__collapse overflow-hidden max-h-[140px] transition-[max-height] duration-500 ease-in-out relative">
+									<ul class="mt-3">
+										{primary.achievements.map((item) => (
+											<li class="mb-2">
+												<LocaleText as="span" text={item} />
+											</li>
+										))}
+									</ul>
+									<div class="legacy-exp__fade absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[var(--bg-soft)] to-transparent transition-opacity duration-300 pointer-events-none"></div>
+								</div>
+								<label for={`toggle-${primary.company.replace(/\\s+/g, '-')}`} class="legacy-exp__label cursor-pointer text-base font-semibold text-accent hover:underline mt-2 inline-flex items-center select-none">
+									<span class="read-more">Read details</span>
+									<span class="show-less">Show less</span>
+								</label>
+							</div>
+						)}
 					</div>
 				</div>
 
@@ -125,21 +137,36 @@ const groups = [
 									)}
 									<div>
 										<h4>{exp.company}</h4>
-										<p class="period">
+										<p class="eyebrow text-xs" style="margin: 0.15rem 0;">
+											<LocaleText as="span" text={exp.role} />
+										</p>
+										<p class="period" style="margin-top: 0;">
 											<LocaleText as="span" text={exp.period} />
 										</p>
 									</div>
 								</header>
-								<p>
+								<p class="text-sm">
 									<LocaleText as="span" text={exp.summary} />
 								</p>
-								<ul>
-									{exp.achievements.map((item) => (
-										<li>
-											<LocaleText as="span" text={item} />
-										</li>
-									))}
-								</ul>
+								{exp.achievements && exp.achievements.length > 0 && (
+									<div class="mt-3 relative">
+										<input type="checkbox" id={`toggle-sec-${exp.company.replace(/\\s+/g, '-')}`} class="legacy-exp__toggle hidden" />
+										<div class="legacy-exp__collapse overflow-hidden max-h-[100px] transition-[max-height] duration-500 ease-in-out relative">
+											<ul class="mt-2 text-sm pl-4">
+												{exp.achievements.map((item) => (
+													<li class="mb-1">
+														<LocaleText as="span" text={item} />
+													</li>
+												))}
+											</ul>
+											<div class="legacy-exp__fade absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-[var(--bg-soft)] to-transparent transition-opacity duration-300 pointer-events-none"></div>
+										</div>
+										<label for={`toggle-sec-${exp.company.replace(/\\s+/g, '-')}`} class="legacy-exp__label cursor-pointer text-sm font-semibold text-accent hover:underline mt-2 inline-flex items-center select-none">
+											<span class="read-more">Read details</span>
+											<span class="show-less">Show less</span>
+										</label>
+									</div>
+								)}
 							</article>
 						))}
 					</div>
@@ -150,6 +177,19 @@ const groups = [
 </section>
 
 <style>
+	.legacy-exp__toggle:checked ~ .legacy-exp__label .read-more {
+		display: none;
+	}
+	.legacy-exp__toggle:not(:checked) ~ .legacy-exp__label .show-less {
+		display: none;
+	}
+	.legacy-exp__toggle:checked ~ .legacy-exp__collapse {
+		max-height: 3000px;
+	}
+	.legacy-exp__toggle:checked ~ .legacy-exp__collapse .legacy-exp__fade {
+		opacity: 0;
+	}
+
 	.legacy-exp {
 		display: flex;
 		flex-direction: column;

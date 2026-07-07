@@ -1,0 +1,22 @@
+{
+  "type": "competitions",
+  "title": {
+    "en": "Find IT! 2026",
+    "id": "Find IT! 2026"
+  },
+  "issuer": {
+    "en": "Universitas Gadjah Mada",
+    "id": "Gadjah Mada University"
+  },
+  "date": "2026",
+  "highlight": {
+    "en": "Finalist",
+    "id": "Finalis"
+  },
+  "link": "-",
+  "logo": "/img/findit-2026/logo.svg",
+  "certificateImage": [
+    "/img/certs/findit-2026/certificateImage/0.png",
+    "/img/certs/findit-2026/certificateImage/1.png"
+  ]
+}

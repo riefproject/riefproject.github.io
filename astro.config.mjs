@@ -19,4 +19,7 @@ export default defineConfig({
     process.env.NODE_ENV === 'production' ? null : keystatic(),
   ].filter(Boolean),
   output: "static",
+  vite: {
+    // Watcher ignore removed to allow content collection cache invalidation
+  }
 });

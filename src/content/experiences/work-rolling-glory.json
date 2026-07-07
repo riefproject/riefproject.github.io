@@ -1,0 +1,44 @@
+{
+  "type": "work",
+  "company": "Rolling Glory ",
+  "logo": "/img/work-rolling-glory/logo.jpeg",
+  "role": {
+    "en": "Backend Developer",
+    "id": "Backend Developer"
+  },
+  "period": {
+    "en": "Jun, 2026 - Oct 2026",
+    "id": "Jun, 2026 - Okt 2026"
+  },
+  "summary": {
+    "en": "Drove backend development and architectural improvements to deliver high-performance, scalable business solutions, enabling streamlined operations and robust system reliability.",
+    "id": "Mendorong pengembangan backend dan peningkatan arsitektur untuk menghasilkan solusi bisnis berkinerja tinggi dan terukur, mewujudkan operasional yang lebih efisien dan keandalan sistem yang kuat."
+  },
+  "stack": [
+    "Typescript",
+    "Nodejs",
+    "Nest.js",
+    "Postgresql",
+    "Redis",
+    "Javascript"
+  ],
+  "achievements": [
+    {
+      "en": "Designed and implemented automated business logic systems, drastically reducing manual administrative overhead and improving overall operational efficiency.",
+      "id": "Merancang dan mengimplementasikan sistem logika bisnis otomatis, secara drastis mengurangi beban administratif manual dan meningkatkan efisiensi operasional secara keseluruhan."
+    },
+    {
+      "en": "Architected scalable and modular backend services that seamlessly handled complex data state transitions, ensuring uncompromised data integrity.",
+      "id": "Membangun arsitektur layanan backend modular dan terukur yang mampu menangani transisi status data kompleks dengan mulus, memastikan integritas data tanpa kompromi."
+    },
+    {
+      "en": "Led major code modernization initiatives, decoupling legacy implementations into reusable services to accelerate thedelivery of future cross-functional features.",
+      "id": "Memimpin inisiatif modernisasi kode berskala besar, memecah implementasi sistem lawas menjadi layanan reusable untuk mempercepat rilis fitur lintas fungsi di masa depan."
+    },
+    {
+      "en": "Proactively identified and resolved critical system and database bottlenecks, significantly enhancing the stability of the development lifecycle and production readiness.",
+      "id": "Secara proaktif mengidentifikasi dan menyelesaikan bottleneck sistem dan database kritikal, meningkatkan stabilitas siklus pengembangan dan kesiapan produksi secara signifikan."
+    }
+  ],
+  "slug": "work-rolling-glory"
+}

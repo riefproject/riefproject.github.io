@@ -109,7 +109,7 @@ export default config({
           label: 'Certificate Image',
           directory: 'public/img/certs',
           publicPath: '/img/certs/'
-        }), { label: 'Certificate Images', itemLabel: p => p.value || 'Image' })
+        }), { label: 'Certificate Images', itemLabel: p => (typeof p.value === 'string' ? p.value : 'Image') })
       }
     }),
     education: collection({

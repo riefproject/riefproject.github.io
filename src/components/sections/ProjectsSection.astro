@@ -61,19 +61,32 @@ const resolveText = (text: { en: string; id: string }) => {
 							<LocaleText as="span" text={project.title} />
 						</h3>
 					</header>
-					<p class="project-description">
-						<LocaleText as="span" text={project.description} />
-					</p>
-					{project.impact && (
-						<p class="project-impact">
-							<LocaleText as="span" text={project.impact} />
-						</p>
-					)}
-					<ul class="project-highlights">
-						{project.highlights.slice(0, 3).map((highlight) => (
-							<li><LocaleText as="span" text={highlight} /></li>
-						))}
-					</ul>
+					<div class="relative mt-2">
+						<input type="checkbox" id={`toggle-proj-home-${project.title.en.replace(/\\s+/g, '-')}`} class="project-home__toggle hidden" />
+						
+						<div class="project-home__collapse overflow-hidden max-h-[120px] transition-[max-height] duration-500 ease-in-out relative">
+							<p class="project-description">
+								<LocaleText as="span" text={project.description} />
+							</p>
+							{project.impact && (
+								<p class="project-impact mt-3">
+									<LocaleText as="span" text={project.impact} />
+								</p>
+							)}
+							<ul class="project-highlights mt-2">
+								{project.highlights.slice(0, 3).map((highlight) => (
+									<li><LocaleText as="span" text={highlight} /></li>
+								))}
+							</ul>
+							
+							<div class="project-home__fade absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-[var(--bg-soft)] to-transparent transition-opacity duration-300 pointer-events-none"></div>
+						</div>
+						
+						<label for={`toggle-proj-home-${project.title.en.replace(/\\s+/g, '-')}`} class="project-home__label cursor-pointer text-sm font-semibold text-accent hover:underline mt-1 inline-block select-none">
+							<span class="read-more">Read details</span>
+							<span class="show-less">Show less</span>
+						</label>
+					</div>
 					{project.links?.length && (
 						<div class="project-links">
 							{project.links.slice(0, 2).map((link) => (
@@ -118,6 +131,19 @@ const resolveText = (text: { en: string; id: string }) => {
 </section>
 
 <style>
+	.project-home__toggle:checked ~ .project-home__label .read-more {
+		display: none;
+	}
+	.project-home__toggle:not(:checked) ~ .project-home__label .show-less {
+		display: none;
+	}
+	.project-home__toggle:checked ~ .project-home__collapse {
+		max-height: 3000px;
+	}
+	.project-home__toggle:checked ~ .project-home__collapse .project-home__fade {
+		opacity: 0;
+	}
+
 	.projects {
 		display: flex;
 		flex-direction: column;

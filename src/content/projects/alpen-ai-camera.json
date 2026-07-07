@@ -1,0 +1,65 @@
+{
+  "title": {
+    "en": "Alpen AI Camera",
+    "id": "Alpen AI Camera"
+  },
+  "img": "/img/projects/alpen-ai-camera/img.svg",
+  "description": {
+    "en": "Smart photography assistant built with Flutter that combines real-time AI pose estimation (Google ML Kit) and on-device image processing to guide users into better poses and compositions before pressing the shutter.",
+    "id": "Asisten fotografi cerdas berbasis Flutter yang menggabungkan pose estimation AI real-time (Google ML Kit) dan pemrosesan citra on-device untuk memandu pengguna menemukan pose dan komposisi terbaik sebelum menekan tombol rana."
+  },
+  "impact": {
+    "en": "Delivered a cross-platform camera app with ghost overlay pose guidance, cosine-similarity scoring, live color filters, GPU-accelerated photo editor, and a Supabase-backed cloud pose library accessible after login.",
+    "id": "Menghadirkan aplikasi kamera cross-platform dengan panduan pose ghost overlay, skoring cosine similarity, filter warna live, editor foto berakselerasi GPU, dan cloud pose library berbasis Supabase yang dapat diakses setelah login."
+  },
+  "year": 2025,
+  "category": {
+    "en": "Mobile Application",
+    "id": "Aplikasi Mobile"
+  },
+  "categoryKey": "mobile-app",
+  "featured": true,
+  "stack": [
+    "Flutter",
+    "Dart",
+    "Google ML Kit",
+    "Supabase",
+    "Hive",
+    "Clean Architecture"
+  ],
+  "highlights": [
+    {
+      "en": "Real-time ghost overlay skeleton drawn via CustomPainter that color-shifts red → yellow → green as cosine-similarity score surpasses 82%.",
+      "id": "Ghost overlay skeleton real-time via CustomPainter yang berubah warna merah → kuning → hijau saat skor cosine similarity melampaui 82%."
+    },
+    {
+      "en": "ML pipeline runs Google ML Kit Pose Detection on camera frames in a background isolate, extracting 33 body landmarks per frame with throttling to preserve UI frame rate.",
+      "id": "Pipeline ML menjalankan Google ML Kit Pose Detection di isolate background, mengekstrak 33 landmark tubuh per frame dengan throttling agar frame rate UI tetap stabil."
+    },
+    {
+      "en": "GPU-accelerated photo editor: adjustments (brightness, contrast, saturation, color temperature) are composed into a single 5×4 color matrix and rendered via Flutter Canvas/PictureRecorder for zero-lag saves.",
+      "id": "Editor foto berakselerasi GPU: penyesuaian (kecerahan, kontras, saturasi, suhu warna) digabungkan menjadi satu matriks 5×4 dan dirender via Flutter Canvas/PictureRecorder untuk penyimpanan tanpa lag."
+    },
+    {
+      "en": "Dual storage strategy: Hive (local, offline-first) for custom pose templates and Supabase (PostgreSQL + Storage Bucket) for the cloud public pose library with download-count tracking.",
+      "id": "Strategi penyimpanan ganda: Hive (lokal, offline-first) untuk template pose kustom dan Supabase (PostgreSQL + Storage Bucket) untuk cloud public pose library dengan tracking download count."
+    },
+    {
+      "en": "Clean Architecture layers (Domain / Data / Presentation) with ChangeNotifier controllers, keeping all camera lifecycle, flash, zoom, and capture state out of the UI layer.",
+      "id": "Lapisan Clean Architecture (Domain / Data / Presentation) dengan controller ChangeNotifier, memisahkan semua state lifecycle kamera, flash, zoom, dan capture dari lapisan UI."
+    },
+    {
+      "en": "Pose Template Builder: extract pose landmarks from any gallery photo, persist them locally, and browse or share them via the cloud library.",
+      "id": "Pose Template Builder: ekstrak landmark pose dari foto galeri mana pun, simpan lokal, dan telusuri atau bagikan via cloud library."
+    }
+  ],
+  "links": [
+    {
+      "label": {
+        "en": "View repository",
+        "id": "Lihat repositori"
+      },
+      "url": "https://github.com/riefproject/alpen_ai_camera"
+    }
+  ]
+}

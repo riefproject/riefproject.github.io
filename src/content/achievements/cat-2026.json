@@ -1,0 +1,22 @@
+{
+  "type": "competitions",
+  "title": {
+    "en": "Coding and Algorithm Tournament ",
+    "id": "Coding and Algorithm Tournament "
+  },
+  "issuer": {
+    "en": "Ecommurz",
+    "id": "Ecommurz"
+  },
+  "date": "2026",
+  "highlight": {
+    "en": "Semi-Finalist",
+    "id": "Semi-Finalis"
+  },
+  "link": "-",
+  "logo": "/img/cat-2026/logo.png",
+  "credentialId": "cat2026.sf.tid2782",
+  "certificateImage": [
+    "/img/certs/cat-2026/certificateImage/0.png"
+  ]
+}

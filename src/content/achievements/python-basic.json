@@ -14,10 +14,10 @@
     "id": "Bahasa Pemrograman"
   },
   "link": "https://www.hackerrank.com/",
-  "logo": "/img/certs/hackerrank.png",
+  "logo": "/img/python-basic/hackerrank.png",
   "credentialId": "BFC0F850134D",
   "credentialUrl": "https://www.hackerrank.com/certificates/bfc0f850134d",
   "certificateImage": [
-    "/img/certs/HackerRank_Python.png"
+    "/img/certs/python-basic/HackerRank_Python.png"
   ]
 }

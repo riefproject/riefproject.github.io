@@ -3,7 +3,7 @@
     "en": "Productivity Application (Java Desktop)",
     "id": "Productivity Application (Java Desktop)"
   },
-  "img": "/img/projects/Pomodone.png",
+  "img": "/img/projects/productivity-application-java-desktop/Pomodone.png",
   "description": {
     "en": "Cross-platform desktop productivity application with layered MVC architecture, implementing multiple design patterns for modularity and scalability.",
     "id": "Aplikasi desktop produktivitas cross-platform dengan arsitektur layered MVC, mengimplementasikan berbagai design pattern untuk modularitas dan skalabilitas."

@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 design-system/
 .agents/
+# Local Netlify folder
+.netlify

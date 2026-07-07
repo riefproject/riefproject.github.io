@@ -82,6 +82,14 @@ const setCategory = (category: string) => {
 const toggleViewMore = () => {
   showAllProjects.value = !showAllProjects.value;
 };
+
+const expandedProjects = ref(new Set<string>());
+const toggleProject = (id: string) => {
+  const newSet = new Set(expandedProjects.value);
+  if (newSet.has(id)) newSet.delete(id);
+  else newSet.add(id);
+  expandedProjects.value = newSet;
+};
 </script>
 
 <template>
@@ -152,20 +160,26 @@ const toggleViewMore = () => {
             {{ resolveText(project.title) }}
           </h3>
         </header>
-        <p class="text-sm text-muted">
-          {{ resolveText(project.description) }}
-        </p>
-        <p v-if="project.impact" class="text-sm font-semibold text-text">
-          {{ copy.impactLabel }}:
-          <span class="font-normal text-muted">{{
-            resolveText(project.impact)
-          }}</span>
-        </p>
-        <ul class="space-y-1 text-sm text-muted list-disc pl-5">
-          <li v-for="highlight in project.highlights" :key="highlight.en">
-            {{ resolveText(highlight) }}
-          </li>
-        </ul>
+        <div class="relative overflow-hidden transition-[max-height] duration-500 ease-in-out" :class="expandedProjects.has(project.title.en) ? 'max-h-[3000px]' : 'max-h-[120px]'">
+          <p class="text-sm text-muted">
+            {{ resolveText(project.description) }}
+          </p>
+          <p v-if="project.impact" class="text-sm font-semibold text-text mt-3">
+            {{ copy.impactLabel }}:
+            <span class="font-normal text-muted">{{ resolveText(project.impact) }}</span>
+          </p>
+          <ul class="space-y-1 text-sm text-muted list-disc pl-5 mt-2">
+            <li v-for="highlight in project.highlights" :key="highlight.en">
+              {{ resolveText(highlight) }}
+            </li>
+          </ul>
+          
+          <div :class="['absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[var(--bg-elevated)] to-transparent pointer-events-none transition-opacity duration-300', expandedProjects.has(project.title.en) ? 'opacity-0' : 'opacity-100']"></div>
+        </div>
+        
+        <button type="button" @click="toggleProject(project.title.en)" class="text-left cursor-pointer text-sm font-semibold text-accent hover:underline -mt-1 w-fit">
+          {{ expandedProjects.has(project.title.en) ? (locale === 'id' ? 'Tampilkan lebih sedikit' : 'Show less') : (locale === 'id' ? 'Baca selengkapnya' : 'Read details') }}
+        </button>
         <div class="flex flex-wrap gap-2">
           <span
             v-for="tool in project.stack"

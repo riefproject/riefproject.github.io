@@ -1,0 +1,42 @@
+{
+  "type": "work",
+  "company": "SMAN 1 Subang",
+  "logo": "/img/noi-mentoring/logo.png",
+  "role": {
+    "en": "Mentor National Olympiad in Informatics",
+    "id": "Mentor Olimpiade Sains Nasional Bidang Komputer/Informatika"
+  },
+  "period": {
+    "en": "2026",
+    "id": "2026"
+  },
+  "summary": {
+    "en": "Facilitated structured mentoring focused on building strong computational thinking, problem decomposition, and algorithmic reasoning skills, emphasizing transferable problem-solving frameworks over competition-specific tactics.",
+    "id": "Memfasilitasi mentoring terstruktur dengan fokus pada penguatan computational thinking, dekomposisi masalah, dan penalaran algoritmik, dengan menekankan kerangka problem solving yang transferable dibandingkan sekadar taktik lomba."
+  },
+  "stack": [
+    "Computational Thinking",
+    "Algorithmic Reasoning",
+    "Problem Decomposition",
+    "C++ Fundamentals",
+    "Mentorship"
+  ],
+  "achievements": [
+    {
+      "en": "Designed a learning approach that prioritizes understanding problem constraints, edge cases, and solution trade-offs before implementation.",
+      "id": "Merancang pendekatan belajar yang memprioritaskan pemahaman batasan masalah, edge case, dan trade-off solusi sebelum implementasi."
+    },
+    {
+      "en": "Guided learners to translate abstract problem statements into structured solution models using step-by-step reasoning.",
+      "id": "Membimbing peserta menerjemahkan soal abstrak menjadi model solusi terstruktur melalui penalaran bertahap."
+    },
+    {
+      "en": "Instilled habits of writing intentional, concise, and maintainable code rather than brute-force or trial-and-error solutions.",
+      "id": "Menanamkan kebiasaan menulis kode yang terencana, ringkas, dan mudah dirawat dibandingkan solusi brute-force atau trial-and-error."
+    },
+    {
+      "en": "Strengthened learners’ confidence in tackling unfamiliar problems by applying systematic analysis instead of memorized patterns.",
+      "id": "Menguatkan kepercayaan diri peserta dalam menghadapi masalah baru dengan menerapkan analisis sistematis alih-alih pola hafalan."
+    }
+  ]
+}

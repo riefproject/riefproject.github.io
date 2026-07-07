@@ -2,7 +2,7 @@
   "platform": "Codeforces",
   "handle": "your-handle",
   "url": "https://codeforces.com/profile/your-handle",
-  "logo": "/img/codeforces.webp",
+  "logo": "/img/codeforces/codeforces.webp",
   "note": {
     "en": "Regular contests and upsolving logs.",
     "id": "Kontes rutin dan catatan upsolve."

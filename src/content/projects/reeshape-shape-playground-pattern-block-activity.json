@@ -3,7 +3,7 @@
     "en": "reeshape – Shape Playground (Pattern Block Activity)",
     "id": "reeshape – Shape Playground (Pattern Block Activity)"
   },
-  "img": "/img/projects/reeshape.png",
+  "img": "/img/projects/reeshape-shape-playground-pattern-block-activity/reeshape.png",
   "description": {
     "en": "Interactive 2D pattern-block puzzle built in Godot 4 (C#) with manual 2D transforms, snap-based validation, and custom stage templates.",
     "id": "Puzzle pattern-block 2D interaktif di Godot 4 (C#) dengan transformasi 2D manual, validasi berbasis snapping, dan template stage custom."

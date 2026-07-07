@@ -3,7 +3,7 @@
     "en": "AlpenliCloud File Manager",
     "id": "AlpenliCloud File Manager"
   },
-  "img": "/img/projects/Alpenlicloud.png",
+  "img": "/img/projects/alpenlicloud-file-manager/Alpenlicloud.png",
   "description": {
     "en": "Cross-platform GUI file manager inspired by Windows Explorer, built in C with raylib/raygui and 4 core ADTs (tree, stack, queue, linked list).",
     "id": "File manager GUI lintas OS terinspirasi Windows Explorer, dibangun dengan C, raylib/raygui, dan 4 ADT utama (tree, stack, queue, linked list)."

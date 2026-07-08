@@ -1,73 +1,80 @@
 <template>
   <div class="cv-builder-container">
-    <div class="editor-pane">
-      <div class="pane-header">
-        <div class="tabs">
+    <header class="global-topbar">
+      <div class="brand">CV Editor</div>
+      <div class="actions">
+        <button @click="formatCode" class="action-btn">Format</button>
+        <button @click="saveSource" class="action-btn" :disabled="isSavingSource">
+          {{ isSavingSource ? 'Saving...' : 'Save' }}
+        </button>
+        <button @click="generatePdf" class="action-btn primary" :disabled="isGenerating">
+          {{ isGenerating ? 'Exporting...' : 'Export PDF' }}
+        </button>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <div class="editor-pane">
+        <div class="chrome-tabs">
           <button 
             :class="['tab-btn', { active: activeTab === 'html' }]"
             @click="activeTab = 'html'"
-          >HTML</button>
+          >
+            source.html <span v-if="isHtmlDirty" class="dirty-dot">•</span>
+          </button>
           <button 
             :class="['tab-btn', { active: activeTab === 'css' }]"
             @click="activeTab = 'css'"
-          >CSS</button>
-        </div>
-        <div style="display: flex; gap: 0.5rem;">
-          <button @click="formatCode" class="btn ghost">
-            ✨ Format
-          </button>
-          <button @click="saveSource" class="btn ghost" :disabled="isSavingSource">
-            {{ isSavingSource ? 'Saving...' : '💾 Save Draft' }}
-          </button>
-          <button @click="generatePdf" class="btn primary" :disabled="isGenerating">
-            {{ isGenerating ? 'Exporting...' : '📄 Export PDF' }}
+          >
+            source.css <span v-if="isCssDirty" class="dirty-dot">•</span>
           </button>
         </div>
-      </div>
-      <div class="editor-wrapper">
-        <codemirror
-          v-if="activeTab === 'html'"
-          v-model="htmlContent"
-          placeholder="<h1>Your CV HTML here</h1>"
-          :style="{ height: '100%' }"
-          :autofocus="true"
-          :indent-with-tab="true"
-          :tab-size="2"
-          :extensions="htmlExtensions"
-        />
-        <codemirror
-          v-if="activeTab === 'css'"
-          v-model="cssContent"
-          placeholder="/* Your CV CSS here */"
-          :style="{ height: '100%' }"
-          :autofocus="true"
-          :indent-with-tab="true"
-          :tab-size="2"
-          :extensions="cssExtensions"
-        />
-      </div>
-    </div>
-    
-    <div class="preview-pane">
-      <div class="pane-header">
-        <h2 class="text-xl font-semibold">Live Preview (A4)</h2>
-        <div class="zoom-controls">
-          <span class="text-sm text-muted mr-2">Zoom: {{ Math.round(zoom * 100) }}%</span>
-          <input type="range" v-model.number="zoom" min="0.3" max="1.5" step="0.1" />
+        <div class="editor-wrapper">
+          <codemirror
+            v-show="activeTab === 'html'"
+            v-model="htmlContent"
+            placeholder="<h1>Your CV HTML here</h1>"
+            :style="{ height: '100%' }"
+            :autofocus="true"
+            :indent-with-tab="true"
+            :tab-size="2"
+            :extensions="htmlExtensions"
+          />
+          <codemirror
+            v-show="activeTab === 'css'"
+            v-model="cssContent"
+            placeholder="/* Your CV CSS here */"
+            :style="{ height: '100%' }"
+            :autofocus="true"
+            :indent-with-tab="true"
+            :tab-size="2"
+            :extensions="cssExtensions"
+          />
         </div>
       </div>
-      <div class="preview-scroll">
-        <div class="a4-page-wrapper" :style="{ transform: `scale(${zoom})`, transformOrigin: 'top center', width: '210mm', height: '100%' }">
-          <iframe 
-            ref="previewIframe"
-            :srcdoc="iframeSrcdoc"
-            frameborder="0"
-            style="width: 100%; height: 100%; min-height: 297mm; background: transparent;"
-          ></iframe>
-          <!-- Hidden div for html2pdf to use -->
-          <div ref="cvContent" style="display: none;">
-            <component :is="'style'" v-html="cssContent"></component>
-            <div v-html="htmlContent"></div>
+      
+      <div class="preview-pane">
+        <div class="preview-header">
+          <span class="pane-title">Output</span>
+          <div class="zoom-controls">
+            <span class="zoom-label">{{ Math.round(zoom * 100) }}%</span>
+            <input type="range" v-model.number="zoom" min="0.3" max="1.5" step="0.1" class="zoom-slider" />
+          </div>
+        </div>
+        <div class="preview-scroll">
+          <div class="scale-container" :style="{ width: `calc((210mm + 2rem) * ${zoom})`, margin: '0 auto' }">
+            <div class="a4-page-wrapper" :style="{ transform: `scale(${zoom})`, transformOrigin: 'top left', width: 'calc(210mm + 2rem)' }">
+              <iframe 
+                ref="previewIframe"
+                :srcdoc="iframeSrcdoc"
+                frameborder="0"
+                style="width: 100%; height: 100%; min-height: 297mm; background: transparent;"
+              ></iframe>
+              <!-- Hidden div for html2pdf to use -->
+              <div ref="cvContent" style="display: none;">
+                <div v-html="htmlContent"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -142,6 +149,20 @@ ul { padding-left: 20px; font-size: 11pt; }
 const htmlContent = ref(props.initialHtml || defaultHtml);
 const cssContent = ref(props.initialCss || defaultCss);
 
+const baseHtml = ref(props.initialHtml || defaultHtml);
+const baseCss = ref(props.initialCss || defaultCss);
+
+const isHtmlDirty = ref(false);
+const isCssDirty = ref(false);
+
+watch(htmlContent, (newVal) => {
+  isHtmlDirty.value = newVal !== baseHtml.value;
+});
+
+watch(cssContent, (newVal) => {
+  isCssDirty.value = newVal !== baseCss.value;
+});
+
 const cvContent = ref<HTMLElement | null>(null);
 const isGenerating = ref(false);
 const isSavingSource = ref(false);
@@ -165,8 +186,7 @@ watch([htmlContent, cssContent], () => {
     .pagedjs_page {
       background-color: white !important;
       margin: 24px auto !important;
-      border: 1px solid #e2e8f0 !important;
-      /* box-shadow dihilangkan karena terkesan norak */
+      border: 1px solid #a1a1aa !important;
     }
     
     .pagedjs_pages {
@@ -237,6 +257,13 @@ const saveSource = async () => {
       method: 'POST',
       body: formData
     });
+    
+    // Update base state after successful save
+    baseHtml.value = htmlContent.value;
+    baseCss.value = cssContent.value;
+    
+    isHtmlDirty.value = false;
+    isCssDirty.value = false;
     // Optional: could show a tiny toast here, but we'll keep it silent for fast saving
   } catch (err) {
     console.error('Failed to save source:', err);
@@ -255,7 +282,15 @@ const generatePdf = async () => {
       margin: [0, 0, 0, 0],
       filename: 'cv-arief.pdf',
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2, useCORS: true },
+      html2canvas: { 
+        scale: 2, 
+        useCORS: true,
+        onclone: (documentClone: Document) => {
+          const style = documentClone.createElement('style');
+          style.innerHTML = cssContent.value;
+          documentClone.head.appendChild(style);
+        }
+      },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
       pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
     };
@@ -309,10 +344,39 @@ onUnmounted(() => {
 <style scoped>
 .cv-builder-container {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100vh;
   background: var(--bg);
   overflow: hidden;
+  font-family: var(--font-sans, "Inter", system-ui, sans-serif);
+}
+
+.global-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1.5rem;
+  flex-shrink: 0;
+}
+
+.brand {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.9rem;
+  letter-spacing: -0.01em;
+}
+
+.workspace {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+  padding: 1rem;
+  gap: 1rem;
+  background: var(--bg); /* Back to normal app background */
 }
 
 .editor-pane, .preview-pane {
@@ -322,71 +386,165 @@ onUnmounted(() => {
   display: flex;
   flex-direction: column;
   height: 100%;
-  border-right: 1px solid var(--border);
+  border-radius: 8px; /* Classic modern radius */
+  overflow: hidden;
+  border: 1px solid var(--border); /* Subtle native border */
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15); /* Elegant soft shadow */
 }
 
-.pane-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 1.5rem;
-  background: var(--bg-soft);
-  border-bottom: 1px solid var(--border);
-  height: 70px;
-  flex-shrink: 0;
+.editor-pane {
+  /* Force dark mode for the editor regardless of global theme */
+  background: #18181b; 
 }
 
-.tabs {
+.preview-pane {
+  background: var(--bg-elevated); /* Elevated from the base */
+}
+
+.chrome-tabs {
   display: flex;
-  gap: 0.5rem;
+  align-items: flex-end;
+  height: 44px;
+  background: #18181b; /* Matches outer pane */
+  padding: 0 0.5rem;
+  gap: 4px;
+  border-bottom: 1px solid #27272a;
 }
 
 .tab-btn {
   background: transparent;
   border: 1px solid transparent;
-  color: var(--muted);
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
+  border-bottom: none;
+  color: #a1a1aa; /* Muted text */
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0 1.25rem;
+  height: 32px;
+  border-radius: 8px 8px 0 0;
   cursor: pointer;
+  position: relative;
   transition: all 0.2s;
-}
-.tab-btn:hover {
-  background: var(--surface-muted);
-}
-.tab-btn.active {
-  color: var(--text);
-  background: var(--surface-muted);
-  border-color: var(--border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans, system-ui, sans-serif);
 }
 
-.pane-header h2 {
-  margin: 0;
+.tab-btn:hover {
+  background: #27272a;
+  color: #e4e4e7;
+}
+
+.tab-btn.active {
+  color: #e4e4e7;
+  background: #1e1e1e; /* Match editor bg */
+  border-color: #27272a;
+}
+
+.dirty-dot {
+  color: #eab308;
+  font-size: 1.2rem;
+  line-height: 0;
+}
+
+.preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.pane-title {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.action-btn {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.action-btn:hover:not(:disabled) {
+  border-color: var(--muted);
+  background: var(--bg);
+  transform: translateY(-1px);
+}
+
+.action-btn.primary {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.action-btn.primary:hover:not(:disabled) {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+}
+
+.action-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .editor-wrapper {
   flex: 1;
   overflow: hidden;
   position: relative;
+  background: #1e1e1e;
 }
 
-/* Ensure codemirror takes full height */
 :deep(.cm-editor) {
   height: 100%;
+  background: transparent !important;
 }
+
 :deep(.cm-scroller) {
   overflow: auto;
-  font-family: 'Fira Code', monospace;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+}
+
+:deep(.cm-gutters) {
+  background: #1e1e1e !important;
+  border-right: 1px solid #27272a !important;
+  color: #71717a !important;
+}
+
+:deep(.cm-activeLine), :deep(.cm-activeLineGutter) {
+  background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
 .preview-scroll {
   flex: 1;
-  overflow-y: auto;
+  overflow: auto;
   padding: 2rem;
-  background: #f1f5f9; /* Fixed light gray for contrast */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  background: var(--bg-elevated);
+}
+
+.scale-container {
+  position: relative;
+  transition: width 0.2s ease;
 }
 
 .a4-page-wrapper {
@@ -394,8 +552,6 @@ onUnmounted(() => {
 }
 
 .a4-page {
-  /* We remove the fixed A4 styling from the container itself */
-  /* and let the user's .page classes handle the physical pages */
   position: relative;
   text-align: left;
 }
@@ -406,13 +562,33 @@ onUnmounted(() => {
   gap: 0.5rem;
 }
 
-.zoom-controls input[type="range"] {
-  width: 100px;
+.zoom-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
 }
 
-/* On mobile, stack them vertically */
+.zoom-slider {
+  width: 80px;
+  height: 4px;
+  -webkit-appearance: none;
+  background: #a1a1aa;
+  border-radius: 2px;
+  outline: none;
+}
+
+.zoom-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--text);
+  cursor: pointer;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
 @media (max-width: 1024px) {
-  .cv-builder-container {
+  .workspace {
     flex-direction: column;
   }
   .editor-pane, .preview-pane {

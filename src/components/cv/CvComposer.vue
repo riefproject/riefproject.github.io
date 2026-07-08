@@ -20,7 +20,7 @@
           </div>
         </div>
         <div class="blocks-wrapper">
-          <p class="helper-text">Drag and drop to reorder. Click a list section to expand its items.</p>
+          <p class="helper-text">Drag and drop to reorder. Click a list section to expand its items. Full CRUD enabled.</p>
           <div class="blocks-list" @dragover.prevent @drop="onDropParent($event, blocks.length)">
             <div 
               v-for="(block, index) in blocks" 
@@ -43,8 +43,11 @@
                   <div class="block-class" v-if="block.className">.{{ block.className }}</div>
                 </div>
                 <div class="block-actions">
-                  <button @click.stop="openEditModal(block)" class="icon-btn" title="Edit HTML">
+                  <button @click.stop="openEditModal(block, false)" class="icon-btn" title="Edit HTML">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                  </button>
+                  <button @click.stop="deleteBlock(index)" class="icon-btn delete" title="Delete Section">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                   </button>
                   <label class="toggle-switch" title="Toggle Visibility">
                     <input type="checkbox" v-model="block.active" @click.stop />
@@ -74,8 +77,11 @@
                     <div class="block-title sub">{{ subBlock.title }}</div>
                   </div>
                   <div class="block-actions">
-                    <button @click="openEditModal(subBlock)" class="icon-btn" title="Edit HTML">
+                    <button @click="openEditModal(subBlock, true)" class="icon-btn" title="Edit Item">
                       <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+                    </button>
+                    <button @click="deleteSubBlock(index, subIndex)" class="icon-btn delete" title="Delete Item">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
                     </button>
                     <label class="toggle-switch small" title="Toggle Visibility">
                       <input type="checkbox" v-model="subBlock.active" />
@@ -83,7 +89,19 @@
                     </label>
                   </div>
                 </div>
+                
+                <div class="add-sub-block">
+                  <button class="add-sub-btn" @click="addSubBlock(block)">
+                    + Add New Item
+                  </button>
+                </div>
               </div>
+            </div>
+            
+            <div class="add-main-block">
+              <button class="add-main-btn" @click="addMainBlock">
+                + Add New Section
+              </button>
             </div>
           </div>
         </div>
@@ -119,19 +137,100 @@
     <div v-if="editingBlock" class="modal-overlay" @click.self="closeEditModal">
       <div class="modal-container">
         <div class="modal-header">
-          <h3>Editing: {{ editingBlock.title }}</h3>
+          <div class="modal-title-row">
+            <h3>Editing: {{ editingBlock.title }}</h3>
+            <!-- Tabs show if form mode is supported -->
+            <div class="modal-tabs" v-if="currentFormType !== 'unknown'">
+              <button :class="{ active: editTab === 'form' }" @click="setEditTab('form')">Visual Form</button>
+              <button :class="{ active: editTab === 'html' }" @click="setEditTab('html')">Raw HTML</button>
+            </div>
+          </div>
           <button @click="closeEditModal" class="close-btn">&times;</button>
         </div>
         <div class="modal-body">
-          <codemirror
-            v-model="editingHtml"
-            placeholder="<div>Your HTML here</div>"
-            :style="{ height: '400px' }"
-            :autofocus="true"
-            :indent-with-tab="true"
-            :tab-size="2"
-            :extensions="htmlExtensions"
-          />
+          <template v-if="editTab === 'form' && currentFormType !== 'unknown'">
+            <div class="form-editor">
+              <!-- Sub-item Form -->
+              <template v-if="currentFormType === 'sub-item'">
+                <div class="form-group">
+                  <label>Title (Name / Organization)</label>
+                  <input v-model="editingFormSub.title" type="text" placeholder="e.g. SMAN 1 Subang" />
+                </div>
+                <div class="form-group row">
+                  <div class="col">
+                    <label>Year / Duration</label>
+                    <input v-model="editingFormSub.year" type="text" placeholder="e.g. 2021 - 2024" />
+                  </div>
+                  <div class="col">
+                    <label>Major / Role</label>
+                    <input v-model="editingFormSub.major" type="text" placeholder="e.g. Science" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Description (Paragraphs)</label>
+                  <textarea v-model="editingFormSub.description" rows="4" placeholder="Description..."></textarea>
+                </div>
+                <div class="form-group">
+                  <label>List Items (Points)</label>
+                  <div v-for="(li, i) in editingFormSub.listItems" :key="i" class="list-input-row">
+                    <input v-model="editingFormSub.listItems[i]" type="text" placeholder="List point..." />
+                    <button @click="editingFormSub.listItems.splice(i, 1)" class="remove-btn">&times;</button>
+                  </div>
+                  <button @click="editingFormSub.listItems.push('')" class="add-list-btn">+ Add Point</button>
+                </div>
+              </template>
+
+              <!-- Header Form -->
+              <template v-if="currentFormType === 'header'">
+                <div class="form-group">
+                  <label>Full Name</label>
+                  <input v-model="editingFormHeader.name" type="text" placeholder="e.g. John Doe" />
+                </div>
+                <div class="form-group">
+                  <label>Contact Info & Links</label>
+                  <div v-for="(item, i) in editingFormHeader.items" :key="i" class="header-item-row">
+                    <div class="header-item-inputs">
+                      <input v-model="item.text" type="text" placeholder="Text (e.g. Bandung, or github.com/user)" />
+                      <div class="header-item-toggles">
+                        <label class="checkbox-label">
+                          <input type="checkbox" v-model="item.isLink" /> is Link?
+                        </label>
+                        <label class="checkbox-label">
+                          <input type="checkbox" v-model="item.isNewline" /> New line?
+                        </label>
+                      </div>
+                      <input v-if="item.isLink" v-model="item.href" type="text" placeholder="Href (e.g. https://...)" class="href-input" />
+                    </div>
+                    <button @click="editingFormHeader.items.splice(i, 1)" class="remove-btn">&times;</button>
+                  </div>
+                  <button @click="editingFormHeader.items.push({ text: '', isLink: false, href: '', isNewline: false })" class="add-list-btn">+ Add Contact Item</button>
+                </div>
+              </template>
+
+              <!-- Summary Form -->
+              <template v-if="currentFormType === 'summary'">
+                <div class="form-group">
+                  <label>Section Title</label>
+                  <input v-model="editingFormSummary.title" type="text" placeholder="e.g. Ringkasan Profil" />
+                </div>
+                <div class="form-group">
+                  <label>Profile Summary (Paragraphs)</label>
+                  <textarea v-model="editingFormSummary.description" rows="6" placeholder="Your summary..."></textarea>
+                </div>
+              </template>
+            </div>
+          </template>
+          <template v-else>
+            <codemirror
+              v-model="editingHtml"
+              placeholder="<div>Your HTML here</div>"
+              :style="{ height: '400px' }"
+              :autofocus="true"
+              :indent-with-tab="true"
+              :tab-size="2"
+              :extensions="htmlExtensions"
+            />
+          </template>
         </div>
         <div class="modal-footer">
           <button @click="closeEditModal" class="action-btn">Cancel</button>
@@ -166,6 +265,31 @@ interface CvBlock {
   children?: CvBlock[];
 }
 
+// Form Data Interfaces
+interface CvFormSubItem {
+  title: string;
+  year: string;
+  major: string;
+  description: string;
+  listItems: string[];
+}
+interface HeaderItem {
+  text: string;
+  isLink: boolean;
+  href: string;
+  isNewline: boolean;
+}
+interface HeaderForm {
+  name: string;
+  items: HeaderItem[];
+}
+interface SummaryForm {
+  title: string;
+  description: string;
+}
+
+type FormType = 'sub-item' | 'header' | 'summary' | 'unknown';
+
 const blocks = ref<CvBlock[]>([]);
 const cssContent = ref(props.initialCss || '');
 const zoom = ref(0.8);
@@ -174,6 +298,12 @@ const isSavingSource = ref(false);
 
 const editingBlock = ref<CvBlock | null>(null);
 const editingHtml = ref('');
+const editTab = ref<'form' | 'html'>('html');
+const currentFormType = ref<FormType>('unknown');
+
+const editingFormSub = ref<CvFormSubItem>({ title: '', year: '', major: '', description: '', listItems: [] });
+const editingFormHeader = ref<HeaderForm>({ name: '', items: [] });
+const editingFormSummary = ref<SummaryForm>({ title: '', description: '' });
 
 // Drag and drop state
 const draggedParentIndex = ref<number | null>(null);
@@ -226,7 +356,6 @@ const onDragEnd = () => {
 const onDropParent = (e: DragEvent, toIndex: number) => {
   const fromIndex = draggedParentIndex.value;
   if (fromIndex !== null && fromIndex !== toIndex) {
-    // If dragging down, adjust the insertion index
     const actualToIndex = fromIndex < toIndex ? toIndex - 1 : toIndex;
     const item = blocks.value.splice(fromIndex, 1)[0];
     blocks.value.splice(actualToIndex, 0, item);
@@ -249,9 +378,165 @@ const onDropSub = (e: DragEvent, parentIndex: number, toIndex: number) => {
   onDragEnd();
 };
 
-const openEditModal = (block: CvBlock) => {
+/* --- Form Parsers & Generators --- */
+
+const parseSubForm = (htmlStr: string): CvFormSubItem => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(htmlStr, 'text/html');
+  const el = doc.body.firstElementChild || doc.body;
+
+  const titleEl = el.querySelector('.edu-name, h3');
+  const yearEl = el.querySelector('.edu-year');
+  const majorEl = el.querySelector('.edu-major');
+  
+  const pEls = el.querySelectorAll('p');
+  const description = Array.from(pEls).map(p => p.innerHTML.trim()).filter(Boolean).join('\n\n');
+  
+  const liEls = el.querySelectorAll('ul li');
+  const listItems = Array.from(liEls).map(li => li.innerHTML.trim()).filter(Boolean);
+  
+  return {
+    title: titleEl ? titleEl.innerHTML.trim() : '',
+    year: yearEl ? yearEl.innerHTML.trim() : '',
+    major: majorEl ? majorEl.innerHTML.trim() : '',
+    description,
+    listItems
+  };
+};
+
+const applySubForm = (formData: CvFormSubItem): string => {
+  let html = `<div class="edu-item">\n`;
+  if (formData.year || formData.major || formData.title) {
+    if (!formData.year && !formData.major) {
+       html += `  <h3>${formData.title}</h3>\n`;
+    } else {
+       html += `  <div class="edu-header">\n`;
+       html += `    <span class="edu-name">${formData.title}</span>\n`;
+       if (formData.year) html += `    <span class="edu-year">${formData.year}</span>\n`;
+       html += `  </div>\n`;
+       if (formData.major) html += `  <div class="edu-major">${formData.major}</div>\n`;
+    }
+  }
+  if (formData.description) {
+    formData.description.split('\n\n').forEach(p => {
+      if (p.trim()) html += `  <p>${p.trim()}</p>\n`;
+    });
+  }
+  if (formData.listItems && formData.listItems.length > 0) {
+    const validItems = formData.listItems.filter(li => li.trim());
+    if (validItems.length > 0) {
+      html += `  <ul>\n`;
+      validItems.forEach(li => { html += `    <li>${li.trim()}</li>\n`; });
+      html += `  </ul>\n`;
+    }
+  }
+  html += `</div>`;
+  return html;
+};
+
+const parseHeaderForm = (htmlStr: string): HeaderForm => {
+  const doc = new DOMParser().parseFromString(htmlStr, 'text/html');
+  const el = doc.body.firstElementChild || doc.body;
+  const name = el.querySelector('h1')?.textContent || '';
+  
+  const items: HeaderItem[] = [];
+  let isNewline = false;
+  
+  Array.from(el.childNodes).forEach(node => {
+    if (node.nodeName === 'H1') return;
+    if (node.nodeName === 'BR') {
+      isNewline = true;
+      return;
+    }
+    if (node.nodeType === Node.TEXT_NODE) {
+      const text = node.textContent?.replace(/\|/g, '').trim();
+      if (text) {
+        items.push({ text, isLink: false, href: '', isNewline });
+        isNewline = false;
+      }
+    } else if (node.nodeName === 'A') {
+      const a = node as HTMLAnchorElement;
+      items.push({ text: a.textContent?.trim() || '', isLink: true, href: a.getAttribute('href') || '', isNewline });
+      isNewline = false;
+    }
+  });
+  
+  return { name, items };
+};
+
+const applyHeaderForm = (form: HeaderForm): string => {
+  let html = `<div class="cv-header">\n`;
+  html += `  <h1>${form.name}</h1>\n  `;
+  
+  form.items.forEach((item, index) => {
+    if (item.isNewline) html += `<br />\n  `;
+    if (item.isLink) {
+      html += `<a href="${item.href}">${item.text}</a> `;
+    } else {
+      html += `${item.text} `;
+    }
+    if (index < form.items.length - 1 && !form.items[index + 1].isNewline) {
+      html += `| `;
+    }
+  });
+  
+  html += `\n</div>`;
+  return html;
+};
+
+const parseSummaryForm = (htmlStr: string): SummaryForm => {
+  const doc = new DOMParser().parseFromString(htmlStr, 'text/html');
+  const el = doc.body.firstElementChild || doc.body;
+  const title = el.querySelector('h2')?.textContent || '';
+  const pEls = el.querySelectorAll('p');
+  const description = Array.from(pEls).map(p => p.innerHTML.trim()).join('\n\n');
+  return { title, description };
+};
+
+const applySummaryForm = (form: SummaryForm): string => {
+  let html = `<div class="summary">\n`;
+  html += `  <h2>${form.title}</h2>\n`;
+  if (form.description) {
+    form.description.split('\n\n').forEach(p => {
+      if (p.trim()) html += `  <p>${p.trim()}</p>\n`;
+    });
+  }
+  html += `</div>`;
+  return html;
+};
+
+/* --- Editor Modal State --- */
+
+const setEditTab = (tab: 'form' | 'html') => {
+  if (tab === 'form' && editTab.value === 'html') {
+    // Parse HTML to form
+    if (currentFormType.value === 'sub-item') editingFormSub.value = parseSubForm(editingHtml.value);
+    else if (currentFormType.value === 'header') editingFormHeader.value = parseHeaderForm(editingHtml.value);
+    else if (currentFormType.value === 'summary') editingFormSummary.value = parseSummaryForm(editingHtml.value);
+  } else if (tab === 'html' && editTab.value === 'form') {
+    // Generate HTML from form
+    if (currentFormType.value === 'sub-item') editingHtml.value = applySubForm(editingFormSub.value);
+    else if (currentFormType.value === 'header') editingHtml.value = applyHeaderForm(editingFormHeader.value);
+    else if (currentFormType.value === 'summary') editingHtml.value = applySummaryForm(editingFormSummary.value);
+  }
+  editTab.value = tab;
+};
+
+const openEditModal = (block: CvBlock, isSubBlock: boolean) => {
   editingBlock.value = block;
   editingHtml.value = block.html;
+  
+  if (isSubBlock) currentFormType.value = 'sub-item';
+  else if (block.className.includes('cv-header')) currentFormType.value = 'header';
+  else if (block.className.includes('summary')) currentFormType.value = 'summary';
+  else currentFormType.value = 'unknown';
+  
+  if (currentFormType.value !== 'unknown') {
+    editTab.value = 'html'; // Temporarily set to html so the transition triggers parsing
+    setEditTab('form'); // initialize form state from html
+  } else {
+    editTab.value = 'html';
+  }
 };
 
 const closeEditModal = () => {
@@ -260,9 +545,60 @@ const closeEditModal = () => {
 
 const saveEditModal = () => {
   if (editingBlock.value) {
-    editingBlock.value.html = editingHtml.value;
+    if (currentFormType.value !== 'unknown' && editTab.value === 'form') {
+      if (currentFormType.value === 'sub-item') {
+        editingBlock.value.html = applySubForm(editingFormSub.value);
+        editingBlock.value.title = editingFormSub.value.title || 'Untitled';
+      } else if (currentFormType.value === 'header') {
+        editingBlock.value.html = applyHeaderForm(editingFormHeader.value);
+        editingBlock.value.title = editingFormHeader.value.name || 'Header';
+      } else if (currentFormType.value === 'summary') {
+        editingBlock.value.html = applySummaryForm(editingFormSummary.value);
+        editingBlock.value.title = editingFormSummary.value.title || 'Summary';
+      }
+    } else {
+      editingBlock.value.html = editingHtml.value;
+      if (currentFormType.value === 'sub-item') {
+        editingBlock.value.title = parseSubForm(editingHtml.value).title || 'Untitled';
+      }
+    }
   }
   closeEditModal();
+};
+
+const deleteBlock = (index: number) => {
+  if (confirm('Are you sure you want to delete this section?')) {
+    blocks.value.splice(index, 1);
+  }
+};
+
+const deleteSubBlock = (parentIndex: number, subIndex: number) => {
+  if (confirm('Are you sure you want to delete this item?')) {
+    blocks.value[parentIndex].children?.splice(subIndex, 1);
+  }
+};
+
+const addMainBlock = () => {
+  blocks.value.push({
+    id: 'block-' + Date.now(),
+    title: 'New Section',
+    className: 'new-section',
+    html: '<div class="new-section">\n  <h2>New Section</h2>\n  <p>Content goes here...</p>\n</div>',
+    active: true
+  });
+};
+
+const addSubBlock = (parentBlock: CvBlock) => {
+  const newSubBlock: CvBlock = {
+    id: 'sub-' + Date.now(),
+    title: 'New Item',
+    className: 'edu-item',
+    html: '<div class="edu-item">\n  <div class="edu-header">\n    <span class="edu-name">New Item</span>\n    <span class="edu-year">Year</span>\n  </div>\n  <div class="edu-major">Role / Major</div>\n  <p>Description goes here.</p>\n</div>',
+    active: true
+  };
+  if (!parentBlock.children) parentBlock.children = [];
+  parentBlock.children.push(newSubBlock);
+  parentBlock.isExpanded = true;
 };
 
 const parseHtmlToBlocks = (htmlStr: string) => {
@@ -286,7 +622,6 @@ const parseHtmlToBlocks = (htmlStr: string) => {
       title = child.className.split(' ').map(c => c.charAt(0).toUpperCase() + c.slice(1)).join(' ');
     }
     
-    // Convert to HTMLElement for easier querying
     const el = child as HTMLElement;
     const eduItems = Array.from(el.querySelectorAll(':scope > .edu-item'));
     
@@ -524,6 +859,15 @@ const generatePdf = async () => {
 .block-actions { display: flex; align-items: center; gap: 0.75rem; }
 .icon-btn { background: transparent; border: none; color: #a1a1aa; cursor: pointer; border-radius: 4px; padding: 4px; display: flex; transition: 0.2s; }
 .icon-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.icon-btn.delete:hover { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+
+.add-sub-block, .add-main-block { margin-top: 0.5rem; }
+.add-sub-btn, .add-main-btn {
+  width: 100%; padding: 0.6rem; background: transparent; border: 1px dashed #3f3f46; border-radius: 6px;
+  color: #a1a1aa; font-size: 0.85rem; cursor: pointer; transition: 0.2s; font-weight: 500;
+}
+.add-sub-btn:hover, .add-main-btn:hover { border-color: #3b82f6; color: #3b82f6; background: rgba(59, 130, 246, 0.05); }
+.add-main-btn { margin-top: 1rem; border-color: #52525b; padding: 0.8rem; font-size: 0.9rem; }
 
 /* Toggle Switch */
 .toggle-switch { position: relative; display: inline-block; width: 36px; height: 20px; }
@@ -563,15 +907,46 @@ input:checked + .slider:before { transform: translateX(16px); }
 
 /* Modal */
 .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 100; backdrop-filter: blur(2px); }
-.modal-container { background: #18181b; width: 800px; max-width: 90vw; border-radius: 12px; border: 1px solid #27272a; box-shadow: 0 20px 40px rgba(0,0,0,0.4); display: flex; flex-direction: column; overflow: hidden; }
-.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid #27272a; }
+.modal-container { background: #18181b; width: 800px; max-width: 90vw; max-height: 90vh; border-radius: 12px; border: 1px solid #27272a; box-shadow: 0 20px 40px rgba(0,0,0,0.4); display: flex; flex-direction: column; overflow: hidden; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-bottom: 1px solid #27272a; background: #18181b; flex-shrink: 0; }
+.modal-title-row { display: flex; align-items: center; gap: 1rem; }
 .modal-header h3 { margin: 0; font-size: 1.1rem; color: #fff; }
+.modal-tabs { display: flex; background: #27272a; border-radius: 6px; padding: 2px; }
+.modal-tabs button { background: transparent; border: none; color: #a1a1aa; padding: 4px 12px; font-size: 0.8rem; font-weight: 500; border-radius: 4px; cursor: pointer; transition: 0.2s; }
+.modal-tabs button.active { background: #18181b; color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.2); }
 .close-btn { background: transparent; border: none; color: #a1a1aa; font-size: 1.5rem; cursor: pointer; line-height: 1; }
 .close-btn:hover { color: #fff; }
-.modal-body { padding: 0; background: #1e1e1e; }
-.modal-footer { padding: 1rem 1.5rem; border-top: 1px solid #27272a; display: flex; justify-content: flex-end; gap: 0.5rem; background: #18181b; }
 
-:deep(.cm-editor) { height: 100%; background: transparent !important; }
+.modal-body { padding: 0; background: #1e1e1e; flex: 1; overflow-y: auto; }
+.modal-footer { padding: 1rem 1.5rem; border-top: 1px solid #27272a; display: flex; justify-content: flex-end; gap: 0.5rem; background: #18181b; flex-shrink: 0; }
+
+/* Form Editor Styles */
+.form-editor { padding: 1.5rem; display: flex; flex-direction: column; gap: 1.25rem; }
+.form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group.row { flex-direction: row; gap: 1rem; }
+.form-group.row .col { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+.form-group label { font-size: 0.85rem; font-weight: 500; color: #a1a1aa; }
+.form-group input, .form-group textarea { 
+  background: #27272a; border: 1px solid #3f3f46; color: #e4e4e7; border-radius: 6px; 
+  padding: 0.6rem 0.8rem; font-size: 0.9rem; font-family: inherit; transition: 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: #3b82f6; outline: none; }
+
+.list-input-row { display: flex; gap: 0.5rem; align-items: center; }
+.list-input-row input { flex: 1; }
+
+.header-item-row { display: flex; gap: 0.5rem; align-items: flex-start; padding: 0.75rem; background: #27272a; border-radius: 8px; border: 1px solid #3f3f46; }
+.header-item-inputs { flex: 1; display: flex; flex-direction: column; gap: 0.5rem; }
+.header-item-toggles { display: flex; gap: 1rem; align-items: center; }
+.checkbox-label { display: flex; align-items: center; gap: 0.4rem; font-size: 0.8rem !important; cursor: pointer; color: #e4e4e7 !important; }
+.checkbox-label input { margin: 0; }
+.href-input { font-family: monospace !important; font-size: 0.8rem !important; color: #93c5fd !important; }
+
+.remove-btn { background: transparent; border: none; color: #ef4444; font-size: 1.2rem; cursor: pointer; padding: 0 0.5rem; }
+.add-list-btn { background: transparent; border: 1px dashed #3f3f46; color: #a1a1aa; padding: 0.5rem; border-radius: 6px; cursor: pointer; margin-top: 0.5rem; transition: 0.2s; }
+.add-list-btn:hover { border-color: #3b82f6; color: #3b82f6; }
+
+:deep(.cm-editor) { height: 100%; min-height: 400px; background: transparent !important; }
 :deep(.cm-scroller) { overflow: auto; font-family: 'Fira Code', 'JetBrains Mono', monospace; font-size: 0.85rem; }
 :deep(.cm-gutters) { background: #1e1e1e !important; border-right: 1px solid #27272a !important; color: #71717a !important; }
 :deep(.cm-activeLine), :deep(.cm-activeLineGutter) { background-color: rgba(255, 255, 255, 0.05) !important; }

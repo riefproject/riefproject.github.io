@@ -80,7 +80,7 @@ onUnmounted(() => {
 .cv-download-wrapper {
   position: relative;
   display: inline-block;
-  width: 100%;
+  width: auto;
 }
 
 .cv-trigger {

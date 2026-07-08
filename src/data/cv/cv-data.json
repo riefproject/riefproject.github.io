@@ -1,0 +1,234 @@
+{
+  "header": {
+    "name": "Arief F-sa Wijaya",
+    "location": "Bandung, Jawa Barat",
+    "email": "riefedu@gmail.com",
+    "website": "riefproject.my.id",
+    "linkedin": "linkedin.com/in/arieffsawijaya",
+    "github": "github.com/riefproject"
+  },
+  "sections": [
+    {
+      "id": "summary",
+      "type": "text",
+      "title": "Ringkasan Profil",
+      "content": "Mahasiswa D3 Teknik Informatika Politeknik Negeri Bandung semester 4 dengan minat kuat pada pengembangan perangkat lunak dan perancangan solusi yang terstruktur. Terbiasa memahami permasalahan secara menyeluruh, menyusun arsitektur solusi yang jelas, serta mengelola kompleksitas sebelum implementasi. Memiliki latar belakang competitive programming yang membentuk pola pikir sistematis, analitis, dan berorientasi efisiensi, sehingga mampu menghasilkan kode yang modular, mudah dibaca, dan dapat dikembangkan. Mengutamakan kualitas arsitektur, keterbacaan kode, dan keberlanjutan pengembangan dalam setiap solusi perangkat lunak."
+    },
+    {
+      "id": "skills",
+      "type": "skills",
+      "title": "Keahlian Teknis",
+      "categories": [
+        {
+          "name": "Bahasa Pemrograman",
+          "items": ["C++, Python, Typescript, PHP, Java, Dart, Go (basic)"],
+          "isList": false
+        },
+        {
+          "name": "Pengembangan Aplikasi Web dan Mobile",
+          "items": [
+            "Membangun aplikasi terstruktur",
+            "Merancang alur data frontend–backend berbasis API dan HTTP",
+            "Mengelola struktur aplikasi dengan pendekatan MVC"
+          ],
+          "isList": true
+        },
+        {
+          "name": "Rekayasa Perangkat Lunak",
+          "items": [
+            "Pemecahan masalah dan perancangan solusi berbasis analisis kebutuhan",
+            "Penulisan kode modular, mudah dibaca, dan mudah dirawat",
+            "Debugging dan refactoring"
+          ],
+          "isList": true
+        },
+        {
+          "name": "Algoritma & Struktur Data",
+          "items": [
+            "Struktur Data Tingkat Lanjut, Dynamic Programming, Graph, Binary Search",
+            "Analisis kompleksitas waktu dan memori"
+          ],
+          "isList": true
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "type": "experience",
+      "title": "PENDIDIKAN",
+      "items": [
+        {
+          "name": "Politeknik Negeri Bandung",
+          "year": "2022 - 2025",
+          "major": "D3 Teknik Informatika",
+          "description": "",
+          "bullets": []
+        },
+        {
+          "name": "SMAN 1 Subang",
+          "year": "2021 - 2024",
+          "major": "Matematika dan Ilmu Pengetahuan Alam",
+          "description": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "type": "experience",
+      "title": "Pengalaman professional",
+      "items": [
+        {
+          "name": "Friendly Study Buddy",
+          "year": "Jan 2026 - Sekarang",
+          "major": "Tutor Coding & Informatika",
+          "description": "Mengajar dasar coding dan informatika secara paruh waktu jarak jauh, dengan pendampingan yang dipersonalisasi untuk pelajar dari beragam usia dan latar belakang.",
+          "bullets": [
+            "Menyusun jalur belajar adaptif berdasarkan tujuan, kecepatan belajar, dan pengalaman awal tiap pelajar.",
+            "Menerapkan project-based learning untuk membimbing pelajar membangun proyek kontekstual dunia nyata sambil memperkuat fundamental pemrograman.",
+            "Meningkatkan kemampuan problem solving, computational thinking, dan penalaran logis melalui latihan yang praktis.",
+            "Mendorong eksplorasi mandiri maupun kolaboratif untuk mempersiapkan pelajar ke pembelajaran mandiri, tugas otomasi, dan kebutuhan profesional."
+          ]
+        },
+        {
+          "name": "Rolling Glory",
+          "year": "Jun 2026 - Okt 2026",
+          "major": "Backend Developer",
+          "description": "Mendorong pengembangan backend dan peningkatan arsitektur untuk menghasilkan solusi bisnis berkinerja tinggi dan terukur, mewujudkan operasional yang lebih efisien dan keandalan sistem yang kuat.",
+          "bullets": [
+            "Merancang dan mengimplementasikan sistem logika bisnis otomatis, secara drastis mengurangi beban administratif manual dan meningkatkan efisiensi operasional secara keseluruhan.",
+            "Membangun arsitektur layanan backend modular dan terukur yang mampu menangani transisi status data kompleks dengan mulus, memastikan integritas data tanpa kompromi.",
+            "Memimpin inisiatif modernisasi kode berskala besar, memecah implementasi sistem lawas menjadi layanan reusable untuk mempercepat rilis fitur lintas fungsi di masa depan.",
+            "Secara proaktif mengidentifikasi dan menyelesaikan bottleneck sistem dan database kritikal, meningkatkan stabilitas siklus pengembangan dan kesiapan produksi secara signifikan."
+          ]
+        },
+        {
+          "name": "SMAN 1 Subang",
+          "year": "2026",
+          "major": "Mentor Olimpiade Sains Nasional Bidang Komputer/Informatika",
+          "description": "Memfasilitasi mentoring terstruktur dengan fokus pada penguatan computational thinking, dekomposisi masalah, dan penalaran algoritmik, dengan menekankan kerangka problem solving yang transferable dibandingkan sekadar taktik lomba.",
+          "bullets": [
+            "Merancang pendekatan belajar yang memprioritaskan pemahaman batasan masalah, edge case, dan trade-off solusi sebelum implementasi.",
+            "Membimbing peserta menerjemahkan soal abstrak menjadi model solusi terstruktur melalui penalaran bertahap.",
+            "Menanamkan kebiasaan menulis kode yang terencana, ringkas, dan mudah dirawat dibandingkan solusi brute-force atau trial-and-error.",
+            "Menguatkan kepercayaan diri peserta dalam menghadapi masalah baru dengan menerapkan analisis sistematis alih-alih pola hafalan."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "type": "experience",
+      "title": "PENGALAMAN PROYEK",
+      "items": [
+        {
+          "name": "AlpenQuiz: Aplikasi Kuis Berbasis LAN (offline)",
+          "year": "Proyek Tim – Fullstack",
+          "major": "Tech Stack: Flutter",
+          "description": "",
+          "bullets": []
+        },
+        {
+          "name": "Alpen AI Camera",
+          "year": "Proyek Tim – Fullstack",
+          "major": "Tech Stack: Flutter",
+          "description": "",
+          "bullets": []
+        },
+        {
+          "name": "Aplikasi Koperasi Syariah Terintegrasi",
+          "year": "Proyek Tim – Fullstack",
+          "major": "Tech Stack: Laravel, Vue.js, JavaScript, PHP",
+          "description": "",
+          "bullets": []
+        },
+        {
+          "name": "Productivity Application (Java Desktop)",
+          "year": "Proyek Tim – Lead Developer",
+          "major": "Tech Stack: Java, JavaFX, PostgreSQL, SQLite",
+          "description": "",
+          "bullets": []
+        },
+        {
+          "name": "Block Shooter Game",
+          "year": "Proyek Tim – Lead Developer",
+          "major": "Tech Stack: C, Raylib",
+          "description": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "id": "achievements",
+      "type": "experience",
+      "title": "PENCAPAIAN",
+      "items": [
+        {
+          "name": "Coding & Algorithms Tournament",
+          "year": "2026",
+          "major": "Semi-Finalist",
+          "description": "",
+          "bullets": []
+        },
+        {
+          "name": "Future Innovation and Discovery IT – Universitas Gadjah Mada",
+          "year": "2026",
+          "major": "Finalist",
+          "description": "",
+          "bullets": []
+        },
+        {
+          "name": "ACM/ICPC Regional Asia",
+          "year": "2025",
+          "major": "Honourable Mention",
+          "description": "",
+          "bullets": []
+        },
+        {
+          "name": "ACM/ICPC Provincial – Indonesia National Contest",
+          "year": "2025",
+          "major": "Honourable Mention, Lolos ke ICPC Regional Asia",
+          "description": "",
+          "bullets": []
+        },
+        {
+          "name": "Olimpiade Sains Nasional bidang Komputer/Informatika",
+          "year": "2022",
+          "major": "Juara tingkat Kabupaten, Lolos ke Tingkat Provinsi",
+          "description": "",
+          "bullets": []
+        }
+      ]
+    },
+    {
+      "id": "organizational",
+      "type": "experience",
+      "title": "PENGALAMAN ORGANISASI",
+      "items": [
+        {
+          "name": "Staf Ahli Himpunan Mahasiswa Komputer",
+          "year": "2025-sekarang",
+          "major": "Politeknik Negeri Bandung",
+          "description": "",
+          "bullets": [
+            "Membantu penyusunan dan pelaksanaan program sharing akademik lintas program studi di Jurusan Teknik Informatika",
+            "Terlibat dalam pengelolaan kegiatan bootcamp dan pembinaan lomba, termasuk manajemen peserta dan koordinasi kebutuhan akademik",
+            "Mendukung persiapan dan keberlangsungan kegiatan kompetisi mahasiswa, baik secara administratif maupun teknis"
+          ]
+        },
+        {
+          "name": "Ketua Divisi Pemrograman Klub Komputer Sekolah",
+          "year": "2022-2023",
+          "major": "SMAN 1 Subang",
+          "description": "",
+          "bullets": [
+            "Mengkoordinasikan kegiatan pemrograman dan proyek bersama anggota klub",
+            "Menyusun dan menjalankan program pelatihan pemrograman dasar hingga lanjutan",
+            "Membimbing anggota dalam pengembangan proyek dan peningkatan kemampuan problem solving",
+            "Mempresentasikan hasil proyek pada kegiatan sekolah untuk mendorong kolaborasi dan inovasi"
+          ]
+        }
+      ]
+    }
+  ]
+}

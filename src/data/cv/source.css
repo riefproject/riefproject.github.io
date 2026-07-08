@@ -1,0 +1,94 @@
+:root {
+  --margin-size: 25mm;
+  --header-font-size: 16pt;
+  --normal-font-size: 12pt;
+}
+
+@page {
+  size: A4;
+  margin: var(--margin-size);
+}
+
+body {
+  font-family: "Times New Roman";
+  line-height: 1.15;
+}
+
+.page {
+  /* Kalau masih ada div class="page" di HTML, biar ngga double margin */
+  margin: 0;
+  padding: 0;
+}
+
+/* Class pembantu buat maksa pindah halaman (kayak Ctrl+Enter) */
+.page-break {
+  break-before: page;
+  page-break-before: always;
+}
+
+/* Cegah konten kepotong setengah pas di-export ke PDF */
+.edu-item,
+h2,
+h3,
+p {
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+.cv-header {
+  text-align: center;
+}
+h1 {
+  font-size: var(--header-font-size);
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: var(--normal-font-size);
+  margin-top: var(--normal-font-size);
+  margin-bottom: 3pt;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid black;
+}
+h3 {
+  font-size: var(--normal-font-size);
+  text-align: justify;
+  font-weight: bold;
+  /* Hapus margin default browser yang kegedean */
+  margin-top: 6pt;
+  margin-bottom: 3pt;
+}
+p {
+  font-size: var(--normal-font-size);
+  margin: 0;
+  text-align: justify;
+}
+
+a {
+  text-decoration: underline;
+  font-style: italic;
+  color: black;
+}
+.lang-en {
+  font-style: italic;
+}
+ul {
+  list-style-type: square;
+  padding-left: 18pt;
+  /* Hapus margin default browser dari ul biar ngga renggang */
+  margin-top: 2pt;
+  margin-bottom: 2pt;
+  text-align: justify;
+}
+.edu-item {
+  margin-bottom: 8px;
+}
+.edu-header {
+  display: flex;
+  justify-content: space-between; /* Misahin konten ke ujung kiri dan kanan */
+}
+/* Spesifik buat nama kampus/sekolah */
+.edu-name {
+  font-weight: bold;
+}

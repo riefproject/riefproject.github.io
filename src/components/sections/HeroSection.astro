@@ -62,6 +62,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 			<a class="btn ghost" href={`mailto:${contact.email}`}>
 				<LocaleText as="span" text={heroCopy.contact} />
 			</a>
+			<CvDownloadButton client:load />
 		</div>
 	</div>
 

@@ -20,6 +20,10 @@ export default defineConfig({
   ].filter(Boolean),
   output: "static",
   vite: {
-    // Watcher ignore removed to allow content collection cache invalidation
+    server: {
+      watch: {
+        ignored: ['**/src/data/cv/**']
+      }
+    }
   }
 });

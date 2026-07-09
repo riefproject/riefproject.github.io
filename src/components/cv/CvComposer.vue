@@ -2,6 +2,12 @@
   <div class="cv-builder-container">
     <header class="global-topbar">
       <div class="brand">CV Visual Composer</div>
+      
+      <div class="lang-switcher">
+        <a href="?lang=id" class="lang-btn" :class="{ active: lang === 'id' }">ID</a>
+        <a href="?lang=en" class="lang-btn" :class="{ active: lang === 'en' }">EN</a>
+      </div>
+
       <div class="actions">
         <button @click="saveSource" class="action-btn" :disabled="isSavingSource">
           {{ isSavingSource ? 'Saving...' : 'Save Draft' }}
@@ -248,9 +254,12 @@ import { html } from '@codemirror/lang-html';
 import { oneDark } from '@codemirror/theme-one-dark';
 import html2pdf from 'html2pdf.js';
 
+const cvContent = ref<HTMLElement | null>(null);
+
 const props = defineProps<{
   initialHtml?: string | null;
   initialCss?: string | null;
+  lang?: string;
 }>();
 
 const htmlExtensions = shallowRef([html(), oneDark]);
@@ -727,6 +736,7 @@ const saveSource = async () => {
     const formData = new FormData();
     formData.append('html', finalHtml.value);
     formData.append('css', cssContent.value);
+    formData.append('lang', props.lang || 'id');
     
     await fetch('/api/save-cv-source', {
       method: 'POST',
@@ -766,7 +776,8 @@ const generatePdf = async () => {
     const pdfBlob = await html2pdf().set(opt).from(el).output('blob');
     
     const formData = new FormData();
-    formData.append('pdf', pdfBlob, 'cv-arief.pdf');
+    const pdfFilename = props.lang === 'en' ? 'cv-arief-en.pdf' : 'cv-arief.pdf';
+    formData.append('pdf', pdfBlob, pdfFilename);
     
     const res = await fetch('/api/upload-cv', {
       method: 'POST',
@@ -806,6 +817,12 @@ const generatePdf = async () => {
 }
 
 .brand { font-weight: 600; color: var(--text); font-size: 0.9rem; }
+
+.lang-switcher { display: flex; background: #27272a; border-radius: 6px; padding: 2px; }
+.lang-btn { text-decoration: none; color: #a1a1aa; font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 4px; transition: 0.2s; }
+.lang-btn.active { background: #3b82f6; color: #fff; box-shadow: 0 1px 2px rgba(0,0,0,0.2); }
+.lang-btn:hover:not(.active) { color: #fff; background: rgba(255,255,255,0.1); }
+
 .workspace { display: flex; flex: 1; overflow: hidden; padding: 1rem; gap: 1rem; background: var(--bg); }
 .editor-pane, .preview-pane {
   flex: 1 1 50%; width: 50%; min-width: 0; display: flex; flex-direction: column; height: 100%;

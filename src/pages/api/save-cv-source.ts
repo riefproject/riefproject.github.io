@@ -23,9 +23,12 @@ export const POST = async ({ request }: { request: Request }) => {
     const formData = await request.formData();
     const htmlCode = formData.get('html') as string | null;
     const cssCode = formData.get('css') as string | null;
+    const lang = (formData.get('lang') as string | null) || 'id';
+
+    const htmlFileName = lang === 'en' ? 'source-en.html' : 'source-id.html';
 
     if (htmlCode !== null) {
-      fs.writeFileSync(path.join(cvSourceDir, 'source.html'), htmlCode);
+      fs.writeFileSync(path.join(cvSourceDir, htmlFileName), htmlCode);
     }
     
     if (cssCode !== null) {

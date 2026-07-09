@@ -9,10 +9,20 @@ import CvComposer from '../components/cv/CvComposer.vue';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const cvDir = path.resolve(__dirname, '../data/cv');
 
-const htmlPath = path.join(cvDir, 'source.html');
+const lang = Astro.url.searchParams.get('lang') || 'id';
+const htmlFileName = lang === 'en' ? 'source-en.html' : 'source-id.html';
+
+const htmlPath = path.join(cvDir, htmlFileName);
 const cssPath = path.join(cvDir, 'source.css');
 
-const initialHtml = fs.existsSync(htmlPath) ? fs.readFileSync(htmlPath, 'utf-8') : null;
+// Fallback to source.html if the specific language one doesn't exist yet
+let initialHtml = null;
+if (fs.existsSync(htmlPath)) {
+  initialHtml = fs.readFileSync(htmlPath, 'utf-8');
+} else if (fs.existsSync(path.join(cvDir, 'source.html'))) {
+  initialHtml = fs.readFileSync(path.join(cvDir, 'source.html'), 'utf-8');
+}
+
 const initialCss = fs.existsSync(cssPath) ? fs.readFileSync(cssPath, 'utf-8') : null;
 ---
 
@@ -31,6 +41,6 @@ const initialCss = fs.existsSync(cssPath) ? fs.readFileSync(cssPath, 'utf-8') : 
   </style>
 </head>
 <body>
-  <CvComposer client:only="vue" initialHtml={initialHtml} initialCss={initialCss} />
+  <CvComposer client:only="vue" initialHtml={initialHtml} initialCss={initialCss} lang={lang} />
 </body>
 </html>

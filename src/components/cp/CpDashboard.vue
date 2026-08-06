@@ -184,14 +184,15 @@
                 <div class="pcard-logo-box">
                   <img src="/img/tlx/tlx.webp" alt="TLX" class="pcard-img-logo" />
                 </div>
-                <div>
+                <div class="pcard-title-text">
                   <h4 class="pcard-name">TOKI Learning Center</h4>
                   <span class="pcard-handle">@{{ cpData?.platforms?.tlx?.handle || 'aycaaa' }}</span>
                 </div>
               </div>
-              <span class="pcard-badge badge-tlx">
-                {{ totalTlxSolved }} Solved
-              </span>
+              <div class="pcard-solved-badge">
+                <span class="pcard-solved-num">{{ totalTlxSolved }}</span>
+                <span class="pcard-solved-label">{{ isId ? 'selesai' : 'solved' }}</span>
+              </div>
             </div>
             <div class="pcard-body">
               <div class="pcard-meta-row">
@@ -215,14 +216,15 @@
                 <div class="pcard-logo-box">
                   <img src="/img/codeforces/codeforces.webp" alt="Codeforces" class="pcard-img-logo" />
                 </div>
-                <div>
+                <div class="pcard-title-text">
                   <h4 class="pcard-name">Codeforces</h4>
                   <span class="pcard-handle">@{{ cpData?.platforms?.codeforces?.handle || 'feeera' }}</span>
                 </div>
               </div>
-              <span class="pcard-badge badge-codeforces">
-                Rating {{ cpData?.platforms?.codeforces?.rating || 625 }}
-              </span>
+              <div class="pcard-solved-badge">
+                <span class="pcard-solved-num">{{ cpData?.platforms?.codeforces?.rating || 625 }}</span>
+                <span class="pcard-solved-label">rating</span>
+              </div>
             </div>
             <div class="pcard-body">
               <div class="pcard-meta-row">
@@ -246,14 +248,15 @@
                 <div class="pcard-logo-box">
                   <img src="/img/leetcode/leetcode.webp" alt="LeetCode" class="pcard-img-logo" />
                 </div>
-                <div>
+                <div class="pcard-title-text">
                   <h4 class="pcard-name">LeetCode</h4>
                   <span class="pcard-handle">@{{ cpData?.platforms?.leetcode?.handle || 'fsaree' }}</span>
                 </div>
               </div>
-              <span class="pcard-badge badge-leetcode">
-                {{ totalLcSolved }} Solved
-              </span>
+              <div class="pcard-solved-badge">
+                <span class="pcard-solved-num">{{ totalLcSolved }}</span>
+                <span class="pcard-solved-label">{{ isId ? 'selesai' : 'solved' }}</span>
+              </div>
             </div>
             <div class="pcard-body">
               <div class="pcard-meta-row">
@@ -281,14 +284,15 @@
                 <div class="pcard-logo-box">
                   <img src="/img/hackerrank/HackerRank.webp" alt="HackerRank" class="pcard-img-logo" />
                 </div>
-                <div>
+                <div class="pcard-title-text">
                   <h4 class="pcard-name">HackerRank</h4>
                   <span class="pcard-handle">@{{ cpData?.platforms?.hackerrank?.handle || 'areee' }}</span>
                 </div>
               </div>
-              <span class="pcard-badge badge-hackerrank">
-                {{ totalHrSolved }}+ Solved
-              </span>
+              <div class="pcard-solved-badge">
+                <span class="pcard-solved-num">{{ totalHrSolved }}+</span>
+                <span class="pcard-solved-label">{{ isId ? 'selesai' : 'solved' }}</span>
+              </div>
             </div>
             <div class="pcard-body">
               <div class="pcard-meta-row">
@@ -2194,6 +2198,12 @@ onMounted(() => {
   object-fit: contain;
 }
 
+.pcard-title-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
 .pcard-name {
   font-size: var(--text-base);
   font-weight: 700;
@@ -2202,70 +2212,33 @@ onMounted(() => {
 }
 
 .pcard-handle {
-  font-size: var(--text-sm);
+  font-size: var(--text-xs);
   color: var(--muted);
+  margin-top: 0.15rem;
 }
 
-.pcard-badge {
-  font-size: var(--text-sm);
-  font-weight: 700;
-  padding: 0.25rem 0.65rem;
-  border-radius: 999px;
+.pcard-solved-badge {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0.3rem 0.65rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-muted);
   white-space: nowrap;
 }
 
-/* Platform Badge Colors (Dark mode defaults) */
-.badge-tlx {
-  background: rgba(6, 78, 59, 0.45);
-  color: #34d399;
-  border: 1px solid rgba(16, 185, 129, 0.35);
-}
-
-.badge-codeforces {
-  background: rgba(12, 74, 110, 0.45);
-  color: #38bdf8;
-  border: 1px solid rgba(56, 189, 248, 0.35);
-}
-
-.badge-leetcode {
-  background: rgba(120, 53, 15, 0.45);
-  color: #fbbf24;
-  border: 1px solid rgba(251, 191, 36, 0.35);
-}
-
-.badge-hackerrank {
-  background: rgba(88, 28, 135, 0.45);
-  color: #c084fc;
-  border: 1px solid rgba(192, 132, 252, 0.35);
-}
-
-/* Light mode for Platform Badges (Ultra High Contrast) */
-:root.light .badge-tlx {
-  background: #d1fae5;
-  color: #065f46;
-  border: 1px solid #6ee7b7;
+.pcard-solved-num {
+  font-size: var(--text-lg);
   font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
 }
 
-:root.light .badge-codeforces {
-  background: #e0f2fe;
-  color: #0369a1;
-  border: 1px solid #7dd3fc;
-  font-weight: 700;
-}
-
-:root.light .badge-leetcode {
-  background: #fef3c7;
-  color: #92400e;
-  border: 1px solid #fcd34d;
-  font-weight: 700;
-}
-
-:root.light .badge-hackerrank {
-  background: #f3e8ff;
-  color: #6b21a8;
-  border: 1px solid #d8b4fe;
-  font-weight: 700;
+.pcard-solved-label {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  font-weight: 400;
 }
 
 .pcard-body {
@@ -2350,7 +2323,6 @@ onMounted(() => {
   position: relative;
   width: auto;
   flex: 1;
-  max-width: 320px;
 }
 
 .search-icon {

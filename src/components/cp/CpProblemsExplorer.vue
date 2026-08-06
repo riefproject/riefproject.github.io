@@ -469,7 +469,6 @@ const formatExactDate = (isoString?: string) => {
   position: relative;
   width: auto;
   flex: 1;
-  max-width: 320px;
 }
 
 .search-icon-svg {

@@ -7,7 +7,7 @@ export const projects: Project[] = [
       "Integrated Sharia Cooperative System",
       "Sistem Koperasi Syariah Terintegrasi"
     ),
-    img: "/img/projects/KopSy.png",
+    img: "/img/projects/KopSy.webp",
     description: t(
       "Full-stack integrated sharia cooperative application with complex domain logic handling savings, murabahah-based installments, POS cash system, and inventory management.",
       "Aplikasi koperasi syariah terintegrasi fullstack dengan logika domain kompleks yang menangani simpanan, cicilan berbasis murabahah, sistem POS cash, dan manajemen stok."
@@ -51,7 +51,7 @@ export const projects: Project[] = [
       "Productivity Application (Java Desktop)",
       "Productivity Application (Java Desktop)"
     ),
-    img: "/img/projects/Pomodone.png",
+    img: "/img/projects/Pomodone.webp",
     description: t(
       "Cross-platform desktop productivity application with layered MVC architecture, implementing multiple design patterns for modularity and scalability.",
       "Aplikasi desktop produktivitas cross-platform dengan arsitektur layered MVC, mengimplementasikan berbagai design pattern untuk modularitas dan skalabilitas."
@@ -96,7 +96,7 @@ export const projects: Project[] = [
   },
   {
     title: t("Block Shooter Game", "Block Shooter Game"),
-    img: "/img/projects/BlockShooter.png",
+    img: "/img/projects/BlockShooter.webp",
     description: t(
       "2D arcade shooter game built with C and Raylib, implementing low-level data structures, game loop mechanics, and persistent game state management.",
       "Game arcade shooter 2D yang dibangun dengan C dan Raylib, mengimplementasikan struktur data tingkat rendah, mekanika game loop, dan manajemen state permainan persisten."
@@ -137,7 +137,7 @@ export const projects: Project[] = [
   },
   {
     title: t("Bioskopku CLI Ticketing", "Bioskopku CLI Ticketing"),
-    img: "/img/projects/Bioskopku.png",
+    img: "/img/projects/Bioskopku.webp",
     description: t(
       "CLI cinema ticketing system in pure C with real-time validation and role-based access controls, optimized for terminal workflows.",
       "Sistem tiket bioskop CLI berbasis C murni dengan validasi realtime dan kontrol akses berbasis peran, dioptimalkan untuk alur terminal."
@@ -211,7 +211,7 @@ export const projects: Project[] = [
   },
   {
     title: t("AlpenliCloud File Manager", "AlpenliCloud File Manager"),
-    img: "/img/projects/Alpenlicloud.png",
+    img: "/img/projects/Alpenlicloud.webp",
     description: t(
       "Cross-platform GUI file manager inspired by Windows Explorer, built in C with raylib/raygui and 4 core ADTs (tree, stack, queue, linked list).",
       "File manager GUI lintas OS terinspirasi Windows Explorer, dibangun dengan C, raylib/raygui, dan 4 ADT utama (tree, stack, queue, linked list)."
@@ -259,7 +259,7 @@ export const projects: Project[] = [
       "reeshape – Shape Playground (Pattern Block Activity)",
       "reeshape – Shape Playground (Pattern Block Activity)"
     ),
-    img: "/img/projects/reeshape.png",
+    img: "/img/projects/reeshape.webp",
     description: t(
       "Interactive 2D pattern-block puzzle built in Godot 4 (C#) with manual 2D transforms, snap-based validation, and custom stage templates.",
       "Puzzle pattern-block 2D interaktif di Godot 4 (C#) dengan transformasi 2D manual, validasi berbasis snapping, dan template stage custom."

@@ -112,7 +112,7 @@ export const cpProfiles: CPProfile[] = [
     platform: "TLX",
     handle: "fsarf_",
     url: "https://tlx.toki.id/profiles/fsarf_",
-    logo: "/img/tlx.png",
+    logo: "/img/tlx.webp",
     note: t(
       "Practice sets and local contests.",
       "Latihan set dan kontes lokal."
@@ -122,7 +122,7 @@ export const cpProfiles: CPProfile[] = [
     platform: "LeetCode",
     handle: "Fsaree",
     url: "https://leetcode.com/u/fsaree/",
-    logo: "/img/leetcode.png",
+    logo: "/img/leetcode.webp",
     note: t(
       "Daily drills for data structures and algorithms.",
       "Latihan harian struktur data dan algoritma."
@@ -132,7 +132,7 @@ export const cpProfiles: CPProfile[] = [
     platform: "HackerRank",
     handle: "Areee",
     url: "https://www.hackerrank.com/profile/areee",
-    logo: "/img/HackerRank.png",
+    logo: "/img/HackerRank.webp",
     note: t(
       "Weekend rounds and speed benchmarks.",
       "Round akhir pekan dan tolok ukur kecepatan."

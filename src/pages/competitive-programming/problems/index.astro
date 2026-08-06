@@ -1,0 +1,127 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import CpProblemsExplorer from '../../../components/cp/CpProblemsExplorer.vue';
+import LocaleText from '../../../components/i18n/LocaleText.astro';
+import initialCpData from '../../../data/cp-data-initial.json';
+
+const locale = (en: string, id: string) => ({ en, id });
+
+const copy = {
+  title: locale('Solved Competitive Programming Problems', 'Arsip Soal Competitive Programming'),
+  description: locale(
+    'Complete archive of solved problems across TOKI (TLX), Codeforces, LeetCode, and HackerRank with search, filters, and real-time links.',
+    'Koleksi lengkap seluruh soal yang telah diselesaikan di TOKI (TLX), Codeforces, LeetCode, dan HackerRank dilengkapi pencarian, filter, dan tautan langsung.'
+  ),
+  backToDashboard: locale('← Back to CP Dashboard', '← Kembali ke Dashboard CP'),
+  totalSolvedBadge: locale(`${initialCpData.overview.totalSolved} Problems Solved`, `${initialCpData.overview.totalSolved} Soal Diselesaikan`),
+};
+---
+
+<Layout
+  title="Solved Problems Archive | Competitive Programming | Arief F-sa Wijaya"
+  description={copy.description.en}
+>
+  <main class="cp-page">
+    <div class="cp-header section">
+      <a href="/competitive-programming" class="back-link">
+        <LocaleText as="span" text={copy.backToDashboard} />
+      </a>
+      <div class="title-row">
+        <h1>
+          <LocaleText as="span" text={copy.title} />
+        </h1>
+        <div class="cp-badge-tag">
+          <LocaleText as="span" text={copy.totalSolvedBadge} />
+        </div>
+      </div>
+      <p class="lead">
+        <LocaleText as="span" text={copy.description} />
+      </p>
+    </div>
+
+    <div class="cp-content section">
+      <CpProblemsExplorer client:load initialData={initialCpData} />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .cp-page {
+    min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: 5rem;
+  }
+
+  .cp-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cp-badge-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    color: #34d399;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    width: fit-content;
+  }
+
+  .back-link:hover {
+    color: var(--accent-strong);
+    transform: translateX(-4px);
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .lead {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.6;
+    max-width: 780px;
+    margin: 0;
+  }
+
+  .cp-content {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+</style>

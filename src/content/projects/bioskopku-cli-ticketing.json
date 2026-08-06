@@ -3,7 +3,7 @@
     "en": "Bioskopku CLI Ticketing",
     "id": "Bioskopku CLI Ticketing"
   },
-  "img": "/img/projects/bioskopku-cli-ticketing/Bioskopku.png",
+  "img": "/img/projects/bioskopku-cli-ticketing/Bioskopku.webp",
   "description": {
     "en": "CLI cinema ticketing system in pure C with real-time validation and role-based access controls, optimized for terminal workflows.",
     "id": "Sistem tiket bioskop CLI berbasis C murni dengan validasi realtime dan kontrol akses berbasis peran, dioptimalkan untuk alur terminal."

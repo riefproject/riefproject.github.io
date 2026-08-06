@@ -14,11 +14,11 @@
     "id": "Bahasa Pemrograman"
   },
   "link": "https://www.hackerrank.com/",
-  "logo": "/img/go-basic/logo.png",
+  "logo": "/img/go-basic/logo.webp",
   "credentialId": "E49F9D4AA14C",
   "credentialUrl": "https://www.hackerrank.com/certificates/E49F9D4AA14C",
   "certificateImage": [
-    "/img/certs/go-basic/certificateImage/0.png",
-    "/img/certs/go-basic/certificateImage/1.jpeg"
+    "/img/certs/go-basic/certificateImage/0.webp",
+    "/img/certs/go-basic/certificateImage/1.webp"
   ]
 }

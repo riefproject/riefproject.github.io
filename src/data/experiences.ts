@@ -4,7 +4,7 @@ import { t } from "../types/profile.types";
 export const workExperiences: Experience[] = [
   {
     company: "Friendly Study Buddy",
-    logo: "/img/friendlystudybuddy.png",
+    logo: "/img/friendlystudybuddy.webp",
     role: t("Coding & Informatics Tutor", "Tutor Coding & Informatika"),
     period: t("Jan 2026 — Now", "Jan 2026 — Sekarang"),
     summary: t(
@@ -41,7 +41,7 @@ export const workExperiences: Experience[] = [
 export const organizationalExperiences: Experience[] = [
   {
     company: "Himpunan Mahasiswa Komputer Politeknik Negeri Bandung",
-    logo: "/img/himakom.png",
+    logo: "/img/himakom.webp",
     role: t("Junior Staff Member", "Staf Muda"),
     period: t("2025 — Now", "2025 — Sekarang"),
     summary: t(
@@ -66,7 +66,7 @@ export const organizationalExperiences: Experience[] = [
   },
   {
     company: "Brainware of SMANSA (BIoS)",
-    logo: "/img/biossmansa.png",
+    logo: "/img/biossmansa.webp",
     role: t("Head of Programming Division", "Kepala Divisi Programming"),
     period: t("2022 — 2023", "2022 — 2023"),
     summary: t(

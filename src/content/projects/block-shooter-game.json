@@ -3,7 +3,7 @@
     "en": "Block Shooter Game",
     "id": "Block Shooter Game"
   },
-  "img": "/img/projects/block-shooter-game/BlockShooter.png",
+  "img": "/img/projects/block-shooter-game/BlockShooter.webp",
   "description": {
     "en": "2D arcade shooter game built with C and Raylib, implementing low-level data structures, game loop mechanics, and persistent game state management.",
     "id": "Game arcade shooter 2D yang dibangun dengan C dan Raylib, mengimplementasikan struktur data tingkat rendah, mekanika game loop, dan manajemen state permainan persisten."

@@ -4,7 +4,7 @@ import { t } from "../types/profile.types";
 export const education: Education[] = [
   {
     institution: "Politeknik Negeri Bandung",
-    logo: "/img/polban.png",
+    logo: "/img/polban.webp",
     program: t("D3 Informatics Engineering", "D3 Teknik Informatika"),
     period: "2024 — Sekarang",
     details: [
@@ -24,7 +24,7 @@ export const education: Education[] = [
   },
   {
     institution: "SMAN 1 Subang",
-    logo: "/img/smansa.png",
+    logo: "/img/smansa.webp",
     program: t(
       "Mathematics & Natural Sciences",
       "Matematika & Ilmu Pengetahuan Alam"

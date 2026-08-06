@@ -65,6 +65,7 @@ const resolveLogo = (item: TechStack) => {
           v-for="category in categories"
           :key="category.key"
           type="button"
+          role="tab"
           @click="setCategory(category.key)"
           :aria-selected="category.key === selectedCategory"
           :class="['tab', { active: category.key === selectedCategory }]">
@@ -88,10 +89,12 @@ const resolveLogo = (item: TechStack) => {
           :key="item.name"
           class="stack-card surface">
           <div class="stack-logo">
-            <div
+            <img
               v-if="resolveLogo(item)"
-              v-html="resolveLogo(item)"
-              class="logo-svg"></div>
+              :src="resolveLogo(item)"
+              alt=""
+              class="logo-svg"
+              loading="lazy" />
             <span v-else>{{ item.name.slice(0, 2).toUpperCase() }}</span>
           </div>
           <p class="stack-name">{{ item.name }}</p>
@@ -200,7 +203,7 @@ const resolveLogo = (item: TechStack) => {
   justify-content: center;
 }
 
-.logo-svg :deep(svg) {
+img.logo-svg {
   width: 70%;
   height: 70%;
   object-fit: contain;

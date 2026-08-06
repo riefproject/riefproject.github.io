@@ -16,7 +16,7 @@ export const cpProfiles: CPProfile[] = [
     platform: "TLX",
     handle: "your-handle",
     url: "https://tlx.toki.id/users/your-handle",
-    logo: "/img/tlx.png",
+    logo: "/img/tlx.webp",
     note: t(
       "Practice sets and local contests.",
       "Latihan set dan kontes lokal."
@@ -26,7 +26,7 @@ export const cpProfiles: CPProfile[] = [
     platform: "LeetCode",
     handle: "your-handle",
     url: "https://leetcode.com/your-handle",
-    logo: "/img/leetcode.png",
+    logo: "/img/leetcode.webp",
     note: t(
       "Daily drills for data structures and algorithms.",
       "Latihan harian struktur data dan algoritma."
@@ -36,7 +36,7 @@ export const cpProfiles: CPProfile[] = [
     platform: "HackerRank",
     handle: "your-handle",
     url: "https://hackerrank.com/your-handle",
-    logo: "/img/HackerRank.png",
+    logo: "/img/HackerRank.webp",
     note: t(
       "Weekend rounds and speed benchmarks.",
       "Round akhir pekan dan tolok ukur kecepatan."

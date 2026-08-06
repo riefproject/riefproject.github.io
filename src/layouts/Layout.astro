@@ -62,6 +62,16 @@ const {
 		<link rel="icon" type="image/png" sizes="144x144" href="/favicon-144.png" />
 		<!-- Apple / iOS -->
 		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		
+		<!-- Google Fonts (Non-blocking) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+		<noscript>
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+		</noscript>
+
 		<link rel="sitemap" href="/sitemap-index.xml" />
 		<link rel="canonical" href={Astro.url} />
 		<meta name="robots" content="index, follow" />
@@ -78,16 +88,14 @@ const {
 		<meta name="description" content={description} />
 		<meta name="author" content={profile.name} />
 
-		<link rel="canonical" href={SITE_URL} />
-
 		<meta property="og:type" content="website" />
-		<meta property="og:url" content={SITE_URL} />
+		<meta property="og:url" content={Astro.url} />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={`${SITE_URL}/og-image.jpg`} />
 
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:url" content={SITE_URL} />
+		<meta name="twitter:url" content={Astro.url} />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={`${SITE_URL}/og-image.jpg`} />
@@ -197,27 +205,30 @@ const {
 					};
 
 					window.__applyLanguage = applyLanguage;
-					window.addEventListener('portfolio:lang-change', (event) => {
-						const langFromEvent =
-							event instanceof CustomEvent ? normalizeLang(event.detail) : document.documentElement.lang;
-						applyLanguage(langFromEvent);
-					});
-					window.addEventListener('storage', (event) => {
-						if (event.key === storageKey && event.newValue) {
-							applyLanguage(normalizeLang(event.newValue));
-						}
-					});
-					document.addEventListener('click', (event) => {
-						const target =
-							event.target instanceof Element
-								? event.target.closest('[data-lang-toggle-fallback]')
-								: null;
-						if (!target) return;
-						const island = target.closest('astro-island');
-						if (island && !island.hasAttribute('ssr')) return;
-						event.preventDefault();
-						fallbackToggleLanguage();
-					});
+					
+					const initDeferredLang = () => {
+						window.addEventListener('portfolio:lang-change', (event) => {
+							const langFromEvent =
+								event instanceof CustomEvent ? normalizeLang(event.detail) : document.documentElement.lang;
+							applyLanguage(langFromEvent);
+						});
+						window.addEventListener('storage', (event) => {
+							if (event.key === storageKey && event.newValue) {
+								applyLanguage(normalizeLang(event.newValue));
+							}
+						});
+						document.addEventListener('click', (event) => {
+							const target =
+								event.target instanceof Element
+									? event.target.closest('[data-lang-toggle-fallback]')
+									: null;
+							if (!target) return;
+							const island = target.closest('astro-island');
+							if (island && !island.hasAttribute('ssr')) return;
+							event.preventDefault();
+							fallbackToggleLanguage();
+						});
+					};
 
 					let initial = 'en';
 					try {
@@ -229,7 +240,10 @@ const {
 						initial = 'en';
 					}
 
-				const init = () => applyLanguage(initial);
+				const init = () => {
+					applyLanguage(initial);
+					initDeferredLang();
+				};
 				if (document.readyState === 'loading') {
 					document.addEventListener('DOMContentLoaded', init, { once: true });
 				} else {
@@ -261,7 +275,7 @@ const {
 					))}
 				</nav>
 				<div class="sidebar__cta">
-					<CvDownloadButton client:only="vue" />
+					<CvDownloadButton client:idle />
 					<a class="btn ghost" href="/#proyek">
 						<LocaleText as="span" text={layoutCopy.explore} />
 					</a>
@@ -304,104 +318,16 @@ const {
 				</svg>
 			</button>
 			<div class="global-toggles__controls">
-				<ThemeToggle client:load />
-				<LangToggle client:load />
+				<ThemeToggle client:idle />
+				<LangToggle client:idle />
 			</div>
 		</div>
 		<script is:inline>
 			const root = document.documentElement;
-			const toggle = document.querySelector('[data-sidebar-toggle]');
-			const overlay = document.querySelector('[data-sidebar-overlay]');
-			const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
-			const closeButtons = Array.from(document.querySelectorAll('[data-sidebar-close]'));
-
-			const closeSidebar = () => {
-				root.classList.remove('sidebar-open');
-			};
-
-			toggle?.addEventListener('click', () => {
-				root.classList.toggle('sidebar-open');
-			});
-			overlay?.addEventListener('click', closeSidebar);
-			closeButtons.forEach((btn) => btn.addEventListener('click', closeSidebar));
-			navLinks.forEach((link) =>
-				link.addEventListener('click', () => {
-					closeSidebar();
-				}),
-			);
-
-			window.addEventListener('keydown', (event) => {
-				if (event.key === 'Escape') {
-					closeSidebar();
-				}
-			});
-
-			const setActiveNav = (id) => {
-				navLinks.forEach((link) => {
-					const targetId = link.getAttribute('data-target');
-					if (targetId === id) {
-						link.classList.add('active');
-						link.setAttribute('aria-current', 'true');
-					} else {
-						link.classList.remove('active');
-						link.removeAttribute('aria-current');
-					}
-				});
-			};
-
-			const sectionEntries = navLinks
-				.map((link) => {
-					const id = link.getAttribute('data-target');
-					if (!id) return null;
-					const element = document.getElementById(id);
-					return element ? { id, element } : null;
-				})
-				.filter(Boolean);
-
-			const hashTarget = window.location.hash?.replace('#', '');
-			if (hashTarget) {
-				setActiveNav(hashTarget);
-			} else if (window.location.pathname.startsWith('/projects')) {
-				setActiveNav('proyek');
-			}
-
-			if (sectionEntries.length) {
-				setActiveNav(sectionEntries[0].id);
-				const observer = new IntersectionObserver(
-					(entries) => {
-						const visible = entries
-							.filter((entry) => entry.isIntersecting)
-							.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-
-						if (!visible.length) {
-							return;
-						}
-
-						const id = visible[0].target.getAttribute('id');
-						if (id) {
-							setActiveNav(id);
-						}
-					},
-					{ rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
-				);
-				sectionEntries.forEach(({ element }) => observer.observe(element));
-			}
-
-			const animatedItems = Array.from(new Set(document.querySelectorAll('.section, [data-animate]')));
-			const animateObserver = 'IntersectionObserver' in window
-				? new IntersectionObserver(
-						(entries) => {
-							entries.forEach((entry) => {
-								if (entry.isIntersecting) {
-									entry.target.classList.add('is-visible');
-									animateObserver.unobserve(entry.target);
-								}
-							});
-						},
-						{ rootMargin: '0px 0px -10% 0px', threshold: 0.1 },
-				  )
-				: null;
-
+			const animatedItems = Array.from(new Set(document.querySelectorAll('.section, [data-animate]')))
+				.filter(item => item.id !== 'beranda'); // Exclude Hero section to prevent FCP/LCP delay
+			
+			// 1. Critical: Prevent FOUC for animations (Run immediately)
 			const maxRevealDelay = 400;
 			const revealStep = 35;
 			animatedItems.forEach((item, index) => {
@@ -410,12 +336,115 @@ const {
 					'--reveal-delay',
 					`${Math.min(index * revealStep, maxRevealDelay)}ms`,
 				);
-				if (animateObserver) {
-					animateObserver.observe(item);
-				} else {
-					item.classList.add('is-visible');
-				}
 			});
+
+			// 2. Non-critical: Event listeners and Observers (Run after paint)
+			const initDeferred = () => {
+				const toggle = document.querySelector('[data-sidebar-toggle]');
+				const overlay = document.querySelector('[data-sidebar-overlay]');
+				const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
+				const closeButtons = Array.from(document.querySelectorAll('[data-sidebar-close]'));
+
+				const closeSidebar = () => {
+					root.classList.remove('sidebar-open');
+				};
+
+				toggle?.addEventListener('click', () => {
+					root.classList.toggle('sidebar-open');
+				});
+				overlay?.addEventListener('click', closeSidebar);
+				closeButtons.forEach((btn) => btn.addEventListener('click', closeSidebar));
+				navLinks.forEach((link) =>
+					link.addEventListener('click', () => {
+						closeSidebar();
+					}),
+				);
+
+				window.addEventListener('keydown', (event) => {
+					if (event.key === 'Escape') {
+						closeSidebar();
+					}
+				});
+
+				const setActiveNav = (id) => {
+					navLinks.forEach((link) => {
+						const targetId = link.getAttribute('data-target');
+						if (targetId === id) {
+							link.classList.add('active');
+							link.setAttribute('aria-current', 'true');
+						} else {
+							link.classList.remove('active');
+							link.removeAttribute('aria-current');
+						}
+					});
+				};
+
+				const sectionEntries = navLinks
+					.map((link) => {
+						const id = link.getAttribute('data-target');
+						if (!id) return null;
+						const element = document.getElementById(id);
+						return element ? { id, element } : null;
+					})
+					.filter(Boolean);
+
+				const hashTarget = window.location.hash?.replace('#', '');
+				if (hashTarget) {
+					setActiveNav(hashTarget);
+				} else if (window.location.pathname.startsWith('/projects')) {
+					setActiveNav('proyek');
+				}
+
+				if (sectionEntries.length) {
+					setActiveNav(sectionEntries[0].id);
+					const observer = new IntersectionObserver(
+						(entries) => {
+							const visible = entries
+								.filter((entry) => entry.isIntersecting)
+								.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+							if (!visible.length) {
+								return;
+							}
+
+							const id = visible[0].target.getAttribute('id');
+							if (id) {
+								setActiveNav(id);
+							}
+						},
+						{ rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
+					);
+					sectionEntries.forEach(({ element }) => observer.observe(element));
+				}
+
+				const animateObserver = 'IntersectionObserver' in window
+					? new IntersectionObserver(
+							(entries) => {
+								entries.forEach((entry) => {
+									if (entry.isIntersecting) {
+										entry.target.classList.add('is-visible');
+										animateObserver.unobserve(entry.target);
+									}
+								});
+							},
+							{ rootMargin: '0px 0px -10% 0px', threshold: 0.1 },
+					  )
+					: null;
+
+				animatedItems.forEach((item) => {
+					if (animateObserver) {
+						animateObserver.observe(item);
+					} else {
+						item.classList.add('is-visible');
+					}
+				});
+			};
+			
+			if (document.readyState === 'loading') {
+				document.addEventListener('DOMContentLoaded', initDeferred, { once: true });
+			} else {
+				initDeferred();
+			}
 		</script>
 	</body>
 </html>

@@ -30,7 +30,7 @@ const copy = {
 };
 ---
 
-<Layout title="Projects | Arief F-sa Wijaya">
+<Layout title="Projects | Arief F-sa Wijaya" description={copy.description.en}>
 	<main class="projects-page">
 		<div class="projects-header section">
 			<a href="/" class="back-link">
@@ -45,7 +45,7 @@ const copy = {
 		</div>
 
 		<div class="projects-content section">
-			<ProjectGallery client:load projects={projects} categories={categories} />
+			<ProjectGallery client:idle projects={projects} categories={categories} />
 		</div>
 	</main>
 </Layout>

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
 
 @tailwind base;
 @tailwind components;
@@ -14,7 +14,7 @@
   --bg-elevated: #1a1a1a;
   --surface-muted: rgba(255, 255, 255, 0.04);
   --text: #ededed;
-  --muted: #888888;
+  --muted: #a3a3a3;
   --accent: #ededed;
   --accent-strong: #ffffff;
   --border: #262626;
@@ -35,7 +35,7 @@
   --bg-elevated: #fafafa;
   --surface-muted: rgba(0, 0, 0, 0.03);
   --text: #171717;
-  --muted: #737373;
+  --muted: #525252;
   --accent: #171717;
   --accent-strong: #000000;
   --border: #e5e5e5;

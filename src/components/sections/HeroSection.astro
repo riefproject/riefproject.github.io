@@ -62,7 +62,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 			<a class="btn ghost" href={`mailto:${contact.email}`}>
 				<LocaleText as="span" text={heroCopy.contact} />
 			</a>
-			<CvDownloadButton client:load />
+			<CvDownloadButton client:idle />
 		</div>
 	</div>
 
@@ -226,11 +226,11 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 	.status-text {
 		font-size: 0.8rem;
 		font-weight: 500;
-		color: #16a34a; /* A bit darker for readability, still green */
+		color: #15803d; /* Tailwind green-700 for high contrast in light mode */
 	}
 	
 	:global(.dark) .status-text {
-		color: #4ade80; /* Lighter green for dark mode */
+		color: #86efac; /* Tailwind green-300 for high contrast in dark mode */
 	}
 
 	/* ── Typography ── */
@@ -257,38 +257,6 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 		display: flex;
 		gap: 0.75rem;
 		align-items: center;
-	}
-
-	.btn {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		padding: 0.6rem 1.35rem;
-		border-radius: 8px;
-		font-weight: 500;
-		font-size: 0.95rem;
-		transition: opacity 0.2s ease;
-		text-decoration: none;
-		cursor: pointer;
-	}
-
-	.btn.primary {
-		background: var(--accent);
-		color: #fff;
-	}
-
-	.btn.primary:hover {
-		opacity: 0.85;
-	}
-
-	.btn.ghost {
-		background: transparent;
-		color: var(--text);
-		border: 1px solid var(--border);
-	}
-
-	.btn.ghost:hover {
-		border-color: var(--muted);
 	}
 
 	/* ── Stats ── */

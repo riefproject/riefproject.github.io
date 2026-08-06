@@ -11,6 +11,7 @@ const copy = {
 		'Handle dan tautan ke platform yang aktif saya pakai untuk kontes, upsolve, dan latihan.',
 	),
 	viewProfile: locale('View profile', 'Lihat profil'),
+	openDashboard: locale('Open Live CP Dashboard →', 'Buka Dashboard CP Live →'),
 };
 
 type Props = {
@@ -22,15 +23,23 @@ const { profiles = [] }: Props = Astro.props;
 
 <section id="cp-profiles" class="section cp-profiles">
 	<div class="surface cp-profiles__intro">
-		<p class="eyebrow">
-			<LocaleText as="span" text={copy.eyebrow} />
-		</p>
-		<h2>
-			<LocaleText as="span" text={copy.heading} />
-		</h2>
-		<p>
-			<LocaleText as="span" text={copy.body} />
-		</p>
+		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+			<div>
+				<p class="eyebrow">
+					<LocaleText as="span" text={copy.eyebrow} />
+				</p>
+				<h2>
+					<LocaleText as="span" text={copy.heading} />
+				</h2>
+				<p>
+					<LocaleText as="span" text={copy.body} />
+				</p>
+			</div>
+			<a href="/competitive-programming" class="cp-dashboard-cta">
+				<span class="pulse-dot"></span>
+				<LocaleText as="span" text={copy.openDashboard} />
+			</a>
+		</div>
 	</div>
 	<div class="cp-profiles__grid">
 		{profiles.map((item) => (
@@ -145,5 +154,36 @@ const { profiles = [] }: Props = Astro.props;
 
 	.cp-card__link:hover {
 		border-color: var(--accent);
+	}
+
+	.cp-dashboard-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.65rem 1.25rem;
+		border-radius: 12px;
+		background: var(--bg-elevated);
+		border: 1px solid var(--border);
+		color: var(--text);
+		font-weight: 700;
+		font-size: 0.9rem;
+		text-decoration: none;
+		white-space: nowrap;
+		transition: all 0.2s ease;
+		width: fit-content;
+	}
+
+	.cp-dashboard-cta:hover {
+		background: var(--chip-bg);
+		border-color: var(--text);
+		transform: translateY(-2px);
+	}
+
+	.pulse-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 999px;
+		background-color: #10b981;
+		box-shadow: 0 0 10px #10b981;
 	}
 </style>

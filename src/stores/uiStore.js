@@ -38,14 +38,25 @@ const writeStorage = (key, value) => {
 	}
 };
 
-const initialLang = normalizeLang(readStorage(LANG_KEY, 'en'));
-const prefersDark =
-	typeof window !== 'undefined' && typeof window.matchMedia === 'function'
-		? window.matchMedia('(prefers-color-scheme: dark)').matches
-		: false;
-const initialTheme = readStorage(THEME_KEY, prefersDark ? 'dark' : 'light');
+// Always start with SSR-compatible state to prevent Vue hydration mismatches.
+const initialLang = 'en';
+const initialTheme = 'light';
 
 export const lang = atom(initialLang);
+export const theme = atom(initialTheme);
+
+if (typeof window !== 'undefined') {
+	// Sync with client-side storage after a tick to allow hydration to complete
+	setTimeout(() => {
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		const actualTheme = readStorage(THEME_KEY, prefersDark ? 'dark' : 'light');
+		if (actualTheme !== 'light') theme.set(actualTheme);
+		
+		const actualLang = normalizeLang(readStorage(LANG_KEY, 'en'));
+		if (actualLang !== 'en') lang.set(actualLang);
+	}, 0);
+}
+
 export function setLang(newLang) {
 	const normalized = normalizeLang(newLang);
 	lang.set(normalized);
@@ -56,7 +67,6 @@ export function setLang(newLang) {
 	}
 }
 
-export const theme = atom(initialTheme);
 export function setTheme(newTheme) {
 	theme.set(newTheme);
 	writeStorage(THEME_KEY, newTheme);

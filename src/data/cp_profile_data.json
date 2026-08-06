@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-05T15:35:57.194Z",
+    "updatedAt": "2026-08-06T15:24:56.593Z",
     "source": "live-crawler-sync-full",
     "author": "Arief (riefproject)"
   },
@@ -361,6 +361,26 @@
       "2025-11-03": {
         "tries": 9,
         "ac": 3
+      },
+      "2026-08-06": {
+        "tries": 2,
+        "ac": 2
+      },
+      "2026-05-30": {
+        "tries": 3,
+        "ac": 3
+      },
+      "2026-01-16": {
+        "tries": 5,
+        "ac": 5
+      },
+      "2025-12-25": {
+        "tries": 5,
+        "ac": 5
+      },
+      "2025-12-18": {
+        "tries": 5,
+        "ac": 5
       }
     }
   },
@@ -3436,13 +3456,214 @@
     },
     "leetcode": {
       "handle": "fsaree",
-      "ranking": 2367686,
-      "totalSolved": 59,
+      "ranking": 2369897,
+      "totalSolved": 61,
       "easySolved": 32,
-      "mediumSolved": 24,
+      "mediumSolved": 26,
       "hardSolved": 3,
-      "acceptanceRate": 64.2,
-      "recentSolved": []
+      "acceptanceRate": 71.8,
+      "recentSolved": [
+        {
+          "id": "lc-1786015850",
+          "platform": "leetcode",
+          "title": "Insertion Sort List",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-08-06T11:30:50.000Z",
+          "url": "https://leetcode.com/problems/insertion-sort-list/"
+        },
+        {
+          "id": "lc-1786015330",
+          "platform": "leetcode",
+          "title": "Minimize Maximum Pair Sum in Array",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-08-06T11:22:10.000Z",
+          "url": "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
+        },
+        {
+          "id": "lc-1780173744",
+          "platform": "leetcode",
+          "title": "Check if a Parentheses String Can Be Valid",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-05-30T20:42:24.000Z",
+          "url": "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
+        },
+        {
+          "id": "lc-1780172406",
+          "platform": "leetcode",
+          "title": "Generate Parentheses",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-05-30T20:20:06.000Z",
+          "url": "https://leetcode.com/problems/generate-parentheses/"
+        },
+        {
+          "id": "lc-1780171758",
+          "platform": "leetcode",
+          "title": "Search in Rotated Sorted Array",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-05-30T20:09:18.000Z",
+          "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+        },
+        {
+          "id": "lc-1768543424",
+          "platform": "leetcode",
+          "title": "Two Sum",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-01-16T06:03:44.000Z",
+          "url": "https://leetcode.com/problems/two-sum/"
+        },
+        {
+          "id": "lc-1768543049",
+          "platform": "leetcode",
+          "title": "Valid Palindrome",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-01-16T05:57:29.000Z",
+          "url": "https://leetcode.com/problems/valid-palindrome/"
+        },
+        {
+          "id": "lc-1768542682",
+          "platform": "leetcode",
+          "title": "Regular Expression Matching",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-01-16T05:51:22.000Z",
+          "url": "https://leetcode.com/problems/regular-expression-matching/"
+        },
+        {
+          "id": "lc-1768542552",
+          "platform": "leetcode",
+          "title": "Multiply Strings",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-01-16T05:49:12.000Z",
+          "url": "https://leetcode.com/problems/multiply-strings/"
+        },
+        {
+          "id": "lc-1768541893",
+          "platform": "leetcode",
+          "title": "Add Binary",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2026-01-16T05:38:13.000Z",
+          "url": "https://leetcode.com/problems/add-binary/"
+        },
+        {
+          "id": "lc-1766686182",
+          "platform": "leetcode",
+          "title": "Next Permutation",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2025-12-25T18:09:42.000Z",
+          "url": "https://leetcode.com/problems/next-permutation/"
+        },
+        {
+          "id": "lc-1766686071",
+          "platform": "leetcode",
+          "title": "3Sum",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2025-12-25T18:07:51.000Z",
+          "url": "https://leetcode.com/problems/3sum/"
+        },
+        {
+          "id": "lc-1766685936",
+          "platform": "leetcode",
+          "title": "Remove Nth Node From End of List",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2025-12-25T18:05:36.000Z",
+          "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+        },
+        {
+          "id": "lc-1766685558",
+          "platform": "leetcode",
+          "title": "Letter Combinations of a Phone Number",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2025-12-25T17:59:18.000Z",
+          "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+        },
+        {
+          "id": "lc-1766685385",
+          "platform": "leetcode",
+          "title": "Zigzag Conversion",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "solvedAt": "2025-12-25T17:56:25.000Z",
+          "url": "https://leetcode.com/problems/zigzag-conversion/"
+        },
+        {
+          "id": "lc-1766026945",
+          "platform": "leetcode",
+          "title": "String to Integer (atoi)",
+          "category": "Algorithms",
+          "language": "Go",
+          "difficulty": "-",
+          "solvedAt": "2025-12-18T03:02:25.000Z",
+          "url": "https://leetcode.com/problems/string-to-integer-atoi/"
+        },
+        {
+          "id": "lc-1766026543",
+          "platform": "leetcode",
+          "title": "Longest Common Prefix",
+          "category": "Algorithms",
+          "language": "Go",
+          "difficulty": "-",
+          "solvedAt": "2025-12-18T02:55:43.000Z",
+          "url": "https://leetcode.com/problems/longest-common-prefix/"
+        },
+        {
+          "id": "lc-1766026398",
+          "platform": "leetcode",
+          "title": "Divide Two Integers",
+          "category": "Algorithms",
+          "language": "Go",
+          "difficulty": "-",
+          "solvedAt": "2025-12-18T02:53:18.000Z",
+          "url": "https://leetcode.com/problems/divide-two-integers/"
+        },
+        {
+          "id": "lc-1766026117",
+          "platform": "leetcode",
+          "title": "Longest Palindromic Substring",
+          "category": "Algorithms",
+          "language": "Go",
+          "difficulty": "-",
+          "solvedAt": "2025-12-18T02:48:37.000Z",
+          "url": "https://leetcode.com/problems/longest-palindromic-substring/"
+        },
+        {
+          "id": "lc-1766025816",
+          "platform": "leetcode",
+          "title": "Add Two Numbers",
+          "category": "Algorithms",
+          "language": "Go",
+          "difficulty": "-",
+          "solvedAt": "2025-12-18T02:43:36.000Z",
+          "url": "https://leetcode.com/problems/add-two-numbers/"
+        }
+      ]
     },
     "hackerrank": {
       "handle": "areee",
@@ -3741,6 +3962,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1786015850",
+      "platform": "leetcode",
+      "title": "Insertion Sort List",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-08-06T11:30:50.000Z",
+      "url": "https://leetcode.com/problems/insertion-sort-list/"
+    },
+    {
+      "id": "lc-1786015330",
+      "platform": "leetcode",
+      "title": "Minimize Maximum Pair Sum in Array",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-08-06T11:22:10.000Z",
+      "url": "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/"
+    },
     {
       "id": "tlx-5779449",
       "rawId": 5779449,
@@ -4431,6 +4672,36 @@
       "score": 100
     },
     {
+      "id": "lc-1780173744",
+      "platform": "leetcode",
+      "title": "Check if a Parentheses String Can Be Valid",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-05-30T20:42:24.000Z",
+      "url": "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/"
+    },
+    {
+      "id": "lc-1780172406",
+      "platform": "leetcode",
+      "title": "Generate Parentheses",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-05-30T20:20:06.000Z",
+      "url": "https://leetcode.com/problems/generate-parentheses/"
+    },
+    {
+      "id": "lc-1780171758",
+      "platform": "leetcode",
+      "title": "Search in Rotated Sorted Array",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-05-30T20:09:18.000Z",
+      "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/"
+    },
+    {
       "id": "tlx-5443208",
       "rawId": 5443208,
       "platform": "tlx",
@@ -4897,6 +5168,56 @@
       "score": 100
     },
     {
+      "id": "lc-1768543424",
+      "platform": "leetcode",
+      "title": "Two Sum",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-01-16T06:03:44.000Z",
+      "url": "https://leetcode.com/problems/two-sum/"
+    },
+    {
+      "id": "lc-1768543049",
+      "platform": "leetcode",
+      "title": "Valid Palindrome",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-01-16T05:57:29.000Z",
+      "url": "https://leetcode.com/problems/valid-palindrome/"
+    },
+    {
+      "id": "lc-1768542682",
+      "platform": "leetcode",
+      "title": "Regular Expression Matching",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-01-16T05:51:22.000Z",
+      "url": "https://leetcode.com/problems/regular-expression-matching/"
+    },
+    {
+      "id": "lc-1768542552",
+      "platform": "leetcode",
+      "title": "Multiply Strings",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-01-16T05:49:12.000Z",
+      "url": "https://leetcode.com/problems/multiply-strings/"
+    },
+    {
+      "id": "lc-1768541893",
+      "platform": "leetcode",
+      "title": "Add Binary",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2026-01-16T05:38:13.000Z",
+      "url": "https://leetcode.com/problems/add-binary/"
+    },
+    {
       "id": "tlx-4757395",
       "rawId": 4757395,
       "platform": "tlx",
@@ -5021,6 +5342,56 @@
       "url": "https://codeforces.com/contest/106289/problem/A"
     },
     {
+      "id": "lc-1766686182",
+      "platform": "leetcode",
+      "title": "Next Permutation",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2025-12-25T18:09:42.000Z",
+      "url": "https://leetcode.com/problems/next-permutation/"
+    },
+    {
+      "id": "lc-1766686071",
+      "platform": "leetcode",
+      "title": "3Sum",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2025-12-25T18:07:51.000Z",
+      "url": "https://leetcode.com/problems/3sum/"
+    },
+    {
+      "id": "lc-1766685936",
+      "platform": "leetcode",
+      "title": "Remove Nth Node From End of List",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2025-12-25T18:05:36.000Z",
+      "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/"
+    },
+    {
+      "id": "lc-1766685558",
+      "platform": "leetcode",
+      "title": "Letter Combinations of a Phone Number",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2025-12-25T17:59:18.000Z",
+      "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/"
+    },
+    {
+      "id": "lc-1766685385",
+      "platform": "leetcode",
+      "title": "Zigzag Conversion",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "solvedAt": "2025-12-25T17:56:25.000Z",
+      "url": "https://leetcode.com/problems/zigzag-conversion/"
+    },
+    {
       "id": "tlx-4713763",
       "rawId": 4713763,
       "platform": "tlx",
@@ -5032,6 +5403,56 @@
       "url": "https://tlx.toki.id/submissions/4713763",
       "verdict": "AC",
       "score": 100
+    },
+    {
+      "id": "lc-1766026945",
+      "platform": "leetcode",
+      "title": "String to Integer (atoi)",
+      "category": "Algorithms",
+      "language": "Go",
+      "difficulty": "-",
+      "solvedAt": "2025-12-18T03:02:25.000Z",
+      "url": "https://leetcode.com/problems/string-to-integer-atoi/"
+    },
+    {
+      "id": "lc-1766026543",
+      "platform": "leetcode",
+      "title": "Longest Common Prefix",
+      "category": "Algorithms",
+      "language": "Go",
+      "difficulty": "-",
+      "solvedAt": "2025-12-18T02:55:43.000Z",
+      "url": "https://leetcode.com/problems/longest-common-prefix/"
+    },
+    {
+      "id": "lc-1766026398",
+      "platform": "leetcode",
+      "title": "Divide Two Integers",
+      "category": "Algorithms",
+      "language": "Go",
+      "difficulty": "-",
+      "solvedAt": "2025-12-18T02:53:18.000Z",
+      "url": "https://leetcode.com/problems/divide-two-integers/"
+    },
+    {
+      "id": "lc-1766026117",
+      "platform": "leetcode",
+      "title": "Longest Palindromic Substring",
+      "category": "Algorithms",
+      "language": "Go",
+      "difficulty": "-",
+      "solvedAt": "2025-12-18T02:48:37.000Z",
+      "url": "https://leetcode.com/problems/longest-palindromic-substring/"
+    },
+    {
+      "id": "lc-1766025816",
+      "platform": "leetcode",
+      "title": "Add Two Numbers",
+      "category": "Algorithms",
+      "language": "Go",
+      "difficulty": "-",
+      "solvedAt": "2025-12-18T02:43:36.000Z",
+      "url": "https://leetcode.com/problems/add-two-numbers/"
     },
     {
       "id": "tlx-4695553",

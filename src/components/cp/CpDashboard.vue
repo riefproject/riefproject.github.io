@@ -103,7 +103,7 @@
       </div>
 
       <div class="heatmap-container">
-        <div class="heatmap-scroll">
+        <div ref="heatmapScrollEl" class="heatmap-scroll">
           <div class="heatmap-grid-wrapper">
             <div class="heatmap-grid">
               <div
@@ -336,52 +336,50 @@
                 />
               </div>
 
-              <!-- Platform Filter Buttons with Exact Solved Numbers -->
-              <div class="platform-filter-buttons">
+              <!-- Unified Filter Popover (Desktop & Mobile) -->
+              <div class="filter-dropdown-container">
                 <button
                   type="button"
-                  @click="setPlatformFilter('all')"
-                  class="filter-pill-btn"
-                  :class="{ active: feedPlatformFilter === 'all' }"
+                  @click="isFilterOpen = !isFilterOpen"
+                  class="filter-trigger-btn"
                 >
-                  All ({{ totalSolved }})
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                  </svg>
+                  <span>{{ activePlatformLabel }}</span>
+                  <span class="active-badge" v-if="feedPlatformFilter !== 'all'">1</span>
                 </button>
-                <button
-                  type="button"
-                  @click="setPlatformFilter('tlx')"
-                  class="filter-pill-btn"
-                  :class="{ active: feedPlatformFilter === 'tlx' }"
-                >
-                  <img src="/img/tlx/tlx.webp" alt="TLX" class="btn-logo-mini" />
-                  <span>TLX ({{ totalTlxSolved }})</span>
-                </button>
-                <button
-                  type="button"
-                  @click="setPlatformFilter('codeforces')"
-                  class="filter-pill-btn"
-                  :class="{ active: feedPlatformFilter === 'codeforces' }"
-                >
-                  <img src="/img/codeforces/codeforces.webp" alt="CF" class="btn-logo-mini" />
-                  <span>Codeforces ({{ totalCfSolved }})</span>
-                </button>
-                <button
-                  type="button"
-                  @click="setPlatformFilter('leetcode')"
-                  class="filter-pill-btn"
-                  :class="{ active: feedPlatformFilter === 'leetcode' }"
-                >
-                  <img src="/img/leetcode/leetcode.webp" alt="LC" class="btn-logo-mini" />
-                  <span>LeetCode ({{ totalLcSolved }})</span>
-                </button>
-                <button
-                  type="button"
-                  @click="setPlatformFilter('hackerrank')"
-                  class="filter-pill-btn"
-                  :class="{ active: feedPlatformFilter === 'hackerrank' }"
-                >
-                  <img src="/img/hackerrank/HackerRank.webp" alt="HR" class="btn-logo-mini" />
-                  <span>HackerRank ({{ totalHrSolved }})</span>
-                </button>
+                
+                <div v-if="isFilterOpen" class="filter-overlay" @click="isFilterOpen = false"></div>
+                
+                <div v-if="isFilterOpen" class="filter-dropdown-menu">
+                  <div class="dropdown-list">
+                    <label class="dropdown-item" @click="setPlatformFilter('all'); isFilterOpen = false">
+                      <input type="radio" :checked="feedPlatformFilter === 'all'" name="platform-filter" />
+                      <span>All ({{ totalSolved }})</span>
+                    </label>
+                    <label class="dropdown-item" @click="setPlatformFilter('tlx'); isFilterOpen = false">
+                      <input type="radio" :checked="feedPlatformFilter === 'tlx'" name="platform-filter" />
+                      <img src="/img/tlx/tlx.webp" alt="TLX" class="btn-logo-mini" />
+                      <span>TLX ({{ totalTlxSolved }})</span>
+                    </label>
+                    <label class="dropdown-item" @click="setPlatformFilter('codeforces'); isFilterOpen = false">
+                      <input type="radio" :checked="feedPlatformFilter === 'codeforces'" name="platform-filter" />
+                      <img src="/img/codeforces/codeforces.webp" alt="CF" class="btn-logo-mini" />
+                      <span>Codeforces ({{ totalCfSolved }})</span>
+                    </label>
+                    <label class="dropdown-item" @click="setPlatformFilter('leetcode'); isFilterOpen = false">
+                      <input type="radio" :checked="feedPlatformFilter === 'leetcode'" name="platform-filter" />
+                      <img src="/img/leetcode/leetcode.webp" alt="LC" class="btn-logo-mini" />
+                      <span>LeetCode ({{ totalLcSolved }})</span>
+                    </label>
+                    <label class="dropdown-item" @click="setPlatformFilter('hackerrank'); isFilterOpen = false">
+                      <input type="radio" :checked="feedPlatformFilter === 'hackerrank'" name="platform-filter" />
+                      <img src="/img/hackerrank/HackerRank.webp" alt="HR" class="btn-logo-mini" />
+                      <span>HackerRank ({{ totalHrSolved }})</span>
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -466,13 +464,22 @@
               </tbody>
             </table>
 
-            <!-- Numbered Pagination Bar for Overview Table -->
             <div class="feed-footer-controls">
               <div class="feed-counter-text">
-                {{ isId
-                  ? `Menampilkan ${overviewRange} dari ${filteredFeed.length} soal (Halaman ${overviewCurrentPage} dari ${overviewTotalPages})`
-                  : `Showing ${overviewRange} of ${filteredFeed.length} problems (Page ${overviewCurrentPage} of ${overviewTotalPages})`
-                }}
+                <span class="desktop-only-text">
+                  {{ isId
+                    ? `Menampilkan ${overviewRange} dari ${filteredFeed.length} soal (Halaman ${overviewCurrentPage} dari ${overviewTotalPages})`
+                    : `Showing ${overviewRange} of ${filteredFeed.length} problems (Page ${overviewCurrentPage} of ${overviewTotalPages})`
+                  }}
+                </span>
+                <div class="mobile-only-text-group">
+                  <div class="mob-range-text">
+                    {{ isId ? `${overviewRange} dari ${filteredFeed.length}` : `${overviewRange} of ${filteredFeed.length}` }}
+                  </div>
+                  <div class="mob-page-text">
+                    {{ isId ? `Halaman ${overviewCurrentPage} / ${overviewTotalPages}` : `Page ${overviewCurrentPage} / ${overviewTotalPages}` }}
+                  </div>
+                </div>
               </div>
 
               <!-- Pagination Navigation Buttons -->
@@ -538,7 +545,6 @@
           <div class="view-all-archive-cta">
             <div class="cta-info">
               <div class="flex items-center gap-2">
-                <div class="cta-pulse-badge">Arsip Lengkap</div>
                 <h4 class="cta-title">{{ isId ? 'Jelajahi Seluruh 441+ Koleksi Soal' : 'Explore Complete 441+ Solved Archive' }}</h4>
               </div>
               <p class="cta-desc">
@@ -667,7 +673,17 @@
               <!-- TLX Pagination Bar -->
               <div class="feed-footer-controls" v-if="tlxTotalPages > 1">
                 <div class="feed-counter-text">
-                  {{ `Halaman ${tlxCurrentPage} dari ${tlxTotalPages} (Total ${(cpData?.platforms?.tlx?.recentSolved || []).length} Soal TLX)` }}
+                  <span class="desktop-only-text">
+                    {{ `Halaman ${tlxCurrentPage} dari ${tlxTotalPages} (Total ${(cpData?.platforms?.tlx?.recentSolved || []).length} Soal TLX)` }}
+                  </span>
+                  <div class="mobile-only-text-group">
+                    <div class="mob-range-text">
+                      {{ `${(tlxCurrentPage - 1) * tlxPageSize + 1}-${Math.min(tlxCurrentPage * tlxPageSize, (cpData?.platforms?.tlx?.recentSolved || []).length)} dari ${(cpData?.platforms?.tlx?.recentSolved || []).length}` }}
+                    </div>
+                    <div class="mob-page-text">
+                      {{ `Halaman ${tlxCurrentPage} / ${tlxTotalPages}` }}
+                    </div>
+                  </div>
                 </div>
                 <div class="pagination-nav-group">
                   <button type="button" @click="tlxCurrentPage = 1" :disabled="tlxCurrentPage === 1" class="pg-btn">«</button>
@@ -816,7 +832,17 @@
               <!-- CF Pagination -->
               <div class="feed-footer-controls" v-if="cfTotalPages > 1">
                 <div class="feed-counter-text">
-                  {{ `Halaman ${cfCurrentPage} dari ${cfTotalPages} (Total ${(cpData?.platforms?.codeforces?.recentSolved || []).length} Soal CF)` }}
+                  <span class="desktop-only-text">
+                    {{ `Halaman ${cfCurrentPage} dari ${cfTotalPages} (Total ${(cpData?.platforms?.codeforces?.recentSolved || []).length} Soal CF)` }}
+                  </span>
+                  <div class="mobile-only-text-group">
+                    <div class="mob-range-text">
+                      {{ `${(cfCurrentPage - 1) * cfPageSize + 1}-${Math.min(cfCurrentPage * cfPageSize, (cpData?.platforms?.codeforces?.recentSolved || []).length)} dari ${(cpData?.platforms?.codeforces?.recentSolved || []).length}` }}
+                    </div>
+                    <div class="mob-page-text">
+                      {{ `Halaman ${cfCurrentPage} / ${cfTotalPages}` }}
+                    </div>
+                  </div>
                 </div>
                 <div class="pagination-nav-group">
                   <button type="button" @click="cfCurrentPage = 1" :disabled="cfCurrentPage === 1" class="pg-btn">«</button>
@@ -942,7 +968,17 @@
               <!-- LC Pagination -->
               <div class="feed-footer-controls" v-if="lcTotalPages > 1">
                 <div class="feed-counter-text">
-                  {{ `Halaman ${lcCurrentPage} dari ${lcTotalPages} (Total ${(cpData?.platforms?.leetcode?.recentSolved || []).length} Soal LeetCode)` }}
+                  <span class="desktop-only-text">
+                    {{ `Halaman ${lcCurrentPage} dari ${lcTotalPages} (Total ${(cpData?.platforms?.leetcode?.recentSolved || []).length} Soal LeetCode)` }}
+                  </span>
+                  <div class="mobile-only-text-group">
+                    <div class="mob-range-text">
+                      {{ `${(lcCurrentPage - 1) * lcPageSize + 1}-${Math.min(lcCurrentPage * lcPageSize, (cpData?.platforms?.leetcode?.recentSolved || []).length)} dari ${(cpData?.platforms?.leetcode?.recentSolved || []).length}` }}
+                    </div>
+                    <div class="mob-page-text">
+                      {{ `Halaman ${lcCurrentPage} / ${lcTotalPages}` }}
+                    </div>
+                  </div>
                 </div>
                 <div class="pagination-nav-group">
                   <button type="button" @click="lcCurrentPage = 1" :disabled="lcCurrentPage === 1" class="pg-btn">«</button>
@@ -1082,7 +1118,17 @@
               <!-- HR Pagination -->
               <div class="feed-footer-controls" v-if="hrTotalPages > 1">
                 <div class="feed-counter-text">
-                  {{ `Halaman ${hrCurrentPage} dari ${hrTotalPages} (Total ${(cpData?.platforms?.hackerrank?.recentSolved || []).length} Challenges HR)` }}
+                  <span class="desktop-only-text">
+                    {{ `Halaman ${hrCurrentPage} dari ${hrTotalPages} (Total ${(cpData?.platforms?.hackerrank?.recentSolved || []).length} Challenges HR)` }}
+                  </span>
+                  <div class="mobile-only-text-group">
+                    <div class="mob-range-text">
+                      {{ `${(hrCurrentPage - 1) * hrPageSize + 1}-${Math.min(hrCurrentPage * hrPageSize, (cpData?.platforms?.hackerrank?.recentSolved || []).length)} dari ${(cpData?.platforms?.hackerrank?.recentSolved || []).length}` }}
+                    </div>
+                    <div class="mob-page-text">
+                      {{ `Halaman ${hrCurrentPage} / ${hrTotalPages}` }}
+                    </div>
+                  </div>
                 </div>
                 <div class="pagination-nav-group">
                   <button type="button" @click="hrCurrentPage = 1" :disabled="hrCurrentPage === 1" class="pg-btn">«</button>
@@ -1138,6 +1184,18 @@ const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date()
 const activeTab = ref<'overview' | 'tlx' | 'codeforces' | 'leetcode' | 'hackerrank'>('overview');
 const searchQuery = ref('');
 const feedPlatformFilter = ref<string>('all');
+const isFilterOpen = ref(false);
+
+const activePlatformLabel = computed(() => {
+  const map: Record<string, string> = {
+    all: isId.value ? 'Semua Platform' : 'All Platforms',
+    tlx: 'TLX (TOKI)',
+    codeforces: 'Codeforces',
+    leetcode: 'LeetCode',
+    hackerrank: 'HackerRank',
+  };
+  return map[feedPlatformFilter.value] || 'Platform';
+});
 
 // Exact Solved Counts
 const totalSolved = computed(() => cpData.value?.overview?.totalSolved || 470);
@@ -1555,8 +1613,15 @@ const refreshData = async () => {
   }
 };
 
+const heatmapScrollEl = ref<HTMLElement | null>(null);
+
 onMounted(() => {
   refreshData();
+  setTimeout(() => {
+    if (heatmapScrollEl.value) {
+      heatmapScrollEl.value.scrollLeft = heatmapScrollEl.value.scrollWidth;
+    }
+  }, 300);
 });
 </script>
 
@@ -1567,6 +1632,11 @@ onMounted(() => {
   gap: 2rem;
   width: 100%;
   min-width: 0;
+  --text-2xl: 1.75rem;
+  --text-lg: 1.125rem;
+  --text-base: 0.875rem;
+  --text-sm: 0.75rem;
+  --text-xs: 0.7rem;
 }
 
 /* Topbar */
@@ -1584,7 +1654,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   color: var(--muted);
 }
 
@@ -1616,7 +1686,7 @@ onMounted(() => {
   border: 1px solid var(--border);
   background: var(--bg-elevated);
   color: var(--text);
-  font-size: 0.8rem;
+  font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -1668,7 +1738,7 @@ onMounted(() => {
 }
 
 .stat-label {
-  font-size: 0.725rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -1677,7 +1747,7 @@ onMounted(() => {
 }
 
 .stat-value {
-  font-size: 2.15rem;
+  font-size: var(--text-2xl);
   font-weight: 800;
   line-height: 1.1;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -1691,14 +1761,14 @@ onMounted(() => {
 .val-purple { color: #c084fc; }
 
 .stat-unit {
-  font-size: 1.35rem;
+  font-size: var(--text-lg);
   font-weight: 700;
   opacity: 0.85;
   margin-left: 1px;
 }
 
 .stat-helper {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--muted);
   line-height: 1.35;
 }
@@ -1730,30 +1800,40 @@ onMounted(() => {
 
 /* Platform Handles Quick Bar */
 .platform-handles-bar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.6rem;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  width: 100%;
 }
 
 .platform-handle-chip {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
+  padding: 0.6rem 0.85rem;
+  row-gap: 0.15rem;
+  column-gap: 0.35rem;
+  text-align: center;
+  border-radius: 0.75rem;
   background: var(--bg-soft);
   border: 1px solid var(--border);
   font-size: 0.8rem;
   color: var(--text);
   text-decoration: none;
   transition: all 0.2s;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .platform-handle-chip:hover {
   background: var(--bg-elevated);
   border-color: var(--border-hover);
   transform: translateY(-1px);
+}
+
+.platform-handle-chip svg {
+  display: none;
 }
 
 .chip-logo-img {
@@ -1769,8 +1849,11 @@ onMounted(() => {
 }
 
 .chip-handle {
+  flex-basis: 100%;
+  text-align: center;
   font-weight: 700;
   color: var(--text);
+  font-size: 0.75rem;
 }
 
 /* Heatmap Section */
@@ -1806,14 +1889,14 @@ onMounted(() => {
 }
 
 .title-with-badge h3 {
-  font-size: 1.1rem;
+  font-size: var(--text-lg);
   font-weight: 700;
   margin: 0;
   color: var(--text);
 }
 
 .activity-count-badge {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
   background: var(--bg-elevated);
@@ -1825,7 +1908,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--muted);
 }
 
@@ -1897,7 +1980,7 @@ onMounted(() => {
 
 .month-label {
   position: absolute;
-  font-size: 0.7rem;
+  font-size: var(--text-xs);
   color: var(--muted);
 }
 
@@ -1912,7 +1995,7 @@ onMounted(() => {
   border-radius: 0.6rem;
   padding: 0.5rem 0.75rem;
   box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   white-space: nowrap;
   display: flex;
   flex-direction: column;
@@ -1934,7 +2017,7 @@ onMounted(() => {
 .tip-date {
   color: var(--muted, #94a3b8);
   font-weight: 500;
-  font-size: 0.725rem;
+  font-size: var(--text-xs);
   border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.08));
   padding-bottom: 0.25rem;
 }
@@ -1951,7 +2034,7 @@ onMounted(() => {
   gap: 0.3rem;
   padding: 0.15rem 0.45rem;
   border-radius: 0.35rem;
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 500;
 }
 
@@ -2018,7 +2101,7 @@ onMounted(() => {
   border: 1px solid transparent;
   border-bottom: none;
   color: var(--muted);
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -2046,7 +2129,7 @@ onMounted(() => {
   padding: 0.15rem 0.45rem;
   border-radius: 999px;
   background: var(--bg-elevated);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   color: var(--text);
 }
@@ -2112,19 +2195,19 @@ onMounted(() => {
 }
 
 .pcard-name {
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 700;
   margin: 0;
   color: var(--text);
 }
 
 .pcard-handle {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   color: var(--muted);
 }
 
 .pcard-badge {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   padding: 0.25rem 0.65rem;
   border-radius: 999px;
@@ -2189,7 +2272,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: 0.825rem;
+  font-size: var(--text-sm);
   color: var(--muted);
   margin-bottom: 1.25rem;
 }
@@ -2222,7 +2305,7 @@ onMounted(() => {
 }
 
 .view-details-link {
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   color: var(--link);
 }
@@ -2232,7 +2315,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  margin-top: 1rem;
+  margin-top: 3.5rem;
   min-width: 0;
 }
 
@@ -2242,42 +2325,31 @@ onMounted(() => {
   gap: 1rem;
 }
 
-@media (min-width: 768px) {
-  .feed-header {
-    flex-direction: row;
-    align-items: flex-end;
-    justify-content: space-between;
-  }
-}
-
 .feed-header h3 {
-  font-size: 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 700;
   margin: 0;
   color: var(--text);
 }
 
 .feed-subtitle {
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   color: var(--muted);
   margin: 0.2rem 0 0 0;
 }
 
 .feed-controls {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
   gap: 0.75rem;
-}
-
-@media (min-width: 640px) {
-  .feed-controls {
-    align-items: flex-end;
-  }
+  width: 100%;
 }
 
 .search-input-wrap {
   position: relative;
-  width: 100%;
+  width: auto;
+  flex: 1;
   max-width: 320px;
 }
 
@@ -2296,7 +2368,7 @@ onMounted(() => {
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: 0.825rem;
+  font-size: var(--text-base);
   outline: none;
 }
 
@@ -2304,25 +2376,136 @@ onMounted(() => {
   border-color: var(--text);
 }
 
-.platform-filter-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
+.filter-dropdown-container {
+  position: relative;
 }
 
-.filter-pill-btn {
+.filter-trigger-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 999px;
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 0.6rem;
   background: var(--bg-soft);
   border: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.775rem;
+  color: var(--text);
+  font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.2s;
+  height: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.filter-trigger-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-hover);
+}
+
+.active-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--link);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: transparent;
+}
+
+.filter-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 101;
+  width: 250px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: popoverFadeIn 0.15s ease-out;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.dropdown-header h4 {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.close-dropdown-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.close-dropdown-btn:hover {
+  color: var(--text);
+}
+
+.dropdown-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  font-size: var(--text-sm);
+  color: var(--text);
+  transition: background 0.15s;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-elevated);
+}
+
+.dropdown-item input[type="radio"] {
+  accent-color: var(--link);
+  cursor: pointer;
+  margin: 0;
 }
 
 .filter-pill-btn:hover {
@@ -2380,7 +2563,7 @@ onMounted(() => {
   table-layout: fixed;
   border-collapse: collapse;
   text-align: left;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
 }
 
 /* Strict Exact Column Widths across all pages */
@@ -2396,7 +2579,7 @@ onMounted(() => {
 
 .cp-table th {
   padding: 0.75rem 1rem;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -2442,7 +2625,7 @@ onMounted(() => {
   border-radius: 999px;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   white-space: nowrap;
   margin: 0 auto;
@@ -2495,7 +2678,7 @@ onMounted(() => {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   line-height: 1.2;
   margin: 0 auto;
 }
@@ -2514,7 +2697,7 @@ onMounted(() => {
   justify-content: center;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   white-space: nowrap;
   margin: 0 auto;
@@ -2582,7 +2765,7 @@ onMounted(() => {
   background: rgba(168, 85, 247, 0.12);
   color: #c084fc;
   border: 1px solid rgba(168, 85, 247, 0.25);
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-family: monospace;
   font-weight: 600;
   margin: 0 auto;
@@ -2601,7 +2784,7 @@ onMounted(() => {
   justify-content: center;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.02em;
   margin: 0 auto;
@@ -2635,7 +2818,7 @@ onMounted(() => {
 }
 
 .cell-time {
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   color: var(--muted);
   white-space: nowrap;
 }
@@ -2683,7 +2866,7 @@ onMounted(() => {
 }
 
 .feed-counter-text {
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   color: var(--muted);
   font-weight: 500;
 }
@@ -2696,12 +2879,13 @@ onMounted(() => {
 }
 
 .pg-btn {
+  white-space: nowrap;
   padding: 0.3rem 0.6rem;
   border-radius: 0.45rem;
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s;
@@ -2734,7 +2918,7 @@ onMounted(() => {
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s;
@@ -3190,11 +3374,28 @@ onMounted(() => {
 /* Mobile Responsive Layout Refinements (Zero Horizontal Scroll except Tables) */
 @media (max-width: 767px) {
   .heatmap-section {
-    display: none !important;
+    padding: 1rem !important;
+    gap: 0.75rem !important;
   }
 }
 
 @media (max-width: 640px) {
+  .feed-section {
+    margin-top: 2rem !important;
+  }
+
+  .feed-controls {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .feed-controls .search-input-wrap {
+    max-width: none !important;
+    flex: 1 !important;
+  }
+
   .tabs-nav {
     flex-wrap: wrap !important;
     justify-content: center !important;
@@ -3239,6 +3440,17 @@ onMounted(() => {
     width: 100% !important;
     justify-content: center !important;
   }
+
+  .platform-handles-bar {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .platform-handle-chip {
+    padding: 0.6rem 0.4rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3256,14 +3468,64 @@ onMounted(() => {
   .refresh-btn {
     justify-content: center !important;
   }
+}
 
-  .platform-handles-bar {
-    justify-content: center !important;
+/* Responsive Pagination Text & Styles */
+.mobile-only-text-group {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .desktop-only-text {
+    display: none !important;
+  }
+  .mobile-only-text-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.15rem !important;
+    text-align: left !important;
+  }
+  
+  .mob-range-text {
+    font-size: 0.775rem !important;
+    font-weight: 700 !important;
+    color: var(--text) !important;
   }
 
-  .platform-handle-chip {
-    width: 100% !important;
-    justify-content: center !important;
+  .mob-page-text {
+    font-size: 0.675rem !important;
+    font-weight: 500 !important;
+    color: var(--muted) !important;
+  }
+  
+  /* Hide page numbers and jump buttons on mobile to keep controls simple and thumb-friendly */
+  .feed-footer-controls .pg-num-list,
+  .feed-footer-controls .pg-btn[title="First Page"],
+  .feed-footer-controls .pg-btn[title="Last Page"] {
+    display: none !important;
+  }
+  
+  .feed-footer-controls {
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.65rem 0.85rem !important;
+  }
+  
+  .feed-counter-text {
+    font-size: 0.725rem !important;
+    font-weight: 600 !important;
+  }
+
+  .pagination-nav-group {
+    gap: 0.3rem !important;
+  }
+
+  .pg-btn {
+    padding: 0.35rem 0.65rem !important;
+    font-size: 0.725rem !important;
+    border-radius: 0.35rem !important;
   }
 }
 </style>

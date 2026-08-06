@@ -18,6 +18,52 @@
           <button v-if="searchQuery" @click="searchQuery = ''; currentPage = 1" class="clear-search-btn">✕</button>
         </div>
 
+        <!-- Unified Filter Popover (Desktop & Mobile) -->
+        <div class="filter-dropdown-container">
+          <button
+            type="button"
+            @click="isFilterOpen = !isFilterOpen"
+            class="filter-trigger-btn"
+          >
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+            </svg>
+            <span>{{ activePlatformLabel }}</span>
+            <span class="active-badge" v-if="selectedPlatform !== 'all'">1</span>
+          </button>
+          
+          <div v-if="isFilterOpen" class="filter-overlay" @click="isFilterOpen = false"></div>
+          
+          <div v-if="isFilterOpen" class="filter-dropdown-menu">
+            <div class="dropdown-list">
+              <label class="dropdown-item" @click="selectPlatform('all'); isFilterOpen = false">
+                <input type="radio" :checked="selectedPlatform === 'all'" name="explorer-platform-filter" />
+                <span>All ({{ totalAllSolved }})</span>
+              </label>
+              <label class="dropdown-item" @click="selectPlatform('tlx'); isFilterOpen = false">
+                <input type="radio" :checked="selectedPlatform === 'tlx'" name="explorer-platform-filter" />
+                <img src="/img/tlx/tlx.webp" alt="TLX" class="tab-btn-logo" style="width: 0.9rem; height: 0.9rem; object-fit: contain;" />
+                <span>TLX ({{ totalTlxSolved }})</span>
+              </label>
+              <label class="dropdown-item" @click="selectPlatform('codeforces'); isFilterOpen = false">
+                <input type="radio" :checked="selectedPlatform === 'codeforces'" name="explorer-platform-filter" />
+                <img src="/img/codeforces/codeforces.webp" alt="CF" class="tab-btn-logo" style="width: 0.9rem; height: 0.9rem; object-fit: contain;" />
+                <span>Codeforces ({{ totalCfSolved }})</span>
+              </label>
+              <label class="dropdown-item" @click="selectPlatform('leetcode'); isFilterOpen = false">
+                <input type="radio" :checked="selectedPlatform === 'leetcode'" name="explorer-platform-filter" />
+                <img src="/img/leetcode/leetcode.webp" alt="LC" class="tab-btn-logo" style="width: 0.9rem; height: 0.9rem; object-fit: contain;" />
+                <span>LeetCode ({{ totalLcSolved }})</span>
+              </label>
+              <label class="dropdown-item" @click="selectPlatform('hackerrank'); isFilterOpen = false">
+                <input type="radio" :checked="selectedPlatform === 'hackerrank'" name="explorer-platform-filter" />
+                <img src="/img/hackerrank/HackerRank.webp" alt="HR" class="tab-btn-logo" style="width: 0.9rem; height: 0.9rem; object-fit: contain;" />
+                <span>HackerRank ({{ totalHrSolved }})</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
         <div class="rows-per-page-select">
           <label class="text-xs text-gray-400">{{ isId ? 'Baris per halaman:' : 'Per page:' }}</label>
           <select v-model.number="pageSize" @change="currentPage = 1" class="page-size-dropdown">
@@ -28,79 +74,10 @@
           </select>
         </div>
       </div>
-
-      <!-- Platform Filter Tabs -->
-      <div class="platform-filter-tabs">
-        <button
-          type="button"
-          @click="selectPlatform('all')"
-          class="platform-tab-btn"
-          :class="{ active: selectedPlatform === 'all' }"
-        >
-          <span>All</span>
-          <span class="count-pill">({{ totalAllSolved }})</span>
-        </button>
-
-        <button
-          type="button"
-          @click="selectPlatform('tlx')"
-          class="platform-tab-btn"
-          :class="{ active: selectedPlatform === 'tlx' }"
-        >
-          <img src="/img/tlx/tlx.webp" alt="TLX" class="tab-btn-logo" />
-          <span>TLX</span>
-          <span class="count-pill">({{ totalTlxSolved }})</span>
-        </button>
-
-        <button
-          type="button"
-          @click="selectPlatform('codeforces')"
-          class="platform-tab-btn"
-          :class="{ active: selectedPlatform === 'codeforces' }"
-        >
-          <img src="/img/codeforces/codeforces.webp" alt="CF" class="tab-btn-logo" />
-          <span>Codeforces</span>
-          <span class="count-pill">({{ totalCfSolved }})</span>
-        </button>
-
-        <button
-          type="button"
-          @click="selectPlatform('leetcode')"
-          class="platform-tab-btn"
-          :class="{ active: selectedPlatform === 'leetcode' }"
-        >
-          <img src="/img/leetcode/leetcode.webp" alt="LC" class="tab-btn-logo" />
-          <span>LeetCode</span>
-          <span class="count-pill">({{ totalLcSolved }})</span>
-        </button>
-
-        <button
-          type="button"
-          @click="selectPlatform('hackerrank')"
-          class="platform-tab-btn"
-          :class="{ active: selectedPlatform === 'hackerrank' }"
-        >
-          <img src="/img/hackerrank/HackerRank.webp" alt="HR" class="tab-btn-logo" />
-          <span>HackerRank</span>
-          <span class="count-pill">({{ totalHrSolved }})</span>
-        </button>
-      </div>
     </div>
 
     <!-- Results Table Container -->
     <div class="explorer-table-card">
-      <div class="table-status-bar">
-        <div class="status-count">
-          {{ isId
-            ? `Menampilkan ${paginationRange} dari ${filteredProblems.length} soal (${selectedPlatform.toUpperCase()})`
-            : `Showing ${paginationRange} of ${filteredProblems.length} problems (${selectedPlatform.toUpperCase()})`
-          }}
-        </div>
-        <div class="pagination-info">
-          {{ isId ? `Halaman ${currentPage} dari ${totalPages}` : `Page ${currentPage} of ${totalPages}` }}
-        </div>
-      </div>
-
       <div v-if="paginatedProblems.length > 0" class="table-scroll-container">
         <!-- Desktop & Scrollable Table -->
         <table class="problems-table">
@@ -188,58 +165,80 @@
       </div>
 
       <!-- Numbered Pagination Bar -->
-      <div v-if="totalPages > 1" class="pagination-bar">
-        <button
-          type="button"
-          @click="goToPage(1)"
-          :disabled="currentPage === 1"
-          class="page-nav-btn"
-          :title="isId ? 'Halaman Pertama' : 'First Page'"
-        >
-          «
-        </button>
-
-        <button
-          type="button"
-          @click="goToPage(currentPage - 1)"
-          :disabled="currentPage === 1"
-          class="page-nav-btn"
-        >
-          ‹ {{ isId ? 'Sebelumnya' : 'Prev' }}
-        </button>
-
-        <div class="page-numbers">
-          <button
-            v-for="p in visiblePageNumbers"
-            :key="p"
-            type="button"
-            @click="typeof p === 'number' && goToPage(p)"
-            class="page-num-btn"
-            :class="{ active: currentPage === p, dots: p === '...' }"
-            :disabled="p === '...'"
-          >
-            {{ p }}
-          </button>
+      <div v-if="filteredProblems.length > 0" class="pagination-bar">
+        <div class="feed-counter-text">
+          <span class="desktop-only-text">
+            {{ isId
+              ? `Menampilkan ${paginationRange} dari ${filteredProblems.length} soal (Halaman ${currentPage} dari ${totalPages})`
+              : `Showing ${paginationRange} of ${filteredProblems.length} problems (Page ${currentPage} of ${totalPages})`
+            }}
+          </span>
+          <div class="mobile-only-text-group">
+            <div class="mob-range-text">
+              {{ isId
+                ? `${paginationRange} dari ${filteredProblems.length}`
+                : `${paginationRange} of ${filteredProblems.length}`
+              }}
+            </div>
+            <div class="mob-page-text">
+              {{ isId ? `Halaman ${currentPage} / ${totalPages}` : `Page ${currentPage} / ${totalPages}` }}
+            </div>
+          </div>
         </div>
 
-        <button
-          type="button"
-          @click="goToPage(currentPage + 1)"
-          :disabled="currentPage === totalPages"
-          class="page-nav-btn"
-        >
-          {{ isId ? 'Berikutnya' : 'Next' }} ›
-        </button>
+        <div class="pagination-nav-group" v-if="totalPages > 1">
+          <button
+            type="button"
+            @click="goToPage(1)"
+            :disabled="currentPage === 1"
+            class="page-nav-btn first-pg-btn"
+            :title="isId ? 'Halaman Pertama' : 'First Page'"
+          >
+            «
+          </button>
 
-        <button
-          type="button"
-          @click="goToPage(totalPages)"
-          :disabled="currentPage === totalPages"
-          class="page-nav-btn"
-          :title="isId ? 'Halaman Terakhir' : 'Last Page'"
-        >
-          »
-        </button>
+          <button
+            type="button"
+            @click="goToPage(currentPage - 1)"
+            :disabled="currentPage === 1"
+            class="page-nav-btn"
+          >
+            ‹ {{ isId ? 'Sebelumnya' : 'Prev' }}
+          </button>
+
+          <div class="page-numbers">
+            <button
+              v-for="p in visiblePageNumbers"
+              :key="p"
+              type="button"
+              @click="typeof p === 'number' && goToPage(p)"
+              class="page-num-btn"
+              :class="{ active: currentPage === p, dots: p === '...' }"
+              :disabled="p === '...'"
+            >
+              {{ p }}
+            </button>
+          </div>
+
+          <button
+            type="button"
+            @click="goToPage(currentPage + 1)"
+            :disabled="currentPage === totalPages"
+            class="page-nav-btn"
+          >
+            {{ isId ? 'Berikutnya' : 'Next' }} ›
+          </button>
+
+          <button
+            type="button"
+            @click="goToPage(totalPages)"
+            :disabled="currentPage === totalPages"
+            class="page-nav-btn last-pg-btn"
+            :title="isId ? 'Halaman Terakhir' : 'Last Page'"
+          >
+            »
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -259,6 +258,19 @@ const isId = computed(() => $lang.value === 'id');
 
 const cpData = ref<any>(props.initialData || null);
 const selectedPlatform = ref<string>('all');
+const isFilterOpen = ref(false);
+
+const activePlatformLabel = computed(() => {
+  const map: Record<string, string> = {
+    all: isId.value ? 'Semua Platform' : 'All Platforms',
+    tlx: 'TLX (TOKI)',
+    codeforces: 'Codeforces',
+    leetcode: 'LeetCode',
+    hackerrank: 'HackerRank',
+  };
+  return map[selectedPlatform.value] || 'Platform';
+});
+
 const searchQuery = ref('');
 const currentPage = ref(1);
 const pageSize = ref(20);
@@ -428,6 +440,11 @@ const formatExactDate = (isoString?: string) => {
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
+  --text-2xl: 1.75rem;
+  --text-lg: 1.125rem;
+  --text-base: 0.875rem;
+  --text-sm: 0.75rem;
+  --text-xs: 0.7rem;
 }
 
 .explorer-card {
@@ -442,25 +459,20 @@ const formatExactDate = (isoString?: string) => {
 
 .explorer-controls-header {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
-}
-
-@media (min-width: 640px) {
-  .explorer-controls-header {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-  }
+  width: 100%;
 }
 
 .search-box {
   position: relative;
-  width: 100%;
-  max-width: 420px;
+  width: auto;
+  flex: 1;
+  max-width: 320px;
 }
 
-.search-icon {
+.search-icon-svg {
   position: absolute;
   left: 0.85rem;
   top: 50%;
@@ -475,7 +487,7 @@ const formatExactDate = (isoString?: string) => {
   border: 1px solid var(--border);
   border-radius: 0.75rem;
   color: var(--text);
-  font-size: 0.875rem;
+  font-size: var(--text-base);
   outline: none;
 }
 
@@ -491,7 +503,7 @@ const formatExactDate = (isoString?: string) => {
   background: transparent;
   border: none;
   color: var(--muted);
-  font-size: 0.85rem;
+  font-size: var(--text-base);
   cursor: pointer;
 }
 
@@ -507,32 +519,140 @@ const formatExactDate = (isoString?: string) => {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: 0.8rem;
+  font-size: var(--text-base);
   outline: none;
 }
 
-/* Platform Filter Tabs */
-.platform-filter-tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  border-top: 1px solid var(--border);
-  padding-top: 0.85rem;
+.filter-dropdown-container {
+  position: relative;
 }
 
-.platform-tab-btn {
+.filter-trigger-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  padding: 0.4rem 0.85rem;
-  border-radius: 999px;
-  background: var(--bg-elevated);
+  gap: 0.45rem;
+  padding: 0.45rem 0.95rem;
+  border-radius: 0.6rem;
+  background: var(--bg-soft);
   border: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 0.8rem;
+  color: var(--text);
+  font-size: var(--text-base);
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.2s;
+  height: 100%;
+  box-sizing: border-box;
+  white-space: nowrap;
+}
+
+.filter-trigger-btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-hover);
+}
+
+.active-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.1rem;
+  height: 1.1rem;
+  border-radius: 50%;
+  background: var(--link);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: transparent;
+}
+
+.filter-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 101;
+  width: 250px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  animation: popoverFadeIn 0.15s ease-out;
+}
+
+@keyframes popoverFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 0.85rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated);
+}
+
+.dropdown-header h4 {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text);
+}
+
+.close-dropdown-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+}
+
+.close-dropdown-btn:hover {
+  color: var(--text);
+}
+
+.dropdown-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0.25rem 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.55rem 0.85rem;
+  cursor: pointer;
+  font-size: var(--text-sm);
+  color: var(--text);
+  transition: background 0.15s;
+}
+
+.dropdown-item:hover {
+  background: var(--bg-elevated);
+}
+
+.dropdown-item input[type="radio"] {
+  accent-color: var(--link);
+  cursor: pointer;
+  margin: 0;
 }
 
 .platform-tab-btn:hover {
@@ -552,7 +672,7 @@ const formatExactDate = (isoString?: string) => {
 }
 
 .count-pill {
-  font-size: 0.75rem;
+  font-size: var(--text-sm);
   font-weight: 700;
   opacity: 0.85;
 }
@@ -574,7 +694,7 @@ const formatExactDate = (isoString?: string) => {
   padding: 0.85rem 1.25rem;
   background: var(--bg-elevated);
   border-bottom: 1px solid var(--border);
-  font-size: 0.8rem;
+  font-size: var(--text-base);
   color: var(--muted);
 }
 
@@ -618,7 +738,7 @@ const formatExactDate = (isoString?: string) => {
   table-layout: fixed;
   border-collapse: collapse;
   text-align: left;
-  font-size: 0.85rem;
+  font-size: var(--text-base);
 }
 
 /* Explicit Fixed Column Widths & Centralized Alignments */
@@ -634,7 +754,7 @@ const formatExactDate = (isoString?: string) => {
 
 .problems-table th {
   padding: 0.75rem 1rem;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -676,11 +796,11 @@ const formatExactDate = (isoString?: string) => {
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.2rem 0.55rem;
   border-radius: 999px;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 600;
   white-space: nowrap;
   margin: 0 auto;
@@ -733,7 +853,7 @@ const formatExactDate = (isoString?: string) => {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--muted);
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   line-height: 1.2;
   margin: 0 auto;
 }
@@ -752,7 +872,7 @@ const formatExactDate = (isoString?: string) => {
   justify-content: center;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   white-space: nowrap;
   margin: 0 auto;
@@ -820,7 +940,7 @@ const formatExactDate = (isoString?: string) => {
   background: rgba(168, 85, 247, 0.12);
   color: #c084fc;
   border: 1px solid rgba(168, 85, 247, 0.25);
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-family: monospace;
   font-weight: 600;
   margin: 0 auto;
@@ -839,7 +959,7 @@ const formatExactDate = (isoString?: string) => {
   justify-content: center;
   padding: 0.15rem 0.5rem;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.02em;
   margin: 0 auto;
@@ -873,7 +993,7 @@ const formatExactDate = (isoString?: string) => {
 }
 
 .cell-time {
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   color: var(--muted);
   white-space: nowrap;
 }
@@ -905,16 +1025,36 @@ const formatExactDate = (isoString?: string) => {
 /* Pagination Bar */
 .pagination-bar {
   display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
   align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.35rem;
-  padding: 1rem;
+  justify-content: space-between;
+  padding: 0.85rem 1.25rem;
   background: var(--bg-elevated);
   border-top: 1px solid var(--border);
 }
 
+@media (min-width: 640px) {
+  .pagination-bar {
+    flex-direction: row;
+  }
+}
+
+.feed-counter-text {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.pagination-nav-group {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+
 .page-nav-btn {
+  white-space: nowrap;
   display: inline-flex;
   align-items: center;
   gap: 0.25rem;
@@ -923,7 +1063,7 @@ const formatExactDate = (isoString?: string) => {
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s;
@@ -956,7 +1096,7 @@ const formatExactDate = (isoString?: string) => {
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: 0.8rem;
+  font-size: var(--text-sm);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s;
@@ -983,6 +1123,74 @@ const formatExactDate = (isoString?: string) => {
   padding: 3rem;
   text-align: center;
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: var(--text-base);
+}
+
+/* Responsive Pagination & Status Bar overrides */
+.mobile-only-text-group {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .explorer-controls-header {
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    width: 100% !important;
+  }
+
+  .explorer-controls-header .search-box {
+    max-width: none !important;
+    flex: 1 !important;
+  }
+
+  .rows-per-page-select {
+    display: none !important;
+  }
+
+  .desktop-only-text {
+    display: none !important;
+  }
+  .mobile-only-text-group {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.15rem !important;
+    text-align: left !important;
+  }
+
+  .mob-range-text {
+    font-size: var(--text-sm) !important;
+    font-weight: 700 !important;
+    color: var(--text) !important;
+  }
+
+  .mob-page-text {
+    font-size: var(--text-xs) !important;
+    font-weight: 500 !important;
+    color: var(--muted) !important;
+  }
+
+  .pagination-bar {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 0.5rem !important;
+    padding: 0.65rem 0.85rem !important;
+  }
+
+  .pagination-bar .page-numbers,
+  .pagination-bar .first-pg-btn,
+  .pagination-bar .last-pg-btn {
+    display: none !important;
+  }
+
+  .page-nav-btn {
+    flex: 1 !important;
+    justify-content: center !important;
+    padding: 0.35rem 0.65rem !important;
+    font-size: var(--text-xs) !important;
+    border-radius: 0.35rem !important;
+  }
 }
 </style>

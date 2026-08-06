@@ -122,10 +122,14 @@ async function fetchTlxData(username: string) {
     languages[s.language] = (languages[s.language] || 0) + 1;
   });
 
-  const dailyCalendar: Record<string, number> = {};
+  const dailyCalendar: Record<string, { tries: number, ac: number }> = {};
   allSubmissions.forEach((s) => {
     const day = s.submittedAt.slice(0, 10);
-    dailyCalendar[day] = (dailyCalendar[day] || 0) + 1;
+    if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 };
+    dailyCalendar[day].tries += 1;
+    if (s.verdict === 'AC' || s.score === 100) {
+      dailyCalendar[day].ac += 1;
+    }
   });
 
   // ALL unique solved problems
@@ -195,11 +199,15 @@ async function fetchCodeforcesData(handle: string) {
   const uniqueProblems = new Map<string, any>();
   const tagsCount: Record<string, number> = {};
   const ratingDistribution: Record<string, number> = {};
-  const dailyCalendar: Record<string, number> = {};
+  const dailyCalendar: Record<string, { tries: number, ac: number }> = {};
 
   allSubs.forEach((s) => {
     const day = new Date(s.creationTimeSeconds * 1000).toISOString().slice(0, 10);
-    dailyCalendar[day] = (dailyCalendar[day] || 0) + 1;
+    if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 };
+    dailyCalendar[day].tries += 1;
+    if (s.verdict === 'OK') {
+      dailyCalendar[day].ac += 1;
+    }
   });
 
   acSubs.forEach((s) => {
@@ -252,90 +260,94 @@ async function fetchCodeforcesData(handle: string) {
   };
 }
 
-// 3. Fetch LeetCode Data
+// 3. Fetch LeetCode Data via alfa-leetcode-api proxy
 async function fetchLeetCodeData(username: string) {
-  const query = `
-    query getUserProfile($username: String!) {
-      matchedUser(username: $username) {
-        username
-        profile {
-          ranking
-          userAvatar
-          reputation
-        }
-        submitStatsGlobal {
-          acSubmissionNum {
-            difficulty
-            count
-            submissions
-          }
-        }
-        submissionCalendar
-      }
-      recentAcSubmissionList(username: $username, limit: 50) {
-        id
-        title
-        titleSlug
-        timestamp
-      }
+  try {
+    const [profileRes, solvedRes, acRes] = await Promise.allSettled([
+      fetch(`https://alfa-leetcode-api.onrender.com/${username}`),
+      fetch(`https://alfa-leetcode-api.onrender.com/${username}/solved`),
+      fetch(`https://alfa-leetcode-api.onrender.com/${username}/acSubmission?limit=50`)
+    ]);
+
+    let ranking = 2367686;
+    if (profileRes.status === 'fulfilled' && profileRes.value.ok) {
+      const pJson = await profileRes.value.json();
+      if (pJson.ranking) ranking = pJson.ranking;
     }
-  `;
 
-  const res = await fetch('https://leetcode.com/graphql', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7)',
-      Referer: 'https://leetcode.com',
-    },
-    body: JSON.stringify({ query, variables: { username } }),
-  });
+    let easySolved = 32;
+    let mediumSolved = 24;
+    let hardSolved = 3;
+    let totalSolved = 59;
+    if (solvedRes.status === 'fulfilled' && solvedRes.value.ok) {
+      const sJson = await solvedRes.value.json();
+      if (sJson.solvedProblem) totalSolved = sJson.solvedProblem;
+      if (sJson.easySolved) easySolved = sJson.easySolved;
+      if (sJson.mediumSolved) mediumSolved = sJson.mediumSolved;
+      if (sJson.hardSolved) hardSolved = sJson.hardSolved;
+    }
 
-  if (!res.ok) throw new Error(`LeetCode API error: ${res.statusText}`);
-  const json = await res.json();
-  const matchedUser = json.data?.matchedUser;
-  const recentList = json.data?.recentAcSubmissionList || [];
+    let recentSolved: SubmissionsItem[] = [];
+    const dailyCalendar: Record<string, { tries: number, ac: number }> = {};
 
-  const difficulties: Record<string, number> = { Easy: 32, Medium: 24, Hard: 3, All: 59 };
-  (matchedUser?.submitStatsGlobal?.acSubmissionNum || []).forEach((item: any) => {
-    difficulties[item.difficulty] = item.count;
-  });
+    if (acRes.status === 'fulfilled' && acRes.value.ok) {
+      const acJson = await acRes.value.json();
+      const submissionList = acJson.submission || [];
+      recentSolved = submissionList.map((item: any) => {
+        const langMap: Record<string, string> = {
+          cpp: 'C++',
+          golang: 'Go',
+          python3: 'Python',
+          java: 'Java',
+          javascript: 'JavaScript',
+          typescript: 'TypeScript'
+        };
+        const lang = langMap[item.lang] || 'C++';
+        const solvedAt = new Date(parseInt(item.timestamp, 10) * 1000).toISOString();
+        
+        const day = solvedAt.slice(0, 10);
+        if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 };
+        dailyCalendar[day].tries += 1;
+        dailyCalendar[day].ac += 1;
 
-  const dailyCalendar: Record<string, number> = {};
-  if (matchedUser?.submissionCalendar) {
-    try {
-      const parsedCalendar = JSON.parse(matchedUser.submissionCalendar);
-      Object.entries(parsedCalendar).forEach(([epochSec, count]) => {
-        const day = new Date(parseInt(epochSec, 10) * 1000).toISOString().slice(0, 10);
-        dailyCalendar[day] = (dailyCalendar[day] || 0) + (count as number);
+        return {
+          id: `lc-${item.timestamp || item.titleSlug}`,
+          platform: 'leetcode',
+          title: item.title,
+          category: 'Algorithms',
+          language: lang,
+          difficulty: '-',
+          url: `https://leetcode.com/problems/${item.titleSlug}/`,
+          solvedAt,
+        };
       });
-    } catch (e) {
-      console.error('Failed to parse LeetCode calendar:', e);
     }
+
+    return {
+      handle: username,
+      url: `https://leetcode.com/u/${username}`,
+      ranking,
+      totalSolved,
+      easySolved,
+      mediumSolved,
+      hardSolved,
+      dailyCalendar,
+      recentSolved,
+    };
+  } catch (err: any) {
+    console.error('Failed to fetch LeetCode data via API:', err);
+    return {
+      handle: username,
+      url: `https://leetcode.com/u/${username}`,
+      ranking: 2367686,
+      totalSolved: 59,
+      easySolved: 32,
+      mediumSolved: 24,
+      hardSolved: 3,
+      dailyCalendar: {},
+      recentSolved: [],
+    };
   }
-
-  const recentSolved: SubmissionsItem[] = recentList.map((item: any) => ({
-    id: `lc-${item.id || item.titleSlug}`,
-    platform: 'leetcode',
-    title: item.title,
-    category: 'Algorithms / DSA',
-    language: 'C++',
-    difficulty: 'Medium',
-    url: `https://leetcode.com/problems/${item.titleSlug}/`,
-    solvedAt: new Date(parseInt(item.timestamp, 10) * 1000).toISOString(),
-  }));
-
-  return {
-    handle: username,
-    url: `https://leetcode.com/u/${username}`,
-    ranking: matchedUser?.profile?.ranking || 2367686,
-    totalSolved: difficulties.All || 59,
-    easySolved: difficulties.Easy || 32,
-    mediumSolved: difficulties.Medium || 24,
-    hardSolved: difficulties.Hard || 3,
-    dailyCalendar,
-    recentSolved,
-  };
 }
 
 // 4. Fetch HackerRank Data
@@ -383,13 +395,13 @@ async function fetchHackerRankData(handle: string) {
   }
 
   let totalHrSubmissions = 415;
-  const dailyCalendar: Record<string, number> = {};
+  const dailyCalendar: Record<string, { tries: number, ac: number }> = {};
 
   if (histRes.status === 'fulfilled' && histRes.value.ok) {
     const histData = await histRes.value.json();
     let sum = 0;
     for (const [date, count] of Object.entries(histData)) {
-      dailyCalendar[date] = Number(count);
+      dailyCalendar[date] = { tries: Number(count), ac: 0 };
       sum += Number(count);
     }
     if (sum > 0) totalHrSubmissions = sum;
@@ -412,6 +424,18 @@ async function fetchHackerRankData(handle: string) {
       };
     });
   }
+
+  // Update HackerRank AC counts based on recent solved challenges
+  recentChallenges.forEach((c: any) => {
+    if (c.solvedAt) {
+      const day = c.solvedAt.slice(0, 10);
+      if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 };
+      dailyCalendar[day].ac += 1;
+      if (dailyCalendar[day].tries < dailyCalendar[day].ac) {
+        dailyCalendar[day].tries = dailyCalendar[day].ac;
+      }
+    }
+  });
 
   const badgeSolvedTotal = badges.reduce((acc, b) => acc + (b.solved || 0), 0) || 138;
 
@@ -443,11 +467,13 @@ export async function handler(event: any, context: any) {
     const hr = hrRes.status === 'fulfilled' ? hrRes.value : null;
 
     // Merge Daily Submissions Heatmap
-    const combinedHeatmap: Record<string, number> = {};
+    const combinedHeatmap: Record<string, { tries: number, ac: number }> = {};
     [tlx?.dailyCalendar, cf?.dailyCalendar, lc?.dailyCalendar, hr?.dailyCalendar].forEach((cal) => {
       if (!cal) return;
-      Object.entries(cal).forEach(([day, count]) => {
-        combinedHeatmap[day] = (combinedHeatmap[day] || 0) + count;
+      Object.entries(cal).forEach(([day, entry]: [string, any]) => {
+        if (!combinedHeatmap[day]) combinedHeatmap[day] = { tries: 0, ac: 0 };
+        combinedHeatmap[day].tries += entry.tries || 0;
+        combinedHeatmap[day].ac += entry.ac || 0;
       });
     });
 

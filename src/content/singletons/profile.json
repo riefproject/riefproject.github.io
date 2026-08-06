@@ -265,38 +265,6 @@
           "id": "Competitive programming (ICPC, OSN)"
         }
       ]
-    },
-    {
-      "title": {
-        "en": "Tools & Technologies",
-        "id": "Tools & Teknologi"
-      },
-      "items": [
-        {
-          "en": "Git & GitHub (Version Control)",
-          "id": "Git & GitHub (Version Control)"
-        },
-        {
-          "en": "Flutter & Dart (Cross-platform Mobile)",
-          "id": "Flutter & Dart (Mobile Cross-platform)"
-        },
-        {
-          "en": "MySQL, PostgreSQL, Supabase",
-          "id": "MySQL, PostgreSQL, Supabase"
-        },
-        {
-          "en": "Astro, Vite & Modern Web Tooling",
-          "id": "Astro, Vite & Tooling Web Modern"
-        },
-        {
-          "en": "REST API Design & Postman",
-          "id": "Desain REST API & Postman"
-        },
-        {
-          "en": "Unit Testing & Code Quality Tools",
-          "id": "Unit Testing & Tools Kualitas Kode"
-        }
-      ]
     }
   ],
   "toolbox": [

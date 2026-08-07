@@ -1,1 +1,3 @@
 /api/cp-stats  /.netlify/functions/cp-stats  200
+/api/github-activity  /.netlify/functions/github-activity  200
+/api/gitlab-activity  /.netlify/functions/gitlab-activity  200

@@ -23,11 +23,16 @@ const navItems = [
 	{ label: locale('Achievements', 'Pencapaian'), href: '#achievements' },
 	{ label: locale('Education', 'Pendidikan'), href: '#education' },
 	{ label: locale('Contact', 'Kontak'), href: '#kontak' },
-].map((item) => ({
-	...item,
-	id: item.href.replace('#', ''),
-	to: `/#${item.href.replace('#', '')}`,
-}));
+	{ label: locale('Development', 'Aktivitas Dev'), href: '/development-activity', page: true },
+].map((item) =>
+	item.page
+		? item
+		: {
+				...item,
+				id: item.href.replace('#', ''),
+				to: `/#${item.href.replace('#', '')}`,
+		  },
+);
 
 const SITE_URL = "https://riefproject.my.id";
 
@@ -268,11 +273,17 @@ const {
 					<LocaleText as="span" text={profile.focusStack} />
 				</p>
 				<nav class="sidebar__nav">
-					{navItems.map((item) => (
-						<a data-nav-link data-target={item.id} href={item.to}>
-							<LocaleText as="span" text={item.label} />
-						</a>
-					))}
+					{navItems.map((item) =>
+						item.page ? (
+							<a data-nav-link href={item.href}>
+								<LocaleText as="span" text={item.label} />
+							</a>
+						) : (
+							<a data-nav-link data-target={item.id} href={item.to}>
+								<LocaleText as="span" text={item.label} />
+							</a>
+						),
+					)}
 				</nav>
 				<div class="sidebar__cta">
 					<CvDownloadButton client:idle />

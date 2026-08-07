@@ -1166,6 +1166,13 @@
         </div>
       </div>
     </section>
+
+    <div class="dashboard-crosslink">
+      <a href="/development-activity" class="crosslink-btn">
+        <svg class="crosslink-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+        <span>{{ isId ? 'Jelajahi Aktivitas Development saya →' : 'Explore my Development Activity →' }}</span>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -3133,6 +3140,36 @@ onMounted(() => {
 .tab-cta-btn:hover {
   text-decoration: underline;
   transform: translateX(2px);
+}
+
+.dashboard-crosslink {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.crosslink-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--link);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.crosslink-btn:hover {
+  text-decoration: underline;
+  transform: translateX(2px);
+}
+
+.crosslink-ico {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.8;
 }
 
 .empty-feed {

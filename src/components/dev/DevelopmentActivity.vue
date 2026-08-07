@@ -392,6 +392,13 @@
         </div>
       </div>
     </div>
+
+    <div class="dashboard-crosslink">
+      <a href="/competitive-programming" class="crosslink-btn">
+        <svg class="crosslink-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+        <span>{{ isId ? 'Jelajahi Competitive Programming saya →' : 'Explore my Competitive Programming →' }}</span>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -1077,6 +1084,37 @@ onMounted(() => {
 }
 
 .tab-content { display: flex; flex-direction: column; gap: 1.5rem; }
+
+/* Cross-link to other dashboard */
+.dashboard-crosslink {
+  display: flex;
+  justify-content: center;
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.crosslink-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--link);
+  text-decoration: none;
+  transition: all 0.15s;
+}
+
+.crosslink-btn:hover {
+  text-decoration: underline;
+  transform: translateX(2px);
+}
+
+.crosslink-ico {
+  width: 1rem;
+  height: 1rem;
+  opacity: 0.8;
+}
 
 /* Light Mode Surface Overrides */
 :root.light .heatmap-section { background: #ffffff; border-color: #e2e8f0; }

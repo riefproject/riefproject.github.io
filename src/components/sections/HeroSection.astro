@@ -8,6 +8,7 @@ import type {
 } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
 import CvDownloadButton from '../CvDownloadButton.vue';
+import devActivity from '../../data/dev-activity-initial.json';
 
 const locale = (en: string, id: string) => ({ en, id });
 
@@ -29,6 +30,24 @@ const heroCopy = {
 	availabilityTitle: locale('Current Status', 'Status Saat Ini'),
 	downloadCv: locale('Download CV', 'Unduh CV'),
 };
+
+const devCopy = {
+	eyebrow: locale('Development activity', 'Aktivitas development'),
+	contributionsLabel: locale('Contributions', 'Kontribusi'),
+	sub: locale('Live across GitHub + GitLab · past 12 months', 'Live di GitHub + GitLab · 12 bulan terakhir'),
+	prLabel: locale('PR / MR merged', 'PR / MR digabung'),
+	daysLabel: locale('Active days', 'Hari aktif'),
+	cta: locale('Open live dashboard', 'Buka dashboard live'),
+};
+
+const devPlatforms = devActivity?.platforms || {};
+const ghTotal = devPlatforms.github?.overview?.totalContributions || 0;
+const glTotal = devPlatforms.gitlab?.stats?.totalEvents || 0;
+const devTotalContributions = ghTotal + glTotal;
+const devPrMerged =
+	(devPlatforms.github?.prStats?.merged || 0) +
+	(devPlatforms.gitlab?.stats?.mergeRequests?.merged || 0);
+const devActiveDays = devPlatforms.gitlab?.stats?.daysActive || 0;
 
 const toolboxPreview = toolbox.slice(0, 7);
 const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
@@ -89,6 +108,22 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
       ))}
       {extraTools > 0 && <span class="hero__tool ghost">+{extraTools}</span>}
     </div>
+  </div>
+
+  <!-- 4. Development Activity -->
+  <div class="bento-card bento-dev">
+    <div class="dev-card__main">
+      <p class="eyebrow mb-3"><LocaleText as="span" text={devCopy.eyebrow} /></p>
+      <div class="dev-card__value">
+        <strong class="font-mono">{devTotalContributions}<span class="dev-card__plus">+</span></strong>
+        <span class="dev-card__value-label"><LocaleText as="span" text={devCopy.contributionsLabel} /></span>
+      </div>
+      <p class="dev-card__sub"><LocaleText as="span" text={devCopy.sub} /></p>
+    </div>
+    <a href="/development-activity" class="dev-card__cta">
+      <LocaleText as="span" text={devCopy.cta} />
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dev-card__arrow"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+    </a>
   </div>
 
   <!-- 4. Highlights / Focus Areas -->
@@ -156,7 +191,8 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 	/* Grid placement — left column */
 	.bento-main {
 		grid-column: 1;
-		grid-row: 1 / 3;
+		grid-row: 1 / 4;
+		align-self: stretch;
 	}
 
 	/* Grid placement — right column */
@@ -167,6 +203,11 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 
 	.bento-toolbox {
 		grid-column: 2;
+	}
+
+	.bento-dev {
+		grid-column: 2;
+		grid-row: 3;
 	}
 
 	/* Full-width row below */
@@ -305,6 +346,110 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 		border-style: dashed;
 	}
 
+	/* ── Development Activity card ── */
+	.bento-dev {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.dev-card__main {
+		min-width: 0;
+	}
+
+	.dev-card__value {
+		display: flex;
+		align-items: baseline;
+		gap: 0.6rem;
+		flex-wrap: wrap;
+	}
+
+	.dev-card__value strong {
+		font-size: clamp(2rem, 3vw, 2.5rem);
+		line-height: 1;
+		font-weight: 600;
+		letter-spacing: -0.02em;
+		color: var(--text);
+	}
+
+	.dev-card__plus {
+		font-size: 0.55em;
+		color: var(--muted);
+		font-weight: 600;
+	}
+
+	.dev-card__value-label {
+		font-size: 0.9rem;
+		font-weight: 500;
+		color: var(--muted);
+	}
+
+	.dev-card__sub {
+		margin-top: 0.4rem;
+		font-size: 0.85rem;
+		color: var(--muted);
+	}
+
+	.dev-card__stats {
+		display: flex;
+		gap: 1.5rem;
+		margin-top: 0.25rem;
+	}
+
+	.dev-stat {
+		display: flex;
+		flex-direction: column;
+		gap: 0.15rem;
+	}
+
+	.dev-stat strong {
+		font-size: 1.35rem;
+		line-height: 1;
+		font-weight: 600;
+		color: var(--text);
+	}
+
+	.dev-stat__label {
+		font-size: 0.7rem;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: var(--muted);
+		font-weight: 600;
+	}
+
+	.dev-card__cta {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 0.25rem;
+		padding: 0.65rem 1.25rem;
+		border-radius: 12px;
+		background: var(--bg);
+		border: 1px solid var(--border);
+		color: var(--text);
+		font-weight: 700;
+		font-size: 0.9rem;
+		text-decoration: none;
+		white-space: nowrap;
+		transition: all 0.2s ease;
+		width: 100%;
+	}
+
+	.dev-card__cta:hover {
+		background: var(--chip-bg);
+		border-color: var(--text);
+		transform: translateY(-2px);
+	}
+
+	.dev-card__arrow {
+		transition: transform 0.15s ease;
+	}
+
+	.dev-card__cta:hover .dev-card__arrow {
+		transform: translate(2px, -2px);
+	}
+
 	/* ── Highlights ── */
 	.highlights-list {
 		list-style: none;
@@ -349,6 +494,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 		.bento-main,
 		.bento-stats,
 		.bento-toolbox,
+		.bento-dev,
 		.bento-highlights,
 		.bento-socials {
 			grid-column: 1;

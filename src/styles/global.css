@@ -25,6 +25,10 @@
   --gradient-top: transparent;
   --bg-subtle: rgba(255, 255, 255, 0.02);
   --link: #3b82f6;
+
+  --scrollbar-track: rgba(255, 255, 255, 0.03);
+  --scrollbar-thumb: rgba(255, 255, 255, 0.14);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.26);
 }
 
 /* Light mode */
@@ -46,6 +50,10 @@
   --gradient-top: transparent;
   --bg-subtle: rgba(0, 0, 0, 0.02);
   --link: #2563eb;
+
+  --scrollbar-track: rgba(0, 0, 0, 0.03);
+  --scrollbar-thumb: rgba(0, 0, 0, 0.16);
+  --scrollbar-thumb-hover: rgba(0, 0, 0, 0.3);
 }
 
 *,
@@ -90,6 +98,53 @@ h1, h2, h3, h4, h5, h6 {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* Custom Scrollbars (vertical & horizontal) */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Hide scrollbars on touch devices where native overlay scrolling is used */
+@media (hover: none) and (pointer: coarse) {
+  * {
+    scrollbar-width: none;
+  }
+
+  *::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
 
 .page {

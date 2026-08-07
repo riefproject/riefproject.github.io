@@ -21,7 +21,10 @@
         :class="{ active: activeTab === tab.key }"
         @click="activeTab = tab.key"
       >
-        <img v-if="tab.logo" :src="tab.logo" :alt="tab.key" class="tab-logo-img" />
+        <span v-if="tab.logo" class="tab-logo">
+          <img :src="tab.logo" :alt="tab.key" class="tab-logo-img logo-variant-dark" />
+          <img v-if="tab.logoLight" :src="tab.logoLight" :alt="tab.key" class="tab-logo-img logo-variant-light" />
+        </span>
         <span v-else class="tab-icon" v-html="tab.icon"></span>
         <span class="tab-name">{{ isId ? tab.labelId : tab.labelEn }}</span>
         <span v-if="tab.count" class="tab-badge">{{ tab.count }}</span>
@@ -89,6 +92,10 @@
                 <span v-for="m in heatmapMonths" :key="m.name" :style="{ left: `${m.percent}%` }" class="month-label">{{ m.name }}</span>
               </div>
             </div>
+            <div class="heatmap-swipe-hint">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              <span>{{ isId ? 'Geser untuk melihat seluruh kalender' : 'Swipe to see the full calendar' }}</span>
+            </div>
           </div>
         </div>
       </section>
@@ -99,7 +106,8 @@
           <div class="pcard-header">
             <div class="pcard-title-group">
               <div class="pcard-logo-box">
-                <img src="/img/stacks/github-dark.svg" alt="GitHub" class="pcard-img-logo" />
+                <img src="/img/stacks/github-dark.svg" alt="GitHub" class="pcard-img-logo logo-variant-dark" />
+                <img src="/img/stacks/github-light.svg" alt="GitHub" class="pcard-img-logo logo-variant-light" />
               </div>
               <div class="pcard-title-text">
                 <h4 class="pcard-name">GitHub</h4>
@@ -130,7 +138,8 @@
           <div class="pcard-header">
             <div class="pcard-title-group">
               <div class="pcard-logo-box">
-                <img src="/img/stacks/gitlab-dark.svg" alt="GitLab" class="pcard-img-logo" />
+                <img src="/img/stacks/gitlab-dark.svg" alt="GitLab" class="pcard-img-logo logo-variant-dark" />
+                <img src="/img/stacks/gitlab-light.svg" alt="GitLab" class="pcard-img-logo logo-variant-light" />
               </div>
               <div class="pcard-title-text">
                 <h4 class="pcard-name">GitLab</h4>
@@ -243,6 +252,10 @@
               <div class="heatmap-months">
                 <span v-for="m in githubHeatmapMonths" :key="m.name" :style="{ left: `${m.percent}%` }" class="month-label">{{ m.name }}</span>
               </div>
+            </div>
+            <div class="heatmap-swipe-hint">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              <span>{{ isId ? 'Geser untuk melihat seluruh kalender' : 'Swipe to see the full calendar' }}</span>
             </div>
           </div>
         </div>
@@ -365,6 +378,10 @@
                 <span v-for="m in gitlabHeatmapMonths" :key="m.name" :style="{ left: `${m.percent}%` }" class="month-label">{{ m.name }}</span>
               </div>
             </div>
+            <div class="heatmap-swipe-hint">
+              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+              <span>{{ isId ? 'Geser untuk melihat seluruh kalender' : 'Swipe to see the full calendar' }}</span>
+            </div>
           </div>
         </div>
       </section>
@@ -391,7 +408,10 @@
     <div class="dashboard-crosslink">
       <a href="/competitive-programming" class="crosslink-btn">
         <svg class="crosslink-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-        <span>{{ isId ? 'Jelajahi Competitive Programming saya →' : 'Explore my Competitive Programming →' }}</span>
+        <span class="crosslink-text">
+          <span class="crosslink-l1">{{ isId ? 'Jelajahi' : 'Explore my' }}</span>
+          <span class="crosslink-l2">{{ isId ? 'Competitive Programming saya →' : 'Competitive Programming →' }}</span>
+        </span>
       </a>
     </div>
 
@@ -476,6 +496,7 @@ const tabs = computed(() => [
     labelEn: 'GitHub',
     labelId: 'GitHub',
     logo: '/img/stacks/github-dark.svg',
+    logoLight: '/img/stacks/github-light.svg',
     count: github.value?.overview?.totalContributions || 0,
   },
   {
@@ -483,6 +504,7 @@ const tabs = computed(() => [
     labelEn: 'GitLab',
     labelId: 'GitLab',
     logo: '/img/stacks/gitlab-dark.svg',
+    logoLight: '/img/stacks/gitlab-light.svg',
     count: gitlabTotalEvents.value || 0,
   },
 ]);
@@ -708,6 +730,13 @@ onMounted(() => {
 
 .tab-logo-img { width: 1.1rem; height: 1.1rem; object-fit: contain; }
 .tab-icon { display: inline-flex; }
+
+/* Adaptive platform logos: dark variant by default, light variant in light mode */
+.tab-logo { display: inline-flex; }
+.logo-variant-dark { display: inline-block; }
+.logo-variant-light { display: none; }
+:root.light .logo-variant-dark { display: none; }
+:root.light .logo-variant-light { display: inline-block; }
 
 .tab-badge {
   padding: 0.15rem 0.45rem;
@@ -1090,6 +1119,12 @@ onMounted(() => {
   transition: all 0.15s;
 }
 
+.crosslink-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
 .crosslink-btn:hover {
   text-decoration: underline;
   transform: translateX(2px);
@@ -1117,6 +1152,12 @@ onMounted(() => {
 :root.light .tab-btn.active { color: #111827; background: #f3f4f6; border-color: #cbd5e1; }
 
 /* Mobile Responsive Layout Refinements */
+
+/* Heatmap swipe affordance (hidden on desktop) */
+.heatmap-swipe-hint {
+  display: none;
+}
+
 @media (max-width: 767px) {
   .heatmap-section { padding: 1rem !important; gap: 0.75rem !important; }
 }
@@ -1133,15 +1174,77 @@ onMounted(() => {
   .tab-btn {
     border: 1px solid var(--border) !important;
     border-radius: 0.5rem !important;
-    padding: 0.5rem 0.85rem !important;
-    font-size: 0.8rem !important;
+    padding: 0.45rem 0.75rem !important;
+    font-size: 0.78rem !important;
     width: auto !important;
-    flex: 1 1 auto !important;
+    flex: 0 1 auto !important;
     justify-content: center !important;
+    gap: 0.35rem !important;
   }
 
-  .tab-btn:first-child {
-    flex: 1 1 100% !important;
+  /* Overview full-width row, GitHub + GitLab split the second row */
+  .tab-btn:first-child { flex: 1 1 100% !important; }
+  .tab-btn:not(:first-child) { flex: 1 1 calc(50% - 0.25rem) !important; }
+
+  /* Cross-link: break onto two centered lines */
+  .crosslink-btn { flex-wrap: wrap; justify-content: center; text-align: center; }
+  .crosslink-text { flex-direction: column; align-items: center; line-height: 1.4; }
+
+  .tab-btn .tab-badge { padding: 0.1rem 0.35rem !important; font-size: 0.68rem !important; }
+  .tab-logo-img { width: 1rem !important; height: 1rem !important; }
+
+  /* Denser 2-col stat cards (falls back to 1 col below 360px) */
+  .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+  .stat-card { padding: 1rem 1.1rem; }
+  .stat-value { font-size: 1.45rem; }
+  .stat-helper { font-size: 0.68rem; }
+
+  .tab-content { gap: 1.25rem; }
+
+  /* Heatmap section header: count badge drops below the title on mobile */
+  .title-with-badge { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+
+  /* Profile header: metrics drop to their own full-width row */
+  .profile-header { padding: 1.25rem; gap: 0.9rem; }
+  .profile-avatar { width: 3rem; height: 3rem; }
+  .profile-metrics { flex: 1 1 100%; justify-content: space-around; }
+  .pm-item strong { font-size: 1rem; }
+
+  .platform-detail-card { padding: 1.25rem; }
+  .pcard-header { flex-wrap: wrap; gap: 0.6rem; }
+  .pcard-solved-num { font-size: 1.1rem; }
+  .pcard-solved-badge {
+    flex: 1 1 100%;
+    justify-content: space-between;
+    padding: 0.3rem 0.6rem;
+  }
+
+  /* Heatmap: right-edge fade signals more content + swipe hint */
+  .heatmap-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 1.4rem;
+    right: 0;
+    width: 30px;
+    background: linear-gradient(to left, var(--bg-soft), rgba(0, 0, 0, 0));
+    pointer-events: none;
+    z-index: 2;
+  }
+
+  .heatmap-swipe-hint {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+    font-size: var(--text-xs);
+    color: var(--muted);
+    opacity: 0.75;
+  }
+
+  :root.light .heatmap-container::after {
+    background: linear-gradient(to left, #ffffff, rgba(255, 255, 255, 0));
   }
 
   :root.light .tab-btn {
@@ -1158,6 +1261,10 @@ onMounted(() => {
   .platform-cards-grid { gap: 1rem !important; }
 }
 
+@media (max-width: 359px) {
+  .stats-grid { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+}
+
 @media (max-width: 480px) {
   .dashboard-topbar {
     flex-direction: column !important;
@@ -1167,6 +1274,5 @@ onMounted(() => {
   }
 
   .live-indicator { justify-content: center !important; }
-  .refresh-btn { justify-content: center !important; }
 }
 </style>

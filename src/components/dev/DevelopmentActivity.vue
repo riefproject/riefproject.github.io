@@ -88,7 +88,8 @@
                     :key="day.date"
                     class="heatmap-cell"
                     :class="`lvl-${day.level}`"
-                    :title="formatHeatmapTooltip(day)"
+                    @mouseenter="showTooltip($event, day)"
+                    @mouseleave="hideTooltip"
                   ></div>
                 </div>
               </div>
@@ -242,7 +243,8 @@
                     :key="day.date"
                     class="heatmap-cell"
                     :class="`lvl-${day.level}`"
-                    :title="formatHeatmapTooltip(day)"
+                    @mouseenter="showTooltip($event, day)"
+                    @mouseleave="hideTooltip"
                   ></div>
                 </div>
               </div>
@@ -362,7 +364,8 @@
                     :key="day.date"
                     class="heatmap-cell"
                     :class="`lvl-${day.level}`"
-                    :title="formatHeatmapTooltip(day)"
+                    @mouseenter="showTooltip($event, day)"
+                    @mouseleave="hideTooltip"
                   ></div>
                 </div>
               </div>
@@ -399,11 +402,19 @@
         <span>{{ isId ? 'Jelajahi Competitive Programming saya →' : 'Explore my Competitive Programming →' }}</span>
       </a>
     </div>
+
+    <Teleport to="body">
+      <div
+        v-if="tooltip.visible"
+        class="heatmap-tooltip"
+        :style="{ top: `${tooltip.top}px`, left: `${tooltip.left}px` }"
+      >{{ tooltip.text }}</div>
+    </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, reactive, computed, onMounted } from 'vue';
 import { useStore } from '@nanostores/vue';
 import { lang } from '../../stores/uiStore.js';
 
@@ -419,6 +430,23 @@ const isRefreshing = ref(false);
 const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date().toISOString());
 const activeTab = ref<'overview' | 'github' | 'gitlab'>('overview');
 const heatmapScrollEl = ref<HTMLElement | null>(null);
+
+const tooltip = reactive({ visible: false, text: '', top: 0, left: 0 });
+
+const showTooltip = (e: MouseEvent, day: HeatmapDay) => {
+  tooltip.text = formatHeatmapTooltip(day);
+  const target = e.currentTarget as HTMLElement;
+  if (target) {
+    const rect = target.getBoundingClientRect();
+    tooltip.top = rect.top - 8;
+    tooltip.left = rect.left + rect.width / 2;
+  }
+  tooltip.visible = true;
+};
+
+const hideTooltip = () => {
+  tooltip.visible = false;
+};
 
 const github = computed(() => devData.value?.platforms?.github || null);
 const gitlab = computed(() => devData.value?.platforms?.gitlab || null);
@@ -906,6 +934,32 @@ onMounted(() => {
 .heatmap-cell:hover {
   transform: scale(1.3);
   z-index: 10;
+}
+
+.heatmap-tooltip {
+  position: fixed;
+  z-index: 99999;
+  transform: translate(-50%, -100%);
+  pointer-events: none;
+  background: var(--bg-soft, #0f172a);
+  border: 1px solid var(--border, rgba(255, 255, 255, 0.15));
+  border-radius: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+  font-size: var(--text-sm);
+  white-space: nowrap;
+  animation: tooltipFadeIn 0.12s ease-out;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -90%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%);
+  }
 }
 
 .heatmap-cell.lvl-0 { background: var(--bg-elevated); opacity: 0.6; }

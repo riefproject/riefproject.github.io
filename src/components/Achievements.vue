@@ -243,8 +243,11 @@ const visibleItems = computed(
 
 .achievements-shell h2 {
   margin: 0 0 0.5rem;
-  font-size: clamp(2rem, 4svw, 2.75rem);
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
   font-family: inherit;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   color: var(--text);
 }
 
@@ -348,9 +351,8 @@ const visibleItems = computed(
 
 .achievement-card__header h3 {
   margin: 0;
-  font-size: 1.2rem;
   font-family: inherit;
-  color: var(--text);
+  font-size: 1.15rem;
 }
 
 .achievement-card__header p {

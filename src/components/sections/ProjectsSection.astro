@@ -153,7 +153,11 @@ const resolveText = (text: { en: string; id: string }) => {
 	.projects__intro h2 {
 		margin: 0 0 0.5rem;
 		font-family: inherit;
-		font-size: clamp(2rem, 4svw, 2.4rem);
+		font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+		font-weight: 600;
+		line-height: 1.2;
+		letter-spacing: -0.02em;
+		color: var(--text);
 	}
 
 	.projects-grid {
@@ -240,14 +244,14 @@ const resolveText = (text: { en: string; id: string }) => {
 	.project-title {
 		margin: 0;
 		font-family: inherit;
-		font-size: 1.25rem;
+		font-size: 1.15rem;
 		font-weight: 600;
 		color: var(--text);
 	}
 
 	.project-description {
 		margin: 0;
-		font-size: 0.875rem;
+		font-size: 0.95rem;
 		line-height: 1.6;
 		color: var(--muted);
 	}
@@ -255,8 +259,8 @@ const resolveText = (text: { en: string; id: string }) => {
 	.project-impact {
 		margin: 0.5rem 0 0;
 		padding: 0.75rem 1rem;
-		font-size: 0.8125rem;
-		line-height: 1.5;
+		font-size: 0.9rem;
+		line-height: 1.6;
 		color: var(--muted);
 		background: var(--bg);
 		border-left: 3px solid var(--accent);
@@ -271,8 +275,8 @@ const resolveText = (text: { en: string; id: string }) => {
 
 	.project-highlights li {
 		margin: 0.25rem 0;
-		font-size: 0.8125rem;
-		line-height: 1.5;
+		font-size: 0.9rem;
+		line-height: 1.6;
 		color: var(--muted);
 	}
 

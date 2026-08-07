@@ -156,7 +156,7 @@ const toggleProject = (id: string) => {
             class="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
             {{ project.year }} · {{ resolveText(project.category) }}
           </p>
-          <h3 class="text-xl font-semibold text-text">
+          <h3 class="font-semibold text-text">
             {{ resolveText(project.title) }}
           </h3>
         </header>
@@ -277,6 +277,10 @@ const toggleProject = (id: string) => {
   font-size: 3rem;
   font-weight: 700;
   color: var(--text);
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
 }
 
 .project-search {

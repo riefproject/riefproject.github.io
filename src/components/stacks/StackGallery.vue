@@ -322,7 +322,7 @@ img.logo-svg {
   margin: 0;
   font-weight: 600;
   color: var(--text);
-  font-size: 0.95rem;
+  font-size: 1.15rem;
 }
 
 @media (max-width: 640px) {

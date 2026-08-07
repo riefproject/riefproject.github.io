@@ -3,18 +3,10 @@
     <!-- Topbar -->
     <div class="dashboard-topbar">
       <div class="live-indicator">
-        <span class="pulse-dot" :class="{ 'is-refreshing': isRefreshing }"></span>
-        <span class="live-text">
-          {{ isRefreshing ? (isId ? 'Memperbarui data...' : 'Refreshing data...') : (isId ? 'Sinkronisasi Live' : 'Live Synced') }}
-        </span>
+        <span class="pulse-dot"></span>
+        <span class="live-text">{{ isId ? 'Sinkronisasi Live' : 'Live Synced' }}</span>
         <span class="updated-time" v-if="lastUpdated">• {{ formatRelativeTime(lastUpdated) }}</span>
       </div>
-      <button type="button" class="refresh-btn" :disabled="isRefreshing" @click="refreshData">
-        <svg class="w-4 h-4" :class="{ 'animate-spin': isRefreshing }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
-        </svg>
-        <span>Refresh</span>
-      </button>
     </div>
 
     <!-- Tabs -->
@@ -426,7 +418,6 @@ const $lang = useStore(lang);
 const isId = computed(() => $lang.value === 'id');
 
 const devData = ref<any>(props.initialData || null);
-const isRefreshing = ref(false);
 const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date().toISOString());
 const activeTab = ref<'overview' | 'github' | 'gitlab'>('overview');
 const heatmapScrollEl = ref<HTMLElement | null>(null);
@@ -589,67 +580,7 @@ const formatRelativeTime = (isoString?: string) => {
   return date.toLocaleDateString(isId.value ? 'id-ID' : 'en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 };
 
-const refreshData = async () => {
-  isRefreshing.value = true;
-  try {
-    const githubPaths = ['/.netlify/functions/github-activity', '/api/github-activity'];
-    const gitlabPaths = ['/.netlify/functions/gitlab-activity', '/api/gitlab-activity'];
-
-    const fetchFirst = async (paths: string[]) => {
-      for (const url of paths) {
-        try {
-          const res = await fetch(url);
-          if (res.ok) return await res.json();
-        } catch {
-          // try next
-        }
-      }
-      return null;
-    };
-
-    const [gh, gl] = await Promise.all([fetchFirst(githubPaths), fetchFirst(gitlabPaths)]);
-
-    const base = devData.value || {};
-    const ghData = gh?.overview ? gh : null;
-    const glData = gl?.heatmap || gl?.stats ? gl : null;
-
-    devData.value = {
-      ...base,
-      meta: { updatedAt: new Date().toISOString(), source: 'live-fetch' },
-      overview: {
-        ...(base.overview || {}),
-        ...(ghData?.overview || {}),
-        heatmap: combinedFromLive(ghData, glData),
-      },
-      platforms: {
-        github: ghData || base?.platforms?.github,
-        gitlab: glData || base?.platforms?.gitlab,
-      },
-    };
-    lastUpdated.value = new Date().toISOString();
-  } catch (err) {
-    console.error('Failed to refresh live dev activity:', err);
-  } finally {
-    setTimeout(() => { isRefreshing.value = false; }, 400);
-  }
-};
-
-const combinedFromLive = (gh: any, gl: any) => {
-  const out: Record<string, number> = {};
-  const ghMap = gh?.overview?.heatmap || {};
-  const glMap = gl?.heatmap || {};
-  const keys = new Set([...Object.keys(ghMap), ...Object.keys(glMap)]);
-  keys.forEach((k) => {
-    const ghV = ghMap[k];
-    const glV = glMap[k];
-    out[k] = (typeof ghV === 'object' ? Number(ghV?.count || 0) : Number(ghV || 0)) +
-      (typeof glV === 'object' ? Number(glV?.count || 0) : Number(glV || 0));
-  });
-  return out;
-};
-
 onMounted(() => {
-  refreshData();
   setTimeout(() => {
     if (heatmapScrollEl.value) {
       heatmapScrollEl.value.scrollLeft = heatmapScrollEl.value.scrollWidth;

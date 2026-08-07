@@ -3,27 +3,14 @@
     <!-- Header / Live Bar -->
     <div class="dashboard-topbar">
       <div class="live-indicator">
-        <span class="pulse-dot" :class="{ 'is-refreshing': isRefreshing }"></span>
+        <span class="pulse-dot"></span>
         <span class="live-text">
-          {{ isRefreshing ? (isId ? 'Memperbarui data...' : 'Refreshing data...') : (isId ? 'Sinkronisasi Live' : 'Live Synced') }}
+          {{ isId ? 'Sinkronisasi Live' : 'Live Synced' }}
         </span>
         <span class="updated-time" v-if="lastUpdated">
           • {{ formatRelativeTime(lastUpdated) }}
         </span>
       </div>
-
-      <button
-        type="button"
-        @click="refreshData"
-        class="refresh-btn"
-        :disabled="isRefreshing"
-        :title="isId ? 'Segarkan data live' : 'Refresh live data'"
-      >
-        <svg class="w-4 h-4" :class="{ 'animate-spin': isRefreshing }" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
-        </svg>
-        <span>{{ isId ? 'Refresh' : 'Refresh' }}</span>
-      </button>
     </div>
 
     <!-- Global Hero Stats -->
@@ -1189,7 +1176,6 @@ const $lang = useStore(lang);
 const isId = computed(() => $lang.value === 'id');
 
 const cpData = ref<any>(props.initialData || null);
-const isRefreshing = ref(false);
 const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date().toISOString());
 
 const activeTab = ref<'overview' | 'tlx' | 'codeforces' | 'leetcode' | 'hackerrank'>('overview');
@@ -1596,38 +1582,9 @@ const formatRelativeTime = (isoString?: string) => {
   });
 };
 
-const refreshData = async () => {
-  isRefreshing.value = true;
-  try {
-    const endpoints = ['/.netlify/functions/cp-stats', '/api/cp-stats'];
-    for (const url of endpoints) {
-      try {
-        const res = await fetch(url);
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.overview) {
-            cpData.value = data;
-            lastUpdated.value = data.meta?.updatedAt || new Date().toISOString();
-            break;
-          }
-        }
-      } catch {
-        // try next
-      }
-    }
-  } catch (err) {
-    console.error('Failed to refresh live CP data:', err);
-  } finally {
-    setTimeout(() => {
-      isRefreshing.value = false;
-    }, 400);
-  }
-};
-
 const heatmapScrollEl = ref<HTMLElement | null>(null);
 
 onMounted(() => {
-  refreshData();
   setTimeout(() => {
     if (heatmapScrollEl.value) {
       heatmapScrollEl.value.scrollLeft = heatmapScrollEl.value.scrollWidth;

@@ -784,6 +784,22 @@ async function cpHackerRank(handle) {
 }
 
 async function crawlCp() {
+  const prevCp = readExisting(CP_FILE);
+  const prevPlatforms = (prevCp && prevCp.platforms) || {};
+
+  // Keep the previous snapshot for a platform when the fresh crawl looks
+  // degraded (e.g. an upstream API failed and returned empty/fallback data).
+  const mergePlatform = (fresh, key) => {
+    const prev = prevPlatforms[key];
+    if (!fresh) return prev || null;
+    if (!prev) return fresh;
+    const freshRecent = (fresh.recentSolved && fresh.recentSolved.length) || 0;
+    const prevRecent = (prev.recentSolved && prev.recentSolved.length) || 0;
+    if (freshRecent === 0 && prevRecent > 0) return prev;
+    if ((fresh.totalSolved || 0) < (prev.totalSolved || 0)) return prev;
+    return fresh;
+  };
+
   const [tlxRes, cfRes, lcRes, hrRes] = await Promise.allSettled([
     cpTlx(CP_HANDLES.tlx),
     cpCodeforces(CP_HANDLES.codeforces),
@@ -791,10 +807,10 @@ async function crawlCp() {
     cpHackerRank(CP_HANDLES.hackerrank),
   ]);
 
-  const tlx = tlxRes.status === 'fulfilled' ? tlxRes.value : null;
-  const cf = cfRes.status === 'fulfilled' ? cfRes.value : null;
-  const lc = lcRes.status === 'fulfilled' ? lcRes.value : null;
-  const hr = hrRes.status === 'fulfilled' ? hrRes.value : null;
+  const tlx = mergePlatform(tlxRes.status === 'fulfilled' ? tlxRes.value : null, 'tlx');
+  const cf = mergePlatform(cfRes.status === 'fulfilled' ? cfRes.value : null, 'codeforces');
+  const lc = mergePlatform(lcRes.status === 'fulfilled' ? lcRes.value : null, 'leetcode');
+  const hr = mergePlatform(hrRes.status === 'fulfilled' ? hrRes.value : null, 'hackerrank');
 
   const combinedHeatmap = {};
   [tlx && tlx.dailyCalendar, cf && cf.dailyCalendar, lc && lc.dailyCalendar, hr && hr.dailyCalendar].forEach((cal) => {

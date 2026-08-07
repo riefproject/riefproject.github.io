@@ -287,15 +287,17 @@ async function crawlGithub() {
 }
 
 // ---------------------------------------------------------------------------
-// 2. GitLab activity (private instance, token via env) — mirrors gitlab-activity.ts
+// 2. GitLab activity (private instance, token + URL via env) — mirrors gitlab-activity.ts
 // ---------------------------------------------------------------------------
-const GITLAB_USER_ID = '379';
-const GITLAB_URL = 'https://gitlab.example.com';
+const GITLAB_URL = process.env.GITLAB_URL;
+const GITLAB_USER_ID = process.env.GITLAB_USER_ID;
 
 async function crawlGitlab() {
   const token = process.env.GITLAB_PERSONAL_ACCESS_TOKEN;
-  if (!token) {
-    console.log('  [gitlab] no GITLAB_PERSONAL_ACCESS_TOKEN — returning empty activity');
+  if (!token || !GITLAB_URL || !GITLAB_USER_ID) {
+    console.log(
+      '  [gitlab] missing env (GITLAB_PERSONAL_ACCESS_TOKEN / GITLAB_URL / GITLAB_USER_ID) — returning empty activity'
+    );
     return {
       heatmap: {},
       stats: { totalEvents: 0, daysActive: 0, mergeRequests: { opened: 0, merged: 0 }, languages: [] },

@@ -265,9 +265,9 @@ const {
 				<button class="sidebar__close" type="button" data-sidebar-close aria-label="Close menu">
 					<span aria-hidden="true">×</span>
 				</button>
-				<div class="sidebar__brand">
-					<h1>{profile.name}</h1>
-				</div>
+				<p class="sidebar__brand">
+					{profile.name}
+				</p>
 				<p class="sidebar__focus">
 					<LocaleText as="span" text={profile.focusStack} />
 				</p>
@@ -508,7 +508,7 @@ const {
 		gap: 1.25rem;
 	}
 
-	.sidebar__brand h1 {
+	.sidebar__brand {
 		margin: 0;
 		font-size: 1.25rem;
 		font-weight: 600;

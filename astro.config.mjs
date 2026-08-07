@@ -45,7 +45,7 @@ export default defineConfig({
   ].filter(Boolean),
   output: "static",
   build: {
-    inlineStylesheets: 'always'
+    inlineStylesheets: 'auto'
   },
   vite: {
     server: {

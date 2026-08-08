@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-08T06:45:02.234Z",
+    "updatedAt": "2026-08-08T12:40:12.308Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -2527,11 +2527,11 @@
     "codeforces": {
       "handle": "feeera",
       "url": "https://codeforces.com/profile/feeera",
-      "rating": 625,
-      "maxRating": 625,
-      "rank": "newbie",
-      "maxRank": "newbie",
-      "contestsCount": 2,
+      "rating": 1293,
+      "maxRating": 1293,
+      "rank": "pupil",
+      "maxRank": "pupil",
+      "contestsCount": 3,
       "totalSubmissions": 155,
       "totalSolved": 56,
       "totalAcSubmissions": 62,
@@ -2546,13 +2546,13 @@
         "math": 13,
         "binary search": 1,
         "geometry": 1,
-        "greedy": 6,
+        "greedy": 7,
         "implementation": 21,
+        "sortings": 4,
+        "two pointers": 2,
         "data structures": 1,
-        "two pointers": 1,
         "number theory": 2,
         "strings": 9,
-        "sortings": 3,
         "*special": 1
       },
       "ratingDistribution": {
@@ -2702,7 +2702,7 @@
           "id": "cf-386082392",
           "platform": "codeforces",
           "title": "The Best Card (2253A)",
-          "category": "math",
+          "category": "greedy",
           "language": "C++20 (GCC 13-64)",
           "difficulty": "800",
           "url": "https://codeforces.com/contest/2253/problem/A",
@@ -3213,7 +3213,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2319337,
+      "ranking": 2321004,
       "totalSolved": 61,
       "easySolved": 32,
       "mediumSolved": 26,
@@ -3497,55 +3497,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 139810
+          "rank": 139814
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1905115
+          "rank": 1905287
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119045
+          "rank": 119047
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 522710
+          "rank": 522738
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189502
+          "rank": 189512
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1621662
+          "rank": 1621745
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 710642
+          "rank": 710717
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85466
+          "rank": 85469
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 457250
+          "rank": 457278
         }
       ],
       "dailyCalendar": {
@@ -3929,7 +3929,7 @@
       "id": "cf-386082392",
       "platform": "codeforces",
       "title": "The Best Card (2253A)",
-      "category": "math",
+      "category": "greedy",
       "language": "C++20 (GCC 13-64)",
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2253/problem/A",

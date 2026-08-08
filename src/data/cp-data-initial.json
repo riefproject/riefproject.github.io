@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-07T18:51:18.201Z",
+    "updatedAt": "2026-08-08T01:18:26.057Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -2543,12 +2543,13 @@
         "bitmasks": 1,
         "dp": 1,
         "graphs": 1,
-        "math": 12,
+        "math": 13,
+        "binary search": 1,
         "geometry": 1,
         "greedy": 6,
         "data structures": 1,
         "two pointers": 1,
-        "number theory": 1,
+        "number theory": 2,
         "implementation": 20,
         "strings": 9,
         "sortings": 3,
@@ -2671,7 +2672,7 @@
           "id": "cf-386112195",
           "platform": "codeforces",
           "title": "Hypercarp and Interdimensional Jumps (2253D)",
-          "category": "geometry",
+          "category": "binary search",
           "language": "C++20 (GCC 13-64)",
           "difficulty": "800",
           "url": "https://codeforces.com/contest/2253/problem/D",
@@ -2701,7 +2702,7 @@
           "id": "cf-386082392",
           "platform": "codeforces",
           "title": "The Best Card (2253A)",
-          "category": "Problem Solving",
+          "category": "math",
           "language": "C++20 (GCC 13-64)",
           "difficulty": "800",
           "url": "https://codeforces.com/contest/2253/problem/A",
@@ -3496,43 +3497,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 139803
+          "rank": 139804
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1904926
+          "rank": 1904981
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119038
+          "rank": 119041
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 522649
+          "rank": 522659
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189493
+          "rank": 189500
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1621521
+          "rank": 1621551
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 710580
+          "rank": 710603
         },
         {
           "name": "Mathematics",
@@ -3544,7 +3545,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 457219
+          "rank": 457226
         }
       ],
       "dailyCalendar": {
@@ -3898,7 +3899,7 @@
       "id": "cf-386112195",
       "platform": "codeforces",
       "title": "Hypercarp and Interdimensional Jumps (2253D)",
-      "category": "geometry",
+      "category": "binary search",
       "language": "C++20 (GCC 13-64)",
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2253/problem/D",
@@ -3928,7 +3929,7 @@
       "id": "cf-386082392",
       "platform": "codeforces",
       "title": "The Best Card (2253A)",
-      "category": "Problem Solving",
+      "category": "math",
       "language": "C++20 (GCC 13-64)",
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2253/problem/A",

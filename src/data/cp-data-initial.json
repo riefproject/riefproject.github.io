@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-09T12:42:04.022Z",
+    "updatedAt": "2026-08-09T18:35:19.170Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 478,
-    "totalSubmissions": 1198,
+    "totalSolved": 484,
+    "totalSubmissions": 1204,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-08-07": {
@@ -176,6 +176,10 @@
       "2025-11-24": {
         "tries": 105,
         "ac": 53
+      },
+      "2026-08-09": {
+        "tries": 6,
+        "ac": 6
       },
       "2026-03-04": {
         "tries": 5,
@@ -2532,10 +2536,18 @@
       "rank": "pupil",
       "maxRank": "pupil",
       "contestsCount": 3,
-      "totalSubmissions": 155,
-      "totalSolved": 56,
-      "totalAcSubmissions": 62,
+      "totalSubmissions": 161,
+      "totalSolved": 62,
+      "totalAcSubmissions": 68,
       "tagsCount": {
+        "greedy": 9,
+        "communication": 1,
+        "interactive": 1,
+        "math": 17,
+        "number theory": 4,
+        "games": 1,
+        "implementation": 22,
+        "sortings": 5,
         "brute force": 8,
         "dfs and similar": 1,
         "fft": 1,
@@ -2543,13 +2555,8 @@
         "trees": 1,
         "bitmasks": 1,
         "dp": 1,
-        "math": 13,
-        "number theory": 3,
         "binary search": 1,
         "geometry": 1,
-        "greedy": 7,
-        "implementation": 21,
-        "sortings": 4,
         "two pointers": 2,
         "data structures": 1,
         "strings": 9,
@@ -2562,6 +2569,10 @@
         "1100": 1
       },
       "dailyCalendar": {
+        "2026-08-09": {
+          "tries": 6,
+          "ac": 6
+        },
         "2026-08-07": {
           "tries": 7,
           "ac": 6
@@ -2648,6 +2659,66 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "cf-386382721",
+          "platform": "codeforces",
+          "title": "How Long Until Nothing Remains? (2256F)",
+          "category": "greedy",
+          "language": "C++20 (GCC 13-64)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2256/problem/F",
+          "solvedAt": "2026-08-09T16:05:45.000Z"
+        },
+        {
+          "id": "cf-386376707",
+          "platform": "codeforces",
+          "title": "Even If the World Turns (2256E)",
+          "category": "communication",
+          "language": "C++20 (GCC 13-64)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2256/problem/E",
+          "solvedAt": "2026-08-09T15:48:34.000Z"
+        },
+        {
+          "id": "cf-386371277",
+          "platform": "codeforces",
+          "title": "A Ribbon for Tomorrow (2256D)",
+          "category": "math",
+          "language": "C++20 (GCC 13-64)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2256/problem/D",
+          "solvedAt": "2026-08-09T15:35:17.000Z"
+        },
+        {
+          "id": "cf-386364876",
+          "platform": "codeforces",
+          "title": "Hot Potatoes at the Fairy Warehouse (2256C)",
+          "category": "games",
+          "language": "C++20 (GCC 13-64)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2256/problem/C",
+          "solvedAt": "2026-08-09T15:21:33.000Z"
+        },
+        {
+          "id": "cf-386358283",
+          "platform": "codeforces",
+          "title": "Domino Tiles (2256B)",
+          "category": "implementation",
+          "language": "C++20 (GCC 13-64)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2256/problem/B",
+          "solvedAt": "2026-08-09T15:09:16.000Z"
+        },
+        {
+          "id": "cf-386354503",
+          "platform": "codeforces",
+          "title": "Three Numbers on the Blackboard (2256A)",
+          "category": "math",
+          "language": "C++20 (GCC 13-64)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2256/problem/A",
+          "solvedAt": "2026-08-09T15:02:44.000Z"
+        },
         {
           "id": "cf-386125428",
           "platform": "codeforces",
@@ -3503,49 +3574,49 @@
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1905788
+          "rank": 1905981
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119058
+          "rank": 119065
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 522812
+          "rank": 522850
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189538
+          "rank": 189545
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1621964
+          "rank": 1622034
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 710940
+          "rank": 711038
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85472
+          "rank": 85474
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 457345
+          "rank": 457366
         }
       ],
       "dailyCalendar": {
@@ -3875,6 +3946,66 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "cf-386382721",
+      "platform": "codeforces",
+      "title": "How Long Until Nothing Remains? (2256F)",
+      "category": "greedy",
+      "language": "C++20 (GCC 13-64)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2256/problem/F",
+      "solvedAt": "2026-08-09T16:05:45.000Z"
+    },
+    {
+      "id": "cf-386376707",
+      "platform": "codeforces",
+      "title": "Even If the World Turns (2256E)",
+      "category": "communication",
+      "language": "C++20 (GCC 13-64)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2256/problem/E",
+      "solvedAt": "2026-08-09T15:48:34.000Z"
+    },
+    {
+      "id": "cf-386371277",
+      "platform": "codeforces",
+      "title": "A Ribbon for Tomorrow (2256D)",
+      "category": "math",
+      "language": "C++20 (GCC 13-64)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2256/problem/D",
+      "solvedAt": "2026-08-09T15:35:17.000Z"
+    },
+    {
+      "id": "cf-386364876",
+      "platform": "codeforces",
+      "title": "Hot Potatoes at the Fairy Warehouse (2256C)",
+      "category": "games",
+      "language": "C++20 (GCC 13-64)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2256/problem/C",
+      "solvedAt": "2026-08-09T15:21:33.000Z"
+    },
+    {
+      "id": "cf-386358283",
+      "platform": "codeforces",
+      "title": "Domino Tiles (2256B)",
+      "category": "implementation",
+      "language": "C++20 (GCC 13-64)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2256/problem/B",
+      "solvedAt": "2026-08-09T15:09:16.000Z"
+    },
+    {
+      "id": "cf-386354503",
+      "platform": "codeforces",
+      "title": "Three Numbers on the Blackboard (2256A)",
+      "category": "math",
+      "language": "C++20 (GCC 13-64)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2256/problem/A",
+      "solvedAt": "2026-08-09T15:02:44.000Z"
+    },
     {
       "id": "cf-386125428",
       "platform": "codeforces",

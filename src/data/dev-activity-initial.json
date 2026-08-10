@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-10T07:25:36.888Z",
+    "updatedAt": "2026-08-10T12:59:42.181Z",
     "source": "scheduled-crawl"
   },
   "overview": {
@@ -230,7 +230,7 @@
       "2026-08-07": 11,
       "2026-08-08": 0,
       "2026-08-09": 0,
-      "2026-08-10": 2,
+      "2026-08-10": 4,
       "2026-08-11": 0,
       "2026-08-12": 0,
       "2026-08-13": 0,
@@ -1115,7 +1115,7 @@
   "platforms": {
     "github": {
       "meta": {
-        "updatedAt": "2026-08-10T07:25:34.645Z",
+        "updatedAt": "2026-08-10T12:59:39.987Z",
         "username": "riefproject",
         "source": "github-public-api"
       },
@@ -5534,53 +5534,53 @@
       "languages": [
         {
           "name": "C",
-          "bytes": 3815508,
-          "percentage": 39.7
-        },
-        {
-          "name": "PHP",
-          "bytes": 1164717,
-          "percentage": 12.1
+          "bytes": 1423295,
+          "percentage": 23.3
         },
         {
           "name": "Vue",
           "bytes": 1092543,
-          "percentage": 11.4
+          "percentage": 17.9
         },
         {
           "name": "Dart",
           "bytes": 1087627,
-          "percentage": 11.3
+          "percentage": 17.8
         },
         {
-          "name": "JavaScript",
-          "bytes": 386462,
-          "percentage": 4
+          "name": "PHP",
+          "bytes": 559402,
+          "percentage": 9.2
         },
         {
           "name": "C++",
           "bytes": 375554,
-          "percentage": 3.9
+          "percentage": 6.1
         },
         {
-          "name": "Java",
-          "bytes": 293744,
-          "percentage": 3.1
-        },
-        {
-          "name": "Blade",
-          "bytes": 263159,
-          "percentage": 2.7
+          "name": "JavaScript",
+          "bytes": 322760,
+          "percentage": 5.3
         },
         {
           "name": "C#",
           "bytes": 228720,
-          "percentage": 2.4
+          "percentage": 3.7
         },
         {
-          "name": "HTML",
-          "bytes": 225847,
-          "percentage": 2.4
+          "name": "Blade",
+          "bytes": 169336,
+          "percentage": 2.8
+        },
+        {
+          "name": "Java",
+          "bytes": 165383,
+          "percentage": 2.7
+        },
+        {
+          "name": "TypeScript",
+          "bytes": 134690,
+          "percentage": 2.2
         }
       ],
       "topRepos": [
@@ -5642,7 +5642,7 @@
           "language": "Vue",
           "stars": 1,
           "forks": 0,
-          "updatedAt": "2026-08-10T01:25:26Z",
+          "updatedAt": "2026-08-10T07:26:41Z",
           "archived": false,
           "topics": [
             "cv",
@@ -5785,7 +5785,7 @@
     },
     "gitlab": {
       "heatmap": {
-        "2026-08-10": 2,
+        "2026-08-10": 4,
         "2026-08-04": 8,
         "2026-07-29": 11,
         "2026-07-28": 3,
@@ -5810,10 +5810,10 @@
         "2026-06-29": 1
       },
       "stats": {
-        "totalEvents": 110,
+        "totalEvents": 112,
         "daysActive": 23,
         "mergeRequests": {
-          "opened": 31,
+          "opened": 32,
           "merged": 28
         },
         "languages": [

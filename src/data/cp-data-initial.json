@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-09T18:35:19.170Z",
+    "updatedAt": "2026-08-10T01:25:18.725Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -2531,15 +2531,16 @@
     "codeforces": {
       "handle": "feeera",
       "url": "https://codeforces.com/profile/feeera",
-      "rating": 1293,
-      "maxRating": 1293,
-      "rank": "pupil",
-      "maxRank": "pupil",
-      "contestsCount": 3,
+      "rating": 1704,
+      "maxRating": 1704,
+      "rank": "expert",
+      "maxRank": "expert",
+      "contestsCount": 4,
       "totalSubmissions": 161,
       "totalSolved": 62,
       "totalAcSubmissions": 68,
       "tagsCount": {
+        "binary search": 2,
         "greedy": 9,
         "communication": 1,
         "interactive": 1,
@@ -2555,7 +2556,6 @@
         "trees": 1,
         "bitmasks": 1,
         "dp": 1,
-        "binary search": 1,
         "geometry": 1,
         "two pointers": 2,
         "data structures": 1,
@@ -2663,7 +2663,7 @@
           "id": "cf-386382721",
           "platform": "codeforces",
           "title": "How Long Until Nothing Remains? (2256F)",
-          "category": "greedy",
+          "category": "binary search",
           "language": "C++20 (GCC 13-64)",
           "difficulty": "800",
           "url": "https://codeforces.com/contest/2256/problem/F",
@@ -3284,7 +3284,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2321004,
+      "ranking": 2322593,
       "totalSolved": 61,
       "easySolved": 32,
       "mediumSolved": 26,
@@ -3568,43 +3568,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 139822
+          "rank": 139826
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1905981
+          "rank": 1906028
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119065
+          "rank": 119066
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 522850
+          "rank": 522858
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189545
+          "rank": 189554
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1622034
+          "rank": 1622060
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 711038
+          "rank": 711067
         },
         {
           "name": "Mathematics",
@@ -3616,7 +3616,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 457366
+          "rank": 457371
         }
       ],
       "dailyCalendar": {
@@ -3950,7 +3950,7 @@
       "id": "cf-386382721",
       "platform": "codeforces",
       "title": "How Long Until Nothing Remains? (2256F)",
-      "category": "greedy",
+      "category": "binary search",
       "language": "C++20 (GCC 13-64)",
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2256/problem/F",

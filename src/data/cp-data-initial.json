@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-10T12:59:51.098Z",
+    "updatedAt": "2026-08-10T18:52:29.834Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -2640,12 +2640,12 @@
       "tagsCount": {
         "binary search": 2,
         "greedy": 9,
+        "math": 18,
         "communication": 1,
         "interactive": 1,
-        "math": 17,
         "number theory": 4,
         "games": 1,
-        "implementation": 22,
+        "implementation": 23,
         "sortings": 5,
         "brute force": 8,
         "dfs and similar": 1,
@@ -3665,55 +3665,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 139837
+          "rank": 139843
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1906380
+          "rank": 1906647
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119074
+          "rank": 119081
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 522910
+          "rank": 522964
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189567
+          "rank": 189578
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1622306
+          "rank": 1622410
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 711200
+          "rank": 711305
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85480
+          "rank": 85482
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 457475
+          "rank": 457512
         }
       ],
       "dailyCalendar": {

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-11T01:23:09.208Z",
+    "updatedAt": "2026-08-11T07:01:11.222Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 484,
-    "totalSubmissions": 1218,
+    "totalSolved": 485,
+    "totalSubmissions": 1227,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-08-11": {
+        "tries": 13,
+        "ac": 10
+      },
       "2026-08-10": {
         "tries": 11,
         "ac": 7
@@ -22,7 +26,7 @@
         "ac": 12
       },
       "2026-08-05": {
-        "tries": 32,
+        "tries": 31,
         "ac": 15
       },
       "2026-08-04": {
@@ -122,7 +126,7 @@
         "ac": 1
       },
       "2026-01-30": {
-        "tries": 6,
+        "tries": 7,
         "ac": 2
       },
       "2026-01-13": {
@@ -162,7 +166,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 25,
+        "tries": 26,
         "ac": 6
       },
       "2025-11-27": {
@@ -174,12 +178,12 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 109,
-        "ac": 55
+        "tries": 105,
+        "ac": 53
       },
       "2026-08-09": {
         "tries": 6,
@@ -403,17 +407,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 581,
+      "totalSubmissions": 587,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 204,
+      "uniqueProblemsSolved": 209,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 558,
+        "Cpp20": 564,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 2
       },
       "dailyCalendar": {
+        "2026-08-11": {
+          "tries": 10,
+          "ac": 9
+        },
         "2026-08-10": {
           "tries": 11,
           "ac": 7
@@ -423,7 +431,7 @@
           "ac": 6
         },
         "2026-08-05": {
-          "tries": 32,
+          "tries": 31,
           "ac": 15
         },
         "2026-08-04": {
@@ -523,7 +531,7 @@
           "ac": 1
         },
         "2026-01-30": {
-          "tries": 6,
+          "tries": 7,
           "ac": 2
         },
         "2026-01-13": {
@@ -563,7 +571,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 25,
+          "tries": 26,
           "ac": 6
         },
         "2025-11-27": {
@@ -575,15 +583,85 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 109,
-          "ac": 55
+          "tries": 105,
+          "ac": 53
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5811333",
+          "platform": "tlx",
+          "title": "Perkenalan Perpangkatan Matriks II",
+          "category": "Divide and Conquer Lanjutan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5811333",
+          "solvedAt": "2026-08-11T04:45:07.679Z"
+        },
+        {
+          "id": "tlx-5811221",
+          "platform": "tlx",
+          "title": "Perkenalan Perpangkatan Matriks",
+          "category": "Divide and Conquer Lanjutan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5811221",
+          "solvedAt": "2026-08-11T04:28:58.321Z"
+        },
+        {
+          "id": "tlx-5811119",
+          "platform": "tlx",
+          "title": "Truk dan Palang",
+          "category": "Geometri Komputasional",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5811119",
+          "solvedAt": "2026-08-11T04:17:11.632Z"
+        },
+        {
+          "id": "tlx-5810970",
+          "platform": "tlx",
+          "title": "Tantangan Convex Hull",
+          "category": "Geometri Komputasional",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5810970",
+          "solvedAt": "2026-08-11T04:07:55.621Z"
+        },
+        {
+          "id": "tlx-5810897",
+          "platform": "tlx",
+          "title": "Tantangan Line Sweep",
+          "category": "Geometri Komputasional",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5810897",
+          "solvedAt": "2026-08-11T04:00:37.107Z"
+        },
+        {
+          "id": "tlx-5810882",
+          "platform": "tlx",
+          "title": "Tantangan Poligon",
+          "category": "Geometri Komputasional",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5810882",
+          "solvedAt": "2026-08-11T03:54:59.364Z"
+        },
+        {
+          "id": "tlx-5810843",
+          "platform": "tlx",
+          "title": "Tantangan Segmen Garis",
+          "category": "Geometri Komputasional",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5810843",
+          "solvedAt": "2026-08-11T03:45:35.801Z"
+        },
         {
           "id": "tlx-5805624",
           "platform": "tlx",
@@ -2185,16 +2263,6 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
-          "id": "tlx-4650685",
-          "platform": "tlx",
-          "title": "Kalkulator String",
-          "category": "Tipe Data Lainnya",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650685",
-          "solvedAt": "2025-11-24T16:47:20.506Z"
-        },
-        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -2323,16 +2391,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650610",
           "solvedAt": "2025-11-24T16:04:33.451Z"
-        },
-        {
-          "id": "tlx-4650598",
-          "platform": "tlx",
-          "title": "Toko Kandang II",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650598",
-          "solvedAt": "2025-11-24T15:54:33.525Z"
         },
         {
           "id": "tlx-4650595",
@@ -2634,9 +2692,9 @@
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 4,
-      "totalSubmissions": 161,
-      "totalSolved": 62,
-      "totalAcSubmissions": 68,
+      "totalSubmissions": 164,
+      "totalSolved": 63,
+      "totalAcSubmissions": 69,
       "tagsCount": {
         "binary search": 2,
         "greedy": 9,
@@ -2666,6 +2724,10 @@
         "1100": 1
       },
       "dailyCalendar": {
+        "2026-08-11": {
+          "tries": 3,
+          "ac": 1
+        },
         "2026-08-09": {
           "tries": 6,
           "ac": 6
@@ -2756,6 +2818,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "cf-386559797",
+          "platform": "codeforces",
+          "title": "Blackout Math (106641A)",
+          "category": "Problem Solving",
+          "language": "C++20 (GCC 13-64)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/106641/problem/A",
+          "solvedAt": "2026-08-11T05:00:25.000Z"
+        },
         {
           "id": "cf-386382721",
           "platform": "codeforces",
@@ -3665,55 +3737,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 139843
+          "rank": 139865
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1906704
+          "rank": 1906873
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119081
+          "rank": 119082
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 522973
+          "rank": 523015
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189581
+          "rank": 189584
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1622449
+          "rank": 1622548
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 711337
+          "rank": 711395
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85482
+          "rank": 85485
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 457516
+          "rank": 457573
         }
       ],
       "dailyCalendar": {
@@ -4043,6 +4115,86 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "cf-386559797",
+      "platform": "codeforces",
+      "title": "Blackout Math (106641A)",
+      "category": "Problem Solving",
+      "language": "C++20 (GCC 13-64)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/106641/problem/A",
+      "solvedAt": "2026-08-11T05:00:25.000Z"
+    },
+    {
+      "id": "tlx-5811333",
+      "platform": "tlx",
+      "title": "Perkenalan Perpangkatan Matriks II",
+      "category": "Divide and Conquer Lanjutan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5811333",
+      "solvedAt": "2026-08-11T04:45:07.679Z"
+    },
+    {
+      "id": "tlx-5811221",
+      "platform": "tlx",
+      "title": "Perkenalan Perpangkatan Matriks",
+      "category": "Divide and Conquer Lanjutan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5811221",
+      "solvedAt": "2026-08-11T04:28:58.321Z"
+    },
+    {
+      "id": "tlx-5811119",
+      "platform": "tlx",
+      "title": "Truk dan Palang",
+      "category": "Geometri Komputasional",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5811119",
+      "solvedAt": "2026-08-11T04:17:11.632Z"
+    },
+    {
+      "id": "tlx-5810970",
+      "platform": "tlx",
+      "title": "Tantangan Convex Hull",
+      "category": "Geometri Komputasional",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5810970",
+      "solvedAt": "2026-08-11T04:07:55.621Z"
+    },
+    {
+      "id": "tlx-5810897",
+      "platform": "tlx",
+      "title": "Tantangan Line Sweep",
+      "category": "Geometri Komputasional",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5810897",
+      "solvedAt": "2026-08-11T04:00:37.107Z"
+    },
+    {
+      "id": "tlx-5810882",
+      "platform": "tlx",
+      "title": "Tantangan Poligon",
+      "category": "Geometri Komputasional",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5810882",
+      "solvedAt": "2026-08-11T03:54:59.364Z"
+    },
+    {
+      "id": "tlx-5810843",
+      "platform": "tlx",
+      "title": "Tantangan Segmen Garis",
+      "category": "Geometri Komputasional",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5810843",
+      "solvedAt": "2026-08-11T03:45:35.801Z"
+    },
     {
       "id": "tlx-5805624",
       "platform": "tlx",
@@ -6004,16 +6156,6 @@
       "solvedAt": "2025-11-24T16:47:51.765Z"
     },
     {
-      "id": "tlx-4650685",
-      "platform": "tlx",
-      "title": "Kalkulator String",
-      "category": "Tipe Data Lainnya",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650685",
-      "solvedAt": "2025-11-24T16:47:20.506Z"
-    },
-    {
       "id": "tlx-4650682",
       "platform": "tlx",
       "title": "Tipe Data std::vector",
@@ -6142,16 +6284,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650610",
       "solvedAt": "2025-11-24T16:04:33.451Z"
-    },
-    {
-      "id": "tlx-4650598",
-      "platform": "tlx",
-      "title": "Toko Kandang II",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650598",
-      "solvedAt": "2025-11-24T15:54:33.525Z"
     },
     {
       "id": "tlx-4650595",

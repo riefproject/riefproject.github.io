@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-11T07:01:11.222Z",
+    "updatedAt": "2026-08-11T12:56:00.608Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -3453,7 +3453,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2324397,
+      "ranking": 2326409,
       "totalSolved": 61,
       "easySolved": 32,
       "mediumSolved": 26,
@@ -3737,55 +3737,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 139865
+          "rank": 139869
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1906873
+          "rank": 1907154
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119082
+          "rank": 119093
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 523015
+          "rank": 523052
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189584
+          "rank": 189598
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1622548
+          "rank": 1622660
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 711395
+          "rank": 711495
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85485
+          "rank": 85488
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 457573
+          "rank": 457619
         }
       ],
       "dailyCalendar": {

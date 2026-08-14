@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-14T07:18:59.585Z",
+    "updatedAt": "2026-08-14T12:58:36.896Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -13,6 +13,10 @@
     "totalSubmissions": 1241,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-08-14": {
+        "tries": 6,
+        "ac": 4
+      },
       "2026-08-13": {
         "tries": 9,
         "ac": 5
@@ -74,7 +78,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 18,
+        "tries": 17,
         "ac": 5
       },
       "2026-05-25": {
@@ -130,7 +134,7 @@
         "ac": 1
       },
       "2026-01-30": {
-        "tries": 6,
+        "tries": 7,
         "ac": 2
       },
       "2026-01-13": {
@@ -166,7 +170,7 @@
         "ac": 6
       },
       "2025-12-01": {
-        "tries": 8,
+        "tries": 7,
         "ac": 1
       },
       "2025-11-28": {
@@ -178,16 +182,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 109,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-09": {
         "tries": 6,
@@ -413,15 +417,19 @@
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 601,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 213,
+      "uniqueProblemsSolved": 215,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 578,
+        "Cpp20": 577,
         "Pascal": 13,
         "C": 8,
-        "Rust2021": 2
+        "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-08-14": {
+          "tries": 6,
+          "ac": 4
+        },
         "2026-08-13": {
           "tries": 9,
           "ac": 5
@@ -483,7 +491,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 18,
+          "tries": 17,
           "ac": 5
         },
         "2026-05-25": {
@@ -539,7 +547,7 @@
           "ac": 1
         },
         "2026-01-30": {
-          "tries": 6,
+          "tries": 7,
           "ac": 2
         },
         "2026-01-13": {
@@ -575,7 +583,7 @@
           "ac": 6
         },
         "2025-12-01": {
-          "tries": 8,
+          "tries": 7,
           "ac": 1
         },
         "2025-11-28": {
@@ -587,19 +595,49 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 109,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5829532",
+          "platform": "tlx",
+          "title": "AND and/or OR",
+          "category": "ICPC Jakarta 2025",
+          "language": "Rust2021",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5829532",
+          "solvedAt": "2026-08-14T10:13:54.717Z"
+        },
+        {
+          "id": "tlx-5829483",
+          "platform": "tlx",
+          "title": "Burning Blocks",
+          "category": "ICPC Jakarta 2025",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5829483",
+          "solvedAt": "2026-08-14T10:03:16.149Z"
+        },
+        {
+          "id": "tlx-5829463",
+          "platform": "tlx",
+          "title": "Predisposed",
+          "category": "ICPC Jakarta 2025",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5829463",
+          "solvedAt": "2026-08-14T09:58:17.988Z"
+        },
         {
           "id": "tlx-5823662",
           "platform": "tlx",
@@ -2471,16 +2509,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -2751,10 +2779,10 @@
         "communication": 1,
         "interactive": 1,
         "number theory": 4,
+        "brute force": 9,
         "games": 1,
         "implementation": 23,
         "sortings": 5,
-        "brute force": 8,
         "dfs and similar": 1,
         "fft": 1,
         "graphs": 2,
@@ -2767,10 +2795,17 @@
         "*special": 1
       },
       "ratingDistribution": {
-        "800": 25,
+        "800": 27,
         "900": 1,
-        "1000": 2,
-        "1100": 1
+        "1000": 3,
+        "1100": 2,
+        "1200": 1,
+        "1500": 1,
+        "1600": 1,
+        "1800": 1,
+        "2100": 2,
+        "2300": 1,
+        "2600": 1
       },
       "dailyCalendar": {
         "2026-08-11": {
@@ -2883,7 +2918,7 @@
           "title": "How Long Until Nothing Remains? (2256F)",
           "category": "binary search",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "2300",
           "url": "https://codeforces.com/contest/2256/problem/F",
           "solvedAt": "2026-08-09T16:05:45.000Z"
         },
@@ -2893,7 +2928,7 @@
           "title": "Even If the World Turns (2256E)",
           "category": "communication",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "2100",
           "url": "https://codeforces.com/contest/2256/problem/E",
           "solvedAt": "2026-08-09T15:48:34.000Z"
         },
@@ -2903,7 +2938,7 @@
           "title": "A Ribbon for Tomorrow (2256D)",
           "category": "math",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "1600",
           "url": "https://codeforces.com/contest/2256/problem/D",
           "solvedAt": "2026-08-09T15:35:17.000Z"
         },
@@ -2911,9 +2946,9 @@
           "id": "cf-386364876",
           "platform": "codeforces",
           "title": "Hot Potatoes at the Fairy Warehouse (2256C)",
-          "category": "games",
+          "category": "brute force",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "1200",
           "url": "https://codeforces.com/contest/2256/problem/C",
           "solvedAt": "2026-08-09T15:21:33.000Z"
         },
@@ -2923,7 +2958,7 @@
           "title": "Domino Tiles (2256B)",
           "category": "implementation",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "1000",
           "url": "https://codeforces.com/contest/2256/problem/B",
           "solvedAt": "2026-08-09T15:09:16.000Z"
         },
@@ -2943,7 +2978,7 @@
           "title": "Diameter Intersections (2253E)",
           "category": "brute force",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "2100",
           "url": "https://codeforces.com/contest/2253/problem/E",
           "solvedAt": "2026-08-07T16:26:56.000Z"
         },
@@ -2953,7 +2988,7 @@
           "title": "4-beauty (2253F)",
           "category": "bitmasks",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "2600",
           "url": "https://codeforces.com/contest/2253/problem/F",
           "solvedAt": "2026-08-07T16:02:34.000Z"
         },
@@ -2963,7 +2998,7 @@
           "title": "Hypercarp and Interdimensional Jumps (2253D)",
           "category": "binary search",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "1800",
           "url": "https://codeforces.com/contest/2253/problem/D",
           "solvedAt": "2026-08-07T15:46:53.000Z"
         },
@@ -2973,7 +3008,7 @@
           "title": "Sum of Distinct Values in a Matrix (2253C)",
           "category": "greedy",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "1500",
           "url": "https://codeforces.com/contest/2253/problem/C",
           "solvedAt": "2026-08-07T15:28:00.000Z"
         },
@@ -2983,7 +3018,7 @@
           "title": "Hypercarp and the Control Panel (2253B)",
           "category": "brute force",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "800",
+          "difficulty": "1100",
           "url": "https://codeforces.com/contest/2253/problem/B",
           "solvedAt": "2026-08-07T15:17:08.000Z"
         },
@@ -3502,7 +3537,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2367686,
+      "ranking": 2332122,
       "totalSolved": 61,
       "easySolved": 32,
       "mediumSolved": 26,
@@ -3786,55 +3821,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 139937
+          "rank": 139942
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1909154
+          "rank": 1909381
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119148
+          "rank": 119154
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 523433
+          "rank": 523473
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189687
+          "rank": 189697
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1623519
+          "rank": 1623601
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 712311
+          "rank": 712381
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85499
+          "rank": 85508
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 457982
+          "rank": 458004
         }
       ],
       "dailyCalendar": {
@@ -4165,6 +4200,36 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "tlx-5829532",
+      "platform": "tlx",
+      "title": "AND and/or OR",
+      "category": "ICPC Jakarta 2025",
+      "language": "Rust2021",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5829532",
+      "solvedAt": "2026-08-14T10:13:54.717Z"
+    },
+    {
+      "id": "tlx-5829483",
+      "platform": "tlx",
+      "title": "Burning Blocks",
+      "category": "ICPC Jakarta 2025",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5829483",
+      "solvedAt": "2026-08-14T10:03:16.149Z"
+    },
+    {
+      "id": "tlx-5829463",
+      "platform": "tlx",
+      "title": "Predisposed",
+      "category": "ICPC Jakarta 2025",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5829463",
+      "solvedAt": "2026-08-14T09:58:17.988Z"
+    },
+    {
       "id": "tlx-5823662",
       "platform": "tlx",
       "title": "Forbidden Geometry",
@@ -4350,7 +4415,7 @@
       "title": "How Long Until Nothing Remains? (2256F)",
       "category": "binary search",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "2300",
       "url": "https://codeforces.com/contest/2256/problem/F",
       "solvedAt": "2026-08-09T16:05:45.000Z"
     },
@@ -4360,7 +4425,7 @@
       "title": "Even If the World Turns (2256E)",
       "category": "communication",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "2100",
       "url": "https://codeforces.com/contest/2256/problem/E",
       "solvedAt": "2026-08-09T15:48:34.000Z"
     },
@@ -4370,7 +4435,7 @@
       "title": "A Ribbon for Tomorrow (2256D)",
       "category": "math",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "1600",
       "url": "https://codeforces.com/contest/2256/problem/D",
       "solvedAt": "2026-08-09T15:35:17.000Z"
     },
@@ -4378,9 +4443,9 @@
       "id": "cf-386364876",
       "platform": "codeforces",
       "title": "Hot Potatoes at the Fairy Warehouse (2256C)",
-      "category": "games",
+      "category": "brute force",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "1200",
       "url": "https://codeforces.com/contest/2256/problem/C",
       "solvedAt": "2026-08-09T15:21:33.000Z"
     },
@@ -4390,7 +4455,7 @@
       "title": "Domino Tiles (2256B)",
       "category": "implementation",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "1000",
       "url": "https://codeforces.com/contest/2256/problem/B",
       "solvedAt": "2026-08-09T15:09:16.000Z"
     },
@@ -4410,7 +4475,7 @@
       "title": "Diameter Intersections (2253E)",
       "category": "brute force",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "2100",
       "url": "https://codeforces.com/contest/2253/problem/E",
       "solvedAt": "2026-08-07T16:26:56.000Z"
     },
@@ -4420,7 +4485,7 @@
       "title": "4-beauty (2253F)",
       "category": "bitmasks",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "2600",
       "url": "https://codeforces.com/contest/2253/problem/F",
       "solvedAt": "2026-08-07T16:02:34.000Z"
     },
@@ -4430,7 +4495,7 @@
       "title": "Hypercarp and Interdimensional Jumps (2253D)",
       "category": "binary search",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "1800",
       "url": "https://codeforces.com/contest/2253/problem/D",
       "solvedAt": "2026-08-07T15:46:53.000Z"
     },
@@ -4440,7 +4505,7 @@
       "title": "Sum of Distinct Values in a Matrix (2253C)",
       "category": "greedy",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "1500",
       "url": "https://codeforces.com/contest/2253/problem/C",
       "solvedAt": "2026-08-07T15:28:00.000Z"
     },
@@ -4450,7 +4515,7 @@
       "title": "Hypercarp and the Control Panel (2253B)",
       "category": "brute force",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "800",
+      "difficulty": "1100",
       "url": "https://codeforces.com/contest/2253/problem/B",
       "solvedAt": "2026-08-07T15:17:08.000Z"
     },
@@ -6403,16 +6468,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
-    },
-    {
-      "id": "tlx-4650590",
-      "platform": "tlx",
-      "title": "Perkenalan Larik (Array)",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650590",
-      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

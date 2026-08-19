@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-19T01:02:24.499Z",
+    "updatedAt": "2026-08-19T06:38:29.201Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1272,
+    "totalSubmissions": 1288,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-08-19": {
+        "tries": 16,
+        "ac": 2
+      },
       "2026-08-15": {
         "tries": 11,
         "ac": 8
@@ -126,7 +130,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 11,
+        "tries": 12,
         "ac": 3
       },
       "2026-02-27": {
@@ -162,8 +166,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 2,
-        "ac": 1
+        "tries": 3,
+        "ac": 2
       },
       "2025-12-03": {
         "tries": 1,
@@ -186,16 +190,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-18": {
         "tries": 17,
@@ -423,17 +427,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 615,
+      "totalSubmissions": 621,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 221,
+      "uniqueProblemsSolved": 222,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 591,
+        "Cpp20": 597,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-08-19": {
+          "tries": 6,
+          "ac": 2
+        },
         "2026-08-15": {
           "tries": 11,
           "ac": 8
@@ -547,7 +555,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 11,
+          "tries": 12,
           "ac": 3
         },
         "2026-02-27": {
@@ -583,8 +591,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 2,
-          "ac": 1
+          "tries": 3,
+          "ac": 2
         },
         "2025-12-03": {
           "tries": 1,
@@ -607,19 +615,39 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5847000",
+          "platform": "tlx",
+          "title": "Toko Bunga",
+          "category": "OSN Informatika 2026 - Semifinal",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5847000",
+          "solvedAt": "2026-08-19T03:30:24.540Z"
+        },
+        {
+          "id": "tlx-5846913",
+          "platform": "tlx",
+          "title": "Lorong Penyimpanan Kardus",
+          "category": "OSN Informatika 2026 - Semifinal",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5846913",
+          "solvedAt": "2026-08-19T03:12:01.733Z"
+        },
         {
           "id": "tlx-5832340",
           "platform": "tlx",
@@ -2571,16 +2599,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -2840,7 +2858,7 @@
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 4,
-      "totalSubmissions": 181,
+      "totalSubmissions": 191,
       "totalSolved": 63,
       "totalAcSubmissions": 69,
       "tagsCount": {
@@ -2880,6 +2898,10 @@
         "2600": 1
       },
       "dailyCalendar": {
+        "2026-08-19": {
+          "tries": 10,
+          "ac": 0
+        },
         "2026-08-18": {
           "tries": 17,
           "ac": 0
@@ -3897,55 +3919,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140022
+          "rank": 140028
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1912000
+          "rank": 1912140
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119274
+          "rank": 119280
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 523944
+          "rank": 523979
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189814
+          "rank": 189821
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1624718
+          "rank": 1624804
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 713514
+          "rank": 713555
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85527
+          "rank": 85528
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 458486
+          "rank": 458508
         }
       ],
       "dailyCalendar": {
@@ -4275,6 +4297,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-5847000",
+      "platform": "tlx",
+      "title": "Toko Bunga",
+      "category": "OSN Informatika 2026 - Semifinal",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5847000",
+      "solvedAt": "2026-08-19T03:30:24.540Z"
+    },
+    {
+      "id": "tlx-5846913",
+      "platform": "tlx",
+      "title": "Lorong Penyimpanan Kardus",
+      "category": "OSN Informatika 2026 - Semifinal",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5846913",
+      "solvedAt": "2026-08-19T03:12:01.733Z"
+    },
     {
       "id": "tlx-5832340",
       "platform": "tlx",
@@ -6594,16 +6636,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
-    },
-    {
-      "id": "tlx-4650590",
-      "platform": "tlx",
-      "title": "Perkenalan Larik (Array)",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650590",
-      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

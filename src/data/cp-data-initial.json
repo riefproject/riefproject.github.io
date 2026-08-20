@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-20T01:02:22.534Z",
+    "updatedAt": "2026-08-20T06:39:20.261Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1296,
+    "totalSubmissions": 1299,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-08-20": {
+        "tries": 7,
+        "ac": 3
+      },
       "2026-08-19": {
         "tries": 24,
         "ac": 2
@@ -42,7 +46,7 @@
         "ac": 12
       },
       "2026-08-05": {
-        "tries": 32,
+        "tries": 31,
         "ac": 15
       },
       "2026-08-04": {
@@ -86,7 +90,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 18,
+        "tries": 17,
         "ac": 5
       },
       "2026-05-25": {
@@ -178,7 +182,7 @@
         "ac": 6
       },
       "2025-12-01": {
-        "tries": 8,
+        "tries": 7,
         "ac": 1
       },
       "2025-11-28": {
@@ -194,7 +198,7 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
@@ -429,7 +433,7 @@
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 621,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 222,
+      "uniqueProblemsSolved": 224,
       "totalAcSubmissions": 223,
       "languages": {
         "Cpp20": 597,
@@ -438,6 +442,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-08-20": {
+          "tries": 4,
+          "ac": 3
+        },
         "2026-08-19": {
           "tries": 6,
           "ac": 2
@@ -467,7 +475,7 @@
           "ac": 6
         },
         "2026-08-05": {
-          "tries": 32,
+          "tries": 31,
           "ac": 15
         },
         "2026-08-04": {
@@ -511,7 +519,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 18,
+          "tries": 17,
           "ac": 5
         },
         "2026-05-25": {
@@ -603,7 +611,7 @@
           "ac": 6
         },
         "2025-12-01": {
-          "tries": 8,
+          "tries": 7,
           "ac": 1
         },
         "2025-11-28": {
@@ -619,7 +627,7 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
@@ -628,6 +636,26 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5853566",
+          "platform": "tlx",
+          "title": "Dewan Perwakilan Bebek",
+          "category": "Struktur Data Non-Linear",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5853566",
+          "solvedAt": "2026-08-20T04:45:30.236Z"
+        },
+        {
+          "id": "tlx-5853038",
+          "platform": "tlx",
+          "title": "Garden and Elevation",
+          "category": "Struktur Data Non-Linear",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5853038",
+          "solvedAt": "2026-08-20T04:22:03.308Z"
+        },
         {
           "id": "tlx-5847000",
           "platform": "tlx",
@@ -2858,7 +2886,7 @@
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 4,
-      "totalSubmissions": 199,
+      "totalSubmissions": 202,
       "totalSolved": 63,
       "totalAcSubmissions": 69,
       "tagsCount": {
@@ -2898,6 +2926,10 @@
         "2600": 1
       },
       "dailyCalendar": {
+        "2026-08-20": {
+          "tries": 3,
+          "ac": 0
+        },
         "2026-08-19": {
           "tries": 18,
           "ac": 0
@@ -3919,55 +3951,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140041
+          "rank": 140047
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1912670
+          "rank": 1912781
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119305
+          "rank": 119309
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 524060
+          "rank": 524104
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189855
+          "rank": 189861
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1625043
+          "rank": 1625127
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 713786
+          "rank": 713840
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85532
+          "rank": 85534
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 458574
+          "rank": 458608
         }
       ],
       "dailyCalendar": {
@@ -4297,6 +4329,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-5853566",
+      "platform": "tlx",
+      "title": "Dewan Perwakilan Bebek",
+      "category": "Struktur Data Non-Linear",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5853566",
+      "solvedAt": "2026-08-20T04:45:30.236Z"
+    },
+    {
+      "id": "tlx-5853038",
+      "platform": "tlx",
+      "title": "Garden and Elevation",
+      "category": "Struktur Data Non-Linear",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5853038",
+      "solvedAt": "2026-08-20T04:22:03.308Z"
+    },
     {
       "id": "tlx-5847000",
       "platform": "tlx",

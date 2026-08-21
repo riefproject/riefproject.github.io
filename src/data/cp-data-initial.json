@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-20T18:33:49.327Z",
+    "updatedAt": "2026-08-21T01:05:03.926Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,11 +10,11 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1312,
+    "totalSubmissions": 1313,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-08-20": {
-        "tries": 18,
+        "tries": 19,
         "ac": 6
       },
       "2026-08-19": {
@@ -2906,7 +2906,7 @@
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 4,
-      "totalSubmissions": 209,
+      "totalSubmissions": 210,
       "totalSolved": 63,
       "totalAcSubmissions": 69,
       "tagsCount": {
@@ -2947,7 +2947,7 @@
       },
       "dailyCalendar": {
         "2026-08-20": {
-          "tries": 10,
+          "tries": 11,
           "ac": 0
         },
         "2026-08-19": {
@@ -3977,37 +3977,37 @@
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1913216
+          "rank": 1913278
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119327
+          "rank": 119330
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 524165
+          "rank": 524172
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189886
+          "rank": 189889
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1625329
+          "rank": 1625368
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 714006
+          "rank": 714031
         },
         {
           "name": "Mathematics",
@@ -4019,7 +4019,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 458663
+          "rank": 458668
         }
       ],
       "dailyCalendar": {

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-23T12:32:51.942Z",
+    "updatedAt": "2026-08-23T18:23:38.278Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1346,
+    "totalSubmissions": 1365,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-08-23": {
+        "tries": 27,
+        "ac": 4
+      },
       "2026-08-21": {
         "tries": 22,
         "ac": 2
@@ -102,7 +106,7 @@
         "ac": 2
       },
       "2026-05-24": {
-        "tries": 6,
+        "tries": 5,
         "ac": 4
       },
       "2026-05-22": {
@@ -150,7 +154,7 @@
         "ac": 1
       },
       "2026-01-30": {
-        "tries": 7,
+        "tries": 6,
         "ac": 2
       },
       "2026-01-13": {
@@ -190,7 +194,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 26,
+        "tries": 25,
         "ac": 6
       },
       "2025-11-27": {
@@ -202,16 +206,12 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
+        "tries": 109,
         "ac": 55
-      },
-      "2026-08-23": {
-        "tries": 7,
-        "ac": 0
       },
       "2026-08-18": {
         "tries": 17,
@@ -439,17 +439,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 635,
+      "totalSubmissions": 641,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 230,
+      "uniqueProblemsSolved": 234,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 611,
+        "Cpp20": 617,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-08-23": {
+          "tries": 7,
+          "ac": 4
+        },
         "2026-08-21": {
           "tries": 4,
           "ac": 2
@@ -539,7 +543,7 @@
           "ac": 2
         },
         "2026-05-24": {
-          "tries": 6,
+          "tries": 5,
           "ac": 4
         },
         "2026-05-22": {
@@ -587,7 +591,7 @@
           "ac": 1
         },
         "2026-01-30": {
-          "tries": 7,
+          "tries": 6,
           "ac": 2
         },
         "2026-01-13": {
@@ -627,7 +631,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 26,
+          "tries": 25,
           "ac": 6
         },
         "2025-11-27": {
@@ -639,15 +643,55 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
+          "tries": 109,
           "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5875417",
+          "platform": "tlx",
+          "title": "Bonfire Business",
+          "category": "COMPFEST 18 - Penyisihan CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5875417",
+          "solvedAt": "2026-08-23T15:41:54.197Z"
+        },
+        {
+          "id": "tlx-5875341",
+          "platform": "tlx",
+          "title": "Amateur Architect",
+          "category": "COMPFEST 18 - Penyisihan CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5875341",
+          "solvedAt": "2026-08-23T15:19:24.446Z"
+        },
+        {
+          "id": "tlx-5875280",
+          "platform": "tlx",
+          "title": "Grasp the Median",
+          "category": "COMPFEST 18 - Penyisihan CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5875280",
+          "solvedAt": "2026-08-23T15:02:13.781Z"
+        },
+        {
+          "id": "tlx-5875266",
+          "platform": "tlx",
+          "title": "Harmony's Gift",
+          "category": "COMPFEST 18 - Penyisihan CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5875266",
+          "solvedAt": "2026-08-23T14:59:33.236Z"
+        },
         {
           "id": "tlx-5861363",
           "platform": "tlx",
@@ -2958,7 +3002,7 @@
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 4,
-      "totalSubmissions": 235,
+      "totalSubmissions": 248,
       "totalSolved": 63,
       "totalAcSubmissions": 69,
       "tagsCount": {
@@ -2999,7 +3043,7 @@
       },
       "dailyCalendar": {
         "2026-08-23": {
-          "tries": 7,
+          "tries": 20,
           "ac": 0
         },
         "2026-08-21": {
@@ -3747,7 +3791,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2346169,
+      "ranking": 2347755,
       "totalSolved": 61,
       "easySolved": 32,
       "mediumSolved": 26,
@@ -4031,55 +4075,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140109
+          "rank": 140112
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1914601
+          "rank": 1914787
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119381
+          "rank": 119385
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 524377
+          "rank": 524401
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189943
+          "rank": 189950
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1625951
+          "rank": 1626021
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 714579
+          "rank": 714630
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85551
+          "rank": 85553
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 458881
+          "rank": 458909
         }
       ],
       "dailyCalendar": {
@@ -4409,6 +4453,46 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-5875417",
+      "platform": "tlx",
+      "title": "Bonfire Business",
+      "category": "COMPFEST 18 - Penyisihan CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5875417",
+      "solvedAt": "2026-08-23T15:41:54.197Z"
+    },
+    {
+      "id": "tlx-5875341",
+      "platform": "tlx",
+      "title": "Amateur Architect",
+      "category": "COMPFEST 18 - Penyisihan CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5875341",
+      "solvedAt": "2026-08-23T15:19:24.446Z"
+    },
+    {
+      "id": "tlx-5875280",
+      "platform": "tlx",
+      "title": "Grasp the Median",
+      "category": "COMPFEST 18 - Penyisihan CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5875280",
+      "solvedAt": "2026-08-23T15:02:13.781Z"
+    },
+    {
+      "id": "tlx-5875266",
+      "platform": "tlx",
+      "title": "Harmony's Gift",
+      "category": "COMPFEST 18 - Penyisihan CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5875266",
+      "solvedAt": "2026-08-23T14:59:33.236Z"
+    },
     {
       "id": "tlx-5861363",
       "platform": "tlx",

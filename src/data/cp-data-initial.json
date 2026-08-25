@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-25T06:40:25.391Z",
+    "updatedAt": "2026-08-25T12:40:30.702Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -2998,10 +2998,10 @@
       "handle": "feeera",
       "url": "https://codeforces.com/profile/feeera",
       "rating": 1704,
-      "maxRating": 1704,
+      "maxRating": 625,
       "rank": "expert",
-      "maxRank": "expert",
-      "contestsCount": 4,
+      "maxRank": "newbie",
+      "contestsCount": 2,
       "totalSubmissions": 248,
       "totalSolved": 63,
       "totalAcSubmissions": 69,
@@ -3791,7 +3791,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2349363,
+      "ranking": 2351182,
       "totalSolved": 61,
       "easySolved": 32,
       "mediumSolved": 26,
@@ -4075,55 +4075,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140151
+          "rank": 140156
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1915634
+          "rank": 1915909
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119419
+          "rank": 119427
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 524621
+          "rank": 524653
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 189988
+          "rank": 190000
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1626418
+          "rank": 1626478
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 714965
+          "rank": 715047
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85560
+          "rank": 85561
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 459045
+          "rank": 459094
         }
       ],
       "dailyCalendar": {

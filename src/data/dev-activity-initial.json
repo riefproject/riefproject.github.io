@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-26T06:41:40.422Z",
+    "updatedAt": "2026-08-26T12:44:14.035Z",
     "source": "scheduled-crawl"
   },
   "overview": {
@@ -1115,7 +1115,7 @@
   "platforms": {
     "github": {
       "meta": {
-        "updatedAt": "2026-08-26T06:41:37.297Z",
+        "updatedAt": "2026-08-26T12:44:11.811Z",
         "username": "riefproject",
         "source": "github-public-api"
       },
@@ -5533,54 +5533,44 @@
       },
       "languages": [
         {
-          "name": "C",
-          "bytes": 3815508,
-          "percentage": 39.7
-        },
-        {
-          "name": "PHP",
-          "bytes": 1164717,
-          "percentage": 12.1
-        },
-        {
           "name": "Vue",
-          "bytes": 1092543,
-          "percentage": 11.4
+          "bytes": 295475,
+          "percentage": 41.6
         },
         {
-          "name": "Dart",
-          "bytes": 1087627,
-          "percentage": 11.3
+          "name": "TypeScript",
+          "bytes": 121940,
+          "percentage": 17.2
+        },
+        {
+          "name": "Astro",
+          "bytes": 92249,
+          "percentage": 13
         },
         {
           "name": "JavaScript",
-          "bytes": 386462,
-          "percentage": 4
-        },
-        {
-          "name": "C++",
-          "bytes": 375554,
-          "percentage": 3.9
-        },
-        {
-          "name": "Java",
-          "bytes": 293744,
-          "percentage": 3.1
-        },
-        {
-          "name": "Blade",
-          "bytes": 263159,
-          "percentage": 2.7
-        },
-        {
-          "name": "C#",
-          "bytes": 228720,
-          "percentage": 2.4
+          "bytes": 85813,
+          "percentage": 12.1
         },
         {
           "name": "HTML",
-          "bytes": 225847,
-          "percentage": 2.4
+          "bytes": 57259,
+          "percentage": 8.1
+        },
+        {
+          "name": "Rust",
+          "bytes": 36777,
+          "percentage": 5.2
+        },
+        {
+          "name": "CSS",
+          "bytes": 21393,
+          "percentage": 3
+        },
+        {
+          "name": "Shell",
+          "bytes": 56,
+          "percentage": 0
         }
       ],
       "topRepos": [
@@ -5642,7 +5632,7 @@
           "language": "Vue",
           "stars": 1,
           "forks": 0,
-          "updatedAt": "2026-08-26T01:05:57Z",
+          "updatedAt": "2026-08-26T06:43:25Z",
           "archived": false,
           "topics": [
             "cv",

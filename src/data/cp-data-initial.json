@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-26T01:05:46.085Z",
+    "updatedAt": "2026-08-26T06:41:51.606Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1366,
+    "totalSubmissions": 1376,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-08-26": {
+        "tries": 11,
+        "ac": 7
+      },
       "2026-08-23": {
         "tries": 27,
         "ac": 4
@@ -106,7 +110,7 @@
         "ac": 2
       },
       "2026-05-24": {
-        "tries": 5,
+        "tries": 6,
         "ac": 4
       },
       "2026-05-22": {
@@ -154,7 +158,7 @@
         "ac": 1
       },
       "2026-01-30": {
-        "tries": 6,
+        "tries": 7,
         "ac": 2
       },
       "2026-01-13": {
@@ -194,7 +198,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 25,
+        "tries": 26,
         "ac": 6
       },
       "2025-11-27": {
@@ -202,7 +206,7 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-25": {
@@ -210,8 +214,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 109,
-        "ac": 55
+        "tries": 107,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -443,17 +447,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 641,
+      "totalSubmissions": 651,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 234,
+      "uniqueProblemsSolved": 238,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 617,
+        "Cpp20": 627,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-08-26": {
+          "tries": 11,
+          "ac": 7
+        },
         "2026-08-23": {
           "tries": 7,
           "ac": 4
@@ -547,7 +555,7 @@
           "ac": 2
         },
         "2026-05-24": {
-          "tries": 5,
+          "tries": 6,
           "ac": 4
         },
         "2026-05-22": {
@@ -595,7 +603,7 @@
           "ac": 1
         },
         "2026-01-30": {
-          "tries": 6,
+          "tries": 7,
           "ac": 2
         },
         "2026-01-13": {
@@ -635,7 +643,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 25,
+          "tries": 26,
           "ac": 6
         },
         "2025-11-27": {
@@ -643,7 +651,7 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-25": {
@@ -651,11 +659,61 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 109,
-          "ac": 55
+          "tries": 107,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5890554",
+          "platform": "tlx",
+          "title": "Tupai Loncat",
+          "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5890554",
+          "solvedAt": "2026-08-26T06:34:48.498Z"
+        },
+        {
+          "id": "tlx-5890474",
+          "platform": "tlx",
+          "title": "Biner",
+          "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5890474",
+          "solvedAt": "2026-08-26T06:30:11.795Z"
+        },
+        {
+          "id": "tlx-5890172",
+          "platform": "tlx",
+          "title": "Piknik",
+          "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5890172",
+          "solvedAt": "2026-08-26T06:11:16.524Z"
+        },
+        {
+          "id": "tlx-5889913",
+          "platform": "tlx",
+          "title": "Lumpia Rebung",
+          "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5889913",
+          "solvedAt": "2026-08-26T05:21:55.841Z"
+        },
+        {
+          "id": "tlx-5889874",
+          "platform": "tlx",
+          "title": "Makan Lumpia",
+          "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5889874",
+          "solvedAt": "2026-08-26T05:12:02.898Z"
+        },
         {
           "id": "tlx-5875417",
           "platform": "tlx",
@@ -2787,16 +2845,6 @@
           "solvedAt": "2025-11-24T15:26:56.744Z"
         },
         {
-          "id": "tlx-4650553",
-          "platform": "tlx",
-          "title": "Perkenalan For",
-          "category": "Perulangan & Percabangan",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650553",
-          "solvedAt": "2025-11-24T15:21:04.883Z"
-        },
-        {
           "id": "tlx-4650551",
           "platform": "tlx",
           "title": "Mengukur Kandang II",
@@ -4083,55 +4131,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140163
+          "rank": 140165
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1916159
+          "rank": 1916255
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119437
+          "rank": 119445
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 524701
+          "rank": 524717
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190018
+          "rank": 190021
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1626627
+          "rank": 1626674
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 715160
+          "rank": 715207
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85562
+          "rank": 85563
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 459121
+          "rank": 459143
         }
       ],
       "dailyCalendar": {
@@ -4461,6 +4509,56 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-5890554",
+      "platform": "tlx",
+      "title": "Tupai Loncat",
+      "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5890554",
+      "solvedAt": "2026-08-26T06:34:48.498Z"
+    },
+    {
+      "id": "tlx-5890474",
+      "platform": "tlx",
+      "title": "Biner",
+      "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5890474",
+      "solvedAt": "2026-08-26T06:30:11.795Z"
+    },
+    {
+      "id": "tlx-5890172",
+      "platform": "tlx",
+      "title": "Piknik",
+      "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5890172",
+      "solvedAt": "2026-08-26T06:11:16.524Z"
+    },
+    {
+      "id": "tlx-5889913",
+      "platform": "tlx",
+      "title": "Lumpia Rebung",
+      "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5889913",
+      "solvedAt": "2026-08-26T05:21:55.841Z"
+    },
+    {
+      "id": "tlx-5889874",
+      "platform": "tlx",
+      "title": "Makan Lumpia",
+      "category": "GEMASTIK 2024 - Penyisihan Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5889874",
+      "solvedAt": "2026-08-26T05:12:02.898Z"
+    },
     {
       "id": "tlx-5875417",
       "platform": "tlx",
@@ -6960,16 +7058,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650562",
       "solvedAt": "2025-11-24T15:26:56.744Z"
-    },
-    {
-      "id": "tlx-4650553",
-      "platform": "tlx",
-      "title": "Perkenalan For",
-      "category": "Perulangan & Percabangan",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650553",
-      "solvedAt": "2025-11-24T15:21:04.883Z"
     },
     {
       "id": "tlx-4650551",

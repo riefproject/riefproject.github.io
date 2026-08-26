@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-25T18:34:53.306Z",
+    "updatedAt": "2026-08-26T01:05:46.085Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,7 +10,7 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1365,
+    "totalSubmissions": 1366,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-08-23": {
@@ -212,6 +212,10 @@
       "2025-11-24": {
         "tries": 109,
         "ac": 55
+      },
+      "2026-08-25": {
+        "tries": 1,
+        "ac": 0
       },
       "2026-08-18": {
         "tries": 17,
@@ -2997,12 +3001,12 @@
     "codeforces": {
       "handle": "feeera",
       "url": "https://codeforces.com/profile/feeera",
-      "rating": 625,
-      "maxRating": 625,
-      "rank": "newbie",
-      "maxRank": "newbie",
-      "contestsCount": 2,
-      "totalSubmissions": 248,
+      "rating": 1733,
+      "maxRating": 1733,
+      "rank": "expert",
+      "maxRank": "expert",
+      "contestsCount": 4,
+      "totalSubmissions": 249,
       "totalSolved": 63,
       "totalAcSubmissions": 69,
       "tagsCount": {
@@ -3042,6 +3046,10 @@
         "2600": 1
       },
       "dailyCalendar": {
+        "2026-08-25": {
+          "tries": 1,
+          "ac": 0
+        },
         "2026-08-23": {
           "tries": 20,
           "ac": 0
@@ -4075,55 +4083,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140161
+          "rank": 140163
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1916110
+          "rank": 1916159
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119433
+          "rank": 119437
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 524690
+          "rank": 524701
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190011
+          "rank": 190018
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1626588
+          "rank": 1626627
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 715130
+          "rank": 715160
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85561
+          "rank": 85562
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 459116
+          "rank": 459121
         }
       ],
       "dailyCalendar": {

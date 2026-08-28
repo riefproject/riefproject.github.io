@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-08-27T21:41:46.459Z",
+    "updatedAt": "2026-08-28T08:54:25.734Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1380,
+    "totalSubmissions": 1386,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-08-28": {
+        "tries": 2,
+        "ac": 2
+      },
       "2026-08-26": {
         "tries": 16,
         "ac": 10
@@ -122,7 +126,7 @@
         "ac": 2
       },
       "2026-05-17": {
-        "tries": 7,
+        "tries": 8,
         "ac": 3
       },
       "2026-05-15": {
@@ -146,7 +150,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 11,
+        "tries": 12,
         "ac": 3
       },
       "2026-02-27": {
@@ -158,7 +162,7 @@
         "ac": 1
       },
       "2026-01-30": {
-        "tries": 7,
+        "tries": 6,
         "ac": 2
       },
       "2026-01-13": {
@@ -182,8 +186,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 2,
-        "ac": 1
+        "tries": 3,
+        "ac": 2
       },
       "2025-12-03": {
         "tries": 1,
@@ -210,11 +214,11 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
+        "tries": 109,
         "ac": 55
       },
       "2026-08-25": {
@@ -447,17 +451,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 655,
+      "totalSubmissions": 661,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 241,
+      "uniqueProblemsSolved": 243,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 631,
+        "Cpp20": 637,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-08-28": {
+          "tries": 2,
+          "ac": 2
+        },
         "2026-08-26": {
           "tries": 16,
           "ac": 10
@@ -567,7 +575,7 @@
           "ac": 2
         },
         "2026-05-17": {
-          "tries": 7,
+          "tries": 8,
           "ac": 3
         },
         "2026-05-15": {
@@ -591,7 +599,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 11,
+          "tries": 12,
           "ac": 3
         },
         "2026-02-27": {
@@ -603,7 +611,7 @@
           "ac": 1
         },
         "2026-01-30": {
-          "tries": 7,
+          "tries": 6,
           "ac": 2
         },
         "2026-01-13": {
@@ -627,8 +635,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 2,
-          "ac": 1
+          "tries": 3,
+          "ac": 2
         },
         "2025-12-03": {
           "tries": 1,
@@ -655,15 +663,35 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
+          "tries": 109,
           "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5904944",
+          "platform": "tlx",
+          "title": "MinES",
+          "category": "GEMASTIK 2023 - Penyisihan Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5904944",
+          "solvedAt": "2026-08-28T07:45:57.616Z"
+        },
+        {
+          "id": "tlx-5904612",
+          "platform": "tlx",
+          "title": "Ringkasan Bilangan",
+          "category": "GEMASTIK 2023 - Penyisihan Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5904612",
+          "solvedAt": "2026-08-28T07:21:11.221Z"
+        },
         {
           "id": "tlx-5891569",
           "platform": "tlx",
@@ -4161,55 +4189,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140207
+          "rank": 140211
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1917222
+          "rank": 1917394
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119478
+          "rank": 119486
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 524929
+          "rank": 524970
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190069
+          "rank": 190079
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1627395
+          "rank": 1627545
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 715642
+          "rank": 715708
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85570
+          "rank": 85572
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 459278
+          "rank": 459307
         }
       ],
       "dailyCalendar": {
@@ -4539,6 +4567,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-5904944",
+      "platform": "tlx",
+      "title": "MinES",
+      "category": "GEMASTIK 2023 - Penyisihan Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5904944",
+      "solvedAt": "2026-08-28T07:45:57.616Z"
+    },
+    {
+      "id": "tlx-5904612",
+      "platform": "tlx",
+      "title": "Ringkasan Bilangan",
+      "category": "GEMASTIK 2023 - Penyisihan Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5904612",
+      "solvedAt": "2026-08-28T07:21:11.221Z"
+    },
     {
       "id": "tlx-5891569",
       "platform": "tlx",

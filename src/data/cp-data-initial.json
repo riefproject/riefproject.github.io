@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-02T10:33:46.249Z",
+    "updatedAt": "2026-09-02T15:55:14.336Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,12 +10,12 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1396,
+    "totalSubmissions": 1400,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-09-02": {
-        "tries": 1,
-        "ac": 1
+        "tries": 7,
+        "ac": 3
       },
       "2026-08-29": {
         "tries": 12,
@@ -126,7 +126,7 @@
         "ac": 4
       },
       "2026-05-22": {
-        "tries": 30,
+        "tries": 29,
         "ac": 13
       },
       "2026-05-18": {
@@ -134,7 +134,7 @@
         "ac": 2
       },
       "2026-05-17": {
-        "tries": 8,
+        "tries": 7,
         "ac": 3
       },
       "2026-05-15": {
@@ -158,7 +158,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 12,
+        "tries": 11,
         "ac": 3
       },
       "2026-02-27": {
@@ -194,8 +194,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 3,
-        "ac": 2
+        "tries": 2,
+        "ac": 1
       },
       "2025-12-03": {
         "tries": 1,
@@ -218,16 +218,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 23,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
-        "ac": 54
+        "tries": 108,
+        "ac": 55
       },
       "2026-08-25": {
         "tries": 1,
@@ -459,20 +459,20 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 671,
+      "totalSubmissions": 675,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 250,
+      "uniqueProblemsSolved": 251,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 647,
-        "Pascal": 13,
+        "Cpp20": 652,
+        "Pascal": 12,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
         "2026-09-02": {
-          "tries": 1,
-          "ac": 1
+          "tries": 7,
+          "ac": 3
         },
         "2026-08-29": {
           "tries": 12,
@@ -583,7 +583,7 @@
           "ac": 4
         },
         "2026-05-22": {
-          "tries": 30,
+          "tries": 29,
           "ac": 13
         },
         "2026-05-18": {
@@ -591,7 +591,7 @@
           "ac": 2
         },
         "2026-05-17": {
-          "tries": 8,
+          "tries": 7,
           "ac": 3
         },
         "2026-05-15": {
@@ -615,7 +615,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 12,
+          "tries": 11,
           "ac": 3
         },
         "2026-02-27": {
@@ -651,8 +651,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 3,
-          "ac": 2
+          "tries": 2,
+          "ac": 1
         },
         "2025-12-03": {
           "tries": 1,
@@ -675,19 +675,39 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 23,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
-          "ac": 54
+          "tries": 108,
+          "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5939700",
+          "platform": "tlx",
+          "title": "Bonfire Business",
+          "category": "COMPFEST 18 - Penyisihan CPC Junior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5939700",
+          "solvedAt": "2026-09-02T11:43:28.425Z"
+        },
+        {
+          "id": "tlx-5939699",
+          "platform": "tlx",
+          "title": "Amateur Architect",
+          "category": "COMPFEST 18 - Penyisihan CPC Junior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5939699",
+          "solvedAt": "2026-09-02T11:42:53.591Z"
+        },
         {
           "id": "tlx-5938804",
           "platform": "tlx",
@@ -857,26 +877,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/5889874",
           "solvedAt": "2026-08-26T05:12:02.898Z"
-        },
-        {
-          "id": "tlx-5875417",
-          "platform": "tlx",
-          "title": "Bonfire Business",
-          "category": "COMPFEST 18 - Penyisihan CPC Senior",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/5875417",
-          "solvedAt": "2026-08-23T15:41:54.197Z"
-        },
-        {
-          "id": "tlx-5875341",
-          "platform": "tlx",
-          "title": "Amateur Architect",
-          "category": "COMPFEST 18 - Penyisihan CPC Senior",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/5875341",
-          "solvedAt": "2026-08-23T15:19:24.446Z"
         },
         {
           "id": "tlx-5875280",
@@ -2989,6 +2989,16 @@
           "solvedAt": "2025-11-24T15:26:56.744Z"
         },
         {
+          "id": "tlx-4650553",
+          "platform": "tlx",
+          "title": "Perkenalan For",
+          "category": "Perulangan & Percabangan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650553",
+          "solvedAt": "2025-11-24T15:21:04.883Z"
+        },
+        {
           "id": "tlx-4650551",
           "platform": "tlx",
           "title": "Mengukur Kandang II",
@@ -3991,7 +4001,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2361783,
+      "ranking": 2367686,
       "totalSolved": 61,
       "easySolved": 32,
       "mediumSolved": 26,
@@ -4275,55 +4285,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140309
+          "rank": 140314
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1919926
+          "rank": 1920121
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119589
+          "rank": 119596
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 525849
+          "rank": 525918
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190247
+          "rank": 190255
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1629443
+          "rank": 1629518
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 716756
+          "rank": 716827
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85611
+          "rank": 85612
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 459684
+          "rank": 459698
         }
       ],
       "dailyCalendar": {
@@ -4654,6 +4664,26 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "tlx-5939700",
+      "platform": "tlx",
+      "title": "Bonfire Business",
+      "category": "COMPFEST 18 - Penyisihan CPC Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5939700",
+      "solvedAt": "2026-09-02T11:43:28.425Z"
+    },
+    {
+      "id": "tlx-5939699",
+      "platform": "tlx",
+      "title": "Amateur Architect",
+      "category": "COMPFEST 18 - Penyisihan CPC Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5939699",
+      "solvedAt": "2026-09-02T11:42:53.591Z"
+    },
+    {
       "id": "tlx-5938804",
       "platform": "tlx",
       "title": "Pembangkit Listrik",
@@ -4822,26 +4852,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5889874",
       "solvedAt": "2026-08-26T05:12:02.898Z"
-    },
-    {
-      "id": "tlx-5875417",
-      "platform": "tlx",
-      "title": "Bonfire Business",
-      "category": "COMPFEST 18 - Penyisihan CPC Senior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/5875417",
-      "solvedAt": "2026-08-23T15:41:54.197Z"
-    },
-    {
-      "id": "tlx-5875341",
-      "platform": "tlx",
-      "title": "Amateur Architect",
-      "category": "COMPFEST 18 - Penyisihan CPC Senior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/5875341",
-      "solvedAt": "2026-08-23T15:19:24.446Z"
     },
     {
       "id": "tlx-5875280",
@@ -7322,6 +7332,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650562",
       "solvedAt": "2025-11-24T15:26:56.744Z"
+    },
+    {
+      "id": "tlx-4650553",
+      "platform": "tlx",
+      "title": "Perkenalan For",
+      "category": "Perulangan & Percabangan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/4650553",
+      "solvedAt": "2025-11-24T15:21:04.883Z"
     },
     {
       "id": "tlx-4650551",

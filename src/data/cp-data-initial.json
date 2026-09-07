@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-06T19:57:21.576Z",
+    "updatedAt": "2026-09-07T02:44:33.712Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1412,
+    "totalSubmissions": 1420,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-06": {
+        "tries": 7,
+        "ac": 4
+      },
       "2026-09-03": {
         "tries": 10,
         "ac": 7
@@ -94,7 +98,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 41,
+        "tries": 40,
         "ac": 12
       },
       "2026-07-16": {
@@ -206,7 +210,7 @@
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 22,
+        "tries": 23,
         "ac": 6
       },
       "2025-12-01": {
@@ -222,15 +226,15 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
+        "tries": 108,
         "ac": 55
       },
       "2026-08-25": {
@@ -463,17 +467,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 687,
+      "totalSubmissions": 695,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 258,
+      "uniqueProblemsSolved": 262,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 663,
+        "Cpp20": 671,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-06": {
+          "tries": 7,
+          "ac": 4
+        },
         "2026-09-03": {
           "tries": 10,
           "ac": 7
@@ -555,7 +563,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 41,
+          "tries": 40,
           "ac": 12
         },
         "2026-07-16": {
@@ -667,7 +675,7 @@
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 22,
+          "tries": 23,
           "ac": 6
         },
         "2025-12-01": {
@@ -683,19 +691,59 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
+          "tries": 108,
           "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5969662",
+          "platform": "tlx",
+          "title": "Coin Exchange",
+          "category": "JOINTS 2019 - Semifinal PCS",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5969662",
+          "solvedAt": "2026-09-06T22:05:26.214Z"
+        },
+        {
+          "id": "tlx-5969660",
+          "platform": "tlx",
+          "title": "Perpustakaan Blangkon",
+          "category": "JOINTS 2019 - Penyisihan PCS",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5969660",
+          "solvedAt": "2026-09-06T21:58:56.561Z"
+        },
+        {
+          "id": "tlx-5969654",
+          "platform": "tlx",
+          "title": "KPK",
+          "category": "JOINTS 2019 - Penyisihan PCS",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5969654",
+          "solvedAt": "2026-09-06T21:26:02.905Z"
+        },
+        {
+          "id": "tlx-5969643",
+          "platform": "tlx",
+          "title": "Dolan 2019",
+          "category": "JOINTS 2019 - Penyisihan PCS",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5969643",
+          "solvedAt": "2026-09-06T21:04:04.150Z"
+        },
         {
           "id": "tlx-5948180",
           "platform": "tlx",
@@ -4079,7 +4127,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2368685,
+      "ranking": 2370170,
       "totalSolved": 61,
       "easySolved": 32,
       "mediumSolved": 26,
@@ -4363,43 +4411,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140362
+          "rank": 140366
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1922076
+          "rank": 1922114
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119680
+          "rank": 119681
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 526787
+          "rank": 526795
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190372
+          "rank": 190375
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1630549
+          "rank": 1630564
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 717516
+          "rank": 717527
         },
         {
           "name": "Mathematics",
@@ -4411,7 +4459,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 459967
+          "rank": 459972
         }
       ],
       "dailyCalendar": {
@@ -4741,6 +4789,46 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-5969662",
+      "platform": "tlx",
+      "title": "Coin Exchange",
+      "category": "JOINTS 2019 - Semifinal PCS",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5969662",
+      "solvedAt": "2026-09-06T22:05:26.214Z"
+    },
+    {
+      "id": "tlx-5969660",
+      "platform": "tlx",
+      "title": "Perpustakaan Blangkon",
+      "category": "JOINTS 2019 - Penyisihan PCS",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5969660",
+      "solvedAt": "2026-09-06T21:58:56.561Z"
+    },
+    {
+      "id": "tlx-5969654",
+      "platform": "tlx",
+      "title": "KPK",
+      "category": "JOINTS 2019 - Penyisihan PCS",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5969654",
+      "solvedAt": "2026-09-06T21:26:02.905Z"
+    },
+    {
+      "id": "tlx-5969643",
+      "platform": "tlx",
+      "title": "Dolan 2019",
+      "category": "JOINTS 2019 - Penyisihan PCS",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5969643",
+      "solvedAt": "2026-09-06T21:04:04.150Z"
+    },
     {
       "id": "tlx-5948180",
       "platform": "tlx",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-07T02:44:33.712Z",
+    "updatedAt": "2026-09-07T11:30:11.677Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 485,
-    "totalSubmissions": 1420,
+    "totalSubmissions": 1446,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-07": {
+        "tries": 27,
+        "ac": 18
+      },
       "2026-09-06": {
         "tries": 7,
         "ac": 4
@@ -98,7 +102,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 40,
+        "tries": 41,
         "ac": 12
       },
       "2026-07-16": {
@@ -226,16 +230,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -467,17 +471,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 695,
+      "totalSubmissions": 721,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 262,
+      "uniqueProblemsSolved": 279,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 671,
+        "Cpp20": 697,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-07": {
+          "tries": 27,
+          "ac": 18
+        },
         "2026-09-06": {
           "tries": 7,
           "ac": 4
@@ -563,7 +571,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 40,
+          "tries": 41,
           "ac": 12
         },
         "2026-07-16": {
@@ -691,19 +699,199 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5974545",
+          "platform": "tlx",
+          "title": "Hidup Gula Bahagia",
+          "category": "COMPFEST 17 - Final CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5974545",
+          "solvedAt": "2026-09-07T10:28:46.138Z"
+        },
+        {
+          "id": "tlx-5974302",
+          "platform": "tlx",
+          "title": "Bombs and Explosion",
+          "category": "TROC #13",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5974302",
+          "solvedAt": "2026-09-07T09:34:04.125Z"
+        },
+        {
+          "id": "tlx-5974247",
+          "platform": "tlx",
+          "title": "Substring, Bukan Substring",
+          "category": "TROC #5",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5974247",
+          "solvedAt": "2026-09-07T09:23:39.334Z"
+        },
+        {
+          "id": "tlx-5974203",
+          "platform": "tlx",
+          "title": "Bonbon Receives a Name",
+          "category": "TROC #8",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5974203",
+          "solvedAt": "2026-09-07T09:12:42.884Z"
+        },
+        {
+          "id": "tlx-5974182",
+          "platform": "tlx",
+          "title": "Djio and Misdecryption",
+          "category": "BNPCHS 2023 - Penyisihan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5974182",
+          "solvedAt": "2026-09-07T09:06:40.726Z"
+        },
+        {
+          "id": "tlx-5974120",
+          "platform": "tlx",
+          "title": "Lovely Dominoes",
+          "category": "TROC #19",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5974120",
+          "solvedAt": "2026-09-07T08:56:57.676Z"
+        },
+        {
+          "id": "tlx-5974067",
+          "platform": "tlx",
+          "title": "Sandi Biner",
+          "category": "KSN Informatika 2021",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5974067",
+          "solvedAt": "2026-09-07T08:46:37.975Z"
+        },
+        {
+          "id": "tlx-5973958",
+          "platform": "tlx",
+          "title": "Naik dan Turun",
+          "category": "TROC #1",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973958",
+          "solvedAt": "2026-09-07T08:30:26.558Z"
+        },
+        {
+          "id": "tlx-5973802",
+          "platform": "tlx",
+          "title": "New Year Holes",
+          "category": "TROC #10",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973802",
+          "solvedAt": "2026-09-07T08:01:35.022Z"
+        },
+        {
+          "id": "tlx-5973697",
+          "platform": "tlx",
+          "title": "New Year Triangles",
+          "category": "TROC #18",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973697",
+          "solvedAt": "2026-09-07T07:43:40.060Z"
+        },
+        {
+          "id": "tlx-5973652",
+          "platform": "tlx",
+          "title": "Bola dan Gelas",
+          "category": "OSN Informatika 2008",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973652",
+          "solvedAt": "2026-09-07T07:38:02.154Z"
+        },
+        {
+          "id": "tlx-5973606",
+          "platform": "tlx",
+          "title": "Segiempat",
+          "category": "TROC #2",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973606",
+          "solvedAt": "2026-09-07T07:29:41.110Z"
+        },
+        {
+          "id": "tlx-5973569",
+          "platform": "tlx",
+          "title": "Troops Territory",
+          "category": "TROC #17",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973569",
+          "solvedAt": "2026-09-07T07:26:09.385Z"
+        },
+        {
+          "id": "tlx-5973520",
+          "platform": "tlx",
+          "title": "Jumbo Extra Cheese",
+          "category": "TROC #23",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973520",
+          "solvedAt": "2026-09-07T07:20:52.340Z"
+        },
+        {
+          "id": "tlx-5973427",
+          "platform": "tlx",
+          "title": "Easy As Pie",
+          "category": "TROC #22",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973427",
+          "solvedAt": "2026-09-07T07:08:18.627Z"
+        },
+        {
+          "id": "tlx-5973376",
+          "platform": "tlx",
+          "title": "Lucky 7",
+          "category": "TROC #2",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973376",
+          "solvedAt": "2026-09-07T07:02:04.853Z"
+        },
+        {
+          "id": "tlx-5973244",
+          "platform": "tlx",
+          "title": "Penjumlahan",
+          "category": "OSN Informatika 2010",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5973244",
+          "solvedAt": "2026-09-07T06:51:08.552Z"
+        },
+        {
+          "id": "tlx-5972979",
+          "platform": "tlx",
+          "title": "Hadiah GEMASTIK",
+          "category": "Gemastik 2025 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5972979",
+          "solvedAt": "2026-09-07T06:29:46.001Z"
+        },
         {
           "id": "tlx-5969662",
           "platform": "tlx",
@@ -3065,16 +3253,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -4127,7 +4305,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2370170,
+      "ranking": 2371648,
       "totalSolved": 61,
       "easySolved": 32,
       "mediumSolved": 26,
@@ -4411,55 +4589,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140366
+          "rank": 140381
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1922114
+          "rank": 1922355
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119681
+          "rank": 119692
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 526795
+          "rank": 526872
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190375
+          "rank": 190386
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1630564
+          "rank": 1630640
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 717527
+          "rank": 717593
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85628
+          "rank": 85631
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 459972
+          "rank": 460010
         }
       ],
       "dailyCalendar": {
@@ -4789,6 +4967,186 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-5974545",
+      "platform": "tlx",
+      "title": "Hidup Gula Bahagia",
+      "category": "COMPFEST 17 - Final CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5974545",
+      "solvedAt": "2026-09-07T10:28:46.138Z"
+    },
+    {
+      "id": "tlx-5974302",
+      "platform": "tlx",
+      "title": "Bombs and Explosion",
+      "category": "TROC #13",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5974302",
+      "solvedAt": "2026-09-07T09:34:04.125Z"
+    },
+    {
+      "id": "tlx-5974247",
+      "platform": "tlx",
+      "title": "Substring, Bukan Substring",
+      "category": "TROC #5",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5974247",
+      "solvedAt": "2026-09-07T09:23:39.334Z"
+    },
+    {
+      "id": "tlx-5974203",
+      "platform": "tlx",
+      "title": "Bonbon Receives a Name",
+      "category": "TROC #8",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5974203",
+      "solvedAt": "2026-09-07T09:12:42.884Z"
+    },
+    {
+      "id": "tlx-5974182",
+      "platform": "tlx",
+      "title": "Djio and Misdecryption",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5974182",
+      "solvedAt": "2026-09-07T09:06:40.726Z"
+    },
+    {
+      "id": "tlx-5974120",
+      "platform": "tlx",
+      "title": "Lovely Dominoes",
+      "category": "TROC #19",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5974120",
+      "solvedAt": "2026-09-07T08:56:57.676Z"
+    },
+    {
+      "id": "tlx-5974067",
+      "platform": "tlx",
+      "title": "Sandi Biner",
+      "category": "KSN Informatika 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5974067",
+      "solvedAt": "2026-09-07T08:46:37.975Z"
+    },
+    {
+      "id": "tlx-5973958",
+      "platform": "tlx",
+      "title": "Naik dan Turun",
+      "category": "TROC #1",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973958",
+      "solvedAt": "2026-09-07T08:30:26.558Z"
+    },
+    {
+      "id": "tlx-5973802",
+      "platform": "tlx",
+      "title": "New Year Holes",
+      "category": "TROC #10",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973802",
+      "solvedAt": "2026-09-07T08:01:35.022Z"
+    },
+    {
+      "id": "tlx-5973697",
+      "platform": "tlx",
+      "title": "New Year Triangles",
+      "category": "TROC #18",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973697",
+      "solvedAt": "2026-09-07T07:43:40.060Z"
+    },
+    {
+      "id": "tlx-5973652",
+      "platform": "tlx",
+      "title": "Bola dan Gelas",
+      "category": "OSN Informatika 2008",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973652",
+      "solvedAt": "2026-09-07T07:38:02.154Z"
+    },
+    {
+      "id": "tlx-5973606",
+      "platform": "tlx",
+      "title": "Segiempat",
+      "category": "TROC #2",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973606",
+      "solvedAt": "2026-09-07T07:29:41.110Z"
+    },
+    {
+      "id": "tlx-5973569",
+      "platform": "tlx",
+      "title": "Troops Territory",
+      "category": "TROC #17",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973569",
+      "solvedAt": "2026-09-07T07:26:09.385Z"
+    },
+    {
+      "id": "tlx-5973520",
+      "platform": "tlx",
+      "title": "Jumbo Extra Cheese",
+      "category": "TROC #23",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973520",
+      "solvedAt": "2026-09-07T07:20:52.340Z"
+    },
+    {
+      "id": "tlx-5973427",
+      "platform": "tlx",
+      "title": "Easy As Pie",
+      "category": "TROC #22",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973427",
+      "solvedAt": "2026-09-07T07:08:18.627Z"
+    },
+    {
+      "id": "tlx-5973376",
+      "platform": "tlx",
+      "title": "Lucky 7",
+      "category": "TROC #2",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973376",
+      "solvedAt": "2026-09-07T07:02:04.853Z"
+    },
+    {
+      "id": "tlx-5973244",
+      "platform": "tlx",
+      "title": "Penjumlahan",
+      "category": "OSN Informatika 2010",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5973244",
+      "solvedAt": "2026-09-07T06:51:08.552Z"
+    },
+    {
+      "id": "tlx-5972979",
+      "platform": "tlx",
+      "title": "Hadiah GEMASTIK",
+      "category": "Gemastik 2025 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5972979",
+      "solvedAt": "2026-09-07T06:29:46.001Z"
+    },
     {
       "id": "tlx-5969662",
       "platform": "tlx",
@@ -7518,16 +7876,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
-    },
-    {
-      "id": "tlx-4650590",
-      "platform": "tlx",
-      "title": "Perkenalan Larik (Array)",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650590",
-      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-08T02:55:41.365Z",
+    "updatedAt": "2026-09-08T10:31:46.576Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 485,
-    "totalSubmissions": 1446,
+    "totalSolved": 493,
+    "totalSubmissions": 1464,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-08": {
+        "tries": 19,
+        "ac": 14
+      },
       "2026-09-07": {
         "tries": 27,
         "ac": 18
@@ -58,7 +62,7 @@
         "ac": 2
       },
       "2026-08-15": {
-        "tries": 11,
+        "tries": 10,
         "ac": 8
       },
       "2026-08-14": {
@@ -230,7 +234,7 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-25": {
@@ -238,7 +242,7 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 106,
+        "tries": 107,
         "ac": 54
       },
       "2026-08-25": {
@@ -346,12 +350,8 @@
         "ac": 5
       },
       "2025-12-25": {
-        "tries": 5,
-        "ac": 5
-      },
-      "2025-12-18": {
-        "tries": 5,
-        "ac": 5
+        "tries": 2,
+        "ac": 2
       },
       "2024-06-23": {
         "tries": 44,
@@ -471,17 +471,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 721,
+      "totalSubmissions": 731,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 279,
+      "uniqueProblemsSolved": 284,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 697,
+        "Cpp20": 707,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-08": {
+          "tries": 11,
+          "ac": 6
+        },
         "2026-09-07": {
           "tries": 27,
           "ac": 18
@@ -527,7 +531,7 @@
           "ac": 2
         },
         "2026-08-15": {
-          "tries": 11,
+          "tries": 10,
           "ac": 8
         },
         "2026-08-14": {
@@ -699,7 +703,7 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-25": {
@@ -707,11 +711,71 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 106,
+          "tries": 107,
           "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5981868",
+          "platform": "tlx",
+          "title": "Segitiga Bebek",
+          "category": "OSN Informatika 2005",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5981868",
+          "solvedAt": "2026-09-08T08:07:05.718Z"
+        },
+        {
+          "id": "tlx-5981637",
+          "platform": "tlx",
+          "title": "Faktorial",
+          "category": "OSN Informatika 2005",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5981637",
+          "solvedAt": "2026-09-08T07:32:38.404Z"
+        },
+        {
+          "id": "tlx-5981479",
+          "platform": "tlx",
+          "title": "Kata Spiral",
+          "category": "OSN Informatika 2005",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5981479",
+          "solvedAt": "2026-09-08T07:16:56.182Z"
+        },
+        {
+          "id": "tlx-5980856",
+          "platform": "tlx",
+          "title": "Bukit dan Lembah",
+          "category": "OSN Informatika 2005",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5980856",
+          "solvedAt": "2026-09-08T06:35:14.073Z"
+        },
+        {
+          "id": "tlx-5980001",
+          "platform": "tlx",
+          "title": "Rumah Sakit",
+          "category": "ITBPC 2011 - Final Junior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5980001",
+          "solvedAt": "2026-09-08T05:12:51.423Z"
+        },
+        {
+          "id": "tlx-5978987",
+          "platform": "tlx",
+          "title": "Kode Rahasia",
+          "category": "ITBPC 2011 - Final Junior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5978987",
+          "solvedAt": "2026-09-08T04:15:39.750Z"
+        },
         {
           "id": "tlx-5974545",
           "platform": "tlx",
@@ -2533,16 +2597,6 @@
           "solvedAt": "2026-01-13T02:52:26.308Z"
         },
         {
-          "id": "tlx-4755338",
-          "platform": "tlx",
-          "title": "Faktorial",
-          "category": "Persiapan Kompetisi",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4755338",
-          "solvedAt": "2026-01-13T02:45:06.422Z"
-        },
-        {
           "id": "tlx-4755293",
           "platform": "tlx",
           "title": "Tebak Angka",
@@ -3253,6 +3307,16 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
+          "id": "tlx-4650590",
+          "platform": "tlx",
+          "title": "Perkenalan Larik (Array)",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650590",
+          "solvedAt": "2025-11-24T15:46:02.359Z"
+        },
+        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -3291,16 +3355,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650562",
           "solvedAt": "2025-11-24T15:26:56.744Z"
-        },
-        {
-          "id": "tlx-4650553",
-          "platform": "tlx",
-          "title": "Perkenalan For",
-          "category": "Perulangan & Percabangan",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650553",
-          "solvedAt": "2025-11-24T15:21:04.883Z"
         },
         {
           "id": "tlx-4650551",
@@ -4306,11 +4360,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 2371648,
-      "totalSolved": 61,
-      "easySolved": 32,
-      "mediumSolved": 26,
+      "totalSolved": 69,
+      "easySolved": 39,
+      "mediumSolved": 27,
       "hardSolved": 3,
       "dailyCalendar": {
+        "2026-09-08": {
+          "tries": 8,
+          "ac": 8
+        },
         "2026-08-06": {
           "tries": 2,
           "ac": 2
@@ -4324,15 +4382,91 @@
           "ac": 5
         },
         "2025-12-25": {
-          "tries": 5,
-          "ac": 5
-        },
-        "2025-12-18": {
-          "tries": 5,
-          "ac": 5
+          "tries": 2,
+          "ac": 2
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1788860298",
+          "platform": "leetcode",
+          "title": "Maximum Repeating Substring",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/maximum-repeating-substring/",
+          "solvedAt": "2026-09-08T09:38:18.000Z"
+        },
+        {
+          "id": "lc-1788859781",
+          "platform": "leetcode",
+          "title": "Divisor Game",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/divisor-game/",
+          "solvedAt": "2026-09-08T09:29:41.000Z"
+        },
+        {
+          "id": "lc-1788859668",
+          "platform": "leetcode",
+          "title": "N-th Tribonacci Number",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/n-th-tribonacci-number/",
+          "solvedAt": "2026-09-08T09:27:48.000Z"
+        },
+        {
+          "id": "lc-1788859340",
+          "platform": "leetcode",
+          "title": "Counting Bits",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/counting-bits/",
+          "solvedAt": "2026-09-08T09:22:20.000Z"
+        },
+        {
+          "id": "lc-1788858665",
+          "platform": "leetcode",
+          "title": "Is Subsequence",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/is-subsequence/",
+          "solvedAt": "2026-09-08T09:11:05.000Z"
+        },
+        {
+          "id": "lc-1788858091",
+          "platform": "leetcode",
+          "title": "Min Cost Climbing Stairs",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/min-cost-climbing-stairs/",
+          "solvedAt": "2026-09-08T09:01:31.000Z"
+        },
+        {
+          "id": "lc-1788857138",
+          "platform": "leetcode",
+          "title": "Fibonacci Number",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/fibonacci-number/",
+          "solvedAt": "2026-09-08T08:45:38.000Z"
+        },
+        {
+          "id": "lc-1788856931",
+          "platform": "leetcode",
+          "title": "Integer Replacement",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/integer-replacement/",
+          "solvedAt": "2026-09-08T08:42:11.000Z"
+        },
         {
           "id": "lc-1786015850",
           "platform": "leetcode",
@@ -4452,86 +4586,6 @@
           "difficulty": "-",
           "url": "https://leetcode.com/problems/3sum/",
           "solvedAt": "2025-12-25T18:07:51.000Z"
-        },
-        {
-          "id": "lc-1766685936",
-          "platform": "leetcode",
-          "title": "Remove Nth Node From End of List",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
-          "solvedAt": "2025-12-25T18:05:36.000Z"
-        },
-        {
-          "id": "lc-1766685558",
-          "platform": "leetcode",
-          "title": "Letter Combinations of a Phone Number",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
-          "solvedAt": "2025-12-25T17:59:18.000Z"
-        },
-        {
-          "id": "lc-1766685385",
-          "platform": "leetcode",
-          "title": "Zigzag Conversion",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/zigzag-conversion/",
-          "solvedAt": "2025-12-25T17:56:25.000Z"
-        },
-        {
-          "id": "lc-1766026945",
-          "platform": "leetcode",
-          "title": "String to Integer (atoi)",
-          "category": "Algorithms",
-          "language": "Go",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/string-to-integer-atoi/",
-          "solvedAt": "2025-12-18T03:02:25.000Z"
-        },
-        {
-          "id": "lc-1766026543",
-          "platform": "leetcode",
-          "title": "Longest Common Prefix",
-          "category": "Algorithms",
-          "language": "Go",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/longest-common-prefix/",
-          "solvedAt": "2025-12-18T02:55:43.000Z"
-        },
-        {
-          "id": "lc-1766026398",
-          "platform": "leetcode",
-          "title": "Divide Two Integers",
-          "category": "Algorithms",
-          "language": "Go",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/divide-two-integers/",
-          "solvedAt": "2025-12-18T02:53:18.000Z"
-        },
-        {
-          "id": "lc-1766026117",
-          "platform": "leetcode",
-          "title": "Longest Palindromic Substring",
-          "category": "Algorithms",
-          "language": "Go",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/longest-palindromic-substring/",
-          "solvedAt": "2025-12-18T02:48:37.000Z"
-        },
-        {
-          "id": "lc-1766025816",
-          "platform": "leetcode",
-          "title": "Add Two Numbers",
-          "category": "Algorithms",
-          "language": "Go",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/add-two-numbers/",
-          "solvedAt": "2025-12-18T02:43:36.000Z"
         }
       ]
     },
@@ -4589,55 +4643,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140389
+          "rank": 140402
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1922637
+          "rank": 1922881
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119699
+          "rank": 119706
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 526992
+          "rank": 527101
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190406
+          "rank": 190436
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1630785
+          "rank": 1630898
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 717700
+          "rank": 717790
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85638
+          "rank": 85641
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 460039
+          "rank": 460092
         }
       ],
       "dailyCalendar": {
@@ -4967,6 +5021,146 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1788860298",
+      "platform": "leetcode",
+      "title": "Maximum Repeating Substring",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/maximum-repeating-substring/",
+      "solvedAt": "2026-09-08T09:38:18.000Z"
+    },
+    {
+      "id": "lc-1788859781",
+      "platform": "leetcode",
+      "title": "Divisor Game",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/divisor-game/",
+      "solvedAt": "2026-09-08T09:29:41.000Z"
+    },
+    {
+      "id": "lc-1788859668",
+      "platform": "leetcode",
+      "title": "N-th Tribonacci Number",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/n-th-tribonacci-number/",
+      "solvedAt": "2026-09-08T09:27:48.000Z"
+    },
+    {
+      "id": "lc-1788859340",
+      "platform": "leetcode",
+      "title": "Counting Bits",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/counting-bits/",
+      "solvedAt": "2026-09-08T09:22:20.000Z"
+    },
+    {
+      "id": "lc-1788858665",
+      "platform": "leetcode",
+      "title": "Is Subsequence",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/is-subsequence/",
+      "solvedAt": "2026-09-08T09:11:05.000Z"
+    },
+    {
+      "id": "lc-1788858091",
+      "platform": "leetcode",
+      "title": "Min Cost Climbing Stairs",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/min-cost-climbing-stairs/",
+      "solvedAt": "2026-09-08T09:01:31.000Z"
+    },
+    {
+      "id": "lc-1788857138",
+      "platform": "leetcode",
+      "title": "Fibonacci Number",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/fibonacci-number/",
+      "solvedAt": "2026-09-08T08:45:38.000Z"
+    },
+    {
+      "id": "lc-1788856931",
+      "platform": "leetcode",
+      "title": "Integer Replacement",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/integer-replacement/",
+      "solvedAt": "2026-09-08T08:42:11.000Z"
+    },
+    {
+      "id": "tlx-5981868",
+      "platform": "tlx",
+      "title": "Segitiga Bebek",
+      "category": "OSN Informatika 2005",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5981868",
+      "solvedAt": "2026-09-08T08:07:05.718Z"
+    },
+    {
+      "id": "tlx-5981637",
+      "platform": "tlx",
+      "title": "Faktorial",
+      "category": "OSN Informatika 2005",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5981637",
+      "solvedAt": "2026-09-08T07:32:38.404Z"
+    },
+    {
+      "id": "tlx-5981479",
+      "platform": "tlx",
+      "title": "Kata Spiral",
+      "category": "OSN Informatika 2005",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5981479",
+      "solvedAt": "2026-09-08T07:16:56.182Z"
+    },
+    {
+      "id": "tlx-5980856",
+      "platform": "tlx",
+      "title": "Bukit dan Lembah",
+      "category": "OSN Informatika 2005",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5980856",
+      "solvedAt": "2026-09-08T06:35:14.073Z"
+    },
+    {
+      "id": "tlx-5980001",
+      "platform": "tlx",
+      "title": "Rumah Sakit",
+      "category": "ITBPC 2011 - Final Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5980001",
+      "solvedAt": "2026-09-08T05:12:51.423Z"
+    },
+    {
+      "id": "tlx-5978987",
+      "platform": "tlx",
+      "title": "Kode Rahasia",
+      "category": "ITBPC 2011 - Final Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5978987",
+      "solvedAt": "2026-09-08T04:15:39.750Z"
+    },
     {
       "id": "tlx-5974545",
       "platform": "tlx",
@@ -7028,16 +7222,6 @@
       "solvedAt": "2026-01-13T02:52:26.308Z"
     },
     {
-      "id": "tlx-4755338",
-      "platform": "tlx",
-      "title": "Faktorial",
-      "category": "Persiapan Kompetisi",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4755338",
-      "solvedAt": "2026-01-13T02:45:06.422Z"
-    },
-    {
       "id": "tlx-4755293",
       "platform": "tlx",
       "title": "Tebak Angka",
@@ -7098,36 +7282,6 @@
       "solvedAt": "2025-12-25T18:07:51.000Z"
     },
     {
-      "id": "lc-1766685936",
-      "platform": "leetcode",
-      "title": "Remove Nth Node From End of List",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
-      "solvedAt": "2025-12-25T18:05:36.000Z"
-    },
-    {
-      "id": "lc-1766685558",
-      "platform": "leetcode",
-      "title": "Letter Combinations of a Phone Number",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
-      "solvedAt": "2025-12-25T17:59:18.000Z"
-    },
-    {
-      "id": "lc-1766685385",
-      "platform": "leetcode",
-      "title": "Zigzag Conversion",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/zigzag-conversion/",
-      "solvedAt": "2025-12-25T17:56:25.000Z"
-    },
-    {
       "id": "tlx-4713763",
       "platform": "tlx",
       "title": "National Science Olympiad",
@@ -7136,56 +7290,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4713763",
       "solvedAt": "2025-12-24T15:12:51.658Z"
-    },
-    {
-      "id": "lc-1766026945",
-      "platform": "leetcode",
-      "title": "String to Integer (atoi)",
-      "category": "Algorithms",
-      "language": "Go",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/string-to-integer-atoi/",
-      "solvedAt": "2025-12-18T03:02:25.000Z"
-    },
-    {
-      "id": "lc-1766026543",
-      "platform": "leetcode",
-      "title": "Longest Common Prefix",
-      "category": "Algorithms",
-      "language": "Go",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/longest-common-prefix/",
-      "solvedAt": "2025-12-18T02:55:43.000Z"
-    },
-    {
-      "id": "lc-1766026398",
-      "platform": "leetcode",
-      "title": "Divide Two Integers",
-      "category": "Algorithms",
-      "language": "Go",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/divide-two-integers/",
-      "solvedAt": "2025-12-18T02:53:18.000Z"
-    },
-    {
-      "id": "lc-1766026117",
-      "platform": "leetcode",
-      "title": "Longest Palindromic Substring",
-      "category": "Algorithms",
-      "language": "Go",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/longest-palindromic-substring/",
-      "solvedAt": "2025-12-18T02:48:37.000Z"
-    },
-    {
-      "id": "lc-1766025816",
-      "platform": "leetcode",
-      "title": "Add Two Numbers",
-      "category": "Algorithms",
-      "language": "Go",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/add-two-numbers/",
-      "solvedAt": "2025-12-18T02:43:36.000Z"
     },
     {
       "id": "tlx-4695553",
@@ -7878,6 +7982,16 @@
       "solvedAt": "2025-11-24T15:46:54.665Z"
     },
     {
+      "id": "tlx-4650590",
+      "platform": "tlx",
+      "title": "Perkenalan Larik (Array)",
+      "category": "Larik (Array)",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/4650590",
+      "solvedAt": "2025-11-24T15:46:02.359Z"
+    },
+    {
       "id": "tlx-4650587",
       "platform": "tlx",
       "title": "Toko Kandang",
@@ -7916,16 +8030,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650562",
       "solvedAt": "2025-11-24T15:26:56.744Z"
-    },
-    {
-      "id": "tlx-4650553",
-      "platform": "tlx",
-      "title": "Perkenalan For",
-      "category": "Perulangan & Percabangan",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650553",
-      "solvedAt": "2025-11-24T15:21:04.883Z"
     },
     {
       "id": "tlx-4650551",

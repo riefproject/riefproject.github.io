@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-09T02:56:16.600Z",
+    "updatedAt": "2026-09-09T10:43:07.290Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 493,
-    "totalSubmissions": 1464,
+    "totalSubmissions": 1468,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-09": {
+        "tries": 3,
+        "ac": 2
+      },
       "2026-09-08": {
         "tries": 19,
         "ac": 14
@@ -62,7 +66,7 @@
         "ac": 2
       },
       "2026-08-15": {
-        "tries": 10,
+        "tries": 11,
         "ac": 8
       },
       "2026-08-14": {
@@ -174,7 +178,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 12,
+        "tries": 11,
         "ac": 3
       },
       "2026-02-27": {
@@ -210,8 +214,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 3,
-        "ac": 2
+        "tries": 2,
+        "ac": 1
       },
       "2025-12-03": {
         "tries": 1,
@@ -234,16 +238,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 23,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
-        "ac": 54
+        "tries": 108,
+        "ac": 55
       },
       "2026-08-25": {
         "tries": 1,
@@ -471,17 +475,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 731,
+      "totalSubmissions": 735,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 284,
+      "uniqueProblemsSolved": 287,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 707,
+        "Cpp20": 711,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-09": {
+          "tries": 3,
+          "ac": 2
+        },
         "2026-09-08": {
           "tries": 11,
           "ac": 6
@@ -531,7 +539,7 @@
           "ac": 2
         },
         "2026-08-15": {
-          "tries": 10,
+          "tries": 11,
           "ac": 8
         },
         "2026-08-14": {
@@ -643,7 +651,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 12,
+          "tries": 11,
           "ac": 3
         },
         "2026-02-27": {
@@ -679,8 +687,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 3,
-          "ac": 2
+          "tries": 2,
+          "ac": 1
         },
         "2025-12-03": {
           "tries": 1,
@@ -703,19 +711,39 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 23,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
-          "ac": 54
+          "tries": 108,
+          "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-5987259",
+          "platform": "tlx",
+          "title": "Mencari Harta Karun",
+          "category": "CPSC 2025 - Semifinal",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5987259",
+          "solvedAt": "2026-09-09T06:36:38.950Z"
+        },
+        {
+          "id": "tlx-5987013",
+          "platform": "tlx",
+          "title": "Naik Turun Putar Putar",
+          "category": "CPSC 2025 - Semifinal",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5987013",
+          "solvedAt": "2026-09-09T06:09:23.123Z"
+        },
         {
           "id": "tlx-5981868",
           "platform": "tlx",
@@ -3357,6 +3385,16 @@
           "solvedAt": "2025-11-24T15:26:56.744Z"
         },
         {
+          "id": "tlx-4650553",
+          "platform": "tlx",
+          "title": "Perkenalan For",
+          "category": "Perulangan & Percabangan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650553",
+          "solvedAt": "2025-11-24T15:21:04.883Z"
+        },
+        {
           "id": "tlx-4650551",
           "platform": "tlx",
           "title": "Mengukur Kandang II",
@@ -4359,7 +4397,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2182715,
+      "ranking": 2184394,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -4643,55 +4681,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140412
+          "rank": 140425
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1923196
+          "rank": 1923448
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119716
+          "rank": 119724
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 527196
+          "rank": 527284
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190465
+          "rank": 190493
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1631051
+          "rank": 1631164
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 717870
+          "rank": 717956
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85646
+          "rank": 85652
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 460141
+          "rank": 460190
         }
       ],
       "dailyCalendar": {
@@ -5021,6 +5059,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-5987259",
+      "platform": "tlx",
+      "title": "Mencari Harta Karun",
+      "category": "CPSC 2025 - Semifinal",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5987259",
+      "solvedAt": "2026-09-09T06:36:38.950Z"
+    },
+    {
+      "id": "tlx-5987013",
+      "platform": "tlx",
+      "title": "Naik Turun Putar Putar",
+      "category": "CPSC 2025 - Semifinal",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5987013",
+      "solvedAt": "2026-09-09T06:09:23.123Z"
+    },
     {
       "id": "lc-1788860298",
       "platform": "leetcode",
@@ -8030,6 +8088,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650562",
       "solvedAt": "2025-11-24T15:26:56.744Z"
+    },
+    {
+      "id": "tlx-4650553",
+      "platform": "tlx",
+      "title": "Perkenalan For",
+      "category": "Perulangan & Percabangan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/4650553",
+      "solvedAt": "2025-11-24T15:21:04.883Z"
     },
     {
       "id": "tlx-4650551",

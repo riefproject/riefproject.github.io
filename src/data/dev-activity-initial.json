@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-09T20:21:15.576Z",
+    "updatedAt": "2026-09-10T02:56:43.473Z",
     "source": "scheduled-crawl"
   },
   "overview": {
@@ -1115,7 +1115,7 @@
   "platforms": {
     "github": {
       "meta": {
-        "updatedAt": "2026-09-09T20:21:13.490Z",
+        "updatedAt": "2026-09-10T02:56:41.071Z",
         "username": "riefproject",
         "source": "github-public-api"
       },
@@ -5534,53 +5534,53 @@
       "languages": [
         {
           "name": "C",
-          "bytes": 3630085,
-          "percentage": 38
-        },
-        {
-          "name": "PHP",
-          "bytes": 1164717,
-          "percentage": 12.2
+          "bytes": 1237872,
+          "percentage": 21.5
         },
         {
           "name": "Vue",
           "bytes": 1092543,
-          "percentage": 11.4
+          "percentage": 19
         },
         {
           "name": "Dart",
           "bytes": 1087627,
-          "percentage": 11.4
+          "percentage": 18.9
         },
         {
           "name": "C++",
           "bytes": 509490,
-          "percentage": 5.3
+          "percentage": 8.9
+        },
+        {
+          "name": "PHP",
+          "bytes": 417011,
+          "percentage": 7.3
         },
         {
           "name": "JavaScript",
-          "bytes": 386462,
-          "percentage": 4
-        },
-        {
-          "name": "Java",
-          "bytes": 293744,
-          "percentage": 3.1
-        },
-        {
-          "name": "Blade",
-          "bytes": 263159,
-          "percentage": 2.8
+          "bytes": 279017,
+          "percentage": 4.9
         },
         {
           "name": "C#",
           "bytes": 228720,
-          "percentage": 2.4
+          "percentage": 4
+        },
+        {
+          "name": "Java",
+          "bytes": 165383,
+          "percentage": 2.9
+        },
+        {
+          "name": "TypeScript",
+          "bytes": 134690,
+          "percentage": 2.3
         },
         {
           "name": "HTML",
-          "bytes": 225847,
-          "percentage": 2.4
+          "bytes": 130229,
+          "percentage": 2.3
         }
       ],
       "topRepos": [
@@ -5642,7 +5642,7 @@
           "language": "Vue",
           "stars": 1,
           "forks": 0,
-          "updatedAt": "2026-09-09T15:54:46Z",
+          "updatedAt": "2026-09-09T20:21:29Z",
           "archived": false,
           "topics": [
             "cv",

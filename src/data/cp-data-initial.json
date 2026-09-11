@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-11T15:48:51.851Z",
+    "updatedAt": "2026-09-11T20:24:20.793Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 493,
-    "totalSubmissions": 1468,
+    "totalSubmissions": 1474,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-11": {
+        "tries": 7,
+        "ac": 6
+      },
       "2026-09-09": {
         "tries": 3,
         "ac": 2
@@ -178,7 +182,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 11,
+        "tries": 12,
         "ac": 3
       },
       "2026-02-27": {
@@ -214,8 +218,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 2,
-        "ac": 1
+        "tries": 3,
+        "ac": 2
       },
       "2025-12-03": {
         "tries": 1,
@@ -238,7 +242,7 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
@@ -246,8 +250,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -475,17 +479,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 735,
+      "totalSubmissions": 741,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 287,
+      "uniqueProblemsSolved": 291,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 711,
+        "Cpp20": 717,
         "Pascal": 13,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-11": {
+          "tries": 7,
+          "ac": 6
+        },
         "2026-09-09": {
           "tries": 3,
           "ac": 2
@@ -651,7 +659,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 11,
+          "tries": 12,
           "ac": 3
         },
         "2026-02-27": {
@@ -687,8 +695,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 2,
-          "ac": 1
+          "tries": 3,
+          "ac": 2
         },
         "2025-12-03": {
           "tries": 1,
@@ -711,7 +719,7 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
@@ -719,11 +727,61 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6002208",
+          "platform": "tlx",
+          "title": "Firework Festival",
+          "category": "TROC #17",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6002208",
+          "solvedAt": "2026-09-11T17:37:38.628Z"
+        },
+        {
+          "id": "tlx-6002194",
+          "platform": "tlx",
+          "title": "Xmas Xor",
+          "category": "TROC #17",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6002194",
+          "solvedAt": "2026-09-11T17:32:52.548Z"
+        },
+        {
+          "id": "tlx-6002115",
+          "platform": "tlx",
+          "title": "Galaksi",
+          "category": "TROC #27",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6002115",
+          "solvedAt": "2026-09-11T16:33:57.750Z"
+        },
+        {
+          "id": "tlx-6002088",
+          "platform": "tlx",
+          "title": "Ekspor Segitiga",
+          "category": "TROC #27",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6002088",
+          "solvedAt": "2026-09-11T16:23:46.664Z"
+        },
+        {
+          "id": "tlx-6002037",
+          "platform": "tlx",
+          "title": "D++",
+          "category": "TROC #27",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6002037",
+          "solvedAt": "2026-09-11T16:12:02.532Z"
+        },
         {
           "id": "tlx-5987259",
           "platform": "tlx",
@@ -3335,16 +3393,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -4397,7 +4445,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2186091,
+      "ranking": 2187752,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -4681,43 +4729,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140459
+          "rank": 140460
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1924706
+          "rank": 1924783
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119757
+          "rank": 119759
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 527619
+          "rank": 527645
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190597
+          "rank": 190602
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1631775
+          "rank": 1631820
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 718246
+          "rank": 718266
         },
         {
           "name": "Mathematics",
@@ -4729,7 +4777,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 460375
+          "rank": 460390
         }
       ],
       "dailyCalendar": {
@@ -5059,6 +5107,56 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6002208",
+      "platform": "tlx",
+      "title": "Firework Festival",
+      "category": "TROC #17",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6002208",
+      "solvedAt": "2026-09-11T17:37:38.628Z"
+    },
+    {
+      "id": "tlx-6002194",
+      "platform": "tlx",
+      "title": "Xmas Xor",
+      "category": "TROC #17",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6002194",
+      "solvedAt": "2026-09-11T17:32:52.548Z"
+    },
+    {
+      "id": "tlx-6002115",
+      "platform": "tlx",
+      "title": "Galaksi",
+      "category": "TROC #27",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6002115",
+      "solvedAt": "2026-09-11T16:33:57.750Z"
+    },
+    {
+      "id": "tlx-6002088",
+      "platform": "tlx",
+      "title": "Ekspor Segitiga",
+      "category": "TROC #27",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6002088",
+      "solvedAt": "2026-09-11T16:23:46.664Z"
+    },
+    {
+      "id": "tlx-6002037",
+      "platform": "tlx",
+      "title": "D++",
+      "category": "TROC #27",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6002037",
+      "solvedAt": "2026-09-11T16:12:02.532Z"
+    },
     {
       "id": "tlx-5987259",
       "platform": "tlx",
@@ -8038,16 +8136,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
-    },
-    {
-      "id": "tlx-4650590",
-      "platform": "tlx",
-      "title": "Perkenalan Larik (Array)",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650590",
-      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-13T11:02:27.077Z",
+    "updatedAt": "2026-09-13T15:33:36.267Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -13,6 +13,10 @@
     "totalSubmissions": 1474,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-13": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-09-11": {
         "tries": 7,
         "ac": 6
@@ -138,7 +142,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 18,
+        "tries": 17,
         "ac": 5
       },
       "2026-05-25": {
@@ -481,7 +485,7 @@
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 741,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 291,
+      "uniqueProblemsSolved": 292,
       "totalAcSubmissions": 223,
       "languages": {
         "Cpp20": 717,
@@ -490,6 +494,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-13": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-09-11": {
           "tries": 7,
           "ac": 6
@@ -615,7 +623,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 18,
+          "tries": 17,
           "ac": 5
         },
         "2026-05-25": {
@@ -732,6 +740,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6009087",
+          "platform": "tlx",
+          "title": "String Cantik OSN",
+          "category": "OSN-P Informatika 2024",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6009087",
+          "solvedAt": "2026-09-13T14:16:20.754Z"
+        },
         {
           "id": "tlx-6002208",
           "platform": "tlx",
@@ -4445,7 +4463,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2189097,
+      "ranking": 2190469,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -4729,55 +4747,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140486
+          "rank": 140490
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1925353
+          "rank": 1925460
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119779
+          "rank": 119787
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 527795
+          "rank": 527836
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190639
+          "rank": 190649
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1632076
+          "rank": 1632128
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 718412
+          "rank": 718437
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85678
+          "rank": 85679
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 460474
+          "rank": 460490
         }
       ],
       "dailyCalendar": {
@@ -5107,6 +5125,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6009087",
+      "platform": "tlx",
+      "title": "String Cantik OSN",
+      "category": "OSN-P Informatika 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6009087",
+      "solvedAt": "2026-09-13T14:16:20.754Z"
+    },
     {
       "id": "tlx-6002208",
       "platform": "tlx",

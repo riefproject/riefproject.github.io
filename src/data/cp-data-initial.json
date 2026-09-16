@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-16T03:11:26.766Z",
+    "updatedAt": "2026-09-16T10:48:04.504Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -770,7 +770,7 @@
           "id": "tlx-6023093",
           "platform": "tlx",
           "title": "Pasangan Malang Itu Lagi",
-          "category": "OSN 2026",
+          "category": "OSN Informatika 2026",
           "language": "Cpp20",
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/6023093",
@@ -780,7 +780,7 @@
           "id": "tlx-6023084",
           "platform": "tlx",
           "title": "Kotak Permen",
-          "category": "OSN 2026",
+          "category": "OSN Informatika 2026",
           "language": "Pascal",
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/6023084",
@@ -4569,7 +4569,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2193108,
+      "ranking": 2194665,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -4853,55 +4853,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140528
+          "rank": 140539
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1926497
+          "rank": 1926712
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119820
+          "rank": 119827
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 528109
+          "rank": 528175
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190741
+          "rank": 190757
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1632644
+          "rank": 1632765
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 718788
+          "rank": 718871
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85692
+          "rank": 85698
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 460636
+          "rank": 460678
         }
       ],
       "dailyCalendar": {
@@ -5245,7 +5245,7 @@
       "id": "tlx-6023093",
       "platform": "tlx",
       "title": "Pasangan Malang Itu Lagi",
-      "category": "OSN 2026",
+      "category": "OSN Informatika 2026",
       "language": "Cpp20",
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/6023093",
@@ -5255,7 +5255,7 @@
       "id": "tlx-6023084",
       "platform": "tlx",
       "title": "Kotak Permen",
-      "category": "OSN 2026",
+      "category": "OSN Informatika 2026",
       "language": "Pascal",
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/6023084",

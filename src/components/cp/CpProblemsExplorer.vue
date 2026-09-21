@@ -276,8 +276,8 @@ const currentPage = ref(1);
 const pageSize = ref(20);
 
 // Platform Total Solved counts
-const totalAllSolved = computed(() => cpData.value?.overview?.totalSolved || 470);
-const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || 223);
+const totalAllSolved = computed(() => cpData.value?.overview?.totalSolved || 640);
+const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || 371);
 const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || 50);
 const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || 59);
 const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || 138);

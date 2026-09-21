@@ -9,6 +9,7 @@ import type {
 import LocaleText from '../i18n/LocaleText.astro';
 import CvDownloadButton from '../CvDownloadButton.vue';
 import devActivity from '../../data/dev-activity-initial.json';
+import cpData from '../../data/cp-data-initial.json';
 
 const locale = (en: string, id: string) => ({ en, id });
 
@@ -22,6 +23,21 @@ type HeroProps = {
 };
 
 const { profile, contact, highlights, stats, socials, toolbox }: HeroProps = Astro.props as HeroProps;
+
+const liveTotalSolved = cpData?.overview?.totalSolved || 640;
+const enrichedStats = stats.map((stat) => {
+	const isCpStat =
+		stat.label?.en?.toLowerCase().includes('problem') ||
+		stat.label?.id?.toLowerCase().includes('soal');
+	if (isCpStat) {
+		return {
+			...stat,
+			value: `${liveTotalSolved}+`,
+			isCp: true,
+		};
+	}
+	return { ...stat, isCp: false };
+});
 
 const heroCopy = {
 	greeting: locale('Hi, I’m', 'Hai, saya'),
@@ -88,13 +104,23 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
   <!-- 2. Quick Stats Grid -->
   <div class="bento-card bento-stats">
     <div class="stats-grid">
-      {stats.map((stat) => (
-        <div class="stat-item">
-          <strong class="font-mono text-text">{stat.value}</strong>
-          <p class="text-sm text-muted mt-1">
-            <LocaleText as="span" text={stat.label} />
-          </p>
-        </div>
+      {enrichedStats.map((stat) => (
+        stat.isCp ? (
+          <a href="/competitive-programming" class="stat-item stat-item--link group" title="View Competitive Programming Journey">
+            <strong class="font-mono text-text group-hover:text-accent transition-colors">{stat.value}</strong>
+            <p class="text-sm text-muted mt-1 flex items-center gap-1 group-hover:text-text transition-colors">
+              <LocaleText as="span" text={stat.label} />
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+            </p>
+          </a>
+        ) : (
+          <div class="stat-item">
+            <strong class="font-mono text-text">{stat.value}</strong>
+            <p class="text-sm text-muted mt-1">
+              <LocaleText as="span" text={stat.label} />
+            </p>
+          </div>
+        )
       ))}
     </div>
   </div>

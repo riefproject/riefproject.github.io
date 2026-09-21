@@ -46,8 +46,8 @@
         "id": "Competitive Programming"
       },
       "detail": {
-        "en": "ICPC Regional Asia participant, 400+ problems solved",
-        "id": "Peserta ICPC Regional Asia, 400+ soal terselesaikan"
+        "en": "ICPC Regional Asia participant, 600+ problems solved",
+        "id": "Peserta ICPC Regional Asia, 600+ soal terselesaikan"
       }
     },
     {
@@ -78,7 +78,7 @@
         "en": "Problems solved",
         "id": "Soal terselesaikan"
       },
-      "value": "400+",
+      "value": "600+",
       "helper": {
         "en": "TLX, LeetCode, Codeforces, and others",
         "id": "TLX, LeetCode, Codeforces, dan lainnya"

@@ -1,6 +1,7 @@
 ---
 import type { CPProfile } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
+import initialCpData from '../../data/cp-data-initial.json';
 
 const locale = (en: string, id: string) => ({ en, id });
 const copy = {
@@ -13,6 +14,9 @@ const copy = {
 	viewProfile: locale('View profile', 'Lihat profil'),
 	openDashboard: locale('Open Live CP Dashboard →', 'Buka Dashboard CP Live →'),
 };
+
+const totalCpSolved = initialCpData?.overview?.totalSolved || 640;
+const totalCpSubmissions = initialCpData?.overview?.totalSubmissions || 1528;
 
 type Props = {
 	profiles?: CPProfile[];
@@ -34,6 +38,16 @@ const { profiles = [] }: Props = Astro.props;
 				<p>
 					<LocaleText as="span" text={copy.body} />
 				</p>
+				<div class="cp-live-summary mt-3 flex items-center gap-3 text-xs text-muted font-mono flex-wrap">
+					<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface border border-border text-text font-semibold">
+						<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+						{totalCpSolved}+ <LocaleText as="span" text={locale('Solved', 'Selesai')} />
+					</span>
+					<span>•</span>
+					<span>{totalCpSubmissions}+ <LocaleText as="span" text={locale('Submissions', 'Submisi')} /></span>
+					<span>•</span>
+					<span>4 <LocaleText as="span" text={locale('Platforms', 'Platform')} /></span>
+				</div>
 			</div>
 			<a href="/competitive-programming" class="cp-dashboard-cta">
 				<span class="pulse-dot"></span>

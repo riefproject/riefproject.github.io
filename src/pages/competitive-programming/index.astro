@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import CpDashboard from '../../components/cp/CpDashboard.vue';
 import LocaleText from '../../components/i18n/LocaleText.astro';
 import initialCpData from '../../data/cp-data-initial.json';
+import initialDevData from '../../data/dev-activity-initial.json';
 
 const locale = (en: string, id: string) => ({ en, id });
 
@@ -13,7 +14,10 @@ const copy = {
     'Dashboard real-time yang melacak pencapaian problem solving, riwayat submisi, dan statistik lintas platform TOKI (TLX), Codeforces, LeetCode, dan HackerRank.'
   ),
   backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
+  devLink: locale('Development Activity', 'Aktivitas Development'),
 };
+
+const devContributions = initialDevData?.overview?.totalContributions || 680;
 ---
 
 <Layout
@@ -22,9 +26,18 @@ const copy = {
 >
   <main class="cp-page">
     <div class="cp-header section">
-      <a href="/" class="back-link">
-        <LocaleText as="span" text={copy.backToHome} />
-      </a>
+      <div class="nav-row">
+        <a href="/" class="back-link">
+          <LocaleText as="span" text={copy.backToHome} />
+        </a>
+        <a href="/development-activity" class="dash-switch-pill" title="Switch to Development Activity">
+          <span class="pill-dot"></span>
+          <span class="pill-icon">💻</span>
+          <span class="pill-text"><LocaleText as="span" text={copy.devLink} /></span>
+          <span class="pill-count">{devContributions}+</span>
+          <span class="pill-arrow">→</span>
+        </a>
+      </div>
       <div class="title-row">
         <h1>
           <LocaleText as="span" text={copy.title} />
@@ -79,6 +92,53 @@ const copy = {
     font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+  }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .dash-switch-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .dash-switch-pill:hover {
+    border-color: var(--muted);
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+
+  .dash-switch-pill .pill-count {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    background: var(--surface-muted);
+  }
+
+  .dash-switch-pill .pill-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .dash-switch-pill:hover .pill-arrow {
+    transform: translateX(2px);
   }
 
   .back-link {

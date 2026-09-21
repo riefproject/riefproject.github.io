@@ -9,6 +9,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
 
 // ---------------------------------------------------------------------------
 // Minimal .env loader (no dependency) — same format as dotenv.
@@ -41,7 +42,10 @@ loadEnv(path.join(__dirname, '..', '.env'));
 
 // ---------------------------------------------------------------------------
 // Helpers
-// ---------------------------------------------------------------------------
+const DEV_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-initial.json');
+const CP_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-data-initial.json');
+const ARCHIVES_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-archives.json');
+
 const nowIso = () => new Date().toISOString();
 
 function readExisting(file) {
@@ -292,16 +296,20 @@ async function crawlGithub() {
 const GITLAB_URL = process.env.GITLAB_URL;
 const GITLAB_USER_ID = process.env.GITLAB_USER_ID;
 
+function getGitlabFingerprint(url, userId) {
+  if (!url || !userId) return null;
+  const cleanUrl = String(url).trim().toLowerCase().replace(/\/+$/, '');
+  const cleanUserId = String(userId).trim();
+  return crypto.createHash('sha256').update(`${cleanUrl}:${cleanUserId}`).digest('hex').slice(0, 12);
+}
+
 async function crawlGitlab() {
   const token = process.env.GITLAB_PERSONAL_ACCESS_TOKEN;
   if (!token || !GITLAB_URL || !GITLAB_USER_ID) {
     console.log(
-      '  [gitlab] missing env (GITLAB_PERSONAL_ACCESS_TOKEN / GITLAB_URL / GITLAB_USER_ID) — returning empty activity'
+      '  [gitlab] missing or revoked env (GITLAB_PERSONAL_ACCESS_TOKEN / GITLAB_URL / GITLAB_USER_ID) — using archived snapshot'
     );
-    return {
-      heatmap: {},
-      stats: { totalEvents: 0, daysActive: 0, mergeRequests: { opened: 0, merged: 0 }, languages: [] },
-    };
+    return null;
   }
 
   const since = new Date();
@@ -311,17 +319,25 @@ async function crawlGitlab() {
   const events = [];
   let page = 1;
   const maxPages = 30;
-  while (page <= maxPages) {
-    const response = await fetch(
-      `${GITLAB_URL}/api/v4/users/${GITLAB_USER_ID}/events?after=${encodeURIComponent(after)}&per_page=100&page=${page}`,
-      { headers: { 'PRIVATE-TOKEN': token } }
-    );
-    if (!response.ok) throw new Error(`GitLab API responded with status ${response.status}`);
-    const pageData = await response.json();
-    if (!Array.isArray(pageData) || pageData.length === 0) break;
-    events.push(...pageData);
-    if (pageData.length < 100) break;
-    page += 1;
+  try {
+    while (page <= maxPages) {
+      const response = await fetch(
+        `${GITLAB_URL}/api/v4/users/${GITLAB_USER_ID}/events?after=${encodeURIComponent(after)}&per_page=100&page=${page}`,
+        { headers: { 'PRIVATE-TOKEN': token } }
+      );
+      if (!response.ok) {
+        console.warn(`  [gitlab] API returned status ${response.status} (token expired/revoked) — using archived snapshot`);
+        return null;
+      }
+      const pageData = await response.json();
+      if (!Array.isArray(pageData) || pageData.length === 0) break;
+      events.push(...pageData);
+      if (pageData.length < 100) break;
+      page += 1;
+    }
+  } catch (err) {
+    console.warn(`  [gitlab] fetch error (${err.message}) — using archived snapshot`);
+    return null;
   }
 
   const heatmap = {};
@@ -401,6 +417,94 @@ function combineDevHeatmap(ghPayload, glPayload) {
       (typeof glV === 'object' ? Number((glV && glV.count) || 0) : Number(glV || 0));
   });
   return out;
+}
+
+function mergeGitlabWithArchives(activeGitlab) {
+  let archives = readExisting(ARCHIVES_FILE) || [];
+  if (!Array.isArray(archives)) archives = [];
+
+  const activeFingerprint = getGitlabFingerprint(GITLAB_URL, GITLAB_USER_ID);
+
+  // If we fetched fresh data from an active token
+  if (activeGitlab && activeGitlab.stats && activeGitlab.stats.totalEvents > 0 && activeFingerprint) {
+    const existingIndex = archives.findIndex((a) => a.fingerprint === activeFingerprint);
+    if (existingIndex !== -1) {
+      // MATCH FOUND: Same workplace/user — update in-place without duplicating
+      console.log(`  [gitlab-archive] matched existing archive entry (${archives[existingIndex].id}) — updating snapshot`);
+      const existing = archives[existingIndex];
+      if ((activeGitlab.stats.totalEvents || 0) >= (existing.stats?.totalEvents || 0)) {
+        archives[existingIndex] = {
+          ...existing,
+          label: 'GitLab',
+          stats: activeGitlab.stats,
+          heatmap: { ...existing.heatmap, ...activeGitlab.heatmap },
+        };
+      }
+    } else {
+      // NO MATCH: New workplace/instance detected!
+      const newId = `gitlab-archive-${archives.length + 1}`;
+      console.log(`  [gitlab-archive] new workplace detected (fingerprint: ${activeFingerprint}) — registering ${newId}`);
+      archives.push({
+        id: newId,
+        fingerprint: activeFingerprint,
+        platform: 'gitlab',
+        label: 'GitLab',
+        stats: activeGitlab.stats,
+        heatmap: activeGitlab.heatmap,
+      });
+    }
+
+    // Persist to disk so historical snapshot is always preserved even if token is revoked later
+    writeJson(ARCHIVES_FILE, archives);
+  }
+
+  // If no archives exist and no active data, return empty
+  if (archives.length === 0) {
+    return (
+      activeGitlab || {
+        heatmap: {},
+        stats: { totalEvents: 0, daysActive: 0, mergeRequests: { opened: 0, merged: 0 }, languages: [] },
+      }
+    );
+  }
+
+  // Aggregate across ALL archives (archive-1 + archive-2 + ...)
+  // This guarantees ZERO double-counting between active crawl and archives
+  const combinedHeatmap = {};
+  let totalEvents = 0;
+  let mrOpened = 0;
+  let mrMerged = 0;
+  const langTotals = {};
+
+  archives.forEach((arch) => {
+    Object.entries(arch.heatmap || {}).forEach(([date, count]) => {
+      combinedHeatmap[date] = (combinedHeatmap[date] || 0) + Number(count || 0);
+    });
+    totalEvents += Number((arch.stats && arch.stats.totalEvents) || 0);
+    mrOpened += Number((arch.stats && arch.stats.mergeRequests && arch.stats.mergeRequests.opened) || 0);
+    mrMerged += Number((arch.stats && arch.stats.mergeRequests && arch.stats.mergeRequests.merged) || 0);
+    ((arch.stats && arch.stats.languages) || []).forEach((l) => {
+      langTotals[l.name] = (langTotals[l.name] || 0) + (l.percentage || 0);
+    });
+  });
+
+  const totalLangSum = Object.values(langTotals).reduce((s, v) => s + v, 0);
+  const languages = Object.entries(langTotals)
+    .map(([name, val]) => ({
+      name,
+      percentage: totalLangSum > 0 ? Math.round((val / totalLangSum) * 100) : 0,
+    }))
+    .sort((a, b) => b.percentage - a.percentage);
+
+  return {
+    heatmap: combinedHeatmap,
+    stats: {
+      totalEvents,
+      daysActive: Object.keys(combinedHeatmap).length,
+      mergeRequests: { opened: mrOpened, merged: mrMerged },
+      languages,
+    },
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -504,13 +608,30 @@ async function cpTlx(username) {
     solvedAt: s.submittedAt,
   }));
 
+  let totalSolved = 371;
+  let totalAcSubmissions = 362;
+  try {
+    const statsRes = await fetch(`https://api.tlx.toki.id/v2/stats/users/?username=${username}`, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (Portfolio CP Dashboard)' },
+    });
+    if (statsRes.ok) {
+      const statsJson = await statsRes.json();
+      if (statsJson.totalProblemsTried) totalSolved = statsJson.totalProblemsTried;
+      if (statsJson.totalProblemVerdictsMap && statsJson.totalProblemVerdictsMap.AC) {
+        totalAcSubmissions = statsJson.totalProblemVerdictsMap.AC;
+      }
+    }
+  } catch (err) {
+    console.error('Error fetching TLX user stats:', err);
+  }
+
   return {
     handle: username,
     url: `https://tlx.toki.id/profiles/${username}`,
     totalSubmissions: allSubmissions.length,
-    totalSolved: 223,
-    uniqueProblemsSolved: uniqueProblems.size,
-    totalAcSubmissions: 223,
+    totalSolved: totalSolved,
+    uniqueProblemsSolved: uniqueProblems.size || totalSolved,
+    totalAcSubmissions: totalAcSubmissions,
     languages: {
       Cpp20: languages['Cpp20'] || 538,
       Pascal: languages['Pascal'] || 12,
@@ -830,7 +951,7 @@ async function crawlCp() {
   ].sort((a, b) => new Date(b.solvedAt).getTime() - new Date(a.solvedAt).getTime());
 
   const totalSolved =
-    (tlx && tlx.totalSolved || 223) +
+    (tlx && tlx.totalSolved || 371) +
     (cf && cf.totalSolved || 50) +
     (lc && lc.totalSolved || 59) +
     (hr && hr.totalSolved || 138);
@@ -857,9 +978,6 @@ async function crawlCp() {
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
-const DEV_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-initial.json');
-const CP_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-data-initial.json');
-
 async function main() {
   console.log('Crawling activity data...');
 
@@ -868,7 +986,8 @@ async function main() {
     console.log('· GitHub...');
     const github = await crawlGithub();
     console.log('· GitLab...');
-    const gitlab = await crawlGitlab();
+    const rawGitlab = await crawlGitlab();
+    const gitlab = mergeGitlabWithArchives(rawGitlab);
 
     const devPayload = {
       meta: { updatedAt: nowIso(), source: 'scheduled-crawl' },

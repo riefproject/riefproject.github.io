@@ -22,6 +22,8 @@ const navItems = [
 	{ label: locale('Projects', 'Proyek'), href: '#proyek' },
 	{ label: locale('Achievements', 'Pencapaian'), href: '#achievements' },
 	{ label: locale('Education', 'Pendidikan'), href: '#education' },
+	{ label: locale('CP Journey', 'Perjalanan CP'), href: '/competitive-programming', page: true },
+	{ label: locale('Dev Activity', 'Aktivitas Dev'), href: '/development-activity', page: true },
 	{ label: locale('Contact', 'Kontak'), href: '#kontak' },
 ].map((item) =>
 	item.page
@@ -274,7 +276,7 @@ const {
 				<nav class="sidebar__nav">
 					{navItems.map((item) =>
 						item.page ? (
-							<a data-nav-link href={item.href}>
+							<a data-nav-link data-target={item.href} href={item.href}>
 								<LocaleText as="span" text={item.label} />
 							</a>
 						) : (
@@ -403,6 +405,10 @@ const {
 					setActiveNav(hashTarget);
 				} else if (window.location.pathname.startsWith('/projects')) {
 					setActiveNav('proyek');
+				} else if (window.location.pathname.startsWith('/competitive-programming')) {
+					setActiveNav('/competitive-programming');
+				} else if (window.location.pathname.startsWith('/development-activity')) {
+					setActiveNav('/development-activity');
 				}
 
 				if (sectionEntries.length) {

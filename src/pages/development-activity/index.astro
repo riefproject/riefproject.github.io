@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import DevelopmentActivity from '../../components/dev/DevelopmentActivity.vue';
 import LocaleText from '../../components/i18n/LocaleText.astro';
 import initialDevData from '../../data/dev-activity-initial.json';
+import initialCpData from '../../data/cp-data-initial.json';
 
 const locale = (en: string, id: string) => ({ en, id });
 
@@ -13,7 +14,10 @@ const copy = {
     'Dashboard live yang melacak karya pengembangan open-source dan profesional di GitHub dan GitLab — kalender kontribusi, streak, pull request, dan penggunaan bahasa.'
   ),
   backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
+  cpLink: locale('CP Journey', 'Perjalanan CP'),
 };
+
+const cpSolved = initialCpData?.overview?.totalSolved || 640;
 ---
 
 <Layout
@@ -22,9 +26,18 @@ const copy = {
 >
   <main class="dev-page">
     <div class="dev-header section">
-      <a href="/" class="back-link">
-        <LocaleText as="span" text={copy.backToHome} />
-      </a>
+      <div class="nav-row">
+        <a href="/" class="back-link">
+          <LocaleText as="span" text={copy.backToHome} />
+        </a>
+        <a href="/competitive-programming" class="dash-switch-pill" title="Switch to Competitive Programming Journey">
+          <span class="pill-dot"></span>
+          <span class="pill-icon">🏆</span>
+          <span class="pill-text"><LocaleText as="span" text={copy.cpLink} /></span>
+          <span class="pill-count">{cpSolved}+</span>
+          <span class="pill-arrow">→</span>
+        </a>
+      </div>
       <div class="title-row">
         <h1>
           <LocaleText as="span" text={copy.title} />
@@ -65,6 +78,53 @@ const copy = {
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
+  }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .dash-switch-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .dash-switch-pill:hover {
+    border-color: var(--muted);
+    color: var(--text);
+    transform: translateY(-1px);
+  }
+
+  .dash-switch-pill .pill-count {
+    font-family: var(--font-mono, monospace);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text);
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    background: var(--surface-muted);
+  }
+
+  .dash-switch-pill .pill-arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .dash-switch-pill:hover .pill-arrow {
+    transform: translateX(2px);
   }
 
   .back-link {

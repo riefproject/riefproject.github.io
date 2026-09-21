@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-21T11:54:56.801Z",
+    "updatedAt": "2026-09-21T17:49:35.086Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,12 +10,12 @@
   },
   "overview": {
     "totalSolved": 493,
-    "totalSubmissions": 1508,
+    "totalSubmissions": 1514,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-09-21": {
-        "tries": 4,
-        "ac": 1
+        "tries": 9,
+        "ac": 3
       },
       "2026-09-19": {
         "tries": 7,
@@ -134,7 +134,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 40,
+        "tries": 41,
         "ac": 12
       },
       "2026-07-16": {
@@ -214,7 +214,7 @@
         "ac": 1
       },
       "2026-01-30": {
-        "tries": 7,
+        "tries": 6,
         "ac": 2
       },
       "2026-01-13": {
@@ -254,7 +254,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 26,
+        "tries": 25,
         "ac": 6
       },
       "2025-11-27": {
@@ -266,11 +266,11 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
+        "tries": 109,
         "ac": 55
       },
       "2026-08-25": {
@@ -499,20 +499,20 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 775,
+      "totalSubmissions": 781,
       "totalSolved": 223,
-      "uniqueProblemsSolved": 307,
+      "uniqueProblemsSolved": 309,
       "totalAcSubmissions": 223,
       "languages": {
-        "Cpp20": 747,
+        "Cpp20": 753,
         "Pascal": 17,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
         "2026-09-21": {
-          "tries": 4,
-          "ac": 1
+          "tries": 9,
+          "ac": 3
         },
         "2026-09-19": {
           "tries": 7,
@@ -631,7 +631,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 40,
+          "tries": 41,
           "ac": 12
         },
         "2026-07-16": {
@@ -711,7 +711,7 @@
           "ac": 1
         },
         "2026-01-30": {
-          "tries": 7,
+          "tries": 6,
           "ac": 2
         },
         "2026-01-13": {
@@ -751,7 +751,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 26,
+          "tries": 25,
           "ac": 6
         },
         "2025-11-27": {
@@ -763,15 +763,35 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
+          "tries": 109,
           "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6050637",
+          "platform": "tlx",
+          "title": "Kerja Freelance",
+          "category": "KSN-P Informatika 2020 - Bagian B",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6050637",
+          "solvedAt": "2026-09-21T17:47:26.106Z"
+        },
+        {
+          "id": "tlx-6050630",
+          "platform": "tlx",
+          "title": "Lampu Hias Warna-Warni",
+          "category": "KSN-P Informatika 2020 - Bagian B",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6050630",
+          "solvedAt": "2026-09-21T17:39:14.755Z"
+        },
         {
           "id": "tlx-6047692",
           "platform": "tlx",
@@ -4645,7 +4665,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2202077,
+      "ranking": 2202149,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -4929,55 +4949,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140623
+          "rank": 140626
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1929123
+          "rank": 1929345
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119925
+          "rank": 119935
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 528665
+          "rank": 528696
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190883
+          "rank": 190893
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1633917
+          "rank": 1633988
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 719807
+          "rank": 719880
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85737
+          "rank": 85739
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 461175
+          "rank": 461201
         }
       ],
       "dailyCalendar": {
@@ -5307,6 +5327,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6050637",
+      "platform": "tlx",
+      "title": "Kerja Freelance",
+      "category": "KSN-P Informatika 2020 - Bagian B",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6050637",
+      "solvedAt": "2026-09-21T17:47:26.106Z"
+    },
+    {
+      "id": "tlx-6050630",
+      "platform": "tlx",
+      "title": "Lampu Hias Warna-Warni",
+      "category": "KSN-P Informatika 2020 - Bagian B",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6050630",
+      "solvedAt": "2026-09-21T17:39:14.755Z"
+    },
     {
       "id": "tlx-6047692",
       "platform": "tlx",

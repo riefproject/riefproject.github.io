@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-22T10:55:14.426Z",
+    "updatedAt": "2026-09-22T16:13:10.671Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 641,
-    "totalSubmissions": 1528,
+    "totalSolved": 646,
+    "totalSubmissions": 1534,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-22": {
+        "tries": 7,
+        "ac": 5
+      },
       "2026-09-21": {
         "tries": 24,
         "ac": 13
@@ -134,7 +138,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 40,
+        "tries": 41,
         "ac": 12
       },
       "2026-07-16": {
@@ -262,16 +266,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -499,17 +503,21 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 795,
-      "totalSolved": 371,
-      "uniqueProblemsSolved": 319,
-      "totalAcSubmissions": 362,
+      "totalSubmissions": 801,
+      "totalSolved": 376,
+      "uniqueProblemsSolved": 323,
+      "totalAcSubmissions": 367,
       "languages": {
-        "Cpp20": 767,
+        "Cpp20": 773,
         "Pascal": 17,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-22": {
+          "tries": 7,
+          "ac": 5
+        },
         "2026-09-21": {
           "tries": 24,
           "ac": 13
@@ -631,7 +639,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 40,
+          "tries": 41,
           "ac": 12
         },
         "2026-07-16": {
@@ -759,19 +767,69 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6056541",
+          "platform": "tlx",
+          "title": "Foto Wisuda",
+          "category": "GEMASTIK 2016 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6056541",
+          "solvedAt": "2026-09-22T14:32:58.370Z"
+        },
+        {
+          "id": "tlx-6056451",
+          "platform": "tlx",
+          "title": "Saklar Lhompat",
+          "category": "GEMASTIK 2016 - Penyisihan Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6056451",
+          "solvedAt": "2026-09-22T14:17:45.436Z"
+        },
+        {
+          "id": "tlx-6056339",
+          "platform": "tlx",
+          "title": "Membangun Menara",
+          "category": "GEMASTIK 2016 - Penyisihan Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6056339",
+          "solvedAt": "2026-09-22T13:59:55.653Z"
+        },
+        {
+          "id": "tlx-6055977",
+          "platform": "tlx",
+          "title": "Memasang Karpet",
+          "category": "OSN-P Informatika 2022 - Bagian B",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6055977",
+          "solvedAt": "2026-09-22T13:03:25.002Z"
+        },
+        {
+          "id": "tlx-6055627",
+          "platform": "tlx",
+          "title": "Mengangkut Bebek",
+          "category": "OSN-P Informatika 2022 - Bagian B",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6055627",
+          "solvedAt": "2026-09-22T11:52:36.105Z"
+        },
         {
           "id": "tlx-6050715",
           "platform": "tlx",
@@ -3703,16 +3761,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -4765,7 +4813,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2202149,
+      "ranking": 2203586,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5049,43 +5097,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140634
+          "rank": 140637
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1929671
+          "rank": 1929852
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119948
+          "rank": 119956
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 528782
+          "rank": 528811
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190923
+          "rank": 190927
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1634237
+          "rank": 1634316
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 720012
+          "rank": 720080
         },
         {
           "name": "Mathematics",
@@ -5097,7 +5145,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 461286
+          "rank": 461318
         }
       ],
       "dailyCalendar": {
@@ -5427,6 +5475,56 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6056541",
+      "platform": "tlx",
+      "title": "Foto Wisuda",
+      "category": "GEMASTIK 2016 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6056541",
+      "solvedAt": "2026-09-22T14:32:58.370Z"
+    },
+    {
+      "id": "tlx-6056451",
+      "platform": "tlx",
+      "title": "Saklar Lhompat",
+      "category": "GEMASTIK 2016 - Penyisihan Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6056451",
+      "solvedAt": "2026-09-22T14:17:45.436Z"
+    },
+    {
+      "id": "tlx-6056339",
+      "platform": "tlx",
+      "title": "Membangun Menara",
+      "category": "GEMASTIK 2016 - Penyisihan Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6056339",
+      "solvedAt": "2026-09-22T13:59:55.653Z"
+    },
+    {
+      "id": "tlx-6055977",
+      "platform": "tlx",
+      "title": "Memasang Karpet",
+      "category": "OSN-P Informatika 2022 - Bagian B",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6055977",
+      "solvedAt": "2026-09-22T13:03:25.002Z"
+    },
+    {
+      "id": "tlx-6055627",
+      "platform": "tlx",
+      "title": "Mengangkut Bebek",
+      "category": "OSN-P Informatika 2022 - Bagian B",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6055627",
+      "solvedAt": "2026-09-22T11:52:36.105Z"
+    },
     {
       "id": "tlx-6050715",
       "platform": "tlx",
@@ -8726,16 +8824,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
-    },
-    {
-      "id": "tlx-4650590",
-      "platform": "tlx",
-      "title": "Perkenalan Larik (Array)",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650590",
-      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

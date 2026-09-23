@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-23T03:09:56.939Z",
+    "updatedAt": "2026-09-23T10:43:13.632Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,16 +9,20 @@
     }
   },
   "overview": {
-    "totalSolved": 646,
-    "totalSubmissions": 1534,
+    "totalSolved": 650,
+    "totalSubmissions": 1540,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-23": {
+        "tries": 7,
+        "ac": 5
+      },
       "2026-09-22": {
         "tries": 7,
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
+        "tries": 23,
         "ac": 13
       },
       "2026-09-19": {
@@ -250,7 +254,7 @@
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 23,
+        "tries": 22,
         "ac": 6
       },
       "2025-12-01": {
@@ -274,8 +278,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 106,
-        "ac": 54
+        "tries": 107,
+        "ac": 55
       },
       "2026-08-25": {
         "tries": 1,
@@ -503,23 +507,27 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 801,
-      "totalSolved": 376,
-      "uniqueProblemsSolved": 323,
-      "totalAcSubmissions": 367,
+      "totalSubmissions": 807,
+      "totalSolved": 380,
+      "uniqueProblemsSolved": 329,
+      "totalAcSubmissions": 372,
       "languages": {
-        "Cpp20": 773,
+        "Cpp20": 779,
         "Pascal": 17,
         "C": 8,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-23": {
+          "tries": 7,
+          "ac": 5
+        },
         "2026-09-22": {
           "tries": 7,
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
+          "tries": 23,
           "ac": 13
         },
         "2026-09-19": {
@@ -751,7 +759,7 @@
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 23,
+          "tries": 22,
           "ac": 6
         },
         "2025-12-01": {
@@ -775,11 +783,61 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 106,
-          "ac": 54
+          "tries": 107,
+          "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6058062",
+          "platform": "tlx",
+          "title": "Bon Appétit",
+          "category": "Divide and Conquer Lanjutan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6058062",
+          "solvedAt": "2026-09-23T06:11:56.364Z"
+        },
+        {
+          "id": "tlx-6058054",
+          "platform": "tlx",
+          "title": "Perkenalan Meet in the Middle",
+          "category": "Divide and Conquer Lanjutan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6058054",
+          "solvedAt": "2026-09-23T06:07:37.360Z"
+        },
+        {
+          "id": "tlx-6058038",
+          "platform": "tlx",
+          "title": "Dua Titik dan Lingkaran",
+          "category": "Pencarian Biner Lanjutan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6058038",
+          "solvedAt": "2026-09-23T05:59:06.387Z"
+        },
+        {
+          "id": "tlx-6058024",
+          "platform": "tlx",
+          "title": "Type Printer",
+          "category": "IOI 2008",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6058024",
+          "solvedAt": "2026-09-23T05:47:02.013Z"
+        },
+        {
+          "id": "tlx-6057633",
+          "platform": "tlx",
+          "title": "Balon Warna-Warni",
+          "category": "GEMASTIK 2016 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6057633",
+          "solvedAt": "2026-09-23T03:11:22.634Z"
+        },
         {
           "id": "tlx-6056541",
           "platform": "tlx",
@@ -3761,6 +3819,16 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
+          "id": "tlx-4650590",
+          "platform": "tlx",
+          "title": "Perkenalan Larik (Array)",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650590",
+          "solvedAt": "2025-11-24T15:46:02.359Z"
+        },
+        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -5097,55 +5165,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140641
+          "rank": 140652
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1930015
+          "rank": 1930254
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 119960
+          "rank": 119986
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 528840
+          "rank": 528911
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190936
+          "rank": 190941
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1634394
+          "rank": 1634663
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 720137
+          "rank": 720212
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85751
+          "rank": 85753
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 461329
+          "rank": 461390
         }
       ],
       "dailyCalendar": {
@@ -5475,6 +5543,56 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6058062",
+      "platform": "tlx",
+      "title": "Bon Appétit",
+      "category": "Divide and Conquer Lanjutan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6058062",
+      "solvedAt": "2026-09-23T06:11:56.364Z"
+    },
+    {
+      "id": "tlx-6058054",
+      "platform": "tlx",
+      "title": "Perkenalan Meet in the Middle",
+      "category": "Divide and Conquer Lanjutan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6058054",
+      "solvedAt": "2026-09-23T06:07:37.360Z"
+    },
+    {
+      "id": "tlx-6058038",
+      "platform": "tlx",
+      "title": "Dua Titik dan Lingkaran",
+      "category": "Pencarian Biner Lanjutan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6058038",
+      "solvedAt": "2026-09-23T05:59:06.387Z"
+    },
+    {
+      "id": "tlx-6058024",
+      "platform": "tlx",
+      "title": "Type Printer",
+      "category": "IOI 2008",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6058024",
+      "solvedAt": "2026-09-23T05:47:02.013Z"
+    },
+    {
+      "id": "tlx-6057633",
+      "platform": "tlx",
+      "title": "Balon Warna-Warni",
+      "category": "GEMASTIK 2016 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6057633",
+      "solvedAt": "2026-09-23T03:11:22.634Z"
+    },
     {
       "id": "tlx-6056541",
       "platform": "tlx",
@@ -8824,6 +8942,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
+    },
+    {
+      "id": "tlx-4650590",
+      "platform": "tlx",
+      "title": "Perkenalan Larik (Array)",
+      "category": "Larik (Array)",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/4650590",
+      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

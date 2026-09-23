@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-23T10:43:01.958Z",
+    "updatedAt": "2026-09-23T16:02:05.038Z",
     "source": "scheduled-crawl"
   },
   "overview": {
@@ -1115,7 +1115,7 @@
   "platforms": {
     "github": {
       "meta": {
-        "updatedAt": "2026-09-23T10:42:59.332Z",
+        "updatedAt": "2026-09-23T16:02:02.330Z",
         "username": "riefproject",
         "source": "github-public-api"
       },
@@ -5564,8 +5564,8 @@
         },
         {
           "name": "Java",
-          "bytes": 293744,
-          "percentage": 3
+          "bytes": 276432,
+          "percentage": 2.9
         },
         {
           "name": "Blade",
@@ -5642,7 +5642,7 @@
           "language": "Vue",
           "stars": 1,
           "forks": 0,
-          "updatedAt": "2026-09-23T03:10:01Z",
+          "updatedAt": "2026-09-23T10:43:18Z",
           "archived": false,
           "topics": [
             "cv",

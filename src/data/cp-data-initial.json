@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-24T16:26:59.781Z",
+    "updatedAt": "2026-09-24T21:06:36.907Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,13 +9,13 @@
     }
   },
   "overview": {
-    "totalSolved": 662,
+    "totalSolved": 665,
     "totalSubmissions": 1560,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-09-24": {
-        "tries": 19,
-        "ac": 14
+        "tries": 25,
+        "ac": 19
       },
       "2026-09-23": {
         "tries": 7,
@@ -26,8 +26,8 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
-        "ac": 13
+        "tries": 23,
+        "ac": 12
       },
       "2026-09-19": {
         "tries": 7,
@@ -38,7 +38,7 @@
         "ac": 5
       },
       "2026-09-14": {
-        "tries": 11,
+        "tries": 10,
         "ac": 6
       },
       "2026-09-13": {
@@ -62,7 +62,7 @@
         "ac": 18
       },
       "2026-09-06": {
-        "tries": 7,
+        "tries": 6,
         "ac": 4
       },
       "2026-09-03": {
@@ -146,7 +146,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 41,
+        "tries": 40,
         "ac": 12
       },
       "2026-07-16": {
@@ -258,7 +258,7 @@
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 22,
+        "tries": 23,
         "ac": 6
       },
       "2025-12-01": {
@@ -266,7 +266,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 26,
+        "tries": 25,
         "ac": 6
       },
       "2025-11-27": {
@@ -274,16 +274,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
-        "ac": 55
+        "tries": 105,
+        "ac": 53
       },
       "2026-08-25": {
         "tries": 1,
@@ -512,19 +512,20 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 827,
-      "totalSolved": 392,
+      "totalSolved": 395,
       "uniqueProblemsSolved": 341,
-      "totalAcSubmissions": 384,
+      "totalAcSubmissions": 387,
       "languages": {
-        "Cpp20": 799,
+        "Cpp20": 796,
         "Pascal": 17,
-        "C": 8,
+        "C": 9,
+        "Cpp11": 2,
         "Rust2021": 3
       },
       "dailyCalendar": {
         "2026-09-24": {
-          "tries": 19,
-          "ac": 14
+          "tries": 25,
+          "ac": 19
         },
         "2026-09-23": {
           "tries": 7,
@@ -535,8 +536,8 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
-          "ac": 13
+          "tries": 23,
+          "ac": 12
         },
         "2026-09-19": {
           "tries": 7,
@@ -547,7 +548,7 @@
           "ac": 5
         },
         "2026-09-14": {
-          "tries": 11,
+          "tries": 10,
           "ac": 6
         },
         "2026-09-13": {
@@ -571,7 +572,7 @@
           "ac": 18
         },
         "2026-09-06": {
-          "tries": 7,
+          "tries": 6,
           "ac": 4
         },
         "2026-09-03": {
@@ -655,7 +656,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 41,
+          "tries": 40,
           "ac": 12
         },
         "2026-07-16": {
@@ -767,7 +768,7 @@
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 22,
+          "tries": 23,
           "ac": 6
         },
         "2025-12-01": {
@@ -775,7 +776,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 26,
+          "tries": 25,
           "ac": 6
         },
         "2025-11-27": {
@@ -783,19 +784,49 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
-          "ac": 55
+          "tries": 105,
+          "ac": 53
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6066370",
+          "platform": "tlx",
+          "title": "Respect",
+          "category": "TROC #42",
+          "language": "Cpp11",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6066370",
+          "solvedAt": "2026-09-24T17:38:41.093Z"
+        },
+        {
+          "id": "tlx-6066366",
+          "platform": "tlx",
+          "title": "One Two Three Four",
+          "category": "TROC #42",
+          "language": "Cpp11",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6066366",
+          "solvedAt": "2026-09-24T17:29:31.262Z"
+        },
+        {
+          "id": "tlx-6066304",
+          "platform": "tlx",
+          "title": "Garage",
+          "category": "IOI 2009",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6066304",
+          "solvedAt": "2026-09-24T16:27:18.480Z"
+        },
         {
           "id": "tlx-6065938",
           "platform": "tlx",
@@ -1025,16 +1056,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/6050715",
           "solvedAt": "2026-09-21T22:41:02.907Z"
-        },
-        {
-          "id": "tlx-6050714",
-          "platform": "tlx",
-          "title": "Kalkulator Rusak",
-          "category": "BNPCHS 2011 - Penyisihan",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6050714",
-          "solvedAt": "2026-09-21T22:34:41.425Z"
         },
         {
           "id": "tlx-6050706",
@@ -3767,16 +3788,6 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
-          "id": "tlx-4650685",
-          "platform": "tlx",
-          "title": "Kalkulator String",
-          "category": "Tipe Data Lainnya",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650685",
-          "solvedAt": "2025-11-24T16:47:20.506Z"
-        },
-        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -3905,16 +3916,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650610",
           "solvedAt": "2025-11-24T16:04:33.451Z"
-        },
-        {
-          "id": "tlx-4650598",
-          "platform": "tlx",
-          "title": "Toko Kandang II",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650598",
-          "solvedAt": "2025-11-24T15:54:33.525Z"
         },
         {
           "id": "tlx-4650595",
@@ -5294,43 +5295,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140681
+          "rank": 140685
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1931002
+          "rank": 1931095
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120023
+          "rank": 120025
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529058
+          "rank": 529082
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190987
+          "rank": 190991
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1635134
+          "rank": 1635185
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 720506
+          "rank": 720544
         },
         {
           "name": "Mathematics",
@@ -5342,7 +5343,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 461536
+          "rank": 461549
         }
       ],
       "dailyCalendar": {
@@ -5673,6 +5674,36 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "tlx-6066370",
+      "platform": "tlx",
+      "title": "Respect",
+      "category": "TROC #42",
+      "language": "Cpp11",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6066370",
+      "solvedAt": "2026-09-24T17:38:41.093Z"
+    },
+    {
+      "id": "tlx-6066366",
+      "platform": "tlx",
+      "title": "One Two Three Four",
+      "category": "TROC #42",
+      "language": "Cpp11",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6066366",
+      "solvedAt": "2026-09-24T17:29:31.262Z"
+    },
+    {
+      "id": "tlx-6066304",
+      "platform": "tlx",
+      "title": "Garage",
+      "category": "IOI 2009",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6066304",
+      "solvedAt": "2026-09-24T16:27:18.480Z"
+    },
+    {
       "id": "tlx-6065938",
       "platform": "tlx",
       "title": "POI",
@@ -5901,16 +5932,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/6050715",
       "solvedAt": "2026-09-21T22:41:02.907Z"
-    },
-    {
-      "id": "tlx-6050714",
-      "platform": "tlx",
-      "title": "Kalkulator Rusak",
-      "category": "BNPCHS 2011 - Penyisihan",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6050714",
-      "solvedAt": "2026-09-21T22:34:41.425Z"
     },
     {
       "id": "tlx-6050706",
@@ -9013,16 +9034,6 @@
       "solvedAt": "2025-11-24T16:47:51.765Z"
     },
     {
-      "id": "tlx-4650685",
-      "platform": "tlx",
-      "title": "Kalkulator String",
-      "category": "Tipe Data Lainnya",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650685",
-      "solvedAt": "2025-11-24T16:47:20.506Z"
-    },
-    {
       "id": "tlx-4650682",
       "platform": "tlx",
       "title": "Tipe Data std::vector",
@@ -9151,16 +9162,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650610",
       "solvedAt": "2025-11-24T16:04:33.451Z"
-    },
-    {
-      "id": "tlx-4650598",
-      "platform": "tlx",
-      "title": "Toko Kandang II",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650598",
-      "solvedAt": "2025-11-24T15:54:33.525Z"
     },
     {
       "id": "tlx-4650595",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-23T21:02:32.376Z",
+    "updatedAt": "2026-09-24T03:00:37.322Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -4115,17 +4115,10 @@
         "*special": 1
       },
       "ratingDistribution": {
-        "800": 27,
+        "800": 25,
         "900": 1,
-        "1000": 3,
-        "1100": 2,
-        "1200": 1,
-        "1500": 1,
-        "1600": 1,
-        "1800": 1,
-        "2100": 2,
-        "2300": 1,
-        "2600": 1
+        "1000": 2,
+        "1100": 1
       },
       "dailyCalendar": {
         "2026-08-25": {
@@ -4262,7 +4255,7 @@
           "title": "How Long Until Nothing Remains? (2256F)",
           "category": "binary search",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "2300",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2256/problem/F",
           "solvedAt": "2026-08-09T16:05:45.000Z"
         },
@@ -4272,7 +4265,7 @@
           "title": "Even If the World Turns (2256E)",
           "category": "communication",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "2100",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2256/problem/E",
           "solvedAt": "2026-08-09T15:48:34.000Z"
         },
@@ -4282,7 +4275,7 @@
           "title": "A Ribbon for Tomorrow (2256D)",
           "category": "math",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "1600",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2256/problem/D",
           "solvedAt": "2026-08-09T15:35:17.000Z"
         },
@@ -4292,7 +4285,7 @@
           "title": "Hot Potatoes at the Fairy Warehouse (2256C)",
           "category": "brute force",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "1200",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2256/problem/C",
           "solvedAt": "2026-08-09T15:21:33.000Z"
         },
@@ -4302,7 +4295,7 @@
           "title": "Domino Tiles (2256B)",
           "category": "implementation",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "1000",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2256/problem/B",
           "solvedAt": "2026-08-09T15:09:16.000Z"
         },
@@ -4322,7 +4315,7 @@
           "title": "Diameter Intersections (2253E)",
           "category": "brute force",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "2100",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2253/problem/E",
           "solvedAt": "2026-08-07T16:26:56.000Z"
         },
@@ -4332,7 +4325,7 @@
           "title": "4-beauty (2253F)",
           "category": "bitmasks",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "2600",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2253/problem/F",
           "solvedAt": "2026-08-07T16:02:34.000Z"
         },
@@ -4342,7 +4335,7 @@
           "title": "Hypercarp and Interdimensional Jumps (2253D)",
           "category": "binary search",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "1800",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2253/problem/D",
           "solvedAt": "2026-08-07T15:46:53.000Z"
         },
@@ -4352,7 +4345,7 @@
           "title": "Sum of Distinct Values in a Matrix (2253C)",
           "category": "greedy",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "1500",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2253/problem/C",
           "solvedAt": "2026-08-07T15:28:00.000Z"
         },
@@ -4362,7 +4355,7 @@
           "title": "Hypercarp and the Control Panel (2253B)",
           "category": "brute force",
           "language": "C++20 (GCC 13-64)",
-          "difficulty": "1100",
+          "difficulty": "800",
           "url": "https://codeforces.com/contest/2253/problem/B",
           "solvedAt": "2026-08-07T15:17:08.000Z"
         },
@@ -5171,49 +5164,49 @@
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1930568
+          "rank": 1930610
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120007
+          "rank": 120008
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 528960
+          "rank": 528964
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190959
+          "rank": 190966
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1634789
+          "rank": 1634816
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 720333
+          "rank": 720350
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85755
+          "rank": 85758
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 461434
+          "rank": 461441
         }
       ],
       "dailyCalendar": {
@@ -6979,7 +6972,7 @@
       "title": "How Long Until Nothing Remains? (2256F)",
       "category": "binary search",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "2300",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2256/problem/F",
       "solvedAt": "2026-08-09T16:05:45.000Z"
     },
@@ -6989,7 +6982,7 @@
       "title": "Even If the World Turns (2256E)",
       "category": "communication",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "2100",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2256/problem/E",
       "solvedAt": "2026-08-09T15:48:34.000Z"
     },
@@ -6999,7 +6992,7 @@
       "title": "A Ribbon for Tomorrow (2256D)",
       "category": "math",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "1600",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2256/problem/D",
       "solvedAt": "2026-08-09T15:35:17.000Z"
     },
@@ -7009,7 +7002,7 @@
       "title": "Hot Potatoes at the Fairy Warehouse (2256C)",
       "category": "brute force",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "1200",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2256/problem/C",
       "solvedAt": "2026-08-09T15:21:33.000Z"
     },
@@ -7019,7 +7012,7 @@
       "title": "Domino Tiles (2256B)",
       "category": "implementation",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "1000",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2256/problem/B",
       "solvedAt": "2026-08-09T15:09:16.000Z"
     },
@@ -7039,7 +7032,7 @@
       "title": "Diameter Intersections (2253E)",
       "category": "brute force",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "2100",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2253/problem/E",
       "solvedAt": "2026-08-07T16:26:56.000Z"
     },
@@ -7049,7 +7042,7 @@
       "title": "4-beauty (2253F)",
       "category": "bitmasks",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "2600",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2253/problem/F",
       "solvedAt": "2026-08-07T16:02:34.000Z"
     },
@@ -7059,7 +7052,7 @@
       "title": "Hypercarp and Interdimensional Jumps (2253D)",
       "category": "binary search",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "1800",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2253/problem/D",
       "solvedAt": "2026-08-07T15:46:53.000Z"
     },
@@ -7069,7 +7062,7 @@
       "title": "Sum of Distinct Values in a Matrix (2253C)",
       "category": "greedy",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "1500",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2253/problem/C",
       "solvedAt": "2026-08-07T15:28:00.000Z"
     },
@@ -7079,7 +7072,7 @@
       "title": "Hypercarp and the Control Panel (2253B)",
       "category": "brute force",
       "language": "C++20 (GCC 13-64)",
-      "difficulty": "1100",
+      "difficulty": "800",
       "url": "https://codeforces.com/contest/2253/problem/B",
       "solvedAt": "2026-08-07T15:17:08.000Z"
     },

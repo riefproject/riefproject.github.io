@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-25T03:17:47.315Z",
+    "updatedAt": "2026-09-25T11:04:08.447Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 665,
-    "totalSubmissions": 1560,
+    "totalSolved": 668,
+    "totalSubmissions": 1568,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-25": {
+        "tries": 3,
+        "ac": 3
+      },
       "2026-09-24": {
         "tries": 25,
         "ac": 19
@@ -26,19 +30,19 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
-        "ac": 12
+        "tries": 24,
+        "ac": 13
       },
       "2026-09-19": {
         "tries": 7,
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 9,
+        "tries": 8,
         "ac": 5
       },
       "2026-09-14": {
-        "tries": 10,
+        "tries": 11,
         "ac": 6
       },
       "2026-09-13": {
@@ -62,7 +66,7 @@
         "ac": 18
       },
       "2026-09-06": {
-        "tries": 6,
+        "tries": 7,
         "ac": 4
       },
       "2026-09-03": {
@@ -146,7 +150,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 40,
+        "tries": 41,
         "ac": 12
       },
       "2026-07-16": {
@@ -214,7 +218,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 12,
+        "tries": 11,
         "ac": 3
       },
       "2026-02-27": {
@@ -250,8 +254,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 3,
-        "ac": 2
+        "tries": 2,
+        "ac": 1
       },
       "2025-12-03": {
         "tries": 1,
@@ -266,7 +270,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 25,
+        "tries": 26,
         "ac": 6
       },
       "2025-11-27": {
@@ -282,8 +286,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 105,
-        "ac": 53
+        "tries": 108,
+        "ac": 55
       },
       "2026-08-25": {
         "tries": 1,
@@ -511,18 +515,23 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 827,
-      "totalSolved": 395,
-      "uniqueProblemsSolved": 341,
-      "totalAcSubmissions": 387,
+      "totalSubmissions": 835,
+      "totalSolved": 398,
+      "uniqueProblemsSolved": 347,
+      "totalAcSubmissions": 390,
       "languages": {
-        "Cpp20": 796,
-        "Pascal": 17,
+        "Cpp20": 804,
+        "Pascal": 16,
         "C": 9,
+        "Cpp17": 1,
         "Cpp11": 2,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-25": {
+          "tries": 3,
+          "ac": 3
+        },
         "2026-09-24": {
           "tries": 25,
           "ac": 19
@@ -536,19 +545,19 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
-          "ac": 12
+          "tries": 24,
+          "ac": 13
         },
         "2026-09-19": {
           "tries": 7,
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 9,
+          "tries": 8,
           "ac": 5
         },
         "2026-09-14": {
-          "tries": 10,
+          "tries": 11,
           "ac": 6
         },
         "2026-09-13": {
@@ -572,7 +581,7 @@
           "ac": 18
         },
         "2026-09-06": {
-          "tries": 6,
+          "tries": 7,
           "ac": 4
         },
         "2026-09-03": {
@@ -656,7 +665,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 40,
+          "tries": 41,
           "ac": 12
         },
         "2026-07-16": {
@@ -724,7 +733,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 12,
+          "tries": 11,
           "ac": 3
         },
         "2026-02-27": {
@@ -760,8 +769,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 3,
-          "ac": 2
+          "tries": 2,
+          "ac": 1
         },
         "2025-12-03": {
           "tries": 1,
@@ -776,7 +785,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 25,
+          "tries": 26,
           "ac": 6
         },
         "2025-11-27": {
@@ -792,11 +801,41 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 105,
-          "ac": 53
+          "tries": 108,
+          "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6068172",
+          "platform": "tlx",
+          "title": "Cluedo",
+          "category": "IOI 2010",
+          "language": "Cpp17",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6068172",
+          "solvedAt": "2026-09-25T04:10:04.042Z"
+        },
+        {
+          "id": "tlx-6068018",
+          "platform": "tlx",
+          "title": "Perkenalan Pohon Rentang Minimum: Prim/Kruskal",
+          "category": "Algoritma Graf",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6068018",
+          "solvedAt": "2026-09-25T03:47:31.700Z"
+        },
+        {
+          "id": "tlx-6067902",
+          "platform": "tlx",
+          "title": "THE TRiANGLE",
+          "category": "Dasar-Dasar Geometri",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6067902",
+          "solvedAt": "2026-09-25T03:34:16.871Z"
+        },
         {
           "id": "tlx-6066370",
           "platform": "tlx",
@@ -1056,6 +1095,16 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/6050715",
           "solvedAt": "2026-09-21T22:41:02.907Z"
+        },
+        {
+          "id": "tlx-6050714",
+          "platform": "tlx",
+          "title": "Kalkulator Rusak",
+          "category": "BNPCHS 2011 - Penyisihan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6050714",
+          "solvedAt": "2026-09-21T22:34:41.425Z"
         },
         {
           "id": "tlx-6050706",
@@ -3788,6 +3837,16 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
+          "id": "tlx-4650685",
+          "platform": "tlx",
+          "title": "Kalkulator String",
+          "category": "Tipe Data Lainnya",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650685",
+          "solvedAt": "2025-11-24T16:47:20.506Z"
+        },
+        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -3916,6 +3975,16 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650610",
           "solvedAt": "2025-11-24T16:04:33.451Z"
+        },
+        {
+          "id": "tlx-4650598",
+          "platform": "tlx",
+          "title": "Toko Kandang II",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650598",
+          "solvedAt": "2025-11-24T15:54:33.525Z"
         },
         {
           "id": "tlx-4650595",
@@ -5011,7 +5080,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2207211,
+      "ranking": 2367686,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5295,55 +5364,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140687
+          "rank": 140697
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1931138
+          "rank": 1931328
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120027
+          "rank": 120032
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529087
+          "rank": 529147
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 190992
+          "rank": 191003
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1635209
+          "rank": 1635364
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 720560
+          "rank": 720628
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85763
+          "rank": 85767
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 461552
+          "rank": 461605
         }
       ],
       "dailyCalendar": {
@@ -5674,6 +5743,36 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "tlx-6068172",
+      "platform": "tlx",
+      "title": "Cluedo",
+      "category": "IOI 2010",
+      "language": "Cpp17",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6068172",
+      "solvedAt": "2026-09-25T04:10:04.042Z"
+    },
+    {
+      "id": "tlx-6068018",
+      "platform": "tlx",
+      "title": "Perkenalan Pohon Rentang Minimum: Prim/Kruskal",
+      "category": "Algoritma Graf",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6068018",
+      "solvedAt": "2026-09-25T03:47:31.700Z"
+    },
+    {
+      "id": "tlx-6067902",
+      "platform": "tlx",
+      "title": "THE TRiANGLE",
+      "category": "Dasar-Dasar Geometri",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6067902",
+      "solvedAt": "2026-09-25T03:34:16.871Z"
+    },
+    {
       "id": "tlx-6066370",
       "platform": "tlx",
       "title": "Respect",
@@ -5932,6 +6031,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/6050715",
       "solvedAt": "2026-09-21T22:41:02.907Z"
+    },
+    {
+      "id": "tlx-6050714",
+      "platform": "tlx",
+      "title": "Kalkulator Rusak",
+      "category": "BNPCHS 2011 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6050714",
+      "solvedAt": "2026-09-21T22:34:41.425Z"
     },
     {
       "id": "tlx-6050706",
@@ -9034,6 +9143,16 @@
       "solvedAt": "2025-11-24T16:47:51.765Z"
     },
     {
+      "id": "tlx-4650685",
+      "platform": "tlx",
+      "title": "Kalkulator String",
+      "category": "Tipe Data Lainnya",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/4650685",
+      "solvedAt": "2025-11-24T16:47:20.506Z"
+    },
+    {
       "id": "tlx-4650682",
       "platform": "tlx",
       "title": "Tipe Data std::vector",
@@ -9162,6 +9281,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650610",
       "solvedAt": "2025-11-24T16:04:33.451Z"
+    },
+    {
+      "id": "tlx-4650598",
+      "platform": "tlx",
+      "title": "Toko Kandang II",
+      "category": "Larik (Array)",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/4650598",
+      "solvedAt": "2025-11-24T15:54:33.525Z"
     },
     {
       "id": "tlx-4650595",

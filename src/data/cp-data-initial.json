@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-27T16:20:51.652Z",
+    "updatedAt": "2026-09-27T20:49:49.345Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,9 +10,13 @@
   },
   "overview": {
     "totalSolved": 673,
-    "totalSubmissions": 1568,
+    "totalSubmissions": 1574,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-27": {
+        "tries": 5,
+        "ac": 5
+      },
       "2026-09-26": {
         "tries": 1,
         "ac": 1
@@ -42,7 +46,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 9,
+        "tries": 8,
         "ac": 5
       },
       "2026-09-14": {
@@ -54,8 +58,8 @@
         "ac": 1
       },
       "2026-09-11": {
-        "tries": 6,
-        "ac": 5
+        "tries": 7,
+        "ac": 6
       },
       "2026-09-09": {
         "tries": 3,
@@ -78,8 +82,8 @@
         "ac": 7
       },
       "2026-09-02": {
-        "tries": 6,
-        "ac": 2
+        "tries": 7,
+        "ac": 3
       },
       "2026-08-29": {
         "tries": 12,
@@ -222,7 +226,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 11,
+        "tries": 12,
         "ac": 3
       },
       "2026-02-27": {
@@ -258,8 +262,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 2,
-        "ac": 1
+        "tries": 3,
+        "ac": 2
       },
       "2025-12-03": {
         "tries": 1,
@@ -282,16 +286,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -519,12 +523,12 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 835,
+      "totalSubmissions": 841,
       "totalSolved": 403,
-      "uniqueProblemsSolved": 348,
+      "uniqueProblemsSolved": 352,
       "totalAcSubmissions": 396,
       "languages": {
-        "Cpp20": 802,
+        "Cpp20": 808,
         "Pascal": 17,
         "C": 9,
         "Cpp17": 2,
@@ -532,6 +536,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-27": {
+          "tries": 5,
+          "ac": 5
+        },
         "2026-09-26": {
           "tries": 1,
           "ac": 1
@@ -561,7 +569,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 9,
+          "tries": 8,
           "ac": 5
         },
         "2026-09-14": {
@@ -573,8 +581,8 @@
           "ac": 1
         },
         "2026-09-11": {
-          "tries": 6,
-          "ac": 5
+          "tries": 7,
+          "ac": 6
         },
         "2026-09-09": {
           "tries": 3,
@@ -597,8 +605,8 @@
           "ac": 7
         },
         "2026-09-02": {
-          "tries": 6,
-          "ac": 2
+          "tries": 7,
+          "ac": 3
         },
         "2026-08-29": {
           "tries": 12,
@@ -741,7 +749,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 11,
+          "tries": 12,
           "ac": 3
         },
         "2026-02-27": {
@@ -777,8 +785,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 2,
-          "ac": 1
+          "tries": 3,
+          "ac": 2
         },
         "2025-12-03": {
           "tries": 1,
@@ -801,19 +809,69 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6078512",
+          "platform": "tlx",
+          "title": "Break the Bill",
+          "category": "COMPFEST 18 - Final CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6078512",
+          "solvedAt": "2026-09-27T16:59:07.575Z"
+        },
+        {
+          "id": "tlx-6078508",
+          "platform": "tlx",
+          "title": "Laying Flowers",
+          "category": "COMPFEST 18 - Final CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6078508",
+          "solvedAt": "2026-09-27T16:58:22.157Z"
+        },
+        {
+          "id": "tlx-6078507",
+          "platform": "tlx",
+          "title": "A Fate-Defying Chanek",
+          "category": "COMPFEST 18 - Final CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6078507",
+          "solvedAt": "2026-09-27T16:57:50.273Z"
+        },
+        {
+          "id": "tlx-6078506",
+          "platform": "tlx",
+          "title": "Morning Sun",
+          "category": "COMPFEST 18 - Final CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6078506",
+          "solvedAt": "2026-09-27T16:57:23.723Z"
+        },
+        {
+          "id": "tlx-6078505",
+          "platform": "tlx",
+          "title": "Hope from Light of Wisdom",
+          "category": "COMPFEST 18 - Final CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6078505",
+          "solvedAt": "2026-09-27T16:56:54.566Z"
+        },
         {
           "id": "tlx-6074335",
           "platform": "tlx",
@@ -1805,6 +1863,16 @@
           "solvedAt": "2026-09-02T11:43:28.425Z"
         },
         {
+          "id": "tlx-5939699",
+          "platform": "tlx",
+          "title": "Amateur Architect",
+          "category": "COMPFEST 18 - Penyisihan CPC Junior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5939699",
+          "solvedAt": "2026-09-02T11:42:53.591Z"
+        },
+        {
           "id": "tlx-5938804",
           "platform": "tlx",
           "title": "Pembangkit Listrik",
@@ -1973,16 +2041,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/5889874",
           "solvedAt": "2026-08-26T05:12:02.898Z"
-        },
-        {
-          "id": "tlx-5875341",
-          "platform": "tlx",
-          "title": "Amateur Architect",
-          "category": "COMPFEST 18 - Penyisihan CPC Senior",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/5875341",
-          "solvedAt": "2026-08-23T15:19:24.446Z"
         },
         {
           "id": "tlx-5875280",
@@ -4035,16 +4093,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -5098,7 +5146,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2367686,
+      "ranking": 2211295,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5382,43 +5430,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140732
+          "rank": 140736
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1932331
+          "rank": 1932402
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120080
+          "rank": 120081
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529356
+          "rank": 529380
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191061
+          "rank": 191071
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1635963
+          "rank": 1636020
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 721031
+          "rank": 721066
         },
         {
           "name": "Mathematics",
@@ -5430,7 +5478,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 461765
+          "rank": 461779
         }
       ],
       "dailyCalendar": {
@@ -5760,6 +5808,56 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6078512",
+      "platform": "tlx",
+      "title": "Break the Bill",
+      "category": "COMPFEST 18 - Final CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6078512",
+      "solvedAt": "2026-09-27T16:59:07.575Z"
+    },
+    {
+      "id": "tlx-6078508",
+      "platform": "tlx",
+      "title": "Laying Flowers",
+      "category": "COMPFEST 18 - Final CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6078508",
+      "solvedAt": "2026-09-27T16:58:22.157Z"
+    },
+    {
+      "id": "tlx-6078507",
+      "platform": "tlx",
+      "title": "A Fate-Defying Chanek",
+      "category": "COMPFEST 18 - Final CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6078507",
+      "solvedAt": "2026-09-27T16:57:50.273Z"
+    },
+    {
+      "id": "tlx-6078506",
+      "platform": "tlx",
+      "title": "Morning Sun",
+      "category": "COMPFEST 18 - Final CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6078506",
+      "solvedAt": "2026-09-27T16:57:23.723Z"
+    },
+    {
+      "id": "tlx-6078505",
+      "platform": "tlx",
+      "title": "Hope from Light of Wisdom",
+      "category": "COMPFEST 18 - Final CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6078505",
+      "solvedAt": "2026-09-27T16:56:54.566Z"
+    },
     {
       "id": "tlx-6074335",
       "platform": "tlx",
@@ -6831,6 +6929,16 @@
       "solvedAt": "2026-09-02T11:43:28.425Z"
     },
     {
+      "id": "tlx-5939699",
+      "platform": "tlx",
+      "title": "Amateur Architect",
+      "category": "COMPFEST 18 - Penyisihan CPC Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5939699",
+      "solvedAt": "2026-09-02T11:42:53.591Z"
+    },
+    {
       "id": "tlx-5938804",
       "platform": "tlx",
       "title": "Pembangkit Listrik",
@@ -6999,16 +7107,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5889874",
       "solvedAt": "2026-08-26T05:12:02.898Z"
-    },
-    {
-      "id": "tlx-5875341",
-      "platform": "tlx",
-      "title": "Amateur Architect",
-      "category": "COMPFEST 18 - Penyisihan CPC Senior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/5875341",
-      "solvedAt": "2026-08-23T15:19:24.446Z"
     },
     {
       "id": "tlx-5875280",
@@ -9349,16 +9447,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
-    },
-    {
-      "id": "tlx-4650590",
-      "platform": "tlx",
-      "title": "Perkenalan Larik (Array)",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650590",
-      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

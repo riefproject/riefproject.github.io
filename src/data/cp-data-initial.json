@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-28T03:28:21.321Z",
+    "updatedAt": "2026-09-28T12:49:53.674Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 673,
-    "totalSubmissions": 1574,
+    "totalSolved": 680,
+    "totalSubmissions": 1580,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-28": {
+        "tries": 10,
+        "ac": 7
+      },
       "2026-09-27": {
         "tries": 5,
         "ac": 5
@@ -26,8 +30,8 @@
         "ac": 3
       },
       "2026-09-24": {
-        "tries": 25,
-        "ac": 19
+        "tries": 24,
+        "ac": 18
       },
       "2026-09-23": {
         "tries": 7,
@@ -46,7 +50,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 8,
+        "tries": 9,
         "ac": 5
       },
       "2026-09-14": {
@@ -74,7 +78,7 @@
         "ac": 18
       },
       "2026-09-06": {
-        "tries": 7,
+        "tries": 6,
         "ac": 4
       },
       "2026-09-03": {
@@ -158,7 +162,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 41,
+        "tries": 40,
         "ac": 12
       },
       "2026-07-16": {
@@ -278,7 +282,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 26,
+        "tries": 25,
         "ac": 6
       },
       "2025-11-27": {
@@ -286,16 +290,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 106,
-        "ac": 54
+        "tries": 105,
+        "ac": 53
       },
       "2026-08-25": {
         "tries": 1,
@@ -523,19 +527,23 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 841,
-      "totalSolved": 403,
-      "uniqueProblemsSolved": 352,
-      "totalAcSubmissions": 396,
+      "totalSubmissions": 847,
+      "totalSolved": 410,
+      "uniqueProblemsSolved": 357,
+      "totalAcSubmissions": 403,
       "languages": {
-        "Cpp20": 808,
+        "Cpp20": 815,
         "Pascal": 17,
         "C": 9,
         "Cpp17": 2,
-        "Cpp11": 2,
+        "Cpp11": 1,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-28": {
+          "tries": 10,
+          "ac": 7
+        },
         "2026-09-27": {
           "tries": 5,
           "ac": 5
@@ -549,8 +557,8 @@
           "ac": 3
         },
         "2026-09-24": {
-          "tries": 25,
-          "ac": 19
+          "tries": 24,
+          "ac": 18
         },
         "2026-09-23": {
           "tries": 7,
@@ -569,7 +577,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 8,
+          "tries": 9,
           "ac": 5
         },
         "2026-09-14": {
@@ -597,7 +605,7 @@
           "ac": 18
         },
         "2026-09-06": {
-          "tries": 7,
+          "tries": 6,
           "ac": 4
         },
         "2026-09-03": {
@@ -681,7 +689,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 41,
+          "tries": 40,
           "ac": 12
         },
         "2026-07-16": {
@@ -801,7 +809,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 26,
+          "tries": 25,
           "ac": 6
         },
         "2025-11-27": {
@@ -809,19 +817,89 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 106,
-          "ac": 54
+          "tries": 105,
+          "ac": 53
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6083886",
+          "platform": "tlx",
+          "title": "Permutasi Ekspresi",
+          "category": "Brute Force",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6083886",
+          "solvedAt": "2026-09-28T09:41:12.019Z"
+        },
+        {
+          "id": "tlx-6083771",
+          "platform": "tlx",
+          "title": "Jawbreaker V: Cari Optimal",
+          "category": "Persiapan Kompetisi",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6083771",
+          "solvedAt": "2026-09-28T09:32:41.319Z"
+        },
+        {
+          "id": "tlx-6083085",
+          "platform": "tlx",
+          "title": "Permutasi Zig-Zag",
+          "category": "Brute Force",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6083085",
+          "solvedAt": "2026-09-28T07:37:29.715Z"
+        },
+        {
+          "id": "tlx-6083015",
+          "platform": "tlx",
+          "title": "Jawbreaker IV: Cari Terbesar 2 Langkah",
+          "category": "Brute Force",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6083015",
+          "solvedAt": "2026-09-28T07:28:02.104Z"
+        },
+        {
+          "id": "tlx-6082712",
+          "platform": "tlx",
+          "title": "Jawbreaker III: Cari Terbesar dan Runtuhkan",
+          "category": "Brute Force",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6082712",
+          "solvedAt": "2026-09-28T06:51:24.146Z"
+        },
+        {
+          "id": "tlx-6082516",
+          "platform": "tlx",
+          "title": "Jawbreaker II: Cari Terbesar",
+          "category": "Brute Force",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6082516",
+          "solvedAt": "2026-09-28T06:20:22.863Z"
+        },
+        {
+          "id": "tlx-6082428",
+          "platform": "tlx",
+          "title": "Jawbreaker I: Klik!",
+          "category": "Brute Force",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6082428",
+          "solvedAt": "2026-09-28T06:10:31.869Z"
+        },
         {
           "id": "tlx-6078512",
           "platform": "tlx",
@@ -911,16 +989,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/6067902",
           "solvedAt": "2026-09-25T03:34:16.871Z"
-        },
-        {
-          "id": "tlx-6066370",
-          "platform": "tlx",
-          "title": "Respect",
-          "category": "TROC #42",
-          "language": "Cpp11",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6066370",
-          "solvedAt": "2026-09-24T17:38:41.093Z"
         },
         {
           "id": "tlx-6066366",
@@ -3913,16 +3981,6 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
-          "id": "tlx-4650685",
-          "platform": "tlx",
-          "title": "Kalkulator String",
-          "category": "Tipe Data Lainnya",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650685",
-          "solvedAt": "2025-11-24T16:47:20.506Z"
-        },
-        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -4053,16 +4111,6 @@
           "solvedAt": "2025-11-24T16:04:33.451Z"
         },
         {
-          "id": "tlx-4650598",
-          "platform": "tlx",
-          "title": "Toko Kandang II",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650598",
-          "solvedAt": "2025-11-24T15:54:33.525Z"
-        },
-        {
           "id": "tlx-4650595",
           "platform": "tlx",
           "title": "Bermain Lampu Kandang",
@@ -4091,6 +4139,16 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650592",
           "solvedAt": "2025-11-24T15:46:54.665Z"
+        },
+        {
+          "id": "tlx-4650590",
+          "platform": "tlx",
+          "title": "Perkenalan Larik (Array)",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650590",
+          "solvedAt": "2025-11-24T15:46:02.359Z"
         },
         {
           "id": "tlx-4650587",
@@ -5146,7 +5204,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2211295,
+      "ranking": 2212751,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5430,43 +5488,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140737
+          "rank": 140759
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1932453
+          "rank": 1932693
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120082
+          "rank": 120091
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529389
+          "rank": 529454
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191077
+          "rank": 191108
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1636050
+          "rank": 1636226
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 721084
+          "rank": 721182
         },
         {
           "name": "Mathematics",
@@ -5478,7 +5536,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 461781
+          "rank": 461847
         }
       ],
       "dailyCalendar": {
@@ -5809,6 +5867,76 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "tlx-6083886",
+      "platform": "tlx",
+      "title": "Permutasi Ekspresi",
+      "category": "Brute Force",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6083886",
+      "solvedAt": "2026-09-28T09:41:12.019Z"
+    },
+    {
+      "id": "tlx-6083771",
+      "platform": "tlx",
+      "title": "Jawbreaker V: Cari Optimal",
+      "category": "Persiapan Kompetisi",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6083771",
+      "solvedAt": "2026-09-28T09:32:41.319Z"
+    },
+    {
+      "id": "tlx-6083085",
+      "platform": "tlx",
+      "title": "Permutasi Zig-Zag",
+      "category": "Brute Force",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6083085",
+      "solvedAt": "2026-09-28T07:37:29.715Z"
+    },
+    {
+      "id": "tlx-6083015",
+      "platform": "tlx",
+      "title": "Jawbreaker IV: Cari Terbesar 2 Langkah",
+      "category": "Brute Force",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6083015",
+      "solvedAt": "2026-09-28T07:28:02.104Z"
+    },
+    {
+      "id": "tlx-6082712",
+      "platform": "tlx",
+      "title": "Jawbreaker III: Cari Terbesar dan Runtuhkan",
+      "category": "Brute Force",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6082712",
+      "solvedAt": "2026-09-28T06:51:24.146Z"
+    },
+    {
+      "id": "tlx-6082516",
+      "platform": "tlx",
+      "title": "Jawbreaker II: Cari Terbesar",
+      "category": "Brute Force",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6082516",
+      "solvedAt": "2026-09-28T06:20:22.863Z"
+    },
+    {
+      "id": "tlx-6082428",
+      "platform": "tlx",
+      "title": "Jawbreaker I: Klik!",
+      "category": "Brute Force",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6082428",
+      "solvedAt": "2026-09-28T06:10:31.869Z"
+    },
+    {
       "id": "tlx-6078512",
       "platform": "tlx",
       "title": "Break the Bill",
@@ -5897,16 +6025,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/6067902",
       "solvedAt": "2026-09-25T03:34:16.871Z"
-    },
-    {
-      "id": "tlx-6066370",
-      "platform": "tlx",
-      "title": "Respect",
-      "category": "TROC #42",
-      "language": "Cpp11",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6066370",
-      "solvedAt": "2026-09-24T17:38:41.093Z"
     },
     {
       "id": "tlx-6066366",
@@ -9269,16 +9387,6 @@
       "solvedAt": "2025-11-24T16:47:51.765Z"
     },
     {
-      "id": "tlx-4650685",
-      "platform": "tlx",
-      "title": "Kalkulator String",
-      "category": "Tipe Data Lainnya",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650685",
-      "solvedAt": "2025-11-24T16:47:20.506Z"
-    },
-    {
       "id": "tlx-4650682",
       "platform": "tlx",
       "title": "Tipe Data std::vector",
@@ -9409,16 +9517,6 @@
       "solvedAt": "2025-11-24T16:04:33.451Z"
     },
     {
-      "id": "tlx-4650598",
-      "platform": "tlx",
-      "title": "Toko Kandang II",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650598",
-      "solvedAt": "2025-11-24T15:54:33.525Z"
-    },
-    {
       "id": "tlx-4650595",
       "platform": "tlx",
       "title": "Bermain Lampu Kandang",
@@ -9447,6 +9545,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
+    },
+    {
+      "id": "tlx-4650590",
+      "platform": "tlx",
+      "title": "Perkenalan Larik (Array)",
+      "category": "Larik (Array)",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/4650590",
+      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

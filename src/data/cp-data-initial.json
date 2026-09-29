@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-29T04:04:01.099Z",
+    "updatedAt": "2026-09-29T12:04:27.582Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,17 +9,21 @@
     }
   },
   "overview": {
-    "totalSolved": 685,
+    "totalSolved": 688,
     "totalSubmissions": 1594,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-29": {
+        "tries": 3,
+        "ac": 3
+      },
       "2026-09-28": {
         "tries": 17,
         "ac": 12
       },
       "2026-09-27": {
-        "tries": 4,
-        "ac": 4
+        "tries": 5,
+        "ac": 5
       },
       "2026-09-26": {
         "tries": 1,
@@ -50,7 +54,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 9,
+        "tries": 8,
         "ac": 5
       },
       "2026-09-14": {
@@ -242,7 +246,7 @@
         "ac": 1
       },
       "2026-01-30": {
-        "tries": 6,
+        "tries": 7,
         "ac": 2
       },
       "2026-01-13": {
@@ -290,7 +294,7 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
@@ -298,8 +302,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 109,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -528,9 +532,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 861,
-      "totalSolved": 415,
-      "uniqueProblemsSolved": 362,
-      "totalAcSubmissions": 408,
+      "totalSolved": 418,
+      "uniqueProblemsSolved": 365,
+      "totalAcSubmissions": 411,
       "languages": {
         "Cpp20": 828,
         "Pascal": 17,
@@ -540,13 +544,17 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-29": {
+          "tries": 3,
+          "ac": 3
+        },
         "2026-09-28": {
           "tries": 17,
           "ac": 12
         },
         "2026-09-27": {
-          "tries": 4,
-          "ac": 4
+          "tries": 5,
+          "ac": 5
         },
         "2026-09-26": {
           "tries": 1,
@@ -577,7 +585,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 9,
+          "tries": 8,
           "ac": 5
         },
         "2026-09-14": {
@@ -769,7 +777,7 @@
           "ac": 1
         },
         "2026-01-30": {
-          "tries": 6,
+          "tries": 7,
           "ac": 2
         },
         "2026-01-13": {
@@ -817,7 +825,7 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
@@ -825,11 +833,41 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 109,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6087936",
+          "platform": "tlx",
+          "title": "Food Rating",
+          "category": "INC 2025",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6087936",
+          "solvedAt": "2026-09-29T06:57:31.940Z"
+        },
+        {
+          "id": "tlx-6087302",
+          "platform": "tlx",
+          "title": "Palindrome Partition",
+          "category": "INC 2025",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6087302",
+          "solvedAt": "2026-09-29T06:26:50.855Z"
+        },
+        {
+          "id": "tlx-6086972",
+          "platform": "tlx",
+          "title": "Construct BFS Graph",
+          "category": "INC 2025",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6086972",
+          "solvedAt": "2026-09-29T05:51:34.438Z"
+        },
         {
           "id": "tlx-6085991",
           "platform": "tlx",
@@ -959,6 +997,16 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/6078507",
           "solvedAt": "2026-09-27T16:57:50.273Z"
+        },
+        {
+          "id": "tlx-6078506",
+          "platform": "tlx",
+          "title": "Morning Sun",
+          "category": "COMPFEST 18 - Final CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6078506",
+          "solvedAt": "2026-09-27T16:57:23.723Z"
         },
         {
           "id": "tlx-6078505",
@@ -4191,16 +4239,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -5254,7 +5292,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2212751,
+      "ranking": 2214469,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5538,55 +5576,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140773
+          "rank": 140800
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1933033
+          "rank": 1933260
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120130
+          "rank": 120143
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529522
+          "rank": 529576
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191132
+          "rank": 191144
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1636410
+          "rank": 1636571
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 721308
+          "rank": 721408
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85782
+          "rank": 85784
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 461900
+          "rank": 461975
         }
       ],
       "dailyCalendar": {
@@ -5917,6 +5955,36 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "tlx-6087936",
+      "platform": "tlx",
+      "title": "Food Rating",
+      "category": "INC 2025",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6087936",
+      "solvedAt": "2026-09-29T06:57:31.940Z"
+    },
+    {
+      "id": "tlx-6087302",
+      "platform": "tlx",
+      "title": "Palindrome Partition",
+      "category": "INC 2025",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6087302",
+      "solvedAt": "2026-09-29T06:26:50.855Z"
+    },
+    {
+      "id": "tlx-6086972",
+      "platform": "tlx",
+      "title": "Construct BFS Graph",
+      "category": "INC 2025",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6086972",
+      "solvedAt": "2026-09-29T05:51:34.438Z"
+    },
+    {
       "id": "tlx-6085991",
       "platform": "tlx",
       "title": "Belajar BFS",
@@ -6045,6 +6113,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/6078507",
       "solvedAt": "2026-09-27T16:57:50.273Z"
+    },
+    {
+      "id": "tlx-6078506",
+      "platform": "tlx",
+      "title": "Morning Sun",
+      "category": "COMPFEST 18 - Final CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6078506",
+      "solvedAt": "2026-09-27T16:57:23.723Z"
     },
     {
       "id": "tlx-6078505",
@@ -9645,16 +9723,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
-    },
-    {
-      "id": "tlx-4650590",
-      "platform": "tlx",
-      "title": "Perkenalan Larik (Array)",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650590",
-      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-09-30T03:50:43.426Z",
+    "updatedAt": "2026-09-30T11:52:31.229Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 688,
+    "totalSolved": 690,
     "totalSubmissions": 1594,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-09-30": {
+        "tries": 2,
+        "ac": 2
+      },
       "2026-09-29": {
         "tries": 3,
         "ac": 3
@@ -46,7 +50,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
+        "tries": 23,
         "ac": 13
       },
       "2026-09-19": {
@@ -54,7 +58,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 8,
+        "tries": 9,
         "ac": 5
       },
       "2026-09-14": {
@@ -190,7 +194,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 18,
+        "tries": 17,
         "ac": 5
       },
       "2026-05-25": {
@@ -298,7 +302,7 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
@@ -532,9 +536,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 861,
-      "totalSolved": 418,
-      "uniqueProblemsSolved": 365,
-      "totalAcSubmissions": 411,
+      "totalSolved": 420,
+      "uniqueProblemsSolved": 367,
+      "totalAcSubmissions": 413,
       "languages": {
         "Cpp20": 828,
         "Pascal": 17,
@@ -544,6 +548,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-09-30": {
+          "tries": 2,
+          "ac": 2
+        },
         "2026-09-29": {
           "tries": 3,
           "ac": 3
@@ -577,7 +585,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
+          "tries": 23,
           "ac": 13
         },
         "2026-09-19": {
@@ -585,7 +593,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 8,
+          "tries": 9,
           "ac": 5
         },
         "2026-09-14": {
@@ -721,7 +729,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 18,
+          "tries": 17,
           "ac": 5
         },
         "2026-05-25": {
@@ -829,7 +837,7 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
@@ -838,6 +846,26 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6095008",
+          "platform": "tlx",
+          "title": "Rectangular Pool",
+          "category": "INC 2025",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6095008",
+          "solvedAt": "2026-09-30T07:18:18.024Z"
+        },
+        {
+          "id": "tlx-6094756",
+          "platform": "tlx",
+          "title": "Divido Travel",
+          "category": "INC 2025",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6094756",
+          "solvedAt": "2026-09-30T06:15:21.034Z"
+        },
         {
           "id": "tlx-6087936",
           "platform": "tlx",
@@ -5292,7 +5320,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2214469,
+      "ranking": 2216201,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5576,55 +5604,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140814
+          "rank": 140829
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1933581
+          "rank": 1933892
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120167
+          "rank": 120179
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529628
+          "rank": 529668
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191160
+          "rank": 191175
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1636803
+          "rank": 1636985
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 721549
+          "rank": 721704
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85786
+          "rank": 85788
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 462038
+          "rank": 462116
         }
       ],
       "dailyCalendar": {
@@ -5954,6 +5982,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6095008",
+      "platform": "tlx",
+      "title": "Rectangular Pool",
+      "category": "INC 2025",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6095008",
+      "solvedAt": "2026-09-30T07:18:18.024Z"
+    },
+    {
+      "id": "tlx-6094756",
+      "platform": "tlx",
+      "title": "Divido Travel",
+      "category": "INC 2025",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6094756",
+      "solvedAt": "2026-09-30T06:15:21.034Z"
+    },
     {
       "id": "tlx-6087936",
       "platform": "tlx",

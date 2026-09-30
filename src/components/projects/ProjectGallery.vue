@@ -12,7 +12,16 @@ const props = defineProps<{
 }>();
 
 const searchTerm = ref("");
-const selectedCategory = ref(props.categories[0]?.key ?? "all");
+const allCategoryKeys = props.categories.filter(c => c.key !== 'all').map(c => c.key);
+const selectedCategories = ref<string[]>([...allCategoryKeys]);
+import FilterDropdown from "../FilterDropdown.vue";
+
+const resolvedCategories = computed(() => {
+  return props.categories.map(c => ({
+    key: c.key,
+    label: resolveText(c.label)
+  }));
+});
 const showAllProjects = ref(false);
 const $lang = useStore(langStore);
 const locale = computed(() => ($lang.value === "id" ? "id" : "en"));
@@ -59,9 +68,7 @@ const filteredProjects = computed(() => {
     : featuredProjects.value;
 
   return projectsToFilter.filter((project) => {
-    const matchesCategory =
-      selectedCategory.value === "all" ||
-      project.categoryKey === selectedCategory.value;
+    const matchesCategory = selectedCategories.value.includes(project.categoryKey);
     const matchesSearch =
       term.length === 0 ||
       project.title.en.toLowerCase().includes(term) ||
@@ -75,9 +82,7 @@ const filteredProjects = computed(() => {
 
 const activeCount = computed(() => filteredProjects.value.length);
 
-const setCategory = (category: string) => {
-  selectedCategory.value = category;
-};
+
 
 const toggleViewMore = () => {
   showAllProjects.value = !showAllProjects.value;
@@ -94,44 +99,25 @@ const toggleProject = (id: string) => {
 
 <template>
   <div class="project-gallery flex flex-col gap-6 is-visible">
-    <div
-      class="flex flex-col gap-3 lg:flex-row lg:items-start lg:justify-between">
-      <p class="text-sm font-semibold text-muted lg:pt-2">
-        {{ activeCount }} {{ copy.resultSuffix }}
-      </p>
-
-      <div class="flex flex-col gap-3 w-full lg:w-auto lg:items-end">
-        <div class="w-full lg:w-[420px]">
-          <label class="flex flex-col gap-1 text-sm font-medium text-muted">
-            <input
-              v-model="searchTerm"
-              type="search"
-              :placeholder="copy.searchPlaceholder"
-              class="project-search rounded-xl border border-border px-4 py-2.5 text-base text-text focus:outline-none focus:ring-2 focus:ring-accent/40" />
-          </label>
-        </div>
-
-        <div
-          class="flex flex-wrap justify-start gap-2 lg:justify-end"
-          role="tablist">
-          <button
-            v-for="category in categories"
-            :key="category.key"
-            type="button"
-            role="tab"
-            :aria-selected="category.key === selectedCategory"
-            @click="setCategory(category.key)"
-            :class="[
-              'rounded-full border px-4 py-2 text-sm font-semibold transition',
-              category.key === selectedCategory
-                ? 'border-accent bg-accent/10 text-accent'
-                : 'border-border text-muted hover:border-accent hover:text-accent',
-            ]">
-            {{ resolveText(category.label) }}
-          </button>
-        </div>
+    <div class="toolbar">
+      <div class="search-input-wrap">
+        <input
+          v-model="searchTerm"
+          type="search"
+          :placeholder="copy.searchPlaceholder"
+          class="project-search-input" />
       </div>
+
+      <FilterDropdown 
+        v-model="selectedCategories"
+        :categories="resolvedCategories"
+        :locale="locale"
+      />
     </div>
+
+    <p class="text-sm font-semibold text-muted mb-4">
+      {{ activeCount }} {{ copy.resultSuffix }}
+    </p>
 
     <div
       v-if="filteredProjects.length"
@@ -295,4 +281,44 @@ const toggleProject = (id: string) => {
   background: var(--bg-elevated);
   background: color-mix(in srgb, var(--bg-elevated) 70%, transparent);
 }
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.search-input-wrap {
+  flex: 1;
+}
+
+.project-search-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  padding: 0.55rem 0.75rem;
+  background: var(--bg-elevated);
+  color: var(--text);
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.project-search-input:focus {
+  border-color: var(--text);
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+
+  .search-input-wrap {
+    flex: none;
+    width: 100%;
+  }
+}
 </style>
+

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
+import FilterDropdown from "../FilterDropdown.vue";
 import { useStore } from "@nanostores/vue";
 import type { LocaleText, TechStack } from "../../types/profile.types";
 import {
@@ -14,8 +15,9 @@ const props = defineProps<{
   categories: Category[];
 }>();
 
+const allCategoryKeys = props.categories.filter(c => c.key !== 'all').map(c => c.key);
 const searchTerm = ref("");
-const selectedCategory = ref(props.categories[0]?.key ?? "all");
+const selectedCategories = ref<string[]>([...allCategoryKeys]);
 const isFilterOpen = ref(false);
 const $lang = useStore(langStore);
 const $theme = useStore(themeStore);
@@ -36,9 +38,7 @@ const copy = computed(() =>
 const filteredItems = computed(() => {
   const term = searchTerm.value.trim().toLowerCase();
   return props.items.filter((item) => {
-    const matchesCategory =
-      selectedCategory.value === "all" ||
-      item.category === selectedCategory.value;
+    const matchesCategory = selectedCategories.value.includes(item.category);
     const matchesSearch =
       term.length === 0 || item.name.toLowerCase().includes(term);
     return matchesCategory && matchesSearch;
@@ -47,19 +47,16 @@ const filteredItems = computed(() => {
 
 const activeCount = computed(() => filteredItems.value.length);
 
-const setCategory = (key: string) => {
-  selectedCategory.value = key;
-};
-
 const resolveLabel = (value: LocaleText) => value[locale.value] ?? value.en;
-
 const resolveLogo = (item: TechStack) => {
   return $theme.value === "dark" ? item.logoDark : item.logoLight;
 };
 
-const activeCategoryLabel = computed(() => {
-  const cat = props.categories.find(c => c.key === selectedCategory.value);
-  return cat ? resolveLabel(cat.label) : (locale.value === 'id' ? 'Kategori' : 'Category');
+const resolvedCategories = computed(() => {
+  return props.categories.map(c => ({
+    key: c.key,
+    label: resolveLabel(c.label)
+  }));
 });
 </script>
 
@@ -75,35 +72,11 @@ const activeCategoryLabel = computed(() => {
           class="stack-search-input" />
       </div>
 
-      <div class="filter-dropdown-container">
-        <button
-          type="button"
-          @click="isFilterOpen = !isFilterOpen"
-          class="filter-trigger-btn"
-        >
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
-          </svg>
-          <span>{{ activeCategoryLabel }}</span>
-          <span class="active-badge" v-if="selectedCategory !== 'all'">1</span>
-        </button>
-        
-        <div v-if="isFilterOpen" class="filter-overlay" @click="isFilterOpen = false"></div>
-        
-        <div v-if="isFilterOpen" class="filter-dropdown-menu">
-          <div class="dropdown-list">
-            <label
-              v-for="category in props.categories"
-              :key="category.key"
-              class="dropdown-item"
-              @click="setCategory(category.key); isFilterOpen = false"
-            >
-              <input type="radio" :checked="category.key === selectedCategory" name="stack-category-filter" />
-              <span>{{ resolveLabel(category.label) }}</span>
-            </label>
-          </div>
-        </div>
-      </div>
+      <FilterDropdown 
+        v-model="selectedCategories"
+        :categories="resolvedCategories"
+        :locale="locale"
+      />
     </div>
 
     <div class="scroller" aria-label="Tech stack list">
@@ -160,107 +133,8 @@ const activeCategoryLabel = computed(() => {
   border-color: var(--text);
 }
 
-.filter-dropdown-container {
-  position: relative;
-}
 
-.filter-trigger-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.55rem 0.95rem;
-  border-radius: 0.75rem;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  height: 100%;
-  box-sizing: border-box;
-  white-space: nowrap;
-}
 
-.filter-trigger-btn:hover {
-  background: var(--chip-bg);
-  border-color: var(--border-hover);
-}
-
-.active-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.1rem;
-  height: 1.1rem;
-  border-radius: 50%;
-  background: var(--accent);
-  color: var(--bg);
-  font-size: 0.65rem;
-  font-weight: 700;
-}
-
-.filter-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-  background: transparent;
-}
-
-.filter-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  z-index: 101;
-  width: 210px;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  animation: popoverFadeIn 0.15s ease-out;
-}
-
-@keyframes popoverFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.dropdown-list {
-  display: flex;
-  flex-direction: column;
-  padding: 0.25rem 0;
-}
-
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.55rem 0.85rem;
-  cursor: pointer;
-  font-size: 0.9rem;
-  color: var(--text);
-  transition: background 0.15s;
-}
-
-.dropdown-item:hover {
-  background: var(--bg-elevated);
-}
-
-.dropdown-item input[type="radio"] {
-  accent-color: var(--accent);
-  cursor: pointer;
-  margin: 0;
-}
 
 .count {
   font-size: 0.9rem;

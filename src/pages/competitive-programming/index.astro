@@ -30,13 +30,6 @@ const devContributions = initialDevData?.overview?.totalContributions || 680;
         <a href="/" class="back-link">
           <LocaleText as="span" text={copy.backToHome} />
         </a>
-        <a href="/development-activity" class="dash-switch-pill" title="Switch to Development Activity">
-          <span class="pill-dot"></span>
-          <span class="pill-icon">💻</span>
-          <span class="pill-text"><LocaleText as="span" text={copy.devLink} /></span>
-          <span class="pill-count">{devContributions}+</span>
-          <span class="pill-arrow">→</span>
-        </a>
       </div>
       <div class="title-row">
         <h1>

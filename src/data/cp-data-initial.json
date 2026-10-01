@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-01T03:58:52.576Z",
+    "updatedAt": "2026-10-01T12:22:44.210Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 690,
-    "totalSubmissions": 1594,
+    "totalSolved": 692,
+    "totalSubmissions": 1600,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-01": {
+        "tries": 4,
+        "ac": 3
+      },
       "2026-09-30": {
         "tries": 2,
         "ac": 2
@@ -194,7 +198,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 17,
+        "tries": 18,
         "ac": 5
       },
       "2026-05-25": {
@@ -282,7 +286,7 @@
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 23,
+        "tries": 22,
         "ac": 6
       },
       "2025-12-01": {
@@ -302,12 +306,12 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 106,
-        "ac": 54
+        "tries": 107,
+        "ac": 55
       },
       "2026-08-25": {
         "tries": 1,
@@ -535,12 +539,12 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 861,
-      "totalSolved": 420,
-      "uniqueProblemsSolved": 367,
-      "totalAcSubmissions": 413,
+      "totalSubmissions": 867,
+      "totalSolved": 422,
+      "uniqueProblemsSolved": 370,
+      "totalAcSubmissions": 416,
       "languages": {
-        "Cpp20": 828,
+        "Cpp20": 834,
         "Pascal": 17,
         "C": 9,
         "Cpp17": 2,
@@ -548,6 +552,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-01": {
+          "tries": 4,
+          "ac": 3
+        },
         "2026-09-30": {
           "tries": 2,
           "ac": 2
@@ -729,7 +737,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 17,
+          "tries": 18,
           "ac": 5
         },
         "2026-05-25": {
@@ -817,7 +825,7 @@
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 23,
+          "tries": 22,
           "ac": 6
         },
         "2025-12-01": {
@@ -837,15 +845,35 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 106,
-          "ac": 54
+          "tries": 107,
+          "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6100795",
+          "platform": "tlx",
+          "title": "Antibakteri",
+          "category": "GEMASTIK 2024 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6100795",
+          "solvedAt": "2026-10-01T11:51:13.870Z"
+        },
+        {
+          "id": "tlx-6100701",
+          "platform": "tlx",
+          "title": "COBOT Teleportasi",
+          "category": "Gemastik 2025 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6100701",
+          "solvedAt": "2026-10-01T10:52:15.640Z"
+        },
         {
           "id": "tlx-6095008",
           "platform": "tlx",
@@ -4267,6 +4295,16 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
+          "id": "tlx-4650590",
+          "platform": "tlx",
+          "title": "Perkenalan Larik (Array)",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650590",
+          "solvedAt": "2025-11-24T15:46:02.359Z"
+        },
+        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -5320,7 +5358,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2216201,
+      "ranking": 2217633,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5604,55 +5642,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140849
+          "rank": 140856
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1934242
+          "rank": 1934516
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120195
+          "rank": 120200
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529714
+          "rank": 529775
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191189
+          "rank": 191203
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1637237
+          "rank": 1637500
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 721821
+          "rank": 721953
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85793
+          "rank": 85798
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 462160
+          "rank": 462216
         }
       ],
       "dailyCalendar": {
@@ -5982,6 +6020,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6100795",
+      "platform": "tlx",
+      "title": "Antibakteri",
+      "category": "GEMASTIK 2024 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6100795",
+      "solvedAt": "2026-10-01T11:51:13.870Z"
+    },
+    {
+      "id": "tlx-6100701",
+      "platform": "tlx",
+      "title": "COBOT Teleportasi",
+      "category": "Gemastik 2025 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6100701",
+      "solvedAt": "2026-10-01T10:52:15.640Z"
+    },
     {
       "id": "tlx-6095008",
       "platform": "tlx",
@@ -9771,6 +9829,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
+    },
+    {
+      "id": "tlx-4650590",
+      "platform": "tlx",
+      "title": "Perkenalan Larik (Array)",
+      "category": "Larik (Array)",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/4650590",
+      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

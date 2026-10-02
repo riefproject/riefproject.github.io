@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-02T17:24:13.801Z",
+    "updatedAt": "2026-10-02T21:47:08.918Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,13 +9,13 @@
     }
   },
   "overview": {
-    "totalSolved": 695,
+    "totalSolved": 696,
     "totalSubmissions": 1608,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-02": {
-        "tries": 2,
-        "ac": 0
+        "tries": 5,
+        "ac": 2
       },
       "2026-10-01": {
         "tries": 9,
@@ -30,8 +30,8 @@
         "ac": 3
       },
       "2026-09-28": {
-        "tries": 17,
-        "ac": 12
+        "tries": 16,
+        "ac": 11
       },
       "2026-09-27": {
         "tries": 5,
@@ -58,8 +58,8 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
-        "ac": 12
+        "tries": 24,
+        "ac": 13
       },
       "2026-09-19": {
         "tries": 7,
@@ -78,8 +78,8 @@
         "ac": 1
       },
       "2026-09-11": {
-        "tries": 7,
-        "ac": 6
+        "tries": 6,
+        "ac": 5
       },
       "2026-09-09": {
         "tries": 3,
@@ -102,8 +102,8 @@
         "ac": 7
       },
       "2026-09-02": {
-        "tries": 7,
-        "ac": 3
+        "tries": 6,
+        "ac": 2
       },
       "2026-08-29": {
         "tries": 12,
@@ -178,7 +178,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 40,
+        "tries": 41,
         "ac": 12
       },
       "2026-07-16": {
@@ -246,7 +246,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 12,
+        "tries": 11,
         "ac": 3
       },
       "2026-02-27": {
@@ -282,8 +282,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 3,
-        "ac": 2
+        "tries": 2,
+        "ac": 1
       },
       "2025-12-03": {
         "tries": 1,
@@ -544,9 +544,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 875,
-      "totalSolved": 425,
-      "uniqueProblemsSolved": 370,
-      "totalAcSubmissions": 418,
+      "totalSolved": 426,
+      "uniqueProblemsSolved": 372,
+      "totalAcSubmissions": 420,
       "languages": {
         "Cpp20": 842,
         "Pascal": 17,
@@ -557,8 +557,8 @@
       },
       "dailyCalendar": {
         "2026-10-02": {
-          "tries": 2,
-          "ac": 0
+          "tries": 5,
+          "ac": 2
         },
         "2026-10-01": {
           "tries": 9,
@@ -573,8 +573,8 @@
           "ac": 3
         },
         "2026-09-28": {
-          "tries": 17,
-          "ac": 12
+          "tries": 16,
+          "ac": 11
         },
         "2026-09-27": {
           "tries": 5,
@@ -601,8 +601,8 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
-          "ac": 12
+          "tries": 24,
+          "ac": 13
         },
         "2026-09-19": {
           "tries": 7,
@@ -621,8 +621,8 @@
           "ac": 1
         },
         "2026-09-11": {
-          "tries": 7,
-          "ac": 6
+          "tries": 6,
+          "ac": 5
         },
         "2026-09-09": {
           "tries": 3,
@@ -645,8 +645,8 @@
           "ac": 7
         },
         "2026-09-02": {
-          "tries": 7,
-          "ac": 3
+          "tries": 6,
+          "ac": 2
         },
         "2026-08-29": {
           "tries": 12,
@@ -721,7 +721,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 40,
+          "tries": 41,
           "ac": 12
         },
         "2026-07-16": {
@@ -789,7 +789,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 12,
+          "tries": 11,
           "ac": 3
         },
         "2026-02-27": {
@@ -825,8 +825,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 3,
-          "ac": 2
+          "tries": 2,
+          "ac": 1
         },
         "2025-12-03": {
           "tries": 1,
@@ -862,6 +862,26 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6107827",
+          "platform": "tlx",
+          "title": "A for Arkavidia",
+          "category": "Arkavidia 9.0 - Final CP",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6107827",
+          "solvedAt": "2026-10-02T21:00:55.418Z"
+        },
+        {
+          "id": "tlx-6107773",
+          "platform": "tlx",
+          "title": "Hadiah GEMASTIK",
+          "category": "Gemastik 2025 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6107773",
+          "solvedAt": "2026-10-02T18:20:59.063Z"
+        },
         {
           "id": "tlx-6102380",
           "platform": "tlx",
@@ -1493,6 +1513,16 @@
           "solvedAt": "2026-09-21T17:47:26.106Z"
         },
         {
+          "id": "tlx-6050630",
+          "platform": "tlx",
+          "title": "Lampu Hias Warna-Warni",
+          "category": "KSN-P Informatika 2020 - Bagian B",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6050630",
+          "solvedAt": "2026-09-21T17:39:14.755Z"
+        },
+        {
           "id": "tlx-6047692",
           "platform": "tlx",
           "title": "Vitamin",
@@ -1943,16 +1973,6 @@
           "solvedAt": "2026-09-07T06:51:08.552Z"
         },
         {
-          "id": "tlx-5972979",
-          "platform": "tlx",
-          "title": "Hadiah GEMASTIK",
-          "category": "Gemastik 2025 - Final Pemrograman",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/5972979",
-          "solvedAt": "2026-09-07T06:29:46.001Z"
-        },
-        {
           "id": "tlx-5969662",
           "platform": "tlx",
           "title": "Coin Exchange",
@@ -2071,16 +2091,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/5939700",
           "solvedAt": "2026-09-02T11:43:28.425Z"
-        },
-        {
-          "id": "tlx-5939699",
-          "platform": "tlx",
-          "title": "Amateur Architect",
-          "category": "COMPFEST 18 - Penyisihan CPC Junior",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/5939699",
-          "solvedAt": "2026-09-02T11:42:53.591Z"
         },
         {
           "id": "tlx-5938804",
@@ -2251,6 +2261,16 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/5889874",
           "solvedAt": "2026-08-26T05:12:02.898Z"
+        },
+        {
+          "id": "tlx-5875341",
+          "platform": "tlx",
+          "title": "Amateur Architect",
+          "category": "COMPFEST 18 - Penyisihan CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5875341",
+          "solvedAt": "2026-08-23T15:19:24.446Z"
         },
         {
           "id": "tlx-5875280",
@@ -5650,55 +5670,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140892
+          "rank": 140894
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1935106
+          "rank": 1935167
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120225
+          "rank": 120227
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529883
+          "rank": 529897
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191241
+          "rank": 191246
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1637799
+          "rank": 1637839
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 722195
+          "rank": 722231
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85807
+          "rank": 85808
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 462345
+          "rank": 462351
         }
       ],
       "dailyCalendar": {
@@ -6028,6 +6048,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6107827",
+      "platform": "tlx",
+      "title": "A for Arkavidia",
+      "category": "Arkavidia 9.0 - Final CP",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6107827",
+      "solvedAt": "2026-10-02T21:00:55.418Z"
+    },
+    {
+      "id": "tlx-6107773",
+      "platform": "tlx",
+      "title": "Hadiah GEMASTIK",
+      "category": "Gemastik 2025 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6107773",
+      "solvedAt": "2026-10-02T18:20:59.063Z"
+    },
     {
       "id": "tlx-6102380",
       "platform": "tlx",
@@ -6659,6 +6699,16 @@
       "solvedAt": "2026-09-21T17:47:26.106Z"
     },
     {
+      "id": "tlx-6050630",
+      "platform": "tlx",
+      "title": "Lampu Hias Warna-Warni",
+      "category": "KSN-P Informatika 2020 - Bagian B",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6050630",
+      "solvedAt": "2026-09-21T17:39:14.755Z"
+    },
+    {
       "id": "tlx-6047692",
       "platform": "tlx",
       "title": "Vitamin",
@@ -7189,16 +7239,6 @@
       "solvedAt": "2026-09-07T06:51:08.552Z"
     },
     {
-      "id": "tlx-5972979",
-      "platform": "tlx",
-      "title": "Hadiah GEMASTIK",
-      "category": "Gemastik 2025 - Final Pemrograman",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/5972979",
-      "solvedAt": "2026-09-07T06:29:46.001Z"
-    },
-    {
       "id": "tlx-5969662",
       "platform": "tlx",
       "title": "Coin Exchange",
@@ -7317,16 +7357,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5939700",
       "solvedAt": "2026-09-02T11:43:28.425Z"
-    },
-    {
-      "id": "tlx-5939699",
-      "platform": "tlx",
-      "title": "Amateur Architect",
-      "category": "COMPFEST 18 - Penyisihan CPC Junior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/5939699",
-      "solvedAt": "2026-09-02T11:42:53.591Z"
     },
     {
       "id": "tlx-5938804",
@@ -7497,6 +7527,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5889874",
       "solvedAt": "2026-08-26T05:12:02.898Z"
+    },
+    {
+      "id": "tlx-5875341",
+      "platform": "tlx",
+      "title": "Amateur Architect",
+      "category": "COMPFEST 18 - Penyisihan CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5875341",
+      "solvedAt": "2026-08-23T15:19:24.446Z"
     },
     {
       "id": "tlx-5875280",

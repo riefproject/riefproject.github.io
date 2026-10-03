@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-02T21:46:57.177Z",
+    "updatedAt": "2026-10-03T03:40:13.974Z",
     "source": "scheduled-crawl"
   },
   "overview": {
     "totalContributions": 727,
-    "lastYearContributions": 372,
+    "lastYearContributions": 370,
     "currentStreak": 0,
     "longestStreak": 13,
     "heatmap": {
@@ -1115,13 +1115,13 @@
   "platforms": {
     "github": {
       "meta": {
-        "updatedAt": "2026-10-02T21:46:54.356Z",
+        "updatedAt": "2026-10-03T03:40:11.439Z",
         "username": "riefproject",
         "source": "github-public-api"
       },
       "overview": {
         "totalContributions": 727,
-        "lastYearContributions": 372,
+        "lastYearContributions": 370,
         "currentStreak": 0,
         "longestStreak": 13,
         "heatmap": {
@@ -5533,54 +5533,54 @@
       },
       "languages": [
         {
-          "name": "Vue",
-          "bytes": 1094501,
-          "percentage": 27
-        },
-        {
-          "name": "Dart",
-          "bytes": 976203,
-          "percentage": 24.1
+          "name": "C",
+          "bytes": 3630085,
+          "percentage": 37.6
         },
         {
           "name": "PHP",
-          "bytes": 417011,
-          "percentage": 10.3
+          "bytes": 1164717,
+          "percentage": 12
+        },
+        {
+          "name": "Vue",
+          "bytes": 1094501,
+          "percentage": 11.3
+        },
+        {
+          "name": "Dart",
+          "bytes": 1087627,
+          "percentage": 11.3
+        },
+        {
+          "name": "C++",
+          "bytes": 509490,
+          "percentage": 5.3
         },
         {
           "name": "JavaScript",
-          "bytes": 265975,
-          "percentage": 6.6
+          "bytes": 387454,
+          "percentage": 4
+        },
+        {
+          "name": "Java",
+          "bytes": 293744,
+          "percentage": 3
+        },
+        {
+          "name": "Blade",
+          "bytes": 263159,
+          "percentage": 2.7
         },
         {
           "name": "C#",
           "bytes": 228720,
-          "percentage": 5.6
+          "percentage": 2.4
         },
         {
           "name": "Go",
           "bytes": 194034,
-          "percentage": 4.8
-        },
-        {
-          "name": "C++",
-          "bytes": 185289,
-          "percentage": 4.6
-        },
-        {
-          "name": "Java",
-          "bytes": 165383,
-          "percentage": 4.1
-        },
-        {
-          "name": "TypeScript",
-          "bytes": 134690,
-          "percentage": 3.3
-        },
-        {
-          "name": "Astro",
-          "bytes": 97265,
-          "percentage": 2.4
+          "percentage": 2
         }
       ],
       "topRepos": [
@@ -5642,7 +5642,7 @@
           "language": "Vue",
           "stars": 1,
           "forks": 0,
-          "updatedAt": "2026-10-02T17:24:18Z",
+          "updatedAt": "2026-10-02T21:47:14Z",
           "archived": false,
           "topics": [
             "cv",

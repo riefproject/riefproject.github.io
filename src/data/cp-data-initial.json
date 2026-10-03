@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-02T21:47:08.918Z",
+    "updatedAt": "2026-10-03T03:40:25.237Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,13 +9,13 @@
     }
   },
   "overview": {
-    "totalSolved": 696,
-    "totalSubmissions": 1608,
+    "totalSolved": 697,
+    "totalSubmissions": 1609,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-02": {
-        "tries": 5,
-        "ac": 2
+        "tries": 6,
+        "ac": 3
       },
       "2026-10-01": {
         "tries": 9,
@@ -4592,10 +4592,12 @@
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 4,
-      "totalSubmissions": 249,
-      "totalSolved": 63,
-      "totalAcSubmissions": 69,
+      "totalSubmissions": 250,
+      "totalSolved": 64,
+      "totalAcSubmissions": 70,
       "tagsCount": {
+        "brute force": 10,
+        "implementation": 24,
         "binary search": 2,
         "bitmasks": 2,
         "greedy": 9,
@@ -4603,9 +4605,7 @@
         "communication": 1,
         "interactive": 1,
         "number theory": 4,
-        "brute force": 9,
         "games": 1,
-        "implementation": 23,
         "sortings": 5,
         "dfs and similar": 1,
         "fft": 1,
@@ -4621,7 +4621,7 @@
       "ratingDistribution": {
         "800": 27,
         "900": 1,
-        "1000": 3,
+        "1000": 4,
         "1100": 2,
         "1200": 1,
         "1500": 1,
@@ -4633,6 +4633,10 @@
         "2600": 1
       },
       "dailyCalendar": {
+        "2026-10-02": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-08-25": {
           "tries": 1,
           "ac": 0
@@ -4751,6 +4755,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "cf-393008619",
+          "platform": "codeforces",
+          "title": "KiaKio and Squared Numbers (2269B)",
+          "category": "brute force",
+          "language": "C++23 (GCC 14-64, msys2)",
+          "difficulty": "1000",
+          "url": "https://codeforces.com/contest/2269/problem/B",
+          "solvedAt": "2026-10-02T21:56:00.000Z"
+        },
         {
           "id": "cf-386559797",
           "platform": "codeforces",
@@ -5670,43 +5684,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140894
+          "rank": 140895
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1935167
+          "rank": 1935201
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120227
+          "rank": 120228
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529897
+          "rank": 529901
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191246
+          "rank": 191247
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1637839
+          "rank": 1637861
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 722231
+          "rank": 722245
         },
         {
           "name": "Mathematics",
@@ -5718,7 +5732,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 462351
+          "rank": 462356
         }
       ],
       "dailyCalendar": {
@@ -6048,6 +6062,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "cf-393008619",
+      "platform": "codeforces",
+      "title": "KiaKio and Squared Numbers (2269B)",
+      "category": "brute force",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "1000",
+      "url": "https://codeforces.com/contest/2269/problem/B",
+      "solvedAt": "2026-10-02T21:56:00.000Z"
+    },
     {
       "id": "tlx-6107827",
       "platform": "tlx",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-03T20:34:11.362Z",
+    "updatedAt": "2026-10-04T04:10:01.682Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -5702,43 +5702,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140913
+          "rank": 140916
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1935584
+          "rank": 1935623
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120241
+          "rank": 120245
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529960
+          "rank": 529967
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191270
+          "rank": 191272
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1638024
+          "rank": 1638046
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 722382
+          "rank": 722405
         },
         {
           "name": "Mathematics",
@@ -5750,7 +5750,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 462422
+          "rank": 462428
         }
       ],
       "dailyCalendar": {

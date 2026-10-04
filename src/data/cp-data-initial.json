@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-04T04:10:01.682Z",
+    "updatedAt": "2026-10-04T11:44:47.493Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -13,6 +13,10 @@
     "totalSubmissions": 1615,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-04": {
+        "tries": 2,
+        "ac": 1
+      },
       "2026-10-03": {
         "tries": 3,
         "ac": 2
@@ -206,7 +210,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 18,
+        "tries": 17,
         "ac": 5
       },
       "2026-05-25": {
@@ -314,7 +318,7 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
@@ -549,8 +553,8 @@
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 881,
       "totalSolved": 428,
-      "uniqueProblemsSolved": 373,
-      "totalAcSubmissions": 422,
+      "uniqueProblemsSolved": 374,
+      "totalAcSubmissions": 423,
       "languages": {
         "Cpp20": 848,
         "Pascal": 17,
@@ -560,6 +564,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-04": {
+          "tries": 2,
+          "ac": 1
+        },
         "2026-10-03": {
           "tries": 3,
           "ac": 2
@@ -753,7 +761,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 18,
+          "tries": 17,
           "ac": 5
         },
         "2026-05-25": {
@@ -861,7 +869,7 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
@@ -870,6 +878,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6113680",
+          "platform": "tlx",
+          "title": "Paduan Suara",
+          "category": "Brute Force",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6113680",
+          "solvedAt": "2026-10-04T07:52:51.854Z"
+        },
         {
           "id": "tlx-6110547",
           "platform": "tlx",
@@ -5418,7 +5436,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2220001,
+      "ranking": 2221350,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5702,43 +5720,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140916
+          "rank": 140924
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1935623
+          "rank": 1935749
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120245
+          "rank": 120250
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 529967
+          "rank": 530010
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191272
+          "rank": 191287
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1638046
+          "rank": 1638114
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 722405
+          "rank": 722468
         },
         {
           "name": "Mathematics",
@@ -5750,7 +5768,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 462428
+          "rank": 462442
         }
       ],
       "dailyCalendar": {
@@ -6080,6 +6098,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6113680",
+      "platform": "tlx",
+      "title": "Paduan Suara",
+      "category": "Brute Force",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6113680",
+      "solvedAt": "2026-10-04T07:52:51.854Z"
+    },
     {
       "id": "tlx-6110547",
       "platform": "tlx",

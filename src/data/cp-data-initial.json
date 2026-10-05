@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-05T13:31:17.816Z",
+    "updatedAt": "2026-10-05T23:41:35.700Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 699,
+    "totalSolved": 700,
     "totalSubmissions": 1615,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-05": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-10-04": {
         "tries": 2,
         "ac": 1
@@ -66,7 +70,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
+        "tries": 23,
         "ac": 13
       },
       "2026-09-19": {
@@ -552,9 +556,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 881,
-      "totalSolved": 428,
-      "uniqueProblemsSolved": 374,
-      "totalAcSubmissions": 423,
+      "totalSolved": 429,
+      "uniqueProblemsSolved": 375,
+      "totalAcSubmissions": 424,
       "languages": {
         "Cpp20": 848,
         "Pascal": 17,
@@ -564,6 +568,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-05": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-04": {
           "tries": 2,
           "ac": 1
@@ -617,7 +625,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
+          "tries": 23,
           "ac": 13
         },
         "2026-09-19": {
@@ -878,6 +886,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6123832",
+          "platform": "tlx",
+          "title": "Virtual Rating",
+          "category": "BNPCHS 2024 - Final",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6123832",
+          "solvedAt": "2026-10-05T16:23:36.631Z"
+        },
         {
           "id": "tlx-6113680",
           "platform": "tlx",
@@ -5436,7 +5454,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2221350,
+      "ranking": 2222785,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5720,55 +5738,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140958
+          "rank": 140976
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1936310
+          "rank": 1936535
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120270
+          "rank": 120280
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 530130
+          "rank": 530179
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191323
+          "rank": 191333
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1638435
+          "rank": 1638564
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 722662
+          "rank": 722746
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85816
+          "rank": 85820
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 462528
+          "rank": 462562
         }
       ],
       "dailyCalendar": {
@@ -6098,6 +6116,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6123832",
+      "platform": "tlx",
+      "title": "Virtual Rating",
+      "category": "BNPCHS 2024 - Final",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6123832",
+      "solvedAt": "2026-10-05T16:23:36.631Z"
+    },
     {
       "id": "tlx-6113680",
       "platform": "tlx",

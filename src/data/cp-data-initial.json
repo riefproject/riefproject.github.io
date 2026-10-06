@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-06T04:43:01.425Z",
+    "updatedAt": "2026-10-06T12:42:22.897Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 700,
-    "totalSubmissions": 1615,
+    "totalSolved": 701,
+    "totalSubmissions": 1621,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-06": {
+        "tries": 2,
+        "ac": 0
+      },
       "2026-10-05": {
         "tries": 1,
         "ac": 1
@@ -70,7 +74,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
+        "tries": 24,
         "ac": 13
       },
       "2026-09-19": {
@@ -214,7 +218,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 17,
+        "tries": 18,
         "ac": 5
       },
       "2026-05-25": {
@@ -322,12 +326,12 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 106,
-        "ac": 54
+        "tries": 107,
+        "ac": 55
       },
       "2026-08-25": {
         "tries": 1,
@@ -555,12 +559,12 @@
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 881,
-      "totalSolved": 429,
-      "uniqueProblemsSolved": 375,
+      "totalSubmissions": 887,
+      "totalSolved": 430,
+      "uniqueProblemsSolved": 376,
       "totalAcSubmissions": 424,
       "languages": {
-        "Cpp20": 848,
+        "Cpp20": 854,
         "Pascal": 17,
         "C": 9,
         "Cpp17": 2,
@@ -568,6 +572,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-06": {
+          "tries": 2,
+          "ac": 0
+        },
         "2026-10-05": {
           "tries": 1,
           "ac": 1
@@ -625,7 +633,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
+          "tries": 24,
           "ac": 13
         },
         "2026-09-19": {
@@ -769,7 +777,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 17,
+          "tries": 18,
           "ac": 5
         },
         "2026-05-25": {
@@ -877,12 +885,12 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 106,
-          "ac": 54
+          "tries": 107,
+          "ac": 55
         }
       },
       "recentSolved": [
@@ -4387,6 +4395,16 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
+          "id": "tlx-4650590",
+          "platform": "tlx",
+          "title": "Perkenalan Larik (Array)",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650590",
+          "solvedAt": "2025-11-24T15:46:02.359Z"
+        },
+        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -5454,7 +5472,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2222785,
+      "ranking": 2224432,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5738,55 +5756,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 140982
+          "rank": 141004
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1936600
+          "rank": 1936851
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120282
+          "rank": 120288
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 530185
+          "rank": 530224
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191337
+          "rank": 191351
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1638592
+          "rank": 1638720
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 722767
+          "rank": 722878
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85823
+          "rank": 85826
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 462566
+          "rank": 462643
         }
       ],
       "dailyCalendar": {
@@ -9995,6 +10013,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650592",
       "solvedAt": "2025-11-24T15:46:54.665Z"
+    },
+    {
+      "id": "tlx-4650590",
+      "platform": "tlx",
+      "title": "Perkenalan Larik (Array)",
+      "category": "Larik (Array)",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/4650590",
+      "solvedAt": "2025-11-24T15:46:02.359Z"
     },
     {
       "id": "tlx-4650587",

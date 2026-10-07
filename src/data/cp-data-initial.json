@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-07T12:35:51.682Z",
+    "updatedAt": "2026-10-07T22:38:33.870Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 701,
+    "totalSolved": 703,
     "totalSubmissions": 1621,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-07": {
+        "tries": 3,
+        "ac": 3
+      },
       "2026-10-06": {
         "tries": 2,
         "ac": 0
@@ -74,7 +78,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
+        "tries": 23,
         "ac": 13
       },
       "2026-09-19": {
@@ -322,16 +326,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
-        "ac": 55
+        "tries": 105,
+        "ac": 53
       },
       "2026-08-25": {
         "tries": 1,
@@ -560,9 +564,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 887,
-      "totalSolved": 430,
-      "uniqueProblemsSolved": 376,
-      "totalAcSubmissions": 424,
+      "totalSolved": 432,
+      "uniqueProblemsSolved": 377,
+      "totalAcSubmissions": 427,
       "languages": {
         "Cpp20": 854,
         "Pascal": 17,
@@ -572,6 +576,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-07": {
+          "tries": 3,
+          "ac": 3
+        },
         "2026-10-06": {
           "tries": 2,
           "ac": 0
@@ -633,7 +641,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
+          "tries": 23,
           "ac": 13
         },
         "2026-09-19": {
@@ -881,19 +889,49 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
-          "ac": 55
+          "tries": 105,
+          "ac": 53
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6137533",
+          "platform": "tlx",
+          "title": "QR for Discount",
+          "category": "BNPCHS 2024 - Final",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6137533",
+          "solvedAt": "2026-10-07T15:59:11.372Z"
+        },
+        {
+          "id": "tlx-6137467",
+          "platform": "tlx",
+          "title": "Jalan Tol Menuju Jakarta",
+          "category": "Algoritma Graf",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6137467",
+          "solvedAt": "2026-10-07T15:45:46.025Z"
+        },
+        {
+          "id": "tlx-6137398",
+          "platform": "tlx",
+          "title": "Perjalanan Teringan",
+          "category": "Algoritma Graf",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6137398",
+          "solvedAt": "2026-10-07T15:23:43.257Z"
+        },
         {
           "id": "tlx-6123832",
           "platform": "tlx",
@@ -4215,16 +4253,6 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
-          "id": "tlx-4650685",
-          "platform": "tlx",
-          "title": "Kalkulator String",
-          "category": "Tipe Data Lainnya",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650685",
-          "solvedAt": "2025-11-24T16:47:20.506Z"
-        },
-        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -4353,16 +4381,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650610",
           "solvedAt": "2025-11-24T16:04:33.451Z"
-        },
-        {
-          "id": "tlx-4650598",
-          "platform": "tlx",
-          "title": "Toko Kandang II",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650598",
-          "solvedAt": "2025-11-24T15:54:33.525Z"
         },
         {
           "id": "tlx-4650595",
@@ -5472,7 +5490,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2224432,
+      "ranking": 2367686,
       "totalSolved": 69,
       "easySolved": 39,
       "mediumSolved": 27,
@@ -5756,55 +5774,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141046
+          "rank": 141061
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1937412
+          "rank": 1937638
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120302
+          "rank": 120316
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 530313
+          "rank": 530351
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191373
+          "rank": 191391
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1639159
+          "rank": 1639317
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 723090
+          "rank": 723175
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85830
+          "rank": 85838
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 462754
+          "rank": 462780
         }
       ],
       "dailyCalendar": {
@@ -6134,6 +6152,36 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6137533",
+      "platform": "tlx",
+      "title": "QR for Discount",
+      "category": "BNPCHS 2024 - Final",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6137533",
+      "solvedAt": "2026-10-07T15:59:11.372Z"
+    },
+    {
+      "id": "tlx-6137467",
+      "platform": "tlx",
+      "title": "Jalan Tol Menuju Jakarta",
+      "category": "Algoritma Graf",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6137467",
+      "solvedAt": "2026-10-07T15:45:46.025Z"
+    },
+    {
+      "id": "tlx-6137398",
+      "platform": "tlx",
+      "title": "Perjalanan Teringan",
+      "category": "Algoritma Graf",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6137398",
+      "solvedAt": "2026-10-07T15:23:43.257Z"
+    },
     {
       "id": "tlx-6123832",
       "platform": "tlx",
@@ -9835,16 +9883,6 @@
       "solvedAt": "2025-11-24T16:47:51.765Z"
     },
     {
-      "id": "tlx-4650685",
-      "platform": "tlx",
-      "title": "Kalkulator String",
-      "category": "Tipe Data Lainnya",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650685",
-      "solvedAt": "2025-11-24T16:47:20.506Z"
-    },
-    {
       "id": "tlx-4650682",
       "platform": "tlx",
       "title": "Tipe Data std::vector",
@@ -9973,16 +10011,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4650610",
       "solvedAt": "2025-11-24T16:04:33.451Z"
-    },
-    {
-      "id": "tlx-4650598",
-      "platform": "tlx",
-      "title": "Toko Kandang II",
-      "category": "Larik (Array)",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4650598",
-      "solvedAt": "2025-11-24T15:54:33.525Z"
     },
     {
       "id": "tlx-4650595",

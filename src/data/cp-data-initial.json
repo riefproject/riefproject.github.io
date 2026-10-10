@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-10T11:51:38.782Z",
+    "updatedAt": "2026-10-10T16:54:44.909Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,13 +9,13 @@
     }
   },
   "overview": {
-    "totalSolved": 706,
-    "totalSubmissions": 1629,
+    "totalSolved": 712,
+    "totalSubmissions": 1636,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-10": {
-        "tries": 5,
-        "ac": 3
+        "tries": 14,
+        "ac": 8
       },
       "2026-10-07": {
         "tries": 3,
@@ -90,7 +90,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 9,
+        "tries": 8,
         "ac": 5
       },
       "2026-09-14": {
@@ -202,7 +202,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 40,
+        "tries": 41,
         "ac": 12
       },
       "2026-07-16": {
@@ -270,7 +270,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 12,
+        "tries": 11,
         "ac": 3
       },
       "2026-02-27": {
@@ -306,8 +306,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 3,
-        "ac": 2
+        "tries": 2,
+        "ac": 1
       },
       "2025-12-03": {
         "tries": 1,
@@ -568,12 +568,12 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 895,
-      "totalSolved": 435,
-      "uniqueProblemsSolved": 382,
-      "totalAcSubmissions": 430,
+      "totalSolved": 437,
+      "uniqueProblemsSolved": 383,
+      "totalAcSubmissions": 431,
       "languages": {
-        "Cpp20": 862,
-        "Pascal": 17,
+        "Cpp20": 863,
+        "Pascal": 16,
         "C": 9,
         "Cpp17": 2,
         "Cpp11": 2,
@@ -581,8 +581,8 @@
       },
       "dailyCalendar": {
         "2026-10-10": {
-          "tries": 5,
-          "ac": 3
+          "tries": 7,
+          "ac": 4
         },
         "2026-10-07": {
           "tries": 3,
@@ -657,7 +657,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 9,
+          "tries": 8,
           "ac": 5
         },
         "2026-09-14": {
@@ -769,7 +769,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 40,
+          "tries": 41,
           "ac": 12
         },
         "2026-07-16": {
@@ -837,7 +837,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 12,
+          "tries": 11,
           "ac": 3
         },
         "2026-02-27": {
@@ -873,8 +873,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 3,
-          "ac": 2
+          "tries": 2,
+          "ac": 1
         },
         "2025-12-03": {
           "tries": 1,
@@ -910,6 +910,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6152108",
+          "platform": "tlx",
+          "title": "Reverse Severer",
+          "category": "INC 2023",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6152108",
+          "solvedAt": "2026-10-10T13:33:57.888Z"
+        },
         {
           "id": "tlx-6150657",
           "platform": "tlx",
@@ -4740,9 +4750,9 @@
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 4,
-      "totalSubmissions": 250,
-      "totalSolved": 64,
-      "totalAcSubmissions": 70,
+      "totalSubmissions": 257,
+      "totalSolved": 68,
+      "totalAcSubmissions": 74,
       "tagsCount": {
         "brute force": 10,
         "implementation": 24,
@@ -4781,6 +4791,10 @@
         "2600": 1
       },
       "dailyCalendar": {
+        "2026-10-10": {
+          "tries": 7,
+          "ac": 4
+        },
         "2026-10-02": {
           "tries": 1,
           "ac": 1
@@ -4903,6 +4917,46 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "cf-393994284",
+          "platform": "codeforces",
+          "title": "Target Infection (2271D)",
+          "category": "Problem Solving",
+          "language": "C++23 (GCC 14-64, msys2)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2271/problem/D",
+          "solvedAt": "2026-10-10T15:39:01.000Z"
+        },
+        {
+          "id": "cf-393984795",
+          "platform": "codeforces",
+          "title": "XOR Problem (2271C)",
+          "category": "Problem Solving",
+          "language": "C++23 (GCC 14-64, msys2)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2271/problem/C",
+          "solvedAt": "2026-10-10T15:24:26.000Z"
+        },
+        {
+          "id": "cf-393981096",
+          "platform": "codeforces",
+          "title": "MEX Game (2271B)",
+          "category": "Problem Solving",
+          "language": "C++23 (GCC 14-64, msys2)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2271/problem/B",
+          "solvedAt": "2026-10-10T15:19:29.000Z"
+        },
+        {
+          "id": "cf-393977695",
+          "platform": "codeforces",
+          "title": "Robot Odd Moves (2271A)",
+          "category": "Problem Solving",
+          "language": "C++23 (GCC 14-64, msys2)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/2271/problem/A",
+          "solvedAt": "2026-10-10T15:15:15.000Z"
+        },
         {
           "id": "cf-393008619",
           "platform": "codeforces",
@@ -5832,55 +5886,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141146
+          "rank": 141152
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1938821
+          "rank": 1938903
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120352
+          "rank": 120355
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 530660
+          "rank": 530680
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191445
+          "rank": 191451
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1639987
+          "rank": 1640059
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 723636
+          "rank": 723676
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85858
+          "rank": 85860
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 463057
+          "rank": 463079
         }
       ],
       "dailyCalendar": {
@@ -6210,6 +6264,56 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "cf-393994284",
+      "platform": "codeforces",
+      "title": "Target Infection (2271D)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2271/problem/D",
+      "solvedAt": "2026-10-10T15:39:01.000Z"
+    },
+    {
+      "id": "cf-393984795",
+      "platform": "codeforces",
+      "title": "XOR Problem (2271C)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2271/problem/C",
+      "solvedAt": "2026-10-10T15:24:26.000Z"
+    },
+    {
+      "id": "cf-393981096",
+      "platform": "codeforces",
+      "title": "MEX Game (2271B)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2271/problem/B",
+      "solvedAt": "2026-10-10T15:19:29.000Z"
+    },
+    {
+      "id": "cf-393977695",
+      "platform": "codeforces",
+      "title": "Robot Odd Moves (2271A)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/2271/problem/A",
+      "solvedAt": "2026-10-10T15:15:15.000Z"
+    },
+    {
+      "id": "tlx-6152108",
+      "platform": "tlx",
+      "title": "Reverse Severer",
+      "category": "INC 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6152108",
+      "solvedAt": "2026-10-10T13:33:57.888Z"
+    },
     {
       "id": "tlx-6150657",
       "platform": "tlx",

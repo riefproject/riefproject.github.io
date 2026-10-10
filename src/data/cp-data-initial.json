@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-10T16:54:44.909Z",
+    "updatedAt": "2026-10-10T21:06:48.592Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -10,11 +10,11 @@
   },
   "overview": {
     "totalSolved": 712,
-    "totalSubmissions": 1636,
+    "totalSubmissions": 1638,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-10": {
-        "tries": 14,
+        "tries": 16,
         "ac": 8
       },
       "2026-10-07": {
@@ -4745,25 +4745,26 @@
     "codeforces": {
       "handle": "feeera",
       "url": "https://codeforces.com/profile/feeera",
-      "rating": 1733,
-      "maxRating": 1733,
+      "rating": 1861,
+      "maxRating": 1861,
       "rank": "expert",
       "maxRank": "expert",
-      "contestsCount": 4,
-      "totalSubmissions": 257,
+      "contestsCount": 5,
+      "totalSubmissions": 259,
       "totalSolved": 68,
       "totalAcSubmissions": 74,
       "tagsCount": {
-        "brute force": 10,
+        "binary search": 3,
+        "brute force": 11,
+        "constructive algorithms": 2,
+        "greedy": 10,
+        "games": 2,
+        "math": 19,
         "implementation": 24,
-        "binary search": 2,
         "bitmasks": 2,
-        "greedy": 9,
-        "math": 18,
         "communication": 1,
         "interactive": 1,
         "number theory": 4,
-        "games": 1,
         "sortings": 5,
         "dfs and similar": 1,
         "fft": 1,
@@ -4792,7 +4793,7 @@
       },
       "dailyCalendar": {
         "2026-10-10": {
-          "tries": 7,
+          "tries": 9,
           "ac": 4
         },
         "2026-10-02": {
@@ -4921,7 +4922,7 @@
           "id": "cf-393994284",
           "platform": "codeforces",
           "title": "Target Infection (2271D)",
-          "category": "Problem Solving",
+          "category": "binary search",
           "language": "C++23 (GCC 14-64, msys2)",
           "difficulty": "800",
           "url": "https://codeforces.com/contest/2271/problem/D",
@@ -4931,7 +4932,7 @@
           "id": "cf-393984795",
           "platform": "codeforces",
           "title": "XOR Problem (2271C)",
-          "category": "Problem Solving",
+          "category": "constructive algorithms",
           "language": "C++23 (GCC 14-64, msys2)",
           "difficulty": "800",
           "url": "https://codeforces.com/contest/2271/problem/C",
@@ -4941,7 +4942,7 @@
           "id": "cf-393981096",
           "platform": "codeforces",
           "title": "MEX Game (2271B)",
-          "category": "Problem Solving",
+          "category": "games",
           "language": "C++23 (GCC 14-64, msys2)",
           "difficulty": "800",
           "url": "https://codeforces.com/contest/2271/problem/B",
@@ -4951,7 +4952,7 @@
           "id": "cf-393977695",
           "platform": "codeforces",
           "title": "Robot Odd Moves (2271A)",
-          "category": "Problem Solving",
+          "category": "constructive algorithms",
           "language": "C++23 (GCC 14-64, msys2)",
           "difficulty": "800",
           "url": "https://codeforces.com/contest/2271/problem/A",
@@ -5886,55 +5887,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141152
+          "rank": 141158
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1938903
+          "rank": 1938960
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120355
+          "rank": 120356
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 530680
+          "rank": 530694
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191451
+          "rank": 191453
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1640059
+          "rank": 1640094
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 723676
+          "rank": 723696
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85860
+          "rank": 85861
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 463079
+          "rank": 463086
         }
       ],
       "dailyCalendar": {
@@ -6268,7 +6269,7 @@
       "id": "cf-393994284",
       "platform": "codeforces",
       "title": "Target Infection (2271D)",
-      "category": "Problem Solving",
+      "category": "binary search",
       "language": "C++23 (GCC 14-64, msys2)",
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2271/problem/D",
@@ -6278,7 +6279,7 @@
       "id": "cf-393984795",
       "platform": "codeforces",
       "title": "XOR Problem (2271C)",
-      "category": "Problem Solving",
+      "category": "constructive algorithms",
       "language": "C++23 (GCC 14-64, msys2)",
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2271/problem/C",
@@ -6288,7 +6289,7 @@
       "id": "cf-393981096",
       "platform": "codeforces",
       "title": "MEX Game (2271B)",
-      "category": "Problem Solving",
+      "category": "games",
       "language": "C++23 (GCC 14-64, msys2)",
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2271/problem/B",
@@ -6298,7 +6299,7 @@
       "id": "cf-393977695",
       "platform": "codeforces",
       "title": "Robot Odd Moves (2271A)",
-      "category": "Problem Solving",
+      "category": "constructive algorithms",
       "language": "C++23 (GCC 14-64, msys2)",
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2271/problem/A",

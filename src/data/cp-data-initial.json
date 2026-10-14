@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-14T03:24:48.138Z",
+    "updatedAt": "2026-10-14T11:07:05.932Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -4759,11 +4759,11 @@
         "greedy": 11,
         "implementation": 25,
         "two pointers": 3,
+        "bitmasks": 3,
         "constructive algorithms": 2,
         "graphs": 3,
         "math": 20,
         "games": 2,
-        "bitmasks": 2,
         "communication": 1,
         "interactive": 1,
         "number theory": 4,
@@ -4932,7 +4932,7 @@
           "id": "cf-393984795",
           "platform": "codeforces",
           "title": "XOR Problem (2271C)",
-          "category": "constructive algorithms",
+          "category": "bitmasks",
           "language": "C++23 (GCC 14-64, msys2)",
           "difficulty": "800",
           "url": "https://codeforces.com/contest/2271/problem/C",
@@ -5603,7 +5603,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2233986,
+      "ranking": 2127632,
       "totalSolved": 74,
       "easySolved": 39,
       "mediumSolved": 30,
@@ -5887,55 +5887,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141287
+          "rank": 141334
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1940229
+          "rank": 1940439
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120399
+          "rank": 120406
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 531076
+          "rank": 531152
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191521
+          "rank": 191538
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1641182
+          "rank": 1641335
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 724162
+          "rank": 724245
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85904
+          "rank": 85908
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 463286
+          "rank": 463325
         }
       ],
       "dailyCalendar": {
@@ -6329,7 +6329,7 @@
       "id": "cf-393984795",
       "platform": "codeforces",
       "title": "XOR Problem (2271C)",
-      "category": "constructive algorithms",
+      "category": "bitmasks",
       "language": "C++23 (GCC 14-64, msys2)",
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2271/problem/C",

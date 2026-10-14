@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-13T22:15:44.084Z",
+    "updatedAt": "2026-10-14T03:24:48.138Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 712,
-    "totalSubmissions": 1638,
+    "totalSolved": 717,
+    "totalSubmissions": 1643,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-10": {
@@ -433,6 +433,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-14": {
+        "tries": 5,
+        "ac": 5
+      },
       "2026-08-06": {
         "tries": 2,
         "ac": 2
@@ -442,10 +446,6 @@
         "ac": 3
       },
       "2026-01-16": {
-        "tries": 5,
-        "ac": 5
-      },
-      "2025-12-25": {
         "tries": 2,
         "ac": 2
       },
@@ -5604,11 +5604,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 2233986,
-      "totalSolved": 69,
+      "totalSolved": 74,
       "easySolved": 39,
-      "mediumSolved": 27,
-      "hardSolved": 3,
+      "mediumSolved": 30,
+      "hardSolved": 5,
       "dailyCalendar": {
+        "2026-10-14": {
+          "tries": 5,
+          "ac": 5
+        },
         "2026-09-08": {
           "tries": 8,
           "ac": 8
@@ -5622,15 +5626,61 @@
           "ac": 3
         },
         "2026-01-16": {
-          "tries": 5,
-          "ac": 5
-        },
-        "2025-12-25": {
           "tries": 2,
           "ac": 2
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1791947936",
+          "platform": "leetcode",
+          "title": "Perfect Squares",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/perfect-squares/",
+          "solvedAt": "2026-10-14T03:18:56.000Z"
+        },
+        {
+          "id": "lc-1791947408",
+          "platform": "leetcode",
+          "title": "3Sum Closest",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/3sum-closest/",
+          "solvedAt": "2026-10-14T03:10:08.000Z"
+        },
+        {
+          "id": "lc-1791947062",
+          "platform": "leetcode",
+          "title": "Trapping Rain Water II",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/trapping-rain-water-ii/",
+          "solvedAt": "2026-10-14T03:04:22.000Z"
+        },
+        {
+          "id": "lc-1791940982",
+          "platform": "leetcode",
+          "title": "Trapping Rain Water",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/trapping-rain-water/",
+          "solvedAt": "2026-10-14T01:23:02.000Z"
+        },
+        {
+          "id": "lc-1791939969",
+          "platform": "leetcode",
+          "title": "Product of Array Except Self",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/product-of-array-except-self/",
+          "solvedAt": "2026-10-14T01:06:09.000Z"
+        },
         {
           "id": "lc-1788860298",
           "platform": "leetcode",
@@ -5780,56 +5830,6 @@
           "difficulty": "-",
           "url": "https://leetcode.com/problems/valid-palindrome/",
           "solvedAt": "2026-01-16T05:57:29.000Z"
-        },
-        {
-          "id": "lc-1768542682",
-          "platform": "leetcode",
-          "title": "Regular Expression Matching",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/regular-expression-matching/",
-          "solvedAt": "2026-01-16T05:51:22.000Z"
-        },
-        {
-          "id": "lc-1768542552",
-          "platform": "leetcode",
-          "title": "Multiply Strings",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/multiply-strings/",
-          "solvedAt": "2026-01-16T05:49:12.000Z"
-        },
-        {
-          "id": "lc-1768541893",
-          "platform": "leetcode",
-          "title": "Add Binary",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/add-binary/",
-          "solvedAt": "2026-01-16T05:38:13.000Z"
-        },
-        {
-          "id": "lc-1766686182",
-          "platform": "leetcode",
-          "title": "Next Permutation",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/next-permutation/",
-          "solvedAt": "2025-12-25T18:09:42.000Z"
-        },
-        {
-          "id": "lc-1766686071",
-          "platform": "leetcode",
-          "title": "3Sum",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/3sum/",
-          "solvedAt": "2025-12-25T18:07:51.000Z"
         }
       ]
     },
@@ -5887,43 +5887,43 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141284
+          "rank": 141287
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1940206
+          "rank": 1940229
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120396
+          "rank": 120399
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 531068
+          "rank": 531076
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191518
+          "rank": 191521
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1641157
+          "rank": 1641182
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 724151
+          "rank": 724162
         },
         {
           "name": "Mathematics",
@@ -5935,7 +5935,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 463285
+          "rank": 463286
         }
       ],
       "dailyCalendar": {
@@ -6265,6 +6265,56 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1791947936",
+      "platform": "leetcode",
+      "title": "Perfect Squares",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/perfect-squares/",
+      "solvedAt": "2026-10-14T03:18:56.000Z"
+    },
+    {
+      "id": "lc-1791947408",
+      "platform": "leetcode",
+      "title": "3Sum Closest",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/3sum-closest/",
+      "solvedAt": "2026-10-14T03:10:08.000Z"
+    },
+    {
+      "id": "lc-1791947062",
+      "platform": "leetcode",
+      "title": "Trapping Rain Water II",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/trapping-rain-water-ii/",
+      "solvedAt": "2026-10-14T03:04:22.000Z"
+    },
+    {
+      "id": "lc-1791940982",
+      "platform": "leetcode",
+      "title": "Trapping Rain Water",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/trapping-rain-water/",
+      "solvedAt": "2026-10-14T01:23:02.000Z"
+    },
+    {
+      "id": "lc-1791939969",
+      "platform": "leetcode",
+      "title": "Product of Array Except Self",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/product-of-array-except-self/",
+      "solvedAt": "2026-10-14T01:06:09.000Z"
+    },
     {
       "id": "cf-393994284",
       "platform": "codeforces",
@@ -9416,36 +9466,6 @@
       "solvedAt": "2026-01-16T05:57:29.000Z"
     },
     {
-      "id": "lc-1768542682",
-      "platform": "leetcode",
-      "title": "Regular Expression Matching",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/regular-expression-matching/",
-      "solvedAt": "2026-01-16T05:51:22.000Z"
-    },
-    {
-      "id": "lc-1768542552",
-      "platform": "leetcode",
-      "title": "Multiply Strings",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/multiply-strings/",
-      "solvedAt": "2026-01-16T05:49:12.000Z"
-    },
-    {
-      "id": "lc-1768541893",
-      "platform": "leetcode",
-      "title": "Add Binary",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/add-binary/",
-      "solvedAt": "2026-01-16T05:38:13.000Z"
-    },
-    {
       "id": "tlx-4757395",
       "platform": "tlx",
       "title": "Perkenalan Heap",
@@ -9534,26 +9554,6 @@
       "difficulty": "800",
       "url": "https://codeforces.com/contest/106289/problem/A",
       "solvedAt": "2025-12-31T09:22:13.000Z"
-    },
-    {
-      "id": "lc-1766686182",
-      "platform": "leetcode",
-      "title": "Next Permutation",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/next-permutation/",
-      "solvedAt": "2025-12-25T18:09:42.000Z"
-    },
-    {
-      "id": "lc-1766686071",
-      "platform": "leetcode",
-      "title": "3Sum",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/3sum/",
-      "solvedAt": "2025-12-25T18:07:51.000Z"
     },
     {
       "id": "tlx-4713763",

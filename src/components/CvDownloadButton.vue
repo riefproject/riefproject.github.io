@@ -29,7 +29,7 @@
           rel="noopener noreferrer"
           class="cv-item">
           <span class="lang-code">EN</span>
-          <span class="lang-label">English Version</span>
+          <span class="lang-label">{{ lang === 'id' ? 'Versi Bahasa Inggris' : 'English Version' }}</span>
         </a>
         <a
           href="/pdf/cv-arief-in.pdf"
@@ -37,7 +37,7 @@
           rel="noopener noreferrer"
           class="cv-item">
           <span class="lang-code">ID</span>
-          <span class="lang-label">Versi Indonesia</span>
+          <span class="lang-label">{{ lang === 'id' ? 'Versi Bahasa Indonesia' : 'Indonesian Version' }}</span>
         </a>
       </div>
     </Transition>

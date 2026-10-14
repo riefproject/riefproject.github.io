@@ -183,7 +183,7 @@
           <p v-if="github?.user?.bio" class="profile-bio">{{ github.user.bio }}</p>
         </div>
         <div class="profile-metrics">
-          <div class="pm-item"><strong>{{ github?.user?.followers || 0 }}</strong><span>{{ isId ? 'Followers' : 'Followers' }}</span></div>
+          <div class="pm-item"><strong>{{ github?.user?.followers || 0 }}</strong><span>Followers</span></div>
           <div class="pm-item"><strong>{{ github?.user?.following || 0 }}</strong><span>Following</span></div>
           <div class="pm-item"><strong>{{ github?.user?.publicRepos || 0 }}</strong><span>{{ isId ? 'Repo' : 'Repos' }}</span></div>
         </div>
@@ -197,7 +197,7 @@
         </div>
         <div class="stat-card">
           <span class="stat-label">{{ isId ? 'Streak Saat Ini' : 'Current Streak' }}</span>
-          <div class="stat-value val-sky">{{ github?.overview?.currentStreak || 0 }}<span class="stat-unit"> {{ isId ? 'hari' : 'd' }}</span></div>
+          <div class="stat-value val-sky">{{ github?.overview?.currentStreak || 0 }}<span class="stat-unit"> {{ isId ? 'hari' : 'days' }}</span></div>
           <span class="stat-helper">{{ isId ? 'Terpanjang' : 'Longest' }}: {{ github?.overview?.longestStreak || 0 }} {{ isId ? 'hari' : 'days' }}</span>
         </div>
         <div class="stat-card">
@@ -214,7 +214,7 @@
 
       <div class="yearly-chips" v-if="github?.overview?.yearlyTotal">
         <span v-for="(count, year) in github.overview.yearlyTotal" :key="year" class="year-chip">
-          <strong>{{ count }}</strong> {{ isId ? 'kontribusi' : 'contribs' }} · {{ year }}
+          <strong>{{ count }}</strong> {{ isId ? 'kontribusi' : 'contributions' }} · {{ year }}
         </span>
       </div>
 

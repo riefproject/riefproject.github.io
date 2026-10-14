@@ -83,8 +83,8 @@ const resolveText = (text: { en: string; id: string }) => {
 						</div>
 						
 						<label for={`toggle-proj-home-${project.title.en.replace(/\\s+/g, '-')}`} class="project-home__label cursor-pointer text-sm font-semibold text-accent hover:underline mt-1 inline-block select-none">
-							<span class="read-more">Read details</span>
-							<span class="show-less">Show less</span>
+							<span class="read-more"><LocaleText as="span" text={locale('Read details', 'Baca selengkapnya')} /></span>
+							<span class="show-less"><LocaleText as="span" text={locale('Show less', 'Tampilkan lebih sedikit')} /></span>
 						</label>
 					</div>
 					{project.links?.length && (

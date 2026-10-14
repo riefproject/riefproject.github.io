@@ -328,50 +328,12 @@
               </div>
 
               <!-- Unified Filter Popover (Desktop & Mobile) -->
-              <div class="filter-dropdown-container">
-                <button
-                  type="button"
-                  @click="isFilterOpen = !isFilterOpen"
-                  class="filter-trigger-btn"
-                >
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
-                  </svg>
-                  <span>{{ activePlatformLabel }}</span>
-                  <span class="active-badge" v-if="feedPlatformFilter !== 'all'">1</span>
-                </button>
-                
-                <div v-if="isFilterOpen" class="filter-overlay" @click="isFilterOpen = false"></div>
-                
-                <div v-if="isFilterOpen" class="filter-dropdown-menu">
-                  <div class="dropdown-list">
-                    <label class="dropdown-item" @click="setPlatformFilter('all'); isFilterOpen = false">
-                      <input type="radio" :checked="feedPlatformFilter === 'all'" name="platform-filter" />
-                      <span>All ({{ totalSolved }})</span>
-                    </label>
-                    <label class="dropdown-item" @click="setPlatformFilter('tlx'); isFilterOpen = false">
-                      <input type="radio" :checked="feedPlatformFilter === 'tlx'" name="platform-filter" />
-                      <img src="/img/tlx/tlx.webp" alt="TLX" class="btn-logo-mini" />
-                      <span>TLX ({{ totalTlxSolved }})</span>
-                    </label>
-                    <label class="dropdown-item" @click="setPlatformFilter('codeforces'); isFilterOpen = false">
-                      <input type="radio" :checked="feedPlatformFilter === 'codeforces'" name="platform-filter" />
-                      <img src="/img/codeforces/codeforces.webp" alt="CF" class="btn-logo-mini" />
-                      <span>Codeforces ({{ totalCfSolved }})</span>
-                    </label>
-                    <label class="dropdown-item" @click="setPlatformFilter('leetcode'); isFilterOpen = false">
-                      <input type="radio" :checked="feedPlatformFilter === 'leetcode'" name="platform-filter" />
-                      <img src="/img/leetcode/leetcode.webp" alt="LC" class="btn-logo-mini" />
-                      <span>LeetCode ({{ totalLcSolved }})</span>
-                    </label>
-                    <label class="dropdown-item" @click="setPlatformFilter('hackerrank'); isFilterOpen = false">
-                      <input type="radio" :checked="feedPlatformFilter === 'hackerrank'" name="platform-filter" />
-                      <img src="/img/hackerrank/HackerRank.webp" alt="HR" class="btn-logo-mini" />
-                      <span>HackerRank ({{ totalHrSolved }})</span>
-                    </label>
-                  </div>
-                </div>
-              </div>
+              <FilterDropdown 
+                v-model="feedPlatformFilter"
+                :categories="platformCategories"
+                :locale="locale"
+                @update:modelValue="overviewCurrentPage = 1"
+              />
             </div>
           </div>
 
@@ -490,7 +452,7 @@
                   :disabled="overviewCurrentPage === 1"
                   class="pg-btn"
                 >
-                  ‹ {{ isId ? 'Prev' : 'Prev' }}
+                  ‹ {{ isId ? 'Sebelumnya' : 'Prev' }}
                 </button>
 
                 <div class="pg-num-list">
@@ -513,7 +475,7 @@
                   :disabled="overviewCurrentPage === overviewTotalPages"
                   class="pg-btn"
                 >
-                  {{ isId ? 'Next' : 'Next' }} ›
+                  {{ isId ? 'Berikutnya' : 'Next' }} ›
                 </button>
                 <button
                   type="button"
@@ -546,7 +508,7 @@
               </p>
             </div>
             <a
-              :href="`/competitive-programming/problems${feedPlatformFilter !== 'all' ? '?platform=' + feedPlatformFilter : ''}`"
+              :href="`/competitive-programming/problems${feedPlatformFilter.length < allPlatformKeys.length ? '?platform=' + feedPlatformFilter.join(',') : ''}`"
               class="cta-action-btn"
             >
               <span>{{ isId ? 'Buka Halaman Arsip Soal' : 'Open Solved Problems Archive' }}</span>
@@ -569,7 +531,7 @@
               </div>
               <div>
                 <h2>TLX (TOKI Learning Center)</h2>
-                <p>Platform resmi Ikatan Alumni Tim Olimpiade Komputer Indonesia (IA-TOKI).</p>
+                <p>{{ isId ? 'Platform resmi Ikatan Alumni Tim Olimpiade Komputer Indonesia (IA-TOKI).' : 'Official platform of the Indonesian Informatics Olympiad Alumni Association (IA-TOKI).' }}</p>
               </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
@@ -578,34 +540,34 @@
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
               <a :href="`https://tlx.toki.id/profiles/${cpData?.platforms?.tlx?.handle || 'aycaaa'}`" target="_blank" class="external-profile-btn">
-                Profil TLX ↗
+                {{ isId ? 'Profil TLX ↗' : 'TLX Profile ↗' }}
               </a>
             </div>
           </div>
 
           <div class="spotlight-metrics-grid">
             <div class="spotlight-metric">
-              <span class="metric-label">Unique Solved</span>
+              <span class="metric-label">{{ isId ? 'Soal Selesai' : 'Unique Solved' }}</span>
               <span class="metric-val metric-val-emerald">{{ totalTlxSolved }}</span>
-              <span class="metric-sub">Soal Berhasil AC</span>
+              <span class="metric-sub">{{ isId ? 'Soal Berhasil AC' : 'Problems Accepted' }}</span>
             </div>
             <div class="spotlight-metric">
-              <span class="metric-label">Total Submisi</span>
+              <span class="metric-label">{{ isId ? 'Total Submisi' : 'Total Submissions' }}</span>
               <span class="metric-val metric-val-sky">{{ cpData?.platforms?.tlx?.totalSubmissions || 561 }}</span>
-              <span class="metric-sub">Riwayat submit di TLX</span>
+              <span class="metric-sub">{{ isId ? 'Riwayat submisi di TLX' : 'Submission history on TLX' }}</span>
             </div>
             <div class="spotlight-metric">
-              <span class="metric-label">Total AC Submissions</span>
+              <span class="metric-label">{{ isId ? 'Submisi AC' : 'Total AC Submissions' }}</span>
               <span class="metric-val metric-val-amber">{{ cpData?.platforms?.tlx?.totalAcSubmissions || 215 }}</span>
-              <span class="metric-sub">Submisi berstatus 100/AC</span>
+              <span class="metric-sub">{{ isId ? 'Submisi berstatus 100/AC' : 'Submissions with 100/AC score' }}</span>
             </div>
           </div>
 
           <!-- TLX Recent Solved Table + Numbered Pagination -->
           <div class="mt-8">
             <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-              <h4 class="text-lg font-semibold platform-subtitle">Soal TLX yang Diselesaikan</h4>
-              <span class="text-xs platform-count-text">Total {{ (cpData?.platforms?.tlx?.recentSolved || []).length }} soal tercatat</span>
+              <h4 class="text-lg font-semibold platform-subtitle">{{ isId ? 'Soal TLX yang Diselesaikan' : 'Solved TLX Problems' }}</h4>
+              <span class="text-xs platform-count-text">{{ isId ? `Total ${(cpData?.platforms?.tlx?.recentSolved || []).length} soal tercatat` : `Total ${(cpData?.platforms?.tlx?.recentSolved || []).length} recorded problems` }}</span>
             </div>
 
             <div class="cp-table-wrapper">
@@ -665,20 +627,20 @@
               <div class="feed-footer-controls" v-if="tlxTotalPages > 1">
                 <div class="feed-counter-text">
                   <span class="desktop-only-text">
-                    {{ `Halaman ${tlxCurrentPage} dari ${tlxTotalPages} (Total ${(cpData?.platforms?.tlx?.recentSolved || []).length} Soal TLX)` }}
+                    {{ isId ? `Halaman ${tlxCurrentPage} dari ${tlxTotalPages} (Total ${(cpData?.platforms?.tlx?.recentSolved || []).length} Soal TLX)` : `Page ${tlxCurrentPage} of ${tlxTotalPages} (Total ${(cpData?.platforms?.tlx?.recentSolved || []).length} TLX Problems)` }}
                   </span>
                   <div class="mobile-only-text-group">
                     <div class="mob-range-text">
-                      {{ `${(tlxCurrentPage - 1) * tlxPageSize + 1}-${Math.min(tlxCurrentPage * tlxPageSize, (cpData?.platforms?.tlx?.recentSolved || []).length)} dari ${(cpData?.platforms?.tlx?.recentSolved || []).length}` }}
+                      {{ isId ? `${(tlxCurrentPage - 1) * tlxPageSize + 1}-${Math.min(tlxCurrentPage * tlxPageSize, (cpData?.platforms?.tlx?.recentSolved || []).length)} dari ${(cpData?.platforms?.tlx?.recentSolved || []).length}` : `${(tlxCurrentPage - 1) * tlxPageSize + 1}-${Math.min(tlxCurrentPage * tlxPageSize, (cpData?.platforms?.tlx?.recentSolved || []).length)} of ${(cpData?.platforms?.tlx?.recentSolved || []).length}` }}
                     </div>
                     <div class="mob-page-text">
-                      {{ `Halaman ${tlxCurrentPage} / ${tlxTotalPages}` }}
+                      {{ isId ? `Halaman ${tlxCurrentPage} / ${tlxTotalPages}` : `Page ${tlxCurrentPage} / ${tlxTotalPages}` }}
                     </div>
                   </div>
                 </div>
                 <div class="pagination-nav-group">
                   <button type="button" @click="tlxCurrentPage = 1" :disabled="tlxCurrentPage === 1" class="pg-btn">«</button>
-                  <button type="button" @click="tlxCurrentPage--" :disabled="tlxCurrentPage === 1" class="pg-btn">‹ Prev</button>
+                  <button type="button" @click="tlxCurrentPage--" :disabled="tlxCurrentPage === 1" class="pg-btn">‹ {{ isId ? 'Sebelumnya' : 'Prev' }}</button>
                   <div class="pg-num-list">
                     <button
                       v-for="p in tlxVisiblePages"
@@ -692,7 +654,7 @@
                       {{ p }}
                     </button>
                   </div>
-                  <button type="button" @click="tlxCurrentPage++" :disabled="tlxCurrentPage === tlxTotalPages" class="pg-btn">Next ›</button>
+                  <button type="button" @click="tlxCurrentPage++" :disabled="tlxCurrentPage === tlxTotalPages" class="pg-btn">{{ isId ? 'Berikutnya' : 'Next' }} ›</button>
                   <button type="button" @click="tlxCurrentPage = tlxTotalPages" :disabled="tlxCurrentPage === tlxTotalPages" class="pg-btn">»</button>
                 </div>
               </div>
@@ -700,7 +662,7 @@
               <!-- Dedicated Link Banner -->
               <div class="tab-bottom-cta">
                 <a href="/competitive-programming/problems?platform=tlx" class="tab-cta-btn">
-                  <span>Lihat Seluruh {{ totalTlxSolved }} Soal TLX di Halaman Khusus →</span>
+                  <span>{{ isId ? `Lihat Seluruh ${totalTlxSolved} Soal TLX di Halaman Khusus →` : `View All ${totalTlxSolved} TLX Problems on Dedicated Page →` }}</span>
                 </a>
               </div>
             </div>
@@ -718,7 +680,7 @@
               </div>
               <div>
                 <h2>Codeforces</h2>
-                <p>Platform kompetisi algoritma global dan olimpiade internasional.</p>
+                <p>{{ isId ? 'Platform kompetisi algoritma global dan olimpiade internasional.' : 'Global algorithm competition and international olympiad platform.' }}</p>
               </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
@@ -727,32 +689,32 @@
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
               <a :href="`https://codeforces.com/profile/${cpData?.platforms?.codeforces?.handle || 'feeera'}`" target="_blank" class="external-profile-btn">
-                Profil Codeforces ↗
+                {{ isId ? 'Profil Codeforces ↗' : 'Codeforces Profile ↗' }}
               </a>
             </div>
           </div>
 
           <div class="spotlight-metrics-grid">
             <div class="spotlight-metric">
-              <span class="metric-label">Current Rating</span>
+              <span class="metric-label">{{ isId ? 'Rating Saat Ini' : 'Current Rating' }}</span>
               <span class="metric-val metric-val-sky">{{ cpData?.platforms?.codeforces?.rating || 625 }}</span>
               <span class="metric-sub">Rank: <span class="capitalize font-medium">{{ cpData?.platforms?.codeforces?.rank || 'newbie' }}</span></span>
             </div>
             <div class="spotlight-metric">
-              <span class="metric-label">Unique Solved</span>
+              <span class="metric-label">{{ isId ? 'Soal Selesai' : 'Unique Solved' }}</span>
               <span class="metric-val metric-val-emerald">{{ totalCfSolved }}</span>
-              <span class="metric-sub">Soal Berhasil AC</span>
+              <span class="metric-sub">{{ isId ? 'Soal Berhasil AC' : 'Problems Accepted' }}</span>
             </div>
             <div class="spotlight-metric">
-              <span class="metric-label">Total Submisi</span>
+              <span class="metric-label">{{ isId ? 'Total Submisi' : 'Total Submissions' }}</span>
               <span class="metric-val metric-val-purple">{{ cpData?.platforms?.codeforces?.totalSubmissions || 148 }}</span>
-              <span class="metric-sub">Riwayat submit di CF</span>
+              <span class="metric-sub">{{ isId ? 'Riwayat submisi di CF' : 'Submission history on CF' }}</span>
             </div>
           </div>
 
           <!-- CF Tags Breakdown -->
           <div class="mt-8">
-            <h4 class="text-lg font-semibold mb-3 platform-subtitle">Topik & Algoritma di Codeforces</h4>
+            <h4 class="text-lg font-semibold mb-3 platform-subtitle">{{ isId ? 'Topik & Algoritma di Codeforces' : 'Topics & Algorithms on Codeforces' }}</h4>
             <div class="flex flex-wrap gap-2">
               <div
                 v-for="(cnt, tag) in (cpData?.platforms?.codeforces?.tagsCount || {})"
@@ -768,8 +730,8 @@
           <!-- CF Recent Solved Problems Table -->
           <div class="mt-8">
             <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-              <h4 class="text-lg font-semibold platform-subtitle">Soal Codeforces yang Diselesaikan</h4>
-              <span class="text-xs platform-count-text">Total {{ (cpData?.platforms?.codeforces?.recentSolved || []).length }} soal tercatat</span>
+              <h4 class="text-lg font-semibold platform-subtitle">{{ isId ? 'Soal Codeforces yang Diselesaikan' : 'Solved Codeforces Problems' }}</h4>
+              <span class="text-xs platform-count-text">{{ isId ? `Total ${(cpData?.platforms?.codeforces?.recentSolved || []).length} soal tercatat` : `Total ${(cpData?.platforms?.codeforces?.recentSolved || []).length} recorded problems` }}</span>
             </div>
 
             <div class="cp-table-wrapper">
@@ -777,12 +739,12 @@
                 <thead>
                   <tr>
                     <th class="col-num">#</th>
-                    <th class="col-title">Soal</th>
-                    <th class="col-category">Tag</th>
-                    <th class="col-diff">Difficulty</th>
-                    <th class="col-lang">Bahasa</th>
+                    <th class="col-title">{{ isId ? 'Judul Soal' : 'Problem Name' }}</th>
+                    <th class="col-category">{{ isId ? 'Tag' : 'Tag' }}</th>
+                    <th class="col-diff">{{ isId ? 'Kesulitan' : 'Difficulty' }}</th>
+                    <th class="col-lang">{{ isId ? 'Bahasa' : 'Language' }}</th>
                     <th class="col-status">Status</th>
-                    <th class="col-time">Waktu</th>
+                    <th class="col-time">{{ isId ? 'Waktu' : 'Solved' }}</th>
                     <th class="col-action"></th>
                   </tr>
                 </thead>
@@ -824,20 +786,20 @@
               <div class="feed-footer-controls" v-if="cfTotalPages > 1">
                 <div class="feed-counter-text">
                   <span class="desktop-only-text">
-                    {{ `Halaman ${cfCurrentPage} dari ${cfTotalPages} (Total ${(cpData?.platforms?.codeforces?.recentSolved || []).length} Soal CF)` }}
+                    {{ isId ? `Halaman ${cfCurrentPage} dari ${cfTotalPages} (Total ${(cpData?.platforms?.codeforces?.recentSolved || []).length} Soal CF)` : `Page ${cfCurrentPage} of ${cfTotalPages} (Total ${(cpData?.platforms?.codeforces?.recentSolved || []).length} CF Problems)` }}
                   </span>
                   <div class="mobile-only-text-group">
                     <div class="mob-range-text">
-                      {{ `${(cfCurrentPage - 1) * cfPageSize + 1}-${Math.min(cfCurrentPage * cfPageSize, (cpData?.platforms?.codeforces?.recentSolved || []).length)} dari ${(cpData?.platforms?.codeforces?.recentSolved || []).length}` }}
+                      {{ isId ? `${(cfCurrentPage - 1) * cfPageSize + 1}-${Math.min(cfCurrentPage * cfPageSize, (cpData?.platforms?.codeforces?.recentSolved || []).length)} dari ${(cpData?.platforms?.codeforces?.recentSolved || []).length}` : `${(cfCurrentPage - 1) * cfPageSize + 1}-${Math.min(cfCurrentPage * cfPageSize, (cpData?.platforms?.codeforces?.recentSolved || []).length)} of ${(cpData?.platforms?.codeforces?.recentSolved || []).length}` }}
                     </div>
                     <div class="mob-page-text">
-                      {{ `Halaman ${cfCurrentPage} / ${cfTotalPages}` }}
+                      {{ isId ? `Halaman ${cfCurrentPage} / ${cfTotalPages}` : `Page ${cfCurrentPage} / ${cfTotalPages}` }}
                     </div>
                   </div>
                 </div>
                 <div class="pagination-nav-group">
                   <button type="button" @click="cfCurrentPage = 1" :disabled="cfCurrentPage === 1" class="pg-btn">«</button>
-                  <button type="button" @click="cfCurrentPage--" :disabled="cfCurrentPage === 1" class="pg-btn">‹ Prev</button>
+                  <button type="button" @click="cfCurrentPage--" :disabled="cfCurrentPage === 1" class="pg-btn">‹ {{ isId ? 'Sebelumnya' : 'Prev' }}</button>
                   <div class="pg-num-list">
                     <button
                       v-for="p in cfVisiblePages"
@@ -851,7 +813,7 @@
                       {{ p }}
                     </button>
                   </div>
-                  <button type="button" @click="cfCurrentPage++" :disabled="cfCurrentPage === cfTotalPages" class="pg-btn">Next ›</button>
+                  <button type="button" @click="cfCurrentPage++" :disabled="cfCurrentPage === cfTotalPages" class="pg-btn">{{ isId ? 'Berikutnya' : 'Next' }} ›</button>
                   <button type="button" @click="cfCurrentPage = cfTotalPages" :disabled="cfCurrentPage === cfTotalPages" class="pg-btn">»</button>
                 </div>
               </div>
@@ -859,7 +821,7 @@
               <!-- Dedicated Link Banner -->
               <div class="tab-bottom-cta">
                 <a href="/competitive-programming/problems?platform=codeforces" class="tab-cta-btn">
-                  <span>Lihat Seluruh {{ totalCfSolved }} Soal Codeforces di Halaman Khusus →</span>
+                  <span>{{ isId ? `Lihat Seluruh ${totalCfSolved} Soal Codeforces di Halaman Khusus →` : `View All ${totalCfSolved} Codeforces Problems on Dedicated Page →` }}</span>
                 </a>
               </div>
             </div>
@@ -877,7 +839,7 @@
               </div>
               <div>
                 <h2>LeetCode</h2>
-                <p>Platform latihan Data Structures & Algorithms untuk persiapan teknikal software engineer.</p>
+                <p>{{ isId ? 'Platform latihan Data Structures & Algorithms untuk persiapan teknikal software engineer.' : 'Data Structures & Algorithms practice platform for software engineering technical preparation.' }}</p>
               </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
@@ -886,7 +848,7 @@
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
               <a :href="`https://leetcode.com/u/${cpData?.platforms?.leetcode?.handle || 'fsaree'}`" target="_blank" class="external-profile-btn">
-                Profil LeetCode ↗
+                {{ isId ? 'Profil LeetCode ↗' : 'LeetCode Profile ↗' }}
               </a>
             </div>
           </div>
@@ -895,25 +857,25 @@
             <div class="spotlight-metric">
               <span class="metric-label">Easy Solved</span>
               <span class="metric-val metric-val-emerald">{{ cpData?.platforms?.leetcode?.easySolved || 32 }}</span>
-              <span class="metric-sub">Fondasi & Dasar DSA</span>
+              <span class="metric-sub">{{ isId ? 'Fondasi & Dasar DSA' : 'DSA Foundations & Basics' }}</span>
             </div>
             <div class="spotlight-metric">
               <span class="metric-label">Medium Solved</span>
               <span class="metric-val metric-val-amber">{{ cpData?.platforms?.leetcode?.mediumSolved || 24 }}</span>
-              <span class="metric-sub">Core Problem Solving</span>
+              <span class="metric-sub">{{ isId ? 'Problem Solving Inti' : 'Core Problem Solving' }}</span>
             </div>
             <div class="spotlight-metric">
               <span class="metric-label">Hard Solved</span>
               <span class="metric-val metric-val-rose">{{ cpData?.platforms?.leetcode?.hardSolved || 3 }}</span>
-              <span class="metric-sub">Advanced Complexity</span>
+              <span class="metric-sub">{{ isId ? 'Kompleksitas Lanjutan' : 'Advanced Complexity' }}</span>
             </div>
           </div>
 
           <!-- LeetCode Recent Solved Table -->
           <div class="mt-8">
             <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-              <h4 class="text-lg font-semibold platform-subtitle">Soal LeetCode yang Diselesaikan</h4>
-              <span class="text-xs platform-count-text">Total {{ (cpData?.platforms?.leetcode?.recentSolved || []).length }} soal tercatat</span>
+              <h4 class="text-lg font-semibold platform-subtitle">{{ isId ? 'Soal LeetCode yang Diselesaikan' : 'Solved LeetCode Problems' }}</h4>
+              <span class="text-xs platform-count-text">{{ isId ? `Total ${(cpData?.platforms?.leetcode?.recentSolved || []).length} soal tercatat` : `Total ${(cpData?.platforms?.leetcode?.recentSolved || []).length} recorded problems` }}</span>
             </div>
 
             <div class="cp-table-wrapper">
@@ -921,10 +883,10 @@
                 <thead>
                   <tr>
                     <th class="col-num">#</th>
-                    <th class="col-title">Problem</th>
-                    <th class="col-category">Category</th>
+                    <th class="col-title">{{ isId ? 'Judul Soal' : 'Problem Name' }}</th>
+                    <th class="col-category">{{ isId ? 'Kategori' : 'Category' }}</th>
                     <th class="col-status">Status</th>
-                    <th class="col-time">Solved</th>
+                    <th class="col-time">{{ isId ? 'Waktu' : 'Solved' }}</th>
                     <th class="col-action"></th>
                   </tr>
                 </thead>
@@ -948,7 +910,7 @@
                       {{ formatExactDate(item.solvedAt) }}
                     </td>
                     <td class="cell-action">
-                      <a :href="item.url" target="_blank" class="open-btn" title="Buka di LeetCode">
+                      <a :href="item.url" target="_blank" class="open-btn" :title="isId ? 'Buka di LeetCode' : 'Open on LeetCode'">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                       </a>
                     </td>
@@ -960,20 +922,20 @@
               <div class="feed-footer-controls" v-if="lcTotalPages > 1">
                 <div class="feed-counter-text">
                   <span class="desktop-only-text">
-                    {{ `Halaman ${lcCurrentPage} dari ${lcTotalPages} (Total ${(cpData?.platforms?.leetcode?.recentSolved || []).length} Soal LeetCode)` }}
+                    {{ isId ? `Halaman ${lcCurrentPage} dari ${lcTotalPages} (Total ${(cpData?.platforms?.leetcode?.recentSolved || []).length} Soal LeetCode)` : `Page ${lcCurrentPage} of ${lcTotalPages} (Total ${(cpData?.platforms?.leetcode?.recentSolved || []).length} LeetCode Problems)` }}
                   </span>
                   <div class="mobile-only-text-group">
                     <div class="mob-range-text">
-                      {{ `${(lcCurrentPage - 1) * lcPageSize + 1}-${Math.min(lcCurrentPage * lcPageSize, (cpData?.platforms?.leetcode?.recentSolved || []).length)} dari ${(cpData?.platforms?.leetcode?.recentSolved || []).length}` }}
+                      {{ isId ? `${(lcCurrentPage - 1) * lcPageSize + 1}-${Math.min(lcCurrentPage * lcPageSize, (cpData?.platforms?.leetcode?.recentSolved || []).length)} dari ${(cpData?.platforms?.leetcode?.recentSolved || []).length}` : `${(lcCurrentPage - 1) * lcPageSize + 1}-${Math.min(lcCurrentPage * lcPageSize, (cpData?.platforms?.leetcode?.recentSolved || []).length)} of ${(cpData?.platforms?.leetcode?.recentSolved || []).length}` }}
                     </div>
                     <div class="mob-page-text">
-                      {{ `Halaman ${lcCurrentPage} / ${lcTotalPages}` }}
+                      {{ isId ? `Halaman ${lcCurrentPage} / ${lcTotalPages}` : `Page ${lcCurrentPage} / ${lcTotalPages}` }}
                     </div>
                   </div>
                 </div>
                 <div class="pagination-nav-group">
                   <button type="button" @click="lcCurrentPage = 1" :disabled="lcCurrentPage === 1" class="pg-btn">«</button>
-                  <button type="button" @click="lcCurrentPage--" :disabled="lcCurrentPage === 1" class="pg-btn">‹ Prev</button>
+                  <button type="button" @click="lcCurrentPage--" :disabled="lcCurrentPage === 1" class="pg-btn">‹ {{ isId ? 'Sebelumnya' : 'Prev' }}</button>
                   <div class="pg-num-list">
                     <button
                       v-for="p in lcVisiblePages"
@@ -987,7 +949,7 @@
                       {{ p }}
                     </button>
                   </div>
-                  <button type="button" @click="lcCurrentPage++" :disabled="lcCurrentPage === lcTotalPages" class="pg-btn">Next ›</button>
+                  <button type="button" @click="lcCurrentPage++" :disabled="lcCurrentPage === lcTotalPages" class="pg-btn">{{ isId ? 'Berikutnya' : 'Next' }} ›</button>
                   <button type="button" @click="lcCurrentPage = lcTotalPages" :disabled="lcCurrentPage === lcTotalPages" class="pg-btn">»</button>
                 </div>
               </div>
@@ -995,7 +957,7 @@
               <!-- Dedicated Link Banner -->
               <div class="tab-bottom-cta">
                 <a href="/competitive-programming/problems?platform=leetcode" class="tab-cta-btn">
-                  <span>Lihat Seluruh {{ totalLcSolved }} Soal LeetCode di Halaman Khusus →</span>
+                  <span>{{ isId ? `Lihat Seluruh ${totalLcSolved} Soal LeetCode di Halaman Khusus →` : `View All ${totalLcSolved} LeetCode Problems on Dedicated Page →` }}</span>
                 </a>
               </div>
             </div>
@@ -1013,7 +975,7 @@
               </div>
               <div>
                 <h2>HackerRank</h2>
-                <p>Platform evaluasi skill programming, SQL, problem solving, dan bahasa pemrograman.</p>
+                <p>{{ isId ? 'Platform evaluasi kemampuan programming, SQL, problem solving, dan bahasa pemrograman.' : 'Evaluation platform for programming skills, SQL, problem solving, and languages.' }}</p>
               </div>
             </div>
             <div class="flex items-center gap-2 flex-wrap">
@@ -1022,14 +984,14 @@
                 <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
               <a :href="`https://www.hackerrank.com/profile/${cpData?.platforms?.hackerrank?.handle || 'areee'}`" target="_blank" class="external-profile-btn">
-                Profil HackerRank ↗
+                {{ isId ? 'Profil HackerRank ↗' : 'HackerRank Profile ↗' }}
               </a>
             </div>
           </div>
 
           <!-- Track Scores Grid -->
           <div class="mt-4">
-            <h4 class="text-lg font-semibold mb-4 platform-subtitle">Skor & Track Domain</h4>
+            <h4 class="text-lg font-semibold mb-4 platform-subtitle">{{ isId ? 'Skor & Track Domain' : 'Scores & Track Domains' }}</h4>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div
                 v-for="track in (cpData?.platforms?.hackerrank?.trackScores || [])"
@@ -1045,7 +1007,7 @@
 
           <!-- Badges Grid -->
           <div class="mt-8">
-            <h4 class="text-lg font-semibold mb-4 platform-subtitle">Badges & Skill Stars</h4>
+            <h4 class="text-lg font-semibold mb-4 platform-subtitle">{{ isId ? 'Badge & Bintang Keahlian' : 'Badges & Skill Stars' }}</h4>
             <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
               <div
                 v-for="b in (cpData?.platforms?.hackerrank?.badges || [])"
@@ -1054,7 +1016,7 @@
               >
                 <div class="hr-badge-stars font-bold text-lg">★ {{ b.stars }} Stars</div>
                 <div class="text-sm font-semibold hr-badge-name mt-1">{{ b.name }}</div>
-                <div class="text-xs hr-badge-solved mt-0.5">{{ b.solved }} solved</div>
+                <div class="text-xs hr-badge-solved mt-0.5">{{ b.solved }} {{ isId ? 'selesai' : 'solved' }}</div>
               </div>
             </div>
           </div>
@@ -1062,8 +1024,8 @@
           <!-- HackerRank Recent Challenges Table -->
           <div class="mt-8">
             <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-              <h4 class="text-lg font-semibold platform-subtitle">Challenges HackerRank yang Diselesaikan</h4>
-              <span class="text-xs platform-count-text">Total {{ (cpData?.platforms?.hackerrank?.recentSolved || []).length }} challenges tercatat</span>
+              <h4 class="text-lg font-semibold platform-subtitle">{{ isId ? 'Tantangan HackerRank yang Diselesaikan' : 'Solved HackerRank Challenges' }}</h4>
+              <span class="text-xs platform-count-text">{{ isId ? `Total ${(cpData?.platforms?.hackerrank?.recentSolved || []).length} tantangan tercatat` : `Total ${(cpData?.platforms?.hackerrank?.recentSolved || []).length} recorded challenges` }}</span>
             </div>
 
             <div class="cp-table-wrapper">
@@ -1071,10 +1033,10 @@
                 <thead>
                   <tr>
                     <th class="col-num">#</th>
-                    <th class="col-title">Challenge</th>
-                    <th class="col-category">Track / Domain</th>
+                    <th class="col-title">{{ isId ? 'Tantangan' : 'Challenge' }}</th>
+                    <th class="col-category">{{ isId ? 'Track / Domain' : 'Track / Domain' }}</th>
                     <th class="col-status">Status</th>
-                    <th class="col-time">Solved</th>
+                    <th class="col-time">{{ isId ? 'Waktu' : 'Solved' }}</th>
                     <th class="col-action"></th>
                   </tr>
                 </thead>
@@ -1098,7 +1060,7 @@
                       {{ formatExactDate(item.solvedAt) }}
                     </td>
                     <td class="cell-action">
-                      <a :href="item.url" target="_blank" class="open-btn" title="Buka di HackerRank">
+                      <a :href="item.url" target="_blank" class="open-btn" :title="isId ? 'Buka di HackerRank' : 'Open on HackerRank'">
                         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
                       </a>
                     </td>
@@ -1110,20 +1072,20 @@
               <div class="feed-footer-controls" v-if="hrTotalPages > 1">
                 <div class="feed-counter-text">
                   <span class="desktop-only-text">
-                    {{ `Halaman ${hrCurrentPage} dari ${hrTotalPages} (Total ${(cpData?.platforms?.hackerrank?.recentSolved || []).length} Challenges HR)` }}
+                    {{ isId ? `Halaman ${hrCurrentPage} dari ${hrTotalPages} (Total ${(cpData?.platforms?.hackerrank?.recentSolved || []).length} Tantangan HR)` : `Page ${hrCurrentPage} of ${hrTotalPages} (Total ${(cpData?.platforms?.hackerrank?.recentSolved || []).length} HR Challenges)` }}
                   </span>
                   <div class="mobile-only-text-group">
                     <div class="mob-range-text">
-                      {{ `${(hrCurrentPage - 1) * hrPageSize + 1}-${Math.min(hrCurrentPage * hrPageSize, (cpData?.platforms?.hackerrank?.recentSolved || []).length)} dari ${(cpData?.platforms?.hackerrank?.recentSolved || []).length}` }}
+                      {{ isId ? `${(hrCurrentPage - 1) * hrPageSize + 1}-${Math.min(hrCurrentPage * hrPageSize, (cpData?.platforms?.hackerrank?.recentSolved || []).length)} dari ${(cpData?.platforms?.hackerrank?.recentSolved || []).length}` : `${(hrCurrentPage - 1) * hrPageSize + 1}-${Math.min(hrCurrentPage * hrPageSize, (cpData?.platforms?.hackerrank?.recentSolved || []).length)} of ${(cpData?.platforms?.hackerrank?.recentSolved || []).length}` }}
                     </div>
                     <div class="mob-page-text">
-                      {{ `Halaman ${hrCurrentPage} / ${hrTotalPages}` }}
+                      {{ isId ? `Halaman ${hrCurrentPage} / ${hrTotalPages}` : `Page ${hrCurrentPage} / ${hrTotalPages}` }}
                     </div>
                   </div>
                 </div>
                 <div class="pagination-nav-group">
                   <button type="button" @click="hrCurrentPage = 1" :disabled="hrCurrentPage === 1" class="pg-btn">«</button>
-                  <button type="button" @click="hrCurrentPage--" :disabled="hrCurrentPage === 1" class="pg-btn">‹ Prev</button>
+                  <button type="button" @click="hrCurrentPage--" :disabled="hrCurrentPage === 1" class="pg-btn">‹ {{ isId ? 'Sebelumnya' : 'Prev' }}</button>
                   <div class="pg-num-list">
                     <button
                       v-for="p in hrVisiblePages"
@@ -1137,7 +1099,7 @@
                       {{ p }}
                     </button>
                   </div>
-                  <button type="button" @click="hrCurrentPage++" :disabled="hrCurrentPage === hrTotalPages" class="pg-btn">Next ›</button>
+                  <button type="button" @click="hrCurrentPage++" :disabled="hrCurrentPage === hrTotalPages" class="pg-btn">{{ isId ? 'Berikutnya' : 'Next' }} ›</button>
                   <button type="button" @click="hrCurrentPage = hrTotalPages" :disabled="hrCurrentPage === hrTotalPages" class="pg-btn">»</button>
                 </div>
               </div>
@@ -1145,7 +1107,7 @@
               <!-- Dedicated Link Banner -->
               <div class="tab-bottom-cta">
                 <a href="/competitive-programming/problems?platform=hackerrank" class="tab-cta-btn">
-                  <span>Lihat Seluruh {{ totalHrSolved }}+ Challenges HackerRank di Halaman Khusus →</span>
+                  <span>{{ isId ? `Lihat Seluruh ${totalHrSolved}+ Tantangan HackerRank di Halaman Khusus →` : `View All ${totalHrSolved}+ HackerRank Challenges on Dedicated Page →` }}</span>
                 </a>
               </div>
             </div>
@@ -1180,18 +1142,17 @@ const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date()
 
 const activeTab = ref<'overview' | 'tlx' | 'codeforces' | 'leetcode' | 'hackerrank'>('overview');
 const searchQuery = ref('');
-const feedPlatformFilter = ref<string>('all');
-const isFilterOpen = ref(false);
+const allPlatformKeys = ['tlx', 'codeforces', 'leetcode', 'hackerrank'];
+const feedPlatformFilter = ref<string[]>([...allPlatformKeys]);
+const locale = computed(() => (isId.value ? 'id' : 'en'));
 
-const activePlatformLabel = computed(() => {
-  const map: Record<string, string> = {
-    all: isId.value ? 'Semua Platform' : 'All Platforms',
-    tlx: 'TLX (TOKI)',
-    codeforces: 'Codeforces',
-    leetcode: 'LeetCode',
-    hackerrank: 'HackerRank',
-  };
-  return map[feedPlatformFilter.value] || 'Platform';
+const platformCategories = computed(() => {
+  return [
+    { key: 'tlx', label: `TLX (${totalTlxSolved.value})` },
+    { key: 'codeforces', label: `Codeforces (${totalCfSolved.value})` },
+    { key: 'leetcode', label: `LeetCode (${totalLcSolved.value})` },
+    { key: 'hackerrank', label: `HackerRank (${totalHrSolved.value})` }
+  ];
 });
 
 // Exact Solved Counts
@@ -1218,10 +1179,7 @@ const lcPageSize = ref(10);
 const hrCurrentPage = ref(1);
 const hrPageSize = ref(10);
 
-const setPlatformFilter = (platform: string) => {
-  feedPlatformFilter.value = platform;
-  overviewCurrentPage.value = 1;
-};
+// removed setPlatformFilter
 
 const platformPills = computed(() => [
   { key: 'tlx', name: 'TLX', handle: cpData.value?.platforms?.tlx?.handle || 'aycaaa', logo: '/img/tlx/tlx.webp', url: 'https://tlx.toki.id/profiles/aycaaa' },
@@ -1391,9 +1349,7 @@ const allRecentFeed = computed(() => {
 
 const filteredFeed = computed(() => {
   let list = allRecentFeed.value;
-  if (feedPlatformFilter.value !== 'all') {
-    list = list.filter((item: any) => item.platform === feedPlatformFilter.value);
-  }
+  list = list.filter((item: any) => feedPlatformFilter.value.includes(item.platform));
   if (searchQuery.value.trim()) {
     const q = searchQuery.value.toLowerCase();
     list = list.filter(
@@ -2310,138 +2266,6 @@ onMounted(() => {
 
 .search-input:focus {
   border-color: var(--text);
-}
-
-.filter-dropdown-container {
-  position: relative;
-}
-
-.filter-trigger-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.95rem;
-  border-radius: 0.6rem;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: var(--text-base);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  height: 100%;
-  box-sizing: border-box;
-  white-space: nowrap;
-}
-
-.filter-trigger-btn:hover {
-  background: var(--bg-elevated);
-  border-color: var(--border-hover);
-}
-
-.active-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.1rem;
-  height: 1.1rem;
-  border-radius: 50%;
-  background: var(--link);
-  color: #fff;
-  font-size: 0.65rem;
-  font-weight: 700;
-}
-
-.filter-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-  background: transparent;
-}
-
-.filter-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  z-index: 101;
-  width: 250px;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  animation: popoverFadeIn 0.15s ease-out;
-}
-
-@keyframes popoverFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.dropdown-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.65rem 0.85rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-elevated);
-}
-
-.dropdown-header h4 {
-  margin: 0;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--text);
-}
-
-.close-dropdown-btn {
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  color: var(--muted);
-  cursor: pointer;
-  line-height: 1;
-  padding: 0;
-}
-
-.close-dropdown-btn:hover {
-  color: var(--text);
-}
-
-.dropdown-list {
-  display: flex;
-  flex-direction: column;
-  padding: 0.25rem 0;
-}
-
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.55rem 0.85rem;
-  cursor: pointer;
-  font-size: var(--text-sm);
-  color: var(--text);
-  transition: background 0.15s;
-}
-
-.dropdown-item:hover {
-  background: var(--bg-elevated);
-}
-
-.dropdown-item input[type="radio"] {
-  accent-color: var(--link);
-  cursor: pointer;
-  margin: 0;
 }
 
 .filter-pill-btn:hover {

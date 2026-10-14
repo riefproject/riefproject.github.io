@@ -19,50 +19,11 @@
         </div>
 
         <!-- Unified Filter Popover (Desktop & Mobile) -->
-        <div class="filter-dropdown-container">
-          <button
-            type="button"
-            @click="isFilterOpen = !isFilterOpen"
-            class="filter-trigger-btn"
-          >
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
-            </svg>
-            <span>{{ activePlatformLabel }}</span>
-            <span class="active-badge" v-if="selectedPlatform !== 'all'">1</span>
-          </button>
-          
-          <div v-if="isFilterOpen" class="filter-overlay" @click="isFilterOpen = false"></div>
-          
-          <div v-if="isFilterOpen" class="filter-dropdown-menu">
-            <div class="dropdown-list">
-              <label class="dropdown-item" @click="selectPlatform('all'); isFilterOpen = false">
-                <input type="radio" :checked="selectedPlatform === 'all'" name="explorer-platform-filter" />
-                <span>All ({{ totalAllSolved }})</span>
-              </label>
-              <label class="dropdown-item" @click="selectPlatform('tlx'); isFilterOpen = false">
-                <input type="radio" :checked="selectedPlatform === 'tlx'" name="explorer-platform-filter" />
-                <img src="/img/tlx/tlx.webp" alt="TLX" class="tab-btn-logo" style="width: 0.9rem; height: 0.9rem; object-fit: contain;" />
-                <span>TLX ({{ totalTlxSolved }})</span>
-              </label>
-              <label class="dropdown-item" @click="selectPlatform('codeforces'); isFilterOpen = false">
-                <input type="radio" :checked="selectedPlatform === 'codeforces'" name="explorer-platform-filter" />
-                <img src="/img/codeforces/codeforces.webp" alt="CF" class="tab-btn-logo" style="width: 0.9rem; height: 0.9rem; object-fit: contain;" />
-                <span>Codeforces ({{ totalCfSolved }})</span>
-              </label>
-              <label class="dropdown-item" @click="selectPlatform('leetcode'); isFilterOpen = false">
-                <input type="radio" :checked="selectedPlatform === 'leetcode'" name="explorer-platform-filter" />
-                <img src="/img/leetcode/leetcode.webp" alt="LC" class="tab-btn-logo" style="width: 0.9rem; height: 0.9rem; object-fit: contain;" />
-                <span>LeetCode ({{ totalLcSolved }})</span>
-              </label>
-              <label class="dropdown-item" @click="selectPlatform('hackerrank'); isFilterOpen = false">
-                <input type="radio" :checked="selectedPlatform === 'hackerrank'" name="explorer-platform-filter" />
-                <img src="/img/hackerrank/HackerRank.webp" alt="HR" class="tab-btn-logo" style="width: 0.9rem; height: 0.9rem; object-fit: contain;" />
-                <span>HackerRank ({{ totalHrSolved }})</span>
-              </label>
-            </div>
-          </div>
-        </div>
+        <FilterDropdown 
+          v-model="selectedPlatforms"
+          :categories="platformCategories"
+          :locale="locale"
+        />
 
         <div class="rows-per-page-select">
           <label class="text-xs text-gray-400">{{ isId ? 'Baris per halaman:' : 'Per page:' }}</label>
@@ -245,7 +206,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watch } from 'vue';
+import FilterDropdown from "../FilterDropdown.vue";
 import { useStore } from '@nanostores/vue';
 import { lang } from '../../stores/uiStore.js';
 
@@ -257,18 +219,17 @@ const $lang = useStore(lang);
 const isId = computed(() => $lang.value === 'id');
 
 const cpData = ref<any>(props.initialData || null);
-const selectedPlatform = ref<string>('all');
-const isFilterOpen = ref(false);
+const allPlatformKeys = ['tlx', 'codeforces', 'leetcode', 'hackerrank'];
+const selectedPlatforms = ref<string[]>([...allPlatformKeys]);
+const locale = computed(() => (isId.value ? 'id' : 'en'));
 
-const activePlatformLabel = computed(() => {
-  const map: Record<string, string> = {
-    all: isId.value ? 'Semua Platform' : 'All Platforms',
-    tlx: 'TLX (TOKI)',
-    codeforces: 'Codeforces',
-    leetcode: 'LeetCode',
-    hackerrank: 'HackerRank',
-  };
-  return map[selectedPlatform.value] || 'Platform';
+const platformCategories = computed(() => {
+  return [
+    { key: 'tlx', label: `TLX (${totalTlxSolved.value})` },
+    { key: 'codeforces', label: `Codeforces (${totalCfSolved.value})` },
+    { key: 'leetcode', label: `LeetCode (${totalLcSolved.value})` },
+    { key: 'hackerrank', label: `HackerRank (${totalHrSolved.value})` }
+  ];
 });
 
 const searchQuery = ref('');
@@ -287,8 +248,16 @@ onMounted(() => {
   if (typeof window !== 'undefined') {
     const urlParams = new URLSearchParams(window.location.search);
     const plat = urlParams.get('platform');
-    if (plat && ['tlx', 'codeforces', 'leetcode', 'hackerrank', 'all'].includes(plat.toLowerCase())) {
-      selectedPlatform.value = plat.toLowerCase();
+    if (plat) {
+      if (plat.toLowerCase() === 'all') {
+        selectedPlatforms.value = [...allPlatformKeys];
+      } else {
+        const plats = plat.toLowerCase().split(',');
+        const validPlats = plats.filter(p => allPlatformKeys.includes(p));
+        if (validPlats.length > 0) {
+          selectedPlatforms.value = validPlats;
+        }
+      }
     }
     const q = urlParams.get('q');
     if (q) {
@@ -297,19 +266,18 @@ onMounted(() => {
   }
 });
 
-const selectPlatform = (platform: string) => {
-  selectedPlatform.value = platform;
+watch(selectedPlatforms, (newVal) => {
   currentPage.value = 1;
   if (typeof window !== 'undefined') {
     const url = new URL(window.location.href);
-    if (platform === 'all') {
+    if (newVal.length === allPlatformKeys.length) {
       url.searchParams.delete('platform');
     } else {
-      url.searchParams.set('platform', platform);
+      url.searchParams.set('platform', newVal.join(','));
     }
     window.history.replaceState({}, '', url.toString());
   }
-};
+});
 
 // Filtered List
 const allProblems = computed(() => {
@@ -318,9 +286,8 @@ const allProblems = computed(() => {
 
 const filteredProblems = computed(() => {
   let list = allProblems.value;
-  if (selectedPlatform.value !== 'all') {
-    list = list.filter((item: any) => item.platform === selectedPlatform.value);
-  }
+  list = list.filter((item: any) => selectedPlatforms.value.includes(item.platform));
+  
   if (searchQuery.value.trim()) {
     const q = searchQuery.value.toLowerCase();
     list = list.filter(
@@ -520,138 +487,6 @@ const formatExactDate = (isoString?: string) => {
   color: var(--text);
   font-size: var(--text-base);
   outline: none;
-}
-
-.filter-dropdown-container {
-  position: relative;
-}
-
-.filter-trigger-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.95rem;
-  border-radius: 0.6rem;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: var(--text-base);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  height: 100%;
-  box-sizing: border-box;
-  white-space: nowrap;
-}
-
-.filter-trigger-btn:hover {
-  background: var(--bg-elevated);
-  border-color: var(--border-hover);
-}
-
-.active-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.1rem;
-  height: 1.1rem;
-  border-radius: 50%;
-  background: var(--link);
-  color: #fff;
-  font-size: 0.65rem;
-  font-weight: 700;
-}
-
-.filter-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-  background: transparent;
-}
-
-.filter-dropdown-menu {
-  position: absolute;
-  top: calc(100% + 0.5rem);
-  right: 0;
-  z-index: 101;
-  width: 250px;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  border-radius: 0.75rem;
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  animation: popoverFadeIn 0.15s ease-out;
-}
-
-@keyframes popoverFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.dropdown-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.65rem 0.85rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-elevated);
-}
-
-.dropdown-header h4 {
-  margin: 0;
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--text);
-}
-
-.close-dropdown-btn {
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  color: var(--muted);
-  cursor: pointer;
-  line-height: 1;
-  padding: 0;
-}
-
-.close-dropdown-btn:hover {
-  color: var(--text);
-}
-
-.dropdown-list {
-  display: flex;
-  flex-direction: column;
-  padding: 0.25rem 0;
-}
-
-.dropdown-item {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  padding: 0.55rem 0.85rem;
-  cursor: pointer;
-  font-size: var(--text-sm);
-  color: var(--text);
-  transition: background 0.15s;
-}
-
-.dropdown-item:hover {
-  background: var(--bg-elevated);
-}
-
-.dropdown-item input[type="radio"] {
-  accent-color: var(--link);
-  cursor: pointer;
-  margin: 0;
 }
 
 .platform-tab-btn:hover {

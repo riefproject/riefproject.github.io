@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed, watch } from "vue";
+import { useStore } from "@nanostores/vue";
+import { lang as langStore } from "../stores/uiStore.js";
 import type { Achievement } from "../types/profile.types";
 
 const props = defineProps<{
@@ -11,11 +13,17 @@ const emit = defineEmits<{
   (e: "close"): void;
 }>();
 
+const $lang = useStore(langStore);
+const locale = computed(() => ($lang.value === "id" ? "id" : "en"));
+
 const copySuccess = ref(false);
 const currentImageIndex = ref(0);
 
 const highlightTags = computed(() => {
-  const raw = props.achievement?.highlight?.en || "";
+  const raw =
+    props.achievement?.highlight?.[locale.value] ||
+    props.achievement?.highlight?.en ||
+    "";
   return raw
     .split(/[,·\|/]/)
     .map((tag) => tag.trim())
@@ -105,7 +113,7 @@ onUnmounted(() => {
           <button
             @click="emit('close')"
             class="sticky top-3 right-3 z-10 p-1.5 md:p-2 rounded-full bg-[var(--surface-muted)] hover:bg-[var(--border)] transition-all hover:scale-110 active:scale-95 float-right mt-3 mr-3"
-            aria-label="Close modal">
+            :aria-label="locale === 'id' ? 'Tutup modal' : 'Close modal'">
             <svg
               class="w-5 h-5 md:w-4 md:h-4 text-[var(--muted)]"
               fill="none"
@@ -130,7 +138,7 @@ onUnmounted(() => {
                   class="relative rounded-lg overflow-hidden border border-[var(--border)] w-full max-w-md lg:max-w-none mx-auto group">
                   <img
                     :src="images[currentImageIndex]"
-                    :alt="`${achievement.title.en} Certificate`"
+                    :alt="`${achievement.title[locale] || achievement.title.en} Certificate`"
                     class="w-full h-auto" />
 
                   <!-- Navigation Buttons -->
@@ -138,7 +146,7 @@ onUnmounted(() => {
                     <button
                       @click.stop="prevImage"
                       class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100 focus:opacity-100"
-                      aria-label="Previous image">
+                      :aria-label="locale === 'id' ? 'Gambar sebelumnya' : 'Previous image'">
                       <svg
                         class="w-5 h-5"
                         fill="none"
@@ -155,7 +163,7 @@ onUnmounted(() => {
                     <button
                       @click.stop="nextImage"
                       class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100 focus:opacity-100"
-                      aria-label="Next image">
+                      :aria-label="locale === 'id' ? 'Gambar berikutnya' : 'Next image'">
                       <svg
                         class="w-5 h-5"
                         fill="none"
@@ -182,7 +190,7 @@ onUnmounted(() => {
                             ? 'bg-white scale-110'
                             : 'bg-white/50 hover:bg-white/80'
                         "
-                        :aria-label="`Go to image ${idx + 1}`" />
+                        :aria-label="locale === 'id' ? `Ke gambar ${idx + 1}` : `Go to image ${idx + 1}`" />
                     </div>
                   </template>
                 </div>
@@ -196,15 +204,15 @@ onUnmounted(() => {
                     <img
                       v-if="achievement.logo"
                       :src="achievement.logo"
-                      :alt="achievement.issuer.en"
+                      :alt="achievement.issuer[locale] || achievement.issuer.en"
                       class="w-8 h-8 object-contain" />
                     <div>
                       <h2
                         class="text-xl text-start font-bold text-[var(--text)]">
-                        {{ achievement.title.en }}
+                        {{ achievement.title[locale] || achievement.title.en }}
                       </h2>
                       <p class="text-xs text-start text-[var(--muted)]">
-                        {{ achievement.issuer.en }} · {{ achievement.date }}
+                        {{ achievement.issuer[locale] || achievement.issuer.en }} · {{ achievement.date }}
                       </p>
                     </div>
                   </div>
@@ -226,7 +234,7 @@ onUnmounted(() => {
                   <div v-if="achievement.credentialId">
                     <label
                       class="block text-xs font-semibold uppercase tracking-wide text-[var(--muted)] mb-2">
-                      Credential ID
+                      {{ locale === 'id' ? 'ID Kredensial' : 'Credential ID' }}
                     </label>
                     <div
                       class="flex items-center gap-2 bg-[var(--bg)] rounded-xl p-3 border border-[var(--border)]">
@@ -241,7 +249,7 @@ onUnmounted(() => {
                           'bg-[var(--chip-bg)] border-[var(--accent)]':
                             copySuccess,
                         }"
-                        aria-label="Copy credential ID">
+                        :aria-label="locale === 'id' ? 'Salin ID kredensial' : 'Copy credential ID'">
                         <svg
                           v-if="!copySuccess"
                           class="w-4 h-4 text-[var(--muted)]"
@@ -277,7 +285,7 @@ onUnmounted(() => {
                       target="_blank"
                       rel="noopener noreferrer"
                       class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[var(--accent)] hover:bg-[var(--accent-strong)] text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md">
-                      <span>Verify Credential</span>
+                      <span>{{ locale === 'id' ? 'Verifikasi Kredensial' : 'Verify Credential' }}</span>
                       <svg
                         class="w-4 h-4"
                         fill="none"

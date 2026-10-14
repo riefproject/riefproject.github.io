@@ -68,7 +68,7 @@ const resolvedCategories = computed(() => {
           v-model="searchTerm"
           type="search"
           :placeholder="copy.search"
-          aria-label="Search tech stack"
+          :aria-label="locale === 'id' ? 'Cari tech stack' : 'Search tech stack'"
           class="stack-search-input" />
       </div>
 
@@ -79,7 +79,7 @@ const resolvedCategories = computed(() => {
       />
     </div>
 
-    <div class="scroller" aria-label="Tech stack list">
+    <div class="scroller" :aria-label="locale === 'id' ? 'Daftar tech stack' : 'Tech stack list'">
       <div class="stack-grid">
         <div
           v-for="item in filteredItems"

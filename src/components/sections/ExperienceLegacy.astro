@@ -115,8 +115,8 @@ const groups = [
 									<div class="legacy-exp__fade absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[var(--bg-soft)] to-transparent transition-opacity duration-300 pointer-events-none"></div>
 								</div>
 								<label for={`toggle-${primary.company.replace(/\\s+/g, '-')}`} class="legacy-exp__label cursor-pointer text-base font-semibold text-accent hover:underline mt-2 inline-flex items-center select-none">
-									<span class="read-more">Read details</span>
-									<span class="show-less">Show less</span>
+									<span class="read-more"><LocaleText as="span" text={locale('Read details', 'Baca selengkapnya')} /></span>
+									<span class="show-less"><LocaleText as="span" text={locale('Show less', 'Tampilkan lebih sedikit')} /></span>
 								</label>
 							</div>
 						)}
@@ -162,8 +162,8 @@ const groups = [
 											<div class="legacy-exp__fade absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-[var(--bg-soft)] to-transparent transition-opacity duration-300 pointer-events-none"></div>
 										</div>
 										<label for={`toggle-sec-${exp.company.replace(/\\s+/g, '-')}`} class="legacy-exp__label cursor-pointer text-sm font-semibold text-accent hover:underline mt-2 inline-flex items-center select-none">
-											<span class="read-more">Read details</span>
-											<span class="show-less">Show less</span>
+											<span class="read-more"><LocaleText as="span" text={locale('Read details', 'Baca selengkapnya')} /></span>
+											<span class="show-less"><LocaleText as="span" text={locale('Show less', 'Tampilkan lebih sedikit')} /></span>
 										</label>
 									</div>
 								)}

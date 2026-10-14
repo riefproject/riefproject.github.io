@@ -166,7 +166,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 
   <!-- 5. Social & Contact Connect -->
   <div class="bento-card bento-socials">
-    <p class="eyebrow mb-4">Connect</p>
+    <p class="eyebrow mb-4"><LocaleText as="span" text={locale('Connect', 'Kontak')} /></p>
     <p class="text-sm text-muted mb-6"><LocaleText as="span" text={contact.availabilityNote} /></p>
     <div class="social-list mt-auto">
       {socials.map((social) => (

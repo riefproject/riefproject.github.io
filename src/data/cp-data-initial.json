@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-14T21:15:45.614Z",
+    "updatedAt": "2026-10-15T03:03:30.259Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 717,
-    "totalSubmissions": 1643,
+    "totalSolved": 731,
+    "totalSubmissions": 1657,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-10": {
@@ -110,8 +110,8 @@
         "ac": 2
       },
       "2026-09-08": {
-        "tries": 19,
-        "ac": 14
+        "tries": 12,
+        "ac": 7
       },
       "2026-09-07": {
         "tries": 27,
@@ -434,20 +434,8 @@
         "ac": 10
       },
       "2026-10-14": {
-        "tries": 5,
-        "ac": 5
-      },
-      "2026-08-06": {
-        "tries": 2,
-        "ac": 2
-      },
-      "2026-05-30": {
-        "tries": 3,
-        "ac": 3
-      },
-      "2026-01-16": {
-        "tries": 2,
-        "ac": 2
+        "tries": 19,
+        "ac": 19
       },
       "2024-06-23": {
         "tries": 44,
@@ -5604,33 +5592,161 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 2127632,
-      "totalSolved": 74,
-      "easySolved": 39,
-      "mediumSolved": 30,
-      "hardSolved": 5,
+      "totalSolved": 88,
+      "easySolved": 45,
+      "mediumSolved": 37,
+      "hardSolved": 6,
       "dailyCalendar": {
         "2026-10-14": {
-          "tries": 5,
-          "ac": 5
+          "tries": 19,
+          "ac": 19
         },
         "2026-09-08": {
-          "tries": 8,
-          "ac": 8
-        },
-        "2026-08-06": {
-          "tries": 2,
-          "ac": 2
-        },
-        "2026-05-30": {
-          "tries": 3,
-          "ac": 3
-        },
-        "2026-01-16": {
-          "tries": 2,
-          "ac": 2
+          "tries": 1,
+          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792019479",
+          "platform": "leetcode",
+          "title": "Count Array Pairs Divisible by K",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/count-array-pairs-divisible-by-k/",
+          "solvedAt": "2026-10-14T23:11:19.000Z"
+        },
+        {
+          "id": "lc-1792018745",
+          "platform": "leetcode",
+          "title": "Smallest Index With Digit Sum Equal to Index",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/smallest-index-with-digit-sum-equal-to-index/",
+          "solvedAt": "2026-10-14T22:59:05.000Z"
+        },
+        {
+          "id": "lc-1792018270",
+          "platform": "leetcode",
+          "title": "Maximize Sum of Squares of Digits",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/maximize-sum-of-squares-of-digits/",
+          "solvedAt": "2026-10-14T22:51:10.000Z"
+        },
+        {
+          "id": "lc-1792017773",
+          "platform": "leetcode",
+          "title": "Number of 1 Bits",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/number-of-1-bits/",
+          "solvedAt": "2026-10-14T22:42:53.000Z"
+        },
+        {
+          "id": "lc-1792017657",
+          "platform": "leetcode",
+          "title": "Delete Node in a Linked List",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
+          "solvedAt": "2026-10-14T22:40:57.000Z"
+        },
+        {
+          "id": "lc-1792015826",
+          "platform": "leetcode",
+          "title": "Department Highest Salary",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/department-highest-salary/",
+          "solvedAt": "2026-10-14T22:10:26.000Z"
+        },
+        {
+          "id": "lc-1792015561",
+          "platform": "leetcode",
+          "title": "Customers Who Never Order",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/customers-who-never-order/",
+          "solvedAt": "2026-10-14T22:06:01.000Z"
+        },
+        {
+          "id": "lc-1792015371",
+          "platform": "leetcode",
+          "title": "Duplicate Emails",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/duplicate-emails/",
+          "solvedAt": "2026-10-14T22:02:51.000Z"
+        },
+        {
+          "id": "lc-1792015259",
+          "platform": "leetcode",
+          "title": "Employees Earning More Than Their Managers",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
+          "solvedAt": "2026-10-14T22:00:59.000Z"
+        },
+        {
+          "id": "lc-1792014951",
+          "platform": "leetcode",
+          "title": "Consecutive Numbers",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/consecutive-numbers/",
+          "solvedAt": "2026-10-14T21:55:51.000Z"
+        },
+        {
+          "id": "lc-1792014711",
+          "platform": "leetcode",
+          "title": "Rank Scores",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/rank-scores/",
+          "solvedAt": "2026-10-14T21:51:51.000Z"
+        },
+        {
+          "id": "lc-1792014543",
+          "platform": "leetcode",
+          "title": "Nth Highest Salary",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/nth-highest-salary/",
+          "solvedAt": "2026-10-14T21:49:03.000Z"
+        },
+        {
+          "id": "lc-1792014348",
+          "platform": "leetcode",
+          "title": "Second Highest Salary",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/second-highest-salary/",
+          "solvedAt": "2026-10-14T21:45:48.000Z"
+        },
+        {
+          "id": "lc-1792013913",
+          "platform": "leetcode",
+          "title": "Combine Two Tables",
+          "category": "Algorithms",
+          "language": "C++",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/combine-two-tables/",
+          "solvedAt": "2026-10-14T21:38:33.000Z"
+        },
         {
           "id": "lc-1791947936",
           "platform": "leetcode",
@@ -5690,146 +5806,6 @@
           "difficulty": "-",
           "url": "https://leetcode.com/problems/maximum-repeating-substring/",
           "solvedAt": "2026-09-08T09:38:18.000Z"
-        },
-        {
-          "id": "lc-1788859781",
-          "platform": "leetcode",
-          "title": "Divisor Game",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/divisor-game/",
-          "solvedAt": "2026-09-08T09:29:41.000Z"
-        },
-        {
-          "id": "lc-1788859668",
-          "platform": "leetcode",
-          "title": "N-th Tribonacci Number",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/n-th-tribonacci-number/",
-          "solvedAt": "2026-09-08T09:27:48.000Z"
-        },
-        {
-          "id": "lc-1788859340",
-          "platform": "leetcode",
-          "title": "Counting Bits",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/counting-bits/",
-          "solvedAt": "2026-09-08T09:22:20.000Z"
-        },
-        {
-          "id": "lc-1788858665",
-          "platform": "leetcode",
-          "title": "Is Subsequence",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/is-subsequence/",
-          "solvedAt": "2026-09-08T09:11:05.000Z"
-        },
-        {
-          "id": "lc-1788858091",
-          "platform": "leetcode",
-          "title": "Min Cost Climbing Stairs",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/min-cost-climbing-stairs/",
-          "solvedAt": "2026-09-08T09:01:31.000Z"
-        },
-        {
-          "id": "lc-1788857138",
-          "platform": "leetcode",
-          "title": "Fibonacci Number",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/fibonacci-number/",
-          "solvedAt": "2026-09-08T08:45:38.000Z"
-        },
-        {
-          "id": "lc-1788856931",
-          "platform": "leetcode",
-          "title": "Integer Replacement",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/integer-replacement/",
-          "solvedAt": "2026-09-08T08:42:11.000Z"
-        },
-        {
-          "id": "lc-1786015850",
-          "platform": "leetcode",
-          "title": "Insertion Sort List",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/insertion-sort-list/",
-          "solvedAt": "2026-08-06T11:30:50.000Z"
-        },
-        {
-          "id": "lc-1786015330",
-          "platform": "leetcode",
-          "title": "Minimize Maximum Pair Sum in Array",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/",
-          "solvedAt": "2026-08-06T11:22:10.000Z"
-        },
-        {
-          "id": "lc-1780173744",
-          "platform": "leetcode",
-          "title": "Check if a Parentheses String Can Be Valid",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/",
-          "solvedAt": "2026-05-30T20:42:24.000Z"
-        },
-        {
-          "id": "lc-1780172406",
-          "platform": "leetcode",
-          "title": "Generate Parentheses",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/generate-parentheses/",
-          "solvedAt": "2026-05-30T20:20:06.000Z"
-        },
-        {
-          "id": "lc-1780171758",
-          "platform": "leetcode",
-          "title": "Search in Rotated Sorted Array",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
-          "solvedAt": "2026-05-30T20:09:18.000Z"
-        },
-        {
-          "id": "lc-1768543424",
-          "platform": "leetcode",
-          "title": "Two Sum",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/two-sum/",
-          "solvedAt": "2026-01-16T06:03:44.000Z"
-        },
-        {
-          "id": "lc-1768543049",
-          "platform": "leetcode",
-          "title": "Valid Palindrome",
-          "category": "Algorithms",
-          "language": "C++",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/valid-palindrome/",
-          "solvedAt": "2026-01-16T05:57:29.000Z"
         }
       ]
     },
@@ -5887,55 +5863,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141385
+          "rank": 141391
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1940674
+          "rank": 1940712
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120413
+          "rank": 120414
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 531243
+          "rank": 531255
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191550
+          "rank": 191553
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1641533
+          "rank": 1641579
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 724339
+          "rank": 724352
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85912
+          "rank": 85913
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 463368
+          "rank": 463371
         }
       ],
       "dailyCalendar": {
@@ -6265,6 +6241,146 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1792019479",
+      "platform": "leetcode",
+      "title": "Count Array Pairs Divisible by K",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/count-array-pairs-divisible-by-k/",
+      "solvedAt": "2026-10-14T23:11:19.000Z"
+    },
+    {
+      "id": "lc-1792018745",
+      "platform": "leetcode",
+      "title": "Smallest Index With Digit Sum Equal to Index",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/smallest-index-with-digit-sum-equal-to-index/",
+      "solvedAt": "2026-10-14T22:59:05.000Z"
+    },
+    {
+      "id": "lc-1792018270",
+      "platform": "leetcode",
+      "title": "Maximize Sum of Squares of Digits",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/maximize-sum-of-squares-of-digits/",
+      "solvedAt": "2026-10-14T22:51:10.000Z"
+    },
+    {
+      "id": "lc-1792017773",
+      "platform": "leetcode",
+      "title": "Number of 1 Bits",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/number-of-1-bits/",
+      "solvedAt": "2026-10-14T22:42:53.000Z"
+    },
+    {
+      "id": "lc-1792017657",
+      "platform": "leetcode",
+      "title": "Delete Node in a Linked List",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
+      "solvedAt": "2026-10-14T22:40:57.000Z"
+    },
+    {
+      "id": "lc-1792015826",
+      "platform": "leetcode",
+      "title": "Department Highest Salary",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/department-highest-salary/",
+      "solvedAt": "2026-10-14T22:10:26.000Z"
+    },
+    {
+      "id": "lc-1792015561",
+      "platform": "leetcode",
+      "title": "Customers Who Never Order",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/customers-who-never-order/",
+      "solvedAt": "2026-10-14T22:06:01.000Z"
+    },
+    {
+      "id": "lc-1792015371",
+      "platform": "leetcode",
+      "title": "Duplicate Emails",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/duplicate-emails/",
+      "solvedAt": "2026-10-14T22:02:51.000Z"
+    },
+    {
+      "id": "lc-1792015259",
+      "platform": "leetcode",
+      "title": "Employees Earning More Than Their Managers",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
+      "solvedAt": "2026-10-14T22:00:59.000Z"
+    },
+    {
+      "id": "lc-1792014951",
+      "platform": "leetcode",
+      "title": "Consecutive Numbers",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/consecutive-numbers/",
+      "solvedAt": "2026-10-14T21:55:51.000Z"
+    },
+    {
+      "id": "lc-1792014711",
+      "platform": "leetcode",
+      "title": "Rank Scores",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/rank-scores/",
+      "solvedAt": "2026-10-14T21:51:51.000Z"
+    },
+    {
+      "id": "lc-1792014543",
+      "platform": "leetcode",
+      "title": "Nth Highest Salary",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/nth-highest-salary/",
+      "solvedAt": "2026-10-14T21:49:03.000Z"
+    },
+    {
+      "id": "lc-1792014348",
+      "platform": "leetcode",
+      "title": "Second Highest Salary",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/second-highest-salary/",
+      "solvedAt": "2026-10-14T21:45:48.000Z"
+    },
+    {
+      "id": "lc-1792013913",
+      "platform": "leetcode",
+      "title": "Combine Two Tables",
+      "category": "Algorithms",
+      "language": "C++",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/combine-two-tables/",
+      "solvedAt": "2026-10-14T21:38:33.000Z"
+    },
     {
       "id": "lc-1791947936",
       "platform": "leetcode",
@@ -7366,76 +7482,6 @@
       "solvedAt": "2026-09-08T09:38:18.000Z"
     },
     {
-      "id": "lc-1788859781",
-      "platform": "leetcode",
-      "title": "Divisor Game",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/divisor-game/",
-      "solvedAt": "2026-09-08T09:29:41.000Z"
-    },
-    {
-      "id": "lc-1788859668",
-      "platform": "leetcode",
-      "title": "N-th Tribonacci Number",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/n-th-tribonacci-number/",
-      "solvedAt": "2026-09-08T09:27:48.000Z"
-    },
-    {
-      "id": "lc-1788859340",
-      "platform": "leetcode",
-      "title": "Counting Bits",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/counting-bits/",
-      "solvedAt": "2026-09-08T09:22:20.000Z"
-    },
-    {
-      "id": "lc-1788858665",
-      "platform": "leetcode",
-      "title": "Is Subsequence",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/is-subsequence/",
-      "solvedAt": "2026-09-08T09:11:05.000Z"
-    },
-    {
-      "id": "lc-1788858091",
-      "platform": "leetcode",
-      "title": "Min Cost Climbing Stairs",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/min-cost-climbing-stairs/",
-      "solvedAt": "2026-09-08T09:01:31.000Z"
-    },
-    {
-      "id": "lc-1788857138",
-      "platform": "leetcode",
-      "title": "Fibonacci Number",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/fibonacci-number/",
-      "solvedAt": "2026-09-08T08:45:38.000Z"
-    },
-    {
-      "id": "lc-1788856931",
-      "platform": "leetcode",
-      "title": "Integer Replacement",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/integer-replacement/",
-      "solvedAt": "2026-09-08T08:42:11.000Z"
-    },
-    {
       "id": "tlx-5981868",
       "platform": "tlx",
       "title": "Segitiga Bebek",
@@ -8516,26 +8562,6 @@
       "solvedAt": "2026-08-07T09:13:38.337Z"
     },
     {
-      "id": "lc-1786015850",
-      "platform": "leetcode",
-      "title": "Insertion Sort List",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/insertion-sort-list/",
-      "solvedAt": "2026-08-06T11:30:50.000Z"
-    },
-    {
-      "id": "lc-1786015330",
-      "platform": "leetcode",
-      "title": "Minimize Maximum Pair Sum in Array",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/",
-      "solvedAt": "2026-08-06T11:22:10.000Z"
-    },
-    {
       "id": "tlx-5779449",
       "platform": "tlx",
       "title": "Pagar Bambu",
@@ -9066,36 +9092,6 @@
       "solvedAt": "2026-06-02T04:16:14.204Z"
     },
     {
-      "id": "lc-1780173744",
-      "platform": "leetcode",
-      "title": "Check if a Parentheses String Can Be Valid",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/",
-      "solvedAt": "2026-05-30T20:42:24.000Z"
-    },
-    {
-      "id": "lc-1780172406",
-      "platform": "leetcode",
-      "title": "Generate Parentheses",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/generate-parentheses/",
-      "solvedAt": "2026-05-30T20:20:06.000Z"
-    },
-    {
-      "id": "lc-1780171758",
-      "platform": "leetcode",
-      "title": "Search in Rotated Sorted Array",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
-      "solvedAt": "2026-05-30T20:09:18.000Z"
-    },
-    {
       "id": "tlx-5443208",
       "platform": "tlx",
       "title": "\"Absolute Winner\"",
@@ -9444,26 +9440,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4810265",
       "solvedAt": "2026-01-30T14:18:26.251Z"
-    },
-    {
-      "id": "lc-1768543424",
-      "platform": "leetcode",
-      "title": "Two Sum",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/two-sum/",
-      "solvedAt": "2026-01-16T06:03:44.000Z"
-    },
-    {
-      "id": "lc-1768543049",
-      "platform": "leetcode",
-      "title": "Valid Palindrome",
-      "category": "Algorithms",
-      "language": "C++",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/valid-palindrome/",
-      "solvedAt": "2026-01-16T05:57:29.000Z"
     },
     {
       "id": "tlx-4757395",

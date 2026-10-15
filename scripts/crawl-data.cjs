@@ -1103,7 +1103,7 @@ async function main() {
   // Development activity (GitHub + GitLab)
   try {
     console.log('· GitHub...');
-    const existingDev = readJson(DEV_FILE) || {};
+    const existingDev = readExisting(DEV_FILE) || {};
     const prevGithub = (existingDev.platforms && existingDev.platforms.github) || {};
     const github = await crawlGithub(prevGithub);
     console.log('· GitLab...');

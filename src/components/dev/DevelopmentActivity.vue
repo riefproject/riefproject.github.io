@@ -4,7 +4,7 @@
     <div class="dashboard-topbar">
       <div class="live-indicator">
         <span class="pulse-dot"></span>
-        <span class="live-text">{{ isId ? 'Sinkronisasi Live' : 'Live Synced' }}</span>
+        <span class="live-text">{{ isId ? 'Terakhir Disinkronkan' : 'Last Synced' }}</span>
         <span class="updated-time" v-if="lastUpdated">• {{ formatRelativeTime(lastUpdated, isId) }}</span>
       </div>
     </div>
@@ -48,8 +48,6 @@
       :gitlabTotalEvents="gitlabTotalEvents"
       :isId="isId"
       @selectTab="activeTab = $event"
-      @hoverCell="showTooltip"
-      @leaveCell="hideTooltip"
     />
 
     <!-- TAB: GITHUB -->
@@ -61,8 +59,6 @@
       :githubHeatmapWeeks="githubHeatmapWeeks"
       :githubHeatmapMonths="githubHeatmapMonths"
       :isId="isId"
-      @hoverCell="showTooltip"
-      @leaveCell="hideTooltip"
     />
 
     <!-- TAB: GITLAB -->
@@ -76,8 +72,6 @@
       :gitlabHeatmapMonths="gitlabHeatmapMonths"
       :gitlabLanguages="gitlabLanguages"
       :isId="isId"
-      @hoverCell="showTooltip"
-      @leaveCell="hideTooltip"
     />
 
     <!-- Cross-link to Competitive Programming -->
@@ -90,20 +84,11 @@
         </span>
       </a>
     </div>
-
-    <!-- Floating Heatmap Tooltip -->
-    <Teleport to="body">
-      <div
-        v-if="tooltip.visible"
-        class="heatmap-tooltip"
-        :style="{ top: `${tooltip.top}px`, left: `${tooltip.left}px` }"
-      >{{ tooltip.text }}</div>
-    </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue';
+import { ref, computed } from 'vue';
 import { useStore } from '@nanostores/vue';
 import { lang } from '../../stores/uiStore.js';
 import DevOverviewTab from './DevOverviewTab.vue';
@@ -113,9 +98,7 @@ import {
   buildHeatmapDays,
   toWeeks,
   buildMonths,
-  formatHeatmapTooltip,
   formatRelativeTime,
-  type DevHeatmapDay,
 } from './devUtils';
 
 const props = defineProps<{
@@ -128,22 +111,6 @@ const isId = computed(() => $lang.value === 'id');
 const devData = ref<any>(props.initialData || null);
 const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date().toISOString());
 const activeTab = ref<'overview' | 'github' | 'gitlab'>('overview');
-
-const tooltip = reactive({ visible: false, text: '', top: 0, left: 0 });
-
-const showTooltip = (event: MouseEvent, day: DevHeatmapDay) => {
-  const target = event.currentTarget as HTMLElement;
-  if (!target) return;
-  const rect = target.getBoundingClientRect();
-  tooltip.text = formatHeatmapTooltip(day, isId.value);
-  tooltip.top = rect.top - 8;
-  tooltip.left = rect.left + rect.width / 2;
-  tooltip.visible = true;
-};
-
-const hideTooltip = () => {
-  tooltip.visible = false;
-};
 
 // GitHub & GitLab Extracts
 const github = computed(() => devData.value?.platforms?.github || devData.value?.github || {});
@@ -219,14 +186,24 @@ const combinedMap = computed<Record<string, any>>(() => {
     const gl = glMap[k];
     const ghCount = typeof gh === 'object' ? Number(gh?.count || 0) : Number(gh || 0);
     const glCount = typeof gl === 'object' ? Number(gl?.count || 0) : Number(gl || 0);
-    out[k] = ghCount + glCount;
+    out[k] = { count: ghCount + glCount, github: ghCount, gitlab: glCount };
   });
   return out;
 });
 
 const heatmapDays = computed(() => buildHeatmapDays(combinedMap.value));
-const githubHeatmapDays = computed(() => buildHeatmapDays(github.value?.overview?.heatmap || {}));
-const gitlabHeatmapDays = computed(() => buildHeatmapDays(gitlab.value?.heatmap || {}));
+const githubHeatmapDays = computed(() =>
+  buildHeatmapDays(github.value?.overview?.heatmap || {}, (entry) => {
+    const count = typeof entry === 'object' ? Number(entry?.count || 0) : Number(entry || 0);
+    return { count, github: count };
+  })
+);
+const gitlabHeatmapDays = computed(() =>
+  buildHeatmapDays(gitlab.value?.heatmap || {}, (entry) => {
+    const count = typeof entry === 'object' ? Number(entry?.count || 0) : Number(entry || 0);
+    return { count, gitlab: count };
+  })
+);
 
 const heatmapWeeks = computed(() => toWeeks(heatmapDays.value));
 const githubHeatmapWeeks = computed(() => toWeeks(githubHeatmapDays.value));
@@ -256,14 +233,11 @@ const gitlabHeatmapMonths = computed(() => buildMonths(gitlabHeatmapWeeks.value)
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.75rem 1.25rem;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
+  padding: 0.5rem 0.25rem;
 }
 
 .live-indicator {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-size: var(--text-sm);

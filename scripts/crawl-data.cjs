@@ -244,7 +244,7 @@ function ghBuildTopRepos(repos) {
     }));
 }
 
-async function crawlGithub() {
+async function crawlGithub(prevGithub = {}) {
   const [contrib, user, repos] = await Promise.allSettled([
     ghContributions(GH_USERNAME),
     ghUser(GH_USERNAME),
@@ -253,9 +253,9 @@ async function crawlGithub() {
 
   const contributions = contrib.status === 'fulfilled'
     ? contrib.value
-    : { heatmap: {}, yearlyTotal: {}, totalContributions: 0, currentStreak: 0, longestStreak: 0, lastYear: 0 };
+    : (prevGithub.overview || { heatmap: {}, yearlyTotal: {}, totalContributions: 0, currentStreak: 0, longestStreak: 0, lastYear: 0 });
 
-  let userData = {
+  let userData = prevGithub.user || {
     login: GH_USERNAME,
     name: GH_USERNAME,
     avatarUrl: `https://avatars.githubusercontent.com/${GH_USERNAME}`,
@@ -272,21 +272,38 @@ async function crawlGithub() {
     ghSearchCount(`author:${GH_USERNAME} type:issue`),
   ]);
 
+  const fallbackTopRepos = (Array.isArray(prevGithub.topRepos) && prevGithub.topRepos.length > 0)
+    ? prevGithub.topRepos
+    : [];
+
+  const topRepos = (repos.status === 'fulfilled' && repoList.length > 0)
+    ? ghBuildTopRepos(repoList)
+    : fallbackTopRepos;
+
+  const fallbackLanguages = (Array.isArray(prevGithub.languages) && prevGithub.languages.length > 0)
+    ? prevGithub.languages
+    : [];
+
   return {
     meta: { updatedAt: nowIso(), username: GH_USERNAME, source: 'github-public-api' },
     overview: {
       totalContributions: contributions.totalContributions,
-      lastYearContributions: contributions.lastYear,
+      lastYearContributions: contributions.lastYear ?? contributions.lastYearContributions ?? 0,
       currentStreak: contributions.currentStreak,
       longestStreak: contributions.longestStreak,
       heatmap: contributions.heatmap,
       yearlyTotal: contributions.yearlyTotal,
     },
     user: userData,
-    languages: languages.status === 'fulfilled' ? languages.value : [],
-    topRepos: ghBuildTopRepos(repoList),
-    prStats: { total: prStats.status === 'fulfilled' ? prStats.value : 0, merged: mergedPrs.status === 'fulfilled' ? mergedPrs.value : 0 },
-    issueStats: { total: issueStats.status === 'fulfilled' ? issueStats.value : 0 },
+    languages: languages.status === 'fulfilled' ? languages.value : fallbackLanguages,
+    topRepos,
+    prStats: {
+      total: prStats.status === 'fulfilled' ? prStats.value : (prevGithub.prStats?.total || 0),
+      merged: mergedPrs.status === 'fulfilled' ? mergedPrs.value : (prevGithub.prStats?.merged || 0),
+    },
+    issueStats: {
+      total: issueStats.status === 'fulfilled' ? issueStats.value : (prevGithub.issueStats?.total || 0),
+    },
   };
 }
 
@@ -1086,7 +1103,9 @@ async function main() {
   // Development activity (GitHub + GitLab)
   try {
     console.log('· GitHub...');
-    const github = await crawlGithub();
+    const existingDev = readJson(DEV_FILE) || {};
+    const prevGithub = (existingDev.platforms && existingDev.platforms.github) || {};
+    const github = await crawlGithub(prevGithub);
     console.log('· GitLab...');
     const rawGitlab = await crawlGitlab();
     const gitlab = mergeGitlabWithArchives(rawGitlab);

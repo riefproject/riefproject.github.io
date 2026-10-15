@@ -5,7 +5,7 @@
       <div class="live-indicator">
         <span class="pulse-dot"></span>
         <span class="live-text">
-          {{ isId ? 'Sinkronisasi Live' : 'Live Synced' }}
+          {{ isId ? 'Terakhir Disinkronkan' : 'Last Synced' }}
         </span>
         <span class="updated-time" v-if="lastUpdated">
           • {{ formatRelativeTime(lastUpdated, isId) }}

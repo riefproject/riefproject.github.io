@@ -24,48 +24,13 @@
     </div>
 
     <!-- Combined Heatmap -->
-    <section class="heatmap-section">
-      <div class="section-header">
-        <div class="title-with-badge">
-          <h3>{{ isId ? 'Aktivitas Pengembangan 12 Bulan' : 'Development Activity (12 months)' }}</h3>
-          <span class="activity-count-badge">{{ lastYearContributions }} {{ isId ? 'kontribusi' : 'contributions' }}</span>
-        </div>
-        <div class="heatmap-legend">
-          <span class="legend-label">{{ isId ? 'Sedikit' : 'Less' }}</span>
-          <span class="heat-box lvl-0"></span>
-          <span class="heat-box lvl-1"></span>
-          <span class="heat-box lvl-2"></span>
-          <span class="heat-box lvl-3"></span>
-          <span class="heat-box lvl-4"></span>
-          <span class="legend-label">{{ isId ? 'Banyak' : 'More' }}</span>
-        </div>
-      </div>
-      <div class="heatmap-container">
-        <div class="heatmap-scroll" ref="heatmapScrollEl">
-          <div class="heatmap-grid-wrapper">
-            <div class="heatmap-grid">
-              <div v-for="(week, wIdx) in heatmapWeeks" :key="wIdx" class="heatmap-col">
-                <div
-                  v-for="day in week"
-                  :key="day.date"
-                  class="heatmap-cell"
-                  :class="`lvl-${day.level}`"
-                  @mouseenter="$emit('hoverCell', $event, day)"
-                  @mouseleave="$emit('leaveCell')"
-                ></div>
-              </div>
-            </div>
-            <div class="heatmap-months">
-              <span v-for="(m, mIdx) in heatmapMonths" :key="`${m.name}-${mIdx}`" :style="{ left: `${m.percent}%` }" class="month-label">{{ m.name }}</span>
-            </div>
-          </div>
-          <div class="heatmap-swipe-hint">
-            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
-            <span>{{ isId ? 'Geser untuk melihat seluruh kalender' : 'Swipe to see the full calendar' }}</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <ActivityHeatmap
+      :weeks="heatmapWeeks"
+      :months="heatmapMonths"
+      :title="isId ? 'Aktivitas Pengembangan' : 'Development Activity'"
+      :countBadge="`${lastYearContributions} ${isId ? 'kontribusi' : 'contributions'}`"
+      :isId="isId"
+    />
 
     <!-- Platform Cards -->
     <div class="platform-cards-grid">
@@ -137,7 +102,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
 import type { DevHeatmapDay } from './devUtils';
 
 defineProps<{
@@ -158,17 +123,5 @@ defineProps<{
 
 defineEmits<{
   (e: 'selectTab', tab: 'github' | 'gitlab'): void;
-  (e: 'hoverCell', event: MouseEvent, day: DevHeatmapDay): void;
-  (e: 'leaveCell'): void;
 }>();
-
-const heatmapScrollEl = ref<HTMLElement | null>(null);
-
-onMounted(() => {
-  setTimeout(() => {
-    if (heatmapScrollEl.value) {
-      heatmapScrollEl.value.scrollLeft = heatmapScrollEl.value.scrollWidth;
-    }
-  }, 300);
-});
 </script>

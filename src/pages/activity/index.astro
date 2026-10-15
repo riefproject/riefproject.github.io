@@ -15,8 +15,6 @@ const copy = {
     'Catatan aktivitas ngoding harian: proyek software di GitHub & GitLab, serta latihan problem solving di TLX, Codeforces, LeetCode, dan HackerRank.'
   ),
   backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
-  devLink: locale('Development', 'Development'),
-  cpLink: locale('CP Journey', 'CP Journey'),
 };
 ---
 
@@ -30,16 +28,6 @@ const copy = {
         <a href="/" class="back-link">
           <LocaleText as="span" text={copy.backToHome} />
         </a>
-        <div class="direct-links">
-          <a href="/development-activity" class="standalone-nav-link">
-            <span><LocaleText as="span" text={copy.devLink} /></span>
-            <span class="nav-arrow" aria-hidden="true">→</span>
-          </a>
-          <a href="/competitive-programming" class="standalone-nav-link">
-            <span><LocaleText as="span" text={copy.cpLink} /></span>
-            <span class="nav-arrow" aria-hidden="true">→</span>
-          </a>
-        </div>
       </div>
 
       <div class="title-row">
@@ -96,58 +84,11 @@ const copy = {
     color: var(--text);
   }
 
-  .title-badge {
-    font-size: 0.85rem;
-    font-weight: 600;
-    font-family: var(--font-mono, monospace);
-    padding: 0.25rem 0.65rem;
-    border-radius: 999px;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    vertical-align: middle;
-  }
-
   .nav-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-  }
-
-  .direct-links {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .standalone-nav-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.75rem;
-    border-radius: 0.5rem;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    font-size: 0.8rem;
-    font-weight: 500;
-    color: var(--muted);
-    text-decoration: none;
-    transition: all 0.15s ease;
-  }
-
-  .standalone-nav-link:hover {
-    border-color: var(--muted);
-    color: var(--text);
-  }
-
-  .nav-arrow {
-    transition: transform 0.15s ease;
-  }
-
-  .standalone-nav-link:hover .nav-arrow {
-    transform: translateX(2px);
+    justify-content: flex-start;
+    margin-bottom: 0.5rem;
   }
 
   .back-link {

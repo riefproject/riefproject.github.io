@@ -586,7 +586,11 @@ async function cpTlx(username) {
 
   const languages = {};
   allSubmissions.forEach((s) => {
-    languages[s.language] = (languages[s.language] || 0) + 1;
+    let langKey = s.language;
+    if (langKey === 'Cpp' || langKey === 'C++') {
+      langKey = 'Cpp20';
+    }
+    languages[langKey] = (languages[langKey] || 0) + 1;
   });
 
   const dailyCalendar = {};
@@ -711,6 +715,20 @@ async function cpCodeforces(handle) {
     };
   });
 
+  const languages = {};
+  allSubs.forEach((s) => {
+    let lang = s.programmingLanguage || '';
+    if (lang.includes('C++20') || lang.includes('Cpp20')) lang = 'C++20';
+    else if (lang.includes('C++23') || lang.includes('Cpp23')) lang = 'C++23';
+    else if (lang.includes('C++17') || lang.includes('Cpp17')) lang = 'C++17';
+    else if (lang.includes('C++11') || lang.includes('Cpp11')) lang = 'C++11';
+    else if (lang.includes('C++') || lang.includes('Cpp')) lang = 'C++20';
+    else if (lang.includes('Rust')) lang = 'Rust';
+    else if (lang.includes('Python')) lang = 'Python';
+    else if (lang.includes('Java')) lang = 'Java';
+    if (lang) languages[lang] = (languages[lang] || 0) + 1;
+  });
+
   return {
     handle,
     url: `https://codeforces.com/profile/${handle}`,
@@ -724,6 +742,7 @@ async function cpCodeforces(handle) {
     totalAcSubmissions: acSubs.length || 50,
     tagsCount,
     ratingDistribution,
+    languages,
     dailyCalendar,
     recentSolved,
   };
@@ -763,10 +782,29 @@ async function cpLeetCode(username) {
       const submissionList = acJson.submission || [];
       recentSolved = submissionList.map((item) => {
         const langMap = {
-          cpp: 'C++', golang: 'Go', python3: 'Python', java: 'Java',
-          javascript: 'JavaScript', typescript: 'TypeScript',
+          cpp: 'C++20',
+          c: 'C',
+          csharp: 'C#',
+          golang: 'Go',
+          python: 'Python',
+          python3: 'Python',
+          java: 'Java',
+          javascript: 'JavaScript',
+          typescript: 'TypeScript',
+          rust: 'Rust',
+          kotlin: 'Kotlin',
+          swift: 'Swift',
+          ruby: 'Ruby',
+          scala: 'Scala',
+          php: 'PHP',
+          postgresql: 'PostgreSQL',
+          mysql: 'MySQL',
+          mssql: 'MS SQL',
+          oraclesql: 'Oracle SQL',
+          pythondata: 'Pandas',
         };
-        const lang = langMap[item.lang] || 'C++';
+        const rawLang = item.lang || '';
+        const lang = langMap[rawLang.toLowerCase()] || (rawLang ? (rawLang.toLowerCase() === 'cpp' ? 'C++20' : rawLang.toUpperCase()) : 'C++20');
         const solvedAt = new Date(parseInt(item.timestamp, 10) * 1000).toISOString();
 
         const day = solvedAt.slice(0, 10);
@@ -774,11 +812,15 @@ async function cpLeetCode(username) {
         dailyCalendar[day].tries += 1;
         dailyCalendar[day].ac += 1;
 
+        const isDbLang = ['postgresql', 'mysql', 'mssql', 'oraclesql'].includes(rawLang.toLowerCase());
+        const isDbTitle = /table|database|query|join|select|department|employee|salary/i.test(item.title);
+        const category = isDbLang || isDbTitle ? 'Database' : 'Algorithms';
+
         return {
           id: `lc-${item.timestamp || item.titleSlug}`,
           platform: 'leetcode',
           title: item.title,
-          category: 'Algorithms',
+          category,
           language: lang,
           difficulty: '-',
           url: `https://leetcode.com/problems/${item.titleSlug}/`,
@@ -866,12 +908,30 @@ async function cpHackerRank(handle) {
     const data = await chalRes.value.json();
     recentChallenges = (data.models || []).map((c) => {
       const solvedAt = c.created_at || nowIso();
+      const titleLower = (c.name || '').toLowerCase();
+      const isSql = /weather observation|aggregations|population|salary|salaries|select|join|query|table|station/i.test(titleLower);
+      const isJava = /java/i.test(titleLower);
+      const isC = /\bin c\b|c program/i.test(titleLower);
+
+      let language = 'C++20';
+      let category = 'Algorithms & Problem Solving';
+      if (isSql) {
+        language = 'SQL';
+        category = 'Database / SQL';
+      } else if (isJava) {
+        language = 'Java';
+        category = 'Language Proficiency';
+      } else if (isC) {
+        language = 'C';
+        category = 'Language Proficiency';
+      }
+
       return {
         id: `hr-${c.ch_slug}`,
         platform: 'hackerrank',
         title: c.name,
-        category: 'Algorithms & Problem Solving',
-        language: 'C++ / SQL',
+        category,
+        language,
         difficulty: 'Practice',
         url: `https://www.hackerrank.com${c.url}`,
         solvedAt,
@@ -962,6 +1022,44 @@ async function crawlCp() {
     (lc && lc.totalSolved || 70) +
     (hr && hr.totalSubmissions || 415);
 
+  const languageTotals = {};
+  if (tlx && tlx.languages) {
+    Object.entries(tlx.languages).forEach(([l, cnt]) => {
+      let key = l;
+      if (key === 'Cpp20' || key === 'Cpp' || key === 'C++') key = 'C++20';
+      else if (key === 'Cpp17') key = 'C++17';
+      else if (key === 'Cpp11') key = 'C++11';
+      else if (key === 'Rust2021') key = 'Rust';
+      languageTotals[key] = (languageTotals[key] || 0) + Number(cnt || 0);
+    });
+  }
+  if (cf && cf.languages) {
+    Object.entries(cf.languages).forEach(([l, cnt]) => {
+      languageTotals[l] = (languageTotals[l] || 0) + Number(cnt || 0);
+    });
+  }
+  if (lc && lc.recentSolved) {
+    lc.recentSolved.forEach((s) => {
+      const l = s.language || 'C++20';
+      languageTotals[l] = (languageTotals[l] || 0) + 1;
+    });
+  }
+  if (hr && hr.recentSolved) {
+    hr.recentSolved.forEach((s) => {
+      const l = s.language || 'C++20';
+      languageTotals[l] = (languageTotals[l] || 0) + 1;
+    });
+  }
+
+  let topLangName = 'C++20';
+  let topLangCount = 0;
+  Object.entries(languageTotals).forEach(([l, cnt]) => {
+    if (cnt > topLangCount) {
+      topLangCount = cnt;
+      topLangName = l;
+    }
+  });
+
   return {
     meta: { updatedAt: nowIso(), handles: CP_HANDLES },
     overview: {
@@ -969,6 +1067,10 @@ async function crawlCp() {
       totalSubmissions,
       activePlatformsCount: 4,
       heatmap: combinedHeatmap,
+      topLanguage: {
+        name: topLangName,
+        count: topLangCount,
+      },
     },
     platforms: { tlx, codeforces: cf, leetcode: lc, hackerrank: hr },
     recentGlobalFeed,

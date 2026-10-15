@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-15T00:14:49.380Z",
+    "updatedAt": "2026-10-15T00:47:16.392Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -549,6 +549,10 @@
         "tries": 9,
         "ac": 3
       }
+    },
+    "topLanguage": {
+      "name": "C++20",
+      "count": 944
     }
   },
   "platforms": {
@@ -4779,6 +4783,11 @@
         "2300": 1,
         "2600": 1
       },
+      "languages": {
+        "C++23": 193,
+        "C++20": 65,
+        "Rust": 1
+      },
       "dailyCalendar": {
         "2026-10-10": {
           "tries": 9,
@@ -5612,7 +5621,7 @@
           "platform": "leetcode",
           "title": "Count Array Pairs Divisible by K",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/count-array-pairs-divisible-by-k/",
           "solvedAt": "2026-10-14T23:11:19.000Z"
@@ -5622,7 +5631,7 @@
           "platform": "leetcode",
           "title": "Smallest Index With Digit Sum Equal to Index",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/smallest-index-with-digit-sum-equal-to-index/",
           "solvedAt": "2026-10-14T22:59:05.000Z"
@@ -5632,7 +5641,7 @@
           "platform": "leetcode",
           "title": "Maximize Sum of Squares of Digits",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/maximize-sum-of-squares-of-digits/",
           "solvedAt": "2026-10-14T22:51:10.000Z"
@@ -5642,7 +5651,7 @@
           "platform": "leetcode",
           "title": "Number of 1 Bits",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/number-of-1-bits/",
           "solvedAt": "2026-10-14T22:42:53.000Z"
@@ -5652,7 +5661,7 @@
           "platform": "leetcode",
           "title": "Delete Node in a Linked List",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
           "solvedAt": "2026-10-14T22:40:57.000Z"
@@ -5661,8 +5670,8 @@
           "id": "lc-1792015826",
           "platform": "leetcode",
           "title": "Department Highest Salary",
-          "category": "Algorithms",
-          "language": "C++",
+          "category": "Database",
+          "language": "PostgreSQL",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/department-highest-salary/",
           "solvedAt": "2026-10-14T22:10:26.000Z"
@@ -5671,8 +5680,8 @@
           "id": "lc-1792015561",
           "platform": "leetcode",
           "title": "Customers Who Never Order",
-          "category": "Algorithms",
-          "language": "C++",
+          "category": "Database",
+          "language": "PostgreSQL",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/customers-who-never-order/",
           "solvedAt": "2026-10-14T22:06:01.000Z"
@@ -5681,8 +5690,8 @@
           "id": "lc-1792015371",
           "platform": "leetcode",
           "title": "Duplicate Emails",
-          "category": "Algorithms",
-          "language": "C++",
+          "category": "Database",
+          "language": "PostgreSQL",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/duplicate-emails/",
           "solvedAt": "2026-10-14T22:02:51.000Z"
@@ -5691,8 +5700,8 @@
           "id": "lc-1792015259",
           "platform": "leetcode",
           "title": "Employees Earning More Than Their Managers",
-          "category": "Algorithms",
-          "language": "C++",
+          "category": "Database",
+          "language": "PostgreSQL",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
           "solvedAt": "2026-10-14T22:00:59.000Z"
@@ -5701,8 +5710,8 @@
           "id": "lc-1792014951",
           "platform": "leetcode",
           "title": "Consecutive Numbers",
-          "category": "Algorithms",
-          "language": "C++",
+          "category": "Database",
+          "language": "PostgreSQL",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/consecutive-numbers/",
           "solvedAt": "2026-10-14T21:55:51.000Z"
@@ -5711,8 +5720,8 @@
           "id": "lc-1792014711",
           "platform": "leetcode",
           "title": "Rank Scores",
-          "category": "Algorithms",
-          "language": "C++",
+          "category": "Database",
+          "language": "PostgreSQL",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/rank-scores/",
           "solvedAt": "2026-10-14T21:51:51.000Z"
@@ -5721,8 +5730,8 @@
           "id": "lc-1792014543",
           "platform": "leetcode",
           "title": "Nth Highest Salary",
-          "category": "Algorithms",
-          "language": "C++",
+          "category": "Database",
+          "language": "PostgreSQL",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/nth-highest-salary/",
           "solvedAt": "2026-10-14T21:49:03.000Z"
@@ -5731,8 +5740,8 @@
           "id": "lc-1792014348",
           "platform": "leetcode",
           "title": "Second Highest Salary",
-          "category": "Algorithms",
-          "language": "C++",
+          "category": "Database",
+          "language": "PostgreSQL",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/second-highest-salary/",
           "solvedAt": "2026-10-14T21:45:48.000Z"
@@ -5741,8 +5750,8 @@
           "id": "lc-1792013913",
           "platform": "leetcode",
           "title": "Combine Two Tables",
-          "category": "Algorithms",
-          "language": "C++",
+          "category": "Database",
+          "language": "PostgreSQL",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/combine-two-tables/",
           "solvedAt": "2026-10-14T21:38:33.000Z"
@@ -5752,7 +5761,7 @@
           "platform": "leetcode",
           "title": "Perfect Squares",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/perfect-squares/",
           "solvedAt": "2026-10-14T03:18:56.000Z"
@@ -5762,7 +5771,7 @@
           "platform": "leetcode",
           "title": "3Sum Closest",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/3sum-closest/",
           "solvedAt": "2026-10-14T03:10:08.000Z"
@@ -5772,7 +5781,7 @@
           "platform": "leetcode",
           "title": "Trapping Rain Water II",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/trapping-rain-water-ii/",
           "solvedAt": "2026-10-14T03:04:22.000Z"
@@ -5782,7 +5791,7 @@
           "platform": "leetcode",
           "title": "Trapping Rain Water",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/trapping-rain-water/",
           "solvedAt": "2026-10-14T01:23:02.000Z"
@@ -5792,7 +5801,7 @@
           "platform": "leetcode",
           "title": "Product of Array Except Self",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/product-of-array-except-self/",
           "solvedAt": "2026-10-14T01:06:09.000Z"
@@ -5802,7 +5811,7 @@
           "platform": "leetcode",
           "title": "Maximum Repeating Substring",
           "category": "Algorithms",
-          "language": "C++",
+          "language": "C++20",
           "difficulty": "-",
           "url": "https://leetcode.com/problems/maximum-repeating-substring/",
           "solvedAt": "2026-09-08T09:38:18.000Z"
@@ -5863,13 +5872,13 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141388
+          "rank": 141389
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1940691
+          "rank": 1940694
         },
         {
           "name": "C++",
@@ -5881,7 +5890,7 @@
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 531250
+          "rank": 531251
         },
         {
           "name": "Databases",
@@ -5893,19 +5902,19 @@
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1641559
+          "rank": 1641563
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 724342
+          "rank": 724343
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85912
+          "rank": 85913
         },
         {
           "name": "C",
@@ -6042,7 +6051,7 @@
           "platform": "hackerrank",
           "title": "Repeated String",
           "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "language": "C++20",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/repeated-string",
           "solvedAt": "2025-11-03T05:40:42.000+00:00"
@@ -6052,7 +6061,7 @@
           "platform": "hackerrank",
           "title": "Library Fine",
           "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "language": "C++20",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/library-fine",
           "solvedAt": "2025-11-03T04:57:38.000+00:00"
@@ -6062,7 +6071,7 @@
           "platform": "hackerrank",
           "title": "Sherlock and Squares",
           "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "language": "C++20",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/sherlock-and-squares",
           "solvedAt": "2025-11-03T04:51:13.000+00:00"
@@ -6071,8 +6080,8 @@
           "id": "hr-population-density-difference",
           "platform": "hackerrank",
           "title": "Population Density Difference",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/population-density-difference",
           "solvedAt": "2025-10-16T01:20:06.000+00:00"
@@ -6081,8 +6090,8 @@
           "id": "hr-japan-population",
           "platform": "hackerrank",
           "title": "Japan Population",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/japan-population",
           "solvedAt": "2025-10-16T01:19:15.000+00:00"
@@ -6091,8 +6100,8 @@
           "id": "hr-average-population",
           "platform": "hackerrank",
           "title": "Average Population",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/average-population",
           "solvedAt": "2025-10-16T01:18:40.000+00:00"
@@ -6101,8 +6110,8 @@
           "id": "hr-revising-aggregations-the-average-function",
           "platform": "hackerrank",
           "title": "Revising Aggregations - Averages",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/revising-aggregations-the-average-function",
           "solvedAt": "2025-10-16T01:17:09.000+00:00"
@@ -6111,8 +6120,8 @@
           "id": "hr-revising-aggregations-sum",
           "platform": "hackerrank",
           "title": "Revising Aggregations - The Sum Function",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/revising-aggregations-sum",
           "solvedAt": "2025-10-16T01:16:41.000+00:00"
@@ -6121,8 +6130,8 @@
           "id": "hr-revising-aggregations-the-count-function",
           "platform": "hackerrank",
           "title": "Revising Aggregations - The Count Function",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/revising-aggregations-the-count-function",
           "solvedAt": "2025-10-16T01:14:54.000+00:00"
@@ -6131,8 +6140,8 @@
           "id": "hr-java-static-initializer-block",
           "platform": "hackerrank",
           "title": "Java Static Initializer Block",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Language Proficiency",
+          "language": "Java",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/java-static-initializer-block",
           "solvedAt": "2025-10-08T16:56:14.000+00:00"
@@ -6142,7 +6151,7 @@
           "platform": "hackerrank",
           "title": "Small Triangles, Large Triangles",
           "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "language": "C++20",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/small-triangles-large-triangles",
           "solvedAt": "2025-10-08T16:40:58.000+00:00"
@@ -6151,8 +6160,8 @@
           "id": "hr-querying-the-document",
           "platform": "hackerrank",
           "title": "Querying the Document",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/querying-the-document",
           "solvedAt": "2025-10-08T16:26:05.000+00:00"
@@ -6161,8 +6170,8 @@
           "id": "hr-pointer-in-c",
           "platform": "hackerrank",
           "title": "Pointers in C",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Language Proficiency",
+          "language": "C",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/pointer-in-c",
           "solvedAt": "2025-10-08T16:19:20.000+00:00"
@@ -6171,8 +6180,8 @@
           "id": "hr-functions-in-c",
           "platform": "hackerrank",
           "title": "Functions in C",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Language Proficiency",
+          "language": "C",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/functions-in-c",
           "solvedAt": "2025-10-08T16:14:59.000+00:00"
@@ -6182,7 +6191,7 @@
           "platform": "hackerrank",
           "title": "Type of Triangle",
           "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "language": "C++20",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/what-type-of-triangle",
           "solvedAt": "2025-09-25T00:52:24.000+00:00"
@@ -6191,8 +6200,8 @@
           "id": "hr-weather-observation-station-18",
           "platform": "hackerrank",
           "title": "Weather Observation Station 18",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/weather-observation-station-18",
           "solvedAt": "2025-09-24T04:19:52.000+00:00"
@@ -6201,8 +6210,8 @@
           "id": "hr-weather-observation-station-17",
           "platform": "hackerrank",
           "title": "Weather Observation Station 17",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/weather-observation-station-17",
           "solvedAt": "2025-09-24T04:06:27.000+00:00"
@@ -6211,8 +6220,8 @@
           "id": "hr-weather-observation-station-16",
           "platform": "hackerrank",
           "title": "Weather Observation Station 16",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/weather-observation-station-16",
           "solvedAt": "2025-09-24T04:03:57.000+00:00"
@@ -6221,8 +6230,8 @@
           "id": "hr-weather-observation-station-15",
           "platform": "hackerrank",
           "title": "Weather Observation Station 15",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/weather-observation-station-15",
           "solvedAt": "2025-09-24T04:01:45.000+00:00"
@@ -6231,8 +6240,8 @@
           "id": "hr-salary-of-employees",
           "platform": "hackerrank",
           "title": "Employee Salaries",
-          "category": "Algorithms & Problem Solving",
-          "language": "C++ / SQL",
+          "category": "Database / SQL",
+          "language": "SQL",
           "difficulty": "Practice",
           "url": "https://www.hackerrank.com/challenges/salary-of-employees",
           "solvedAt": "2025-09-24T03:56:38.000+00:00"
@@ -6246,7 +6255,7 @@
       "platform": "leetcode",
       "title": "Count Array Pairs Divisible by K",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/count-array-pairs-divisible-by-k/",
       "solvedAt": "2026-10-14T23:11:19.000Z"
@@ -6256,7 +6265,7 @@
       "platform": "leetcode",
       "title": "Smallest Index With Digit Sum Equal to Index",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/smallest-index-with-digit-sum-equal-to-index/",
       "solvedAt": "2026-10-14T22:59:05.000Z"
@@ -6266,7 +6275,7 @@
       "platform": "leetcode",
       "title": "Maximize Sum of Squares of Digits",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/maximize-sum-of-squares-of-digits/",
       "solvedAt": "2026-10-14T22:51:10.000Z"
@@ -6276,7 +6285,7 @@
       "platform": "leetcode",
       "title": "Number of 1 Bits",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/number-of-1-bits/",
       "solvedAt": "2026-10-14T22:42:53.000Z"
@@ -6286,7 +6295,7 @@
       "platform": "leetcode",
       "title": "Delete Node in a Linked List",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
       "solvedAt": "2026-10-14T22:40:57.000Z"
@@ -6295,8 +6304,8 @@
       "id": "lc-1792015826",
       "platform": "leetcode",
       "title": "Department Highest Salary",
-      "category": "Algorithms",
-      "language": "C++",
+      "category": "Database",
+      "language": "PostgreSQL",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/department-highest-salary/",
       "solvedAt": "2026-10-14T22:10:26.000Z"
@@ -6305,8 +6314,8 @@
       "id": "lc-1792015561",
       "platform": "leetcode",
       "title": "Customers Who Never Order",
-      "category": "Algorithms",
-      "language": "C++",
+      "category": "Database",
+      "language": "PostgreSQL",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/customers-who-never-order/",
       "solvedAt": "2026-10-14T22:06:01.000Z"
@@ -6315,8 +6324,8 @@
       "id": "lc-1792015371",
       "platform": "leetcode",
       "title": "Duplicate Emails",
-      "category": "Algorithms",
-      "language": "C++",
+      "category": "Database",
+      "language": "PostgreSQL",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/duplicate-emails/",
       "solvedAt": "2026-10-14T22:02:51.000Z"
@@ -6325,8 +6334,8 @@
       "id": "lc-1792015259",
       "platform": "leetcode",
       "title": "Employees Earning More Than Their Managers",
-      "category": "Algorithms",
-      "language": "C++",
+      "category": "Database",
+      "language": "PostgreSQL",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
       "solvedAt": "2026-10-14T22:00:59.000Z"
@@ -6335,8 +6344,8 @@
       "id": "lc-1792014951",
       "platform": "leetcode",
       "title": "Consecutive Numbers",
-      "category": "Algorithms",
-      "language": "C++",
+      "category": "Database",
+      "language": "PostgreSQL",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/consecutive-numbers/",
       "solvedAt": "2026-10-14T21:55:51.000Z"
@@ -6345,8 +6354,8 @@
       "id": "lc-1792014711",
       "platform": "leetcode",
       "title": "Rank Scores",
-      "category": "Algorithms",
-      "language": "C++",
+      "category": "Database",
+      "language": "PostgreSQL",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/rank-scores/",
       "solvedAt": "2026-10-14T21:51:51.000Z"
@@ -6355,8 +6364,8 @@
       "id": "lc-1792014543",
       "platform": "leetcode",
       "title": "Nth Highest Salary",
-      "category": "Algorithms",
-      "language": "C++",
+      "category": "Database",
+      "language": "PostgreSQL",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/nth-highest-salary/",
       "solvedAt": "2026-10-14T21:49:03.000Z"
@@ -6365,8 +6374,8 @@
       "id": "lc-1792014348",
       "platform": "leetcode",
       "title": "Second Highest Salary",
-      "category": "Algorithms",
-      "language": "C++",
+      "category": "Database",
+      "language": "PostgreSQL",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/second-highest-salary/",
       "solvedAt": "2026-10-14T21:45:48.000Z"
@@ -6375,8 +6384,8 @@
       "id": "lc-1792013913",
       "platform": "leetcode",
       "title": "Combine Two Tables",
-      "category": "Algorithms",
-      "language": "C++",
+      "category": "Database",
+      "language": "PostgreSQL",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/combine-two-tables/",
       "solvedAt": "2026-10-14T21:38:33.000Z"
@@ -6386,7 +6395,7 @@
       "platform": "leetcode",
       "title": "Perfect Squares",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/perfect-squares/",
       "solvedAt": "2026-10-14T03:18:56.000Z"
@@ -6396,7 +6405,7 @@
       "platform": "leetcode",
       "title": "3Sum Closest",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/3sum-closest/",
       "solvedAt": "2026-10-14T03:10:08.000Z"
@@ -6406,7 +6415,7 @@
       "platform": "leetcode",
       "title": "Trapping Rain Water II",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/trapping-rain-water-ii/",
       "solvedAt": "2026-10-14T03:04:22.000Z"
@@ -6416,7 +6425,7 @@
       "platform": "leetcode",
       "title": "Trapping Rain Water",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/trapping-rain-water/",
       "solvedAt": "2026-10-14T01:23:02.000Z"
@@ -6426,7 +6435,7 @@
       "platform": "leetcode",
       "title": "Product of Array Except Self",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/product-of-array-except-self/",
       "solvedAt": "2026-10-14T01:06:09.000Z"
@@ -7476,7 +7485,7 @@
       "platform": "leetcode",
       "title": "Maximum Repeating Substring",
       "category": "Algorithms",
-      "language": "C++",
+      "language": "C++20",
       "difficulty": "-",
       "url": "https://leetcode.com/problems/maximum-repeating-substring/",
       "solvedAt": "2026-09-08T09:38:18.000Z"
@@ -10506,7 +10515,7 @@
       "platform": "hackerrank",
       "title": "Repeated String",
       "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "language": "C++20",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/repeated-string",
       "solvedAt": "2025-11-03T05:40:42.000+00:00"
@@ -10516,7 +10525,7 @@
       "platform": "hackerrank",
       "title": "Library Fine",
       "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "language": "C++20",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/library-fine",
       "solvedAt": "2025-11-03T04:57:38.000+00:00"
@@ -10526,7 +10535,7 @@
       "platform": "hackerrank",
       "title": "Sherlock and Squares",
       "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "language": "C++20",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/sherlock-and-squares",
       "solvedAt": "2025-11-03T04:51:13.000+00:00"
@@ -10585,8 +10594,8 @@
       "id": "hr-population-density-difference",
       "platform": "hackerrank",
       "title": "Population Density Difference",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/population-density-difference",
       "solvedAt": "2025-10-16T01:20:06.000+00:00"
@@ -10595,8 +10604,8 @@
       "id": "hr-japan-population",
       "platform": "hackerrank",
       "title": "Japan Population",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/japan-population",
       "solvedAt": "2025-10-16T01:19:15.000+00:00"
@@ -10605,8 +10614,8 @@
       "id": "hr-average-population",
       "platform": "hackerrank",
       "title": "Average Population",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/average-population",
       "solvedAt": "2025-10-16T01:18:40.000+00:00"
@@ -10615,8 +10624,8 @@
       "id": "hr-revising-aggregations-the-average-function",
       "platform": "hackerrank",
       "title": "Revising Aggregations - Averages",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/revising-aggregations-the-average-function",
       "solvedAt": "2025-10-16T01:17:09.000+00:00"
@@ -10625,8 +10634,8 @@
       "id": "hr-revising-aggregations-sum",
       "platform": "hackerrank",
       "title": "Revising Aggregations - The Sum Function",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/revising-aggregations-sum",
       "solvedAt": "2025-10-16T01:16:41.000+00:00"
@@ -10635,8 +10644,8 @@
       "id": "hr-revising-aggregations-the-count-function",
       "platform": "hackerrank",
       "title": "Revising Aggregations - The Count Function",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/revising-aggregations-the-count-function",
       "solvedAt": "2025-10-16T01:14:54.000+00:00"
@@ -10645,8 +10654,8 @@
       "id": "hr-java-static-initializer-block",
       "platform": "hackerrank",
       "title": "Java Static Initializer Block",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Language Proficiency",
+      "language": "Java",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/java-static-initializer-block",
       "solvedAt": "2025-10-08T16:56:14.000+00:00"
@@ -10656,7 +10665,7 @@
       "platform": "hackerrank",
       "title": "Small Triangles, Large Triangles",
       "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "language": "C++20",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/small-triangles-large-triangles",
       "solvedAt": "2025-10-08T16:40:58.000+00:00"
@@ -10665,8 +10674,8 @@
       "id": "hr-querying-the-document",
       "platform": "hackerrank",
       "title": "Querying the Document",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/querying-the-document",
       "solvedAt": "2025-10-08T16:26:05.000+00:00"
@@ -10675,8 +10684,8 @@
       "id": "hr-pointer-in-c",
       "platform": "hackerrank",
       "title": "Pointers in C",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Language Proficiency",
+      "language": "C",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/pointer-in-c",
       "solvedAt": "2025-10-08T16:19:20.000+00:00"
@@ -10685,8 +10694,8 @@
       "id": "hr-functions-in-c",
       "platform": "hackerrank",
       "title": "Functions in C",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Language Proficiency",
+      "language": "C",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/functions-in-c",
       "solvedAt": "2025-10-08T16:14:59.000+00:00"
@@ -10696,7 +10705,7 @@
       "platform": "hackerrank",
       "title": "Type of Triangle",
       "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "language": "C++20",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/what-type-of-triangle",
       "solvedAt": "2025-09-25T00:52:24.000+00:00"
@@ -10705,8 +10714,8 @@
       "id": "hr-weather-observation-station-18",
       "platform": "hackerrank",
       "title": "Weather Observation Station 18",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/weather-observation-station-18",
       "solvedAt": "2025-09-24T04:19:52.000+00:00"
@@ -10715,8 +10724,8 @@
       "id": "hr-weather-observation-station-17",
       "platform": "hackerrank",
       "title": "Weather Observation Station 17",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/weather-observation-station-17",
       "solvedAt": "2025-09-24T04:06:27.000+00:00"
@@ -10725,8 +10734,8 @@
       "id": "hr-weather-observation-station-16",
       "platform": "hackerrank",
       "title": "Weather Observation Station 16",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/weather-observation-station-16",
       "solvedAt": "2025-09-24T04:03:57.000+00:00"
@@ -10735,8 +10744,8 @@
       "id": "hr-weather-observation-station-15",
       "platform": "hackerrank",
       "title": "Weather Observation Station 15",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/weather-observation-station-15",
       "solvedAt": "2025-09-24T04:01:45.000+00:00"
@@ -10745,8 +10754,8 @@
       "id": "hr-salary-of-employees",
       "platform": "hackerrank",
       "title": "Employee Salaries",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++ / SQL",
+      "category": "Database / SQL",
+      "language": "SQL",
       "difficulty": "Practice",
       "url": "https://www.hackerrank.com/challenges/salary-of-employees",
       "solvedAt": "2025-09-24T03:56:38.000+00:00"

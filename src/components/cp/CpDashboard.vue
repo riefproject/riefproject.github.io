@@ -43,8 +43,8 @@
       <!-- Card 4: Primary Language -->
       <div class="stat-card">
         <span class="stat-label">{{ isId ? 'Bahasa Utama' : 'Primary Language' }}</span>
-        <div class="stat-value val-purple">C++20</div>
-        <span class="stat-helper">{{ isId ? '500+ submisi C++ kompetitif' : '500+ competitive C++ submissions' }}</span>
+        <div class="stat-value val-purple">{{ primaryLanguage.name }}</div>
+        <span class="stat-helper">{{ primaryLanguage.formattedCount }} {{ isId ? `submisi ${primaryLanguage.name}` : `${primaryLanguage.name} submissions` }}</span>
       </div>
     </div>
 
@@ -162,7 +162,7 @@ import CpCodeforcesTab from './CpCodeforcesTab.vue';
 import CpLeetcodeTab from './CpLeetcodeTab.vue';
 import CpHackerrankTab from './CpHackerrankTab.vue';
 import type { HeatmapDay } from './cpUtils';
-import { formatRelativeTime } from './cpUtils';
+import { formatRelativeTime, cleanLanguage } from './cpUtils';
 
 const props = defineProps<{
   initialData?: any;
@@ -184,6 +184,74 @@ const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved 
 const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || 50);
 const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || 59);
 const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || 138);
+
+const primaryLanguage = computed(() => {
+  const overviewTop = cpData.value?.overview?.topLanguage;
+  if (overviewTop?.name && overviewTop?.count) {
+    const name = overviewTop.name;
+    const count = Number(overviewTop.count);
+    const formattedCount = count >= 1000 ? `${Math.floor(count / 1000)}K+` : `${count}+`;
+    return { name, count, formattedCount };
+  }
+
+  const counts: Record<string, number> = {};
+
+  // TLX
+  const tlxLangs = cpData.value?.platforms?.tlx?.languages || {};
+  Object.entries(tlxLangs).forEach(([l, cnt]) => {
+    const cleaned = cleanLanguage(l);
+    counts[cleaned] = (counts[cleaned] || 0) + Number(cnt || 0);
+  });
+
+  // Codeforces
+  const cfLangs = cpData.value?.platforms?.codeforces?.languages;
+  if (cfLangs && Object.keys(cfLangs).length > 0) {
+    Object.entries(cfLangs).forEach(([l, cnt]) => {
+      const cleaned = cleanLanguage(l);
+      counts[cleaned] = (counts[cleaned] || 0) + Number(cnt || 0);
+    });
+  } else {
+    const cfSubs = Number(cpData.value?.platforms?.codeforces?.totalSubmissions) || 0;
+    counts['C++20'] = (counts['C++20'] || 0) + cfSubs;
+  }
+
+  // LeetCode
+  (cpData.value?.platforms?.leetcode?.recentSolved || []).forEach((s: any) => {
+    if (s.language) {
+      const cleaned = cleanLanguage(s.language);
+      counts[cleaned] = (counts[cleaned] || 0) + 1;
+    }
+  });
+
+  // HackerRank
+  (cpData.value?.platforms?.hackerrank?.recentSolved || []).forEach((s: any) => {
+    if (s.language) {
+      const cleaned = cleanLanguage(s.language);
+      counts[cleaned] = (counts[cleaned] || 0) + 1;
+    }
+  });
+
+  let maxLang = 'C++20';
+  let maxCount = 0;
+  Object.entries(counts).forEach(([l, cnt]) => {
+    if (cnt > maxCount) {
+      maxCount = cnt;
+      maxLang = l;
+    }
+  });
+
+  if (maxCount <= 0) {
+    maxCount = 1137;
+    maxLang = 'C++20';
+  }
+
+  const formattedCount = maxCount >= 1000 ? `${Math.floor(maxCount / 1000)}K+` : `${maxCount}+`;
+  return {
+    name: maxLang,
+    count: maxCount,
+    formattedCount,
+  };
+});
 
 const platformPills = computed(() => [
   { key: 'tlx', name: 'TLX', handle: cpData.value?.platforms?.tlx?.handle || 'aycaaa', logo: '/img/tlx/tlx.webp', url: 'https://tlx.toki.id/profiles/aycaaa' },

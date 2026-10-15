@@ -23,6 +23,7 @@
           v-model="selectedPlatforms"
           :categories="platformCategories"
           :locale="locale"
+          itemType="platform"
         />
 
         <div class="rows-per-page-select">
@@ -126,81 +127,15 @@
       </div>
 
       <!-- Numbered Pagination Bar -->
-      <div v-if="filteredProblems.length > 0" class="pagination-bar">
-        <div class="feed-counter-text">
-          <span class="desktop-only-text">
-            {{ isId
-              ? `Menampilkan ${paginationRange} dari ${filteredProblems.length} soal (Halaman ${currentPage} dari ${totalPages})`
-              : `Showing ${paginationRange} of ${filteredProblems.length} problems (Page ${currentPage} of ${totalPages})`
-            }}
-          </span>
-          <div class="mobile-only-text-group">
-            <div class="mob-range-text">
-              {{ isId
-                ? `${paginationRange} dari ${filteredProblems.length}`
-                : `${paginationRange} of ${filteredProblems.length}`
-              }}
-            </div>
-            <div class="mob-page-text">
-              {{ isId ? `Halaman ${currentPage} / ${totalPages}` : `Page ${currentPage} / ${totalPages}` }}
-            </div>
-          </div>
-        </div>
-
-        <div class="pagination-nav-group" v-if="totalPages > 1">
-          <button
-            type="button"
-            @click="goToPage(1)"
-            :disabled="currentPage === 1"
-            class="page-nav-btn first-pg-btn"
-            :title="isId ? 'Halaman Pertama' : 'First Page'"
-          >
-            «
-          </button>
-
-          <button
-            type="button"
-            @click="goToPage(currentPage - 1)"
-            :disabled="currentPage === 1"
-            class="page-nav-btn"
-          >
-            ‹ {{ isId ? 'Sebelumnya' : 'Prev' }}
-          </button>
-
-          <div class="page-numbers">
-            <button
-              v-for="p in visiblePageNumbers"
-              :key="p"
-              type="button"
-              @click="typeof p === 'number' && goToPage(p)"
-              class="page-num-btn"
-              :class="{ active: currentPage === p, dots: p === '...' }"
-              :disabled="p === '...'"
-            >
-              {{ p }}
-            </button>
-          </div>
-
-          <button
-            type="button"
-            @click="goToPage(currentPage + 1)"
-            :disabled="currentPage === totalPages"
-            class="page-nav-btn"
-          >
-            {{ isId ? 'Berikutnya' : 'Next' }} ›
-          </button>
-
-          <button
-            type="button"
-            @click="goToPage(totalPages)"
-            :disabled="currentPage === totalPages"
-            class="page-nav-btn last-pg-btn"
-            :title="isId ? 'Halaman Terakhir' : 'Last Page'"
-          >
-            »
-          </button>
-        </div>
-      </div>
+      <CpTablePagination
+        v-if="filteredProblems.length > 0"
+        v-model:currentPage="currentPage"
+        :totalPages="totalPages"
+        :pageSize="pageSize"
+        :totalItems="filteredProblems.length"
+        :isId="isId"
+        :scrollToTop="true"
+      />
     </div>
   </div>
 </template>
@@ -208,6 +143,14 @@
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from 'vue';
 import FilterDropdown from "../FilterDropdown.vue";
+import CpTablePagination from "./CpTablePagination.vue";
+import {
+  cleanLanguage,
+  getPlatformLogo,
+  getPlatformName,
+  getDiffClass,
+  formatExactDate,
+} from './cpUtils';
 import { useStore } from '@nanostores/vue';
 import { lang } from '../../stores/uiStore.js';
 
@@ -223,25 +166,26 @@ const allPlatformKeys = ['tlx', 'codeforces', 'leetcode', 'hackerrank'];
 const selectedPlatforms = ref<string[]>([...allPlatformKeys]);
 const locale = computed(() => (isId.value ? 'id' : 'en'));
 
-const platformCategories = computed(() => {
-  return [
-    { key: 'tlx', label: `TLX (${totalTlxSolved.value})` },
-    { key: 'codeforces', label: `Codeforces (${totalCfSolved.value})` },
-    { key: 'leetcode', label: `LeetCode (${totalLcSolved.value})` },
-    { key: 'hackerrank', label: `HackerRank (${totalHrSolved.value})` }
-  ];
-});
-
-const searchQuery = ref('');
-const currentPage = ref(1);
-const pageSize = ref(20);
-
 // Platform Total Solved counts
 const totalAllSolved = computed(() => cpData.value?.overview?.totalSolved || 640);
 const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || 371);
 const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || 50);
 const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || 59);
 const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || 138);
+
+const platformCategories = computed(() => {
+  return [
+    { key: 'all', label: `${isId.value ? 'Semua Platform' : 'All Platforms'} (${totalAllSolved.value})` },
+    { key: 'tlx', label: `TLX (${totalTlxSolved.value})`, icon: '/img/tlx/tlx.webp' },
+    { key: 'codeforces', label: `Codeforces (${totalCfSolved.value})`, icon: '/img/codeforces/codeforces.webp' },
+    { key: 'leetcode', label: `LeetCode (${totalLcSolved.value})`, icon: '/img/leetcode/leetcode.webp' },
+    { key: 'hackerrank', label: `HackerRank (${totalHrSolved.value})`, icon: '/img/hackerrank/HackerRank.webp' }
+  ];
+});
+
+const searchQuery = ref('');
+const currentPage = ref(1);
+const pageSize = ref(20);
 
 // URL Query Param handler on mounted
 onMounted(() => {
@@ -311,94 +255,6 @@ const paginatedProblems = computed(() => {
   return filteredProblems.value.slice(start, start + pageSize.value);
 });
 
-const paginationRange = computed(() => {
-  const total = filteredProblems.value.length;
-  if (total === 0) return '0';
-  const start = (currentPage.value - 1) * pageSize.value + 1;
-  const end = Math.min(currentPage.value * pageSize.value, total);
-  return `${start}-${end}`;
-});
-
-const visiblePageNumbers = computed(() => {
-  const total = totalPages.value;
-  const curr = currentPage.value;
-  const pages: (number | string)[] = [];
-
-  if (total <= 7) {
-    for (let i = 1; i <= total; i++) pages.push(i);
-  } else {
-    pages.push(1);
-    if (curr > 3) pages.push('...');
-    const start = Math.max(2, curr - 1);
-    const end = Math.min(total - 1, curr + 1);
-    for (let i = start; i <= end; i++) pages.push(i);
-    if (curr < total - 2) pages.push('...');
-    pages.push(total);
-  }
-  return pages;
-});
-
-const goToPage = (page: number) => {
-  if (page >= 1 && page <= totalPages.value) {
-    currentPage.value = page;
-    if (typeof window !== 'undefined') {
-      window.scrollTo({ top: 180, behavior: 'smooth' });
-    }
-  }
-};
-
-// Helpers
-const getPlatformLogo = (platform: string) => {
-  switch (platform) {
-    case 'tlx': return '/img/tlx/tlx.webp';
-    case 'codeforces': return '/img/codeforces/codeforces.webp';
-    case 'leetcode': return '/img/leetcode/leetcode.webp';
-    case 'hackerrank': return '/img/hackerrank/HackerRank.webp';
-    default: return '/img/tlx/tlx.webp';
-  }
-};
-
-const getPlatformName = (platform: string) => {
-  switch (platform) {
-    case 'tlx': return 'TLX';
-    case 'codeforces': return 'Codeforces';
-    case 'leetcode': return 'LeetCode';
-    case 'hackerrank': return 'HackerRank';
-    default: return platform?.toUpperCase();
-  }
-};
-
-const cleanLanguage = (lang: string) => {
-  if (!lang) return '-';
-  if (lang.includes('Cpp20') || lang.includes('C++20')) return 'C++20';
-  if (lang.includes('Cpp23') || lang.includes('C++23')) return 'C++23';
-  if (lang.includes('Rust')) return 'Rust';
-  if (lang.includes('Pascal')) return 'Pascal';
-  if (lang.includes('Java')) return 'Java';
-  if (lang.includes('Python')) return 'Python';
-  if (lang.includes('SQL') || lang.includes('Sql')) return 'SQL';
-  if (lang.includes('C') && !lang.includes('C++')) return 'C';
-  return lang;
-};
-
-const getDiffClass = (diff: any) => {
-  if (!diff) return 'normal';
-  const str = String(diff).toLowerCase();
-  if (str.includes('easy') || str === '800' || str === '900') return 'easy';
-  if (str.includes('medium') || str === '1000' || str === '1100' || str === '1200' || str === '1300') return 'medium';
-  if (str.includes('hard') || parseInt(str, 10) >= 1400) return 'hard';
-  return 'normal';
-};
-
-const formatExactDate = (isoString?: string) => {
-  if (!isoString) return '-';
-  const date = new Date(isoString);
-  return date.toLocaleDateString(isId.value ? 'id-ID' : 'en-US', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
-};
 </script>
 
 <style scoped>
@@ -438,23 +294,27 @@ const formatExactDate = (isoString?: string) => {
   flex: 1;
 }
 
+.search-icon,
 .search-icon-svg {
   position: absolute;
   left: 0.85rem;
   top: 50%;
   transform: translateY(-50%);
   color: var(--muted);
+  pointer-events: none;
 }
 
 .explorer-search-input {
   width: 100%;
-  padding: 0.55rem 2rem 0.55rem 2.4rem;
+  height: 2.5rem;
+  padding: 0 2rem 0 2.4rem;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   border-radius: 0.75rem;
   color: var(--text);
   font-size: var(--text-base);
   outline: none;
+  box-sizing: border-box;
 }
 
 .explorer-search-input:focus {
@@ -480,13 +340,16 @@ const formatExactDate = (isoString?: string) => {
 }
 
 .page-size-dropdown {
-  padding: 0.35rem 0.6rem;
-  border-radius: 0.5rem;
+  height: 2.5rem;
+  padding: 0 0.6rem;
+  border-radius: 0.75rem;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--text);
   font-size: var(--text-base);
   outline: none;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .platform-tab-btn:hover {
@@ -856,113 +719,11 @@ const formatExactDate = (isoString?: string) => {
 }
 
 
-/* Pagination Bar */
-.pagination-bar {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.85rem 1.25rem;
-  background: var(--bg-elevated);
-  border-top: 1px solid var(--border);
-}
-
-@media (min-width: 640px) {
-  .pagination-bar {
-    flex-direction: row;
-  }
-}
-
-.feed-counter-text {
-  font-size: var(--text-sm);
-  color: var(--muted);
-  font-weight: 500;
-}
-
-.pagination-nav-group {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  flex-wrap: wrap;
-}
-
-.page-nav-btn {
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.35rem 0.75rem;
-  border-radius: 0.5rem;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.page-nav-btn:hover:not(:disabled) {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-
-.page-nav-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.page-numbers {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.page-num-btn {
-  width: 2rem;
-  height: 2rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.5rem;
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: var(--text-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-}
-
-.page-num-btn:hover:not(.dots):not(.active) {
-  background: var(--chip-bg);
-}
-
-.page-num-btn.active {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-
-.page-num-btn.dots {
-  border: none;
-  background: transparent;
-  cursor: default;
-  color: var(--muted);
-}
-
 .empty-state {
   padding: 3rem;
   text-align: center;
   color: var(--muted);
   font-size: var(--text-base);
-}
-
-/* Responsive Pagination & Status Bar overrides */
-.mobile-only-text-group {
-  display: none;
 }
 
 @media (max-width: 640px) {
@@ -980,51 +741,6 @@ const formatExactDate = (isoString?: string) => {
 
   .rows-per-page-select {
     display: none !important;
-  }
-
-  .desktop-only-text {
-    display: none !important;
-  }
-  .mobile-only-text-group {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 0.15rem !important;
-    text-align: left !important;
-  }
-
-  .mob-range-text {
-    font-size: var(--text-sm) !important;
-    font-weight: 700 !important;
-    color: var(--text) !important;
-  }
-
-  .mob-page-text {
-    font-size: var(--text-xs) !important;
-    font-weight: 500 !important;
-    color: var(--muted) !important;
-  }
-
-  .pagination-bar {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    padding: 0.65rem 0.85rem !important;
-  }
-
-  .pagination-bar .page-numbers,
-  .pagination-bar .first-pg-btn,
-  .pagination-bar .last-pg-btn {
-    display: none !important;
-  }
-
-  .page-nav-btn {
-    flex: 1 !important;
-    justify-content: center !important;
-    padding: 0.35rem 0.65rem !important;
-    font-size: var(--text-xs) !important;
-    border-radius: 0.35rem !important;
   }
 }
 </style>

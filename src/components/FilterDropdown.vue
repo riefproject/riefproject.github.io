@@ -1,11 +1,17 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
 
-const props = defineProps<{
-  categories: { key: string; label: string }[];
-  modelValue: string[];
-  locale: "id" | "en";
-}>();
+const props = withDefaults(
+  defineProps<{
+    categories: { key: string; label: string; icon?: string }[];
+    modelValue: string[];
+    locale: "id" | "en";
+    itemType?: "category" | "platform";
+  }>(),
+  {
+    itemType: "category",
+  }
+);
 
 const emit = defineEmits<{
   (e: "update:modelValue", value: string[]): void;
@@ -18,19 +24,39 @@ const allCategoryKeys = computed(() =>
 );
 
 const activeCategoryLabel = computed(() => {
-  if (props.modelValue.length === allCategoryKeys.value.length) {
+  const isPlatform = props.itemType === "platform";
+  const allSelected = props.modelValue.length === allCategoryKeys.value.length;
+  const noneSelected = props.modelValue.length === 0;
+
+  if (allSelected) {
+    if (isPlatform) {
+      return props.locale === "id" ? "Semua Platform" : "All Platforms";
+    }
     return props.locale === "id" ? "Semua Kategori" : "All Categories";
   }
-  if (props.modelValue.length === 0) {
+
+  if (noneSelected) {
+    if (isPlatform) {
+      return props.locale === "id" ? "Pilih Platform" : "Select Platform";
+    }
     return props.locale === "id" ? "Pilih Kategori" : "Select Category";
   }
+
   if (props.modelValue.length === 1) {
     const cat = props.categories.find((c) => c.key === props.modelValue[0]);
-    return cat
-      ? cat.label
-      : props.locale === "id"
-        ? "1 Kategori"
-        : "1 Category";
+    if (cat) {
+      return isPlatform ? cat.label.replace(/\s*\(\d+\)/, '') : cat.label;
+    }
+    if (isPlatform) {
+      return props.locale === "id" ? "1 Platform" : "1 Platform";
+    }
+    return props.locale === "id" ? "1 Kategori" : "1 Category";
+  }
+
+  if (isPlatform) {
+    return props.locale === "id"
+      ? `${props.modelValue.length} Platform`
+      : `${props.modelValue.length} Platforms`;
   }
   return props.locale === "id"
     ? `${props.modelValue.length} Kategori`
@@ -77,9 +103,12 @@ const toggleCategory = (key: string) => {
         <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
       </svg>
       <span>{{ activeCategoryLabel }}</span>
-      <span class="active-badge" v-if="props.modelValue.length > 0">{{
-        props.modelValue.length
-      }}</span>
+      <span
+        class="active-badge"
+        v-if="
+          props.modelValue.length > 0 &&
+          props.modelValue.length < allCategoryKeys.length
+        ">{{ props.modelValue.length }}</span>
     </button>
 
     <div
@@ -106,7 +135,12 @@ const toggleCategory = (key: string) => {
             v-else
             type="checkbox"
             :checked="props.modelValue.includes(category.key)" />
-          <span>{{ category.label }}</span>
+          <img
+            v-if="category.icon"
+            :src="category.icon"
+            :alt="category.key"
+            class="dropdown-item-icon" />
+          <span class="dropdown-item-label">{{ category.label }}</span>
         </label>
       </div>
     </div>
@@ -122,7 +156,8 @@ const toggleCategory = (key: string) => {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.55rem 0.95rem;
+  height: 2.5rem;
+  padding: 0 0.95rem;
   border-radius: 0.75rem;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
@@ -131,7 +166,6 @@ const toggleCategory = (key: string) => {
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
-  height: 100%;
   box-sizing: border-box;
   white-space: nowrap;
 }
@@ -216,6 +250,14 @@ const toggleCategory = (key: string) => {
   accent-color: var(--accent);
   cursor: pointer;
   margin: 0;
+  pointer-events: none;
+}
+
+.dropdown-item-icon {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+  flex-shrink: 0;
 }
 
 @media (max-width: 640px) {
@@ -225,9 +267,11 @@ const toggleCategory = (key: string) => {
   }
 
   .filter-dropdown-menu {
-    width: 100%;
-    right: auto;
-    left: 0;
+    min-width: 220px;
+    width: max-content;
+    max-width: calc(100vw - 2rem);
+    right: 0;
+    left: auto;
   }
 }
 </style>

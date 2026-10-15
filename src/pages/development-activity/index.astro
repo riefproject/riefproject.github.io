@@ -3,7 +3,6 @@ import Layout from '../../layouts/Layout.astro';
 import DevelopmentActivity from '../../components/dev/DevelopmentActivity.vue';
 import LocaleText from '../../components/i18n/LocaleText.astro';
 import initialDevData from '../../data/dev-activity-initial.json';
-import initialCpData from '../../data/cp-data-initial.json';
 
 const locale = (en: string, id: string) => ({ en, id });
 
@@ -14,10 +13,7 @@ const copy = {
     'Dashboard live yang melacak karya pengembangan open-source dan profesional di GitHub dan GitLab — kalender kontribusi, streak, pull request, dan penggunaan bahasa.'
   ),
   backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
-  cpLink: locale('CP Journey', 'Perjalanan CP'),
 };
-
-const cpSolved = initialCpData?.overview?.totalSolved || 640;
 ---
 
 <Layout

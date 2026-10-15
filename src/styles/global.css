@@ -1,5 +1,8 @@
 
 
+@import './cp-shared.css';
+@import './dev-shared.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,6 +32,14 @@
   --scrollbar-track: rgba(255, 255, 255, 0.03);
   --scrollbar-thumb: rgba(255, 255, 255, 0.14);
   --scrollbar-thumb-hover: rgba(255, 255, 255, 0.26);
+
+  /* Typography scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 0.9rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
 }
 
 /* Light mode */

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-15T20:54:08.044Z",
+    "updatedAt": "2026-10-16T03:00:16.962Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 731,
-    "totalSubmissions": 1657,
+    "totalSolved": 736,
+    "totalSubmissions": 1662,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-10": {
@@ -110,8 +110,8 @@
         "ac": 2
       },
       "2026-09-08": {
-        "tries": 12,
-        "ac": 7
+        "tries": 11,
+        "ac": 6
       },
       "2026-09-07": {
         "tries": 27,
@@ -433,9 +433,17 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-16": {
+        "tries": 3,
+        "ac": 3
+      },
+      "2026-10-15": {
+        "tries": 2,
+        "ac": 2
+      },
       "2026-10-14": {
-        "tries": 19,
-        "ac": 19
+        "tries": 15,
+        "ac": 15
       },
       "2024-06-23": {
         "tries": 44,
@@ -5600,22 +5608,76 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2367686,
-      "totalSolved": 88,
-      "easySolved": 45,
-      "mediumSolved": 37,
-      "hardSolved": 6,
+      "ranking": 1875103,
+      "totalSolved": 93,
+      "easySolved": 47,
+      "mediumSolved": 39,
+      "hardSolved": 7,
       "dailyCalendar": {
-        "2026-10-14": {
-          "tries": 19,
-          "ac": 19
+        "2026-10-16": {
+          "tries": 3,
+          "ac": 3
         },
-        "2026-09-08": {
-          "tries": 1,
-          "ac": 1
+        "2026-10-15": {
+          "tries": 2,
+          "ac": 2
+        },
+        "2026-10-14": {
+          "tries": 15,
+          "ac": 15
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792111664",
+          "platform": "leetcode",
+          "title": "Reverse Bits",
+          "category": "Algorithms",
+          "language": "C++20",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/reverse-bits/",
+          "solvedAt": "2026-10-16T00:47:44.000Z"
+        },
+        {
+          "id": "lc-1792110515",
+          "platform": "leetcode",
+          "title": "Subarrays Distinct Element Sum of Squares II",
+          "category": "Algorithms",
+          "language": "C++20",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-ii/",
+          "solvedAt": "2026-10-16T00:28:35.000Z"
+        },
+        {
+          "id": "lc-1792109449",
+          "platform": "leetcode",
+          "title": "Valid Parenthesis String",
+          "category": "Algorithms",
+          "language": "C++20",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/valid-parenthesis-string/",
+          "solvedAt": "2026-10-16T00:10:49.000Z"
+        },
+        {
+          "id": "lc-1792108398",
+          "platform": "leetcode",
+          "title": "Maximum Alternating Sum of Squares",
+          "category": "Algorithms",
+          "language": "C++20",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/maximum-alternating-sum-of-squares/",
+          "solvedAt": "2026-10-15T23:53:18.000Z"
+        },
+        {
+          "id": "lc-1792105917",
+          "platform": "leetcode",
+          "title": "Subarrays Distinct Element Sum of Squares I",
+          "category": "Algorithms",
+          "language": "C++20",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-i/",
+          "solvedAt": "2026-10-15T23:11:57.000Z"
+        },
         {
           "id": "lc-1792019479",
           "platform": "leetcode",
@@ -5765,56 +5827,6 @@
           "difficulty": "-",
           "url": "https://leetcode.com/problems/perfect-squares/",
           "solvedAt": "2026-10-14T03:18:56.000Z"
-        },
-        {
-          "id": "lc-1791947408",
-          "platform": "leetcode",
-          "title": "3Sum Closest",
-          "category": "Algorithms",
-          "language": "C++20",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/3sum-closest/",
-          "solvedAt": "2026-10-14T03:10:08.000Z"
-        },
-        {
-          "id": "lc-1791947062",
-          "platform": "leetcode",
-          "title": "Trapping Rain Water II",
-          "category": "Algorithms",
-          "language": "C++20",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/trapping-rain-water-ii/",
-          "solvedAt": "2026-10-14T03:04:22.000Z"
-        },
-        {
-          "id": "lc-1791940982",
-          "platform": "leetcode",
-          "title": "Trapping Rain Water",
-          "category": "Algorithms",
-          "language": "C++20",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/trapping-rain-water/",
-          "solvedAt": "2026-10-14T01:23:02.000Z"
-        },
-        {
-          "id": "lc-1791939969",
-          "platform": "leetcode",
-          "title": "Product of Array Except Self",
-          "category": "Algorithms",
-          "language": "C++20",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/product-of-array-except-self/",
-          "solvedAt": "2026-10-14T01:06:09.000Z"
-        },
-        {
-          "id": "lc-1788860298",
-          "platform": "leetcode",
-          "title": "Maximum Repeating Substring",
-          "category": "Algorithms",
-          "language": "C++20",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/maximum-repeating-substring/",
-          "solvedAt": "2026-09-08T09:38:18.000Z"
         }
       ]
     },
@@ -5872,13 +5884,13 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141450
+          "rank": 141454
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1941183
+          "rank": 1941236
         },
         {
           "name": "C++",
@@ -5890,25 +5902,25 @@
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 531422
+          "rank": 531434
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191574
+          "rank": 191577
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1641853
+          "rank": 1641877
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 724509
+          "rank": 724532
         },
         {
           "name": "Mathematics",
@@ -5920,7 +5932,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 463426
+          "rank": 463429
         }
       ],
       "dailyCalendar": {
@@ -6251,6 +6263,56 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "lc-1792111664",
+      "platform": "leetcode",
+      "title": "Reverse Bits",
+      "category": "Algorithms",
+      "language": "C++20",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/reverse-bits/",
+      "solvedAt": "2026-10-16T00:47:44.000Z"
+    },
+    {
+      "id": "lc-1792110515",
+      "platform": "leetcode",
+      "title": "Subarrays Distinct Element Sum of Squares II",
+      "category": "Algorithms",
+      "language": "C++20",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-ii/",
+      "solvedAt": "2026-10-16T00:28:35.000Z"
+    },
+    {
+      "id": "lc-1792109449",
+      "platform": "leetcode",
+      "title": "Valid Parenthesis String",
+      "category": "Algorithms",
+      "language": "C++20",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/valid-parenthesis-string/",
+      "solvedAt": "2026-10-16T00:10:49.000Z"
+    },
+    {
+      "id": "lc-1792108398",
+      "platform": "leetcode",
+      "title": "Maximum Alternating Sum of Squares",
+      "category": "Algorithms",
+      "language": "C++20",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/maximum-alternating-sum-of-squares/",
+      "solvedAt": "2026-10-15T23:53:18.000Z"
+    },
+    {
+      "id": "lc-1792105917",
+      "platform": "leetcode",
+      "title": "Subarrays Distinct Element Sum of Squares I",
+      "category": "Algorithms",
+      "language": "C++20",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-i/",
+      "solvedAt": "2026-10-15T23:11:57.000Z"
+    },
+    {
       "id": "lc-1792019479",
       "platform": "leetcode",
       "title": "Count Array Pairs Divisible by K",
@@ -6399,46 +6461,6 @@
       "difficulty": "-",
       "url": "https://leetcode.com/problems/perfect-squares/",
       "solvedAt": "2026-10-14T03:18:56.000Z"
-    },
-    {
-      "id": "lc-1791947408",
-      "platform": "leetcode",
-      "title": "3Sum Closest",
-      "category": "Algorithms",
-      "language": "C++20",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/3sum-closest/",
-      "solvedAt": "2026-10-14T03:10:08.000Z"
-    },
-    {
-      "id": "lc-1791947062",
-      "platform": "leetcode",
-      "title": "Trapping Rain Water II",
-      "category": "Algorithms",
-      "language": "C++20",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/trapping-rain-water-ii/",
-      "solvedAt": "2026-10-14T03:04:22.000Z"
-    },
-    {
-      "id": "lc-1791940982",
-      "platform": "leetcode",
-      "title": "Trapping Rain Water",
-      "category": "Algorithms",
-      "language": "C++20",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/trapping-rain-water/",
-      "solvedAt": "2026-10-14T01:23:02.000Z"
-    },
-    {
-      "id": "lc-1791939969",
-      "platform": "leetcode",
-      "title": "Product of Array Except Self",
-      "category": "Algorithms",
-      "language": "C++20",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/product-of-array-except-self/",
-      "solvedAt": "2026-10-14T01:06:09.000Z"
     },
     {
       "id": "cf-393994284",
@@ -7479,16 +7501,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5987013",
       "solvedAt": "2026-09-09T06:09:23.123Z"
-    },
-    {
-      "id": "lc-1788860298",
-      "platform": "leetcode",
-      "title": "Maximum Repeating Substring",
-      "category": "Algorithms",
-      "language": "C++20",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/maximum-repeating-substring/",
-      "solvedAt": "2026-09-08T09:38:18.000Z"
     },
     {
       "id": "tlx-5981868",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-16T03:00:16.962Z",
+    "updatedAt": "2026-10-16T10:38:09.540Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 736,
-    "totalSubmissions": 1662,
+    "totalSolved": 740,
+    "totalSubmissions": 1666,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-10": {
@@ -434,16 +434,16 @@
         "ac": 10
       },
       "2026-10-16": {
-        "tries": 3,
-        "ac": 3
+        "tries": 7,
+        "ac": 7
       },
       "2026-10-15": {
         "tries": 2,
         "ac": 2
       },
       "2026-10-14": {
-        "tries": 15,
-        "ac": 15
+        "tries": 11,
+        "ac": 11
       },
       "2024-06-23": {
         "tries": 44,
@@ -560,7 +560,7 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 944
+      "count": 945
     }
   },
   "platforms": {
@@ -5609,25 +5609,65 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1875103,
-      "totalSolved": 93,
-      "easySolved": 47,
-      "mediumSolved": 39,
+      "totalSolved": 97,
+      "easySolved": 50,
+      "mediumSolved": 40,
       "hardSolved": 7,
       "dailyCalendar": {
         "2026-10-16": {
-          "tries": 3,
-          "ac": 3
+          "tries": 7,
+          "ac": 7
         },
         "2026-10-15": {
           "tries": 2,
           "ac": 2
         },
         "2026-10-14": {
-          "tries": 15,
-          "ac": 15
+          "tries": 11,
+          "ac": 11
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792123667",
+          "platform": "leetcode",
+          "title": "Sum of Digits of String After Convert",
+          "category": "Algorithms",
+          "language": "C++20",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/sum-of-digits-of-string-after-convert/",
+          "solvedAt": "2026-10-16T04:07:47.000Z"
+        },
+        {
+          "id": "lc-1792123158",
+          "platform": "leetcode",
+          "title": "Happy Number",
+          "category": "Algorithms",
+          "language": "C++20",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/happy-number/",
+          "solvedAt": "2026-10-16T03:59:18.000Z"
+        },
+        {
+          "id": "lc-1792122940",
+          "platform": "leetcode",
+          "title": "Word Frequency",
+          "category": "Algorithms",
+          "language": "BASH",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/word-frequency/",
+          "solvedAt": "2026-10-16T03:55:40.000Z"
+        },
+        {
+          "id": "lc-1792122869",
+          "platform": "leetcode",
+          "title": "Valid Phone Numbers",
+          "category": "Algorithms",
+          "language": "BASH",
+          "difficulty": "-",
+          "url": "https://leetcode.com/problems/valid-phone-numbers/",
+          "solvedAt": "2026-10-16T03:54:29.000Z"
+        },
         {
           "id": "lc-1792111664",
           "platform": "leetcode",
@@ -5787,46 +5827,6 @@
           "difficulty": "-",
           "url": "https://leetcode.com/problems/rank-scores/",
           "solvedAt": "2026-10-14T21:51:51.000Z"
-        },
-        {
-          "id": "lc-1792014543",
-          "platform": "leetcode",
-          "title": "Nth Highest Salary",
-          "category": "Database",
-          "language": "PostgreSQL",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/nth-highest-salary/",
-          "solvedAt": "2026-10-14T21:49:03.000Z"
-        },
-        {
-          "id": "lc-1792014348",
-          "platform": "leetcode",
-          "title": "Second Highest Salary",
-          "category": "Database",
-          "language": "PostgreSQL",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/second-highest-salary/",
-          "solvedAt": "2026-10-14T21:45:48.000Z"
-        },
-        {
-          "id": "lc-1792013913",
-          "platform": "leetcode",
-          "title": "Combine Two Tables",
-          "category": "Database",
-          "language": "PostgreSQL",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/combine-two-tables/",
-          "solvedAt": "2026-10-14T21:38:33.000Z"
-        },
-        {
-          "id": "lc-1791947936",
-          "platform": "leetcode",
-          "title": "Perfect Squares",
-          "category": "Algorithms",
-          "language": "C++20",
-          "difficulty": "-",
-          "url": "https://leetcode.com/problems/perfect-squares/",
-          "solvedAt": "2026-10-14T03:18:56.000Z"
         }
       ]
     },
@@ -5884,55 +5884,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141454
+          "rank": 141467
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1941236
+          "rank": 1941398
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120429
+          "rank": 120434
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 531434
+          "rank": 531493
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191577
+          "rank": 191586
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1641877
+          "rank": 1641939
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 724532
+          "rank": 724599
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85920
+          "rank": 85924
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 463429
+          "rank": 463442
         }
       ],
       "dailyCalendar": {
@@ -6263,6 +6263,46 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "lc-1792123667",
+      "platform": "leetcode",
+      "title": "Sum of Digits of String After Convert",
+      "category": "Algorithms",
+      "language": "C++20",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/sum-of-digits-of-string-after-convert/",
+      "solvedAt": "2026-10-16T04:07:47.000Z"
+    },
+    {
+      "id": "lc-1792123158",
+      "platform": "leetcode",
+      "title": "Happy Number",
+      "category": "Algorithms",
+      "language": "C++20",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/happy-number/",
+      "solvedAt": "2026-10-16T03:59:18.000Z"
+    },
+    {
+      "id": "lc-1792122940",
+      "platform": "leetcode",
+      "title": "Word Frequency",
+      "category": "Algorithms",
+      "language": "BASH",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/word-frequency/",
+      "solvedAt": "2026-10-16T03:55:40.000Z"
+    },
+    {
+      "id": "lc-1792122869",
+      "platform": "leetcode",
+      "title": "Valid Phone Numbers",
+      "category": "Algorithms",
+      "language": "BASH",
+      "difficulty": "-",
+      "url": "https://leetcode.com/problems/valid-phone-numbers/",
+      "solvedAt": "2026-10-16T03:54:29.000Z"
+    },
+    {
       "id": "lc-1792111664",
       "platform": "leetcode",
       "title": "Reverse Bits",
@@ -6421,46 +6461,6 @@
       "difficulty": "-",
       "url": "https://leetcode.com/problems/rank-scores/",
       "solvedAt": "2026-10-14T21:51:51.000Z"
-    },
-    {
-      "id": "lc-1792014543",
-      "platform": "leetcode",
-      "title": "Nth Highest Salary",
-      "category": "Database",
-      "language": "PostgreSQL",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/nth-highest-salary/",
-      "solvedAt": "2026-10-14T21:49:03.000Z"
-    },
-    {
-      "id": "lc-1792014348",
-      "platform": "leetcode",
-      "title": "Second Highest Salary",
-      "category": "Database",
-      "language": "PostgreSQL",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/second-highest-salary/",
-      "solvedAt": "2026-10-14T21:45:48.000Z"
-    },
-    {
-      "id": "lc-1792013913",
-      "platform": "leetcode",
-      "title": "Combine Two Tables",
-      "category": "Database",
-      "language": "PostgreSQL",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/combine-two-tables/",
-      "solvedAt": "2026-10-14T21:38:33.000Z"
-    },
-    {
-      "id": "lc-1791947936",
-      "platform": "leetcode",
-      "title": "Perfect Squares",
-      "category": "Algorithms",
-      "language": "C++20",
-      "difficulty": "-",
-      "url": "https://leetcode.com/problems/perfect-squares/",
-      "solvedAt": "2026-10-14T03:18:56.000Z"
     },
     {
       "id": "cf-393994284",

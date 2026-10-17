@@ -3,7 +3,7 @@
 .cp-table-wrapper {
   background: var(--bg-soft);
   border: none;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-2xl);
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;
@@ -20,12 +20,12 @@
 
 .cp-table-wrapper::-webkit-scrollbar-track {
   background: var(--bg-elevated);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .cp-table-wrapper::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .cp-table-wrapper::-webkit-scrollbar-thumb:hover {
@@ -150,7 +150,7 @@
   justify-content: center;
   gap: 0.4rem;
   padding: 0.2rem 0.55rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   font-size: var(--text-xs);
@@ -202,7 +202,7 @@
   justify-content: center;
   max-width: 100%;
   padding: 0.2rem 0.55rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--muted);
@@ -288,7 +288,7 @@
   align-items: center;
   justify-content: center;
   padding: 0.15rem 0.45rem;
-  border-radius: 0.35rem;
+  border-radius: var(--radius-sm);
   /* background: rgba(168, 85, 247, 0.12); */
   /* color: #c084fc; */
   /* border: 1px solid rgba(168, 85, 247, 0.25); */
@@ -359,7 +359,7 @@
   justify-content: center;
   width: 1.85rem;
   height: 1.85rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   /* background: var(--bg-soft); */
   /* border: 1px solid var(--border); */
   color: var(--muted);
@@ -400,7 +400,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
   background: var(--bg-soft);
   /* border: none; */
   flex-shrink: 0;
@@ -430,7 +430,7 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.45rem 0.85rem;
-  border-radius: 0.6rem;
+  border-radius: var(--radius-md);
   background: var(--bg-soft);
   border: none;
   color: var(--text);
@@ -450,7 +450,7 @@
   align-items: center;
   gap: 0.35rem;
   padding: 0.45rem 0.85rem;
-  border-radius: 0.6rem;
+  border-radius: var(--radius-md);
   background: var(--bg-elevated);
   border: none;
   color: var(--text);
@@ -478,7 +478,7 @@
 
 .spotlight-metric {
   padding: 1.25rem;
-  border-radius: 1rem;
+  border-radius: var(--radius-xl);
   background: var(--bg-soft);
   border: none;
   display: flex;
@@ -526,7 +526,7 @@
     rgba(56, 189, 248, 0.05) 100%
   );
   border: none;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-2xl);
   margin-top: 1rem;
 }
 
@@ -541,7 +541,7 @@
 .cta-pulse-badge {
   display: inline-flex;
   padding: 0.2rem 0.5rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: rgba(16, 185, 129, 0.15);
   border: 1px solid rgba(16, 185, 129, 0.3);
   color: #34d399;
@@ -569,7 +569,7 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.65rem 1.25rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
   background: var(--text);
   color: var(--bg);
   font-size: 0.875rem;

@@ -277,7 +277,7 @@ const gitlabHeatmapMonths = computed(() => buildMonths(gitlabHeatmapWeeks.value)
   align-items: center;
   gap: 0.5rem;
   padding: 0.65rem 1.1rem;
-  border-radius: 0.75rem 0.75rem 0 0;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
   background: transparent;
   border: 1px solid transparent;
   border-bottom: none;
@@ -311,7 +311,7 @@ const gitlabHeatmapMonths = computed(() => buildMonths(gitlabHeatmapWeeks.value)
 
 .tab-badge {
   padding: 0.15rem 0.45rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: var(--bg-elevated);
   font-size: var(--text-sm);
   font-weight: 700;
@@ -370,7 +370,7 @@ const gitlabHeatmapMonths = computed(() => buildMonths(gitlabHeatmapWeeks.value)
 
   .tab-btn {
     border: 1px solid var(--border) !important;
-    border-radius: 0.5rem !important;
+    border-radius: var(--radius-md) !important;
     padding: 0.45rem 0.75rem !important;
     font-size: 0.78rem !important;
     width: auto !important;

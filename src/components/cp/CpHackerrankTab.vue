@@ -28,7 +28,7 @@
         <div
           v-for="track in (cpData?.platforms?.hackerrank?.trackScores || [])"
           :key="track.slug"
-          class="p-4 rounded-xl hr-track-card"
+          class="p-4 hr-track-card"
         >
           <span class="text-sm font-medium hr-track-name">{{ track.name }}</span>
           <div class="text-2xl font-bold hr-track-score mt-1">{{ track.score }} pts</div>
@@ -44,7 +44,7 @@
         <div
           v-for="b in (cpData?.platforms?.hackerrank?.badges || [])"
           :key="b.name"
-          class="p-3.5 rounded-xl hr-badge-card text-center"
+          class="p-3.5 hr-badge-card text-center"
         >
           <div class="hr-badge-stars font-bold text-lg">★ {{ b.stars }} Stars</div>
           <div class="text-sm font-semibold hr-badge-name mt-1">{{ b.name }}</div>
@@ -158,6 +158,7 @@ const paginatedList = computed(() => {
 .hr-track-card {
   background: var(--bg-soft);
   border: none;
+  border-radius: var(--radius-xl);
 }
 :root.light .hr-track-card {
   background: var(--bg-soft) !important;
@@ -189,6 +190,7 @@ const paginatedList = computed(() => {
 .hr-badge-card {
   background: var(--bg-soft);
   border: none;
+  border-radius: var(--radius-xl);
 }
 :root.light .hr-badge-card {
   background: var(--bg-soft) !important;
@@ -220,7 +222,7 @@ const paginatedList = computed(() => {
 .tab-bottom-cta {
   padding: 1rem;
   background: var(--bg-elevated);
-  border-top: 1px solid var(--border);
+  border-top: none;
   display: flex;
   justify-content: center;
 }

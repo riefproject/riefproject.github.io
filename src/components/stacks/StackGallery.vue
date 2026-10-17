@@ -120,7 +120,7 @@ const resolvedCategories = computed(() => {
 
 .stack-search-input {
   width: 100%;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
   padding: 0.55rem 0.75rem;
   background: var(--bg-elevated);
@@ -169,7 +169,7 @@ const resolvedCategories = computed(() => {
 .stack-logo {
   width: 64px;
   height: 64px;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   display: grid;
   place-items: center;
   background: var(--chip-bg);

@@ -173,7 +173,7 @@ const resolveText = (text: { en: string; id: string }) => {
 		gap: 1rem;
 		padding: 1.5rem;
 		border: 1px solid var(--border);
-		border-radius: 12px;
+		border-radius: var(--radius-xl);
 		background: var(--bg-soft);
 		transition: border-color 0.2s ease;
 	}
@@ -186,7 +186,7 @@ const resolveText = (text: { en: string; id: string }) => {
 		position: relative;
 		width: 100%;
 		padding-top: 56.25%; /* 16:9 Aspect Ratio */
-		border-radius: 8px;
+		border-radius: var(--radius-md);
 		overflow: hidden;
 		border: 1px solid var(--border);
 	}
@@ -204,7 +204,7 @@ const resolveText = (text: { en: string; id: string }) => {
 		position: relative;
 		width: 100%;
 		padding-top: 56.25%; /* 16:9 Aspect Ratio */
-		border-radius: 8px;
+		border-radius: var(--radius-md);
 		overflow: hidden;
 	}
 
@@ -264,7 +264,7 @@ const resolveText = (text: { en: string; id: string }) => {
 		color: var(--muted);
 		background: var(--bg);
 		border-left: 3px solid var(--accent);
-		border-radius: 4px;
+		border-radius: var(--radius-sm);
 	}
 
 	.project-highlights {
@@ -292,7 +292,7 @@ const resolveText = (text: { en: string; id: string }) => {
 		align-items: center;
 		gap: 0.4rem;
 		padding: 0.5rem 1rem;
-		border-radius: 9999px;
+		border-radius: var(--radius-full);
 		border: 1px solid var(--border);
 		background: transparent;
 		color: var(--accent);
@@ -321,7 +321,7 @@ const resolveText = (text: { en: string; id: string }) => {
 		font-weight: 500;
 		background: var(--bg);
 		border: 1px solid var(--border);
-		border-radius: 9999px;
+		border-radius: var(--radius-full);
 		color: var(--muted);
 	}
 
@@ -341,7 +341,7 @@ const resolveText = (text: { en: string; id: string }) => {
 		color: var(--accent);
 		background: transparent;
 		border: 1px solid var(--accent);
-		border-radius: 9999px;
+		border-radius: var(--radius-full);
 		text-decoration: none;
 		transition: background 0.2s ease, color 0.2s ease;
 	}

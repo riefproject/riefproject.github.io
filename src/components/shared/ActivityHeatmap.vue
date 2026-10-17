@@ -280,7 +280,7 @@ onMounted(() => {
   padding: 1.5rem;
   background: var(--bg-soft);
   border: none;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-2xl);
 }
 
 .section-header {
@@ -314,7 +314,7 @@ onMounted(() => {
 .activity-count-badge {
   font-size: var(--text-sm);
   padding: 0.2rem 0.6rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   color: var(--muted);
 }
 
@@ -329,7 +329,7 @@ onMounted(() => {
 .heat-box {
   width: 10px;
   height: 10px;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
 }
 
 .heat-box.lvl-0 {
@@ -379,7 +379,7 @@ onMounted(() => {
 .heatmap-cell {
   width: 11px;
   height: 11px;
-  border-radius: 2px;
+  border-radius: var(--radius-xs);
   background: var(--bg-elevated);
   transition: transform 0.1s;
 }
@@ -432,7 +432,7 @@ onMounted(() => {
   pointer-events: none;
   background: var(--bg-soft, #0f172a);
   border: 1px solid var(--border, rgba(255, 255, 255, 0.15));
-  border-radius: 0.6rem;
+  border-radius: var(--radius-md);
   padding: 0.5rem 0.75rem;
   box-shadow:
     0 10px 25px -5px rgba(0, 0, 0, 0.5),
@@ -475,7 +475,7 @@ onMounted(() => {
   align-items: center;
   gap: 0.35rem;
   padding: 0.15rem 0.45rem;
-  border-radius: 0.35rem;
+  border-radius: var(--radius-sm);
   font-size: var(--text-sm);
   font-weight: 500;
 }

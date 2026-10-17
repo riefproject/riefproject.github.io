@@ -48,26 +48,7 @@
       </div>
     </div>
 
-    <!-- Platform Quick Links Bar with Real Logos -->
-    <div class="platform-handles-bar">
-      <a
-        v-for="p in platformPills"
-        :key="p.key"
-        :href="p.url"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="platform-handle-chip"
-      >
-        <img :src="p.logo" :alt="p.name" class="chip-logo-img" />
-        <span class="chip-platform">{{ p.name }}:</span>
-        <span class="chip-handle">@{{ p.handle }}</span>
-        <svg class="w-3.5 h-3.5 opacity-60 ml-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-          <polyline points="15 3 21 3 21 9" />
-          <line x1="10" y1="14" x2="21" y2="3" />
-        </svg>
-      </a>
-    </div>
+
 
     <!-- Submission Activity Heatmap Component -->
     <CpHeatmap
@@ -253,12 +234,7 @@ const primaryLanguage = computed(() => {
   };
 });
 
-const platformPills = computed(() => [
-  { key: 'tlx', name: 'TLX', handle: cpData.value?.platforms?.tlx?.handle || 'aycaaa', logo: '/img/tlx/tlx.webp', url: 'https://tlx.toki.id/profiles/aycaaa' },
-  { key: 'codeforces', name: 'Codeforces', handle: cpData.value?.platforms?.codeforces?.handle || 'feeera', logo: '/img/codeforces/codeforces.webp', url: 'https://codeforces.com/profile/feeera' },
-  { key: 'leetcode', name: 'LeetCode', handle: cpData.value?.platforms?.leetcode?.handle || 'fsaree', logo: '/img/leetcode/leetcode.webp', url: 'https://leetcode.com/u/fsaree' },
-  { key: 'hackerrank', name: 'HackerRank', handle: cpData.value?.platforms?.hackerrank?.handle || 'areee', logo: '/img/hackerrank/HackerRank.webp', url: 'https://www.hackerrank.com/profile/areee' },
-]);
+
 
 const tabs = computed(() => [
   {
@@ -436,7 +412,7 @@ const heatmapMonths = computed(() => {
   padding: 1.25rem;
   background: var(--bg-soft);
   border: none;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-xl);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   min-width: 0;
 }
@@ -508,62 +484,7 @@ const heatmapMonths = computed(() => {
   color: #6b7280;
 }
 
-/* Platform Handles Quick Bar */
-.platform-handles-bar {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0.75rem;
-  width: 100%;
-}
 
-.platform-handle-chip {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  padding: 0.6rem 0.85rem;
-  row-gap: 0.15rem;
-  column-gap: 0.35rem;
-  text-align: center;
-  border-radius: 0.75rem;
-  background: var(--bg-soft);
-  border: none;
-  font-size: 0.8rem;
-  color: var(--text);
-  text-decoration: none;
-  transition: all 0.2s;
-  box-sizing: border-box;
-  width: 100%;
-}
-
-.platform-handle-chip:hover {
-  background: var(--bg-elevated);
-  transform: translateY(-1px);
-}
-
-.platform-handle-chip svg {
-  display: none;
-}
-
-.chip-logo-img {
-  width: 1.1rem;
-  height: 1.1rem;
-  object-fit: contain;
-  border-radius: 2px;
-}
-
-.chip-platform {
-  font-weight: 600;
-  color: var(--muted);
-}
-
-.chip-handle {
-  flex-basis: 100%;
-  text-align: center;
-  font-weight: 700;
-  color: var(--text);
-  font-size: 0.75rem;
-}
 
 /* Tab Navigation */
 .tabs-section {
@@ -587,7 +508,7 @@ const heatmapMonths = computed(() => {
   align-items: center;
   gap: 0.5rem;
   padding: 0.6rem 1rem;
-  border-radius: 0.6rem;
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
   background: transparent;
   color: var(--muted);
@@ -631,7 +552,7 @@ const heatmapMonths = computed(() => {
 .tab-badge {
   font-size: var(--text-xs);
   padding: 0.15rem 0.45rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: var(--bg-elevated);
   border: none;
 }
@@ -688,7 +609,7 @@ const heatmapMonths = computed(() => {
   
   .tab-btn {
     border: 1px solid var(--border) !important;
-    border-radius: 0.5rem !important;
+    border-radius: var(--radius-md) !important;
     padding: 0.5rem 0.85rem !important;
     font-size: 0.8rem !important;
     width: auto !important;

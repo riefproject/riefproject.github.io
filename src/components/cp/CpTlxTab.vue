@@ -157,7 +157,7 @@ const paginatedList = computed(() => {
 .tab-bottom-cta {
   padding: 1rem;
   background: var(--bg-elevated);
-  border-top: 1px solid var(--border);
+  border-top: none;
   display: flex;
   justify-content: center;
 }

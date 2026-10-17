@@ -125,7 +125,7 @@ const toggleProject = (id: string) => {
       <article
         v-for="project in filteredProjects"
         :key="project.title.en"
-        class="project-card flex h-full flex-col gap-4 rounded-2xl border border-border p-5 shadow-lg shadow-slate-900/5">
+        class="project-card flex h-full flex-col gap-4 rounded-xl border border-border p-5 shadow-lg shadow-slate-900/5">
         <div class="project-thumbnail">
           <div v-if="project.img" class="project-thumbnail-img">
             <img
@@ -190,7 +190,7 @@ const toggleProject = (id: string) => {
     </div>
     <div
       v-else
-      class="project-empty rounded-2xl border border-dashed border-border p-6 text-center text-sm text-muted">
+      class="project-empty rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted">
       {{ copy.empty }}
     </div>
 
@@ -235,7 +235,7 @@ const toggleProject = (id: string) => {
   width: 100%;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
   overflow: hidden;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
 }
 
 .project-thumbnail-img,
@@ -246,7 +246,7 @@ const toggleProject = (id: string) => {
   width: 100%;
   height: 100%;
   border: 1px solid rgb(var(--accent-rgb) / 0.4);
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(var(--accent-rgb) / 0.15);
 }
@@ -295,7 +295,7 @@ const toggleProject = (id: string) => {
 
 .project-search-input {
   width: 100%;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
   border: 1px solid var(--border);
   padding: 0.55rem 0.75rem;
   background: var(--bg-elevated);

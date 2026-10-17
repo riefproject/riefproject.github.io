@@ -46,7 +46,7 @@
         <div
           v-for="(cnt, tag) in (cpData?.platforms?.codeforces?.tagsCount || {})"
           :key="tag"
-          class="px-3 py-1.5 rounded-lg cf-tag-card text-sm flex items-center gap-2"
+          class="px-3 py-1.5 cf-tag-card text-sm flex items-center gap-2"
         >
           <span class="cf-tag-name">{{ tag }}</span>
           <span class="cf-tag-count">{{ cnt }}</span>
@@ -167,6 +167,7 @@ const paginatedList = computed(() => {
 .cf-tag-card {
   background: var(--bg-soft);
   border: none;
+  border-radius: var(--radius-md);
 }
 :root.light .cf-tag-card {
   background: var(--bg-soft) !important;
@@ -185,7 +186,7 @@ const paginatedList = computed(() => {
   background: rgba(56, 189, 248, 0.15);
   color: #38bdf8;
   padding: 0.15rem 0.45rem;
-  border-radius: 0.35rem;
+  border-radius: var(--radius-sm);
   font-size: 0.725rem;
   font-weight: 700;
 }

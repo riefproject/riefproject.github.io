@@ -562,7 +562,7 @@ const paginatedFeed = computed(() => {
   padding: 1.5rem;
   background: var(--bg-soft);
   border: none;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-xl);
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -601,7 +601,7 @@ const paginatedFeed = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border-radius: 0.6rem; */
+  border-radius: var(--radius-md);
   /* background: var(--bg-elevated); */
   border: none;
 }
@@ -636,7 +636,7 @@ const paginatedFeed = computed(() => {
   align-items: baseline;
   gap: 0.3rem;
   padding: 0.3rem 0.65rem;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   border: none;
   /* background: var(--surface-muted); */
   white-space: nowrap;
@@ -765,7 +765,7 @@ const paginatedFeed = computed(() => {
   width: 100%;
   height: 2.5rem;
   padding: 0 1rem 0 2.2rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);

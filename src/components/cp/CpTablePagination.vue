@@ -152,7 +152,7 @@ const setPage = (page: number) => {
 .pg-btn {
   white-space: nowrap;
   padding: 0.3rem 0.6rem;
-  border-radius: 0.45rem;
+  border-radius: var(--radius-sm);
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);
@@ -185,7 +185,7 @@ const setPage = (page: number) => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.45rem;
+  border-radius: var(--radius-sm);
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);
@@ -265,7 +265,7 @@ const setPage = (page: number) => {
   .pg-btn {
     padding: 0.35rem 0.65rem !important;
     font-size: 0.725rem !important;
-    border-radius: 0.35rem !important;
+    border-radius: var(--radius-sm) !important;
   }
 }
 </style>

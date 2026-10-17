@@ -277,7 +277,7 @@ const paginatedProblems = computed(() => {
   padding: 1.25rem;
   background: var(--bg-soft);
   border: none;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-2xl);
 }
 
 .explorer-controls-header {
@@ -310,7 +310,7 @@ const paginatedProblems = computed(() => {
   padding: 0 2rem 0 2.4rem;
   background: var(--bg-elevated);
   border: 1px solid var(--border);
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
   color: var(--text);
   font-size: var(--text-base);
   outline: none;
@@ -342,7 +342,7 @@ const paginatedProblems = computed(() => {
 .page-size-dropdown {
   height: 2.5rem;
   padding: 0 0.6rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--text);
@@ -380,7 +380,7 @@ const paginatedProblems = computed(() => {
   flex-direction: column;
   background: var(--bg-soft);
   border: none;
-  border-radius: 1.25rem;
+  border-radius: var(--radius-2xl);
   overflow: hidden;
 }
 
@@ -417,12 +417,12 @@ const paginatedProblems = computed(() => {
 
 .table-scroll-container::-webkit-scrollbar-track {
   background: var(--bg-elevated);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .table-scroll-container::-webkit-scrollbar-thumb {
   background: var(--border);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
 }
 
 .table-scroll-container::-webkit-scrollbar-thumb:hover {
@@ -494,7 +494,7 @@ const paginatedProblems = computed(() => {
   justify-content: center;
   gap: 0.35rem;
   padding: 0.2rem 0.55rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   font-size: var(--text-xs);
@@ -546,7 +546,7 @@ const paginatedProblems = computed(() => {
   justify-content: center;
   max-width: 100%;
   padding: 0.2rem 0.55rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--muted);
@@ -568,7 +568,7 @@ const paginatedProblems = computed(() => {
   align-items: center;
   justify-content: center;
   padding: 0.15rem 0.5rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   font-size: var(--text-xs);
   font-weight: 700;
   white-space: nowrap;
@@ -633,7 +633,7 @@ const paginatedProblems = computed(() => {
   align-items: center;
   justify-content: center;
   padding: 0.15rem 0.45rem;
-  border-radius: 0.35rem;
+  border-radius: var(--radius-sm);
   background: rgba(168, 85, 247, 0.12);
   color: #c084fc;
   border: 1px solid rgba(168, 85, 247, 0.25);
@@ -655,7 +655,7 @@ const paginatedProblems = computed(() => {
   align-items: center;
   justify-content: center;
   padding: 0.15rem 0.5rem;
-  border-radius: 999px;
+  border-radius: var(--radius-full);
   font-size: var(--text-xs);
   font-weight: 700;
   letter-spacing: 0.02em;
@@ -705,7 +705,7 @@ const paginatedProblems = computed(() => {
   justify-content: center;
   width: 1.85rem;
   height: 1.85rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   background: var(--bg-soft);
   border: none;
   color: var(--muted);

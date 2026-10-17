@@ -48,6 +48,12 @@ export default defineConfig({
     inlineStylesheets: 'always'
   },
   vite: {
+    optimizeDeps: {
+      exclude: ['@keystatic/astro', '@keystatic/core'],
+      esbuildOptions: {
+        external: ['virtual:keystatic-config']
+      }
+    },
     server: {
       watch: {
         ignored: ['**/src/data/cv/**']

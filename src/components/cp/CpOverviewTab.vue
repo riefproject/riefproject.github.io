@@ -264,7 +264,7 @@
       <div class="view-all-archive-cta">
         <div class="cta-info">
           <div class="flex items-center gap-2">
-            <h4 class="cta-title">{{ isId ? 'Jelajahi Seluruh 441+ Koleksi Soal' : 'Explore Complete 441+ Solved Archive' }}</h4>
+            <h4 class="cta-title">{{ isId ? `Jelajahi Seluruh ${totalAllSolved}+ Koleksi Soal` : `Explore Complete ${totalAllSolved}+ Solved Archive` }}</h4>
           </div>
           <p class="cta-desc">
             {{ isId

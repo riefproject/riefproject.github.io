@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-17T02:52:25.460Z",
+    "updatedAt": "2026-10-17T03:55:19.929Z",
     "source": "scheduled-crawl"
   },
   "overview": {
@@ -1115,7 +1115,7 @@
   "platforms": {
     "github": {
       "meta": {
-        "updatedAt": "2026-10-17T02:52:22.575Z",
+        "updatedAt": "2026-10-17T03:55:18.244Z",
         "username": "riefproject",
         "source": "github-public-api"
       },
@@ -5534,53 +5534,53 @@
       "languages": [
         {
           "name": "C",
-          "bytes": 3520754,
-          "percentage": 38.3
+          "bytes": 3630085,
+          "percentage": 38
+        },
+        {
+          "name": "PHP",
+          "bytes": 1164717,
+          "percentage": 12.2
         },
         {
           "name": "Dart",
           "bytes": 1087627,
-          "percentage": 11.8
-        },
-        {
-          "name": "PHP",
-          "bytes": 1060227,
-          "percentage": 11.5
+          "percentage": 11.4
         },
         {
           "name": "Vue",
           "bytes": 1055545,
-          "percentage": 11.5
+          "percentage": 11
         },
         {
           "name": "C++",
           "bytes": 509490,
-          "percentage": 5.5
+          "percentage": 5.3
         },
         {
           "name": "JavaScript",
-          "bytes": 340882,
-          "percentage": 3.7
+          "bytes": 391738,
+          "percentage": 4.1
         },
         {
           "name": "Java",
-          "bytes": 276432,
-          "percentage": 3
+          "bytes": 293744,
+          "percentage": 3.1
+        },
+        {
+          "name": "Blade",
+          "bytes": 263159,
+          "percentage": 2.8
         },
         {
           "name": "C#",
           "bytes": 228720,
-          "percentage": 2.5
+          "percentage": 2.4
         },
         {
           "name": "Go",
           "bytes": 194034,
-          "percentage": 2.1
-        },
-        {
-          "name": "Blade",
-          "bytes": 169336,
-          "percentage": 1.8
+          "percentage": 2
         }
       ],
       "topRepos": [
@@ -5642,7 +5642,7 @@
           "language": "Vue",
           "stars": 1,
           "forks": 0,
-          "updatedAt": "2026-10-16T20:28:11Z",
+          "updatedAt": "2026-10-17T02:52:40Z",
           "archived": false,
           "topics": [
             "cv",

@@ -765,7 +765,41 @@ async function cpCodeforces(handle) {
   };
 }
 
-async function cpLeetCode(username) {
+// LeetCode question difficulty & topic metadata fetcher via GraphQL
+async function fetchLeetCodeQuestionMetadata(slug) {
+  try {
+    const res = await fetch('https://leetcode.com/graphql', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)',
+      },
+      body: JSON.stringify({
+        query: `query questionData($titleSlug: String!) {
+          question(titleSlug: $titleSlug) {
+            difficulty
+            topicTags {
+              name
+            }
+          }
+        }`,
+        variables: { titleSlug: slug },
+      }),
+    });
+    if (!res.ok) return null;
+    const json = await res.json();
+    const q = json?.data?.question;
+    if (!q) return null;
+    return {
+      difficulty: q.difficulty || null,
+      category: q.topicTags?.[0]?.name || null,
+    };
+  } catch {
+    return null;
+  }
+}
+
+async function cpLeetCode(username, prevLc = {}) {
   try {
     const [profileRes, solvedRes, acRes] = await Promise.allSettled([
       fetch(`https://alfa-leetcode-api.onrender.com/${username}`),
@@ -797,6 +831,29 @@ async function cpLeetCode(username) {
     if (acRes.status === 'fulfilled' && acRes.value.ok) {
       const acJson = await acRes.value.json();
       const submissionList = acJson.submission || [];
+
+      // Extract existing difficulty cache from previous snapshot
+      const metaCache = new Map();
+      if (prevLc && Array.isArray(prevLc.recentSolved)) {
+        prevLc.recentSolved.forEach((item) => {
+          const slug = item.url ? item.url.split('/problems/')[1]?.replace('/', '') : null;
+          if (slug && item.difficulty && item.difficulty !== '-') {
+            metaCache.set(slug, { difficulty: item.difficulty, category: item.category });
+          }
+        });
+      }
+
+      // Fetch metadata for any uncached slugs in parallel
+      const uncachedSlugs = [...new Set(submissionList.map((s) => s.titleSlug).filter((slug) => slug && !metaCache.has(slug)))];
+      if (uncachedSlugs.length > 0) {
+        await Promise.allSettled(
+          uncachedSlugs.map(async (slug) => {
+            const meta = await fetchLeetCodeQuestionMetadata(slug);
+            if (meta) metaCache.set(slug, meta);
+          })
+        );
+      }
+
       recentSolved = submissionList.map((item) => {
         const langMap = {
           cpp: 'C++20',
@@ -829,9 +886,11 @@ async function cpLeetCode(username) {
         dailyCalendar[day].tries += 1;
         dailyCalendar[day].ac += 1;
 
+        const meta = metaCache.get(item.titleSlug) || {};
         const isDbLang = ['postgresql', 'mysql', 'mssql', 'oraclesql'].includes(rawLang.toLowerCase());
         const isDbTitle = /table|database|query|join|select|department|employee|salary/i.test(item.title);
-        const category = isDbLang || isDbTitle ? 'Database' : 'Algorithms';
+        const category = meta.category || (isDbLang || isDbTitle ? 'Database' : 'Algorithms');
+        const difficulty = meta.difficulty || '-';
 
         return {
           id: `lc-${item.timestamp || item.titleSlug}`,
@@ -839,7 +898,7 @@ async function cpLeetCode(username) {
           title: item.title,
           category,
           language: lang,
-          difficulty: '-',
+          difficulty,
           url: `https://leetcode.com/problems/${item.titleSlug}/`,
           solvedAt,
         };
@@ -1001,7 +1060,7 @@ async function crawlCp() {
   const [tlxRes, cfRes, lcRes, hrRes] = await Promise.allSettled([
     cpTlx(CP_HANDLES.tlx),
     cpCodeforces(CP_HANDLES.codeforces),
-    cpLeetCode(CP_HANDLES.leetcode),
+    cpLeetCode(CP_HANDLES.leetcode, prevPlatforms.leetcode),
     cpHackerRank(CP_HANDLES.hackerrank),
   ]);
 

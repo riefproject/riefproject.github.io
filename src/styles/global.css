@@ -1,8 +1,4 @@
 
-
-@import './cp-shared.css';
-@import './dev-shared.css';
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

@@ -343,10 +343,10 @@ const props = withDefaults(
     locale?: "en" | "id";
   }>(),
   {
-    totalTlxSolved: 371,
-    totalCfSolved: 50,
-    totalLcSolved: 59,
-    totalHrSolved: 138,
+    totalTlxSolved: 437,
+    totalCfSolved: 68,
+    totalLcSolved: 102,
+    totalHrSolved: 147,
     isId: false,
     locale: "en",
   },

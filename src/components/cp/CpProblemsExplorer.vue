@@ -122,19 +122,19 @@ const locale = computed(() => (isId.value ? "id" : "en"));
 
 // Platform Total Solved counts
 const totalAllSolved = computed(
-  () => cpData.value?.overview?.totalSolved || 640,
+  () => cpData.value?.overview?.totalSolved || 754,
 );
 const totalTlxSolved = computed(
-  () => cpData.value?.platforms?.tlx?.totalSolved || 371,
+  () => cpData.value?.platforms?.tlx?.totalSolved || 437,
 );
 const totalCfSolved = computed(
-  () => cpData.value?.platforms?.codeforces?.totalSolved || 50,
+  () => cpData.value?.platforms?.codeforces?.totalSolved || 68,
 );
 const totalLcSolved = computed(
-  () => cpData.value?.platforms?.leetcode?.totalSolved || 59,
+  () => cpData.value?.platforms?.leetcode?.totalSolved || 102,
 );
 const totalHrSolved = computed(
-  () => cpData.value?.platforms?.hackerrank?.totalSolved || 138,
+  () => cpData.value?.platforms?.hackerrank?.totalSolved || 147,
 );
 
 const platformCategories = computed(() => {

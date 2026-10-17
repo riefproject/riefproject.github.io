@@ -159,12 +159,12 @@ const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date()
 const activeTab = ref<'overview' | 'tlx' | 'codeforces' | 'leetcode' | 'hackerrank'>('overview');
 
 // Solved Counts
-const totalSolved = computed(() => cpData.value?.overview?.totalSolved || 640);
+const totalSolved = computed(() => cpData.value?.overview?.totalSolved || 754);
 const totalSubmissions = computed(() => cpData.value?.overview?.totalSubmissions || 1528);
-const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || 371);
-const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || 50);
-const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || 59);
-const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || 138);
+const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || 437);
+const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || 68);
+const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || 102);
+const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || 147);
 
 const primaryLanguage = computed(() => {
   const overviewTop = cpData.value?.overview?.topLanguage;

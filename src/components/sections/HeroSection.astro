@@ -107,7 +107,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
       {enrichedStats.map((stat) => (
         stat.isCp ? (
           <a href="/competitive-programming" class="stat-item stat-item--link group" title="View Competitive Programming Journey">
-            <strong class="font-mono text-text group-hover:text-accent transition-colors">{stat.value}</strong>
+            <strong class="text-text group-hover:text-accent transition-colors">{stat.value}</strong>
             <p class="text-sm text-muted mt-1 flex items-center gap-1 group-hover:text-text transition-colors">
               <LocaleText as="span" text={stat.label} />
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
@@ -115,7 +115,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
           </a>
         ) : (
           <div class="stat-item">
-            <strong class="font-mono text-text">{stat.value}</strong>
+            <strong class="text-text">{stat.value}</strong>
             <p class="text-sm text-muted mt-1">
               <LocaleText as="span" text={stat.label} />
             </p>
@@ -141,7 +141,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
     <div class="dev-card__main">
       <p class="eyebrow mb-3"><LocaleText as="span" text={devCopy.eyebrow} /></p>
       <div class="dev-card__value">
-        <strong class="font-mono">{devTotalContributions}<span class="dev-card__plus">+</span></strong>
+        <strong>{devTotalContributions}<span class="dev-card__plus">+</span></strong>
         <span class="dev-card__value-label"><LocaleText as="span" text={devCopy.contributionsLabel} /></span>
       </div>
       <p class="dev-card__sub"><LocaleText as="span" text={devCopy.sub} /></p>
@@ -202,16 +202,17 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 	/* ── Cards ── */
 	.bento-card {
 		background: var(--bg-soft);
-		border: 1px solid var(--border);
+		border: none;
 		border-radius: var(--radius-xl);
 		padding: 2rem;
 		display: flex;
 		flex-direction: column;
-		transition: border-color 0.2s ease;
+		transition: background 0.2s ease, transform 0.2s ease;
 	}
 
 	.bento-card:hover {
-		border-color: var(--muted);
+		background: var(--bg-elevated);
+		transform: translateY(-2px);
 	}
 
 	/* Grid placement — left column */
@@ -257,7 +258,6 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 		padding: 0.4rem 1rem;
 		border-radius: var(--radius-full);
 		background: rgba(34, 197, 94, 0.08);
-		border: 1px solid rgba(34, 197, 94, 0.2);
 	}
 
 	.ping {
@@ -358,10 +358,10 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 	}
 
 	.hero__tool {
-		padding: 0.3rem 0.7rem;
+		padding: 0.35rem 0.75rem;
 		border-radius: var(--radius-sm);
 		background: var(--bg);
-		border: 1px solid var(--border);
+		border: none;
 		color: var(--text);
 		font-size: 0.85rem;
 	}
@@ -369,7 +369,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 	.hero__tool.ghost {
 		background: transparent;
 		color: var(--muted);
-		border-style: dashed;
+		border: none;
 	}
 
 	/* ── Development Activity card ── */
@@ -452,7 +452,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 		padding: 0.65rem 1.25rem;
 		border-radius: var(--radius-md);
 		background: var(--bg);
-		border: 1px solid var(--border);
+		border: none;
 		color: var(--text);
 		font-weight: 700;
 		font-size: 0.9rem;
@@ -463,8 +463,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 	}
 
 	.dev-card__cta:hover {
-		background: var(--chip-bg);
-		border-color: var(--text);
+		background: var(--bg-elevated);
 		transform: translateY(-2px);
 	}
 

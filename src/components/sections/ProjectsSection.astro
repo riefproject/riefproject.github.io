@@ -79,7 +79,7 @@ const resolveText = (text: { en: string; id: string }) => {
 								))}
 							</ul>
 							
-							<div class="project-home__fade absolute bottom-0 left-0 w-full h-12 bg-gradient-to-t from-[var(--bg-soft)] to-transparent transition-opacity duration-300 pointer-events-none"></div>
+							<div class="project-home__fade absolute bottom-0 left-0 w-full h-12 pointer-events-none"></div>
 						</div>
 						
 						<label for={`toggle-proj-home-${project.title.en.replace(/\\s+/g, '-')}`} class="project-home__label cursor-pointer text-sm font-semibold text-accent hover:underline mt-1 inline-block select-none">
@@ -140,6 +140,15 @@ const resolveText = (text: { en: string; id: string }) => {
 	.project-home__toggle:checked ~ .project-home__collapse {
 		max-height: 3000px;
 	}
+	.project-home__fade {
+		background: linear-gradient(to top, var(--bg-soft), transparent);
+		transition: opacity 0.3s, background 0.2s ease;
+	}
+
+	.project-card:hover .project-home__fade {
+		background: linear-gradient(to top, var(--bg-elevated), transparent);
+	}
+
 	.project-home__toggle:checked ~ .project-home__collapse .project-home__fade {
 		opacity: 0;
 	}
@@ -172,14 +181,15 @@ const resolveText = (text: { en: string; id: string }) => {
 		flex-direction: column;
 		gap: 1rem;
 		padding: 1.5rem;
-		border: 1px solid var(--border);
+		border: none;
 		border-radius: var(--radius-xl);
 		background: var(--bg-soft);
-		transition: border-color 0.2s ease;
+		transition: background 0.2s ease, transform 0.2s ease;
 	}
 
 	.project-card:hover {
-		border-color: var(--accent);
+		background: var(--bg-elevated);
+		transform: translateY(-2px);
 	}
 
 	.project-image {
@@ -188,7 +198,7 @@ const resolveText = (text: { en: string; id: string }) => {
 		padding-top: 56.25%; /* 16:9 Aspect Ratio */
 		border-radius: var(--radius-md);
 		overflow: hidden;
-		border: 1px solid var(--border);
+		border: none;
 	}
 
 	.project-image img {

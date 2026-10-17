@@ -15,7 +15,9 @@ const props = defineProps<{
   categories: Category[];
 }>();
 
-const allCategoryKeys = props.categories.filter(c => c.key !== 'all').map(c => c.key);
+const allCategoryKeys = props.categories
+  .filter((c) => c.key !== "all")
+  .map((c) => c.key);
 const searchTerm = ref("");
 const selectedCategories = ref<string[]>([...allCategoryKeys]);
 const isFilterOpen = ref(false);
@@ -32,7 +34,7 @@ const copy = computed(() =>
     : {
         search: "Search stack or tools",
         result: "items",
-      }
+      },
 );
 
 const filteredItems = computed(() => {
@@ -53,9 +55,9 @@ const resolveLogo = (item: TechStack) => {
 };
 
 const resolvedCategories = computed(() => {
-  return props.categories.map(c => ({
+  return props.categories.map((c) => ({
     key: c.key,
-    label: resolveLabel(c.label)
+    label: resolveLabel(c.label),
   }));
 });
 </script>
@@ -68,18 +70,21 @@ const resolvedCategories = computed(() => {
           v-model="searchTerm"
           type="search"
           :placeholder="copy.search"
-          :aria-label="locale === 'id' ? 'Cari tech stack' : 'Search tech stack'"
+          :aria-label="
+            locale === 'id' ? 'Cari tech stack' : 'Search tech stack'
+          "
           class="stack-search-input" />
       </div>
 
-      <FilterDropdown 
+      <FilterDropdown
         v-model="selectedCategories"
         :categories="resolvedCategories"
-        :locale="locale"
-      />
+        :locale="locale" />
     </div>
 
-    <div class="scroller" :aria-label="locale === 'id' ? 'Daftar tech stack' : 'Tech stack list'">
+    <div
+      class="scroller"
+      :aria-label="locale === 'id' ? 'Daftar tech stack' : 'Tech stack list'">
       <div class="stack-grid">
         <div
           v-for="item in filteredItems"
@@ -133,9 +138,6 @@ const resolvedCategories = computed(() => {
   border-color: var(--text);
 }
 
-
-
-
 .count {
   font-size: 0.9rem;
   color: var(--muted);
@@ -172,8 +174,8 @@ const resolvedCategories = computed(() => {
   border-radius: var(--radius-md);
   display: grid;
   place-items: center;
-  background: var(--chip-bg);
-  border: 1px solid var(--border);
+  /* background: var(--chip-bg); */
+  /* border: 1px solid var(--border); */
   overflow: hidden;
 }
 

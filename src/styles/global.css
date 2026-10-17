@@ -53,7 +53,7 @@
   color-scheme: light;
   --bg: #ffffff;
   --bg-soft: #f5f5f5;
-  --bg-elevated: #fafafa;
+  --bg-elevated: #ebebeb;
   --surface: #ffffff;
   --surface-muted: rgba(0, 0, 0, 0.03);
   --text: #171717;
@@ -61,7 +61,7 @@
   --accent: #171717;
   --accent-strong: #000000;
   --border: #e5e5e5;
-  --shadow-soft: none;
+  --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.06);
   --sidebar-bg: #ffffff;
   --chip-bg: rgba(0, 0, 0, 0.04);
   --social-bg: rgba(0, 0, 0, 0.03);
@@ -205,10 +205,10 @@ main {
   padding: 1.5rem;
   border-radius: var(--radius-xl);
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   position: relative;
   overflow: hidden;
-  transition: border-color 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .surface::after {
@@ -217,7 +217,7 @@ main {
 
 .dark .surface {
   background: var(--bg-soft);
-  border-color: var(--border);
+  border: none;
 }
 
 .dark .surface::after {
@@ -271,9 +271,9 @@ main {
 }
 
 .surface:hover {
-  border-color: var(--muted);
-  transform: none;
-  box-shadow: none;
+  background: var(--bg-elevated);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
 }
 
 .tag {

@@ -325,13 +325,13 @@ const visibleItems = computed(
 
 .achievement-card {
   padding: 1.5rem;
-  border-radius: 12px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  border: none;
   background: var(--bg-soft);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  transition: border-color 0.2s ease;
+  transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .achievement-card.clickable {
@@ -339,7 +339,8 @@ const visibleItems = computed(
 }
 
 .achievement-card.clickable:hover {
-  border-color: var(--accent);
+  background: var(--bg-elevated);
+  transform: translateY(-2px);
 }
 
 .achievement-card__header {
@@ -371,8 +372,8 @@ const visibleItems = computed(
 .highlight-tags span {
   font-size: 0.75rem;
   padding: 0.25rem 0.65rem;
-  border-radius: 999px;
-  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  border: none;
   color: var(--accent);
   background: var(--bg);
   font-weight: 600;

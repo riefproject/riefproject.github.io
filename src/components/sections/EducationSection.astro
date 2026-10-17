@@ -120,7 +120,7 @@ const getBadge = (text?: string) => (text ? text : '');
 		font-size: 0.9rem;
 		color: var(--accent);
 		background: var(--bg-soft);
-		border: 1px solid var(--border);
+		border: none;
 		text-align: center;
 		padding: 0.35rem;
 	}
@@ -133,5 +133,6 @@ const getBadge = (text?: string) => (text ? text : '');
 		max-height: 44px;
 		width: auto;
 		display: block;
+		border-radius: var(--radius-sm);
 	}
 </style>

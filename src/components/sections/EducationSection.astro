@@ -33,19 +33,23 @@ const getBadge = (text?: string) => (text ? text : '');
 		{education.map((edu) => (
 			<article class="surface education-card">
 				<header class="education-card__header">
-					{edu.logo ? (
-						<div class="edu-badge edu-badge--image">
-							<img src={edu.logo} alt={edu.institution} loading="lazy" />
+					<div class="education-card__identity">
+						{edu.logo ? (
+							<div class="edu-badge edu-badge--image">
+								<img src={edu.logo} alt={edu.institution} loading="lazy" />
+							</div>
+						) : (
+							<div class="edu-badge">{getBadge(edu.institution.slice(0, 3).toUpperCase())}</div>
+						)}
+						<div class="education-card__titles">
+							<h3>{edu.institution}</h3>
+							<p class="program">
+								<LocaleText as="span" text={edu.program} />
+							</p>
 						</div>
-					) : (
-						<div class="edu-badge">{getBadge(edu.institution.slice(0, 3).toUpperCase())}</div>
-					)}
-					<div>
-						<p class="eyebrow">{edu.period}</p>
-						<h3>{edu.institution}</h3>
-						<p class="program">
-							<LocaleText as="span" text={edu.program} />
-						</p>
+					</div>
+					<div class="education-card__period">
+						<span class="period-pill">{edu.period}</span>
 					</div>
 				</header>
 				<ul>
@@ -81,58 +85,100 @@ const getBadge = (text?: string) => (text ? text : '');
 	.education-card h3 {
 		margin: 0;
 		font-size: 1.15rem;
+		font-weight: 700;
 		font-family: inherit;
+		color: var(--text);
+		line-height: 1.25;
 	}
 
 	.education-card .program {
-		margin: 0.1rem 0 0.5rem;
+		margin: 0.2rem 0 0;
 		font-size: 0.9rem;
-		font-weight: 600;
+		font-weight: 500;
 		color: var(--muted);
+		line-height: 1.4;
 	}
 
 	.education-card ul {
-		margin: 0.5rem 0 0;
-		padding-left: 1.1rem;
+		margin: 1rem 0 0;
+		padding-left: 1.25rem;
 		color: var(--muted);
 		font-size: 0.9rem;
-		line-height: 1.6;
+		line-height: 1.65;
 	}
 
 	.education-card ul li + li {
-		margin-top: 0.3rem;
+		margin-top: 0.35rem;
 	}
 
 	.education-card__header {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		gap: 0.75rem;
+		display: flex;
+		align-items: flex-start;
+		justify-content: space-between;
+		gap: 1rem;
+		flex-wrap: wrap;
+	}
+
+	.education-card__identity {
+		display: flex;
 		align-items: center;
+		gap: 1rem;
+		min-width: 0;
+	}
+
+	.education-card__titles {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.period-pill {
+		font-size: 0.85rem;
+		font-weight: 500;
+		color: var(--muted);
+		background: transparent;
+		padding: 0;
+		border-radius: 0;
+		white-space: nowrap;
 	}
 
 	.edu-badge {
-		width: 56px;
-		height: 56px;
-		border-radius: var(--radius-md);
-		display: grid;
-		place-items: center;
+		width: 44px;
+		height: 44px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		font-weight: 700;
 		font-size: 0.9rem;
 		color: var(--accent);
-		background: var(--bg-soft);
+		background: transparent;
 		border: none;
 		text-align: center;
-		padding: 0.35rem;
+		padding: 0;
+		flex-shrink: 0;
 	}
 
 	.edu-badge--image {
-		background: var(--bg-soft);
+		background: transparent;
 	}
 
 	.edu-badge--image img {
 		max-height: 44px;
+		max-width: 44px;
 		width: auto;
+		height: auto;
+		object-fit: contain;
 		display: block;
-		border-radius: var(--radius-sm);
+	}
+
+	@media (max-width: 640px) {
+		.education-card__header {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.75rem;
+		}
+
+		.education-card__period {
+			order: -1;
+		}
 	}
 </style>

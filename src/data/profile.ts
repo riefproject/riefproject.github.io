@@ -24,8 +24,8 @@ export const profile: Profile = {
     "Tersedia untuk internship, kolaborasi, dan proyek pengembangan perangkat lunak."
   ),
   intro: t(
-    "4th semester informatics student with strong foundation in software architecture and systematic problem-solving. Experienced in designing scalable solutions and managing complexity through structured approaches.",
-    "Mahasiswa informatika semester 4 dengan fondasi kuat dalam arsitektur perangkat lunak dan pemecahan masalah sistematis. Berpengalaman merancang solusi scalable dan mengelola kompleksitas melalui pendekatan terstruktur."
+    "5th semester informatics student with strong foundation in software architecture and systematic problem-solving. Experienced in designing scalable solutions and managing complexity through structured approaches.",
+    "Mahasiswa informatika semester 5 dengan fondasi kuat dalam arsitektur perangkat lunak dan pemecahan masalah sistematis. Berpengalaman merancang solusi scalable dan mengelola kompleksitas melalui pendekatan terstruktur."
   ),
   bio: t(
     "Currently studying D3 Informatics Engineering at Politeknik Negeri Bandung with focus on software architecture, clean code practices, and systematic problem analysis. Background in competitive programming shapes analytical thinking and efficiency-oriented approach in building modular, readable, and maintainable software systems.",

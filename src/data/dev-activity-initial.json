@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-16T20:27:54.573Z",
+    "updatedAt": "2026-10-17T02:52:25.460Z",
     "source": "scheduled-crawl"
   },
   "overview": {
     "totalContributions": 733,
-    "lastYearContributions": 371,
+    "lastYearContributions": 370,
     "currentStreak": 0,
     "longestStreak": 13,
     "heatmap": {
@@ -1115,13 +1115,13 @@
   "platforms": {
     "github": {
       "meta": {
-        "updatedAt": "2026-10-16T20:27:51.015Z",
+        "updatedAt": "2026-10-17T02:52:22.575Z",
         "username": "riefproject",
         "source": "github-public-api"
       },
       "overview": {
         "totalContributions": 733,
-        "lastYearContributions": 371,
+        "lastYearContributions": 370,
         "currentStreak": 0,
         "longestStreak": 13,
         "heatmap": {
@@ -5534,53 +5534,53 @@
       "languages": [
         {
           "name": "C",
-          "bytes": 3630085,
-          "percentage": 38
-        },
-        {
-          "name": "PHP",
-          "bytes": 1164717,
-          "percentage": 12.2
+          "bytes": 3520754,
+          "percentage": 38.3
         },
         {
           "name": "Dart",
           "bytes": 1087627,
-          "percentage": 11.4
+          "percentage": 11.8
+        },
+        {
+          "name": "PHP",
+          "bytes": 1060227,
+          "percentage": 11.5
         },
         {
           "name": "Vue",
           "bytes": 1055545,
-          "percentage": 11
+          "percentage": 11.5
         },
         {
           "name": "C++",
           "bytes": 509490,
-          "percentage": 5.3
+          "percentage": 5.5
         },
         {
           "name": "JavaScript",
-          "bytes": 391738,
-          "percentage": 4.1
+          "bytes": 340882,
+          "percentage": 3.7
         },
         {
           "name": "Java",
-          "bytes": 293744,
-          "percentage": 3.1
-        },
-        {
-          "name": "Blade",
-          "bytes": 263159,
-          "percentage": 2.8
+          "bytes": 276432,
+          "percentage": 3
         },
         {
           "name": "C#",
           "bytes": 228720,
-          "percentage": 2.4
+          "percentage": 2.5
         },
         {
           "name": "Go",
           "bytes": 194034,
-          "percentage": 2
+          "percentage": 2.1
+        },
+        {
+          "name": "Blade",
+          "bytes": 169336,
+          "percentage": 1.8
         }
       ],
       "topRepos": [
@@ -5642,7 +5642,7 @@
           "language": "Vue",
           "stars": 1,
           "forks": 0,
-          "updatedAt": "2026-10-16T16:01:24Z",
+          "updatedAt": "2026-10-16T20:28:11Z",
           "archived": false,
           "topics": [
             "cv",

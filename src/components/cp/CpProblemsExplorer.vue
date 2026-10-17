@@ -341,28 +341,6 @@ const paginatedProblems = computed(() => {
   cursor: pointer;
 }
 
-.platform-tab-btn:hover {
-  color: var(--text);
-}
-
-.platform-tab-btn.active {
-  background: var(--text);
-  color: var(--bg);
-  border-color: var(--text);
-}
-
-.tab-btn-logo {
-  width: 0.95rem;
-  height: 0.95rem;
-  object-fit: contain;
-}
-
-.count-pill {
-  font-size: var(--text-sm);
-  font-weight: 700;
-  opacity: 0.85;
-}
-
 /* Table Card */
 .explorer-table-card {
   display: flex;
@@ -371,22 +349,6 @@ const paginatedProblems = computed(() => {
   border: none;
   border-radius: var(--radius-2xl);
   overflow: hidden;
-}
-
-.table-status-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.85rem 1.25rem;
-  background: var(--bg-elevated);
-  border-bottom: 1px solid var(--border);
-  font-size: var(--text-base);
-  color: var(--muted);
-}
-
-.status-count {
-  font-weight: 600;
-  color: var(--text);
 }
 
 .empty-state {

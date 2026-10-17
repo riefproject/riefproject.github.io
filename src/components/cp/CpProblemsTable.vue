@@ -116,11 +116,12 @@ import {
   getDiffClass,
   cleanLanguage,
   formatExactDate,
+  type SubmissionItem,
 } from './cpUtils';
 
 const props = withDefaults(
   defineProps<{
-    problems: any[];
+    problems: SubmissionItem[];
     currentPage?: number;
     pageSize?: number;
     showPlatform?: boolean;

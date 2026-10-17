@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-17T03:55:22.894Z",
+    "updatedAt": "2026-10-17T10:06:51.528Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 745,
-    "totalSubmissions": 1671,
+    "totalSolved": 750,
+    "totalSubmissions": 1683,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-17": {
+        "tries": 13,
+        "ac": 7
+      },
       "2026-10-10": {
         "tries": 16,
         "ac": 8
@@ -82,7 +86,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
+        "tries": 23,
         "ac": 13
       },
       "2026-09-19": {
@@ -90,7 +94,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 8,
+        "tries": 9,
         "ac": 5
       },
       "2026-09-14": {
@@ -270,7 +274,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 11,
+        "tries": 12,
         "ac": 3
       },
       "2026-02-27": {
@@ -306,15 +310,15 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 2,
-        "ac": 1
+        "tries": 3,
+        "ac": 2
       },
       "2025-12-03": {
         "tries": 1,
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 23,
+        "tries": 22,
         "ac": 6
       },
       "2025-12-01": {
@@ -330,15 +334,15 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
+        "tries": 107,
         "ac": 55
       },
       "2026-08-25": {
@@ -432,10 +436,6 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
-      },
-      "2026-10-17": {
-        "tries": 1,
-        "ac": 1
       },
       "2026-10-16": {
         "tries": 11,
@@ -564,26 +564,30 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 950
+      "count": 961
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 895,
-      "totalSolved": 437,
-      "uniqueProblemsSolved": 383,
-      "totalAcSubmissions": 431,
+      "totalSubmissions": 907,
+      "totalSolved": 442,
+      "uniqueProblemsSolved": 389,
+      "totalAcSubmissions": 437,
       "languages": {
-        "Cpp20": 863,
-        "Pascal": 16,
+        "Cpp20": 874,
+        "Pascal": 17,
         "C": 9,
         "Cpp17": 2,
         "Cpp11": 2,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-17": {
+          "tries": 12,
+          "ac": 6
+        },
         "2026-10-10": {
           "tries": 7,
           "ac": 4
@@ -653,7 +657,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
+          "tries": 23,
           "ac": 13
         },
         "2026-09-19": {
@@ -661,7 +665,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 8,
+          "tries": 9,
           "ac": 5
         },
         "2026-09-14": {
@@ -841,7 +845,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 11,
+          "tries": 12,
           "ac": 3
         },
         "2026-02-27": {
@@ -877,15 +881,15 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 2,
-          "ac": 1
+          "tries": 3,
+          "ac": 2
         },
         "2025-12-03": {
           "tries": 1,
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 23,
+          "tries": 22,
           "ac": 6
         },
         "2025-12-01": {
@@ -901,19 +905,79 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
+          "tries": 107,
           "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6180556",
+          "platform": "tlx",
+          "title": "Splitology",
+          "category": "INC 2021",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6180556",
+          "solvedAt": "2026-10-17T07:44:50.808Z"
+        },
+        {
+          "id": "tlx-6180366",
+          "platform": "tlx",
+          "title": "Suspicious Event",
+          "category": "INC 2021",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6180366",
+          "solvedAt": "2026-10-17T07:19:36.711Z"
+        },
+        {
+          "id": "tlx-6180239",
+          "platform": "tlx",
+          "title": "Plus or Times",
+          "category": "INC 2022",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6180239",
+          "solvedAt": "2026-10-17T06:55:47.327Z"
+        },
+        {
+          "id": "tlx-6179929",
+          "platform": "tlx",
+          "title": "Powers of Two",
+          "category": "INC 2022",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6179929",
+          "solvedAt": "2026-10-17T05:36:57.525Z"
+        },
+        {
+          "id": "tlx-6179844",
+          "platform": "tlx",
+          "title": "Cooking Steaks",
+          "category": "INC 2022",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6179844",
+          "solvedAt": "2026-10-17T05:23:13.117Z"
+        },
+        {
+          "id": "tlx-6179705",
+          "platform": "tlx",
+          "title": "Party Medley",
+          "category": "INC 2022",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6179705",
+          "solvedAt": "2026-10-17T04:57:17.580Z"
+        },
         {
           "id": "tlx-6152108",
           "platform": "tlx",
@@ -5892,13 +5956,13 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141504
+          "rank": 141524
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1941635
+          "rank": 1941740
         },
         {
           "name": "C++",
@@ -5910,25 +5974,25 @@
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 531544
+          "rank": 531569
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191598
+          "rank": 191599
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1642069
+          "rank": 1642123
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 724661
+          "rank": 724692
         },
         {
           "name": "Mathematics",
@@ -5940,7 +6004,7 @@
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 463459
+          "rank": 463472
         }
       ],
       "dailyCalendar": {
@@ -6270,6 +6334,66 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6180556",
+      "platform": "tlx",
+      "title": "Splitology",
+      "category": "INC 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6180556",
+      "solvedAt": "2026-10-17T07:44:50.808Z"
+    },
+    {
+      "id": "tlx-6180366",
+      "platform": "tlx",
+      "title": "Suspicious Event",
+      "category": "INC 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6180366",
+      "solvedAt": "2026-10-17T07:19:36.711Z"
+    },
+    {
+      "id": "tlx-6180239",
+      "platform": "tlx",
+      "title": "Plus or Times",
+      "category": "INC 2022",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6180239",
+      "solvedAt": "2026-10-17T06:55:47.327Z"
+    },
+    {
+      "id": "tlx-6179929",
+      "platform": "tlx",
+      "title": "Powers of Two",
+      "category": "INC 2022",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6179929",
+      "solvedAt": "2026-10-17T05:36:57.525Z"
+    },
+    {
+      "id": "tlx-6179844",
+      "platform": "tlx",
+      "title": "Cooking Steaks",
+      "category": "INC 2022",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6179844",
+      "solvedAt": "2026-10-17T05:23:13.117Z"
+    },
+    {
+      "id": "tlx-6179705",
+      "platform": "tlx",
+      "title": "Party Medley",
+      "category": "INC 2022",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6179705",
+      "solvedAt": "2026-10-17T04:57:17.580Z"
+    },
     {
       "id": "lc-1792197584",
       "platform": "leetcode",

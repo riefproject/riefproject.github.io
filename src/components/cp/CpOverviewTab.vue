@@ -251,119 +251,13 @@
       </div>
 
       <!-- Feed Table -->
-      <div v-if="filteredFeed.length > 0" class="cp-table-wrapper">
-        <table class="cp-table">
-          <thead>
-            <tr>
-              <th class="col-num">#</th>
-              <th class="col-platform">Platform</th>
-              <th class="col-title">
-                {{ isId ? "Judul Soal" : "Problem Name" }}
-              </th>
-              <th class="col-category">
-                {{ isId ? "Topik / Modul" : "Topic / Module" }}
-              </th>
-              <th class="col-diff">{{ isId ? "Kesulitan" : "Difficulty" }}</th>
-              <th class="col-lang">{{ isId ? "Bahasa" : "Language" }}</th>
-              <th class="col-status">Status</th>
-              <th class="col-time">
-                {{ isId ? "Waktu Selesai" : "Solved Date" }}
-              </th>
-              <th class="col-action"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(item, idx) in paginatedFeed"
-              :key="item.id || idx"
-              class="cp-table-row">
-              <td class="cell-num">
-                {{ (currentPage - 1) * pageSize + idx + 1 }}
-              </td>
-              <td class="cell-platform">
-                <div class="platform-badge-cell" :class="item.platform">
-                  <img
-                    :src="getPlatformLogo(item.platform)"
-                    :alt="item.platform"
-                    class="table-logo-img" />
-                  <span class="platform-text-name">{{
-                    getPlatformName(item.platform)
-                  }}</span>
-                </div>
-              </td>
-              <td class="cell-title">
-                <a
-                  :href="item.url || '#'"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="problem-title-link">
-                  <span class="title-text">{{ item.title }}</span>
-                  <svg
-                    class="w-3.5 h-3.5 link-arrow-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2">
-                    <path
-                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
-                </a>
-              </td>
-              <td class="cell-category">
-                <span
-                  class="topic-pill"
-                  v-if="item.category"
-                  :title="item.category">
-                  <span>{{ item.category }}</span>
-                </span>
-                <span class="text-xs text-gray-500 font-mono" v-else>-</span>
-              </td>
-              <td class="cell-diff">
-                <span
-                  v-if="item.difficulty && item.difficulty !== '-'"
-                  class="diff-badge"
-                  :class="getDiffClass(item.difficulty)">
-                  {{ item.difficulty }}
-                </span>
-                <span v-else class="text-xs text-gray-500 font-mono">-</span>
-              </td>
-              <td class="cell-lang">
-                <span class="lang-tag" v-if="item.language">{{
-                  cleanLanguage(item.language)
-                }}</span>
-                <span class="text-xs text-gray-500 font-mono" v-else>-</span>
-              </td>
-              <td class="cell-status">
-                <span class="status-badge ac">AC</span>
-              </td>
-              <td class="cell-time" :title="item.solvedAt">
-                {{ formatExactDate(item.solvedAt, isId) }}
-              </td>
-              <td class="cell-action">
-                <a
-                  :href="item.url || '#'"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="open-btn"
-                  :title="isId ? 'Buka soal di platform' : 'Open problem'">
-                  <svg
-                    class="w-4 h-4"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2">
-                    <path
-                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                    <polyline points="15 3 21 3 21 9" />
-                    <line x1="10" y1="14" x2="21" y2="3" />
-                  </svg>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div v-if="filteredFeed.length > 0">
+        <CpProblemsTable
+          :problems="paginatedFeed"
+          :currentPage="currentPage"
+          :pageSize="pageSize"
+          :isId="isId"
+        />
 
         <!-- Reusable Pagination -->
         <CpTablePagination
@@ -429,6 +323,7 @@
 import { ref, computed } from "vue";
 import FilterDropdown from "../FilterDropdown.vue";
 import CpTablePagination from "./CpTablePagination.vue";
+import CpProblemsTable from "./CpProblemsTable.vue";
 import {
   cleanLanguage,
   getPlatformLogo,

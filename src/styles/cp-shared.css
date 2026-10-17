@@ -2,7 +2,7 @@
 
 .cp-table-wrapper {
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 1.25rem;
   overflow-x: auto;
   overflow-y: hidden;
@@ -402,7 +402,7 @@
   justify-content: center;
   border-radius: 0.75rem;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  /* border: none; */
   flex-shrink: 0;
 }
 
@@ -432,7 +432,7 @@
   padding: 0.45rem 0.85rem;
   border-radius: 0.6rem;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   color: var(--text);
   font-size: 0.8rem;
   font-weight: 600;
@@ -452,7 +452,7 @@
   padding: 0.45rem 0.85rem;
   border-radius: 0.6rem;
   background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  border: none;
   color: var(--text);
   font-size: 0.8rem;
   font-weight: 600;
@@ -480,7 +480,7 @@
   padding: 1.25rem;
   border-radius: 1rem;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
@@ -504,13 +504,14 @@
 }
 
 :root.light .spotlight-metric {
-  background: #ffffff;
-  border-color: #e2e8f0;
+  background: var(--bg-soft);
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 :root.light .spotlight-logo-box {
-  background: #f8fafc;
-  border-color: #e2e8f0;
+  background: var(--bg-soft);
+  border: none;
 }
 
 /* Dedicated Archive CTA Card */
@@ -524,7 +525,7 @@
     rgba(16, 185, 129, 0.05) 0%,
     rgba(56, 189, 248, 0.05) 100%
   );
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 1.25rem;
   margin-top: 1rem;
 }

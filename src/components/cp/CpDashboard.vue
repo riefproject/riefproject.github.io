@@ -435,14 +435,14 @@ const heatmapMonths = computed(() => {
   gap: 0.35rem;
   padding: 1.25rem;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 1.25rem;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   min-width: 0;
 }
 
 .stat-card:hover {
-  border-color: var(--border-hover);
+  background: var(--bg-elevated);
   transform: translateY(-2px);
 }
 
@@ -485,13 +485,13 @@ const heatmapMonths = computed(() => {
 
 /* Light Mode for Clean KPI Cards */
 :root.light .stat-card {
-  background: #ffffff;
-  border-color: var(--border);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  background: var(--bg-soft);
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 :root.light .stat-card:hover {
-  border-color: #cbd5e1;
+  background: var(--bg-elevated);
 }
 
 :root.light .val-emerald { color: #047857; }
@@ -527,7 +527,7 @@ const heatmapMonths = computed(() => {
   text-align: center;
   border-radius: 0.75rem;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   font-size: 0.8rem;
   color: var(--text);
   text-decoration: none;
@@ -538,7 +538,6 @@ const heatmapMonths = computed(() => {
 
 .platform-handle-chip:hover {
   background: var(--bg-elevated);
-  border-color: var(--border-hover);
   transform: translateY(-1px);
 }
 
@@ -634,7 +633,7 @@ const heatmapMonths = computed(() => {
   padding: 0.15rem 0.45rem;
   border-radius: 999px;
   background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  border: none;
 }
 
 .dashboard-crosslink {

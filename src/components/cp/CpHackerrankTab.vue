@@ -156,12 +156,13 @@ const paginatedList = computed(() => {
 
 <style scoped>
 .hr-track-card {
-  background: rgba(30, 41, 59, 0.4);
-  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  border: none;
 }
 :root.light .hr-track-card {
-  background: #f8fafc !important;
-  border-color: #cbd5e1 !important;
+  background: var(--bg-soft) !important;
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .hr-track-name {
@@ -186,12 +187,13 @@ const paginatedList = computed(() => {
 }
 
 .hr-badge-card {
-  background: rgba(30, 41, 59, 0.4);
-  border: 1px solid var(--border);
+  background: var(--bg-soft);
+  border: none;
 }
 :root.light .hr-badge-card {
-  background: #f8fafc !important;
-  border-color: #cbd5e1 !important;
+  background: var(--bg-soft) !important;
+  border: none !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .hr-badge-stars {

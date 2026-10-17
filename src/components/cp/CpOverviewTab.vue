@@ -11,112 +11,169 @@
             </div>
             <div class="pcard-title-text">
               <h4 class="pcard-name">TOKI Learning Center</h4>
-              <span class="pcard-handle">@{{ cpData?.platforms?.tlx?.handle || 'aycaaa' }}</span>
+              <span class="pcard-handle"
+                >@{{ cpData?.platforms?.tlx?.handle || "aycaaa" }}</span
+              >
             </div>
           </div>
           <div class="pcard-solved-badge">
             <span class="pcard-solved-num">{{ totalTlxSolved }}</span>
-            <span class="pcard-solved-label">{{ isId ? 'selesai' : 'solved' }}</span>
+            <span class="pcard-solved-label">{{
+              isId ? "selesai" : "solved"
+            }}</span>
           </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-meta-row">
-            <span>{{ isId ? 'Submisi Total' : 'Total Submissions' }}:</span>
-            <strong>{{ cpData?.platforms?.tlx?.totalSubmissions || 561 }}</strong>
+            <span>{{ isId ? "Submisi Total" : "Total Submissions" }}:</span>
+            <strong>{{
+              cpData?.platforms?.tlx?.totalSubmissions || 561
+            }}</strong>
           </div>
           <div class="pcard-meta-row">
-            <span>{{ isId ? 'Bahasa Dominan' : 'Top Language' }}:</span>
+            <span>{{ isId ? "Bahasa Dominan" : "Top Language" }}:</span>
             <strong>C++20</strong>
           </div>
         </div>
         <div class="pcard-footer">
-          <span class="view-details-link">{{ isId ? 'Lihat Detail TLX →' : 'View TLX Details →' }}</span>
+          <span class="view-details-link">{{
+            isId ? "Lihat Detail TLX →" : "View TLX Details →"
+          }}</span>
         </div>
       </div>
 
       <!-- Codeforces Card -->
-      <div class="platform-detail-card" @click="$emit('selectPlatform', 'codeforces')">
+      <div
+        class="platform-detail-card"
+        @click="$emit('selectPlatform', 'codeforces')">
         <div class="pcard-header">
           <div class="pcard-title-group">
             <div class="pcard-logo-box">
-              <img src="/img/codeforces/codeforces.webp" alt="Codeforces" class="pcard-img-logo" />
+              <img
+                src="/img/codeforces/codeforces.webp"
+                alt="Codeforces"
+                class="pcard-img-logo" />
             </div>
             <div class="pcard-title-text">
               <h4 class="pcard-name">Codeforces</h4>
-              <span class="pcard-handle">@{{ cpData?.platforms?.codeforces?.handle || 'feeera' }}</span>
+              <span class="pcard-handle"
+                >@{{ cpData?.platforms?.codeforces?.handle || "feeera" }}</span
+              >
             </div>
           </div>
           <div class="pcard-solved-badge">
-            <span class="pcard-solved-num">{{ cpData?.platforms?.codeforces?.rating || 625 }}</span>
+            <span class="pcard-solved-num">{{
+              cpData?.platforms?.codeforces?.rating || 625
+            }}</span>
             <span class="pcard-solved-label">rating</span>
           </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-meta-row">
-            <span>{{ isId ? 'Soal Selesai' : 'Problems Solved' }}:</span>
-            <strong>{{ totalCfSolved }} {{ isId ? 'Soal' : 'Problems' }}</strong>
+            <span>{{ isId ? "Soal Selesai" : "Problems Solved" }}:</span>
+            <strong
+              >{{ totalCfSolved }} {{ isId ? "Soal" : "Problems" }}</strong
+            >
           </div>
           <div class="pcard-meta-row">
             <span>Rank:</span>
-            <strong class="cf-rank-text capitalize">{{ cpData?.platforms?.codeforces?.rank || 'newbie' }}</strong>
+            <strong class="cf-rank-text capitalize">{{
+              cpData?.platforms?.codeforces?.rank || "newbie"
+            }}</strong>
           </div>
         </div>
         <div class="pcard-footer">
-          <span class="view-details-link">{{ isId ? 'Lihat Detail Codeforces →' : 'View Codeforces Details →' }}</span>
+          <span class="view-details-link">{{
+            isId ? "Lihat Detail Codeforces →" : "View Codeforces Details →"
+          }}</span>
         </div>
       </div>
 
       <!-- LeetCode Card -->
-      <div class="platform-detail-card" @click="$emit('selectPlatform', 'leetcode')">
+      <div
+        class="platform-detail-card"
+        @click="$emit('selectPlatform', 'leetcode')">
         <div class="pcard-header">
           <div class="pcard-title-group">
             <div class="pcard-logo-box">
-              <img src="/img/leetcode/leetcode.webp" alt="LeetCode" class="pcard-img-logo" />
+              <img
+                src="/img/leetcode/leetcode.webp"
+                alt="LeetCode"
+                class="pcard-img-logo" />
             </div>
             <div class="pcard-title-text">
               <h4 class="pcard-name">LeetCode</h4>
-              <span class="pcard-handle">@{{ cpData?.platforms?.leetcode?.handle || 'fsaree' }}</span>
+              <span class="pcard-handle"
+                >@{{ cpData?.platforms?.leetcode?.handle || "fsaree" }}</span
+              >
             </div>
           </div>
           <div class="pcard-solved-badge">
             <span class="pcard-solved-num">{{ totalLcSolved }}</span>
-            <span class="pcard-solved-label">{{ isId ? 'selesai' : 'solved' }}</span>
+            <span class="pcard-solved-label">{{
+              isId ? "selesai" : "solved"
+            }}</span>
           </div>
         </div>
         <div class="pcard-body">
           <div class="pcard-meta-row">
-            <span>{{ isId ? 'Tingkat Kesulitan' : 'Difficulty Split' }}:</span>
+            <span>{{ isId ? "Tingkat Kesulitan" : "Difficulty Split" }}:</span>
             <span class="diff-split">
-              <span class="diff-cnt easy">{{ cpData?.platforms?.leetcode?.easySolved || 32 }}E</span> ·
-              <span class="diff-cnt medium">{{ cpData?.platforms?.leetcode?.mediumSolved || 24 }}M</span> ·
-              <span class="diff-cnt hard">{{ cpData?.platforms?.leetcode?.hardSolved || 3 }}H</span>
+              <span class="diff-cnt easy"
+                >{{ cpData?.platforms?.leetcode?.easySolved || 32 }}E</span
+              >
+              ·
+              <span class="diff-cnt medium"
+                >{{ cpData?.platforms?.leetcode?.mediumSolved || 24 }}M</span
+              >
+              ·
+              <span class="diff-cnt hard"
+                >{{ cpData?.platforms?.leetcode?.hardSolved || 3 }}H</span
+              >
             </span>
           </div>
           <div class="pcard-meta-row">
             <span>Global Ranking:</span>
-            <strong>~{{ (cpData?.platforms?.leetcode?.ranking || 2367686).toLocaleString() }}</strong>
+            <strong
+              >~{{
+                (
+                  cpData?.platforms?.leetcode?.ranking || 2367686
+                ).toLocaleString()
+              }}</strong
+            >
           </div>
         </div>
         <div class="pcard-footer">
-          <span class="view-details-link">{{ isId ? 'Lihat Detail LeetCode →' : 'View LeetCode Details →' }}</span>
+          <span class="view-details-link">{{
+            isId ? "Lihat Detail LeetCode →" : "View LeetCode Details →"
+          }}</span>
         </div>
       </div>
 
       <!-- HackerRank Card -->
-      <div class="platform-detail-card" @click="$emit('selectPlatform', 'hackerrank')">
+      <div
+        class="platform-detail-card"
+        @click="$emit('selectPlatform', 'hackerrank')">
         <div class="pcard-header">
           <div class="pcard-title-group">
             <div class="pcard-logo-box">
-              <img src="/img/hackerrank/HackerRank.webp" alt="HackerRank" class="pcard-img-logo" />
+              <img
+                src="/img/hackerrank/HackerRank.webp"
+                alt="HackerRank"
+                class="pcard-img-logo" />
             </div>
             <div class="pcard-title-text">
               <h4 class="pcard-name">HackerRank</h4>
-              <span class="pcard-handle">@{{ cpData?.platforms?.hackerrank?.handle || 'areee' }}</span>
+              <span class="pcard-handle"
+                >@{{ cpData?.platforms?.hackerrank?.handle || "areee" }}</span
+              >
             </div>
           </div>
           <div class="pcard-solved-badge">
             <span class="pcard-solved-num">{{ totalHrSolved }}+</span>
-            <span class="pcard-solved-label">{{ isId ? 'selesai' : 'solved' }}</span>
+            <span class="pcard-solved-label">{{
+              isId ? "selesai" : "solved"
+            }}</span>
           </div>
         </div>
         <div class="pcard-body">
@@ -134,7 +191,9 @@
           </div>
         </div>
         <div class="pcard-footer">
-          <span class="view-details-link">{{ isId ? 'Lihat Detail HackerRank →' : 'View HackerRank Details →' }}</span>
+          <span class="view-details-link">{{
+            isId ? "Lihat Detail HackerRank →" : "View HackerRank Details →"
+          }}</span>
         </div>
       </div>
     </div>
@@ -143,36 +202,51 @@
     <div class="feed-section">
       <div class="feed-header">
         <div>
-          <h3>{{ isId ? 'Daftar Soal yang Diselesaikan' : 'Solved Problems History' }}</h3>
+          <h3>
+            {{
+              isId ? "Daftar Soal yang Diselesaikan" : "Solved Problems History"
+            }}
+          </h3>
           <p class="feed-subtitle">
-            {{ isId ? 'Aktivitas penyelesaian soal lintas platform secara kronologis.' : 'Chronological stream of solved challenges across all competitive platforms.' }}
+            {{
+              isId
+                ? "Aktivitas penyelesaian soal lintas platform secara kronologis."
+                : "Chronological stream of solved challenges across all competitive platforms."
+            }}
           </p>
         </div>
 
         <!-- Feed Filter Controls -->
         <div class="feed-controls">
           <div class="search-input-wrap">
-            <svg class="search-icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg
+              class="search-icon w-4 h-4"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2">
               <circle cx="11" cy="11" r="8" />
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
             <input
               v-model="searchQuery"
               type="text"
-              :placeholder="isId ? 'Cari judul soal, topik, bahasa...' : 'Search problem title, topic, language...'"
+              :placeholder="
+                isId
+                  ? 'Cari judul soal, topik, bahasa...'
+                  : 'Search problem title, topic, language...'
+              "
               class="search-input"
-              @input="currentPage = 1"
-            />
+              @input="currentPage = 1" />
           </div>
 
           <!-- Unified Filter Popover (Desktop & Mobile) -->
-          <FilterDropdown 
+          <FilterDropdown
             v-model="feedPlatformFilter"
             :categories="platformCategories"
             :locale="locale"
             itemType="platform"
-            @update:modelValue="currentPage = 1"
-          />
+            @update:modelValue="currentPage = 1" />
         </div>
       </div>
 
@@ -183,48 +257,82 @@
             <tr>
               <th class="col-num">#</th>
               <th class="col-platform">Platform</th>
-              <th class="col-title">{{ isId ? 'Judul Soal' : 'Problem Name' }}</th>
-              <th class="col-category">{{ isId ? 'Topik / Modul' : 'Topic / Module' }}</th>
-              <th class="col-diff">{{ isId ? 'Kesulitan' : 'Difficulty' }}</th>
-              <th class="col-lang">{{ isId ? 'Bahasa' : 'Language' }}</th>
+              <th class="col-title">
+                {{ isId ? "Judul Soal" : "Problem Name" }}
+              </th>
+              <th class="col-category">
+                {{ isId ? "Topik / Modul" : "Topic / Module" }}
+              </th>
+              <th class="col-diff">{{ isId ? "Kesulitan" : "Difficulty" }}</th>
+              <th class="col-lang">{{ isId ? "Bahasa" : "Language" }}</th>
               <th class="col-status">Status</th>
-              <th class="col-time">{{ isId ? 'Waktu Selesai' : 'Solved Date' }}</th>
+              <th class="col-time">
+                {{ isId ? "Waktu Selesai" : "Solved Date" }}
+              </th>
               <th class="col-action"></th>
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(item, idx) in paginatedFeed" :key="item.id || idx" class="cp-table-row">
-              <td class="cell-num">{{ (currentPage - 1) * pageSize + idx + 1 }}</td>
+            <tr
+              v-for="(item, idx) in paginatedFeed"
+              :key="item.id || idx"
+              class="cp-table-row">
+              <td class="cell-num">
+                {{ (currentPage - 1) * pageSize + idx + 1 }}
+              </td>
               <td class="cell-platform">
                 <div class="platform-badge-cell" :class="item.platform">
-                  <img :src="getPlatformLogo(item.platform)" :alt="item.platform" class="table-logo-img" />
-                  <span class="platform-text-name">{{ getPlatformName(item.platform) }}</span>
+                  <img
+                    :src="getPlatformLogo(item.platform)"
+                    :alt="item.platform"
+                    class="table-logo-img" />
+                  <span class="platform-text-name">{{
+                    getPlatformName(item.platform)
+                  }}</span>
                 </div>
               </td>
               <td class="cell-title">
-                <a :href="item.url || '#'" target="_blank" rel="noopener noreferrer" class="problem-title-link">
+                <a
+                  :href="item.url || '#'"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="problem-title-link">
                   <span class="title-text">{{ item.title }}</span>
-                  <svg class="w-3.5 h-3.5 link-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                  <svg
+                    class="w-3.5 h-3.5 link-arrow-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                     <polyline points="15 3 21 3 21 9" />
                     <line x1="10" y1="14" x2="21" y2="3" />
                   </svg>
                 </a>
               </td>
               <td class="cell-category">
-                <span class="topic-pill" v-if="item.category" :title="item.category">
+                <span
+                  class="topic-pill"
+                  v-if="item.category"
+                  :title="item.category">
                   <span>{{ item.category }}</span>
                 </span>
                 <span class="text-xs text-gray-500 font-mono" v-else>-</span>
               </td>
               <td class="cell-diff">
-                <span v-if="item.difficulty && item.difficulty !== '-'" class="diff-badge" :class="getDiffClass(item.difficulty)">
+                <span
+                  v-if="item.difficulty && item.difficulty !== '-'"
+                  class="diff-badge"
+                  :class="getDiffClass(item.difficulty)">
                   {{ item.difficulty }}
                 </span>
                 <span v-else class="text-xs text-gray-500 font-mono">-</span>
               </td>
               <td class="cell-lang">
-                <span class="lang-tag" v-if="item.language">{{ cleanLanguage(item.language) }}</span>
+                <span class="lang-tag" v-if="item.language">{{
+                  cleanLanguage(item.language)
+                }}</span>
                 <span class="text-xs text-gray-500 font-mono" v-else>-</span>
               </td>
               <td class="cell-status">
@@ -234,9 +342,20 @@
                 {{ formatExactDate(item.solvedAt, isId) }}
               </td>
               <td class="cell-action">
-                <a :href="item.url || '#'" target="_blank" rel="noopener noreferrer" class="open-btn" :title="isId ? 'Buka soal di platform' : 'Open problem'">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                <a
+                  :href="item.url || '#'"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="open-btn"
+                  :title="isId ? 'Buka soal di platform' : 'Open problem'">
+                  <svg
+                    class="w-4 h-4"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2">
+                    <path
+                      d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
                     <polyline points="15 3 21 3 21 9" />
                     <line x1="10" y1="14" x2="21" y2="3" />
                   </svg>
@@ -252,33 +371,51 @@
           :totalPages="totalPages"
           :pageSize="pageSize"
           :totalItems="filteredFeed.length"
-          :isId="isId"
-        />
+          :isId="isId" />
       </div>
 
       <div v-else class="empty-feed">
-        <p>{{ isId ? 'Tidak ada soal yang cocok dengan filter pencarian.' : 'No problems found matching your filter.' }}</p>
+        <p>
+          {{
+            isId
+              ? "Tidak ada soal yang cocok dengan filter pencarian."
+              : "No problems found matching your filter."
+          }}
+        </p>
       </div>
 
       <!-- Dedicated Archive CTA Card -->
       <div class="view-all-archive-cta">
         <div class="cta-info">
           <div class="flex items-center gap-2">
-            <h4 class="cta-title">{{ isId ? `Jelajahi Seluruh ${totalAllSolved}+ Koleksi Soal` : `Explore Complete ${totalAllSolved}+ Solved Archive` }}</h4>
+            <h4 class="cta-title">
+              {{
+                isId
+                  ? `Jelajahi Seluruh ${totalAllSolved}+ Koleksi Soal`
+                  : `Explore Complete ${totalAllSolved}+ Solved Archive`
+              }}
+            </h4>
           </div>
           <p class="cta-desc">
-            {{ isId
-              ? 'Buka halaman arsip terfokus dengan filter komprehensif, pencarian cepat per topik, navigasi multi-halaman, dan link soal langsung.'
-              : 'Open the dedicated archive page with full-text search, topic filtering, multi-page pagination, and direct problem links.'
+            {{
+              isId
+                ? "Buka halaman arsip terfokus dengan filter komprehensif, pencarian cepat per topik, navigasi multi-halaman, dan link soal langsung."
+                : "Open the dedicated archive page with full-text search, topic filtering, multi-page pagination, and direct problem links."
             }}
           </p>
         </div>
         <a
           :href="`/competitive-programming/problems${feedPlatformFilter.length < allPlatformKeys.length ? '?platform=' + feedPlatformFilter.join(',') : ''}`"
-          class="cta-action-btn"
-        >
-          <span>{{ isId ? 'Buka Halaman Arsip Soal' : 'Open Solved Problems Archive' }}</span>
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          class="cta-action-btn">
+          <span>{{
+            isId ? "Buka Halaman Arsip Soal" : "Open Solved Problems Archive"
+          }}</span>
+          <svg
+            class="w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
           </svg>
@@ -289,16 +426,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import FilterDropdown from '../FilterDropdown.vue';
-import CpTablePagination from './CpTablePagination.vue';
+import { ref, computed } from "vue";
+import FilterDropdown from "../FilterDropdown.vue";
+import CpTablePagination from "./CpTablePagination.vue";
 import {
   cleanLanguage,
   getPlatformLogo,
   getPlatformName,
   getDiffClass,
   formatExactDate,
-} from './cpUtils';
+} from "./cpUtils";
 
 const props = withDefaults(
   defineProps<{
@@ -308,7 +445,7 @@ const props = withDefaults(
     totalLcSolved?: number;
     totalHrSolved?: number;
     isId?: boolean;
-    locale?: 'en' | 'id';
+    locale?: "en" | "id";
   }>(),
   {
     totalTlxSolved: 371,
@@ -316,30 +453,55 @@ const props = withDefaults(
     totalLcSolved: 59,
     totalHrSolved: 138,
     isId: false,
-    locale: 'en',
-  }
+    locale: "en",
+  },
 );
 
 defineEmits<{
-  (e: 'selectPlatform', platform: string): void;
+  (e: "selectPlatform", platform: string): void;
 }>();
 
-const allPlatformKeys = ['tlx', 'codeforces', 'leetcode', 'hackerrank'];
+const allPlatformKeys = ["tlx", "codeforces", "leetcode", "hackerrank"];
 const feedPlatformFilter = ref<string[]>([...allPlatformKeys]);
-const searchQuery = ref('');
+const searchQuery = ref("");
 const currentPage = ref(1);
 const pageSize = ref(10);
 
 const totalAllSolved = computed(() => {
-  return props.cpData?.overview?.totalSolved || (props.totalTlxSolved + props.totalCfSolved + props.totalLcSolved + props.totalHrSolved);
+  return (
+    props.cpData?.overview?.totalSolved ||
+    props.totalTlxSolved +
+      props.totalCfSolved +
+      props.totalLcSolved +
+      props.totalHrSolved
+  );
 });
 
 const platformCategories = computed(() => [
-  { key: 'all', label: `${props.locale === 'id' ? 'Semua Platform' : 'All Platforms'} (${totalAllSolved.value})` },
-  { key: 'tlx', label: `TLX (${props.totalTlxSolved})`, icon: '/img/tlx/tlx.webp' },
-  { key: 'codeforces', label: `Codeforces (${props.totalCfSolved})`, icon: '/img/codeforces/codeforces.webp' },
-  { key: 'leetcode', label: `LeetCode (${props.totalLcSolved})`, icon: '/img/leetcode/leetcode.webp' },
-  { key: 'hackerrank', label: `HackerRank (${props.totalHrSolved})`, icon: '/img/hackerrank/HackerRank.webp' },
+  {
+    key: "all",
+    label: `${props.locale === "id" ? "Semua Platform" : "All Platforms"} (${totalAllSolved.value})`,
+  },
+  {
+    key: "tlx",
+    label: `TLX (${props.totalTlxSolved})`,
+    icon: "/img/tlx/tlx.webp",
+  },
+  {
+    key: "codeforces",
+    label: `Codeforces (${props.totalCfSolved})`,
+    icon: "/img/codeforces/codeforces.webp",
+  },
+  {
+    key: "leetcode",
+    label: `LeetCode (${props.totalLcSolved})`,
+    icon: "/img/leetcode/leetcode.webp",
+  },
+  {
+    key: "hackerrank",
+    label: `HackerRank (${props.totalHrSolved})`,
+    icon: "/img/hackerrank/HackerRank.webp",
+  },
 ]);
 
 const allRecentFeed = computed(() => {
@@ -348,7 +510,9 @@ const allRecentFeed = computed(() => {
 
 const filteredFeed = computed(() => {
   let list = allRecentFeed.value;
-  list = list.filter((item: any) => feedPlatformFilter.value.includes(item.platform));
+  list = list.filter((item: any) =>
+    feedPlatformFilter.value.includes(item.platform),
+  );
   if (searchQuery.value.trim()) {
     const q = searchQuery.value.toLowerCase();
     list = list.filter(
@@ -357,7 +521,7 @@ const filteredFeed = computed(() => {
         (item.category && item.category.toLowerCase().includes(q)) ||
         (item.language && item.language.toLowerCase().includes(q)) ||
         (item.platform && item.platform.toLowerCase().includes(q)) ||
-        (item.difficulty && String(item.difficulty).toLowerCase().includes(q))
+        (item.difficulty && String(item.difficulty).toLowerCase().includes(q)),
     );
   }
   return list;
@@ -397,15 +561,25 @@ const paginatedFeed = computed(() => {
   justify-content: space-between;
   padding: 1.5rem;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 1.25rem;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .platform-detail-card:hover {
-  border-color: var(--border-hover);
+  background: var(--bg-elevated);
   transform: translateY(-2px);
+}
+
+:root.light .platform-detail-card {
+  background: var(--bg-soft);
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+:root.light .platform-detail-card:hover {
+  background: var(--bg-elevated);
 }
 
 .pcard-header {
@@ -427,9 +601,9 @@ const paginatedFeed = computed(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.6rem;
-  background: var(--bg-elevated);
-  border: 1px solid var(--border);
+  /* border-radius: 0.6rem; */
+  /* background: var(--bg-elevated); */
+  border: none;
 }
 
 .pcard-img-logo {
@@ -463,8 +637,8 @@ const paginatedFeed = computed(() => {
   gap: 0.3rem;
   padding: 0.3rem 0.65rem;
   border-radius: 8px;
-  border: 1px solid var(--border);
-  background: var(--surface-muted);
+  border: none;
+  /* background: var(--surface-muted); */
   white-space: nowrap;
 }
 
@@ -504,16 +678,31 @@ const paginatedFeed = computed(() => {
   font-weight: 700;
 }
 
-.diff-cnt.easy { color: #34d399; }
-.diff-cnt.medium { color: #fbbf24; }
-.diff-cnt.hard { color: #f43f5e; }
+.diff-cnt.easy {
+  color: #34d399;
+}
+.diff-cnt.medium {
+  color: #fbbf24;
+}
+.diff-cnt.hard {
+  color: #f43f5e;
+}
 
-:root.light .diff-cnt.easy { color: #047857; font-weight: 700; }
-:root.light .diff-cnt.medium { color: #b45309; font-weight: 700; }
-:root.light .diff-cnt.hard { color: #be123c; font-weight: 700; }
+:root.light .diff-cnt.easy {
+  color: #047857;
+  font-weight: 700;
+}
+:root.light .diff-cnt.medium {
+  color: #b45309;
+  font-weight: 700;
+}
+:root.light .diff-cnt.hard {
+  color: #be123c;
+  font-weight: 700;
+}
 
 .pcard-footer {
-  border-top: 1px solid var(--border);
+  border-top: none;
   padding-top: 0.75rem;
 }
 

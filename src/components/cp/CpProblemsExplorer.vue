@@ -276,7 +276,7 @@ const paginatedProblems = computed(() => {
   gap: 1rem;
   padding: 1.25rem;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 1.25rem;
 }
 
@@ -379,7 +379,7 @@ const paginatedProblems = computed(() => {
   display: flex;
   flex-direction: column;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 1.25rem;
   overflow: hidden;
 }
@@ -707,7 +707,7 @@ const paginatedProblems = computed(() => {
   height: 1.85rem;
   border-radius: 0.5rem;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   color: var(--muted);
   transition: all 0.15s;
   margin: 0 auto;

@@ -279,7 +279,7 @@ onMounted(() => {
   gap: 1rem;
   padding: 1.5rem;
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
   border-radius: 1.25rem;
 }
 
@@ -578,8 +578,9 @@ onMounted(() => {
 
 /* Light Mode Overrides */
 :root.light .heatmap-section {
-  background: #ffffff;
-  border-color: #e2e8f0;
+  background: var(--bg-soft);
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 :root.light .heatmap-floating-tooltip {

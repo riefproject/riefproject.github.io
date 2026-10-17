@@ -166,11 +166,11 @@ const paginatedList = computed(() => {
 <style scoped>
 .cf-tag-card {
   background: var(--bg-soft);
-  border: 1px solid var(--border);
+  border: none;
 }
 :root.light .cf-tag-card {
-  background: #f8fafc !important;
-  border-color: #cbd5e1 !important;
+  background: var(--bg-soft) !important;
+  border: none !important;
 }
 
 .cf-tag-name {
@@ -197,7 +197,7 @@ const paginatedList = computed(() => {
 .tab-bottom-cta {
   padding: 1rem;
   background: var(--bg-elevated);
-  border-top: 1px solid var(--border);
+  border-top: none;
   display: flex;
   justify-content: center;
 }

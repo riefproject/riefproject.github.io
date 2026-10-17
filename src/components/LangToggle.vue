@@ -7,7 +7,6 @@
 		:aria-label="ariaLabel"
 	>
 		<span class="segment" :class="{ active: $lang === 'en' }">EN</span>
-		<span class="divider" aria-hidden="true"></span>
 		<span class="segment" :class="{ active: $lang === 'id' }">ID</span>
 	</button>
 </template>
@@ -42,52 +41,47 @@ watchEffect(() => {
 .toggle-btn {
 	display: inline-flex;
 	align-items: center;
-	gap: 0.25rem;
-	padding: 0.28rem 0.5rem;
-	border-radius: 0.85rem;
+	gap: 2px;
+	padding: 3px;
+	border-radius: 999px;
 	border: 1px solid var(--border);
-	background: var(--bg-elevated);
+	background: var(--bg-soft);
 	color: var(--text);
+	cursor: pointer;
 	font-weight: 700;
-	font-size: 0.85rem;
+	font-size: 0.75rem;
 	letter-spacing: 0.02em;
-	transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-	line-height: 1.2;
+	transition: border-color 0.2s ease, background 0.2s ease;
+	line-height: 1;
 }
 
 .toggle-btn:hover {
-	background: var(--surface-muted);
-	transform: translateY(-1px);
-	box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-}
-
-.toggle-btn:active {
-	transform: translateY(0);
-	box-shadow: none;
+	border-color: var(--border-hover, var(--muted));
 }
 
 .segment {
-	padding: 0.22rem 0.38rem;
-	border-radius: 0.65rem;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.75rem;
+	height: 1.75rem;
+	border-radius: 999px;
 	color: var(--muted);
-	line-height: 1.1;
-	transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+	border: none;
+	transition: all 0.2s ease;
+	user-select: none;
+}
+
+.segment:hover {
+	color: var(--text);
 }
 
 .segment.active {
-	background: var(--chip-bg);
-	color: var(--accent-strong);
-	border: 1px solid var(--border);
+	background: var(--surface);
+	color: var(--accent);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+	border: none;
 	animation: toggle-pop 160ms ease;
-}
-
-.divider {
-	display: inline-block;
-	width: 1px;
-	height: 1.4rem;
-	background: var(--border);
-	margin: 0 0.12rem;
-	border-radius: 999px;
 }
 
 @keyframes toggle-pop {

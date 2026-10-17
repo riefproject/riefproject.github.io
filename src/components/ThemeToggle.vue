@@ -12,16 +12,15 @@
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        stroke-width="1.5"
+        stroke-width="1.75"
         stroke="currentColor"
-        class="size-6">
+        class="toggle-icon">
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
           d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
       </svg>
     </span>
-    <span class="divider" aria-hidden="true"></span>
     <span
       class="segment"
       :class="{ active: $theme === 'dark' }"
@@ -30,9 +29,9 @@
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        stroke-width="1.5"
+        stroke-width="1.75"
         stroke="currentColor"
-        class="size-6">
+        class="toggle-icon">
         <path
           stroke-linecap="round"
           stroke-linejoin="round"
@@ -69,64 +68,49 @@ watchEffect(() => {
 .toggle-btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.2rem;
-  padding: 0.28rem 0.5rem;
-  border-radius: 0.85rem;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: var(--bg-soft);
   border: 1px solid var(--border);
-  background: var(--bg-elevated);
   color: var(--text);
-  font-weight: 700;
-  font-size: 0.8rem;
-  transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease,
-    box-shadow 0.2s ease;
-  line-height: 1.2;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  line-height: 1;
 }
 
 .toggle-btn:hover {
-  background: var(--surface-muted);
-  transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-}
-
-.toggle-btn:active {
-  transform: translateY(0);
-  box-shadow: none;
+  border-color: var(--border-hover, var(--muted));
 }
 
 .segment {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.3rem 0.35rem;
-  border-radius: 0.65rem;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 999px;
   color: var(--muted);
-  width: 1.9rem;
-  height: 1.9rem;
-  border: 1px solid transparent;
-  line-height: 1.1;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease,
-    transform 0.2s ease;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.segment:hover {
+  color: var(--text);
 }
 
 .segment.active {
-  background: var(--chip-bg);
-  color: var(--accent-strong);
-  border-color: var(--border);
+  background: var(--surface);
+  color: var(--accent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  border: none;
   animation: toggle-pop 160ms ease;
 }
 
-.icon {
+.toggle-icon {
   width: 1rem;
   height: 1rem;
-}
-
-.divider {
-  width: 1px;
-  height: 1.4rem;
-  background: var(--border);
-  display: inline-block;
-  margin: 0 0.12rem;
-  border-radius: 999px;
+  display: block;
 }
 
 @keyframes toggle-pop {

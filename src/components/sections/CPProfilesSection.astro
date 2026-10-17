@@ -12,7 +12,7 @@ const copy = {
 		'Handle dan tautan ke platform yang aktif saya pakai untuk kontes, upsolve, dan latihan.',
 	),
 	viewProfile: locale('View profile', 'Lihat profil'),
-	openDashboard: locale('Open Live CP Dashboard →', 'Buka Dashboard CP Live →'),
+	openDashboard: locale('Open Live CP Dashboard', 'Buka Dashboard CP Live'),
 };
 
 const totalCpSolved = initialCpData?.overview?.totalSolved || 640;
@@ -38,9 +38,9 @@ const { profiles = [] }: Props = Astro.props;
 				<p>
 					<LocaleText as="span" text={copy.body} />
 				</p>
-				<div class="cp-live-summary mt-3 flex items-center gap-3 text-xs text-muted font-mono flex-wrap">
-					<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-surface border border-border text-text font-semibold">
-						<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+				<div class="cp-live-summary mt-3 flex items-center gap-3 text-xs text-muted flex-wrap">
+					<span class="inline-flex items-center gap-1.5 text-text font-semibold">
+						<!-- <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> -->
 						{totalCpSolved}+ <LocaleText as="span" text={locale('Solved', 'Selesai')} />
 					</span>
 					<span>•</span>
@@ -49,11 +49,11 @@ const { profiles = [] }: Props = Astro.props;
 					<span>4 <LocaleText as="span" text={locale('Platforms', 'Platform')} /></span>
 				</div>
 			</div>
-			<a href="/competitive-programming" class="cp-dashboard-cta">
-				<span class="pulse-dot"></span>
-				<LocaleText as="span" text={copy.openDashboard} />
-			</a>
 		</div>
+		<a href="/competitive-programming" class="cp-dashboard-cta group mt-4">
+			<u> <LocaleText as="span" text={copy.openDashboard} /></u>
+			<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+		</a>
 	</div>
 	<div class="cp-profiles__grid">
 		{profiles.map((item) => (
@@ -66,9 +66,9 @@ const { profiles = [] }: Props = Astro.props;
 					) : (
 						<div class="cp-badge">{item.platform.slice(0, 2).toUpperCase()}</div>
 					)}
-					<div>
-						<p class="eyebrow platform">{item.platform}</p>
-						<h3>{item.handle}</h3>
+					<div class="cp-card__title-group">
+						<p class="cp-handle platform">{item.platform}</p>
+						<h3 class="m-0 p-0">@{item.handle}</h3>
 					</div>
 				</div>
 				{item.note && (
@@ -77,7 +77,8 @@ const { profiles = [] }: Props = Astro.props;
 					</p>
 				)}
 				<a class="cp-card__link" href={item.url} target="_blank" rel="noreferrer">
-					<LocaleText as="span" text={copy.viewProfile} />
+					<u> <LocaleText as="span" text={copy.viewProfile} /></u>
+					<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
 				</a>
 			</article>
 		))}
@@ -120,35 +121,49 @@ const { profiles = [] }: Props = Astro.props;
 	}
 
 	.cp-badge {
-		width: 48px;
-		height: 48px;
-		border-radius: 12px;
+		width: 2.5rem;
+		height: 2.5rem;
+		/* border-radius: 12px; */
 		display: grid;
 		place-items: center;
 		font-weight: 700;
 		color: var(--accent);
-		background: var(--bg-soft);
-		border: 1px solid var(--border);
+		overflow: hidden;
+		/* background: var(--bg-soft); */
+		/* border: 1px solid var(--border); */
 	}
 
 	.cp-badge--image {
+		border-radius:0.25rem;
 		background: var(--bg-soft);
+		object-fit: cover;
 	}
 
 	.cp-badge--image img {
-		max-height: 40px;
+		/* max-height: 40px; */
 		width: auto;
 		display: block;
+	}
+
+	.cp-card__title-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.125rem;
+		min-width: 0;
 	}
 
 	.cp-card h3 {
 		margin: 0;
 		font-size: 1.15rem;
+		line-height: 1.2;
 		font-family: inherit;
 	}
 
 	.platform {
 		margin: 0;
+		font-size: 0.8rem;
+		line-height: 1.1;
+		color: var(--muted);
 	}
 
 	.cp-card__note {
@@ -162,9 +177,9 @@ const { profiles = [] }: Props = Astro.props;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		padding: 0.55rem 1rem;
-		border-radius: 12px;
-		border: 1px solid var(--border);
+		padding: .5rem 0 .3rem 0;
+		/* border-radius: 12px; */
+		/* border: 1px solid var(--border); */
 		font-weight: 600;
 		color: var(--accent);
 		transition: border-color 0.2s ease;
@@ -177,31 +192,25 @@ const { profiles = [] }: Props = Astro.props;
 	.cp-dashboard-cta {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.5rem;
-		padding: 0.65rem 1.25rem;
-		border-radius: 12px;
-		background: var(--bg-elevated);
-		border: 1px solid var(--border);
 		color: var(--text);
 		font-weight: 700;
-		font-size: 0.9rem;
 		text-decoration: none;
-		white-space: nowrap;
-		transition: all 0.2s ease;
+		font-size: 1rem;
+		transition: color 0.2s ease;
 		width: fit-content;
 	}
 
 	.cp-dashboard-cta:hover {
-		background: var(--chip-bg);
-		border-color: var(--text);
-		transform: translateY(-2px);
+		color: var(--accent);
 	}
-
-	.pulse-dot {
-		width: 8px;
-		height: 8px;
-		border-radius: 999px;
-		background-color: #10b981;
-		box-shadow: 0 0 10px #10b981;
+	.cp-handle {
+		margin: 0;
+		padding: 0;
+		font-size: 0.8rem;
+		line-height: 1.1;
+		text-transform: uppercase;
+		letter-spacing: 0.12em;
+		font-weight: 500;
+		color: var(--muted);
 	}
 </style>

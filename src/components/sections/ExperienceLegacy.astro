@@ -243,15 +243,16 @@ const groups = [
 	}
 
 	.badge--image {
-		border-radius: 12px;
+		border-radius: 0.25rem;
 		padding: 1rem 1.25rem;
+		overflow: hidden;
 	}
 
 	.badge--image img {
 		max-height: 200px;
 		width: auto;
 		display: block;
-		border-radius: 8px;
+		border-radius: 0.25rem;
 	}
 
 	.legacy-exp__details h3 {
@@ -317,29 +318,24 @@ const groups = [
 	}
 
 	.legacy-exp__badge {
-		width: 46px;
-		height: 46px;
-		border-radius: 12px;
+		width: 2.5rem;
+		height: 2.5rem;
 		display: grid;
 		place-items: center;
 		font-weight: 700;
-		color: var(--text);
-		background: var(--bg);
-		border: 1px solid var(--border);
-		font-size: 0.9rem;
-		text-align: center;
-		padding: 0.25rem;
+		color: var(--accent);
+		overflow: hidden;
 	}
 
 	.legacy-exp__badge--image {
+		border-radius: 0.25rem;
 		background: var(--bg-soft);
+		object-fit: cover;
 	}
 
 	.legacy-exp__badge--image img {
-		max-height: 40px;
 		width: auto;
 		display: block;
-		border-radius: 6px;
 	}
 
 	@media (max-width: 960px) {

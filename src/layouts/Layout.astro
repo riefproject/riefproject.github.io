@@ -76,8 +76,9 @@ const {
 				<nav class="sidebar__nav">
 					{navItems.map((item) =>
 						item.page ? (
-							<a data-nav-link data-target={item.href} href={item.href}>
+							<a data-nav-link data-target={item.href} href={item.href} class="group">
 								<LocaleText as="span" text={item.label} />
+								<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
 							</a>
 						) : (
 							<a data-nav-link data-target={item.id} href={item.to}>
@@ -336,6 +337,8 @@ const {
 	}
 
 	.sidebar__nav a {
+		display: flex;
+		align-items: center;
 		padding: 0.5rem 0.75rem;
 		border-radius: 8px;
 		color: var(--muted);
@@ -348,6 +351,11 @@ const {
 	.sidebar__nav a.active {
 		background: var(--surface-muted);
 		color: var(--text);
+	}
+
+	.sidebar__nav a:hover svg,
+	.sidebar__nav a.active svg {
+		opacity: 1;
 	}
 
 	.sidebar__cta {

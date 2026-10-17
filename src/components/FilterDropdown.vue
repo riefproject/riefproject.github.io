@@ -10,7 +10,7 @@ const props = withDefaults(
   }>(),
   {
     itemType: "category",
-  }
+  },
 );
 
 const emit = defineEmits<{
@@ -45,7 +45,7 @@ const activeCategoryLabel = computed(() => {
   if (props.modelValue.length === 1) {
     const cat = props.categories.find((c) => c.key === props.modelValue[0]);
     if (cat) {
-      return isPlatform ? cat.label.replace(/\s*\(\d+\)/, '') : cat.label;
+      return isPlatform ? cat.label.replace(/\s*\(\d+\)/, "") : cat.label;
     }
     if (isPlatform) {
       return props.locale === "id" ? "1 Platform" : "1 Platform";
@@ -108,7 +108,9 @@ const toggleCategory = (key: string) => {
         v-if="
           props.modelValue.length > 0 &&
           props.modelValue.length < allCategoryKeys.length
-        ">{{ props.modelValue.length }}</span>
+        "
+        >{{ props.modelValue.length }}</span
+      >
     </button>
 
     <div
@@ -158,7 +160,7 @@ const toggleCategory = (key: string) => {
   gap: 0.45rem;
   height: 2.5rem;
   padding: 0 0.95rem;
-  border-radius: 0.75rem;
+  border-radius: var(--radius-md);
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--text);

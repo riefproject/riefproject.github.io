@@ -3,7 +3,10 @@
 .cp-table-wrapper {
   background: var(--bg-soft);
   border: none;
-  border-radius: var(--radius-2xl);
+  border-top-left-radius: var(--radius-2xl);
+  border-top-right-radius: var(--radius-2xl);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   overflow-x: auto;
   overflow-y: hidden;
   width: 100%;

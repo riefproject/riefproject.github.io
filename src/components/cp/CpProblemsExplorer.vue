@@ -4,31 +4,51 @@
     <div class="explorer-card">
       <div class="explorer-controls-header">
         <div class="search-box">
-          <svg class="search-icon w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <svg
+            class="search-icon w-4 h-4"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2">
             <circle cx="11" cy="11" r="8" />
             <line x1="21" y1="21" x2="16.65" y2="16.65" />
           </svg>
           <input
             v-model="searchQuery"
             type="text"
-            :placeholder="isId ? 'Cari judul soal, topik, bahasa, kontes...' : 'Search problem title, topic, language, contest...'"
+            :placeholder="
+              isId
+                ? 'Cari judul soal, topik, bahasa, kontes...'
+                : 'Search problem title, topic, language, contest...'
+            "
             class="explorer-search-input"
-            @input="currentPage = 1"
-          />
-          <button v-if="searchQuery" @click="searchQuery = ''; currentPage = 1" class="clear-search-btn">✕</button>
+            @input="currentPage = 1" />
+          <button
+            v-if="searchQuery"
+            @click="
+              searchQuery = '';
+              currentPage = 1;
+            "
+            class="clear-search-btn">
+            ✕
+          </button>
         </div>
 
         <!-- Unified Filter Popover (Desktop & Mobile) -->
-        <FilterDropdown 
+        <FilterDropdown
           v-model="selectedPlatforms"
           :categories="platformCategories"
           :locale="locale"
-          itemType="platform"
-        />
+          itemType="platform" />
 
         <div class="rows-per-page-select">
-          <label class="text-xs text-gray-400">{{ isId ? 'Baris per halaman:' : 'Per page:' }}</label>
-          <select v-model.number="pageSize" @change="currentPage = 1" class="page-size-dropdown">
+          <label class="text-xs text-gray-400">{{
+            isId ? "Baris per halaman:" : "Per page:"
+          }}</label>
+          <select
+            v-model.number="pageSize"
+            @change="currentPage = 1"
+            class="page-size-dropdown">
             <option :value="10">10</option>
             <option :value="20">20</option>
             <option :value="50">50</option>
@@ -45,12 +65,17 @@
           :problems="paginatedProblems"
           :currentPage="currentPage"
           :pageSize="pageSize"
-          :isId="isId"
-        />
+          :isId="isId" />
       </div>
 
       <div v-else class="empty-state">
-        <p>{{ isId ? 'Tidak ada soal yang cocok dengan kriteria pencarian.' : 'No problems match the search criteria.' }}</p>
+        <p>
+          {{
+            isId
+              ? "Tidak ada soal yang cocok dengan kriteria pencarian."
+              : "No problems match the search criteria."
+          }}
+        </p>
       </div>
 
       <!-- Numbered Pagination Bar -->
@@ -61,14 +86,13 @@
         :pageSize="pageSize"
         :totalItems="filteredProblems.length"
         :isId="isId"
-        :scrollToTop="true"
-      />
+        :scrollToTop="true" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, watch } from 'vue';
+import { ref, computed, onMounted, watch } from "vue";
 import FilterDropdown from "../FilterDropdown.vue";
 import CpTablePagination from "./CpTablePagination.vue";
 import CpProblemsTable from "./CpProblemsTable.vue";
@@ -78,60 +102,91 @@ import {
   getPlatformName,
   getDiffClass,
   formatExactDate,
-} from './cpUtils';
-import { useStore } from '@nanostores/vue';
-import { lang } from '../../stores/uiStore.js';
+} from "./cpUtils";
+import { useStore } from "@nanostores/vue";
+import { lang } from "../../stores/uiStore.js";
 
 const props = defineProps<{
   initialData?: any;
+  initialProblems?: any;
 }>();
 
 const $lang = useStore(lang);
-const isId = computed(() => $lang.value === 'id');
+const isId = computed(() => $lang.value === "id");
 
 const cpData = ref<any>(props.initialData || null);
-const allPlatformKeys = ['tlx', 'codeforces', 'leetcode', 'hackerrank'];
+const rawProblemsData = ref<any>(props.initialProblems || null);
+const allPlatformKeys = ["tlx", "codeforces", "leetcode", "hackerrank"];
 const selectedPlatforms = ref<string[]>([...allPlatformKeys]);
-const locale = computed(() => (isId.value ? 'id' : 'en'));
+const locale = computed(() => (isId.value ? "id" : "en"));
 
 // Platform Total Solved counts
-const totalAllSolved = computed(() => cpData.value?.overview?.totalSolved || 640);
-const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || 371);
-const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || 50);
-const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || 59);
-const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || 138);
+const totalAllSolved = computed(
+  () => cpData.value?.overview?.totalSolved || 640,
+);
+const totalTlxSolved = computed(
+  () => cpData.value?.platforms?.tlx?.totalSolved || 371,
+);
+const totalCfSolved = computed(
+  () => cpData.value?.platforms?.codeforces?.totalSolved || 50,
+);
+const totalLcSolved = computed(
+  () => cpData.value?.platforms?.leetcode?.totalSolved || 59,
+);
+const totalHrSolved = computed(
+  () => cpData.value?.platforms?.hackerrank?.totalSolved || 138,
+);
 
 const platformCategories = computed(() => {
   return [
-    { key: 'all', label: `${isId.value ? 'Semua Platform' : 'All Platforms'} (${totalAllSolved.value})` },
-    { key: 'tlx', label: `TLX (${totalTlxSolved.value})`, icon: '/img/tlx/tlx.webp' },
-    { key: 'codeforces', label: `Codeforces (${totalCfSolved.value})`, icon: '/img/codeforces/codeforces.webp' },
-    { key: 'leetcode', label: `LeetCode (${totalLcSolved.value})`, icon: '/img/leetcode/leetcode.webp' },
-    { key: 'hackerrank', label: `HackerRank (${totalHrSolved.value})`, icon: '/img/hackerrank/HackerRank.webp' }
+    {
+      key: "all",
+      label: `${isId.value ? "Semua Platform" : "All Platforms"} (${totalAllSolved.value})`,
+    },
+    {
+      key: "tlx",
+      label: `TLX (${totalTlxSolved.value})`,
+      icon: "/img/tlx/tlx.webp",
+    },
+    {
+      key: "codeforces",
+      label: `Codeforces (${totalCfSolved.value})`,
+      icon: "/img/codeforces/codeforces.webp",
+    },
+    {
+      key: "leetcode",
+      label: `LeetCode (${totalLcSolved.value})`,
+      icon: "/img/leetcode/leetcode.webp",
+    },
+    {
+      key: "hackerrank",
+      label: `HackerRank (${totalHrSolved.value})`,
+      icon: "/img/hackerrank/HackerRank.webp",
+    },
   ];
 });
 
-const searchQuery = ref('');
+const searchQuery = ref("");
 const currentPage = ref(1);
 const pageSize = ref(20);
 
 // URL Query Param handler on mounted
 onMounted(() => {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const urlParams = new URLSearchParams(window.location.search);
-    const plat = urlParams.get('platform');
+    const plat = urlParams.get("platform");
     if (plat) {
-      if (plat.toLowerCase() === 'all') {
+      if (plat.toLowerCase() === "all") {
         selectedPlatforms.value = [...allPlatformKeys];
       } else {
-        const plats = plat.toLowerCase().split(',');
-        const validPlats = plats.filter(p => allPlatformKeys.includes(p));
+        const plats = plat.toLowerCase().split(",");
+        const validPlats = plats.filter((p) => allPlatformKeys.includes(p));
         if (validPlats.length > 0) {
           selectedPlatforms.value = validPlats;
         }
       }
     }
-    const q = urlParams.get('q');
+    const q = urlParams.get("q");
     if (q) {
       searchQuery.value = q;
     }
@@ -140,26 +195,33 @@ onMounted(() => {
 
 watch(selectedPlatforms, (newVal) => {
   currentPage.value = 1;
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const url = new URL(window.location.href);
     if (newVal.length === allPlatformKeys.length) {
-      url.searchParams.delete('platform');
+      url.searchParams.delete("platform");
     } else {
-      url.searchParams.set('platform', newVal.join(','));
+      url.searchParams.set("platform", newVal.join(","));
     }
-    window.history.replaceState({}, '', url.toString());
+    window.history.replaceState({}, "", url.toString());
   }
 });
 
 // Filtered List
 const allProblems = computed(() => {
+  if (rawProblemsData.value) {
+    if (Array.isArray(rawProblemsData.value)) return rawProblemsData.value;
+    if (Array.isArray(rawProblemsData.value.problems))
+      return rawProblemsData.value.problems;
+  }
   return cpData.value?.recentGlobalFeed || [];
 });
 
 const filteredProblems = computed(() => {
   let list = allProblems.value;
-  list = list.filter((item: any) => selectedPlatforms.value.includes(item.platform));
-  
+  list = list.filter((item: any) =>
+    selectedPlatforms.value.includes(item.platform),
+  );
+
   if (searchQuery.value.trim()) {
     const q = searchQuery.value.toLowerCase();
     list = list.filter(
@@ -168,7 +230,7 @@ const filteredProblems = computed(() => {
         (item.category && item.category.toLowerCase().includes(q)) ||
         (item.language && item.language.toLowerCase().includes(q)) ||
         (item.platform && item.platform.toLowerCase().includes(q)) ||
-        (item.difficulty && String(item.difficulty).toLowerCase().includes(q))
+        (item.difficulty && String(item.difficulty).toLowerCase().includes(q)),
     );
   }
   return list;
@@ -182,7 +244,6 @@ const paginatedProblems = computed(() => {
   const start = (currentPage.value - 1) * pageSize.value;
   return filteredProblems.value.slice(start, start + pageSize.value);
 });
-
 </script>
 
 <style scoped>
@@ -202,8 +263,8 @@ const paginatedProblems = computed(() => {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  padding: 1.25rem;
-  background: var(--bg-soft);
+  /* padding: 1.25rem; */
+  /* background: var(--bg-soft); */
   border: none;
   border-radius: var(--radius-2xl);
 }

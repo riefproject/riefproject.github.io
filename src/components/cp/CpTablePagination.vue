@@ -128,6 +128,8 @@ const setPage = (page: number) => {
   padding: 0.85rem 1.25rem;
   background: var(--bg-elevated);
   border-top: 1px solid var(--border);
+  border-bottom-left-radius: var(--radius-2xl);
+  border-bottom-right-radius: var(--radius-2xl);
 }
 
 @media (min-width: 640px) {

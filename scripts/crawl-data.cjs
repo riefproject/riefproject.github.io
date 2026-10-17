@@ -44,6 +44,7 @@ loadEnv(path.join(__dirname, '..', '.env'));
 // Helpers
 const DEV_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-initial.json');
 const CP_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-data-initial.json');
+const CP_PROBLEMS_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-problems-initial.json');
 const ARCHIVES_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-archives.json');
 
 const nowIso = () => new Date().toISOString();
@@ -1183,7 +1184,42 @@ async function main() {
   try {
     console.log('· CP platforms (TLX, Codeforces, LeetCode, HackerRank)...');
     const cp = await crawlCp();
-    writeJson(CP_FILE, cp);
+
+    // 1. Accumulate problems into permanent archive (merging with existing so historical LeetCode/HackerRank are preserved)
+    const existingProblemsData = readExisting(CP_PROBLEMS_FILE) || {};
+    const existingList = Array.isArray(existingProblemsData.problems)
+      ? existingProblemsData.problems
+      : (readExisting(CP_FILE)?.recentGlobalFeed || []);
+
+    const problemMap = new Map();
+    // Insert existing problems first
+    existingList.forEach((p) => {
+      const key = `${p.platform || ''}::${p.title || p.id}`;
+      problemMap.set(key, p);
+    });
+    // Overlay newly crawled problems
+    (cp.recentGlobalFeed || []).forEach((p) => {
+      const key = `${p.platform || ''}::${p.title || p.id}`;
+      problemMap.set(key, p);
+    });
+
+    const mergedProblems = Array.from(problemMap.values()).sort(
+      (a, b) => new Date(b.solvedAt).getTime() - new Date(a.solvedAt).getTime()
+    );
+
+    const problemsPayload = {
+      lastUpdated: nowIso(),
+      totalProblems: mergedProblems.length,
+      problems: mergedProblems,
+    };
+    writeJson(CP_PROBLEMS_FILE, problemsPayload);
+
+    // 2. Write CP overview/summary (retaining full merged feed for rich browsing)
+    const summaryPayload = {
+      ...cp,
+      recentGlobalFeed: mergedProblems,
+    };
+    writeJson(CP_FILE, summaryPayload);
   } catch (err) {
     console.error('Failed to crawl CP stats — keeping existing file.', err);
   }

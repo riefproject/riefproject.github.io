@@ -3,6 +3,7 @@ import Layout from '../../../layouts/Layout.astro';
 import CpProblemsExplorer from '../../../components/cp/CpProblemsExplorer.vue';
 import LocaleText from '../../../components/i18n/LocaleText.astro';
 import initialCpData from '../../../data/cp-data-initial.json';
+import initialProblemsData from '../../../data/cp-problems-initial.json';
 import '../../../styles/cp-shared.css';
 
 const locale = (en: string, id: string) => ({ en, id });
@@ -14,7 +15,6 @@ const copy = {
     'Koleksi lengkap seluruh soal yang telah diselesaikan di TOKI (TLX), Codeforces, LeetCode, dan HackerRank dilengkapi pencarian, filter, dan tautan langsung.'
   ),
   backToDashboard: locale('← Back to CP Dashboard', '← Kembali ke Dashboard CP'),
-  totalSolvedBadge: locale(`${initialCpData.overview.totalSolved} Problems Solved`, `${initialCpData.overview.totalSolved} Soal Diselesaikan`),
 };
 ---
 
@@ -31,9 +31,6 @@ const copy = {
         <h1>
           <LocaleText as="span" text={copy.title} />
         </h1>
-        <div class="cp-badge-tag">
-          <LocaleText as="span" text={copy.totalSolvedBadge} />
-        </div>
       </div>
       <p class="lead">
         <LocaleText as="span" text={copy.description} />
@@ -41,7 +38,11 @@ const copy = {
     </div>
 
     <div class="cp-content section">
-      <CpProblemsExplorer client:load initialData={initialCpData} />
+      <CpProblemsExplorer
+        client:load
+        initialData={initialCpData}
+        initialProblems={initialProblemsData}
+      />
     </div>
   </main>
 </Layout>

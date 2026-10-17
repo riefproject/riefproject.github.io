@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-17T20:03:25.154Z",
+    "updatedAt": "2026-10-17T03:55:22.894Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,14 +9,10 @@
     }
   },
   "overview": {
-    "totalSolved": 750,
-    "totalSubmissions": 1683,
+    "totalSolved": 754,
+    "totalSubmissions": 1671,
     "activePlatformsCount": 4,
     "heatmap": {
-      "2026-10-17": {
-        "tries": 13,
-        "ac": 7
-      },
       "2026-10-10": {
         "tries": 16,
         "ac": 8
@@ -86,7 +82,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
+        "tries": 24,
         "ac": 13
       },
       "2026-09-19": {
@@ -94,7 +90,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 9,
+        "tries": 8,
         "ac": 5
       },
       "2026-09-14": {
@@ -274,7 +270,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 12,
+        "tries": 11,
         "ac": 3
       },
       "2026-02-27": {
@@ -310,15 +306,15 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 3,
-        "ac": 2
+        "tries": 2,
+        "ac": 1
       },
       "2025-12-03": {
         "tries": 1,
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 22,
+        "tries": 23,
         "ac": 6
       },
       "2025-12-01": {
@@ -334,15 +330,15 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
+        "tries": 108,
         "ac": 55
       },
       "2026-08-25": {
@@ -436,6 +432,10 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
+      },
+      "2026-10-17": {
+        "tries": 1,
+        "ac": 1
       },
       "2026-10-16": {
         "tries": 11,
@@ -564,30 +564,26 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 961
+      "count": 950
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 907,
-      "totalSolved": 442,
-      "uniqueProblemsSolved": 389,
-      "totalAcSubmissions": 437,
+      "totalSubmissions": 895,
+      "totalSolved": 437,
+      "uniqueProblemsSolved": 383,
+      "totalAcSubmissions": 431,
       "languages": {
-        "Cpp20": 874,
-        "Pascal": 17,
+        "Cpp20": 863,
+        "Pascal": 16,
         "C": 9,
         "Cpp17": 2,
         "Cpp11": 2,
         "Rust2021": 3
       },
       "dailyCalendar": {
-        "2026-10-17": {
-          "tries": 12,
-          "ac": 6
-        },
         "2026-10-10": {
           "tries": 7,
           "ac": 4
@@ -657,7 +653,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
+          "tries": 24,
           "ac": 13
         },
         "2026-09-19": {
@@ -665,7 +661,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 9,
+          "tries": 8,
           "ac": 5
         },
         "2026-09-14": {
@@ -845,7 +841,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 12,
+          "tries": 11,
           "ac": 3
         },
         "2026-02-27": {
@@ -881,15 +877,15 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 3,
-          "ac": 2
+          "tries": 2,
+          "ac": 1
         },
         "2025-12-03": {
           "tries": 1,
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 22,
+          "tries": 23,
           "ac": 6
         },
         "2025-12-01": {
@@ -905,79 +901,19 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
+          "tries": 108,
           "ac": 55
         }
       },
       "recentSolved": [
-        {
-          "id": "tlx-6180556",
-          "platform": "tlx",
-          "title": "Splitology",
-          "category": "INC 2021",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6180556",
-          "solvedAt": "2026-10-17T07:44:50.808Z"
-        },
-        {
-          "id": "tlx-6180366",
-          "platform": "tlx",
-          "title": "Suspicious Event",
-          "category": "INC 2021",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6180366",
-          "solvedAt": "2026-10-17T07:19:36.711Z"
-        },
-        {
-          "id": "tlx-6180239",
-          "platform": "tlx",
-          "title": "Plus or Times",
-          "category": "INC 2022",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6180239",
-          "solvedAt": "2026-10-17T06:55:47.327Z"
-        },
-        {
-          "id": "tlx-6179929",
-          "platform": "tlx",
-          "title": "Powers of Two",
-          "category": "INC 2022",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6179929",
-          "solvedAt": "2026-10-17T05:36:57.525Z"
-        },
-        {
-          "id": "tlx-6179844",
-          "platform": "tlx",
-          "title": "Cooking Steaks",
-          "category": "INC 2022",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6179844",
-          "solvedAt": "2026-10-17T05:23:13.117Z"
-        },
-        {
-          "id": "tlx-6179705",
-          "platform": "tlx",
-          "title": "Party Medley",
-          "category": "INC 2022",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6179705",
-          "solvedAt": "2026-10-17T04:57:17.580Z"
-        },
         {
           "id": "tlx-6152108",
           "platform": "tlx",
@@ -5676,7 +5612,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1671641,
+      "ranking": 1742728,
       "totalSolved": 102,
       "easySolved": 51,
       "mediumSolved": 44,
@@ -5905,7 +5841,7 @@
     "hackerrank": {
       "handle": "areee",
       "url": "https://www.hackerrank.com/profile/areee",
-      "totalSolved": 138,
+      "totalSolved": 147,
       "totalSubmissions": 415,
       "badges": [
         {
@@ -5956,55 +5892,55 @@
           "name": "Algorithms",
           "slug": "algorithms",
           "score": 1029.98,
-          "rank": 141566
+          "rank": 141504
         },
         {
           "name": "Python",
           "slug": "python",
           "score": 75,
-          "rank": 1941926
+          "rank": 1941635
         },
         {
           "name": "C++",
           "slug": "cpp",
           "score": 295,
-          "rank": 120446
+          "rank": 120441
         },
         {
           "name": "Java",
           "slug": "java",
           "score": 136.33,
-          "rank": 531622
+          "rank": 531544
         },
         {
           "name": "Databases",
           "slug": "databases",
           "score": 15,
-          "rank": 191606
+          "rank": 191598
         },
         {
           "name": "Data Structures",
           "slug": "data-structures",
           "score": 10,
-          "rank": 1642227
+          "rank": 1642069
         },
         {
           "name": "SQL",
           "slug": "sql",
           "score": 390,
-          "rank": 724746
+          "rank": 724661
         },
         {
           "name": "Mathematics",
           "slug": "mathematics",
           "score": 60,
-          "rank": 85929
+          "rank": 85927
         },
         {
           "name": "C",
           "slug": "c",
           "score": 98,
-          "rank": 463501
+          "rank": 463459
         }
       ],
       "dailyCalendar": {
@@ -6335,264 +6271,334 @@
   },
   "recentGlobalFeed": [
     {
-      "id": "tlx-6180556",
-      "platform": "tlx",
-      "title": "Splitology",
-      "category": "INC 2021",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6180556",
-      "solvedAt": "2026-10-17T07:44:50.808Z"
-    },
-    {
-      "id": "tlx-6180366",
-      "platform": "tlx",
-      "title": "Suspicious Event",
-      "category": "INC 2021",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6180366",
-      "solvedAt": "2026-10-17T07:19:36.711Z"
-    },
-    {
-      "id": "tlx-6180239",
-      "platform": "tlx",
-      "title": "Plus or Times",
-      "category": "INC 2022",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6180239",
-      "solvedAt": "2026-10-17T06:55:47.327Z"
-    },
-    {
-      "id": "tlx-6179929",
-      "platform": "tlx",
-      "title": "Powers of Two",
-      "category": "INC 2022",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6179929",
-      "solvedAt": "2026-10-17T05:36:57.525Z"
-    },
-    {
-      "id": "tlx-6179844",
-      "platform": "tlx",
-      "title": "Cooking Steaks",
-      "category": "INC 2022",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6179844",
-      "solvedAt": "2026-10-17T05:23:13.117Z"
-    },
-    {
-      "id": "tlx-6179705",
-      "platform": "tlx",
-      "title": "Party Medley",
-      "category": "INC 2022",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6179705",
-      "solvedAt": "2026-10-17T04:57:17.580Z"
-    },
-    {
-      "id": "lc-1792197584",
+      "id": "lc-minimum-swaps-to-sort-by-digit-sum",
       "platform": "leetcode",
       "title": "Minimum Swaps to Sort by Digit Sum",
       "category": "Array",
       "language": "C++20",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/minimum-swaps-to-sort-by-digit-sum/",
-      "solvedAt": "2026-10-17T00:39:44.000Z"
+      "solvedAt": "2026-10-17T00:39:44+00:00"
     },
     {
-      "id": "lc-1792189685",
+      "id": "lc-binary-tree-inorder-traversal",
       "platform": "leetcode",
       "title": "Binary Tree Inorder Traversal",
       "category": "Stack",
       "language": "C++20",
       "difficulty": "Easy",
       "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
-      "solvedAt": "2026-10-16T22:28:05.000Z"
+      "solvedAt": "2026-10-16T22:28:05+00:00"
     },
     {
-      "id": "lc-1792188955",
+      "id": "lc-subsets",
       "platform": "leetcode",
       "title": "Subsets",
       "category": "Array",
       "language": "C++20",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/subsets/",
-      "solvedAt": "2026-10-16T22:15:55.000Z"
+      "solvedAt": "2026-10-16T22:15:56+00:00"
     },
     {
-      "id": "lc-1792188399",
+      "id": "lc-rotate-image",
       "platform": "leetcode",
       "title": "Rotate Image",
       "category": "Array",
       "language": "C++20",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/rotate-image/",
-      "solvedAt": "2026-10-16T22:06:39.000Z"
+      "solvedAt": "2026-10-16T22:06:40+00:00"
     },
     {
-      "id": "lc-1792188192",
+      "id": "lc-permutations",
       "platform": "leetcode",
       "title": "Permutations",
       "category": "Array",
       "language": "C++20",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/permutations/",
-      "solvedAt": "2026-10-16T22:03:12.000Z"
+      "solvedAt": "2026-10-16T22:03:12+00:00"
     },
     {
-      "id": "lc-1792123667",
+      "id": "lc-sum-of-digits-of-string-after-convert",
       "platform": "leetcode",
       "title": "Sum of Digits of String After Convert",
       "category": "String",
       "language": "C++20",
       "difficulty": "Easy",
       "url": "https://leetcode.com/problems/sum-of-digits-of-string-after-convert/",
-      "solvedAt": "2026-10-16T04:07:47.000Z"
+      "solvedAt": "2026-10-16T04:07:47+00:00"
     },
     {
-      "id": "lc-1792123158",
+      "id": "lc-happy-number",
       "platform": "leetcode",
       "title": "Happy Number",
       "category": "Hash Table",
       "language": "C++20",
       "difficulty": "Easy",
       "url": "https://leetcode.com/problems/happy-number/",
-      "solvedAt": "2026-10-16T03:59:18.000Z"
+      "solvedAt": "2026-10-16T03:59:19+00:00"
     },
     {
-      "id": "lc-1792122940",
+      "id": "lc-word-frequency",
       "platform": "leetcode",
       "title": "Word Frequency",
       "category": "Shell",
-      "language": "BASH",
+      "language": "C++20",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/word-frequency/",
-      "solvedAt": "2026-10-16T03:55:40.000Z"
+      "solvedAt": "2026-10-16T03:55:40+00:00"
     },
     {
-      "id": "lc-1792122869",
+      "id": "lc-valid-phone-numbers",
       "platform": "leetcode",
       "title": "Valid Phone Numbers",
       "category": "Shell",
-      "language": "BASH",
+      "language": "C++20",
       "difficulty": "Easy",
       "url": "https://leetcode.com/problems/valid-phone-numbers/",
-      "solvedAt": "2026-10-16T03:54:29.000Z"
+      "solvedAt": "2026-10-16T03:54:29+00:00"
     },
     {
-      "id": "lc-1792111664",
+      "id": "lc-reverse-bits",
       "platform": "leetcode",
       "title": "Reverse Bits",
       "category": "Divide and Conquer",
       "language": "C++20",
       "difficulty": "Easy",
       "url": "https://leetcode.com/problems/reverse-bits/",
-      "solvedAt": "2026-10-16T00:47:44.000Z"
+      "solvedAt": "2026-10-16T00:47:45+00:00"
     },
     {
-      "id": "lc-1792110515",
+      "id": "lc-subarrays-distinct-element-sum-of-squares-ii",
       "platform": "leetcode",
       "title": "Subarrays Distinct Element Sum of Squares II",
       "category": "Array",
       "language": "C++20",
       "difficulty": "Hard",
       "url": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-ii/",
-      "solvedAt": "2026-10-16T00:28:35.000Z"
+      "solvedAt": "2026-10-16T00:28:36+00:00"
     },
     {
-      "id": "lc-1792109449",
+      "id": "lc-valid-parenthesis-string",
       "platform": "leetcode",
       "title": "Valid Parenthesis String",
       "category": "String",
       "language": "C++20",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/valid-parenthesis-string/",
-      "solvedAt": "2026-10-16T00:10:49.000Z"
+      "solvedAt": "2026-10-16T00:10:49+00:00"
     },
     {
-      "id": "lc-1792108398",
+      "id": "lc-maximum-alternating-sum-of-squares",
       "platform": "leetcode",
       "title": "Maximum Alternating Sum of Squares",
       "category": "Array",
       "language": "C++20",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/maximum-alternating-sum-of-squares/",
-      "solvedAt": "2026-10-15T23:53:18.000Z"
+      "solvedAt": "2026-10-15T23:53:18+00:00"
     },
     {
-      "id": "lc-1792105917",
+      "id": "lc-subarrays-distinct-element-sum-of-squares-i",
       "platform": "leetcode",
       "title": "Subarrays Distinct Element Sum of Squares I",
       "category": "Array",
       "language": "C++20",
       "difficulty": "Easy",
       "url": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-i/",
-      "solvedAt": "2026-10-15T23:11:57.000Z"
+      "solvedAt": "2026-10-15T23:11:57+00:00"
     },
     {
-      "id": "lc-1792019479",
+      "id": "lc-count-array-pairs-divisible-by-k",
       "platform": "leetcode",
       "title": "Count Array Pairs Divisible by K",
       "category": "Array",
       "language": "C++20",
       "difficulty": "Hard",
       "url": "https://leetcode.com/problems/count-array-pairs-divisible-by-k/",
-      "solvedAt": "2026-10-14T23:11:19.000Z"
+      "solvedAt": "2026-10-14T23:11:20+00:00"
     },
     {
-      "id": "lc-1792018745",
+      "id": "lc-smallest-index-with-digit-sum-equal-to-index",
       "platform": "leetcode",
       "title": "Smallest Index With Digit Sum Equal to Index",
       "category": "Array",
       "language": "C++20",
       "difficulty": "Easy",
       "url": "https://leetcode.com/problems/smallest-index-with-digit-sum-equal-to-index/",
-      "solvedAt": "2026-10-14T22:59:05.000Z"
+      "solvedAt": "2026-10-14T22:59:06+00:00"
     },
     {
-      "id": "lc-1792018270",
+      "id": "lc-maximize-sum-of-squares-of-digits",
       "platform": "leetcode",
       "title": "Maximize Sum of Squares of Digits",
       "category": "Math",
       "language": "C++20",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/maximize-sum-of-squares-of-digits/",
-      "solvedAt": "2026-10-14T22:51:10.000Z"
+      "solvedAt": "2026-10-14T22:51:11+00:00"
     },
     {
-      "id": "lc-1792017773",
+      "id": "lc-number-of-1-bits",
       "platform": "leetcode",
       "title": "Number of 1 Bits",
       "category": "Divide and Conquer",
       "language": "C++20",
       "difficulty": "Easy",
       "url": "https://leetcode.com/problems/number-of-1-bits/",
-      "solvedAt": "2026-10-14T22:42:53.000Z"
+      "solvedAt": "2026-10-14T22:42:54+00:00"
     },
     {
-      "id": "lc-1792017657",
+      "id": "lc-delete-node-in-a-linked-list",
       "platform": "leetcode",
       "title": "Delete Node in a Linked List",
       "category": "Linked List",
       "language": "C++20",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
-      "solvedAt": "2026-10-14T22:40:57.000Z"
+      "solvedAt": "2026-10-14T22:40:58+00:00"
     },
     {
-      "id": "lc-1792015826",
+      "id": "lc-department-highest-salary",
       "platform": "leetcode",
       "title": "Department Highest Salary",
       "category": "Database",
       "language": "PostgreSQL",
       "difficulty": "Medium",
       "url": "https://leetcode.com/problems/department-highest-salary/",
-      "solvedAt": "2026-10-14T22:10:26.000Z"
+      "solvedAt": "2026-10-14T22:10:26+00:00"
+    },
+    {
+      "id": "lc-customers-who-never-order",
+      "platform": "leetcode",
+      "title": "Customers Who Never Order",
+      "category": "Database",
+      "language": "PostgreSQL",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/customers-who-never-order/",
+      "solvedAt": "2026-10-14T22:06:01+00:00"
+    },
+    {
+      "id": "lc-duplicate-emails",
+      "platform": "leetcode",
+      "title": "Duplicate Emails",
+      "category": "Database",
+      "language": "PostgreSQL",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/duplicate-emails/",
+      "solvedAt": "2026-10-14T22:02:51+00:00"
+    },
+    {
+      "id": "lc-employees-earning-more-than-their-managers",
+      "platform": "leetcode",
+      "title": "Employees Earning More Than Their Managers",
+      "category": "Database",
+      "language": "PostgreSQL",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/employees-earning-more-than-their-managers/",
+      "solvedAt": "2026-10-14T22:01:00+00:00"
+    },
+    {
+      "id": "lc-consecutive-numbers",
+      "platform": "leetcode",
+      "title": "Consecutive Numbers",
+      "category": "Database",
+      "language": "PostgreSQL",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/consecutive-numbers/",
+      "solvedAt": "2026-10-14T21:55:51+00:00"
+    },
+    {
+      "id": "lc-rank-scores",
+      "platform": "leetcode",
+      "title": "Rank Scores",
+      "category": "Database",
+      "language": "PostgreSQL",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/rank-scores/",
+      "solvedAt": "2026-10-14T21:51:52+00:00"
+    },
+    {
+      "id": "lc-nth-highest-salary",
+      "platform": "leetcode",
+      "title": "Nth Highest Salary",
+      "category": "Database",
+      "language": "PostgreSQL",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/nth-highest-salary/",
+      "solvedAt": "2026-10-14T21:49:03+00:00"
+    },
+    {
+      "id": "lc-second-highest-salary",
+      "platform": "leetcode",
+      "title": "Second Highest Salary",
+      "category": "Database",
+      "language": "PostgreSQL",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/second-highest-salary/",
+      "solvedAt": "2026-10-14T21:45:48+00:00"
+    },
+    {
+      "id": "lc-combine-two-tables",
+      "platform": "leetcode",
+      "title": "Combine Two Tables",
+      "category": "Database",
+      "language": "PostgreSQL",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/combine-two-tables/",
+      "solvedAt": "2026-10-14T21:38:33+00:00"
+    },
+    {
+      "id": "lc-perfect-squares",
+      "platform": "leetcode",
+      "title": "Perfect Squares",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/perfect-squares/",
+      "solvedAt": "2026-10-14T03:18:57+00:00"
+    },
+    {
+      "id": "lc-3sum-closest",
+      "platform": "leetcode",
+      "title": "3Sum Closest",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/3sum-closest/",
+      "solvedAt": "2026-10-14T03:10:08+00:00"
+    },
+    {
+      "id": "lc-trapping-rain-water-ii",
+      "platform": "leetcode",
+      "title": "Trapping Rain Water II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/trapping-rain-water-ii/",
+      "solvedAt": "2026-10-14T03:04:22+00:00"
+    },
+    {
+      "id": "lc-trapping-rain-water",
+      "platform": "leetcode",
+      "title": "Trapping Rain Water",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/trapping-rain-water/",
+      "solvedAt": "2026-10-14T01:23:02+00:00"
+    },
+    {
+      "id": "lc-product-of-array-except-self",
+      "platform": "leetcode",
+      "title": "Product of Array Except Self",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/product-of-array-except-self/",
+      "solvedAt": "2026-10-14T01:06:10+00:00"
     },
     {
       "id": "cf-393994284",
@@ -7633,6 +7639,86 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5987013",
       "solvedAt": "2026-09-09T06:09:23.123Z"
+    },
+    {
+      "id": "lc-maximum-repeating-substring",
+      "platform": "leetcode",
+      "title": "Maximum Repeating Substring",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/maximum-repeating-substring/",
+      "solvedAt": "2026-09-08T09:38:19+00:00"
+    },
+    {
+      "id": "lc-divisor-game",
+      "platform": "leetcode",
+      "title": "Divisor Game",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/divisor-game/",
+      "solvedAt": "2026-09-08T09:29:42+00:00"
+    },
+    {
+      "id": "lc-n-th-tribonacci-number",
+      "platform": "leetcode",
+      "title": "N-th Tribonacci Number",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/n-th-tribonacci-number/",
+      "solvedAt": "2026-09-08T09:27:49+00:00"
+    },
+    {
+      "id": "lc-counting-bits",
+      "platform": "leetcode",
+      "title": "Counting Bits",
+      "category": "Dynamic Programming",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/counting-bits/",
+      "solvedAt": "2026-09-08T09:22:21+00:00"
+    },
+    {
+      "id": "lc-is-subsequence",
+      "platform": "leetcode",
+      "title": "Is Subsequence",
+      "category": "Two Pointers",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/is-subsequence/",
+      "solvedAt": "2026-09-08T09:11:05+00:00"
+    },
+    {
+      "id": "lc-min-cost-climbing-stairs",
+      "platform": "leetcode",
+      "title": "Min Cost Climbing Stairs",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/min-cost-climbing-stairs/",
+      "solvedAt": "2026-09-08T09:01:32+00:00"
+    },
+    {
+      "id": "lc-fibonacci-number",
+      "platform": "leetcode",
+      "title": "Fibonacci Number",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/fibonacci-number/",
+      "solvedAt": "2026-09-08T08:45:38+00:00"
+    },
+    {
+      "id": "lc-integer-replacement",
+      "platform": "leetcode",
+      "title": "Integer Replacement",
+      "category": "Dynamic Programming",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/integer-replacement/",
+      "solvedAt": "2026-09-08T08:42:11+00:00"
     },
     {
       "id": "tlx-5981868",
@@ -8715,6 +8801,26 @@
       "solvedAt": "2026-08-07T09:13:38.337Z"
     },
     {
+      "id": "lc-insertion-sort-list",
+      "platform": "leetcode",
+      "title": "Insertion Sort List",
+      "category": "Linked List",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/insertion-sort-list/",
+      "solvedAt": "2026-08-06T11:30:51+00:00"
+    },
+    {
+      "id": "lc-minimize-maximum-pair-sum-in-array",
+      "platform": "leetcode",
+      "title": "Minimize Maximum Pair Sum in Array",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimize-maximum-pair-sum-in-array/",
+      "solvedAt": "2026-08-06T11:22:10+00:00"
+    },
+    {
       "id": "tlx-5779449",
       "platform": "tlx",
       "title": "Pagar Bambu",
@@ -9245,6 +9351,36 @@
       "solvedAt": "2026-06-02T04:16:14.204Z"
     },
     {
+      "id": "lc-check-if-a-parentheses-string-can-be-valid",
+      "platform": "leetcode",
+      "title": "Check if a Parentheses String Can Be Valid",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/check-if-a-parentheses-string-can-be-valid/",
+      "solvedAt": "2026-05-30T20:42:24+00:00"
+    },
+    {
+      "id": "lc-generate-parentheses",
+      "platform": "leetcode",
+      "title": "Generate Parentheses",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/generate-parentheses/",
+      "solvedAt": "2026-05-30T20:20:06+00:00"
+    },
+    {
+      "id": "lc-search-in-rotated-sorted-array",
+      "platform": "leetcode",
+      "title": "Search in Rotated Sorted Array",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/search-in-rotated-sorted-array/",
+      "solvedAt": "2026-05-30T20:09:19+00:00"
+    },
+    {
       "id": "tlx-5443208",
       "platform": "tlx",
       "title": "\"Absolute Winner\"",
@@ -9595,6 +9731,56 @@
       "solvedAt": "2026-01-30T14:18:26.251Z"
     },
     {
+      "id": "lc-two-sum",
+      "platform": "leetcode",
+      "title": "Two Sum",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/two-sum/",
+      "solvedAt": "2026-01-16T06:03:45+00:00"
+    },
+    {
+      "id": "lc-valid-palindrome",
+      "platform": "leetcode",
+      "title": "Valid Palindrome",
+      "category": "Two Pointers",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/valid-palindrome/",
+      "solvedAt": "2026-01-16T05:57:29+00:00"
+    },
+    {
+      "id": "lc-regular-expression-matching",
+      "platform": "leetcode",
+      "title": "Regular Expression Matching",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/regular-expression-matching/",
+      "solvedAt": "2026-01-16T05:51:22+00:00"
+    },
+    {
+      "id": "lc-multiply-strings",
+      "platform": "leetcode",
+      "title": "Multiply Strings",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/multiply-strings/",
+      "solvedAt": "2026-01-16T05:49:12+00:00"
+    },
+    {
+      "id": "lc-add-binary",
+      "platform": "leetcode",
+      "title": "Add Binary",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/add-binary/",
+      "solvedAt": "2026-01-16T05:38:13+00:00"
+    },
+    {
       "id": "tlx-4757395",
       "platform": "tlx",
       "title": "Perkenalan Heap",
@@ -9685,6 +9871,56 @@
       "solvedAt": "2025-12-31T09:22:13.000Z"
     },
     {
+      "id": "lc-next-permutation",
+      "platform": "leetcode",
+      "title": "Next Permutation",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/next-permutation/",
+      "solvedAt": "2025-12-25T18:09:43+00:00"
+    },
+    {
+      "id": "lc-3sum",
+      "platform": "leetcode",
+      "title": "3Sum",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/3sum/",
+      "solvedAt": "2025-12-25T18:07:51+00:00"
+    },
+    {
+      "id": "lc-remove-nth-node-from-end-of-list",
+      "platform": "leetcode",
+      "title": "Remove Nth Node From End of List",
+      "category": "Linked List",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/remove-nth-node-from-end-of-list/",
+      "solvedAt": "2025-12-25T18:05:37+00:00"
+    },
+    {
+      "id": "lc-letter-combinations-of-a-phone-number",
+      "platform": "leetcode",
+      "title": "Letter Combinations of a Phone Number",
+      "category": "Hash Table",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/letter-combinations-of-a-phone-number/",
+      "solvedAt": "2025-12-25T17:59:19+00:00"
+    },
+    {
+      "id": "lc-zigzag-conversion",
+      "platform": "leetcode",
+      "title": "Zigzag Conversion",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/zigzag-conversion/",
+      "solvedAt": "2025-12-25T17:56:25+00:00"
+    },
+    {
       "id": "tlx-4713763",
       "platform": "tlx",
       "title": "National Science Olympiad",
@@ -9693,6 +9929,86 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4713763",
       "solvedAt": "2025-12-24T15:12:51.658Z"
+    },
+    {
+      "id": "lc-string-to-integer-atoi",
+      "platform": "leetcode",
+      "title": "String to Integer (atoi)",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/string-to-integer-atoi/",
+      "solvedAt": "2025-12-18T03:02:25+00:00"
+    },
+    {
+      "id": "lc-longest-common-prefix",
+      "platform": "leetcode",
+      "title": "Longest Common Prefix",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/longest-common-prefix/",
+      "solvedAt": "2025-12-18T02:55:44+00:00"
+    },
+    {
+      "id": "lc-divide-two-integers",
+      "platform": "leetcode",
+      "title": "Divide Two Integers",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/divide-two-integers/",
+      "solvedAt": "2025-12-18T02:53:19+00:00"
+    },
+    {
+      "id": "lc-longest-palindromic-substring",
+      "platform": "leetcode",
+      "title": "Longest Palindromic Substring",
+      "category": "Two Pointers",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/longest-palindromic-substring/",
+      "solvedAt": "2025-12-18T02:48:38+00:00"
+    },
+    {
+      "id": "lc-add-two-numbers",
+      "platform": "leetcode",
+      "title": "Add Two Numbers",
+      "category": "Linked List",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/add-two-numbers/",
+      "solvedAt": "2025-12-18T02:43:36+00:00"
+    },
+    {
+      "id": "lc-integer-to-english-words",
+      "platform": "leetcode",
+      "title": "Integer to English Words",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/integer-to-english-words/",
+      "solvedAt": "2025-12-18T02:31:15+00:00"
+    },
+    {
+      "id": "lc-integer-to-roman",
+      "platform": "leetcode",
+      "title": "Integer to Roman",
+      "category": "Hash Table",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/integer-to-roman/",
+      "solvedAt": "2025-12-18T02:24:12+00:00"
+    },
+    {
+      "id": "lc-container-with-most-water",
+      "platform": "leetcode",
+      "title": "Container With Most Water",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/container-with-most-water/",
+      "solvedAt": "2025-12-18T02:06:10+00:00"
     },
     {
       "id": "tlx-4695553",
@@ -10665,6 +10981,16 @@
       "solvedAt": "2025-11-03T05:40:42.000+00:00"
     },
     {
+      "id": "lc-median-of-two-sorted-arrays",
+      "platform": "leetcode",
+      "title": "Median of Two Sorted Arrays",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/median-of-two-sorted-arrays/",
+      "solvedAt": "2025-11-03T05:37:17+00:00"
+    },
+    {
       "id": "hr-library-fine",
       "platform": "hackerrank",
       "title": "Library Fine",
@@ -10681,8 +11007,8 @@
       "category": "Algorithms & Problem Solving",
       "language": "C++20",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/sherlock-and-squares",
-      "solvedAt": "2025-11-03T04:51:13.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/sherlock-and-squares/problem",
+      "solvedAt": "2025-11-03T04:51:13.000Z"
     },
     {
       "id": "cf-344968254",
@@ -10739,60 +11065,60 @@
       "platform": "hackerrank",
       "title": "Population Density Difference",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/population-density-difference",
-      "solvedAt": "2025-10-16T01:20:06.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/population-density-difference/problem",
+      "solvedAt": "2025-10-16T01:20:06.000Z"
     },
     {
       "id": "hr-japan-population",
       "platform": "hackerrank",
       "title": "Japan Population",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/japan-population",
-      "solvedAt": "2025-10-16T01:19:15.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/japan-population/problem",
+      "solvedAt": "2025-10-16T01:19:15.000Z"
     },
     {
       "id": "hr-average-population",
       "platform": "hackerrank",
       "title": "Average Population",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/average-population",
-      "solvedAt": "2025-10-16T01:18:40.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/average-population/problem",
+      "solvedAt": "2025-10-16T01:18:40.000Z"
     },
     {
       "id": "hr-revising-aggregations-the-average-function",
       "platform": "hackerrank",
       "title": "Revising Aggregations - Averages",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/revising-aggregations-the-average-function",
-      "solvedAt": "2025-10-16T01:17:09.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem",
+      "solvedAt": "2025-10-16T01:17:09.000Z"
     },
     {
       "id": "hr-revising-aggregations-sum",
       "platform": "hackerrank",
       "title": "Revising Aggregations - The Sum Function",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/revising-aggregations-sum",
-      "solvedAt": "2025-10-16T01:16:41.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/revising-aggregations-sum/problem",
+      "solvedAt": "2025-10-16T01:16:41.000Z"
     },
     {
       "id": "hr-revising-aggregations-the-count-function",
       "platform": "hackerrank",
       "title": "Revising Aggregations - The Count Function",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/revising-aggregations-the-count-function",
-      "solvedAt": "2025-10-16T01:14:54.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/revising-aggregations-the-count-function/problem",
+      "solvedAt": "2025-10-16T01:14:54.000Z"
     },
     {
       "id": "hr-java-static-initializer-block",
@@ -10801,8 +11127,8 @@
       "category": "Language Proficiency",
       "language": "Java",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/java-static-initializer-block",
-      "solvedAt": "2025-10-08T16:56:14.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/java-static-initializer-block/problem",
+      "solvedAt": "2025-10-08T16:56:14.000Z"
     },
     {
       "id": "hr-small-triangles-large-triangles",
@@ -10821,8 +11147,8 @@
       "category": "Database / SQL",
       "language": "SQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/querying-the-document",
-      "solvedAt": "2025-10-08T16:26:05.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/querying-the-document/problem",
+      "solvedAt": "2025-10-08T16:26:05.000Z"
     },
     {
       "id": "hr-pointer-in-c",
@@ -10831,8 +11157,8 @@
       "category": "Language Proficiency",
       "language": "C",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/pointer-in-c",
-      "solvedAt": "2025-10-08T16:19:20.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/pointer-in-c/problem",
+      "solvedAt": "2025-10-08T16:19:20.000Z"
     },
     {
       "id": "hr-functions-in-c",
@@ -10841,68 +11167,538 @@
       "category": "Language Proficiency",
       "language": "C",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/functions-in-c",
-      "solvedAt": "2025-10-08T16:14:59.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/functions-in-c/problem",
+      "solvedAt": "2025-10-08T16:14:59.000Z"
+    },
+    {
+      "id": "lc-pascals-triangle-ii",
+      "platform": "leetcode",
+      "title": "Pascal's Triangle II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/pascals-triangle-ii/",
+      "solvedAt": "2025-10-08T15:29:57+00:00"
+    },
+    {
+      "id": "lc-longest-substring-without-repeating-characters",
+      "platform": "leetcode",
+      "title": "Longest Substring Without Repeating Characters",
+      "category": "Hash Table",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/longest-substring-without-repeating-characters/",
+      "solvedAt": "2025-10-08T15:11:55+00:00"
     },
     {
       "id": "hr-what-type-of-triangle",
       "platform": "hackerrank",
       "title": "Type of Triangle",
-      "category": "Algorithms & Problem Solving",
-      "language": "C++20",
+      "category": "Database / SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/what-type-of-triangle",
-      "solvedAt": "2025-09-25T00:52:24.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/what-type-of-triangle/problem",
+      "solvedAt": "2025-09-25T00:52:24.000Z"
     },
     {
       "id": "hr-weather-observation-station-18",
       "platform": "hackerrank",
       "title": "Weather Observation Station 18",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/weather-observation-station-18",
-      "solvedAt": "2025-09-24T04:19:52.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-18/problem",
+      "solvedAt": "2025-09-24T04:19:52.000Z"
     },
     {
       "id": "hr-weather-observation-station-17",
       "platform": "hackerrank",
       "title": "Weather Observation Station 17",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/weather-observation-station-17",
-      "solvedAt": "2025-09-24T04:06:27.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-17/problem",
+      "solvedAt": "2025-09-24T04:06:27.000Z"
     },
     {
       "id": "hr-weather-observation-station-16",
       "platform": "hackerrank",
       "title": "Weather Observation Station 16",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/weather-observation-station-16",
-      "solvedAt": "2025-09-24T04:03:57.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-16/problem",
+      "solvedAt": "2025-09-24T04:03:57.000Z"
     },
     {
       "id": "hr-weather-observation-station-15",
       "platform": "hackerrank",
       "title": "Weather Observation Station 15",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/weather-observation-station-15",
-      "solvedAt": "2025-09-24T04:01:45.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-15/problem",
+      "solvedAt": "2025-09-24T04:01:45.000Z"
     },
     {
       "id": "hr-salary-of-employees",
       "platform": "hackerrank",
       "title": "Employee Salaries",
       "category": "Database / SQL",
-      "language": "SQL",
+      "language": "MySQL",
       "difficulty": "Practice",
-      "url": "https://www.hackerrank.com/challenges/salary-of-employees",
-      "solvedAt": "2025-09-24T03:56:38.000+00:00"
+      "url": "https://www.hackerrank.com/challenges/salary-of-employees/problem",
+      "solvedAt": "2025-09-24T03:56:38.000Z"
+    },
+    {
+      "id": "hr-name-of-employees",
+      "platform": "hackerrank",
+      "title": "Employee Names",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/name-of-employees/problem",
+      "solvedAt": "2025-09-24T03:54:26.000Z"
+    },
+    {
+      "id": "hr-more-than-75-marks",
+      "platform": "hackerrank",
+      "title": "Higher Than 75 Marks",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/more-than-75-marks/problem",
+      "solvedAt": "2025-09-24T03:53:26.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-12",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 12",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-12/problem",
+      "solvedAt": "2025-09-24T03:46:45.000Z"
+    },
+    {
+      "id": "hr-select-by-id",
+      "platform": "hackerrank",
+      "title": "Select By ID",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/select-by-id/problem",
+      "solvedAt": "2025-09-24T03:44:42.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-11",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 11",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-11/problem",
+      "solvedAt": "2025-09-24T03:43:23.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-10",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 10",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-10/problem",
+      "solvedAt": "2025-09-24T03:39:57.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-9",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 9",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-9/problem",
+      "solvedAt": "2025-09-24T03:38:53.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-8",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 8",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-8/problem",
+      "solvedAt": "2025-09-24T03:36:57.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-7",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 7",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-7/problem",
+      "solvedAt": "2025-09-24T03:34:17.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-6",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 6",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-6/problem",
+      "solvedAt": "2025-09-24T03:32:33.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-5",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 5",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-5/problem",
+      "solvedAt": "2025-09-24T02:58:45.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-4",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 4",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-4/problem",
+      "solvedAt": "2025-09-24T02:51:49.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-3",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 3",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-3/problem",
+      "solvedAt": "2025-09-24T02:48:31.000Z"
+    },
+    {
+      "id": "hr-weather-observation-station-1",
+      "platform": "hackerrank",
+      "title": "Weather Observation Station 1",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/weather-observation-station-1/problem",
+      "solvedAt": "2025-09-24T02:44:29.000Z"
+    },
+    {
+      "id": "hr-japanese-cities-name",
+      "platform": "hackerrank",
+      "title": "Japanese Cities' Names",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/japanese-cities-name/problem",
+      "solvedAt": "2025-09-24T02:43:44.000Z"
+    },
+    {
+      "id": "hr-japanese-cities-attributes",
+      "platform": "hackerrank",
+      "title": "Japanese Cities' Attributes",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/japanese-cities-attributes/problem",
+      "solvedAt": "2025-09-24T02:41:11.000Z"
+    },
+    {
+      "id": "hr-select-all-sql",
+      "platform": "hackerrank",
+      "title": "Select All",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/select-all-sql/problem",
+      "solvedAt": "2025-09-24T02:39:52.000Z"
+    },
+    {
+      "id": "hr-revising-the-select-query-2",
+      "platform": "hackerrank",
+      "title": "Revising the Select Query II",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/revising-the-select-query-2/problem",
+      "solvedAt": "2025-09-24T01:09:31.000Z"
+    },
+    {
+      "id": "hr-revising-the-select-query",
+      "platform": "hackerrank",
+      "title": "Revising the Select Query I",
+      "category": "Database / SQL",
+      "language": "MySQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/revising-the-select-query/problem",
+      "solvedAt": "2025-09-24T01:08:20.000Z"
+    },
+    {
+      "id": "hr-sum-numbers-c",
+      "platform": "hackerrank",
+      "title": "Sum and Difference of Two Numbers",
+      "category": "Language Proficiency",
+      "language": "C",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/sum-numbers-c/problem",
+      "solvedAt": "2025-09-04T00:44:49.000Z"
+    },
+    {
+      "id": "hr-playing-with-characters",
+      "platform": "hackerrank",
+      "title": "Playing With Characters",
+      "category": "Language Proficiency",
+      "language": "C",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/playing-with-characters/problem",
+      "solvedAt": "2025-09-04T00:38:57.000Z"
+    },
+    {
+      "id": "hr-hello-world-c",
+      "platform": "hackerrank",
+      "title": "\"Hello World!\" in C",
+      "category": "Language Proficiency",
+      "language": "C",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/hello-world-c/problem",
+      "solvedAt": "2025-09-04T00:36:02.000Z"
+    },
+    {
+      "id": "hr-basics-of-sets-and-relational-algebra-3",
+      "platform": "hackerrank",
+      "title": "Basics of Sets and Relations #3",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/basics-of-sets-and-relational-algebra-3/problem",
+      "solvedAt": "2025-09-04T00:33:01.000Z"
+    },
+    {
+      "id": "hr-basics-of-sets-and-relational-algebra-2",
+      "platform": "hackerrank",
+      "title": "Basics of Sets and Relations #2",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/basics-of-sets-and-relational-algebra-2/problem",
+      "solvedAt": "2025-09-04T00:32:22.000Z"
+    },
+    {
+      "id": "hr-basics-of-sets-and-relational-algebra-1",
+      "platform": "hackerrank",
+      "title": "Basics of Sets and Relations #1",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/basics-of-sets-and-relational-algebra-1/problem",
+      "solvedAt": "2025-09-04T00:31:49.000Z"
+    },
+    {
+      "id": "hr-java-1d-array-introduction",
+      "platform": "hackerrank",
+      "title": "Java 1D Array",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-1d-array-introduction/problem",
+      "solvedAt": "2025-08-20T03:42:22.000Z"
+    },
+    {
+      "id": "hr-java-substring",
+      "platform": "hackerrank",
+      "title": "Java Substring",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-substring/problem",
+      "solvedAt": "2025-08-20T02:46:55.000Z"
+    },
+    {
+      "id": "hr-java-strings-introduction",
+      "platform": "hackerrank",
+      "title": "Java Strings Introduction",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-strings-introduction/problem",
+      "solvedAt": "2025-08-20T02:44:31.000Z"
+    },
+    {
+      "id": "hr-multi-level-inheritance-cpp",
+      "platform": "hackerrank",
+      "title": "Multi Level Inheritance ",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/multi-level-inheritance-cpp/problem",
+      "solvedAt": "2025-08-20T02:21:55.000Z"
+    },
+    {
+      "id": "hr-java-date-and-time",
+      "platform": "hackerrank",
+      "title": "Java Date and Time",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-date-and-time/problem",
+      "solvedAt": "2025-08-19T21:47:43.000Z"
+    },
+    {
+      "id": "hr-java-int-to-string",
+      "platform": "hackerrank",
+      "title": "Java Int to String",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-int-to-string/problem",
+      "solvedAt": "2025-08-19T21:41:30.000Z"
+    },
+    {
+      "id": "hr-java-end-of-file",
+      "platform": "hackerrank",
+      "title": "Java End-of-file",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-end-of-file/problem",
+      "solvedAt": "2025-08-19T21:24:19.000Z"
+    },
+    {
+      "id": "hr-java-datatypes",
+      "platform": "hackerrank",
+      "title": "Java Datatypes",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-datatypes/problem",
+      "solvedAt": "2025-08-19T21:20:18.000Z"
+    },
+    {
+      "id": "hr-java-loops",
+      "platform": "hackerrank",
+      "title": "Java Loops II",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-loops/problem",
+      "solvedAt": "2025-08-19T21:07:20.000Z"
+    },
+    {
+      "id": "hr-java-loops-i",
+      "platform": "hackerrank",
+      "title": "Java Loops I",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-loops-i/problem",
+      "solvedAt": "2025-08-19T20:48:18.000Z"
+    },
+    {
+      "id": "hr-java-output-formatting",
+      "platform": "hackerrank",
+      "title": "Java Output Formatting",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-output-formatting/problem",
+      "solvedAt": "2025-08-19T20:43:57.000Z"
+    },
+    {
+      "id": "hr-java-stdin-stdout",
+      "platform": "hackerrank",
+      "title": "Java Stdin and Stdout II",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-stdin-stdout/problem",
+      "solvedAt": "2025-08-19T20:38:08.000Z"
+    },
+    {
+      "id": "hr-java-if-else",
+      "platform": "hackerrank",
+      "title": "Java If-Else",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-if-else/problem",
+      "solvedAt": "2025-08-19T03:21:57.000Z"
+    },
+    {
+      "id": "hr-rectangle-area",
+      "platform": "hackerrank",
+      "title": "Rectangle Area",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/rectangle-area/problem",
+      "solvedAt": "2025-08-19T03:15:22.000Z"
+    },
+    {
+      "id": "hr-inheritance-introduction",
+      "platform": "hackerrank",
+      "title": "Inheritance Introduction",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/inheritance-introduction/problem",
+      "solvedAt": "2025-08-19T03:06:16.000Z"
+    },
+    {
+      "id": "hr-cpp-maps",
+      "platform": "hackerrank",
+      "title": "Maps-STL",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/cpp-maps/problem",
+      "solvedAt": "2025-08-19T02:56:59.000Z"
+    },
+    {
+      "id": "hr-cpp-sets",
+      "platform": "hackerrank",
+      "title": "Sets-STL",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/cpp-sets/problem",
+      "solvedAt": "2025-08-19T02:45:28.000Z"
+    },
+    {
+      "id": "hr-cpp-lower-bound",
+      "platform": "hackerrank",
+      "title": "Lower Bound-STL",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/cpp-lower-bound/problem",
+      "solvedAt": "2025-08-19T02:35:57.000Z"
+    },
+    {
+      "id": "hr-java-stdin-and-stdout-1",
+      "platform": "hackerrank",
+      "title": " Java Stdin and Stdout I",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/java-stdin-and-stdout-1/problem",
+      "solvedAt": "2025-08-17T20:36:04.000Z"
+    },
+    {
+      "id": "hr-welcome-to-java",
+      "platform": "hackerrank",
+      "title": "Welcome to Java!",
+      "category": "Language Proficiency",
+      "language": "Java",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/welcome-to-java/problem",
+      "solvedAt": "2025-08-17T20:32:40.000Z"
     },
     {
       "id": "cf-333084342",
@@ -10933,6 +11729,16 @@
       "difficulty": "800",
       "url": "https://codeforces.com/contest/106007/problem/F",
       "solvedAt": "2025-08-09T03:08:38.000Z"
+    },
+    {
+      "id": "lc-best-time-to-buy-and-sell-stock",
+      "platform": "leetcode",
+      "title": "Best Time to Buy and Sell Stock",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/best-time-to-buy-and-sell-stock/",
+      "solvedAt": "2025-08-03T14:52:00+00:00"
     },
     {
       "id": "cf-332060488",
@@ -10973,6 +11779,36 @@
       "difficulty": "800",
       "url": "https://codeforces.com/contest/106015/problem/A",
       "solvedAt": "2025-08-01T07:37:33.000Z"
+    },
+    {
+      "id": "hr-one-week-preparation-kit-lonely-integer",
+      "platform": "hackerrank",
+      "title": "Lonely Integer",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/one-week-preparation-kit-lonely-integer/problem",
+      "solvedAt": "2025-07-27T13:57:36.000Z"
+    },
+    {
+      "id": "hr-classes-objects",
+      "platform": "hackerrank",
+      "title": "Classes and Objects",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/classes-objects/problem",
+      "solvedAt": "2025-07-27T12:34:27.000Z"
+    },
+    {
+      "id": "hr-c-tutorial-class",
+      "platform": "hackerrank",
+      "title": "Class",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/c-tutorial-class/problem",
+      "solvedAt": "2025-07-27T12:23:03.000Z"
     },
     {
       "id": "cf-329710332",
@@ -11053,6 +11889,246 @@
       "difficulty": "800",
       "url": "https://codeforces.com/contest/2112/problem/A",
       "solvedAt": "2025-07-11T07:50:51.000Z"
+    },
+    {
+      "id": "hr-encryption",
+      "platform": "hackerrank",
+      "title": "Encryption",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/encryption/problem",
+      "solvedAt": "2025-05-08T07:21:48.000Z"
+    },
+    {
+      "id": "lc-count-total-number-of-colored-cells",
+      "platform": "leetcode",
+      "title": "Count Total Number of Colored Cells",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/count-total-number-of-colored-cells/",
+      "solvedAt": "2025-03-06T06:19:36+00:00"
+    },
+    {
+      "id": "hr-picking-numbers",
+      "platform": "hackerrank",
+      "title": "Picking Numbers",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/picking-numbers/problem",
+      "solvedAt": "2025-02-13T18:19:49.000Z"
+    },
+    {
+      "id": "hr-apple-and-orange",
+      "platform": "hackerrank",
+      "title": "Apple and Orange",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/apple-and-orange/problem",
+      "solvedAt": "2025-02-13T18:16:34.000Z"
+    },
+    {
+      "id": "hr-magic-square-forming",
+      "platform": "hackerrank",
+      "title": "Forming a Magic Square",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/magic-square-forming/problem",
+      "solvedAt": "2025-02-13T18:12:55.000Z"
+    },
+    {
+      "id": "hr-the-birthday-bar",
+      "platform": "hackerrank",
+      "title": "Subarray Division",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/the-birthday-bar/problem",
+      "solvedAt": "2025-02-13T18:06:26.000Z"
+    },
+    {
+      "id": "hr-between-two-sets",
+      "platform": "hackerrank",
+      "title": "Between Two Sets",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/between-two-sets/problem",
+      "solvedAt": "2025-02-13T18:01:25.000Z"
+    },
+    {
+      "id": "hr-acm-icpc-team",
+      "platform": "hackerrank",
+      "title": "ACM ICPC Team",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/acm-icpc-team/problem",
+      "solvedAt": "2025-02-13T17:54:48.000Z"
+    },
+    {
+      "id": "hr-drawing-book",
+      "platform": "hackerrank",
+      "title": "Drawing Book ",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/drawing-book/problem",
+      "solvedAt": "2025-02-13T08:28:00.000Z"
+    },
+    {
+      "id": "hr-jumping-on-the-clouds",
+      "platform": "hackerrank",
+      "title": "Jumping on the Clouds",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem",
+      "solvedAt": "2025-02-13T07:37:18.000Z"
+    },
+    {
+      "id": "hr-flatland-space-stations",
+      "platform": "hackerrank",
+      "title": "Flatland Space Stations",
+      "category": "Database / SQL",
+      "language": "SQL",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/flatland-space-stations/problem",
+      "solvedAt": "2025-02-13T07:15:30.000Z"
+    },
+    {
+      "id": "hr-lisa-workbook",
+      "platform": "hackerrank",
+      "title": "Lisa's Workbook",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/lisa-workbook/problem",
+      "solvedAt": "2025-02-13T06:18:41.000Z"
+    },
+    {
+      "id": "hr-chocolate-feast",
+      "platform": "hackerrank",
+      "title": "Chocolate Feast ",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/chocolate-feast/problem",
+      "solvedAt": "2025-02-13T03:25:36.000Z"
+    },
+    {
+      "id": "hr-beautiful-triplets",
+      "platform": "hackerrank",
+      "title": "Beautiful Triplets",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/beautiful-triplets/problem",
+      "solvedAt": "2025-02-13T03:11:19.000Z"
+    },
+    {
+      "id": "lc-climbing-stairs",
+      "platform": "leetcode",
+      "title": "Climbing Stairs",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/climbing-stairs/",
+      "solvedAt": "2025-01-22T16:35:02+00:00"
+    },
+    {
+      "id": "lc-pascals-triangle",
+      "platform": "leetcode",
+      "title": "Pascal's Triangle",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/pascals-triangle/",
+      "solvedAt": "2025-01-14T05:43:02+00:00"
+    },
+    {
+      "id": "lc-path-sum",
+      "platform": "leetcode",
+      "title": "Path Sum",
+      "category": "Tree",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/path-sum/",
+      "solvedAt": "2025-01-14T05:07:29+00:00"
+    },
+    {
+      "id": "lc-maximum-depth-of-binary-tree",
+      "platform": "leetcode",
+      "title": "Maximum Depth of Binary Tree",
+      "category": "Tree",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/maximum-depth-of-binary-tree/",
+      "solvedAt": "2025-01-14T04:56:47+00:00"
+    },
+    {
+      "id": "lc-symmetric-tree",
+      "platform": "leetcode",
+      "title": "Symmetric Tree",
+      "category": "Tree",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/symmetric-tree/",
+      "solvedAt": "2025-01-14T04:50:41+00:00"
+    },
+    {
+      "id": "lc-remove-duplicates-from-sorted-list-ii",
+      "platform": "leetcode",
+      "title": "Remove Duplicates from Sorted List II",
+      "category": "Linked List",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/",
+      "solvedAt": "2025-01-14T03:43:00+00:00"
+    },
+    {
+      "id": "lc-remove-duplicates-from-sorted-list",
+      "platform": "leetcode",
+      "title": "Remove Duplicates from Sorted List",
+      "category": "Linked List",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-list/",
+      "solvedAt": "2025-01-14T03:32:21+00:00"
+    },
+    {
+      "id": "lc-merge-sorted-array",
+      "platform": "leetcode",
+      "title": "Merge Sorted Array",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/merge-sorted-array/",
+      "solvedAt": "2025-01-14T03:22:42+00:00"
+    },
+    {
+      "id": "lc-same-tree",
+      "platform": "leetcode",
+      "title": "Same Tree",
+      "category": "Tree",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/same-tree/",
+      "solvedAt": "2025-01-14T02:43:23+00:00"
+    },
+    {
+      "id": "hr-save-the-prisoner",
+      "platform": "hackerrank",
+      "title": "Save the Prisoner!",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/save-the-prisoner/problem",
+      "solvedAt": "2024-11-16T06:24:07.000Z"
     },
     {
       "id": "cf-289867460",
@@ -11185,6 +12261,116 @@
       "solvedAt": "2024-10-31T16:50:16.000Z"
     },
     {
+      "id": "lc-sort-colors",
+      "platform": "leetcode",
+      "title": "Sort Colors",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/sort-colors/",
+      "solvedAt": "2024-10-31T06:09:52+00:00"
+    },
+    {
+      "id": "lc-sort-an-array",
+      "platform": "leetcode",
+      "title": "Sort an Array",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/sort-an-array/",
+      "solvedAt": "2024-10-31T06:07:16+00:00"
+    },
+    {
+      "id": "lc-number-complement",
+      "platform": "leetcode",
+      "title": "Number Complement",
+      "category": "Bit Manipulation",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/number-complement/",
+      "solvedAt": "2024-10-31T06:05:55+00:00"
+    },
+    {
+      "id": "lc-reverse-string",
+      "platform": "leetcode",
+      "title": "Reverse String",
+      "category": "Two Pointers",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/reverse-string/",
+      "solvedAt": "2024-10-31T03:51:40+00:00"
+    },
+    {
+      "id": "lc-power-of-four",
+      "platform": "leetcode",
+      "title": "Power of Four",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/power-of-four/",
+      "solvedAt": "2024-10-31T03:46:50+00:00"
+    },
+    {
+      "id": "lc-power-of-three",
+      "platform": "leetcode",
+      "title": "Power of Three",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/power-of-three/",
+      "solvedAt": "2024-10-31T03:21:24+00:00"
+    },
+    {
+      "id": "lc-power-of-two",
+      "platform": "leetcode",
+      "title": "Power of Two",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/power-of-two/",
+      "solvedAt": "2024-10-31T03:11:00+00:00"
+    },
+    {
+      "id": "lc-rectangle-area",
+      "platform": "leetcode",
+      "title": "Rectangle Area",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/rectangle-area/",
+      "solvedAt": "2024-10-31T03:02:17+00:00"
+    },
+    {
+      "id": "lc-excel-sheet-column-number",
+      "platform": "leetcode",
+      "title": "Excel Sheet Column Number",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/excel-sheet-column-number/",
+      "solvedAt": "2024-10-31T02:38:06+00:00"
+    },
+    {
+      "id": "lc-excel-sheet-column-title",
+      "platform": "leetcode",
+      "title": "Excel Sheet Column Title",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/excel-sheet-column-title/",
+      "solvedAt": "2024-10-31T02:34:31+00:00"
+    },
+    {
+      "id": "lc-length-of-last-word",
+      "platform": "leetcode",
+      "title": "Length of Last Word",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/length-of-last-word/",
+      "solvedAt": "2024-10-30T06:28:00+00:00"
+    },
+    {
       "id": "cf-288834666",
       "platform": "codeforces",
       "title": "Medium Number (1760A)",
@@ -11303,6 +12489,816 @@
       "difficulty": "800",
       "url": "https://codeforces.com/contest/4/problem/A",
       "solvedAt": "2024-10-29T09:10:06.000Z"
+    },
+    {
+      "id": "lc-palindrome-number",
+      "platform": "leetcode",
+      "title": "Palindrome Number",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/palindrome-number/",
+      "solvedAt": "2024-10-29T07:02:29+00:00"
+    },
+    {
+      "id": "lc-single-number",
+      "platform": "leetcode",
+      "title": "Single Number",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/single-number/",
+      "solvedAt": "2024-10-29T06:37:22+00:00"
+    },
+    {
+      "id": "hr-missing-numbers",
+      "platform": "hackerrank",
+      "title": "Missing Numbers",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/missing-numbers/problem",
+      "solvedAt": "2024-10-29T05:47:44.000Z"
+    },
+    {
+      "id": "lc-reverse-integer",
+      "platform": "leetcode",
+      "title": "Reverse Integer",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/reverse-integer/",
+      "solvedAt": "2024-10-29T04:06:42+00:00"
+    },
+    {
+      "id": "lc-powx-n",
+      "platform": "leetcode",
+      "title": "Pow(x, n)",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/powx-n/",
+      "solvedAt": "2024-10-28T06:18:52+00:00"
+    },
+    {
+      "id": "lc-plus-one",
+      "platform": "leetcode",
+      "title": "Plus One",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/plus-one/",
+      "solvedAt": "2024-10-27T14:04:43+00:00"
+    },
+    {
+      "id": "lc-search-insert-position",
+      "platform": "leetcode",
+      "title": "Search Insert Position",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/search-insert-position/",
+      "solvedAt": "2024-10-27T13:50:08+00:00"
+    },
+    {
+      "id": "lc-find-the-index-of-the-first-occurrence-in-a-string",
+      "platform": "leetcode",
+      "title": "Find the Index of the First Occurrence in a String",
+      "category": "Two Pointers",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/find-the-index-of-the-first-occurrence-in-a-string/",
+      "solvedAt": "2024-10-27T13:14:31+00:00"
+    },
+    {
+      "id": "lc-remove-element",
+      "platform": "leetcode",
+      "title": "Remove Element",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/remove-element/",
+      "solvedAt": "2024-10-27T12:55:56+00:00"
+    },
+    {
+      "id": "lc-sqrtx",
+      "platform": "leetcode",
+      "title": "Sqrt(x)",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/sqrtx/",
+      "solvedAt": "2024-10-27T12:49:41+00:00"
+    },
+    {
+      "id": "lc-remove-duplicates-from-sorted-array-ii",
+      "platform": "leetcode",
+      "title": "Remove Duplicates from Sorted Array II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/",
+      "solvedAt": "2024-10-27T12:14:38+00:00"
+    },
+    {
+      "id": "lc-remove-duplicates-from-sorted-array",
+      "platform": "leetcode",
+      "title": "Remove Duplicates from Sorted Array",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/",
+      "solvedAt": "2024-10-27T12:07:42+00:00"
+    },
+    {
+      "id": "lc-valid-parentheses",
+      "platform": "leetcode",
+      "title": "Valid Parentheses",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/valid-parentheses/",
+      "solvedAt": "2024-10-27T11:50:28+00:00"
+    },
+    {
+      "id": "lc-roman-to-integer",
+      "platform": "leetcode",
+      "title": "Roman to Integer",
+      "category": "Hash Table",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/roman-to-integer/",
+      "solvedAt": "2024-10-27T11:42:52+00:00"
+    },
+    {
+      "id": "hr-countingsort1",
+      "platform": "hackerrank",
+      "title": "Counting Sort 1",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/countingsort1/problem",
+      "solvedAt": "2024-10-27T04:15:50.000Z"
+    },
+    {
+      "id": "hr-countingsort2",
+      "platform": "hackerrank",
+      "title": "Counting Sort 2",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/countingsort2/problem",
+      "solvedAt": "2024-10-27T04:10:23.000Z"
+    },
+    {
+      "id": "hr-runningtime",
+      "platform": "hackerrank",
+      "title": "Running Time of Algorithms",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/runningtime/problem",
+      "solvedAt": "2024-10-27T04:07:23.000Z"
+    },
+    {
+      "id": "hr-insertionsort2",
+      "platform": "hackerrank",
+      "title": "Insertion Sort - Part 2",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/insertionsort2/problem",
+      "solvedAt": "2024-10-27T04:03:21.000Z"
+    },
+    {
+      "id": "hr-insertionsort1",
+      "platform": "hackerrank",
+      "title": "Insertion Sort - Part 1",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/insertionsort1/problem",
+      "solvedAt": "2024-10-27T03:50:02.000Z"
+    },
+    {
+      "id": "hr-find-the-median",
+      "platform": "hackerrank",
+      "title": "Find the Median",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/find-the-median/problem",
+      "solvedAt": "2024-10-27T03:45:43.000Z"
+    },
+    {
+      "id": "hr-correctness-invariant",
+      "platform": "hackerrank",
+      "title": "Correctness and the Loop Invariant",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/correctness-invariant/problem",
+      "solvedAt": "2024-10-26T09:35:45.000Z"
+    },
+    {
+      "id": "hr-tutorial-intro",
+      "platform": "hackerrank",
+      "title": "Intro to Tutorial Challenges",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/tutorial-intro/problem",
+      "solvedAt": "2024-10-26T08:58:03.000Z"
+    },
+    {
+      "id": "hr-service-lane",
+      "platform": "hackerrank",
+      "title": "Service Lane",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/service-lane/problem",
+      "solvedAt": "2024-10-26T08:50:09.000Z"
+    },
+    {
+      "id": "hr-kangaroo",
+      "platform": "hackerrank",
+      "title": "Number Line Jumps",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/kangaroo/problem",
+      "solvedAt": "2024-10-26T08:12:55.000Z"
+    },
+    {
+      "id": "hr-find-digits",
+      "platform": "hackerrank",
+      "title": "Find Digits",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/find-digits/problem",
+      "solvedAt": "2024-10-26T07:25:05.000Z"
+    },
+    {
+      "id": "hr-day-of-the-programmer",
+      "platform": "hackerrank",
+      "title": "Day of the Programmer",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/day-of-the-programmer/problem",
+      "solvedAt": "2024-10-26T07:06:30.000Z"
+    },
+    {
+      "id": "hr-migratory-birds",
+      "platform": "hackerrank",
+      "title": "Migratory Birds",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/migratory-birds/problem",
+      "solvedAt": "2024-10-24T09:31:28.000Z"
+    },
+    {
+      "id": "hr-vector-erase",
+      "platform": "hackerrank",
+      "title": "Vector-Erase",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/vector-erase/problem",
+      "solvedAt": "2024-10-23T01:47:25.000Z"
+    },
+    {
+      "id": "hr-vector-sort",
+      "platform": "hackerrank",
+      "title": "Vector-Sort",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/vector-sort/problem",
+      "solvedAt": "2024-10-23T01:15:51.000Z"
+    },
+    {
+      "id": "hr-camelcase",
+      "platform": "hackerrank",
+      "title": "CamelCase",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/camelcase/problem",
+      "solvedAt": "2024-10-23T00:13:29.000Z"
+    },
+    {
+      "id": "hr-arrays-ds",
+      "platform": "hackerrank",
+      "title": "Arrays - DS",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/arrays-ds/problem",
+      "solvedAt": "2024-10-22T18:03:44.000Z"
+    },
+    {
+      "id": "hr-c-tutorial-struct",
+      "platform": "hackerrank",
+      "title": "Structs",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/c-tutorial-struct/problem",
+      "solvedAt": "2024-10-22T17:57:32.000Z"
+    },
+    {
+      "id": "hr-c-tutorial-stringstream",
+      "platform": "hackerrank",
+      "title": "StringStream",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/c-tutorial-stringstream/problem",
+      "solvedAt": "2024-10-22T17:44:57.000Z"
+    },
+    {
+      "id": "hr-c-tutorial-strings",
+      "platform": "hackerrank",
+      "title": "Strings",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/c-tutorial-strings/problem",
+      "solvedAt": "2024-10-22T17:35:14.000Z"
+    },
+    {
+      "id": "hr-cut-the-sticks",
+      "platform": "hackerrank",
+      "title": "Cut the sticks",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/cut-the-sticks/problem",
+      "solvedAt": "2024-10-22T16:49:20.000Z"
+    },
+    {
+      "id": "hr-time-conversion",
+      "platform": "hackerrank",
+      "title": "Time Conversion",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/time-conversion/problem",
+      "solvedAt": "2024-10-22T15:56:31.000Z"
+    },
+    {
+      "id": "hr-beautiful-days-at-the-movies",
+      "platform": "hackerrank",
+      "title": "Beautiful Days at the Movies",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/beautiful-days-at-the-movies/problem",
+      "solvedAt": "2024-10-22T06:37:34.000Z"
+    },
+    {
+      "id": "hr-strange-advertising",
+      "platform": "hackerrank",
+      "title": "Viral Advertising",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/strange-advertising/problem",
+      "solvedAt": "2024-10-22T06:13:16.000Z"
+    },
+    {
+      "id": "hr-angry-professor",
+      "platform": "hackerrank",
+      "title": "Angry Professor",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/angry-professor/problem",
+      "solvedAt": "2024-10-21T16:28:34.000Z"
+    },
+    {
+      "id": "hr-utopian-tree",
+      "platform": "hackerrank",
+      "title": "Utopian Tree",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/utopian-tree/problem",
+      "solvedAt": "2024-10-21T16:19:32.000Z"
+    },
+    {
+      "id": "hr-designer-pdf-viewer",
+      "platform": "hackerrank",
+      "title": "Designer PDF Viewer",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/designer-pdf-viewer/problem",
+      "solvedAt": "2024-10-21T15:41:45.000Z"
+    },
+    {
+      "id": "hr-the-hurdle-race",
+      "platform": "hackerrank",
+      "title": "The Hurdle Race",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/the-hurdle-race/problem",
+      "solvedAt": "2024-10-21T15:30:04.000Z"
+    },
+    {
+      "id": "hr-permutation-equation",
+      "platform": "hackerrank",
+      "title": "Sequence Equation",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/permutation-equation/problem",
+      "solvedAt": "2024-10-21T08:15:55.000Z"
+    },
+    {
+      "id": "hr-electronics-shop",
+      "platform": "hackerrank",
+      "title": "Electronics Shop",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/electronics-shop/problem",
+      "solvedAt": "2024-10-21T04:09:49.000Z"
+    },
+    {
+      "id": "hr-counting-valleys",
+      "platform": "hackerrank",
+      "title": "Counting Valleys",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/counting-valleys/problem",
+      "solvedAt": "2024-10-21T03:43:08.000Z"
+    },
+    {
+      "id": "hr-sock-merchant",
+      "platform": "hackerrank",
+      "title": "Sales by Match",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/sock-merchant/problem",
+      "solvedAt": "2024-10-21T02:57:34.000Z"
+    },
+    {
+      "id": "hr-bon-appetit",
+      "platform": "hackerrank",
+      "title": "Bill Division",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/bon-appetit/problem",
+      "solvedAt": "2024-10-21T02:54:10.000Z"
+    },
+    {
+      "id": "hr-divisible-sum-pairs",
+      "platform": "hackerrank",
+      "title": "Divisible Sum Pairs",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/divisible-sum-pairs/problem",
+      "solvedAt": "2024-10-21T02:07:32.000Z"
+    },
+    {
+      "id": "hr-breaking-best-and-worst-records",
+      "platform": "hackerrank",
+      "title": "Breaking the Records",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/breaking-best-and-worst-records/problem",
+      "solvedAt": "2024-10-21T01:45:19.000Z"
+    },
+    {
+      "id": "hr-cats-and-a-mouse",
+      "platform": "hackerrank",
+      "title": "Cats and a Mouse",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/cats-and-a-mouse/problem",
+      "solvedAt": "2024-10-21T01:29:24.000Z"
+    },
+    {
+      "id": "hr-grading",
+      "platform": "hackerrank",
+      "title": "Grading Students",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/grading/problem",
+      "solvedAt": "2024-10-21T01:12:07.000Z"
+    },
+    {
+      "id": "hr-mini-max-sum",
+      "platform": "hackerrank",
+      "title": "Mini-Max Sum",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/mini-max-sum/problem",
+      "solvedAt": "2024-10-21T00:59:45.000Z"
+    },
+    {
+      "id": "hr-birthday-cake-candles",
+      "platform": "hackerrank",
+      "title": "Birthday Cake Candles",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/birthday-cake-candles/problem",
+      "solvedAt": "2024-10-21T00:53:00.000Z"
+    },
+    {
+      "id": "hr-summing-the-n-series",
+      "platform": "hackerrank",
+      "title": "Summing the N series ",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/summing-the-n-series/problem",
+      "solvedAt": "2024-09-08T05:34:07.000Z"
+    },
+    {
+      "id": "hr-p1-paper-cutting",
+      "platform": "hackerrank",
+      "title": "Cutting Paper Squares",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/p1-paper-cutting/problem",
+      "solvedAt": "2024-09-04T18:49:37.000Z"
+    },
+    {
+      "id": "hr-staircase",
+      "platform": "hackerrank",
+      "title": "Staircase",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/staircase/problem",
+      "solvedAt": "2024-08-16T15:59:25.000Z"
+    },
+    {
+      "id": "hr-plus-minus",
+      "platform": "hackerrank",
+      "title": "Plus Minus",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/plus-minus/problem",
+      "solvedAt": "2024-08-16T15:52:09.000Z"
+    },
+    {
+      "id": "hr-diagonal-difference",
+      "platform": "hackerrank",
+      "title": "Diagonal Difference",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/diagonal-difference/problem",
+      "solvedAt": "2024-08-16T15:38:05.000Z"
+    },
+    {
+      "id": "hr-a-very-big-sum",
+      "platform": "hackerrank",
+      "title": "A Very Big Sum",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/a-very-big-sum/problem",
+      "solvedAt": "2024-08-07T14:19:04.000Z"
+    },
+    {
+      "id": "hr-compare-the-triplets",
+      "platform": "hackerrank",
+      "title": "Compare the Triplets",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/compare-the-triplets/problem",
+      "solvedAt": "2024-08-07T14:02:07.000Z"
+    },
+    {
+      "id": "hr-simple-array-sum",
+      "platform": "hackerrank",
+      "title": "Simple Array Sum",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/simple-array-sum/problem",
+      "solvedAt": "2024-08-07T13:41:55.000Z"
+    },
+    {
+      "id": "hr-solve-me-first",
+      "platform": "hackerrank",
+      "title": "Solve Me First",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/solve-me-first/problem",
+      "solvedAt": "2024-08-07T13:37:32.000Z"
+    },
+    {
+      "id": "hr-py-hello-world",
+      "platform": "hackerrank",
+      "title": "Say \"Hello, World!\" With Python",
+      "category": "Language Proficiency",
+      "language": "Python",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/py-hello-world/problem",
+      "solvedAt": "2024-08-07T13:33:28.000Z"
+    },
+    {
+      "id": "hr-lowest-triangle",
+      "platform": "hackerrank",
+      "title": "Minimum Height Triangle",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/lowest-triangle/problem",
+      "solvedAt": "2024-06-23T21:18:42.000Z"
+    },
+    {
+      "id": "hr-handshake",
+      "platform": "hackerrank",
+      "title": "Handshake",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/handshake/problem",
+      "solvedAt": "2024-06-23T21:05:25.000Z"
+    },
+    {
+      "id": "hr-maximum-draws",
+      "platform": "hackerrank",
+      "title": "Maximum Draws",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/maximum-draws/problem",
+      "solvedAt": "2024-06-23T20:59:40.000Z"
+    },
+    {
+      "id": "hr-python-print",
+      "platform": "hackerrank",
+      "title": "Print Function",
+      "category": "Language Proficiency",
+      "language": "Python",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/python-print/problem",
+      "solvedAt": "2024-06-23T20:48:32.000Z"
+    },
+    {
+      "id": "hr-write-a-function",
+      "platform": "hackerrank",
+      "title": "Write a function",
+      "category": "Language Proficiency",
+      "language": "Python",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/write-a-function/problem",
+      "solvedAt": "2024-06-23T20:42:50.000Z"
+    },
+    {
+      "id": "hr-python-loops",
+      "platform": "hackerrank",
+      "title": "Loops",
+      "category": "Language Proficiency",
+      "language": "Python",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/python-loops/problem",
+      "solvedAt": "2024-06-23T20:35:19.000Z"
+    },
+    {
+      "id": "hr-python-division",
+      "platform": "hackerrank",
+      "title": "Python: Division",
+      "category": "Language Proficiency",
+      "language": "Python",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/python-division/problem",
+      "solvedAt": "2024-06-23T20:31:39.000Z"
+    },
+    {
+      "id": "hr-python-arithmetic-operators",
+      "platform": "hackerrank",
+      "title": "Arithmetic Operators",
+      "category": "Language Proficiency",
+      "language": "Python",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/python-arithmetic-operators/problem",
+      "solvedAt": "2024-06-23T20:30:40.000Z"
+    },
+    {
+      "id": "hr-py-if-else",
+      "platform": "hackerrank",
+      "title": "Python If-Else",
+      "category": "Language Proficiency",
+      "language": "Python",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/py-if-else/problem",
+      "solvedAt": "2024-06-23T20:26:12.000Z"
+    },
+    {
+      "id": "hr-arrays-introduction",
+      "platform": "hackerrank",
+      "title": "Arrays Introduction",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/arrays-introduction/problem",
+      "solvedAt": "2024-06-23T20:13:36.000Z"
+    },
+    {
+      "id": "hr-variable-sized-arrays",
+      "platform": "hackerrank",
+      "title": "Variable Sized Arrays",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/variable-sized-arrays/problem",
+      "solvedAt": "2024-06-23T20:09:45.000Z"
+    },
+    {
+      "id": "hr-c-tutorial-pointer",
+      "platform": "hackerrank",
+      "title": "Pointer",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/c-tutorial-pointer/problem",
+      "solvedAt": "2024-06-23T20:08:34.000Z"
+    },
+    {
+      "id": "hr-c-tutorial-functions",
+      "platform": "hackerrank",
+      "title": "Functions",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/c-tutorial-functions/problem",
+      "solvedAt": "2024-06-23T20:08:20.000Z"
+    },
+    {
+      "id": "hr-c-tutorial-for-loop",
+      "platform": "hackerrank",
+      "title": "For Loop",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/c-tutorial-for-loop/problem",
+      "solvedAt": "2024-06-23T20:07:43.000Z"
+    },
+    {
+      "id": "hr-c-tutorial-conditional-if-else",
+      "platform": "hackerrank",
+      "title": "Conditional Statements",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/c-tutorial-conditional-if-else/problem",
+      "solvedAt": "2024-06-23T20:07:04.000Z"
+    },
+    {
+      "id": "hr-c-tutorial-basic-data-types",
+      "platform": "hackerrank",
+      "title": "Basic Data Types",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/c-tutorial-basic-data-types/problem",
+      "solvedAt": "2024-06-23T20:06:49.000Z"
+    },
+    {
+      "id": "hr-cpp-input-and-output",
+      "platform": "hackerrank",
+      "title": "Input and Output",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/cpp-input-and-output/problem",
+      "solvedAt": "2024-06-23T20:06:19.000Z"
+    },
+    {
+      "id": "hr-cpp-hello-world",
+      "platform": "hackerrank",
+      "title": "Say \"Hello, World!\" With C++",
+      "category": "Algorithms & Problem Solving",
+      "language": "C++20",
+      "difficulty": "Practice",
+      "url": "https://www.hackerrank.com/challenges/cpp-hello-world/problem",
+      "solvedAt": "2024-06-23T20:04:17.000Z"
     }
   ]
 }

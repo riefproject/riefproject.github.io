@@ -251,7 +251,7 @@
       </div>
 
       <!-- Feed Table -->
-      <div v-if="filteredFeed.length > 0">
+      <div v-if="filteredFeed.length > 0" class="feed-table-card">
         <CpProblemsTable
           :problems="paginatedFeed"
           :currentPage="currentPage"
@@ -613,6 +613,15 @@ const paginatedFeed = computed(() => {
   gap: 1.25rem;
   margin-top: 3.5rem;
   min-width: 0;
+}
+
+.feed-table-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-soft);
+  border: none;
+  border-radius: var(--radius-2xl);
+  overflow: hidden;
 }
 
 .feed-header {

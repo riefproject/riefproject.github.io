@@ -1,8 +1,10 @@
 ---
 import type { Experience } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
-
-const locale = (en: string, id: string) => ({ en, id });
+import SectionIntro from './SectionIntro.astro';
+import CollapsibleContent from './CollapsibleContent.astro';
+import EntityBadge from '../shared/EntityBadge.astro';
+import { t as locale } from '../../utils/i18n';
 
 type Props = {
 	workExperiences?: Experience[];
@@ -15,6 +17,11 @@ const {
 	organizationalExperiences = [],
 	personalExperiences = [],
 }: Props = Astro.props;
+
+const copy = {
+	readDetails: locale('Read details', 'Baca selengkapnya'),
+	showLess: locale('Show less', 'Tampilkan lebih sedikit'),
+};
 
 const groups = [
 	{
@@ -66,17 +73,12 @@ const groups = [
 
 		return (
 			<div class="legacy-exp__group">
-				<div class="surface legacy-exp__intro">
-					<p class="eyebrow">
-						<LocaleText as="span" text={group.eyebrow} />
-					</p>
-					<h2>
-						<LocaleText as="span" text={group.heading} />
-					</h2>
-					<p>
-						<LocaleText as="span" text={group.body} />
-					</p>
-				</div>
+				<SectionIntro
+					class="legacy-exp__intro"
+					eyebrow={group.eyebrow}
+					heading={group.heading}
+					body={group.body}
+				/>
 
 				<div class="legacy-exp__content">
 					<div class="legacy-exp__media">
@@ -102,23 +104,23 @@ const groups = [
 							<LocaleText as="span" text={primary.summary} />
 						</p>
 						{primary.achievements && primary.achievements.length > 0 && (
-							<div class="mt-4 relative">
-								<input type="checkbox" id={`toggle-${primary.company.replace(/\\s+/g, '-')}`} class="legacy-exp__toggle hidden" />
-								<div class="legacy-exp__collapse overflow-hidden max-h-[140px] transition-[max-height] duration-500 ease-in-out relative">
-									<ul class="mt-3">
-										{primary.achievements.map((item) => (
-											<li class="mb-2">
-												<LocaleText as="span" text={item} />
-											</li>
-										))}
-									</ul>
-									<div class="legacy-exp__fade absolute bottom-0 left-0 w-full h-16 pointer-events-none"></div>
-								</div>
-								<label for={`toggle-${primary.company.replace(/\\s+/g, '-')}`} class="legacy-exp__label cursor-pointer text-base font-semibold text-accent hover:underline mt-2 inline-flex items-center select-none">
-									<span class="read-more"><LocaleText as="span" text={locale('Read details', 'Baca selengkapnya')} /></span>
-									<span class="show-less"><LocaleText as="span" text={locale('Show less', 'Tampilkan lebih sedikit')} /></span>
-								</label>
-							</div>
+							<CollapsibleContent
+								class="mt-4"
+								collapsedHeight="140px"
+								fadeHeight="4rem"
+								labelSize="base"
+								labelMargin="0.5rem"
+								readMore={copy.readDetails}
+								showLess={copy.showLess}
+							>
+								<ul class="mt-3">
+									{primary.achievements.map((item) => (
+										<li class="mb-2">
+											<LocaleText as="span" text={item} />
+										</li>
+									))}
+								</ul>
+							</CollapsibleContent>
 						)}
 					</div>
 				</div>
@@ -128,13 +130,13 @@ const groups = [
 						{secondary.map((exp) => (
 							<article class="surface">
 								<header>
-									{exp.logo ? (
-										<div class="legacy-exp__badge legacy-exp__badge--image">
-											<img src={exp.logo} alt={exp.company} loading="lazy" />
-										</div>
-									) : (
-										<div class="legacy-exp__badge">{exp.company.slice(0, 2).toUpperCase()}</div>
-									)}
+									<EntityBadge
+										logo={exp.logo}
+										name={exp.company}
+										fallbackText={exp.company.slice(0, 2).toUpperCase()}
+										size={40}
+										fontSize="1rem"
+									/>
 									<div>
 										<h4>{exp.company}</h4>
 										<p class="eyebrow text-xs" style="margin: 0.15rem 0;">
@@ -149,23 +151,22 @@ const groups = [
 									<LocaleText as="span" text={exp.summary} />
 								</p>
 								{exp.achievements && exp.achievements.length > 0 && (
-									<div class="mt-3 relative">
-										<input type="checkbox" id={`toggle-sec-${exp.company.replace(/\\s+/g, '-')}`} class="legacy-exp__toggle hidden" />
-										<div class="legacy-exp__collapse overflow-hidden max-h-[100px] transition-[max-height] duration-500 ease-in-out relative">
-											<ul class="mt-2 text-sm pl-4">
-												{exp.achievements.map((item) => (
-													<li class="mb-1">
-														<LocaleText as="span" text={item} />
-													</li>
-												))}
-											</ul>
-											<div class="legacy-exp__fade absolute bottom-0 left-0 w-full h-12 pointer-events-none"></div>
-										</div>
-										<label for={`toggle-sec-${exp.company.replace(/\\s+/g, '-')}`} class="legacy-exp__label cursor-pointer text-sm font-semibold text-accent hover:underline mt-2 inline-flex items-center select-none">
-											<span class="read-more"><LocaleText as="span" text={locale('Read details', 'Baca selengkapnya')} /></span>
-											<span class="show-less"><LocaleText as="span" text={locale('Show less', 'Tampilkan lebih sedikit')} /></span>
-										</label>
-									</div>
+									<CollapsibleContent
+										class="mt-3"
+										collapsedHeight="100px"
+										fadeHeight="3rem"
+										labelMargin="0.5rem"
+										readMore={copy.readDetails}
+										showLess={copy.showLess}
+									>
+										<ul class="mt-2 text-sm pl-4">
+											{exp.achievements.map((item) => (
+												<li class="mb-1">
+													<LocaleText as="span" text={item} />
+												</li>
+											))}
+										</ul>
+									</CollapsibleContent>
 								)}
 							</article>
 						))}
@@ -177,26 +178,8 @@ const groups = [
 </section>
 
 <style>
-	.legacy-exp__toggle:checked ~ .legacy-exp__label .read-more {
-		display: none;
-	}
-	.legacy-exp__toggle:not(:checked) ~ .legacy-exp__label .show-less {
-		display: none;
-	}
-	.legacy-exp__fade {
-		background: linear-gradient(to top, var(--bg-soft), transparent);
-		transition: opacity 0.3s, background 0.2s ease;
-	}
-
-	.surface:hover .legacy-exp__fade {
+	.surface:hover :global(.collapsible__fade) {
 		background: linear-gradient(to top, var(--bg-elevated), transparent);
-	}
-
-	.legacy-exp__toggle:checked ~ .legacy-exp__collapse {
-		max-height: 3000px;
-	}
-	.legacy-exp__toggle:checked ~ .legacy-exp__collapse .legacy-exp__fade {
-		opacity: 0;
 	}
 
 	.legacy-exp {
@@ -209,16 +192,6 @@ const groups = [
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
-	}
-
-	.legacy-exp__intro h2 {
-		margin: 0 0 0.5rem;
-		font-family: inherit;
-		font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		color: var(--text);
 	}
 
 	.legacy-exp__content {
@@ -327,32 +300,6 @@ const groups = [
 		grid-template-columns: auto 1fr;
 		align-items: center;
 		gap: 0.75rem;
-	}
-
-	.legacy-exp__badge {
-		width: 2.5rem;
-		height: 2.5rem;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-weight: 700;
-		color: var(--accent);
-		background: transparent;
-		overflow: hidden;
-		flex-shrink: 0;
-	}
-
-	.legacy-exp__badge--image {
-		background: transparent;
-	}
-
-	.legacy-exp__badge--image img {
-		max-width: 100%;
-		max-height: 100%;
-		width: auto;
-		height: auto;
-		object-fit: contain;
-		display: block;
 	}
 
 	@media (max-width: 960px) {

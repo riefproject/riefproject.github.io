@@ -8,13 +8,12 @@ import ThemeToggle from '../components/ThemeToggle.vue';
 import LangToggle from '../components/LangToggle.vue';
 import CvDownloadButton from '../components/CvDownloadButton.vue';
 import LocaleText from '../components/i18n/LocaleText.astro';
+import { t as locale } from '../utils/i18n';
 
 type LayoutProps = {
 	title?: string;
 	description?: string;
 };
-
-const locale = (en: string, id: string) => ({ en, id });
 
 const navItems = [
 	{ label: locale('Home', 'Beranda'), href: '#beranda' },

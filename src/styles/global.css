@@ -201,6 +201,42 @@ main {
   display: inline-block;
 }
 
+.section-intro h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.entity-badge {
+  width: var(--entity-badge-size, 40px);
+  height: var(--entity-badge-size, 40px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--accent);
+  overflow: hidden;
+}
+
+.entity-badge--boxed {
+  border-radius: var(--radius-sm);
+  background: var(--bg-soft);
+}
+
+.entity-badge img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
 .surface {
   padding: 1.5rem;
   border-radius: var(--radius-xl);

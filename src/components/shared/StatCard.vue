@@ -1,5 +1,5 @@
 <template>
-  <div class="stat-card">
+  <div class="stat-card" :class="appearance === 'dev' && 'stat-card--dev'">
     <span class="stat-label">{{ label }}</span>
     <div
       class="stat-value"
@@ -24,9 +24,11 @@ const props = withDefaults(
     unit?: string;
     helper?: string;
     variant?: 'emerald' | 'sky' | 'amber' | 'purple' | 'none';
+    appearance?: 'default' | 'dev';
   }>(),
   {
     variant: 'none',
+    appearance: 'default',
   }
 );
 
@@ -101,6 +103,50 @@ const colorClass = computed(() => {
   margin-top: 0.2rem;
 }
 
+.stat-card--dev {
+  justify-content: space-between;
+  gap: 0;
+  padding: 1.25rem 1.35rem;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.stat-card--dev .stat-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.stat-card--dev .stat-value {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+.stat-card--dev .stat-unit {
+  font-weight: 700;
+  opacity: 0.85;
+  margin-left: 1px;
+}
+
+.stat-card--dev .stat-helper {
+  font-size: var(--text-sm);
+  line-height: 1.35;
+  margin-top: 0;
+}
+
 :root.light .stat-card {
   background: var(--bg-soft);
   border: none;
@@ -123,5 +169,19 @@ const colorClass = computed(() => {
 
 :root.light .stat-helper {
   color: #6b7280;
+}
+
+@media (max-width: 640px) {
+  .stat-card--dev {
+    padding: 1rem 1.1rem;
+  }
+
+  .stat-card--dev .stat-value {
+    font-size: 1.45rem;
+  }
+
+  .stat-card--dev .stat-helper {
+    font-size: 0.68rem;
+  }
 }
 </style>

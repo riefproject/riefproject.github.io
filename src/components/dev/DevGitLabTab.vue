@@ -10,26 +10,35 @@
     </div>
 
     <div class="stats-grid">
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'Total Event' : 'Total Events' }}</span>
-        <div class="stat-value val-emerald">{{ gitlabTotalEvents }}<span class="stat-unit">+</span></div>
-        <span class="stat-helper">{{ isId ? 'Aktivitas di GitLab' : 'GitLab activity' }}</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'Hari Aktif' : 'Active Days' }}</span>
-        <div class="stat-value val-sky">{{ gitlab?.stats?.daysActive || 0 }}</div>
-        <span class="stat-helper">{{ isId ? 'Hari dengan aktivitas' : 'Days with activity' }}</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'MR Dibuka' : 'MR Opened' }}</span>
-        <div class="stat-value val-amber">{{ gitlabMrOpened }}</div>
-        <span class="stat-helper">Merge Request</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'MR Merged' : 'MR Merged' }}</span>
-        <div class="stat-value val-purple">{{ gitlabMrMerged }}</div>
-        <span class="stat-helper">{{ isId ? 'Digabung ke branch utama' : 'Merged to main branch' }}</span>
-      </div>
+      <StatCard
+        :label="isId ? 'Total Event' : 'Total Events'"
+        :value="gitlabTotalEvents"
+        unit="+"
+        appearance="dev"
+        variant="emerald"
+        :helper="isId ? 'Aktivitas di GitLab' : 'GitLab activity'"
+      />
+      <StatCard
+        :label="isId ? 'Hari Aktif' : 'Active Days'"
+        :value="gitlab?.stats?.daysActive || 0"
+        appearance="dev"
+        variant="sky"
+        :helper="isId ? 'Hari dengan aktivitas' : 'Days with activity'"
+      />
+      <StatCard
+        :label="isId ? 'MR Dibuka' : 'MR Opened'"
+        :value="gitlabMrOpened"
+        appearance="dev"
+        variant="amber"
+        helper="Merge Request"
+      />
+      <StatCard
+        :label="isId ? 'MR Merged' : 'MR Merged'"
+        :value="gitlabMrMerged"
+        appearance="dev"
+        variant="purple"
+        :helper="isId ? 'Digabung ke branch utama' : 'Merged to main branch'"
+      />
     </div>
 
     <ActivityHeatmap
@@ -40,28 +49,22 @@
       :isId="isId"
     />
 
-    <div class="mt-8" v-if="gitlabLanguages.length">
-      <div class="block-header">
-        <h3>{{ isId ? 'Bahasa Pemrograman' : 'Most Used Languages' }}</h3>
-        <span class="block-sub">{{ isId ? 'Dari proyek aktif (detail proyek disamarkan)' : 'From active projects (details masked)' }}</span>
-      </div>
-      <div class="lang-list">
-        <div v-for="lang in gitlabLanguages" :key="lang.name" class="lang-row">
-          <div class="lang-head">
-            <span class="lang-name">{{ lang.name }}</span>
-            <span class="lang-pct">{{ lang.percentage }}%</span>
-          </div>
-          <div class="lang-bar-track">
-            <div class="lang-bar-fill" :style="{ width: `${lang.percentage}%` }"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <LanguageBars
+      v-if="gitlabLanguages.length"
+      :languages="gitlabLanguages"
+      :isId="isId"
+      :titleEn="'Most Used Languages'"
+      :titleId="'Bahasa Pemrograman'"
+      :subtitleEn="'From active projects (details masked)'"
+      :subtitleId="'Dari proyek aktif (detail proyek disamarkan)'"
+    />
   </div>
 </template>
 
 <script setup lang="ts">
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
+import LanguageBars from '../shared/LanguageBars.vue';
+import StatCard from '../shared/StatCard.vue';
 import type { DevHeatmapDay } from './devUtils';
 
 defineProps<{

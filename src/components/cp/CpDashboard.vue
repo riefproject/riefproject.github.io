@@ -106,8 +106,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useStore } from '@nanostores/vue';
-import { lang } from '../../stores/uiStore.js';
+import { useLocale } from '../../composables/useLocale';
 import CpHeatmap from './CpHeatmap.vue';
 import CpOverviewTab from './CpOverviewTab.vue';
 import CpTlxTab from './CpTlxTab.vue';
@@ -117,16 +116,13 @@ import CpHackerrankTab from './CpHackerrankTab.vue';
 import NavTabs from '../shared/NavTabs.vue';
 import StatCard from '../shared/StatCard.vue';
 import DashboardTopbar from '../shared/DashboardTopbar.vue';
-import type { HeatmapDay } from './cpUtils';
-import { formatRelativeTime, cleanLanguage } from './cpUtils';
+import { buildCpHeatmap, buildHeatmapMonths, chunkIntoWeeks, getPrimaryLanguage } from './cpUtils';
 
 const props = defineProps<{
   initialData?: any;
 }>();
 
-const $lang = useStore(lang);
-const isId = computed(() => $lang.value === 'id');
-const locale = computed(() => (isId.value ? 'id' : 'en'));
+const { isId, locale } = useLocale();
 
 const cpData = ref<any>(props.initialData || null);
 const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date().toISOString());
@@ -141,73 +137,7 @@ const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalS
 const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || 102);
 const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || 147);
 
-const primaryLanguage = computed(() => {
-  const overviewTop = cpData.value?.overview?.topLanguage;
-  if (overviewTop?.name && overviewTop?.count) {
-    const name = overviewTop.name;
-    const count = Number(overviewTop.count);
-    const formattedCount = count >= 1000 ? `${Math.floor(count / 1000)}K+` : `${count}+`;
-    return { name, count, formattedCount };
-  }
-
-  const counts: Record<string, number> = {};
-
-  // TLX
-  const tlxLangs = cpData.value?.platforms?.tlx?.languages || {};
-  Object.entries(tlxLangs).forEach(([l, cnt]) => {
-    const cleaned = cleanLanguage(l);
-    counts[cleaned] = (counts[cleaned] || 0) + Number(cnt || 0);
-  });
-
-  // Codeforces
-  const cfLangs = cpData.value?.platforms?.codeforces?.languages;
-  if (cfLangs && Object.keys(cfLangs).length > 0) {
-    Object.entries(cfLangs).forEach(([l, cnt]) => {
-      const cleaned = cleanLanguage(l);
-      counts[cleaned] = (counts[cleaned] || 0) + Number(cnt || 0);
-    });
-  } else {
-    const cfSubs = Number(cpData.value?.platforms?.codeforces?.totalSubmissions) || 0;
-    counts['C++20'] = (counts['C++20'] || 0) + cfSubs;
-  }
-
-  // LeetCode
-  (cpData.value?.platforms?.leetcode?.recentSolved || []).forEach((s: any) => {
-    if (s.language) {
-      const cleaned = cleanLanguage(s.language);
-      counts[cleaned] = (counts[cleaned] || 0) + 1;
-    }
-  });
-
-  // HackerRank
-  (cpData.value?.platforms?.hackerrank?.recentSolved || []).forEach((s: any) => {
-    if (s.language) {
-      const cleaned = cleanLanguage(s.language);
-      counts[cleaned] = (counts[cleaned] || 0) + 1;
-    }
-  });
-
-  let maxLang = 'C++20';
-  let maxCount = 0;
-  Object.entries(counts).forEach(([l, cnt]) => {
-    if (cnt > maxCount) {
-      maxCount = cnt;
-      maxLang = l;
-    }
-  });
-
-  if (maxCount <= 0) {
-    maxCount = 1137;
-    maxLang = 'C++20';
-  }
-
-  const formattedCount = maxCount >= 1000 ? `${Math.floor(maxCount / 1000)}K+` : `${maxCount}+`;
-  return {
-    name: maxLang,
-    count: maxCount,
-    formattedCount,
-  };
-});
+const primaryLanguage = computed(() => getPrimaryLanguage(cpData.value));
 
 
 
@@ -250,69 +180,17 @@ const tabs = computed(() => [
 ]);
 
 // Heatmap Calculation
-const heatmapData = computed(() => {
-  const map = cpData.value?.overview?.heatmap || {};
-  const today = new Date();
-  const days: HeatmapDay[] = [];
+const heatmapData = computed(() =>
+  buildCpHeatmap(cpData.value?.overview?.heatmap || {}),
+);
 
-  for (let i = 363; i >= 0; i--) {
-    const d = new Date(today);
-    d.setDate(d.getDate() - i);
-    const dateStr = d.toISOString().slice(0, 10);
-    const entry = map[dateStr];
-
-    let tries = 0;
-    let ac = 0;
-    if (typeof entry === 'number') {
-      tries = entry;
-    } else if (entry && typeof entry === 'object') {
-      tries = Number(entry.tries || entry.count || 0);
-      ac = Number(entry.ac || 0);
-    }
-
-    let level = 0;
-    if (tries > 0 && tries <= 2) level = 1;
-    else if (tries > 2 && tries <= 6) level = 2;
-    else if (tries > 6 && tries <= 15) level = 3;
-    else if (tries > 15) level = 4;
-
-    days.push({ date: dateStr, count: tries, tries, ac, level });
-  }
-  return days;
-});
-
-const heatmapWeeks = computed(() => {
-  const allDays = heatmapData.value;
-  const weeks: HeatmapDay[][] = [];
-  for (let i = 0; i < allDays.length; i += 7) {
-    weeks.push(allDays.slice(i, i + 7));
-  }
-  return weeks;
-});
+const heatmapWeeks = computed(() => chunkIntoWeeks(heatmapData.value));
 
 const totalSubmissionsInHeatmap = computed(() => {
   return heatmapData.value.reduce((acc, d) => acc + d.tries, 0);
 });
 
-const heatmapMonths = computed(() => {
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const res: { name: string; percent: number }[] = [];
-  const weeks = heatmapWeeks.value;
-  const totalWeeks = weeks.length;
-
-  weeks.forEach((w, idx) => {
-    if (w[0]) {
-      const d = new Date(w[0].date);
-      if (d.getDate() <= 7) {
-        res.push({
-          name: months[d.getMonth()],
-          percent: Math.round((idx / totalWeeks) * 100),
-        });
-      }
-    }
-  });
-  return res;
-});
+const heatmapMonths = computed(() => buildHeatmapMonths(heatmapWeeks.value));
 </script>
 
 <style scoped>

@@ -1,9 +1,7 @@
-export type LocaleText = {
-  en: string;
-  id: string;
-};
+import { t, type LocaleText } from '../utils/i18n';
 
-const t = (en: string, id: string): LocaleText => ({ en, id });
+export type { LocaleText };
+export { t };
 
 export type Profile = {
   name: string;
@@ -122,5 +120,3 @@ export type Contact = {
   message: LocaleText;
   availabilityNote: LocaleText;
 };
-
-export { t };

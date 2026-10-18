@@ -21,8 +21,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useStore } from '@nanostores/vue';
-import { lang } from '../../stores/uiStore.js';
+import { useLocale } from '../../composables/useLocale';
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
 import NavTabs from '../shared/NavTabs.vue';
 import {
@@ -37,8 +36,7 @@ const props = defineProps<{
   initialCpData?: any;
 }>();
 
-const $lang = useStore(lang);
-const isId = computed(() => $lang.value === 'id');
+const { isId } = useLocale();
 
 const heatmapFilter = ref<'all' | 'dev' | 'cp'>('all');
 

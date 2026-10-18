@@ -8,10 +8,10 @@ import type {
 } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
 import CvDownloadButton from '../CvDownloadButton.vue';
+import ArrowUpRight from '../shared/ArrowUpRight.astro';
 import devActivity from '../../data/dev-activity-initial.json';
 import cpData from '../../data/cp-data-initial.json';
-
-const locale = (en: string, id: string) => ({ en, id });
+import { t as locale } from '../../utils/i18n';
 
 type HeroProps = {
 	profile: Profile;
@@ -45,6 +45,7 @@ const heroCopy = {
 	contact: locale('Contact Me', 'Hubungi Saya'),
 	availabilityTitle: locale('Current Status', 'Status Saat Ini'),
 	downloadCv: locale('Download CV', 'Unduh CV'),
+	connect: locale('Connect', 'Kontak'),
 };
 
 const devCopy = {
@@ -110,7 +111,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
             <strong class="text-text group-hover:text-accent transition-colors">{stat.value}</strong>
             <p class="text-sm text-muted mt-1 flex items-center gap-1 group-hover:text-text transition-colors">
               <LocaleText as="span" text={stat.label} />
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="opacity-0 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+              <ArrowUpRight class="opacity-0 group-hover:opacity-100 transition-opacity" />
             </p>
           </a>
         ) : (
@@ -148,7 +149,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
     </div>
     <a href="/development-activity" class="dev-card__cta">
       <LocaleText as="span" text={devCopy.cta} />
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dev-card__arrow"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+      <ArrowUpRight size={14} class="dev-card__arrow" />
     </a>
   </div>
 
@@ -166,13 +167,13 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 
   <!-- 5. Social & Contact Connect -->
   <div class="bento-card bento-socials">
-    <p class="eyebrow mb-4"><LocaleText as="span" text={locale('Connect', 'Kontak')} /></p>
+    <p class="eyebrow mb-4"><LocaleText as="span" text={heroCopy.connect} /></p>
     <p class="text-sm text-muted mb-6"><LocaleText as="span" text={contact.availabilityNote} /></p>
     <div class="social-list mt-auto">
       {socials.map((social) => (
         <a href={social.url} target="_blank" rel="noreferrer" class="social-btn">
           {social.label}
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+          <ArrowUpRight class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity" />
         </a>
       ))}
     </div>

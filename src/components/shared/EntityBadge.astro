@@ -1,0 +1,38 @@
+---
+export type EntityBadgeProps = {
+  logo?: string;
+  name: string;
+  fallbackText?: string;
+  initialsLength?: number;
+  size?: number;
+  fontSize?: string;
+  boxed?: boolean;
+  class?: string;
+};
+
+const {
+  logo,
+  name,
+  fallbackText,
+  initialsLength = 2,
+  size = 40,
+  fontSize = '0.9rem',
+  boxed = false,
+  class: className = '',
+} = Astro.props as EntityBadgeProps;
+
+const fallback = fallbackText ?? name.slice(0, initialsLength).toUpperCase();
+---
+
+<span
+  class:list={['entity-badge', boxed && 'entity-badge--boxed', className]}
+  style={`--entity-badge-size: ${size}px; font-size: ${fontSize};`}
+>
+  {
+    logo ? (
+      <img src={logo} alt={name} loading="lazy" />
+    ) : (
+      <span>{fallback}</span>
+    )
+  }
+</span>

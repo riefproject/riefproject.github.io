@@ -1,8 +1,10 @@
 ---
 import type { Contact, SocialLink } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
+import SectionIntro from './SectionIntro.astro';
+import FormField from './FormField.astro';
+import { t as locale } from '../../utils/i18n';
 
-const locale = (en: string, id: string) => ({ en, id });
 const copy = {
 	eyebrow: locale('Contact', 'Kontak'),
 	heading: locale('Ready to collaborate on your next idea.', 'Siap kolaborasi untuk ide berikutnya.'),
@@ -29,16 +31,12 @@ const { contact, socials } = Astro.props;
 ---
 
 <section id="kontak" class="section contact">
-	<div class="surface contact__details">
-		<p class="eyebrow">
-			<LocaleText as="span" text={copy.eyebrow} />
-		</p>
-		<h2>
-			<LocaleText as="span" text={copy.heading} />
-		</h2>
-		<p>
-			<LocaleText as="span" text={contact.message} />
-		</p>
+	<SectionIntro
+		class="contact__details"
+		eyebrow={copy.eyebrow}
+		heading={copy.heading}
+		body={contact.message}
+	>
 		<dl>
 			<div>
 				<dt>
@@ -57,7 +55,7 @@ const { contact, socials } = Astro.props;
 				</a>
 			))}
 		</div>
-	</div>
+	</SectionIntro>
 	<form
 		class="surface contact__form"
 		method="POST"
@@ -66,57 +64,10 @@ const { contact, socials } = Astro.props;
 		<p class="eyebrow">
 			<LocaleText as="span" text={copy.formEyebrow} />
 		</p>
-		<label>
-			<span>
-				<LocaleText as="span" text={copy.nameLabel} />
-			</span>
-			<input
-				type="text"
-				name="name"
-				placeholder={copy.namePlaceholder.en}
-				data-i18n-placeholder-en={copy.namePlaceholder.en}
-				data-i18n-placeholder-id={copy.namePlaceholder.id}
-				required
-			/>
-		</label>
-		<label>
-			<span>
-				<LocaleText as="span" text={copy.emailLabel} />
-			</span>
-			<input
-				type="email"
-				name="email"
-				placeholder={copy.emailPlaceholder.en}
-				data-i18n-placeholder-en={copy.emailPlaceholder.en}
-				data-i18n-placeholder-id={copy.emailPlaceholder.id}
-				required
-			/>
-		</label>
-		<label>
-			<span>
-				<LocaleText as="span" text={copy.subjectLabel} />
-			</span>
-			<input
-				type="text"
-				name="subject"
-				placeholder={copy.subjectPlaceholder.en}
-				data-i18n-placeholder-en={copy.subjectPlaceholder.en}
-				data-i18n-placeholder-id={copy.subjectPlaceholder.id}
-			/>
-		</label>
-		<label>
-			<span>
-				<LocaleText as="span" text={copy.messageLabel} />
-			</span>
-			<textarea
-				name="message"
-				rows="4"
-				placeholder={copy.messagePlaceholder.en}
-				data-i18n-placeholder-en={copy.messagePlaceholder.en}
-				data-i18n-placeholder-id={copy.messagePlaceholder.id}
-				required
-			></textarea>
-		</label>
+		<FormField label={copy.nameLabel} name="name" placeholder={copy.namePlaceholder} required />
+		<FormField label={copy.emailLabel} name="email" type="email" placeholder={copy.emailPlaceholder} required />
+		<FormField label={copy.subjectLabel} name="subject" placeholder={copy.subjectPlaceholder} />
+		<FormField label={copy.messageLabel} name="message" type="textarea" placeholder={copy.messagePlaceholder} required />
 		<button class="btn primary" type="submit">
 			<LocaleText as="span" text={copy.submit} />
 		</button>
@@ -128,15 +79,6 @@ const { contact, socials } = Astro.props;
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: 1.5rem;
-	}
-
-	.contact__details h2 {
-		margin: 0 0 0.5rem;
-		font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		color: var(--text);
 	}
 
 	dl {
@@ -161,7 +103,7 @@ const { contact, socials } = Astro.props;
 		gap: 0.9rem;
 	}
 
-	label {
+	.contact__form :global(label) {
 		display: flex;
 		flex-direction: column;
 		gap: 0.35rem;
@@ -169,8 +111,8 @@ const { contact, socials } = Astro.props;
 		color: var(--muted);
 	}
 
-	input,
-	textarea {
+	.contact__form :global(input),
+	.contact__form :global(textarea) {
 		background: var(--bg-soft);
 		border: 1px solid var(--border);
 		border-radius: var(--radius-md);
@@ -182,15 +124,11 @@ const { contact, socials } = Astro.props;
 		transition: border-color 0.2s ease;
 	}
 
-	input:focus,
-	textarea:focus {
+	.contact__form :global(input:focus),
+	.contact__form :global(textarea:focus) {
 		outline: 2px solid var(--accent);
 		outline-offset: 2px;
 		border-color: var(--accent);
-	}
-
-	.form-hint {
-		color: var(--muted);
 	}
 
 	.availability {

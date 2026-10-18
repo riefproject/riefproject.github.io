@@ -1,9 +1,12 @@
 ---
 import type { CPProfile } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
+import SectionIntro from './SectionIntro.astro';
+import ArrowUpRight from '../shared/ArrowUpRight.astro';
+import EntityBadge from '../shared/EntityBadge.astro';
 import initialCpData from '../../data/cp-data-initial.json';
+import { t as locale } from '../../utils/i18n';
 
-const locale = (en: string, id: string) => ({ en, id });
 const copy = {
 	eyebrow: locale('Competitive programming', 'Competitive programming'),
 	heading: locale('Profiles where I learn, compete, and track progress.', 'Profil tempat saya belajar, berkompetisi, dan memantau progres.'),
@@ -13,6 +16,9 @@ const copy = {
 	),
 	viewProfile: locale('View profile', 'Lihat profil'),
 	openDashboard: locale('Open Live CP Dashboard', 'Buka Dashboard CP Live'),
+	summarySolved: locale('Solved', 'Selesai'),
+	summarySubmissions: locale('Submissions', 'Submisi'),
+	summaryPlatforms: locale('Platforms', 'Platform'),
 };
 
 const totalCpSolved = initialCpData?.overview?.totalSolved || 640;
@@ -26,46 +32,38 @@ const { profiles = [] }: Props = Astro.props;
 ---
 
 <section id="cp-profiles" class="section cp-profiles">
-	<div class="surface cp-profiles__intro">
-		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-			<div>
-				<p class="eyebrow">
-					<LocaleText as="span" text={copy.eyebrow} />
-				</p>
-				<h2>
-					<LocaleText as="span" text={copy.heading} />
-				</h2>
-				<p>
-					<LocaleText as="span" text={copy.body} />
-				</p>
-				<div class="cp-live-summary mt-3 flex items-center gap-3 text-xs text-muted flex-wrap">
-					<span class="inline-flex items-center gap-1.5 text-text font-semibold">
-						<!-- <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> -->
-						{totalCpSolved}+ <LocaleText as="span" text={locale('Solved', 'Selesai')} />
-					</span>
-					<span>•</span>
-					<span>{totalCpSubmissions}+ <LocaleText as="span" text={locale('Submissions', 'Submisi')} /></span>
-					<span>•</span>
-					<span>4 <LocaleText as="span" text={locale('Platforms', 'Platform')} /></span>
-				</div>
-			</div>
+	<SectionIntro
+		class="cp-profiles__intro"
+		eyebrow={copy.eyebrow}
+		heading={copy.heading}
+		body={copy.body}
+	>
+		<div class="cp-live-summary mt-3 flex items-center gap-3 text-xs text-muted flex-wrap">
+			<span class="inline-flex items-center gap-1.5 text-text font-semibold">
+				{totalCpSolved}+ <LocaleText as="span" text={copy.summarySolved} />
+			</span>
+			<span>•</span>
+			<span>{totalCpSubmissions}+ <LocaleText as="span" text={copy.summarySubmissions} /></span>
+			<span>•</span>
+			<span>4 <LocaleText as="span" text={copy.summaryPlatforms} /></span>
 		</div>
 		<a href="/competitive-programming" class="cp-dashboard-cta group mt-4">
 			<u> <LocaleText as="span" text={copy.openDashboard} /></u>
-			<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+			<ArrowUpRight class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity" />
 		</a>
-	</div>
+	</SectionIntro>
 	<div class="cp-profiles__grid">
 		{profiles.map((item) => (
 			<article class="surface cp-card">
 				<div class="cp-card__header">
-					{item.logo ? (
-						<div class="cp-badge cp-badge--image">
-							<img src={item.logo} alt={item.platform} loading="lazy" />
-						</div>
-					) : (
-						<div class="cp-badge">{item.platform.slice(0, 2).toUpperCase()}</div>
-					)}
+					<EntityBadge
+						logo={item.logo}
+						name={item.platform}
+						fallbackText={item.platform.slice(0, 2).toUpperCase()}
+						size={40}
+						fontSize="1rem"
+						boxed={Boolean(item.logo)}
+					/>
 					<div class="cp-card__title-group">
 						<p class="cp-handle platform">{item.platform}</p>
 						<h6 class="m-0 p-0">@{item.handle}</h6>
@@ -78,7 +76,7 @@ const { profiles = [] }: Props = Astro.props;
 				)}
 				<a class="cp-card__link" href={item.url} target="_blank" rel="noreferrer">
 					<u> <LocaleText as="span" text={copy.viewProfile} /></u>
-					<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
+					<ArrowUpRight class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity" />
 				</a>
 			</article>
 		))}
@@ -90,16 +88,6 @@ const { profiles = [] }: Props = Astro.props;
 		display: flex;
 		flex-direction: column;
 		gap: 1.5rem;
-	}
-
-	.cp-profiles__intro h2 {
-		margin: 0 0 0.5rem;
-		font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-		font-family: inherit;
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		color: var(--text);
 	}
 
 	.cp-profiles__grid {
@@ -118,31 +106,6 @@ const { profiles = [] }: Props = Astro.props;
 		grid-template-columns: auto 1fr;
 		gap: 0.75rem;
 		align-items: center;
-	}
-
-	.cp-badge {
-		width: 2.5rem;
-		height: 2.5rem;
-		/* border-radius: 12px; */
-		display: grid;
-		place-items: center;
-		font-weight: 700;
-		color: var(--accent);
-		overflow: hidden;
-		/* background: var(--bg-soft); */
-		/* border: 1px solid var(--border); */
-	}
-
-	.cp-badge--image {
-		border-radius: var(--radius-sm);
-		background: var(--bg-soft);
-		object-fit: cover;
-	}
-
-	.cp-badge--image img {
-		/* max-height: 40px; */
-		width: auto;
-		display: block;
 	}
 
 	.cp-card__title-group {

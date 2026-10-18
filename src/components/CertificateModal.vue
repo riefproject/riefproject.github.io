@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed, watch } from "vue";
-import { useStore } from "@nanostores/vue";
-import { lang as langStore } from "../stores/uiStore.js";
 import type { Achievement } from "../types/profile.types";
+import { useLocale } from "../composables/useLocale";
 
 const props = defineProps<{
   achievement: Achievement | null;
@@ -13,8 +12,7 @@ const emit = defineEmits<{
   (e: "close"): void;
 }>();
 
-const $lang = useStore(langStore);
-const locale = computed(() => ($lang.value === "id" ? "id" : "en"));
+const { locale } = useLocale();
 
 const copySuccess = ref(false);
 const currentImageIndex = ref(0);

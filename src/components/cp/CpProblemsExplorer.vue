@@ -103,22 +103,19 @@ import {
   getDiffClass,
   formatExactDate,
 } from "./cpUtils";
-import { useStore } from "@nanostores/vue";
-import { lang } from "../../stores/uiStore.js";
+import { useLocale } from "../../composables/useLocale";
 
 const props = defineProps<{
   initialData?: any;
   initialProblems?: any;
 }>();
 
-const $lang = useStore(lang);
-const isId = computed(() => $lang.value === "id");
+const { isId, locale } = useLocale();
 
 const cpData = ref<any>(props.initialData || null);
 const rawProblemsData = ref<any>(props.initialProblems || null);
 const allPlatformKeys = ["tlx", "codeforces", "leetcode", "hackerrank"];
 const selectedPlatforms = ref<string[]>([...allPlatformKeys]);
-const locale = computed(() => (isId.value ? "id" : "en"));
 
 // Platform Total Solved counts
 const totalAllSolved = computed(

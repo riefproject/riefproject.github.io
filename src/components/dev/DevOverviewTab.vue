@@ -5,6 +5,7 @@
         :label="isId ? 'Total Kontribusi' : 'Total Contributions'"
         :value="totalContributions"
         unit="+"
+        appearance="dev"
         variant="emerald"
         :helper="isId ? 'Gabungan GitHub & GitLab' : 'Combined GitHub + GitLab'"
       />
@@ -12,18 +13,21 @@
         :label="isId ? 'Streak Saat Ini' : 'Current Streak'"
         :value="currentStreak"
         :unit="isId ? ' hari' : ' days'"
+        appearance="dev"
         variant="sky"
         :helper="isId ? 'Hari berturut-turut aktif' : 'Consecutive active days'"
       />
       <StatCard
         :label="isId ? 'PR / MR Selesai' : 'PR / MR Merged'"
         :value="prMerged"
+        appearance="dev"
         variant="purple"
         :helper="`GitHub ${githubPrMerged} · GitLab ${gitlabMrMerged}`"
       />
       <StatCard
         :label="isId ? 'Bahasa Utama' : 'Top Language'"
         :value="topLanguage || '—'"
+        appearance="dev"
         variant="amber"
         :helper="isId ? 'Berdasarkan bytes repo publik' : 'By public repo bytes'"
       />

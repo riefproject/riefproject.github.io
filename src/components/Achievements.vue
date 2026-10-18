@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
-import { useStore } from "@nanostores/vue";
 import type {
   Achievement,
   AchievementTab,
   LocaleText,
 } from "../types/profile.types";
-import { lang as langStore } from "../stores/uiStore.js";
+import { useLocale } from "../composables/useLocale";
 import CertificateModal from "./CertificateModal.vue";
 
 type AchievementsProps = {
@@ -58,13 +57,7 @@ watch(
 );
 
 const searchQuery = ref("");
-const $lang = useStore(langStore);
-const locale = computed(() => ($lang.value === "id" ? "id" : "en"));
-
-const resolveText = (value?: LocaleText) => {
-  if (!value) return "";
-  return value[locale.value] ?? value.en ?? value.id ?? "";
-};
+const { isId, resolveText } = useLocale();
 
 const getHighlightTags = (value?: LocaleText) => {
   const text = resolveText(value);
@@ -76,7 +69,7 @@ const getHighlightTags = (value?: LocaleText) => {
 };
 
 const copy = computed(() =>
-  locale.value === "id"
+  isId.value
     ? {
         heading: "Pencapaian & bukti",
         subheading: "Kompetisi, kursus, dan badge yang memang sudah selesai.",
@@ -172,36 +165,12 @@ const visibleItems = computed(
           }}</span>
         </div>
         <!-- CTA unified: show certificate when available, otherwise open modal with details -->
-        <div v-if="item.certificateImage">
-          <button
-            class="view-cert-btn"
-            type="button"
-            @click.stop="openModal(item)">
-            {{ locale === "id" ? "Lihat sertifikat" : "View certificate" }}
-            <svg
-              class="credential-icon"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24">
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-            </svg>
-          </button>
-        </div>
         <button
-          v-else-if="item.link"
+          v-if="item.certificateImage || item.link"
           type="button"
           class="credential-link"
           @click.stop="openModal(item)">
-          {{ locale === "id" ? "Lihat sertifikat" : "View certificate" }}
+          {{ isId ? "Lihat sertifikat" : "View certificate" }}
           <svg
             class="credential-icon"
             fill="none"
@@ -389,6 +358,7 @@ const visibleItems = computed(
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  font-size: 1rem;
   color: var(--accent);
   font-weight: 600;
   text-decoration: none;
@@ -413,24 +383,6 @@ const visibleItems = computed(
   height: 48px;
   object-fit: contain;
   flex-shrink: 0;
-}
-
-.view-cert-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
-  color: var(--accent);
-  font-weight: 600;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: inherit;
-}
-
-.view-cert-btn:hover {
-  text-decoration: underline;
 }
 
 .empty-state {

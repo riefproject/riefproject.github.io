@@ -1,8 +1,10 @@
 ---
 import type { Education } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
+import SectionIntro from './SectionIntro.astro';
+import EntityBadge from '../shared/EntityBadge.astro';
+import { t as locale } from '../../utils/i18n';
 
-const locale = (en: string, id: string) => ({ en, id });
 const copy = {
 	eyebrow: locale('Education', 'Pendidikan'),
 	heading: locale('Where I studied and what I honed there.', 'Di mana saya belajar dan apa yang diasah di sana.'),
@@ -14,33 +16,26 @@ type EducationProps = {
 };
 
 const { education = [] }: EducationProps = Astro.props;
-const getBadge = (text?: string) => (text ? text : '');
 ---
 
 <section id="education" class="section education">
-	<div class="surface education__intro">
-		<p class="eyebrow">
-			<LocaleText as="span" text={copy.eyebrow} />
-		</p>
-		<h2>
-			<LocaleText as="span" text={copy.heading} />
-		</h2>
-		<p>
-			<LocaleText as="span" text={copy.body} />
-		</p>
-	</div>
+	<SectionIntro
+		class="education__intro"
+		eyebrow={copy.eyebrow}
+		heading={copy.heading}
+		body={copy.body}
+	/>
 	<div class="education__list">
 		{education.map((edu) => (
 			<article class="surface education-card">
 				<header class="education-card__header">
 					<div class="education-card__identity">
-						{edu.logo ? (
-							<div class="edu-badge edu-badge--image">
-								<img src={edu.logo} alt={edu.institution} loading="lazy" />
-							</div>
-						) : (
-							<div class="edu-badge">{getBadge(edu.institution.slice(0, 3).toUpperCase())}</div>
-						)}
+						<EntityBadge
+							logo={edu.logo}
+							name={edu.institution}
+							fallbackText={edu.institution.slice(0, 3).toUpperCase()}
+							size={44}
+						/>
 						<div class="education-card__titles">
 							<h3>{edu.institution}</h3>
 							<p class="program">
@@ -65,16 +60,6 @@ const getBadge = (text?: string) => (text ? text : '');
 </section>
 
 <style>
-	.education__intro h2 {
-		margin: 0 0 0.5rem;
-		font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-		font-family: inherit;
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		color: var(--text);
-	}
-
 	.education__list {
 		margin-top: 1.5rem;
 		display: flex;
@@ -139,35 +124,6 @@ const getBadge = (text?: string) => (text ? text : '');
 		padding: 0;
 		border-radius: 0;
 		white-space: nowrap;
-	}
-
-	.edu-badge {
-		width: 44px;
-		height: 44px;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		font-weight: 700;
-		font-size: 0.9rem;
-		color: var(--accent);
-		background: transparent;
-		border: none;
-		text-align: center;
-		padding: 0;
-		flex-shrink: 0;
-	}
-
-	.edu-badge--image {
-		background: transparent;
-	}
-
-	.edu-badge--image img {
-		max-height: 44px;
-		max-width: 44px;
-		width: auto;
-		height: auto;
-		object-fit: contain;
-		display: block;
 	}
 
 	@media (max-width: 640px) {

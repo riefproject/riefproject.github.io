@@ -1,45 +1,21 @@
 <template>
   <div class="platform-spotlight">
-    <div class="spotlight-header">
-      <div class="flex items-center gap-3.5">
-        <div class="spotlight-logo-box">
-          <img src="/img/codeforces/codeforces.webp" alt="Codeforces" class="spotlight-img-logo" />
-        </div>
-        <div>
-          <h2>Codeforces</h2>
-          <p>{{ isId ? 'Platform kompetisi algoritma global dan olimpiade internasional.' : 'Global algorithm competition and international olympiad platform.' }}</p>
-        </div>
-      </div>
-      <div class="flex items-center gap-2 flex-wrap">
-        <a href="/competitive-programming/problems?platform=codeforces" class="dedicated-page-header-btn">
-          <span>{{ isId ? 'Buka Koleksi CF (50 Soal)' : 'Open CF Archive (50)' }}</span>
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a :href="`https://codeforces.com/profile/${cpData?.platforms?.codeforces?.handle || 'feeera'}`" target="_blank" class="external-profile-btn">
-          {{ isId ? 'Profil Codeforces ↗' : 'Codeforces Profile ↗' }}
-        </a>
-      </div>
-    </div>
+    <CpPlatformHeader
+      name="Codeforces"
+      logo="/img/codeforces/codeforces.webp"
+      description-en="Global algorithm competition and international olympiad platform."
+      description-id="Platform kompetisi algoritma global dan olimpiade internasional."
+      archive-href="/competitive-programming/problems?platform=codeforces"
+      archive-label-en="Open CF Archive (50)"
+      archive-label-id="Buka Koleksi CF (50 Soal)"
+      :profile-href="`https://codeforces.com/profile/${cpData?.platforms?.codeforces?.handle || 'feeera'}`"
+      profile-label-en="Codeforces Profile ↗"
+      profile-label-id="Profil Codeforces ↗"
+      :isId="isId"
+    />
 
-    <div class="spotlight-metrics-grid">
-      <div class="spotlight-metric">
-        <span class="metric-label">{{ isId ? 'Rating Saat Ini' : 'Current Rating' }}</span>
-        <span class="metric-val metric-val-sky">{{ cpData?.platforms?.codeforces?.rating || 625 }}</span>
-        <span class="metric-sub">Rank: <span class="capitalize font-medium">{{ cpData?.platforms?.codeforces?.rank || 'newbie' }}</span></span>
-      </div>
-      <div class="spotlight-metric">
-        <span class="metric-label">{{ isId ? 'Soal Selesai' : 'Unique Solved' }}</span>
-        <span class="metric-val metric-val-emerald">{{ totalCfSolved }}</span>
-        <span class="metric-sub">{{ isId ? 'Soal Berhasil AC' : 'Problems Accepted' }}</span>
-      </div>
-      <div class="spotlight-metric">
-        <span class="metric-label">{{ isId ? 'Total Submisi' : 'Total Submissions' }}</span>
-        <span class="metric-val metric-val-purple">{{ cpData?.platforms?.codeforces?.totalSubmissions || 148 }}</span>
-        <span class="metric-sub">{{ isId ? 'Riwayat submisi di CF' : 'Submission history on CF' }}</span>
-      </div>
-    </div>
+    <CpMetricsGrid :metrics="metrics" />
 
-    <!-- CF Tags Breakdown -->
     <div class="mt-8">
       <h4 class="text-lg font-semibold mb-3 platform-subtitle">{{ isId ? 'Topik & Algoritma di Codeforces' : 'Topics & Algorithms on Codeforces' }}</h4>
       <div class="flex flex-wrap gap-2">
@@ -54,85 +30,29 @@
       </div>
     </div>
 
-    <!-- CF Recent Solved Problems Table -->
     <div class="mt-8">
-      <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-        <h4 class="text-lg font-semibold platform-subtitle">{{ isId ? 'Soal Codeforces yang Diselesaikan' : 'Solved Codeforces Problems' }}</h4>
-        <span class="text-xs platform-count-text">{{ isId ? `Total ${recentSolvedList.length} soal tercatat` : `Total ${recentSolvedList.length} recorded problems` }}</span>
-      </div>
-
-      <div class="cp-table-wrapper">
-        <table class="cp-table">
-          <thead>
-            <tr>
-              <th class="col-num">#</th>
-              <th class="col-title">{{ isId ? 'Judul Soal' : 'Problem Name' }}</th>
-              <th class="col-category">{{ isId ? 'Tag' : 'Tag' }}</th>
-              <th class="col-diff">{{ isId ? 'Kesulitan' : 'Difficulty' }}</th>
-              <th class="col-lang">{{ isId ? 'Bahasa' : 'Language' }}</th>
-              <th class="col-status">Status</th>
-              <th class="col-time">{{ isId ? 'Waktu' : 'Solved' }}</th>
-              <th class="col-action"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(item, idx) in paginatedList" :key="item.id || idx" class="cp-table-row">
-              <td class="cell-num">{{ (currentPage - 1) * pageSize + idx + 1 }}</td>
-              <td class="cell-title">
-                <a :href="item.url || '#'" target="_blank" rel="noopener noreferrer" class="problem-title-link">
-                  <span class="title-text">{{ item.title }}</span>
-                </a>
-              </td>
-              <td class="cell-category">
-                <span class="topic-pill" v-if="item.category" :title="item.category">
-                  <span>{{ item.category }}</span>
-                </span>
-              </td>
-              <td class="cell-diff">
-                <span class="diff-badge" :class="getDiffClass(item.difficulty)">{{ item.difficulty }}</span>
-              </td>
-              <td class="cell-lang">
-                <span class="lang-tag">{{ cleanLanguage(item.language) }}</span>
-              </td>
-              <td class="cell-status">
-                <span class="status-badge ac">AC</span>
-              </td>
-              <td class="cell-time">
-                {{ formatExactDate(item.solvedAt, isId) }}
-              </td>
-              <td class="cell-action">
-                <a :href="item.url" target="_blank" class="open-btn" :title="isId ? 'Buka di Codeforces' : 'Open on Codeforces'">
-                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-
-        <!-- Reusable Pagination -->
-        <CpTablePagination
-          v-model:currentPage="currentPage"
-          :totalPages="totalPages"
-          :pageSize="pageSize"
-          :totalItems="recentSolvedList.length"
-          :isId="isId"
-        />
-
-        <!-- Dedicated Link Banner -->
-        <div class="tab-bottom-cta">
-          <a href="/competitive-programming/problems?platform=codeforces" class="tab-cta-btn">
-            <span>{{ isId ? `Lihat Seluruh ${totalCfSolved} Soal Codeforces di Halaman Khusus →` : `View All ${totalCfSolved} Codeforces Problems on Dedicated Page →` }}</span>
-          </a>
-        </div>
-      </div>
+      <CpSolvedProblemsPanel
+        :problems="recentSolvedList"
+        :columns="columns"
+        title-en="Solved Codeforces Problems"
+        title-id="Soal Codeforces yang Diselesaikan"
+        archive-href="/competitive-programming/problems?platform=codeforces"
+        :cta-en="`View All ${totalCfSolved} Codeforces Problems on Dedicated Page →`"
+        :cta-id="`Lihat Seluruh ${totalCfSolved} Soal Codeforces di Halaman Khusus →`"
+        open-title-en="Open on Codeforces"
+        open-title-id="Buka di Codeforces"
+        :isId="isId"
+      />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import CpTablePagination from './CpTablePagination.vue';
-import { cleanLanguage, getDiffClass, formatExactDate } from './cpUtils';
+import { computed } from 'vue';
+import CpPlatformHeader from './CpPlatformHeader.vue';
+import CpMetricsGrid from './CpMetricsGrid.vue';
+import CpSolvedProblemsPanel from './CpSolvedProblemsPanel.vue';
+import type { CpColumn, CpMetric } from './cpTypes';
 
 const props = withDefaults(
   defineProps<{
@@ -143,24 +63,39 @@ const props = withDefaults(
   {
     totalCfSolved: 50,
     isId: false,
-  }
+  },
 );
 
-const currentPage = ref(1);
-const pageSize = ref(10);
+const recentSolvedList = computed(
+  () => props.cpData?.platforms?.codeforces?.recentSolved || [],
+);
 
-const recentSolvedList = computed(() => {
-  return props.cpData?.platforms?.codeforces?.recentSolved || [];
-});
+const columns: CpColumn[] = [
+  { key: 'category', labelEn: 'Tag', labelId: 'Tag' },
+  { key: 'difficulty', labelEn: 'Difficulty', labelId: 'Kesulitan' },
+  { key: 'language', labelEn: 'Language', labelId: 'Bahasa' },
+];
 
-const totalPages = computed(() => {
-  return Math.max(1, Math.ceil(recentSolvedList.value.length / pageSize.value));
-});
-
-const paginatedList = computed(() => {
-  const start = (currentPage.value - 1) * pageSize.value;
-  return recentSolvedList.value.slice(start, start + pageSize.value);
-});
+const metrics = computed<CpMetric[]>(() => [
+  {
+    label: props.isId ? 'Rating Saat Ini' : 'Current Rating',
+    value: props.cpData?.platforms?.codeforces?.rating || 625,
+    subHtml: `Rank: <span class="capitalize font-medium">${props.cpData?.platforms?.codeforces?.rank || 'newbie'}</span>`,
+    variant: 'sky',
+  },
+  {
+    label: props.isId ? 'Soal Selesai' : 'Unique Solved',
+    value: props.totalCfSolved,
+    sub: props.isId ? 'Soal Berhasil AC' : 'Problems Accepted',
+    variant: 'emerald',
+  },
+  {
+    label: props.isId ? 'Total Submisi' : 'Total Submissions',
+    value: props.cpData?.platforms?.codeforces?.totalSubmissions || 148,
+    sub: props.isId ? 'Riwayat submisi di CF' : 'Submission history on CF',
+    variant: 'purple',
+  },
+]);
 </script>
 
 <style scoped>
@@ -193,29 +128,5 @@ const paginatedList = computed(() => {
 :root.light .cf-tag-count {
   background: #e0f2fe !important;
   color: #0369a1 !important;
-}
-
-.tab-bottom-cta {
-  padding: 1rem;
-  background: var(--bg-elevated);
-  border-top: none;
-  display: flex;
-  justify-content: center;
-}
-
-.tab-cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--link);
-  text-decoration: none;
-  transition: all 0.15s;
-}
-
-.tab-cta-btn:hover {
-  text-decoration: underline;
-  transform: translateX(2px);
 }
 </style>

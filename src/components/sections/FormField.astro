@@ -1,0 +1,54 @@
+---
+import type { LocaleText } from '../../types/profile.types';
+import LocaleText from '../i18n/LocaleText.astro';
+
+export type FormFieldProps = {
+  label: LocaleText;
+  name: string;
+  type?: 'text' | 'email' | 'textarea';
+  placeholder?: LocaleText;
+  required?: boolean;
+  rows?: number;
+};
+
+const {
+  label,
+  name,
+  type = 'text',
+  placeholder,
+  required = false,
+  rows = 4,
+} = Astro.props as FormFieldProps;
+
+const placeholderAttrs = placeholder
+  ? {
+      'data-i18n-placeholder-en': placeholder.en,
+      'data-i18n-placeholder-id': placeholder.id,
+    }
+  : {};
+---
+
+<label>
+  <span>
+    <LocaleText as="span" text={label} />
+  </span>
+  {
+    type === 'textarea' ? (
+      <textarea
+        name={name}
+        rows={rows}
+        placeholder={placeholder?.en}
+        required={required}
+        {...placeholderAttrs}
+      />
+    ) : (
+      <input
+        type={type}
+        name={name}
+        placeholder={placeholder?.en}
+        required={required}
+        {...placeholderAttrs}
+      />
+    )
+  }
+</label>

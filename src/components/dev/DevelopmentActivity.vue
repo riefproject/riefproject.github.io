@@ -63,8 +63,7 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useStore } from '@nanostores/vue';
-import { lang } from '../../stores/uiStore.js';
+import { useLocale } from '../../composables/useLocale';
 import DevOverviewTab from './DevOverviewTab.vue';
 import DevGitHubTab from './DevGitHubTab.vue';
 import DevGitLabTab from './DevGitLabTab.vue';
@@ -81,8 +80,7 @@ const props = defineProps<{
   initialData?: any;
 }>();
 
-const $lang = useStore(lang);
-const isId = computed(() => $lang.value === 'id');
+const { isId } = useLocale();
 
 const devData = ref<any>(props.initialData || null);
 const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date().toISOString());

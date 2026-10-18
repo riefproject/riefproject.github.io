@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { useStore } from "@nanostores/vue";
 import type { LocaleText, Project } from "../../types/profile.types";
-import { lang as langStore } from "../../stores/uiStore.js";
+import { useLocale } from "../../composables/useLocale";
 
 type Category = { key: string; label: LocaleText };
 
@@ -23,12 +22,10 @@ const resolvedCategories = computed(() => {
   }));
 });
 const showAllProjects = ref(false);
-const $lang = useStore(langStore);
-const locale = computed(() => ($lang.value === "id" ? "id" : "en"));
-const resolveText = (value: LocaleText) => value[locale.value] ?? value.en;
+const { isId, resolveText } = useLocale();
 
 const copy = computed(() =>
-  locale.value === "id"
+  isId.value
     ? {
         searchLabel: "Cari",
         searchPlaceholder: "Cari judul, deskripsi, atau teknologi",

@@ -1,8 +1,7 @@
 ---
 import { profile } from '../../data/profile';
 import LocaleText from '../i18n/LocaleText.astro';
-
-const locale = (en: string, id: string) => ({ en, id });
+import { t as locale } from '../../utils/i18n';
 
 const layoutCopy = {
 	footerThanks: locale('Thanks for stopping by', 'Terima kasih sudah mampir'),

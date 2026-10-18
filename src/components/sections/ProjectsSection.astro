@@ -1,8 +1,9 @@
 ---
 import type { Project } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
-
-const locale = (en: string, id: string) => ({ en, id });
+import SectionIntro from './SectionIntro.astro';
+import CollapsibleContent from './CollapsibleContent.astro';
+import { t as locale } from '../../utils/i18n';
 
 type ProjectsProps = {
 	projects?: Project[];
@@ -20,27 +21,19 @@ const copy = {
 		'I start from a clear problem, ship quickly, and iterate. Here are my top projects.',
 		'Berawal dari masalah yang jelas, dieksekusi cepat, lalu iterasi. Berikut proyek terbaik saya.',
 	),
+	readDetails: locale('Read details', 'Baca selengkapnya'),
+	showLess: locale('Show less', 'Tampilkan lebih sedikit'),
 	viewAll: locale('View All Projects', 'Lihat Semua Proyek'),
-};
-
-const resolveText = (text: { en: string; id: string }) => {
-	// Simple check for locale, default to 'en' if not available
-	return text.en; // You can add proper locale detection if needed
 };
 ---
 
 <section id="proyek" class="section projects">
-	<div class="surface projects__intro">
-		<p class="eyebrow">
-			<LocaleText as="span" text={copy.eyebrow} />
-		</p>
-		<h2>
-			<LocaleText as="span" text={copy.heading} />
-		</h2>
-		<p>
-			<LocaleText as="span" text={copy.body} />
-		</p>
-	</div>
+	<SectionIntro
+		class="projects__intro"
+		eyebrow={copy.eyebrow}
+		heading={copy.heading}
+		body={copy.body}
+	/>
 
 	<div class="projects-grid">
 		{featuredProjects.map((project) => (
@@ -61,32 +54,27 @@ const resolveText = (text: { en: string; id: string }) => {
 							<LocaleText as="span" text={project.title} />
 						</h3>
 					</header>
-					<div class="relative mt-2">
-						<input type="checkbox" id={`toggle-proj-home-${project.title.en.replace(/\\s+/g, '-')}`} class="project-home__toggle hidden" />
-						
-						<div class="project-home__collapse overflow-hidden max-h-[120px] transition-[max-height] duration-500 ease-in-out relative">
-							<p class="project-description">
-								<LocaleText as="span" text={project.description} />
+					<CollapsibleContent
+						class="mt-2"
+						collapsedHeight="120px"
+						fadeHeight="3rem"
+						readMore={copy.readDetails}
+						showLess={copy.showLess}
+					>
+						<p class="project-description">
+							<LocaleText as="span" text={project.description} />
+						</p>
+						{project.impact && (
+							<p class="project-impact mt-3">
+								<LocaleText as="span" text={project.impact} />
 							</p>
-							{project.impact && (
-								<p class="project-impact mt-3">
-									<LocaleText as="span" text={project.impact} />
-								</p>
-							)}
-							<ul class="project-highlights mt-2">
-								{project.highlights.slice(0, 3).map((highlight) => (
-									<li><LocaleText as="span" text={highlight} /></li>
-								))}
-							</ul>
-							
-							<div class="project-home__fade absolute bottom-0 left-0 w-full h-12 pointer-events-none"></div>
-						</div>
-						
-						<label for={`toggle-proj-home-${project.title.en.replace(/\\s+/g, '-')}`} class="project-home__label cursor-pointer text-sm font-semibold text-accent hover:underline mt-1 inline-block select-none">
-							<span class="read-more"><LocaleText as="span" text={locale('Read details', 'Baca selengkapnya')} /></span>
-							<span class="show-less"><LocaleText as="span" text={locale('Show less', 'Tampilkan lebih sedikit')} /></span>
-						</label>
-					</div>
+						)}
+						<ul class="project-highlights mt-2">
+							{project.highlights.slice(0, 3).map((highlight) => (
+								<li><LocaleText as="span" text={highlight} /></li>
+							))}
+						</ul>
+					</CollapsibleContent>
 					{project.links?.length && (
 						<div class="project-links">
 							{project.links.slice(0, 2).map((link) => (
@@ -131,26 +119,8 @@ const resolveText = (text: { en: string; id: string }) => {
 </section>
 
 <style>
-	.project-home__toggle:checked ~ .project-home__label .read-more {
-		display: none;
-	}
-	.project-home__toggle:not(:checked) ~ .project-home__label .show-less {
-		display: none;
-	}
-	.project-home__toggle:checked ~ .project-home__collapse {
-		max-height: 3000px;
-	}
-	.project-home__fade {
-		background: linear-gradient(to top, var(--bg-soft), transparent);
-		transition: opacity 0.3s, background 0.2s ease;
-	}
-
-	.project-card:hover .project-home__fade {
+	.project-card:hover :global(.collapsible__fade) {
 		background: linear-gradient(to top, var(--bg-elevated), transparent);
-	}
-
-	.project-home__toggle:checked ~ .project-home__collapse .project-home__fade {
-		opacity: 0;
 	}
 
 	.projects {
@@ -159,14 +129,8 @@ const resolveText = (text: { en: string; id: string }) => {
 		gap: 2rem;
 	}
 
-	.projects__intro h2 {
-		margin: 0 0 0.5rem;
-		font-family: inherit;
-		font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		color: var(--text);
+	.projects__intro {
+		margin-bottom: 0;
 	}
 
 	.projects-grid {

@@ -1,8 +1,9 @@
 ---
 import type { FocusArea, Profile } from '../../types/profile.types';
 import LocaleText from '../i18n/LocaleText.astro';
+import SectionIntro from './SectionIntro.astro';
+import { t as locale } from '../../utils/i18n';
 
-const locale = (en: string, id: string) => ({ en, id });
 const copy = {
 	eyebrow: locale('About me', 'Tentang saya'),
 	heading: locale('Turning ideas into shipped products with clear steps.', 'Mewujudkan ide jadi produk jalan dengan langkah yang jelas.'),
@@ -17,20 +18,16 @@ const { profile, focusAreas } = Astro.props as AboutProps;
 ---
 
 <section id="tentang" class="section about">
-	<div class="about__intro surface">
-		<p class="eyebrow">
-			<LocaleText as="span" text={copy.eyebrow} />
-		</p>
-		<h2>
-			<LocaleText as="span" text={copy.heading} />
-		</h2>
-		<p>
-			<LocaleText as="span" text={profile.bio} />
-		</p>
+	<SectionIntro
+		class="about__intro"
+		eyebrow={copy.eyebrow}
+		heading={copy.heading}
+		body={profile.bio}
+	>
 		<p class="about__availability">
 			<LocaleText as="span" text={profile.availability} />
 		</p>
-	</div>
+	</SectionIntro>
 	<div class="about__areas grid">
 		{focusAreas.map((area) => (
 			<article class="surface">
@@ -53,22 +50,6 @@ const { profile, focusAreas } = Astro.props as AboutProps;
 </section>
 
 <style>
-	.about__intro h2 {
-		font-family: inherit;
-		margin: 0 0 1rem;
-		font-size: clamp(1.75rem, 3.5vw, 2.25rem);
-		font-weight: 600;
-		line-height: 1.2;
-		letter-spacing: -0.02em;
-		color: var(--text);
-	}
-
-	.about__intro p {
-		color: var(--muted);
-		line-height: 1.7;
-		font-size: 1rem;
-	}
-
 	.about__areas {
 		margin-top: 2rem;
 		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));

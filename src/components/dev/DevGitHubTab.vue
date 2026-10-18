@@ -20,26 +20,37 @@
     </div>
 
     <div class="stats-grid">
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'Total Kontribusi' : 'Total Contributions' }}</span>
-        <div class="stat-value val-emerald">{{ github?.overview?.totalContributions || 0 }}<span class="stat-unit">+</span></div>
-        <span class="stat-helper">{{ isId ? 'Semua tahun tercatat' : 'All recorded years' }}</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'Streak Saat Ini' : 'Current Streak' }}</span>
-        <div class="stat-value val-sky">{{ github?.overview?.currentStreak || 0 }}<span class="stat-unit"> {{ isId ? 'hari' : 'days' }}</span></div>
-        <span class="stat-helper">{{ isId ? 'Terpanjang' : 'Longest' }}: {{ github?.overview?.longestStreak || 0 }} {{ isId ? 'hari' : 'days' }}</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'PR Dibuka' : 'Pull Requests' }}</span>
-        <div class="stat-value val-purple">{{ github?.prStats?.total || 0 }}<span class="stat-unit"> ({{ github?.prStats?.merged || 0 }} merged)</span></div>
-        <span class="stat-helper">{{ isId ? 'Repo publik' : 'Public repositories' }}</span>
-      </div>
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'Bahasa Utama' : 'Top Language' }}</span>
-        <div class="stat-value val-amber">{{ topLanguage || '—' }}</div>
-        <span class="stat-helper">{{ isId ? 'Berdasarkan bytes repo publik' : 'By public repo bytes' }}</span>
-      </div>
+      <StatCard
+        :label="isId ? 'Total Kontribusi' : 'Total Contributions'"
+        :value="github?.overview?.totalContributions || 0"
+        unit="+"
+        appearance="dev"
+        variant="emerald"
+        :helper="isId ? 'Semua tahun tercatat' : 'All recorded years'"
+      />
+      <StatCard
+        :label="isId ? 'Streak Saat Ini' : 'Current Streak'"
+        :value="github?.overview?.currentStreak || 0"
+        :unit="isId ? ' hari' : ' days'"
+        appearance="dev"
+        variant="sky"
+        :helper="`${isId ? 'Terpanjang' : 'Longest'}: ${github?.overview?.longestStreak || 0} ${isId ? 'hari' : 'days'}`"
+      />
+      <StatCard
+        :label="isId ? 'PR Dibuka' : 'Pull Requests'"
+        :value="github?.prStats?.total || 0"
+        :unit="` (${github?.prStats?.merged || 0} merged)`"
+        appearance="dev"
+        variant="purple"
+        :helper="isId ? 'Repo publik' : 'Public repositories'"
+      />
+      <StatCard
+        :label="isId ? 'Bahasa Utama' : 'Top Language'"
+        :value="topLanguage || '—'"
+        appearance="dev"
+        variant="amber"
+        :helper="isId ? 'Berdasarkan bytes repo publik' : 'By public repo bytes'"
+      />
     </div>
 
     <div class="yearly-chips" v-if="github?.overview?.yearlyTotal">
@@ -57,23 +68,15 @@
     />
 
     <!-- Languages -->
-    <div class="mt-8" v-if="github?.languages?.length">
-      <div class="block-header">
-        <h3>{{ isId ? 'Bahasa Pemrograman' : 'Most Used Languages' }}</h3>
-        <span class="block-sub">{{ isId ? 'Berdasarkan ukuran bytes repo publik' : 'Based on public repository byte sizes' }}</span>
-      </div>
-      <div class="lang-list">
-        <div v-for="lang in github.languages" :key="lang.name" class="lang-row">
-          <div class="lang-head">
-            <span class="lang-name">{{ lang.name }}</span>
-            <span class="lang-pct">{{ lang.percentage }}%</span>
-          </div>
-          <div class="lang-bar-track">
-            <div class="lang-bar-fill" :style="{ width: `${lang.percentage}%` }"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <LanguageBars
+      v-if="github?.languages?.length"
+      :languages="github.languages"
+      :isId="isId"
+      :titleEn="'Most Used Languages'"
+      :titleId="'Bahasa Pemrograman'"
+      :subtitleEn="'Based on public repository byte sizes'"
+      :subtitleId="'Berdasarkan ukuran bytes repo publik'"
+    />
 
     <!-- Top Repos -->
     <div class="mt-8" v-if="github?.topRepos?.length">
@@ -107,6 +110,8 @@
 
 <script setup lang="ts">
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
+import LanguageBars from '../shared/LanguageBars.vue';
+import StatCard from '../shared/StatCard.vue';
 import type { DevHeatmapDay } from './devUtils';
 
 defineProps<{

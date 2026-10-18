@@ -3,10 +3,8 @@ import { computed, ref } from "vue";
 import FilterDropdown from "../FilterDropdown.vue";
 import { useStore } from "@nanostores/vue";
 import type { LocaleText, TechStack } from "../../types/profile.types";
-import {
-  lang as langStore,
-  theme as themeStore,
-} from "../../stores/uiStore.js";
+import { theme as themeStore } from "../../stores/uiStore.js";
+import { useLocale } from "../../composables/useLocale";
 
 type Category = { key: string; label: LocaleText };
 
@@ -21,12 +19,11 @@ const allCategoryKeys = props.categories
 const searchTerm = ref("");
 const selectedCategories = ref<string[]>([...allCategoryKeys]);
 const isFilterOpen = ref(false);
-const $lang = useStore(langStore);
 const $theme = useStore(themeStore);
-const locale = computed(() => ($lang.value === "id" ? "id" : "en"));
+const { isId, locale, resolveText } = useLocale();
 
 const copy = computed(() =>
-  locale.value === "id"
+  isId.value
     ? {
         search: "Cari stack atau tools",
         result: "item",
@@ -49,7 +46,7 @@ const filteredItems = computed(() => {
 
 const activeCount = computed(() => filteredItems.value.length);
 
-const resolveLabel = (value: LocaleText) => value[locale.value] ?? value.en;
+const resolveLabel = (value: LocaleText) => resolveText(value);
 const resolveLogo = (item: TechStack) => {
   return $theme.value === "dark" ? item.logoDark : item.logoLight;
 };

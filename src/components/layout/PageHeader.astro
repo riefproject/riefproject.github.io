@@ -1,0 +1,158 @@
+---
+import type { LocaleText } from '../../types/profile.types';
+import LocaleText from '../i18n/LocaleText.astro';
+
+export type PageHeaderProps = {
+  backHref: string;
+  backLabel: LocaleText;
+  title: LocaleText;
+  description: LocaleText;
+  variant?: 'default' | 'compact' | 'flush';
+  class?: string;
+};
+
+const {
+  backHref,
+  backLabel,
+  title,
+  description,
+  variant = 'default',
+  class: className = '',
+} = Astro.props as PageHeaderProps;
+---
+
+<header
+  class:list={[
+    'page-header section',
+    variant !== 'default' && `page-header--${variant}`,
+    className,
+  ]}
+>
+  <div class="nav-row">
+    <a href={backHref} class="back-link">
+      <LocaleText as="span" text={backLabel} />
+    </a>
+    <slot name="actions" />
+  </div>
+  <div class="title-row">
+    <h1>
+      <LocaleText as="span" text={title} />
+    </h1>
+    <slot name="title" />
+  </div>
+  <p class="lead">
+    <LocaleText as="span" text={description} />
+  </p>
+</header>
+
+<style>
+  .page-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.2s;
+    width: fit-content;
+  }
+
+  .back-link:hover {
+    color: var(--accent-strong);
+    transform: translateX(-4px);
+  }
+
+  .title-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .title-row h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
+
+  .lead {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--muted);
+    max-width: 68ch;
+  }
+
+  .page-header--flush {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .page-header--flush .back-link,
+  .page-header--flush .lead {
+    color: var(--text);
+  }
+
+  .page-header--flush .back-link:hover {
+    color: var(--accent);
+  }
+
+  .page-header--compact {
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .page-header--compact .title-row h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: normal;
+  }
+
+  .page-header--compact .lead {
+    max-width: 780px;
+  }
+
+  @media (min-width: 768px) {
+    .page-header {
+      gap: 1.25rem;
+      margin-bottom: 3rem;
+    }
+
+    .lead {
+      font-size: 1.125rem;
+    }
+
+    .page-header--compact {
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .page-header--compact .lead {
+      font-size: 1rem;
+    }
+  }
+</style>

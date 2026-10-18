@@ -3,199 +3,94 @@
     <!-- Platform Breakdown Cards -->
     <div class="platform-cards-grid">
       <!-- TLX Card -->
-      <div class="platform-detail-card" @click="$emit('selectPlatform', 'tlx')">
-        <div class="pcard-header">
-          <div class="pcard-title-group">
-            <div class="pcard-logo-box">
-              <img src="/img/tlx/tlx.webp" alt="TLX" class="pcard-img-logo" />
-            </div>
-            <div class="pcard-title-text">
-              <h4 class="pcard-name">TOKI Learning Center</h4>
-              <span class="pcard-handle"
-                >@{{ cpData?.platforms?.tlx?.handle || "aycaaa" }}</span
-              >
-            </div>
-          </div>
-          <div class="pcard-solved-badge">
-            <span class="pcard-solved-num">{{ totalTlxSolved }}</span>
-            <span class="pcard-solved-label">{{
-              isId ? "selesai" : "solved"
-            }}</span>
-          </div>
+      <PlatformCard
+        name="TOKI Learning Center"
+        :handle="cpData?.platforms?.tlx?.handle || 'aycaaa'"
+        logo="/img/tlx/tlx.webp"
+        :solvedNum="totalTlxSolved"
+        :solvedLabel="isId ? 'selesai' : 'solved'"
+        :footerText="isId ? 'Lihat Detail TLX →' : 'View TLX Details →'"
+        @select="$emit('selectPlatform', 'tlx')"
+      >
+        <div class="pcard-meta-row">
+          <span>{{ isId ? 'Submisi Total' : 'Total Submissions' }}:</span>
+          <strong>{{ cpData?.platforms?.tlx?.totalSubmissions || 561 }}</strong>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta-row">
-            <span>{{ isId ? "Submisi Total" : "Total Submissions" }}:</span>
-            <strong>{{
-              cpData?.platforms?.tlx?.totalSubmissions || 561
-            }}</strong>
-          </div>
-          <div class="pcard-meta-row">
-            <span>{{ isId ? "Bahasa Dominan" : "Top Language" }}:</span>
-            <strong>C++20</strong>
-          </div>
+        <div class="pcard-meta-row">
+          <span>{{ isId ? 'Bahasa Dominan' : 'Top Language' }}:</span>
+          <strong>C++20</strong>
         </div>
-        <div class="pcard-footer">
-          <span class="view-details-link">{{
-            isId ? "Lihat Detail TLX →" : "View TLX Details →"
-          }}</span>
-        </div>
-      </div>
+      </PlatformCard>
 
       <!-- Codeforces Card -->
-      <div
-        class="platform-detail-card"
-        @click="$emit('selectPlatform', 'codeforces')">
-        <div class="pcard-header">
-          <div class="pcard-title-group">
-            <div class="pcard-logo-box">
-              <img
-                src="/img/codeforces/codeforces.webp"
-                alt="Codeforces"
-                class="pcard-img-logo" />
-            </div>
-            <div class="pcard-title-text">
-              <h4 class="pcard-name">Codeforces</h4>
-              <span class="pcard-handle"
-                >@{{ cpData?.platforms?.codeforces?.handle || "feeera" }}</span
-              >
-            </div>
-          </div>
-          <div class="pcard-solved-badge">
-            <span class="pcard-solved-num">{{
-              cpData?.platforms?.codeforces?.rating || 625
-            }}</span>
-            <span class="pcard-solved-label">rating</span>
-          </div>
+      <PlatformCard
+        name="Codeforces"
+        :handle="cpData?.platforms?.codeforces?.handle || 'feeera'"
+        logo="/img/codeforces/codeforces.webp"
+        :solvedNum="cpData?.platforms?.codeforces?.rating || 625"
+        solvedLabel="rating"
+        :footerText="isId ? 'Lihat Detail Codeforces →' : 'View Codeforces Details →'"
+        @select="$emit('selectPlatform', 'codeforces')"
+      >
+        <div class="pcard-meta-row">
+          <span>{{ isId ? 'Soal Selesai' : 'Problems Solved' }}:</span>
+          <strong>{{ totalCfSolved }} {{ isId ? 'Soal' : 'Problems' }}</strong>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta-row">
-            <span>{{ isId ? "Soal Selesai" : "Problems Solved" }}:</span>
-            <strong
-              >{{ totalCfSolved }} {{ isId ? "Soal" : "Problems" }}</strong
-            >
-          </div>
-          <div class="pcard-meta-row">
-            <span>Rank:</span>
-            <strong class="cf-rank-text capitalize">{{
-              cpData?.platforms?.codeforces?.rank || "newbie"
-            }}</strong>
-          </div>
+        <div class="pcard-meta-row">
+          <span>Rank:</span>
+          <strong class="cf-rank-text capitalize">{{ cpData?.platforms?.codeforces?.rank || 'newbie' }}</strong>
         </div>
-        <div class="pcard-footer">
-          <span class="view-details-link">{{
-            isId ? "Lihat Detail Codeforces →" : "View Codeforces Details →"
-          }}</span>
-        </div>
-      </div>
+      </PlatformCard>
 
       <!-- LeetCode Card -->
-      <div
-        class="platform-detail-card"
-        @click="$emit('selectPlatform', 'leetcode')">
-        <div class="pcard-header">
-          <div class="pcard-title-group">
-            <div class="pcard-logo-box">
-              <img
-                src="/img/leetcode/leetcode.webp"
-                alt="LeetCode"
-                class="pcard-img-logo" />
-            </div>
-            <div class="pcard-title-text">
-              <h4 class="pcard-name">LeetCode</h4>
-              <span class="pcard-handle"
-                >@{{ cpData?.platforms?.leetcode?.handle || "fsaree" }}</span
-              >
-            </div>
-          </div>
-          <div class="pcard-solved-badge">
-            <span class="pcard-solved-num">{{ totalLcSolved }}</span>
-            <span class="pcard-solved-label">{{
-              isId ? "selesai" : "solved"
-            }}</span>
-          </div>
+      <PlatformCard
+        name="LeetCode"
+        :handle="cpData?.platforms?.leetcode?.handle || 'fsaree'"
+        logo="/img/leetcode/leetcode.webp"
+        :solvedNum="totalLcSolved"
+        :solvedLabel="isId ? 'selesai' : 'solved'"
+        :footerText="isId ? 'Lihat Detail LeetCode →' : 'View LeetCode Details →'"
+        @select="$emit('selectPlatform', 'leetcode')"
+      >
+        <div class="pcard-meta-row">
+          <span>{{ isId ? 'Tingkat Kesulitan' : 'Difficulty Split' }}:</span>
+          <span class="diff-split">
+            <span class="diff-cnt easy">{{ cpData?.platforms?.leetcode?.easySolved || 32 }}E</span>
+            ·
+            <span class="diff-cnt medium">{{ cpData?.platforms?.leetcode?.mediumSolved || 24 }}M</span>
+            ·
+            <span class="diff-cnt hard">{{ cpData?.platforms?.leetcode?.hardSolved || 3 }}H</span>
+          </span>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta-row">
-            <span>{{ isId ? "Tingkat Kesulitan" : "Difficulty Split" }}:</span>
-            <span class="diff-split">
-              <span class="diff-cnt easy"
-                >{{ cpData?.platforms?.leetcode?.easySolved || 32 }}E</span
-              >
-              ·
-              <span class="diff-cnt medium"
-                >{{ cpData?.platforms?.leetcode?.mediumSolved || 24 }}M</span
-              >
-              ·
-              <span class="diff-cnt hard"
-                >{{ cpData?.platforms?.leetcode?.hardSolved || 3 }}H</span
-              >
-            </span>
-          </div>
-          <div class="pcard-meta-row">
-            <span>Global Ranking:</span>
-            <strong
-              >~{{
-                (
-                  cpData?.platforms?.leetcode?.ranking || 2367686
-                ).toLocaleString()
-              }}</strong
-            >
-          </div>
+        <div class="pcard-meta-row">
+          <span>Global Ranking:</span>
+          <strong>~{{ (cpData?.platforms?.leetcode?.ranking || 2367686).toLocaleString() }}</strong>
         </div>
-        <div class="pcard-footer">
-          <span class="view-details-link">{{
-            isId ? "Lihat Detail LeetCode →" : "View LeetCode Details →"
-          }}</span>
-        </div>
-      </div>
+      </PlatformCard>
 
       <!-- HackerRank Card -->
-      <div
-        class="platform-detail-card"
-        @click="$emit('selectPlatform', 'hackerrank')">
-        <div class="pcard-header">
-          <div class="pcard-title-group">
-            <div class="pcard-logo-box">
-              <img
-                src="/img/hackerrank/HackerRank.webp"
-                alt="HackerRank"
-                class="pcard-img-logo" />
-            </div>
-            <div class="pcard-title-text">
-              <h4 class="pcard-name">HackerRank</h4>
-              <span class="pcard-handle"
-                >@{{ cpData?.platforms?.hackerrank?.handle || "areee" }}</span
-              >
-            </div>
-          </div>
-          <div class="pcard-solved-badge">
-            <span class="pcard-solved-num">{{ totalHrSolved }}+</span>
-            <span class="pcard-solved-label">{{
-              isId ? "selesai" : "solved"
-            }}</span>
-          </div>
+      <PlatformCard
+        name="HackerRank"
+        :handle="cpData?.platforms?.hackerrank?.handle || 'areee'"
+        logo="/img/hackerrank/HackerRank.webp"
+        :solvedNum="totalHrSolved + '+'"
+        :solvedLabel="isId ? 'selesai' : 'solved'"
+        :footerText="isId ? 'Lihat Detail HackerRank →' : 'View HackerRank Details →'"
+        @select="$emit('selectPlatform', 'hackerrank')"
+      >
+        <div class="pcard-meta-row">
+          <span>Algorithms Track:</span>
+          <strong class="track-pts-emerald">1029.98 pts</strong>
         </div>
-        <div class="pcard-body">
-          <div class="pcard-meta-row">
-            <span>Algorithms Track:</span>
-            <strong class="track-pts-emerald">1029.98 pts</strong>
-          </div>
-          <div class="pcard-meta-row">
-            <span>SQL Track:</span>
-            <strong class="track-pts-sky">390 pts</strong>
-          </div>
-          <div class="pcard-meta-row">
-            <span>C++ & Java Track:</span>
-            <strong>430+ pts</strong>
-          </div>
+        <div class="pcard-meta-row">
+          <span>SQL Track:</span>
+          <strong class="track-pts-sky">390 pts</strong>
         </div>
-        <div class="pcard-footer">
-          <span class="view-details-link">{{
-            isId ? "Lihat Detail HackerRank →" : "View HackerRank Details →"
-          }}</span>
+        <div class="pcard-meta-row">
+          <span>C++ & Java Track:</span>
+          <strong>430+ pts</strong>
         </div>
-      </div>
+      </PlatformCard>
     </div>
 
     <!-- Unified Solved Problems Section (Informative Table + Pagination) -->
@@ -324,6 +219,7 @@ import { ref, computed } from "vue";
 import FilterDropdown from "../FilterDropdown.vue";
 import CpTablePagination from "./CpTablePagination.vue";
 import CpProblemsTable from "./CpProblemsTable.vue";
+import PlatformCard from "../shared/PlatformCard.vue";
 import {
   cleanLanguage,
   getPlatformLogo,
@@ -448,163 +344,6 @@ const paginatedFeed = computed(() => {
   .platform-cards-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-}
-
-.platform-detail-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 1.5rem;
-  background: var(--bg-soft);
-  border: none;
-  border-radius: var(--radius-xl);
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.platform-detail-card:hover {
-  background: var(--bg-elevated);
-  transform: translateY(-2px);
-}
-
-:root.light .platform-detail-card {
-  background: var(--bg-soft);
-  border: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-:root.light .platform-detail-card:hover {
-  background: var(--bg-elevated);
-}
-
-.pcard-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.pcard-title-group {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.pcard-logo-box {
-  width: 2.25rem;
-  height: 2.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  /* background: var(--bg-elevated); */
-  border: none;
-}
-
-.pcard-img-logo {
-  width: 1.35rem;
-  height: 1.35rem;
-  object-fit: contain;
-}
-
-.pcard-title-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
-}
-
-.pcard-name {
-  font-size: var(--text-base);
-  font-weight: 700;
-  margin: 0;
-  color: var(--text);
-}
-
-.pcard-handle {
-  font-size: var(--text-xs);
-  color: var(--muted);
-  margin-top: 0.15rem;
-}
-
-.pcard-solved-badge {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.3rem;
-  padding: 0.3rem 0.65rem;
-  border-radius: var(--radius-md);
-  border: none;
-  /* background: var(--surface-muted); */
-  white-space: nowrap;
-}
-
-.pcard-solved-num {
-  font-size: var(--text-lg);
-  font-weight: 700;
-  color: var(--text);
-  letter-spacing: -0.02em;
-}
-
-.pcard-solved-label {
-  font-size: var(--text-xs);
-  color: var(--muted);
-  font-weight: 400;
-}
-
-.pcard-body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  font-size: var(--text-sm);
-  color: var(--muted);
-  margin-bottom: 1.25rem;
-}
-
-.pcard-meta-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.pcard-meta-row strong {
-  color: var(--text);
-}
-
-.diff-split {
-  font-weight: 700;
-}
-
-.diff-cnt.easy {
-  color: #34d399;
-}
-.diff-cnt.medium {
-  color: #fbbf24;
-}
-.diff-cnt.hard {
-  color: #f43f5e;
-}
-
-:root.light .diff-cnt.easy {
-  color: #047857;
-  font-weight: 700;
-}
-:root.light .diff-cnt.medium {
-  color: #b45309;
-  font-weight: 700;
-}
-:root.light .diff-cnt.hard {
-  color: #be123c;
-  font-weight: 700;
-}
-
-.pcard-footer {
-  border-top: none;
-  padding-top: 0.75rem;
-}
-
-.view-details-link {
-  font-size: var(--text-sm);
-  font-weight: 600;
-  color: var(--link);
 }
 
 .feed-section {

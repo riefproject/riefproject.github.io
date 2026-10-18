@@ -1,51 +1,39 @@
 <template>
   <div class="cp-dashboard">
     <!-- Header / Live Bar -->
-    <div class="dashboard-topbar">
-      <div class="live-indicator">
-        <span class="pulse-dot"></span>
-        <span class="live-text">
-          {{ isId ? 'Terakhir Disinkronkan' : 'Last Synced' }}
-        </span>
-        <span class="updated-time" v-if="lastUpdated">
-          • {{ formatRelativeTime(lastUpdated, isId) }}
-        </span>
-      </div>
-    </div>
+    <DashboardTopbar :lastUpdated="lastUpdated" :isId="isId" />
 
     <!-- Global Hero Stats -->
     <div class="stats-grid">
-      <!-- Card 1: Total Problems Solved -->
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'Total Soal Selesai' : 'Total Problems Solved' }}</span>
-        <div class="stat-value val-emerald">
-          {{ totalSolved }}<span class="stat-unit">+</span>
-        </div>
-        <span class="stat-helper">{{ isId ? 'Akumulasi dari 4 platform' : 'Aggregated across 4 platforms' }}</span>
-      </div>
+      <StatCard
+        :label="isId ? 'Total Soal Selesai' : 'Total Problems Solved'"
+        :value="totalSolved"
+        unit="+"
+        variant="emerald"
+        :helper="isId ? 'Akumulasi dari 4 platform' : 'Aggregated across 4 platforms'"
+      />
 
-      <!-- Card 2: Total Submissions -->
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'Total Submisi' : 'Total Submissions' }}</span>
-        <div class="stat-value val-sky">
-          {{ totalSubmissions }}<span class="stat-unit">+</span>
-        </div>
-        <span class="stat-helper">{{ isId ? 'Riwayat percobaan & evaluasi juri' : 'Judged runs & submission history' }}</span>
-      </div>
+      <StatCard
+        :label="isId ? 'Total Submisi' : 'Total Submissions'"
+        :value="totalSubmissions"
+        unit="+"
+        variant="sky"
+        :helper="isId ? 'Riwayat percobaan & evaluasi juri' : 'Judged runs & submission history'"
+      />
 
-      <!-- Card 3: Active Platforms -->
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'Platform Aktif' : 'Active Platforms' }}</span>
-        <div class="stat-value val-amber">4</div>
-        <span class="stat-helper">TLX · Codeforces · LeetCode · HackerRank</span>
-      </div>
+      <StatCard
+        :label="isId ? 'Platform Aktif' : 'Active Platforms'"
+        :value="4"
+        variant="amber"
+        helper="TLX · Codeforces · LeetCode · HackerRank"
+      />
 
-      <!-- Card 4: Primary Language -->
-      <div class="stat-card">
-        <span class="stat-label">{{ isId ? 'Bahasa Utama' : 'Primary Language' }}</span>
-        <div class="stat-value val-purple">{{ primaryLanguage.name }}</div>
-        <span class="stat-helper">{{ primaryLanguage.formattedCount }} {{ isId ? `submisi ${primaryLanguage.name}` : `${primaryLanguage.name} submissions` }}</span>
-      </div>
+      <StatCard
+        :label="isId ? 'Bahasa Utama' : 'Primary Language'"
+        :value="primaryLanguage.name"
+        variant="purple"
+        :helper="`${primaryLanguage.formattedCount} ${isId ? 'submisi ' + primaryLanguage.name : primaryLanguage.name + ' submissions'}`"
+      />
     </div>
 
 
@@ -60,23 +48,7 @@
 
     <!-- Tab System -->
     <section class="tabs-section">
-      <div class="tabs-nav" role="tablist">
-        <button
-          v-for="tab in tabs"
-          :key="tab.key"
-          type="button"
-          role="tab"
-          :aria-selected="activeTab === tab.key"
-          @click="activeTab = tab.key"
-          class="tab-btn"
-          :class="{ active: activeTab === tab.key }"
-        >
-          <img v-if="tab.logo" :src="tab.logo" :alt="tab.key" class="tab-logo-img" />
-          <span v-else-if="tab.icon" class="tab-icon" v-html="tab.icon"></span>
-          <span class="tab-name">{{ isId ? tab.labelId : tab.labelEn }}</span>
-          <span v-if="tab.count" class="tab-badge">{{ tab.count }}</span>
-        </button>
-      </div>
+      <NavTabs v-model="activeTab" :tabs="tabs" :isId="isId" />
 
       <!-- Active Tab Content -->
       <div class="tab-content-area">
@@ -142,6 +114,9 @@ import CpTlxTab from './CpTlxTab.vue';
 import CpCodeforcesTab from './CpCodeforcesTab.vue';
 import CpLeetcodeTab from './CpLeetcodeTab.vue';
 import CpHackerrankTab from './CpHackerrankTab.vue';
+import NavTabs from '../shared/NavTabs.vue';
+import StatCard from '../shared/StatCard.vue';
+import DashboardTopbar from '../shared/DashboardTopbar.vue';
 import type { HeatmapDay } from './cpUtils';
 import { formatRelativeTime, cleanLanguage } from './cpUtils';
 
@@ -353,37 +328,7 @@ const heatmapMonths = computed(() => {
   --text-xs: 0.7rem;
 }
 
-/* Topbar */
-.dashboard-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0.25rem;
-}
-
-.live-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: var(--text-sm);
-  color: var(--muted);
-}
-
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
-  animation: pulse-glow 2s infinite ease-in-out;
-}
-
-.live-text {
-  font-weight: 600;
-  color: var(--text);
-}
-
-/* Stats Grid & Clean KPI Cards */
+/* Stats Grid Container */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -405,85 +350,6 @@ const heatmapMonths = computed(() => {
   }
 }
 
-.stat-card {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  padding: 1.25rem;
-  background: var(--bg-soft);
-  border: none;
-  border-radius: var(--radius-xl);
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  min-width: 0;
-}
-
-.stat-card:hover {
-  background: var(--bg-elevated);
-  transform: translateY(-2px);
-}
-
-.stat-label {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--muted);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.stat-value {
-  font-size: var(--text-2xl);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.03em;
-  display: flex;
-  align-items: baseline;
-}
-
-.val-emerald { color: #34d399; }
-.val-sky { color: #38bdf8; }
-.val-amber { color: #fbbf24; }
-.val-purple { color: #c084fc; }
-
-.stat-unit {
-  font-size: var(--text-lg);
-  font-weight: 600;
-  opacity: 0.75;
-  margin-left: 2px;
-}
-
-.stat-helper {
-  font-size: var(--text-xs);
-  color: var(--muted);
-  line-height: 1.3;
-  margin-top: 0.2rem;
-}
-
-/* Light Mode for Clean KPI Cards */
-:root.light .stat-card {
-  background: var(--bg-soft);
-  border: none;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
-}
-
-:root.light .stat-card:hover {
-  background: var(--bg-elevated);
-}
-
-:root.light .val-emerald { color: #047857; }
-:root.light .val-sky { color: #0284c7; }
-:root.light .val-amber { color: #b45309; }
-:root.light .val-purple { color: #6b21a8; }
-
-:root.light .stat-label {
-  color: #4b5563;
-  font-weight: 700;
-}
-
-:root.light .stat-helper {
-  color: #6b7280;
-}
-
 
 
 /* Tab Navigation */
@@ -494,68 +360,6 @@ const heatmapMonths = computed(() => {
   margin-top: 0.5rem;
 }
 
-.tabs-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.25rem;
-  overflow-x: auto;
-}
-
-.tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--muted);
-  font-size: var(--text-base);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-
-.tab-btn:hover {
-  color: var(--text);
-  background: var(--bg-soft);
-}
-
-.tab-btn.active {
-  color: var(--text);
-  background: var(--bg-soft);
-  border-color: var(--border);
-}
-
-:root.light .tab-btn {
-  color: #4b5563;
-}
-:root.light .tab-btn:hover {
-  color: #111827;
-  background: #f3f4f6;
-}
-:root.light .tab-btn.active {
-  color: #111827;
-  background: #f3f4f6;
-  border-color: #cbd5e1;
-}
-
-.tab-logo-img {
-  width: 1.15rem;
-  height: 1.15rem;
-  object-fit: contain;
-}
-
-.tab-badge {
-  font-size: var(--text-xs);
-  padding: 0.15rem 0.45rem;
-  border-radius: var(--radius-full);
-  background: var(--bg-elevated);
-  border: none;
-}
 
 .dashboard-crosslink {
   display: flex;

@@ -1,35 +1,9 @@
 <template>
   <div class="dev-dashboard">
     <!-- Topbar -->
-    <div class="dashboard-topbar">
-      <div class="live-indicator">
-        <span class="pulse-dot"></span>
-        <span class="live-text">{{ isId ? 'Terakhir Disinkronkan' : 'Last Synced' }}</span>
-        <span class="updated-time" v-if="lastUpdated">• {{ formatRelativeTime(lastUpdated, isId) }}</span>
-      </div>
-    </div>
+    <DashboardTopbar :lastUpdated="lastUpdated" :isId="isId" />
 
-    <!-- Tabs Nav -->
-    <div class="tabs-nav" role="tablist">
-      <button
-        v-for="tab in tabs"
-        :key="tab.key"
-        type="button"
-        role="tab"
-        :aria-selected="activeTab === tab.key"
-        class="tab-btn"
-        :class="{ active: activeTab === tab.key }"
-        @click="activeTab = tab.key"
-      >
-        <span v-if="tab.logo" class="tab-logo">
-          <img :src="tab.logo" :alt="tab.key" class="tab-logo-img logo-variant-dark" />
-          <img v-if="tab.logoLight" :src="tab.logoLight" :alt="tab.key" class="tab-logo-img logo-variant-light" />
-        </span>
-        <span v-else class="tab-icon" v-html="tab.icon"></span>
-        <span class="tab-name">{{ isId ? tab.labelId : tab.labelEn }}</span>
-        <span v-if="tab.count" class="tab-badge">{{ tab.count }}</span>
-      </button>
-    </div>
+    <NavTabs v-model="activeTab" :tabs="tabs" :isId="isId" />
 
     <!-- TAB: OVERVIEW -->
     <DevOverviewTab
@@ -94,6 +68,8 @@ import { lang } from '../../stores/uiStore.js';
 import DevOverviewTab from './DevOverviewTab.vue';
 import DevGitHubTab from './DevGitHubTab.vue';
 import DevGitLabTab from './DevGitLabTab.vue';
+import NavTabs from '../shared/NavTabs.vue';
+import DashboardTopbar from '../shared/DashboardTopbar.vue';
 import {
   buildHeatmapDays,
   toWeeks,
@@ -228,100 +204,6 @@ const gitlabHeatmapMonths = computed(() => buildMonths(gitlabHeatmapWeeks.value)
   --text-xs: 0.7rem;
 }
 
-/* Topbar */
-.dashboard-topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5rem 0.25rem;
-}
-
-.live-indicator {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: var(--text-sm);
-  color: var(--muted);
-}
-
-.pulse-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #10b981;
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
-  animation: pulse-glow 2s infinite ease-in-out;
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.85); }
-}
-
-.live-text { font-weight: 600; color: var(--text); }
-.updated-time { color: var(--muted); }
-
-/* Tabs */
-.tabs-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-  border-bottom: 1px solid var(--border);
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.tabs-nav::-webkit-scrollbar { display: none; }
-
-.tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.65rem 1.1rem;
-  border-radius: var(--radius-md) var(--radius-md) 0 0;
-  background: transparent;
-  border: 1px solid transparent;
-  border-bottom: none;
-  color: var(--muted);
-  font-size: var(--text-base);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-
-.tab-btn:hover {
-  color: var(--text);
-  background: var(--bg-soft);
-}
-
-.tab-btn.active {
-  color: var(--text);
-  background: var(--bg-soft);
-  border-color: var(--border);
-}
-
-.tab-logo-img { width: 1.1rem; height: 1.1rem; object-fit: contain; }
-.tab-icon { display: inline-flex; }
-
-.tab-logo { display: inline-flex; }
-.logo-variant-dark { display: inline-block; }
-.logo-variant-light { display: none; }
-:root.light .logo-variant-dark { display: none; }
-:root.light .logo-variant-light { display: inline-block; }
-
-.tab-badge {
-  padding: 0.15rem 0.45rem;
-  border-radius: var(--radius-full);
-  background: var(--bg-elevated);
-  font-size: var(--text-sm);
-  font-weight: 700;
-  color: var(--text);
-}
-
-:root.light .tab-btn { color: #4b5563; }
-:root.light .tab-btn:hover { color: #111827; background: #f3f4f6; }
-:root.light .tab-btn.active { color: #111827; background: #f3f4f6; border-color: #cbd5e1; }
-
 /* Cross-link to other dashboard */
 .dashboard-crosslink {
   display: flex;
@@ -398,16 +280,5 @@ const gitlabHeatmapMonths = computed(() => buildMonths(gitlabHeatmapWeeks.value)
     border-color: #cbd5e1 !important;
     color: #111827 !important;
   }
-}
-
-@media (max-width: 480px) {
-  .dashboard-topbar {
-    flex-direction: column !important;
-    gap: 0.75rem !important;
-    align-items: stretch !important;
-    text-align: center !important;
-  }
-
-  .live-indicator { justify-content: center !important; }
 }
 </style>

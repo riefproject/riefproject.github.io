@@ -1,22 +1,11 @@
-export interface SubmissionItem {
-  id?: string | number;
-  title: string;
-  url?: string;
-  platform?: string;
-  category?: string;
-  difficulty?: string | number;
-  language?: string;
-  status?: string;
-  solvedAt?: string;
-}
-
-export interface HeatmapDay {
-  date: string;
-  count: number;
-  tries: number;
-  ac: number;
-  level: number;
-}
+export type {
+  CpPlatformKey,
+  CpOverview,
+  CpPlatformProfile,
+  SubmissionItem,
+  HeatmapDay,
+  CpData,
+} from '../../types/cp.types';
 
 export const cleanLanguage = (lang: string): string => {
   if (!lang) return '-';

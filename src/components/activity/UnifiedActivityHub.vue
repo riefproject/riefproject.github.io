@@ -1,22 +1,11 @@
 <template>
   <div class="activity-hub">
-    <!-- Filter Tabs (styled identical to Competitive Programming tabs) -->
-    <div class="tabs-nav" role="tablist" :aria-label="isId ? 'Filter aktivitas' : 'Activity filters'">
-      <button
-        v-for="tab in filterTabs"
-        :key="tab.key"
-        type="button"
-        role="tab"
-        :aria-selected="heatmapFilter === tab.key"
-        class="tab-btn"
-        :class="{ active: heatmapFilter === tab.key }"
-        @click="heatmapFilter = tab.key"
-      >
-        <span class="tab-icon" v-html="tab.icon"></span>
-        <span class="tab-name">{{ isId ? tab.labelId : tab.labelEn }}</span>
-        <span class="tab-badge" v-if="tab.count">{{ tab.count }}</span>
-      </button>
-    </div>
+    <NavTabs
+      v-model="heatmapFilter"
+      :tabs="filterTabs"
+      :isId="isId"
+      :ariaLabel="isId ? 'Filter aktivitas' : 'Activity filters'"
+    />
 
     <!-- Clean Activity Heatmap (identical to /competitive-programming style) -->
     <ActivityHeatmap
@@ -35,6 +24,7 @@ import { ref, computed } from 'vue';
 import { useStore } from '@nanostores/vue';
 import { lang } from '../../stores/uiStore.js';
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
+import NavTabs from '../shared/NavTabs.vue';
 import {
   buildHeatmapDays,
   toWeeks,
@@ -216,79 +206,4 @@ const resolveUnifiedMetrics = (day: any, isIdState: boolean): HeatmapTooltipMetr
   min-width: 0;
 }
 
-/* Tab Navigation styled identical to Competitive Programming */
-.tabs-nav {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.25rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.tabs-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.tab-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  border-radius: 0.6rem;
-  border: 1px solid transparent;
-  background: transparent;
-  color: var(--muted);
-  font-size: var(--text-base);
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.15s;
-  white-space: nowrap;
-}
-
-.tab-btn:hover {
-  color: var(--text);
-  background: var(--bg-soft);
-}
-
-.tab-btn.active {
-  color: var(--text);
-  background: var(--bg-soft);
-  border-color: var(--border);
-}
-
-:root.light .tab-btn {
-  color: #4b5563;
-}
-:root.light .tab-btn:hover {
-  color: #111827;
-  background: #f3f4f6;
-}
-:root.light .tab-btn.active {
-  color: #111827;
-  background: #f3f4f6;
-  border-color: #cbd5e1;
-}
-
-.tab-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tab-badge {
-  font-size: var(--text-xs);
-  font-weight: 700;
-  padding: 0.15rem 0.45rem;
-  border-radius: 999px;
-  background: var(--bg-elevated);
-  color: var(--muted);
-  border: 1px solid var(--border);
-}
-
-.tab-btn.active .tab-badge {
-  background: var(--border);
-  color: var(--text);
-}
 </style>

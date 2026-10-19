@@ -20,36 +20,35 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { useLocale } from '../../composables/useLocale'
+import { useCpStats } from '../../composables/useCpStats'
+import { useDevStats } from '../../composables/useDevStats'
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue'
 import Tabs from '../shared/Tabs.vue'
 import {
   buildHeatmapDays,
   toWeeks,
   buildMonths,
+  type HeatmapDay,
   type HeatmapTooltipMetric,
 } from '../../utils/heatmap'
+import type { CpData } from '../../types/cp.types'
+import type { DevActivityData } from '../../types/dev.types'
 
 const props = defineProps<{
-  initialDevData?: any
-  initialCpData?: any
+  initialDevData?: DevActivityData | null
+  initialCpData?: CpData | null
 }>()
 
 const { isId } = useLocale()
 
 const heatmapFilter = ref<'all' | 'dev' | 'cp'>('all')
 
-// Dev metrics
-const devPlatforms = computed(() => props.initialDevData?.platforms || {})
-const githubTotal = computed(() => devPlatforms.value.github?.overview?.totalContributions || 725)
-const gitlabTotal = computed(() => devPlatforms.value.gitlab?.stats?.totalEvents || 144)
-const devTotalContributions = computed(() => githubTotal.value + gitlabTotal.value)
+const devData = computed(() => props.initialDevData ?? null)
+const cpData = computed(() => props.initialCpData ?? null)
 
-// CP metrics
-const cpOverview = computed(() => props.initialCpData?.overview || {})
-const totalCpSolved = computed(() => cpOverview.value.totalSolved || 641)
-const totalCpSubmissions = computed(() => cpOverview.value.totalSubmissions || 1200)
+const { totalContributions: devTotalContributions } = useDevStats(devData)
+const { totalSolved: totalCpSolved } = useCpStats(cpData)
 
-// Total aggregate
 const totalAll = computed(() => devTotalContributions.value + totalCpSolved.value)
 
 const filterTabs = computed(() => [
@@ -91,14 +90,22 @@ const heatmapCountBadge = computed(() => {
   return `${activeDaysCount.value} ${isId.value ? 'hari aktif' : 'active days'}`
 })
 
+interface UnifiedHeatmapEntry {
+  count: number
+  github: number
+  gitlab: number
+  ac: number
+  tries: number
+}
+
 // Unified Heatmap construction
-const unifiedMap = computed<Record<string, any>>(() => {
+const unifiedMap = computed<Record<string, UnifiedHeatmapEntry>>(() => {
   const ghMap = props.initialDevData?.platforms?.github?.overview?.heatmap || {}
   const glMap = props.initialDevData?.platforms?.gitlab?.heatmap || {}
   const cpMap = props.initialCpData?.overview?.heatmap || {}
 
   const allKeys = new Set([...Object.keys(ghMap), ...Object.keys(glMap), ...Object.keys(cpMap)])
-  const out: Record<string, any> = {}
+  const out: Record<string, UnifiedHeatmapEntry> = {}
 
   allKeys.forEach((dateStr) => {
     const ghEntry = ghMap[dateStr]
@@ -150,7 +157,7 @@ const heatmapWeeks = computed(() => toWeeks(heatmapDays.value))
 const heatmapMonths = computed(() => buildMonths(heatmapWeeks.value))
 const activeDaysCount = computed(() => heatmapDays.value.filter((d) => d.count > 0).length)
 
-const resolveUnifiedMetrics = (day: any, isIdState: boolean): HeatmapTooltipMetric[] => {
+const resolveUnifiedMetrics = (day: HeatmapDay, isIdState: boolean): HeatmapTooltipMetric[] => {
   const metrics: HeatmapTooltipMetric[] = []
   if (day.github && day.github > 0) {
     metrics.push({

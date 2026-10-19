@@ -159,7 +159,6 @@ const {
 
 @media (max-width: 640px) {
   .crosslink-btn {
-    flex-wrap: wrap;
     justify-content: center;
     text-align: center;
   }

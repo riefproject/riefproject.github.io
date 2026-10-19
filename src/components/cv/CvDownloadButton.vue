@@ -29,7 +29,7 @@
           rel="noopener noreferrer"
           class="cv-item">
           <span class="lang-code">EN</span>
-          <span class="lang-label">{{ lang === 'id' ? 'Versi Bahasa Inggris' : 'English Version' }}</span>
+          <span class="lang-label">{{ isId ? 'Versi Bahasa Inggris' : 'English Version' }}</span>
         </a>
         <a
           href="/pdf/cv-arief-in.pdf"
@@ -37,7 +37,7 @@
           rel="noopener noreferrer"
           class="cv-item">
           <span class="lang-code">ID</span>
-          <span class="lang-label">{{ lang === 'id' ? 'Versi Bahasa Indonesia' : 'Indonesian Version' }}</span>
+          <span class="lang-label">{{ isId ? 'Versi Bahasa Indonesia' : 'Indonesian Version' }}</span>
         </a>
       </div>
     </Transition>
@@ -46,15 +46,14 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from "vue";
-import { useStore } from "@nanostores/vue";
-import { lang as currentLang } from "../stores/uiStore";
+import { useLocale } from "../../composables/useLocale";
 
-const lang = useStore(currentLang);
+const { isId } = useLocale();
 const isOpen = ref(false);
 const wrapper = ref<HTMLElement | null>(null);
 
 const label = computed(() => {
-  return lang.value === "id" ? "Unduh CV" : "Download CV";
+  return isId.value ? "Unduh CV" : "Download CV";
 });
 
 const toggleDropdown = () => {

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed, watch } from "vue";
-import type { Achievement } from "../types/profile.types";
-import { useLocale } from "../composables/useLocale";
+import type { Achievement } from "../../types/profile.types";
+import { useLocale } from "../../composables/useLocale";
 
 const props = defineProps<{
   achievement: Achievement | null;

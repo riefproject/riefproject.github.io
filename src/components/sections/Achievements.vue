@@ -4,8 +4,8 @@ import type {
   Achievement,
   AchievementTab,
   LocaleText,
-} from "../types/profile.types";
-import { useLocale } from "../composables/useLocale";
+} from "../../types/profile.types";
+import { useLocale } from "../../composables/useLocale";
 import CertificateModal from "./CertificateModal.vue";
 
 type AchievementsProps = {

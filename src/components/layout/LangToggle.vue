@@ -17,8 +17,8 @@ declare global {
 
 import { useStore } from '@nanostores/vue';
 import { computed, watchEffect } from 'vue';
-import { lang, setLang } from '../stores/uiStore.js';
-import SegmentedToggle from './shared/SegmentedToggle.vue';
+import { lang, setLang } from '../../stores/uiStore';
+import SegmentedToggle from '../shared/SegmentedToggle.vue';
 
 const options = [
   { value: 'en', label: 'EN' },

@@ -6,7 +6,7 @@ export interface HeatmapTooltipMetric {
   color?: 'sky' | 'emerald' | 'orange' | 'purple' | 'amber' | 'slate' | 'neutral' | string;
 }
 
-export interface HeatmapDayItem {
+export interface HeatmapDay {
   date: string;
   count: number;
   tries?: number;
@@ -39,25 +39,30 @@ export const buildHeatmapDays = (
       return res;
     }
     return { count: 0 };
-  }
-): HeatmapDayItem[] => {
+  },
+  options: {
+    daysBack?: number;
+    utcDate?: boolean;
+    levelFor?: (count: number) => number;
+  } = {}
+): HeatmapDay[] => {
+  const { daysBack = 364, utcDate = false, levelFor = getHeatmapLevel } = options;
   const today = new Date();
-  const days: HeatmapDayItem[] = [];
+  const days: HeatmapDay[] = [];
 
-  for (let i = 363; i >= 0; i--) {
+  for (let i = daysBack - 1; i >= 0; i--) {
     const d = new Date(today);
     d.setDate(d.getDate() - i);
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    const dateStr = `${year}-${month}-${day}`;
+    const dateStr = utcDate
+      ? d.toISOString().slice(0, 10)
+      : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
     const entry = map?.[dateStr];
     const data = extract(entry);
 
-    const item: HeatmapDayItem = {
+    const item: HeatmapDay = {
       date: dateStr,
       count: data.count,
-      level: getHeatmapLevel(data.count),
+      level: levelFor(data.count),
     };
     if (typeof data.tries === 'number') item.tries = data.tries;
     if (typeof data.ac === 'number') item.ac = data.ac;
@@ -69,15 +74,15 @@ export const buildHeatmapDays = (
   return days;
 };
 
-export const toWeeks = (days: HeatmapDayItem[]): HeatmapDayItem[][] => {
-  const weeks: HeatmapDayItem[][] = [];
-  for (let i = 0; i < days.length; i += 7) {
-    weeks.push(days.slice(i, i + 7));
+export const toWeeks = <T>(days: T[], size = 7): T[][] => {
+  const weeks: T[][] = [];
+  for (let i = 0; i < days.length; i += size) {
+    weeks.push(days.slice(i, i + size));
   }
   return weeks;
 };
 
-export const buildMonths = (weeks: HeatmapDayItem[][]): Array<{ name: string; percent: number }> => {
+export const buildMonths = <T extends { date: string }>(weeks: T[][]): Array<{ name: string; percent: number }> => {
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
   const res: { name: string; percent: number }[] = [];
   const totalWeeks = weeks.length;
@@ -94,42 +99,4 @@ export const buildMonths = (weeks: HeatmapDayItem[][]): Array<{ name: string; pe
     }
   });
   return res;
-};
-
-export const formatRelativeTime = (isoString?: string, isId: boolean = false): string => {
-  if (!isoString) return '';
-  const date = new Date(isoString);
-  const now = new Date();
-  const diffSec = Math.floor((now.getTime() - date.getTime()) / 1000);
-
-  if (diffSec < 60) return isId ? 'baru saja' : 'just now';
-  if (diffSec < 3600) return isId ? `${Math.floor(diffSec / 60)} mnt lalu` : `${Math.floor(diffSec / 60)}m ago`;
-  if (diffSec < 86400) return isId ? `${Math.floor(diffSec / 3600)} jam lalu` : `${Math.floor(diffSec / 3600)}h ago`;
-  if (diffSec < 2592000) return isId ? `${Math.floor(diffSec / 86400)} hari lalu` : `${Math.floor(diffSec / 86400)}d ago`;
-
-  return date.toLocaleDateString(isId ? 'id-ID' : 'en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  });
-};
-
-export const formatTooltipHeaderDate = (dateStr: string, isId: boolean = false): string => {
-  const dateObj = new Date(dateStr + 'T00:00:00');
-  return dateObj.toLocaleDateString(isId ? 'id-ID' : 'en-US', {
-    weekday: 'long',
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
-};
-
-export const formatExactDate = (isoString?: string, isId: boolean = false): string => {
-  if (!isoString) return '-';
-  const date = new Date(isoString);
-  return date.toLocaleDateString(isId ? 'id-ID' : 'en-US', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
 };

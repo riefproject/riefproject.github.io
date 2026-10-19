@@ -83,9 +83,12 @@ const groups = [
 				<div class="legacy-exp__content">
 					<div class="legacy-exp__media">
 						{primary.logo ? (
-							<div class="badge badge--image">
-								<img src={primary.logo} alt={primary.company} loading="lazy" />
-							</div>
+							<EntityBadge
+								logo={primary.logo}
+								name={primary.company}
+								size={180}
+								class="badge badge--image"
+							/>
 						) : (
 							<div class="badge">
 								<span>{primary.company}</span>

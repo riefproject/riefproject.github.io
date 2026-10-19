@@ -119,8 +119,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import type { HeatmapTooltipMetric } from "../../utils/activityDateUtils";
-import { formatTooltipHeaderDate } from "../../utils/activityDateUtils";
+import type { HeatmapTooltipMetric } from "../../utils/heatmap";
+import { formatTooltipHeaderDate } from "../../utils/dateFormat";
 
 const props = withDefaults(
   defineProps<{

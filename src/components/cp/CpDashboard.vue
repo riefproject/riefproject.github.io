@@ -116,7 +116,8 @@ import CpHackerrankTab from './CpHackerrankTab.vue';
 import NavTabs from '../shared/NavTabs.vue';
 import StatCard from '../shared/StatCard.vue';
 import DashboardTopbar from '../shared/DashboardTopbar.vue';
-import { buildCpHeatmap, buildHeatmapMonths, chunkIntoWeeks, getPrimaryLanguage } from './cpUtils';
+import { buildCpHeatmap, getPrimaryLanguage } from '../../utils/cp/stats';
+import { buildMonths, toWeeks } from '../../utils/heatmap';
 
 const props = defineProps<{
   initialData?: any;
@@ -184,13 +185,13 @@ const heatmapData = computed(() =>
   buildCpHeatmap(cpData.value?.overview?.heatmap || {}),
 );
 
-const heatmapWeeks = computed(() => chunkIntoWeeks(heatmapData.value));
+const heatmapWeeks = computed(() => toWeeks(heatmapData.value));
 
 const totalSubmissionsInHeatmap = computed(() => {
   return heatmapData.value.reduce((acc, d) => acc + d.tries, 0);
 });
 
-const heatmapMonths = computed(() => buildHeatmapMonths(heatmapWeeks.value));
+const heatmapMonths = computed(() => buildMonths(heatmapWeeks.value));
 </script>
 
 <style scoped>

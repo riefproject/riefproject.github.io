@@ -52,7 +52,7 @@ import { computed } from 'vue';
 import CpPlatformHeader from './CpPlatformHeader.vue';
 import CpMetricsGrid from './CpMetricsGrid.vue';
 import CpSolvedProblemsPanel from './CpSolvedProblemsPanel.vue';
-import type { CpColumn, CpMetric } from './cpTypes';
+import type { CpColumn, CpMetric } from '../../types/cp.types';
 
 const props = withDefaults(
   defineProps<{
@@ -80,20 +80,18 @@ const metrics = computed<CpMetric[]>(() => [
   {
     label: props.isId ? 'Rating Saat Ini' : 'Current Rating',
     value: props.cpData?.platforms?.codeforces?.rating || 625,
-    subHtml: `Rank: <span class="capitalize font-medium">${props.cpData?.platforms?.codeforces?.rank || 'newbie'}</span>`,
-    variant: 'sky',
+    subPrefix: 'Rank:',
+    subHighlight: props.cpData?.platforms?.codeforces?.rank || 'newbie',
   },
   {
     label: props.isId ? 'Soal Selesai' : 'Unique Solved',
     value: props.totalCfSolved,
     sub: props.isId ? 'Soal Berhasil AC' : 'Problems Accepted',
-    variant: 'emerald',
   },
   {
     label: props.isId ? 'Total Submisi' : 'Total Submissions',
     value: props.cpData?.platforms?.codeforces?.totalSubmissions || 148,
     sub: props.isId ? 'Riwayat submisi di CF' : 'Submission history on CF',
-    variant: 'purple',
   },
 ]);
 </script>

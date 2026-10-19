@@ -216,17 +216,12 @@
 
 <script setup lang="ts">
 import { ref, computed } from "vue";
-import FilterDropdown from "../FilterDropdown.vue";
+import FilterDropdown from "../shared/FilterDropdown.vue";
 import CpTablePagination from "./CpTablePagination.vue";
 import CpProblemsTable from "./CpProblemsTable.vue";
 import PlatformCard from "../shared/PlatformCard.vue";
-import {
-  cleanLanguage,
-  getPlatformLogo,
-  getPlatformName,
-  getDiffClass,
-  formatExactDate,
-} from "./cpUtils";
+import { cleanLanguage, getDiffClass } from "../../utils/cp/formatting";
+import { getPlatformLogo, getPlatformName } from "../../utils/cp/platforms";
 
 const props = withDefaults(
   defineProps<{

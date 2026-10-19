@@ -91,7 +91,7 @@
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
 import PlatformCard from '../shared/PlatformCard.vue';
 import StatCard from '../shared/StatCard.vue';
-import type { DevHeatmapDay } from './devUtils';
+import type { HeatmapDay } from '../../utils/heatmap';
 
 defineProps<{
   totalContributions: number;
@@ -101,7 +101,7 @@ defineProps<{
   gitlabMrMerged: number;
   topLanguage?: string;
   lastYearContributions: number;
-  heatmapWeeks: DevHeatmapDay[][];
+  heatmapWeeks: HeatmapDay[][];
   heatmapMonths: Array<{ name: string; percent: number }>;
   github: any;
   gitlab: any;

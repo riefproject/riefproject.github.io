@@ -38,7 +38,7 @@ import { computed } from 'vue';
 import CpPlatformHeader from './CpPlatformHeader.vue';
 import CpMetricsGrid from './CpMetricsGrid.vue';
 import CpSolvedProblemsPanel from './CpSolvedProblemsPanel.vue';
-import type { CpColumn, CpMetric } from './cpTypes';
+import type { CpColumn, CpMetric } from '../../types/cp.types';
 
 const props = withDefaults(
   defineProps<{
@@ -66,19 +66,16 @@ const metrics = computed<CpMetric[]>(() => [
     label: props.isId ? 'Soal Selesai' : 'Unique Solved',
     value: props.totalTlxSolved,
     sub: props.isId ? 'Soal Berhasil AC' : 'Problems Accepted',
-    variant: 'emerald',
   },
   {
     label: props.isId ? 'Total Submisi' : 'Total Submissions',
     value: props.cpData?.platforms?.tlx?.totalSubmissions || 561,
     sub: props.isId ? 'Riwayat submisi di TLX' : 'Submission history on TLX',
-    variant: 'sky',
   },
   {
     label: props.isId ? 'Submisi AC' : 'Total AC Submissions',
     value: props.cpData?.platforms?.tlx?.totalAcSubmissions || 215,
     sub: props.isId ? 'Submisi berstatus 100/AC' : 'Submissions with 100/AC score',
-    variant: 'amber',
   },
 ]);
 </script>

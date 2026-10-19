@@ -21,8 +21,8 @@
 <script setup lang="ts">
 import { useStore } from '@nanostores/vue';
 import { computed, watchEffect } from 'vue';
-import { theme, setTheme } from '../stores/uiStore.js';
-import SegmentedToggle from './shared/SegmentedToggle.vue';
+import { theme, setTheme } from '../../stores/uiStore';
+import SegmentedToggle from '../shared/SegmentedToggle.vue';
 
 const options = [{ value: 'light' }, { value: 'dark' }];
 

@@ -38,7 +38,7 @@ import { computed } from 'vue';
 import CpPlatformHeader from './CpPlatformHeader.vue';
 import CpMetricsGrid from './CpMetricsGrid.vue';
 import CpSolvedProblemsPanel from './CpSolvedProblemsPanel.vue';
-import type { CpColumn, CpMetric } from './cpTypes';
+import type { CpColumn, CpMetric } from '../../types/cp.types';
 
 const props = withDefaults(
   defineProps<{
@@ -65,19 +65,16 @@ const metrics = computed<CpMetric[]>(() => [
     label: 'Easy Solved',
     value: props.cpData?.platforms?.leetcode?.easySolved || 32,
     sub: props.isId ? 'Fondasi & Dasar DSA' : 'DSA Foundations & Basics',
-    variant: 'emerald',
   },
   {
     label: 'Medium Solved',
     value: props.cpData?.platforms?.leetcode?.mediumSolved || 24,
     sub: props.isId ? 'Problem Solving Inti' : 'Core Problem Solving',
-    variant: 'amber',
   },
   {
     label: 'Hard Solved',
     value: props.cpData?.platforms?.leetcode?.hardSolved || 3,
     sub: props.isId ? 'Kompleksitas Lanjutan' : 'Advanced Complexity',
-    variant: 'rose',
   },
 ]);
 </script>

@@ -76,7 +76,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { getPageNumbersHelper } from './cpUtils';
+import { getPageNumbers } from '../../utils/pagination';
 
 const props = withDefaults(
   defineProps<{
@@ -105,7 +105,7 @@ const rangeText = computed(() => {
 });
 
 const visiblePages = computed(() => {
-  return getPageNumbersHelper(props.totalPages, props.currentPage);
+  return getPageNumbers(props.totalPages, props.currentPage);
 });
 
 const setPage = (page: number) => {

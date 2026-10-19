@@ -1,5 +1,21 @@
 export type CpPlatformKey = 'tlx' | 'codeforces' | 'leetcode' | 'hackerrank';
 
+export type CpColumnKey = 'category' | 'difficulty' | 'language';
+
+export interface CpColumn {
+  key: CpColumnKey;
+  labelEn: string;
+  labelId: string;
+}
+
+export interface CpMetric {
+  label: string;
+  value: string | number;
+  sub?: string;
+  subPrefix?: string;
+  subHighlight?: string;
+}
+
 export interface CpOverview {
   totalSolved: number;
   totalSubmissions: number;
@@ -39,7 +55,7 @@ export interface SubmissionItem {
   solvedAt?: string;
 }
 
-export interface HeatmapDay {
+export interface CpHeatmapDay {
   date: string;
   count: number;
   tries: number;

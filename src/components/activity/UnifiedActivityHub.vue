@@ -29,7 +29,7 @@ import {
   toWeeks,
   buildMonths,
   type HeatmapTooltipMetric,
-} from '../../utils/activityDateUtils';
+} from '../../utils/heatmap';
 
 const props = defineProps<{
   initialDevData?: any;

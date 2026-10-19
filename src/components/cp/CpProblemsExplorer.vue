@@ -93,17 +93,13 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted, watch } from "vue";
-import FilterDropdown from "../FilterDropdown.vue";
+import FilterDropdown from "../shared/FilterDropdown.vue";
 import CpTablePagination from "./CpTablePagination.vue";
 import CpProblemsTable from "./CpProblemsTable.vue";
-import {
-  cleanLanguage,
-  getPlatformLogo,
-  getPlatformName,
-  getDiffClass,
-  formatExactDate,
-} from "./cpUtils";
+import { cleanLanguage, getDiffClass } from "../../utils/cp/formatting";
+import { getPlatformLogo, getPlatformName } from "../../utils/cp/platforms";
 import { useLocale } from "../../composables/useLocale";
+import { usePagination } from "../../composables/usePagination";
 
 const props = defineProps<{
   initialData?: any;
@@ -164,8 +160,43 @@ const platformCategories = computed(() => {
 });
 
 const searchQuery = ref("");
-const currentPage = ref(1);
-const pageSize = ref(20);
+
+// Filtered List
+const allProblems = computed(() => {
+  if (rawProblemsData.value) {
+    if (Array.isArray(rawProblemsData.value)) return rawProblemsData.value;
+    if (Array.isArray(rawProblemsData.value.problems))
+      return rawProblemsData.value.problems;
+  }
+  return cpData.value?.recentGlobalFeed || [];
+});
+
+const filteredProblems = computed(() => {
+  let list = allProblems.value;
+  list = list.filter((item: any) =>
+    selectedPlatforms.value.includes(item.platform),
+  );
+
+  if (searchQuery.value.trim()) {
+    const q = searchQuery.value.toLowerCase();
+    list = list.filter(
+      (item: any) =>
+        (item.title && item.title.toLowerCase().includes(q)) ||
+        (item.category && item.category.toLowerCase().includes(q)) ||
+        (item.language && item.language.toLowerCase().includes(q)) ||
+        (item.platform && item.platform.toLowerCase().includes(q)) ||
+        (item.difficulty && String(item.difficulty).toLowerCase().includes(q)),
+    );
+  }
+  return list;
+});
+
+const {
+  currentPage,
+  pageSize,
+  totalPages,
+  paginatedList: paginatedProblems,
+} = usePagination(() => filteredProblems.value, 20);
 
 // URL Query Param handler on mounted
 onMounted(() => {
@@ -201,45 +232,6 @@ watch(selectedPlatforms, (newVal) => {
     }
     window.history.replaceState({}, "", url.toString());
   }
-});
-
-// Filtered List
-const allProblems = computed(() => {
-  if (rawProblemsData.value) {
-    if (Array.isArray(rawProblemsData.value)) return rawProblemsData.value;
-    if (Array.isArray(rawProblemsData.value.problems))
-      return rawProblemsData.value.problems;
-  }
-  return cpData.value?.recentGlobalFeed || [];
-});
-
-const filteredProblems = computed(() => {
-  let list = allProblems.value;
-  list = list.filter((item: any) =>
-    selectedPlatforms.value.includes(item.platform),
-  );
-
-  if (searchQuery.value.trim()) {
-    const q = searchQuery.value.toLowerCase();
-    list = list.filter(
-      (item: any) =>
-        (item.title && item.title.toLowerCase().includes(q)) ||
-        (item.category && item.category.toLowerCase().includes(q)) ||
-        (item.language && item.language.toLowerCase().includes(q)) ||
-        (item.platform && item.platform.toLowerCase().includes(q)) ||
-        (item.difficulty && String(item.difficulty).toLowerCase().includes(q)),
-    );
-  }
-  return list;
-});
-
-const totalPages = computed(() => {
-  return Math.max(1, Math.ceil(filteredProblems.value.length / pageSize.value));
-});
-
-const paginatedProblems = computed(() => {
-  const start = (currentPage.value - 1) * pageSize.value;
-  return filteredProblems.value.slice(start, start + pageSize.value);
 });
 </script>
 

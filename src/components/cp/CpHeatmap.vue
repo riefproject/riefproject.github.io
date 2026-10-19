@@ -10,10 +10,10 @@
 
 <script setup lang="ts">
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
-import type { HeatmapDay } from './cpUtils';
+import type { CpHeatmapDay } from '../../types/cp.types';
 
 defineProps<{
-  heatmapWeeks: HeatmapDay[][];
+  heatmapWeeks: CpHeatmapDay[][];
   heatmapMonths: Array<{ name: string; percent: number }>;
   totalSubmissionsInHeatmap: number;
   isId?: boolean;

@@ -69,12 +69,8 @@ import DevGitHubTab from './DevGitHubTab.vue';
 import DevGitLabTab from './DevGitLabTab.vue';
 import NavTabs from '../shared/NavTabs.vue';
 import DashboardTopbar from '../shared/DashboardTopbar.vue';
-import {
-  buildHeatmapDays,
-  toWeeks,
-  buildMonths,
-  formatRelativeTime,
-} from './devUtils';
+import { buildHeatmapDays, buildMonths, toWeeks } from '../../utils/heatmap';
+import { formatRelativeTime } from '../../utils/dateFormat';
 
 const props = defineProps<{
   initialData?: any;
@@ -165,15 +161,32 @@ const combinedMap = computed<Record<string, any>>(() => {
   return out;
 });
 
-const heatmapDays = computed(() => buildHeatmapDays(combinedMap.value));
+const buildDevHeatmapDays = (
+  map: Record<string, any>,
+  extract?: (entry: any) => { count: number; github?: number; gitlab?: number },
+) => {
+  return buildHeatmapDays(map, (entry) => {
+    if (extract) return extract(entry);
+    if (typeof entry === 'object' && entry !== null) {
+      const count = Number(entry?.count || 0);
+      const res: any = { count };
+      if (typeof entry.github === 'number') res.github = entry.github;
+      if (typeof entry.gitlab === 'number') res.gitlab = entry.gitlab;
+      return res;
+    }
+    return { count: Number(entry || 0) };
+  });
+};
+
+const heatmapDays = computed(() => buildDevHeatmapDays(combinedMap.value));
 const githubHeatmapDays = computed(() =>
-  buildHeatmapDays(github.value?.overview?.heatmap || {}, (entry) => {
+  buildDevHeatmapDays(github.value?.overview?.heatmap || {}, (entry) => {
     const count = typeof entry === 'object' ? Number(entry?.count || 0) : Number(entry || 0);
     return { count, github: count };
   })
 );
 const gitlabHeatmapDays = computed(() =>
-  buildHeatmapDays(gitlab.value?.heatmap || {}, (entry) => {
+  buildDevHeatmapDays(gitlab.value?.heatmap || {}, (entry) => {
     const count = typeof entry === 'object' ? Number(entry?.count || 0) : Number(entry || 0);
     return { count, gitlab: count };
   })

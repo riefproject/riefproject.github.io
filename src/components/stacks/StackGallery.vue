@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import FilterDropdown from "../FilterDropdown.vue";
+import { computed } from "vue";
+import FilterDropdown from "../shared/FilterDropdown.vue";
 import { useStore } from "@nanostores/vue";
 import type { LocaleText, TechStack } from "../../types/profile.types";
-import { theme as themeStore } from "../../stores/uiStore.js";
+import { theme as themeStore } from "../../stores/uiStore";
 import { useLocale } from "../../composables/useLocale";
+import { useListFilter } from "../../composables/useListFilter";
 
 type Category = { key: string; label: LocaleText };
 
@@ -13,40 +14,19 @@ const props = defineProps<{
   categories: Category[];
 }>();
 
-const allCategoryKeys = props.categories
-  .filter((c) => c.key !== "all")
-  .map((c) => c.key);
-const searchTerm = ref("");
-const selectedCategories = ref<string[]>([...allCategoryKeys]);
-const isFilterOpen = ref(false);
+const { searchTerm, selectedCategories, filteredItems } = useListFilter({
+  items: () => props.items,
+  categories: () => props.categories,
+  getCategory: (item) => item.category,
+  matchesSearch: (item, term) => item.name.toLowerCase().includes(term),
+});
 const $theme = useStore(themeStore);
 const { isId, locale, resolveText } = useLocale();
 
-const copy = computed(() =>
-  isId.value
-    ? {
-        search: "Cari stack atau tools",
-        result: "item",
-      }
-    : {
-        search: "Search stack or tools",
-        result: "items",
-      },
+const searchPlaceholder = computed(() =>
+  isId.value ? "Cari stack atau tools" : "Search stack or tools",
 );
 
-const filteredItems = computed(() => {
-  const term = searchTerm.value.trim().toLowerCase();
-  return props.items.filter((item) => {
-    const matchesCategory = selectedCategories.value.includes(item.category);
-    const matchesSearch =
-      term.length === 0 || item.name.toLowerCase().includes(term);
-    return matchesCategory && matchesSearch;
-  });
-});
-
-const activeCount = computed(() => filteredItems.value.length);
-
-const resolveLabel = (value: LocaleText) => resolveText(value);
 const resolveLogo = (item: TechStack) => {
   return $theme.value === "dark" ? item.logoDark : item.logoLight;
 };
@@ -54,7 +34,7 @@ const resolveLogo = (item: TechStack) => {
 const resolvedCategories = computed(() => {
   return props.categories.map((c) => ({
     key: c.key,
-    label: resolveLabel(c.label),
+    label: resolveText(c.label),
   }));
 });
 </script>
@@ -66,7 +46,7 @@ const resolvedCategories = computed(() => {
         <input
           v-model="searchTerm"
           type="search"
-          :placeholder="copy.search"
+          :placeholder="searchPlaceholder"
           :aria-label="
             locale === 'id' ? 'Cari tech stack' : 'Search tech stack'
           "

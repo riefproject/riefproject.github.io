@@ -110,14 +110,10 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import {
-  getPlatformLogo,
-  getPlatformName,
-  getDiffClass,
-  cleanLanguage,
-  formatExactDate,
-  type SubmissionItem,
-} from './cpUtils';
+import { cleanLanguage, getDiffClass } from '../../utils/cp/formatting';
+import { getPlatformLogo, getPlatformName } from '../../utils/cp/platforms';
+import type { SubmissionItem } from '../../types/cp.types';
+import { formatExactDate } from '../../utils/dateFormat';
 
 const props = withDefaults(
   defineProps<{

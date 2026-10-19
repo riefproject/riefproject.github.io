@@ -112,13 +112,13 @@
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
 import LanguageBars from '../shared/LanguageBars.vue';
 import StatCard from '../shared/StatCard.vue';
-import type { DevHeatmapDay } from './devUtils';
+import type { HeatmapDay } from '../../utils/heatmap';
 
 defineProps<{
   github: any;
   topLanguage?: string;
   githubLastYear: number;
-  githubHeatmapWeeks: DevHeatmapDay[][];
+  githubHeatmapWeeks: HeatmapDay[][];
   githubHeatmapMonths: Array<{ name: string; percent: number }>;
   isId?: boolean;
 }>();

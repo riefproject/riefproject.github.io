@@ -69,7 +69,7 @@
 import { computed } from 'vue';
 import CpPlatformHeader from './CpPlatformHeader.vue';
 import CpSolvedProblemsPanel from './CpSolvedProblemsPanel.vue';
-import type { CpColumn } from './cpTypes';
+import type { CpColumn } from '../../types/cp.types';
 
 const props = withDefaults(
   defineProps<{

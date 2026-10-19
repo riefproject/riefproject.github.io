@@ -1,5 +1,8 @@
 <template>
-  <div class="stat-card" :class="appearance === 'dev' && 'stat-card--dev'">
+  <div
+    class="stat-card"
+    :class="appearance !== 'default' ? `stat-card--${appearance}` : ''"
+  >
     <span class="stat-label">{{ label }}</span>
     <div
       class="stat-value"
@@ -10,42 +13,27 @@
       </slot>
       <span v-if="unit" class="stat-unit">{{ unit }}</span>
     </div>
-    <span v-if="helper" class="stat-helper">{{ helper }}</span>
+    <span v-if="helper || $slots.helper" class="stat-helper">
+      <slot name="helper">{{ helper }}</slot>
+    </span>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-
-const props = withDefaults(
+withDefaults(
   defineProps<{
     label: string;
     value?: number | string;
     unit?: string;
     helper?: string;
     variant?: 'emerald' | 'sky' | 'amber' | 'purple' | 'none';
-    appearance?: 'default' | 'dev';
+    appearance?: 'default' | 'dev' | 'metric';
   }>(),
   {
     variant: 'none',
     appearance: 'default',
   }
 );
-
-const colorClass = computed(() => {
-  switch (props.variant) {
-    case 'emerald':
-      return 'val-emerald';
-    case 'sky':
-      return 'val-sky';
-    case 'amber':
-      return 'val-amber';
-    case 'purple':
-      return 'val-purple';
-    default:
-      return '';
-  }
-});
 </script>
 
 <style scoped>
@@ -147,6 +135,40 @@ const colorClass = computed(() => {
   margin-top: 0;
 }
 
+.stat-card--metric {
+  gap: 0.25rem;
+  transition: none;
+}
+
+.stat-card--metric:hover {
+  background: var(--bg-soft);
+  transform: none;
+}
+
+.stat-card--metric .stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.stat-card--metric .stat-value {
+  display: block;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: normal;
+}
+
+.stat-card--metric .stat-helper {
+  font-size: 0.75rem;
+  line-height: 1.6;
+  margin-top: 0;
+}
+
 :root.light .stat-card {
   background: var(--bg-soft);
   border: none;
@@ -155,6 +177,10 @@ const colorClass = computed(() => {
 
 :root.light .stat-card:hover {
   background: var(--bg-elevated);
+}
+
+:root.light .stat-card--metric:hover {
+  background: var(--bg-soft);
 }
 
 :root.light .val-emerald { color: #047857; }

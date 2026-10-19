@@ -2,6 +2,8 @@
 import { computed, ref } from "vue";
 import type { LocaleText, Project } from "../../types/profile.types";
 import { useLocale } from "../../composables/useLocale";
+import { useListFilter } from "../../composables/useListFilter";
+import FilterDropdown from "../shared/FilterDropdown.vue";
 
 type Category = { key: string; label: LocaleText };
 
@@ -10,10 +12,29 @@ const props = defineProps<{
   categories: Category[];
 }>();
 
-const searchTerm = ref("");
-const allCategoryKeys = props.categories.filter(c => c.key !== 'all').map(c => c.key);
-const selectedCategories = ref<string[]>([...allCategoryKeys]);
-import FilterDropdown from "../FilterDropdown.vue";
+const { isId, locale, resolveText } = useLocale();
+
+const copy = computed(() =>
+  isId.value
+    ? {
+        searchPlaceholder: "Cari judul, deskripsi, atau teknologi",
+        resultSuffix: "proyek",
+        empty: "Tidak ada proyek yang cocok dengan filter saat ini.",
+        impactLabel: "Hasil",
+        viewMore: "Lihat Proyek Lainnya",
+        viewLess: "Sembunyikan",
+      }
+    : {
+        searchPlaceholder: "Search titles, descriptions, or technologies",
+        resultSuffix: "projects",
+        empty: "No projects match the current filters.",
+        impactLabel: "Result",
+        viewMore: "View More Projects",
+        viewLess: "Show Less",
+      }
+);
+
+const showAllProjects = ref(false);
 
 const resolvedCategories = computed(() => {
   return props.categories.map(c => ({
@@ -21,34 +42,6 @@ const resolvedCategories = computed(() => {
     label: resolveText(c.label)
   }));
 });
-const showAllProjects = ref(false);
-const { isId, resolveText } = useLocale();
-
-const copy = computed(() =>
-  isId.value
-    ? {
-        searchLabel: "Cari",
-        searchPlaceholder: "Cari judul, deskripsi, atau teknologi",
-        resultSuffix: "proyek",
-        empty: "Tidak ada proyek yang cocok dengan filter saat ini.",
-        impactLabel: "Hasil",
-        viewMore: "Lihat Proyek Lainnya",
-        viewLess: "Sembunyikan",
-        featuredLabel: "Proyek Unggulan",
-        otherLabel: "Proyek Lainnya",
-      }
-    : {
-        searchLabel: "Search",
-        searchPlaceholder: "Search titles, descriptions, or technologies",
-        resultSuffix: "projects",
-        empty: "No projects match the current filters.",
-        impactLabel: "Result",
-        viewMore: "View More Projects",
-        viewLess: "Show Less",
-        featuredLabel: "Featured Projects",
-        otherLabel: "Other Projects",
-      }
-);
 
 const featuredProjects = computed(() => {
   return props.projects.filter((p) => p.featured);
@@ -58,28 +51,22 @@ const otherProjects = computed(() => {
   return props.projects.filter((p) => !p.featured);
 });
 
-const filteredProjects = computed(() => {
-  const term = searchTerm.value.trim().toLowerCase();
-  const projectsToFilter = showAllProjects.value
-    ? props.projects
-    : featuredProjects.value;
-
-  return projectsToFilter.filter((project) => {
-    const matchesCategory = selectedCategories.value.includes(project.categoryKey);
-    const matchesSearch =
-      term.length === 0 ||
-      project.title.en.toLowerCase().includes(term) ||
-      project.title.id.toLowerCase().includes(term) ||
-      project.description.en.toLowerCase().includes(term) ||
-      project.description.id.toLowerCase().includes(term) ||
-      project.stack.some((tech) => tech.toLowerCase().includes(term));
-    return matchesCategory && matchesSearch;
-  });
+const {
+  searchTerm,
+  selectedCategories,
+  filteredItems: filteredProjects,
+  activeCount,
+} = useListFilter({
+  items: () => (showAllProjects.value ? props.projects : featuredProjects.value),
+  categories: () => props.categories,
+  getCategory: (project) => project.categoryKey,
+  matchesSearch: (project, term) =>
+    project.title.en.toLowerCase().includes(term) ||
+    project.title.id.toLowerCase().includes(term) ||
+    project.description.en.toLowerCase().includes(term) ||
+    project.description.id.toLowerCase().includes(term) ||
+    project.stack.some((tech) => tech.toLowerCase().includes(term)),
 });
-
-const activeCount = computed(() => filteredProjects.value.length);
-
-
 
 const toggleViewMore = () => {
   showAllProjects.value = !showAllProjects.value;

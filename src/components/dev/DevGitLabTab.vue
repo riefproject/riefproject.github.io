@@ -65,14 +65,14 @@
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
 import LanguageBars from '../shared/LanguageBars.vue';
 import StatCard from '../shared/StatCard.vue';
-import type { DevHeatmapDay } from './devUtils';
+import type { HeatmapDay } from '../../utils/heatmap';
 
 defineProps<{
   gitlab: any;
   gitlabTotalEvents: number;
   gitlabMrOpened: number;
   gitlabMrMerged: number;
-  gitlabHeatmapWeeks: DevHeatmapDay[][];
+  gitlabHeatmapWeeks: HeatmapDay[][];
   gitlabHeatmapMonths: Array<{ name: string; percent: number }>;
   gitlabLanguages: any[];
   isId?: boolean;

@@ -95,9 +95,10 @@
 
 <script setup lang="ts">
 import CpTablePagination from './CpTablePagination.vue';
-import { cleanLanguage, formatExactDate, getDiffClass } from './cpUtils';
+import { cleanLanguage, getDiffClass } from '../../utils/cp/formatting';
+import { formatExactDate } from '../../utils/dateFormat';
 import { usePagination } from '../../composables/usePagination';
-import type { CpColumn, CpColumnKey } from './cpTypes';
+import type { CpColumn, CpColumnKey } from '../../types/cp.types';
 
 const props = withDefaults(
   defineProps<{

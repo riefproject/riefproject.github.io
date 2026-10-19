@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-19T12:02:00.467Z",
+    "updatedAt": "2026-10-19T21:58:10.572Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 760,
-    "totalSubmissions": 1684,
+    "totalSolved": 761,
+    "totalSubmissions": 1685,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-17": {
@@ -437,6 +437,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-19": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-10-18": {
         "tries": 1,
         "ac": 1
@@ -450,8 +454,8 @@
         "ac": 2
       },
       "2026-10-14": {
-        "tries": 5,
-        "ac": 5
+        "tries": 4,
+        "ac": 4
       },
       "2024-06-23": {
         "tries": 44,
@@ -5680,12 +5684,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 2367686,
-      "totalSolved": 103,
-      "easySolved": 51,
+      "ranking": 1659207,
+      "totalSolved": 104,
+      "easySolved": 52,
       "mediumSolved": 44,
       "hardSolved": 8,
       "dailyCalendar": {
+        "2026-10-19": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-18": {
           "tries": 1,
           "ac": 1
@@ -5703,11 +5711,21 @@
           "ac": 2
         },
         "2026-10-14": {
-          "tries": 5,
-          "ac": 5
+          "tries": 4,
+          "ac": 4
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792414875",
+          "platform": "leetcode",
+          "title": "Find Target Indices After Sorting Array",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/find-target-indices-after-sorting-array/",
+          "solvedAt": "2026-10-19T13:01:15.000Z"
+        },
         {
           "id": "lc-1792353871",
           "platform": "leetcode",
@@ -5897,16 +5915,6 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/number-of-1-bits/",
           "solvedAt": "2026-10-14T22:42:53.000Z"
-        },
-        {
-          "id": "lc-1792017657",
-          "platform": "leetcode",
-          "title": "Delete Node in a Linked List",
-          "category": "Linked List",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
-          "solvedAt": "2026-10-14T22:40:57.000Z"
         }
       ]
     },
@@ -6342,6 +6350,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1792414875",
+      "platform": "leetcode",
+      "title": "Find Target Indices After Sorting Array",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/find-target-indices-after-sorting-array/",
+      "solvedAt": "2026-10-19T13:01:15.000Z"
+    },
     {
       "id": "lc-1792353871",
       "platform": "leetcode",

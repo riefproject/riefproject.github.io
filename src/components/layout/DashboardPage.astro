@@ -1,0 +1,85 @@
+---
+import type { LocaleText } from '../../types/profile.types'
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from './PageHeader.astro'
+
+type Props = {
+  metaTitle: string
+  heading: LocaleText
+  description: LocaleText
+  backHref: string
+  backLabel: LocaleText
+  headerClass?: string
+  headerVariant?: 'default' | 'compact' | 'flush'
+  contentWidth?: string
+  contentPadding?: boolean
+  bottomPad?: string
+  responsiveTop?: boolean
+}
+
+const {
+  metaTitle,
+  heading,
+  description,
+  backHref,
+  backLabel,
+  headerClass = '',
+  headerVariant = 'default',
+  contentWidth = '1200px',
+  contentPadding = true,
+  bottomPad = '5rem',
+  responsiveTop = true,
+}: Props = Astro.props
+---
+
+<Layout title={metaTitle} description={description.en}>
+  <main
+    class:list={['dashboard-page', responsiveTop && 'dashboard-page--responsive-top']}
+    style={`--dashboard-bottom: ${bottomPad}`}>
+    <PageHeader
+      class={headerClass}
+      variant={headerVariant}
+      backHref={backHref}
+      backLabel={backLabel}
+      title={heading}
+      description={description}
+    />
+
+    <div
+      class:list={['dashboard-content', contentPadding && 'dashboard-content--padded', 'section']}
+      style={`--dashboard-width: ${contentWidth}`}>
+      <slot />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .dashboard-page {
+    min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: var(--dashboard-bottom, 5rem);
+  }
+
+  .dashboard-content {
+    max-width: var(--dashboard-width, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .dashboard-content--padded {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .dashboard-page--responsive-top {
+      padding-top: 3rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .dashboard-page--responsive-top {
+      padding-top: 4rem;
+    }
+  }
+</style>

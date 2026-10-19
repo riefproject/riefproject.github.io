@@ -1,6 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import PageHeader from '../../components/layout/PageHeader.astro'
+import DashboardPage from '../../components/layout/DashboardPage.astro'
 import ProjectGallery from '../../components/projects/ProjectGallery.vue'
 import { getCollection } from 'astro:content'
 import { t as locale } from '../../utils/i18n'
@@ -30,45 +29,16 @@ const copy = {
 }
 ---
 
-<Layout title="Projects | Arief F-sa Wijaya" description={copy.description.en}>
-  <main class="projects-page">
-    <PageHeader
-      class="projects-header"
-      variant="flush"
-      backHref="/"
-      backLabel={copy.backToHome}
-      title={copy.title}
-      description={copy.description}
-    />
-
-    <div class="projects-content section">
-      <ProjectGallery client:idle projects={projects} categories={categories} />
-    </div>
-  </main>
-</Layout>
-
-<style>
-  .projects-page {
-    min-height: 100vh;
-    padding-top: 2rem;
-    padding-bottom: 4rem;
-  }
-
-  .projects-content {
-    max-width: 1400px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  @media (min-width: 768px) {
-    .projects-page {
-      padding-top: 3rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .projects-page {
-      padding-top: 4rem;
-    }
-  }
-</style>
+<DashboardPage
+  metaTitle="Projects | Arief F-sa Wijaya"
+  heading={copy.title}
+  description={copy.description}
+  backHref="/"
+  backLabel={copy.backToHome}
+  headerClass="projects-header"
+  headerVariant="flush"
+  contentWidth="1400px"
+  contentPadding={false}
+  bottomPad="4rem">
+  <ProjectGallery client:idle projects={projects} categories={categories} />
+</DashboardPage>

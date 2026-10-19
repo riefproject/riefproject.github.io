@@ -1,6 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import PageHeader from '../../components/layout/PageHeader.astro'
+import DashboardPage from '../../components/layout/DashboardPage.astro'
 import UnifiedActivityHub from '../../components/activity/UnifiedActivityHub.vue'
 import initialDevData from '../../data/dev-activity-initial.json'
 import initialCpData from '../../data/cp-data-initial.json'
@@ -17,38 +16,13 @@ const copy = {
 }
 ---
 
-<Layout title="Activity | Arief F-sa Wijaya" description={copy.description.en}>
-  <main class="activity-page">
-    <PageHeader
-      class="activity-header"
-      backHref="/"
-      backLabel={copy.backToHome}
-      title={copy.title}
-      description={copy.description}
-    />
-
-    <div class="activity-content section">
-      <UnifiedActivityHub
-        client:load
-        initialDevData={initialDevData}
-        initialCpData={initialCpData}
-      />
-    </div>
-  </main>
-</Layout>
-
-<style>
-  .activity-page {
-    min-height: 100vh;
-    padding-top: 2rem;
-    padding-bottom: 5rem;
-  }
-
-  .activity-content {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-</style>
+<DashboardPage
+  metaTitle="Activity | Arief F-sa Wijaya"
+  heading={copy.title}
+  description={copy.description}
+  backHref="/"
+  backLabel={copy.backToHome}
+  headerClass="activity-header"
+  responsiveTop={false}>
+  <UnifiedActivityHub client:load initialDevData={initialDevData} initialCpData={initialCpData} />
+</DashboardPage>

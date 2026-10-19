@@ -221,9 +221,7 @@ const props = withDefaults(
   }
 )
 
-defineEmits<{
-  (e: 'selectPlatform', platform: string): void
-}>()
+defineEmits<{ (e: 'selectPlatform', platform: string): void }>()
 
 const allPlatformKeys = [...CP_PLATFORM_KEYS]
 

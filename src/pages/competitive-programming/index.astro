@@ -1,6 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import PageHeader from '../../components/layout/PageHeader.astro'
+import DashboardPage from '../../components/layout/DashboardPage.astro'
 import CpDashboard from '../../components/cp/CpDashboard.vue'
 import initialCpData from '../../data/cp-data-initial.json'
 import '../../styles/cp-shared.css'
@@ -16,48 +15,12 @@ const copy = {
 }
 ---
 
-<Layout
-  title="Competitive Programming Dashboard | Arief F-sa Wijaya"
-  description={copy.description.en}>
-  <main class="cp-page">
-    <PageHeader
-      class="cp-header"
-      backHref="/"
-      backLabel={copy.backToHome}
-      title={copy.title}
-      description={copy.description}
-    />
-
-    <div class="cp-content section">
-      <CpDashboard client:load initialData={initialCpData} />
-    </div>
-  </main>
-</Layout>
-
-<style>
-  .cp-page {
-    min-height: 100vh;
-    padding-top: 2rem;
-    padding-bottom: 5rem;
-  }
-
-  .cp-content {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-
-  @media (min-width: 768px) {
-    .cp-page {
-      padding-top: 3rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .cp-page {
-      padding-top: 4rem;
-    }
-  }
-</style>
+<DashboardPage
+  metaTitle="Competitive Programming Dashboard | Arief F-sa Wijaya"
+  heading={copy.title}
+  description={copy.description}
+  backHref="/"
+  backLabel={copy.backToHome}
+  headerClass="cp-header">
+  <CpDashboard client:load initialData={initialCpData} />
+</DashboardPage>

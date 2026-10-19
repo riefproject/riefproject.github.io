@@ -1,6 +1,5 @@
 ---
-import Layout from '../../../layouts/Layout.astro'
-import PageHeader from '../../../components/layout/PageHeader.astro'
+import DashboardPage from '../../../components/layout/DashboardPage.astro'
 import CpProblemsExplorer from '../../../components/cp/CpProblemsExplorer.vue'
 import initialCpData from '../../../data/cp-data-initial.json'
 import initialProblemsData from '../../../data/cp-problems-initial.json'
@@ -17,41 +16,18 @@ const copy = {
 }
 ---
 
-<Layout
-  title="Solved Problems Archive | Competitive Programming | Arief F-sa Wijaya"
-  description={copy.description.en}>
-  <main class="cp-page">
-    <PageHeader
-      class="cp-header"
-      variant="compact"
-      backHref="/competitive-programming"
-      backLabel={copy.backToDashboard}
-      title={copy.title}
-      description={copy.description}
-    />
-
-    <div class="cp-content section">
-      <CpProblemsExplorer
-        client:load
-        initialData={initialCpData}
-        initialProblems={initialProblemsData}
-      />
-    </div>
-  </main>
-</Layout>
-
-<style>
-  .cp-page {
-    min-height: 100vh;
-    padding-top: 2rem;
-    padding-bottom: 5rem;
-  }
-
-  .cp-content {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-</style>
+<DashboardPage
+  metaTitle="Solved Problems Archive | Competitive Programming | Arief F-sa Wijaya"
+  heading={copy.title}
+  description={copy.description}
+  backHref="/competitive-programming"
+  backLabel={copy.backToDashboard}
+  headerClass="cp-header"
+  headerVariant="compact"
+  responsiveTop={false}>
+  <CpProblemsExplorer
+    client:load
+    initialData={initialCpData}
+    initialProblems={initialProblemsData}
+  />
+</DashboardPage>

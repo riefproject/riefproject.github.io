@@ -1,6 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro'
-import PageHeader from '../../components/layout/PageHeader.astro'
+import DashboardPage from '../../components/layout/DashboardPage.astro'
 import DevelopmentActivity from '../../components/dev/DevelopmentActivity.vue'
 import initialDevData from '../../data/dev-activity-initial.json'
 import '../../styles/dev-shared.css'
@@ -16,46 +15,12 @@ const copy = {
 }
 ---
 
-<Layout title="Development Activity | Arief F-sa Wijaya" description={copy.description.en}>
-  <main class="dev-page">
-    <PageHeader
-      class="dev-header"
-      backHref="/"
-      backLabel={copy.backToHome}
-      title={copy.title}
-      description={copy.description}
-    />
-
-    <div class="dev-content section">
-      <DevelopmentActivity client:load initialData={initialDevData} />
-    </div>
-  </main>
-</Layout>
-
-<style>
-  .dev-page {
-    min-height: 100vh;
-    padding-top: 2rem;
-    padding-bottom: 5rem;
-  }
-
-  .dev-content {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
-  }
-
-  @media (min-width: 768px) {
-    .dev-page {
-      padding-top: 3rem;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .dev-page {
-      padding-top: 4rem;
-    }
-  }
-</style>
+<DashboardPage
+  metaTitle="Development Activity | Arief F-sa Wijaya"
+  heading={copy.title}
+  description={copy.description}
+  backHref="/"
+  backLabel={copy.backToHome}
+  headerClass="dev-header">
+  <DevelopmentActivity client:load initialData={initialDevData} />
+</DashboardPage>

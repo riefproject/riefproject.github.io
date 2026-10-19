@@ -50,8 +50,6 @@ const devCopy = {
     'Live across GitHub + GitLab · past 12 months',
     'Live di GitHub + GitLab · 12 bulan terakhir'
   ),
-  prLabel: locale('PR / MR merged', 'PR / MR digabung'),
-  daysLabel: locale('Active days', 'Hari aktif'),
   cta: locale('Open live dashboard', 'Buka dashboard live'),
 }
 
@@ -59,10 +57,6 @@ const devPlatforms = devActivity?.platforms || {}
 const ghTotal = devPlatforms.github?.overview?.totalContributions || 0
 const glTotal = devPlatforms.gitlab?.stats?.totalEvents || 0
 const devTotalContributions = ghTotal + glTotal
-const devPrMerged =
-  (devPlatforms.github?.prStats?.merged || 0) +
-  (devPlatforms.gitlab?.stats?.mergeRequests?.merged || 0)
-const devActiveDays = devPlatforms.gitlab?.stats?.daysActive || 0
 
 const toolboxPreview = toolbox.slice(0, 7)
 const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0)
@@ -446,33 +440,6 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0)
     margin-top: 0.4rem;
     font-size: 0.85rem;
     color: var(--muted);
-  }
-
-  .dev-card__stats {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 0.25rem;
-  }
-
-  .dev-stat {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-  }
-
-  .dev-stat strong {
-    font-size: 1.35rem;
-    line-height: 1;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .dev-stat__label {
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    color: var(--muted);
-    font-weight: 600;
   }
 
   .dev-card__cta {

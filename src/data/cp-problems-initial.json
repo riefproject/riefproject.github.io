@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-18T20:03:02.080Z",
-  "totalProblems": 709,
+  "lastUpdated": "2026-10-19T03:07:35.779Z",
+  "totalProblems": 710,
   "problems": [
+    {
+      "id": "lc-1792353871",
+      "platform": "leetcode",
+      "title": "Number of Ways to Reorder Array to Get Same BST",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst/",
+      "solvedAt": "2026-10-18T20:04:31.000Z"
+    },
     {
       "id": "tlx-6180556",
       "platform": "tlx",

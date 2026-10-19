@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-18T20:03:02.076Z",
+    "updatedAt": "2026-10-19T03:07:35.775Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 759,
-    "totalSubmissions": 1683,
+    "totalSolved": 760,
+    "totalSubmissions": 1684,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-17": {
@@ -437,6 +437,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-18": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-10-16": {
         "tries": 11,
         "ac": 11
@@ -446,8 +450,8 @@
         "ac": 2
       },
       "2026-10-14": {
-        "tries": 6,
-        "ac": 6
+        "tries": 5,
+        "ac": 5
       },
       "2024-06-23": {
         "tries": 44,
@@ -564,7 +568,7 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 961
+      "count": 962
     }
   },
   "platforms": {
@@ -5677,11 +5681,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1672399,
-      "totalSolved": 102,
+      "totalSolved": 103,
       "easySolved": 51,
       "mediumSolved": 44,
-      "hardSolved": 7,
+      "hardSolved": 8,
       "dailyCalendar": {
+        "2026-10-18": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-17": {
           "tries": 1,
           "ac": 1
@@ -5695,11 +5703,21 @@
           "ac": 2
         },
         "2026-10-14": {
-          "tries": 6,
-          "ac": 6
+          "tries": 5,
+          "ac": 5
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792353871",
+          "platform": "leetcode",
+          "title": "Number of Ways to Reorder Array to Get Same BST",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst/",
+          "solvedAt": "2026-10-18T20:04:31.000Z"
+        },
         {
           "id": "lc-1792197584",
           "platform": "leetcode",
@@ -5889,16 +5907,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/delete-node-in-a-linked-list/",
           "solvedAt": "2026-10-14T22:40:57.000Z"
-        },
-        {
-          "id": "lc-1792015826",
-          "platform": "leetcode",
-          "title": "Department Highest Salary",
-          "category": "Database",
-          "language": "PostgreSQL",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/department-highest-salary/",
-          "solvedAt": "2026-10-14T22:10:26.000Z"
         }
       ]
     },
@@ -6334,6 +6342,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1792353871",
+      "platform": "leetcode",
+      "title": "Number of Ways to Reorder Array to Get Same BST",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst/",
+      "solvedAt": "2026-10-18T20:04:31.000Z"
+    },
     {
       "id": "tlx-6180556",
       "platform": "tlx",

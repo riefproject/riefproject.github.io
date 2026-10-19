@@ -2,8 +2,8 @@
 // Scheduled data crawler — replaces the runtime Netlify functions.
 // Crawls GitHub (public), GitLab (token via env) and CP platforms, then writes
 // the merged payloads that the site reads at build time:
-//   src/data/dev-activity-initial.json
-//   src/data/cp-data-initial.json
+//   src/data/dev-activity.json
+//   src/data/cp-data.json
 // Runs standalone with plain Node 18+ (global fetch) — no dependencies.
 // On any hard failure the previous JSON file is left untouched.
 
@@ -39,9 +39,9 @@ loadEnv(path.join(__dirname, '..', '.env'))
 
 // ---------------------------------------------------------------------------
 // Helpers
-const DEV_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-initial.json')
-const CP_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-data-initial.json')
-const CP_PROBLEMS_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-problems-initial.json')
+const DEV_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity.json')
+const CP_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-data.json')
+const CP_PROBLEMS_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-problems.json')
 const ARCHIVES_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-archives.json')
 
 const nowIso = () => new Date().toISOString()

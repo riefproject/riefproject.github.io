@@ -1,41 +1,92 @@
+import type { HeatmapDay } from '../utils/heatmap'
+
+export interface GitUser {
+  login?: string
+  name?: string
+  avatarUrl?: string
+  url?: string
+  company?: string
+  bio?: string
+  followers?: number
+  following?: number
+  publicRepos?: number
+}
+
+export interface GitRepo {
+  name: string
+  fullName?: string
+  url?: string
+  description?: string
+  language?: string
+  stars?: number
+  forks?: number
+}
+
+export interface GitLanguage {
+  name: string
+  percentage: number
+}
+
 export interface GitPlatformStats {
-  totalContributions?: number;
-  totalEvents?: number;
-  daysActive?: number;
+  totalContributions?: number
+  lastYearContributions?: number
+  currentStreak?: number
+  longestStreak?: number
+  totalEvents?: number
+  daysActive?: number
+  yearlyTotal?: Record<string, number>
   prStats?: {
-    merged?: number;
-    open?: number;
-    closed?: number;
-  };
+    total?: number
+    merged?: number
+    open?: number
+    closed?: number
+  }
   mergeRequests?: {
-    merged?: number;
-    open?: number;
-    closed?: number;
-  };
-  languages?: Record<string, number>;
+    total?: number
+    merged?: number
+    opened?: number
+    open?: number
+    closed?: number
+  }
+  mergeRequestsMerged?: number
+  mergeRequestsOpened?: number
+  languages?: Record<string, number>
+  heatmap?: Record<string, { count?: number; github?: number; gitlab?: number } | number>
 }
 
 export interface DevPlatformProfile {
-  handle?: string;
-  overview?: GitPlatformStats;
-  stats?: GitPlatformStats;
+  handle?: string
+  user?: GitUser
+  overview?: GitPlatformStats
+  stats?: GitPlatformStats
+  prStats?: {
+    total?: number
+    merged?: number
+    open?: number
+    closed?: number
+  }
+  heatmap?: Record<string, { count?: number; github?: number; gitlab?: number } | number>
+  languages?: GitLanguage[]
+  topRepos?: GitRepo[]
 }
 
 export interface DevActivityData {
   meta?: {
-    updatedAt?: string;
-    version?: string;
-  };
+    updatedAt?: string
+    version?: string
+  }
   overview?: {
-    totalContributions?: number;
-    currentStreak?: number;
-    prMerged?: number;
-    topLanguage?: string;
-  };
+    totalContributions?: number
+    currentStreak?: number
+    prMerged?: number
+    topLanguage?: string
+  }
   platforms?: {
-    github?: DevPlatformProfile;
-    gitlab?: DevPlatformProfile;
-  };
-  heatmapWeeks?: any[][];
-  heatmapMonths?: Array<{ name: string; percent: number }>;
+    github?: DevPlatformProfile
+    gitlab?: DevPlatformProfile
+  }
+  github?: DevPlatformProfile
+  gitlab?: DevPlatformProfile
+  heatmapWeeks?: HeatmapDay[][]
+  heatmapMonths?: Array<{ name: string; percent: number }>
 }

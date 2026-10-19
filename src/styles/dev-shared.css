@@ -629,7 +629,7 @@
   }
 
   .heatmap-container::after {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     bottom: 1.4rem;

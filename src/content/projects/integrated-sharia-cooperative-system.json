@@ -19,13 +19,7 @@
   },
   "categoryKey": "enterprise",
   "featured": true,
-  "stack": [
-    "Laravel",
-    "Vue.js",
-    "PHP",
-    "JavaScript",
-    "PostgreSQL"
-  ],
+  "stack": ["Laravel", "Vue.js", "PHP", "JavaScript", "PostgreSQL"],
   "highlights": [
     {
       "en": "Complex domain modeling for sharia-compliant financial operations.",

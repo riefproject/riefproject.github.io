@@ -1,140 +1,146 @@
 ---
-import type { Education } from '../../types/profile.types';
-import LocaleText from '../i18n/LocaleText.astro';
-import SectionIntro from './SectionIntro.astro';
-import EntityBadge from '../shared/EntityBadge.astro';
-import { t as locale } from '../../utils/i18n';
+import type { Education } from '../../types/profile.types'
+import LocaleText from '../i18n/LocaleText.astro'
+import SectionIntro from './SectionIntro.astro'
+import EntityBadge from '../shared/EntityBadge.astro'
+import { t as locale } from '../../utils/i18n'
 
 const copy = {
-	eyebrow: locale('Education', 'Pendidikan'),
-	heading: locale('Where I studied and what I honed there.', 'Di mana saya belajar dan apa yang diasah di sana.'),
-	body: locale('Highlights of programs and initiatives that shaped my foundation.', 'Rangkuman program dan inisiatif yang membentuk fondasi saya.'),
-};
+  eyebrow: locale('Education', 'Pendidikan'),
+  heading: locale(
+    'Where I studied and what I honed there.',
+    'Di mana saya belajar dan apa yang diasah di sana.'
+  ),
+  body: locale(
+    'Highlights of programs and initiatives that shaped my foundation.',
+    'Rangkuman program dan inisiatif yang membentuk fondasi saya.'
+  ),
+}
 
 type EducationProps = {
-	education?: Education[];
-};
+  education?: Education[]
+}
 
-const { education = [] }: EducationProps = Astro.props;
+const { education = [] }: EducationProps = Astro.props
 ---
 
 <section id="education" class="section education">
-	<SectionIntro
-		class="education__intro"
-		eyebrow={copy.eyebrow}
-		heading={copy.heading}
-		body={copy.body}
-	/>
-	<div class="education__list">
-		{education.map((edu) => (
-			<article class="surface education-card">
-				<header class="education-card__header">
-					<div class="education-card__identity">
-						<EntityBadge
-							logo={edu.logo}
-							name={edu.institution}
-							fallbackText={edu.institution.slice(0, 3).toUpperCase()}
-							size={44}
-						/>
-						<div class="education-card__titles">
-							<h3>{edu.institution}</h3>
-							<p class="program">
-								<LocaleText as="span" text={edu.program} />
-							</p>
-						</div>
-					</div>
-					<div class="education-card__period">
-						<span class="period-pill">{edu.period}</span>
-					</div>
-				</header>
-				<ul>
-					{edu.details.map((detail) => (
-						<li>
-							<LocaleText as="span" text={detail} />
-						</li>
-					))}
-				</ul>
-			</article>
-		))}
-	</div>
+  <SectionIntro
+    class="education__intro"
+    eyebrow={copy.eyebrow}
+    heading={copy.heading}
+    body={copy.body}
+  />
+  <div class="education__list">
+    {education.map((edu) => (
+      <article class="surface education-card">
+        <header class="education-card__header">
+          <div class="education-card__identity">
+            <EntityBadge
+              logo={edu.logo}
+              name={edu.institution}
+              fallbackText={edu.institution.slice(0, 3).toUpperCase()}
+              size={44}
+            />
+            <div class="education-card__titles">
+              <h3>{edu.institution}</h3>
+              <p class="program">
+                <LocaleText as="span" text={edu.program} />
+              </p>
+            </div>
+          </div>
+          <div class="education-card__period">
+            <span class="period-pill">{edu.period}</span>
+          </div>
+        </header>
+        <ul>
+          {edu.details.map((detail) => (
+            <li>
+              <LocaleText as="span" text={detail} />
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
 </section>
 
 <style>
-	.education__list {
-		margin-top: 1.5rem;
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
+  .education__list {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-	.education-card h3 {
-		margin: 0;
-		font-size: 1.15rem;
-		font-weight: 700;
-		font-family: inherit;
-		color: var(--text);
-		line-height: 1.25;
-	}
+  .education-card h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 700;
+    font-family: inherit;
+    color: var(--text);
+    line-height: 1.25;
+  }
 
-	.education-card .program {
-		margin: 0.2rem 0 0;
-		font-size: 0.9rem;
-		font-weight: 500;
-		color: var(--muted);
-		line-height: 1.4;
-	}
+  .education-card .program {
+    margin: 0.2rem 0 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+    line-height: 1.4;
+  }
 
-	.education-card ul {
-		margin: 1rem 0 0;
-		padding-left: 1.25rem;
-		color: var(--muted);
-		font-size: 0.9rem;
-		line-height: 1.65;
-	}
+  .education-card ul {
+    margin: 1rem 0 0;
+    padding-left: 1.25rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
 
-	.education-card ul li + li {
-		margin-top: 0.35rem;
-	}
+  .education-card ul li + li {
+    margin-top: 0.35rem;
+  }
 
-	.education-card__header {
-		display: flex;
-		align-items: flex-start;
-		justify-content: space-between;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
+  .education-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 
-	.education-card__identity {
-		display: flex;
-		align-items: center;
-		gap: 1rem;
-		min-width: 0;
-	}
+  .education-card__identity {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    min-width: 0;
+  }
 
-	.education-card__titles {
-		display: flex;
-		flex-direction: column;
-	}
+  .education-card__titles {
+    display: flex;
+    flex-direction: column;
+  }
 
-	.period-pill {
-		font-size: 0.85rem;
-		font-weight: 500;
-		color: var(--muted);
-		background: transparent;
-		padding: 0;
-		border-radius: 0;
-		white-space: nowrap;
-	}
+  .period-pill {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--muted);
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    white-space: nowrap;
+  }
 
-	@media (max-width: 640px) {
-		.education-card__header {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: 0.75rem;
-		}
+  @media (max-width: 640px) {
+    .education-card__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
 
-		.education-card__period {
-			order: -1;
-		}
-	}
+    .education-card__period {
+      order: -1;
+    }
+  }
 </style>

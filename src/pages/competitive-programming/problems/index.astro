@@ -1,11 +1,11 @@
 ---
-import Layout from '../../../layouts/Layout.astro';
-import PageHeader from '../../../components/layout/PageHeader.astro';
-import CpProblemsExplorer from '../../../components/cp/CpProblemsExplorer.vue';
-import initialCpData from '../../../data/cp-data-initial.json';
-import initialProblemsData from '../../../data/cp-problems-initial.json';
-import '../../../styles/cp-shared.css';
-import { t as locale } from '../../../utils/i18n';
+import Layout from '../../../layouts/Layout.astro'
+import PageHeader from '../../../components/layout/PageHeader.astro'
+import CpProblemsExplorer from '../../../components/cp/CpProblemsExplorer.vue'
+import initialCpData from '../../../data/cp-data-initial.json'
+import initialProblemsData from '../../../data/cp-problems-initial.json'
+import '../../../styles/cp-shared.css'
+import { t as locale } from '../../../utils/i18n'
 
 const copy = {
   title: locale('Solved Competitive Programming Problems', 'Arsip Soal Competitive Programming'),
@@ -14,13 +14,12 @@ const copy = {
     'Koleksi lengkap seluruh soal yang telah diselesaikan di TOKI (TLX), Codeforces, LeetCode, dan HackerRank dilengkapi pencarian, filter, dan tautan langsung.'
   ),
   backToDashboard: locale('← Back to CP Dashboard', '← Kembali ke Dashboard CP'),
-};
+}
 ---
 
 <Layout
   title="Solved Problems Archive | Competitive Programming | Arief F-sa Wijaya"
-  description={copy.description.en}
->
+  description={copy.description.en}>
   <main class="cp-page">
     <PageHeader
       class="cp-header"

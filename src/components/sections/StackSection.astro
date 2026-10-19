@@ -1,50 +1,53 @@
 ---
-import type { TechStack } from '../../types/profile.types';
-import SectionIntro from './SectionIntro.astro';
-import StackGallery from '../stacks/StackGallery.vue';
-import { t as locale } from '../../utils/i18n';
+import type { TechStack } from '../../types/profile.types'
+import SectionIntro from './SectionIntro.astro'
+import StackGallery from '../stacks/StackGallery.vue'
+import { t as locale } from '../../utils/i18n'
 
 const copy = {
-	eyebrow: locale('Stacks & tools', 'Stack & tools'),
-	heading: locale('Technologies I build with most often.', 'Teknologi yang paling sering dipakai.'),
-	body: locale('Quick view of languages, frameworks, and tools—kept concise for easy scanning.', 'Ringkasan bahasa, framework, dan tools—ringkas agar mudah dipindai.'),
-};
+  eyebrow: locale('Stacks & tools', 'Stack & tools'),
+  heading: locale('Technologies I build with most often.', 'Teknologi yang paling sering dipakai.'),
+  body: locale(
+    'Quick view of languages, frameworks, and tools—kept concise for easy scanning.',
+    'Ringkasan bahasa, framework, dan tools—ringkas agar mudah dipindai.'
+  ),
+}
 
 type Props = {
-	items: TechStack[];
-};
+  items: TechStack[]
+}
 
-const { items }: Props = Astro.props;
+const { items }: Props = Astro.props
 
 const categoriesMap: Record<TechStack['category'], { en: string; id: string }> = {
-	language: { en: 'Languages', id: 'Bahasa' },
-	framework: { en: 'Frameworks', id: 'Framework' },
-	tool: { en: 'Tools', id: 'Tools' },
-};
+  language: { en: 'Languages', id: 'Bahasa' },
+  framework: { en: 'Frameworks', id: 'Framework' },
+  tool: { en: 'Tools', id: 'Tools' },
+}
 
 const categories = [
-	{ key: 'all', label: locale('All', 'Semua') },
-	...Array.from(new Set(items.map((item) => item.category))).map((key) => ({
-		key,
-		label: locale(categoriesMap[key]?.en ?? key, categoriesMap[key]?.id ?? key),
-	})),
-];
+  { key: 'all', label: locale('All', 'Semua') },
+  ...Array.from(new Set(items.map((item) => item.category))).map((key) => ({
+    key,
+    label: locale(categoriesMap[key]?.en ?? key, categoriesMap[key]?.id ?? key),
+  })),
+]
 ---
 
 <section id="stack" class="section stack">
-	<SectionIntro
-		class="stack__intro"
-		eyebrow={copy.eyebrow}
-		heading={copy.heading}
-		body={copy.body}
-	/>
-	<StackGallery client:visible items={items} categories={categories} />
+  <SectionIntro
+    class="stack__intro"
+    eyebrow={copy.eyebrow}
+    heading={copy.heading}
+    body={copy.body}
+  />
+  <StackGallery client:visible items={items} categories={categories} />
 </section>
 
 <style>
-	.stack {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
+  .stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 </style>

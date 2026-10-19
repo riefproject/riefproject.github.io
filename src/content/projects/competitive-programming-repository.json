@@ -17,11 +17,7 @@
     "id": "Komunitas & Pembelajaran"
   },
   "categoryKey": "community",
-  "stack": [
-    "C++",
-    "Python",
-    "Problem Notes"
-  ],
+  "stack": ["C++", "Python", "Problem Notes"],
   "highlights": [
     {
       "en": "Covers TLX, Codeforces, LeetCode, and more.",

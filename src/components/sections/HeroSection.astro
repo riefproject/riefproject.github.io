@@ -1,134 +1,140 @@
 ---
-import type {
-	Contact,
-	Highlight,
-	Profile,
-	SocialLink,
-	Stat,
-} from '../../types/profile.types';
-import LocaleText from '../i18n/LocaleText.astro';
-import CvDownloadButton from '../cv/CvDownloadButton.vue';
-import ArrowUpRight from '../shared/ArrowUpRight.astro';
-import devActivity from '../../data/dev-activity-initial.json';
-import cpData from '../../data/cp-data-initial.json';
-import { t as locale } from '../../utils/i18n';
+import type { Contact, Highlight, Profile, SocialLink, Stat } from '../../types/profile.types'
+import LocaleText from '../i18n/LocaleText.astro'
+import CvDownloadButton from '../cv/CvDownloadButton.vue'
+import ArrowUpRight from '../shared/ArrowUpRight.astro'
+import devActivity from '../../data/dev-activity-initial.json'
+import cpData from '../../data/cp-data-initial.json'
+import { t as locale } from '../../utils/i18n'
 
 type HeroProps = {
-	profile: Profile;
-	contact: Contact;
-	highlights: Highlight[];
-	stats: Stat[];
-	socials: SocialLink[];
-	toolbox: string[];
-};
+  profile: Profile
+  contact: Contact
+  highlights: Highlight[]
+  stats: Stat[]
+  socials: SocialLink[]
+  toolbox: string[]
+}
 
-const { profile, contact, highlights, stats, socials, toolbox }: HeroProps = Astro.props as HeroProps;
+const { profile, contact, highlights, stats, socials, toolbox }: HeroProps =
+  Astro.props as HeroProps
 
-const liveTotalSolved = cpData?.overview?.totalSolved || 640;
+const liveTotalSolved = cpData?.overview?.totalSolved || 640
 const enrichedStats = stats.map((stat) => {
-	const isCpStat =
-		stat.label?.en?.toLowerCase().includes('problem') ||
-		stat.label?.id?.toLowerCase().includes('soal');
-	if (isCpStat) {
-		return {
-			...stat,
-			value: `${liveTotalSolved}+`,
-			isCp: true,
-		};
-	}
-	return { ...stat, isCp: false };
-});
+  const isCpStat =
+    stat.label?.en?.toLowerCase().includes('problem') ||
+    stat.label?.id?.toLowerCase().includes('soal')
+  if (isCpStat) {
+    return {
+      ...stat,
+      value: `${liveTotalSolved}+`,
+      isCp: true,
+    }
+  }
+  return { ...stat, isCp: false }
+})
 
 const heroCopy = {
-	greeting: locale('Hi, I’m', 'Hai, saya'),
-	viewProjects: locale('View Projects', 'Lihat Proyek'),
-	contact: locale('Contact Me', 'Hubungi Saya'),
-	availabilityTitle: locale('Current Status', 'Status Saat Ini'),
-	downloadCv: locale('Download CV', 'Unduh CV'),
-	connect: locale('Connect', 'Kontak'),
-};
+  greeting: locale('Hi, I’m', 'Hai, saya'),
+  viewProjects: locale('View Projects', 'Lihat Proyek'),
+  contact: locale('Contact Me', 'Hubungi Saya'),
+  availabilityTitle: locale('Current Status', 'Status Saat Ini'),
+  downloadCv: locale('Download CV', 'Unduh CV'),
+  connect: locale('Connect', 'Kontak'),
+}
 
 const devCopy = {
-	eyebrow: locale('Development activity', 'Aktivitas development'),
-	contributionsLabel: locale('Contributions', 'Kontribusi'),
-	sub: locale('Live across GitHub + GitLab · past 12 months', 'Live di GitHub + GitLab · 12 bulan terakhir'),
-	prLabel: locale('PR / MR merged', 'PR / MR digabung'),
-	daysLabel: locale('Active days', 'Hari aktif'),
-	cta: locale('Open live dashboard', 'Buka dashboard live'),
-};
+  eyebrow: locale('Development activity', 'Aktivitas development'),
+  contributionsLabel: locale('Contributions', 'Kontribusi'),
+  sub: locale(
+    'Live across GitHub + GitLab · past 12 months',
+    'Live di GitHub + GitLab · 12 bulan terakhir'
+  ),
+  prLabel: locale('PR / MR merged', 'PR / MR digabung'),
+  daysLabel: locale('Active days', 'Hari aktif'),
+  cta: locale('Open live dashboard', 'Buka dashboard live'),
+}
 
-const devPlatforms = devActivity?.platforms || {};
-const ghTotal = devPlatforms.github?.overview?.totalContributions || 0;
-const glTotal = devPlatforms.gitlab?.stats?.totalEvents || 0;
-const devTotalContributions = ghTotal + glTotal;
+const devPlatforms = devActivity?.platforms || {}
+const ghTotal = devPlatforms.github?.overview?.totalContributions || 0
+const glTotal = devPlatforms.gitlab?.stats?.totalEvents || 0
+const devTotalContributions = ghTotal + glTotal
 const devPrMerged =
-	(devPlatforms.github?.prStats?.merged || 0) +
-	(devPlatforms.gitlab?.stats?.mergeRequests?.merged || 0);
-const devActiveDays = devPlatforms.gitlab?.stats?.daysActive || 0;
+  (devPlatforms.github?.prStats?.merged || 0) +
+  (devPlatforms.gitlab?.stats?.mergeRequests?.merged || 0)
+const devActiveDays = devPlatforms.gitlab?.stats?.daysActive || 0
 
-const toolboxPreview = toolbox.slice(0, 7);
-const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
+const toolboxPreview = toolbox.slice(0, 7)
+const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0)
 ---
 
 <section id="beranda" class="section hero-bento">
-  
-	<!-- 1. Main Profile Block (Hero) -->
-	<div class="bento-card bento-main">
-		<div class="hero__header">
+  <!-- 1. Main Profile Block (Hero) -->
+  <div class="bento-card bento-main">
+    <div class="hero__header">
       <div class="status-badge">
         <span class="ping"></span>
-        <span class="status-text"><LocaleText as="span" text={profile.availability} /></span>
+        <span class="status-text">
+          <LocaleText as="span" text={profile.availability} />
+        </span>
       </div>
-		</div>
-		<p class="hero-mobile-name text-accent font-bold tracking-widest uppercase mb-2 mt-4 text-sm">{profile.name}</p>
-		<h1 class="font-display">
-			<LocaleText as="span" text={profile.role} />
-			<span class="text-muted block mt-2 font-normal text-2xl">
-				<LocaleText as="span" text={profile.tagline} />
-			</span>
-		</h1>
-		<p class="lead">
-			<LocaleText as="span" text={profile.intro} />
-		</p>
-		
-		<div class="hero__cta mt-auto pt-6 border-t border-border/50">
-			<a class="btn primary" href="#proyek">
-				<LocaleText as="span" text={heroCopy.viewProjects} />
-			</a>
-			<a class="btn ghost" href={`mailto:${contact.email}`}>
-				<LocaleText as="span" text={heroCopy.contact} />
-			</a>
-			<CvDownloadButton client:idle />
-		</div>
-	</div>
+    </div>
+    <p class="hero-mobile-name text-accent font-bold tracking-widest uppercase mb-2 mt-4 text-sm">
+      {profile.name}
+    </p>
+    <h1 class="font-display">
+      <LocaleText as="span" text={profile.role} />
+      <span class="text-muted block mt-2 font-normal text-2xl">
+        <LocaleText as="span" text={profile.tagline} />
+      </span>
+    </h1>
+    <p class="lead">
+      <LocaleText as="span" text={profile.intro} />
+    </p>
+
+    <div class="hero__cta mt-auto pt-6 border-t border-border/50">
+      <a class="btn primary" href="#proyek">
+        <LocaleText as="span" text={heroCopy.viewProjects} />
+      </a>
+      <a class="btn ghost" href={`mailto:${contact.email}`}>
+        <LocaleText as="span" text={heroCopy.contact} />
+      </a>
+      <CvDownloadButton client:idle />
+    </div>
+  </div>
 
   <!-- 2. Quick Stats Grid -->
   <div class="bento-card bento-stats">
     <div class="stats-grid">
-      {enrichedStats.map((stat) => (
-        stat.isCp ? (
-          <a href="/competitive-programming" class="stat-item stat-item--link group" title="View Competitive Programming Journey">
-            <strong class="text-text group-hover:text-accent transition-colors">{stat.value}</strong>
+      {enrichedStats.map((stat) =>
+        stat.isCp ?
+          <a
+            href="/competitive-programming"
+            class="stat-item stat-item--link group"
+            title="View Competitive Programming Journey">
+            <strong class="text-text group-hover:text-accent transition-colors">
+              {stat.value}
+            </strong>
             <p class="text-sm text-muted mt-1 flex items-center gap-1 group-hover:text-text transition-colors">
               <LocaleText as="span" text={stat.label} />
               <ArrowUpRight class="opacity-0 group-hover:opacity-100 transition-opacity" />
             </p>
           </a>
-        ) : (
-          <div class="stat-item">
+        : <div class="stat-item">
             <strong class="text-text">{stat.value}</strong>
             <p class="text-sm text-muted mt-1">
               <LocaleText as="span" text={stat.label} />
             </p>
           </div>
-        )
-      ))}
+      )}
     </div>
   </div>
 
   <!-- 3. Tech Stack / Toolbox -->
   <div class="bento-card bento-toolbox">
-    <p class="eyebrow mb-4"><LocaleText as="span" text={profile.focusStack} /></p>
+    <p class="eyebrow mb-4">
+      <LocaleText as="span" text={profile.focusStack} />
+    </p>
     <div class="hero__toolbox">
       {toolboxPreview.map((item) => (
         <span class="hero__tool">{item}</span>
@@ -140,12 +146,21 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
   <!-- 4. Development Activity -->
   <div class="bento-card bento-dev">
     <div class="dev-card__main">
-      <p class="eyebrow mb-3"><LocaleText as="span" text={devCopy.eyebrow} /></p>
+      <p class="eyebrow mb-3">
+        <LocaleText as="span" text={devCopy.eyebrow} />
+      </p>
       <div class="dev-card__value">
-        <strong>{devTotalContributions}<span class="dev-card__plus">+</span></strong>
-        <span class="dev-card__value-label"><LocaleText as="span" text={devCopy.contributionsLabel} /></span>
+        <strong>
+          {devTotalContributions}
+          <span class="dev-card__plus">+</span>
+        </strong>
+        <span class="dev-card__value-label">
+          <LocaleText as="span" text={devCopy.contributionsLabel} />
+        </span>
       </div>
-      <p class="dev-card__sub"><LocaleText as="span" text={devCopy.sub} /></p>
+      <p class="dev-card__sub">
+        <LocaleText as="span" text={devCopy.sub} />
+      </p>
     </div>
     <a href="/development-activity" class="dev-card__cta">
       <LocaleText as="span" text={devCopy.cta} />
@@ -158,8 +173,12 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
     <ul class="highlights-list">
       {highlights.map((item) => (
         <li>
-          <span class="text-xs uppercase tracking-wider text-muted font-semibold"><LocaleText as="span" text={item.label} /></span>
-          <strong class="block mt-1 font-medium text-text"><LocaleText as="span" text={item.detail} /></strong>
+          <span class="text-xs uppercase tracking-wider text-muted font-semibold">
+            <LocaleText as="span" text={item.label} />
+          </span>
+          <strong class="block mt-1 font-medium text-text">
+            <LocaleText as="span" text={item.detail} />
+          </strong>
         </li>
       ))}
     </ul>
@@ -167,8 +186,12 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
 
   <!-- 5. Social & Contact Connect -->
   <div class="bento-card bento-socials">
-    <p class="eyebrow mb-4"><LocaleText as="span" text={heroCopy.connect} /></p>
-    <p class="text-sm text-muted mb-6"><LocaleText as="span" text={contact.availabilityNote} /></p>
+    <p class="eyebrow mb-4">
+      <LocaleText as="span" text={heroCopy.connect} />
+    </p>
+    <p class="text-sm text-muted mb-6">
+      <LocaleText as="span" text={contact.availabilityNote} />
+    </p>
     <div class="social-list mt-auto">
       {socials.map((social) => (
         <a href={social.url} target="_blank" rel="noreferrer" class="social-btn">
@@ -178,370 +201,378 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0);
       ))}
     </div>
   </div>
-
 </section>
 
 <style>
-	.hero-mobile-name {
-		display: none;
-	}
-	@media (max-width: 900px) {
-		.hero-mobile-name {
-			display: block;
-		}
-	}
+  .hero-mobile-name {
+    display: none;
+  }
+  @media (max-width: 900px) {
+    .hero-mobile-name {
+      display: block;
+    }
+  }
 
-	/* ── Layout: clean 2-column (content left, meta right) ── */
-	.hero-bento {
-		display: grid;
-		grid-template-columns: 7fr 5fr;
-		gap: 1.5rem;
-		align-items: start;
-		padding: 4rem 0 3rem;
-	}
+  /* ── Layout: clean 2-column (content left, meta right) ── */
+  .hero-bento {
+    display: grid;
+    grid-template-columns: 7fr 5fr;
+    gap: 1.5rem;
+    align-items: start;
+    padding: 4rem 0 3rem;
+  }
 
-	/* ── Cards ── */
-	.bento-card {
-		background: var(--bg-soft);
-		border: none;
-		border-radius: var(--radius-xl);
-		padding: 2rem;
-		display: flex;
-		flex-direction: column;
-		transition: background 0.2s ease, transform 0.2s ease;
-	}
+  /* ── Cards ── */
+  .bento-card {
+    background: var(--bg-soft);
+    border: none;
+    border-radius: var(--radius-xl);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
+  }
 
-	.bento-card:hover {
-		background: var(--bg-elevated);
-		transform: translateY(-2px);
-	}
+  .bento-card:hover {
+    background: var(--bg-elevated);
+    transform: translateY(-2px);
+  }
 
-	/* Grid placement — left column */
-	.bento-main {
-		grid-column: 1;
-		grid-row: 1 / 4;
-		align-self: stretch;
-	}
+  /* Grid placement — left column */
+  .bento-main {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    align-self: stretch;
+  }
 
-	/* Grid placement — right column */
-	.bento-stats {
-		grid-column: 2;
-		justify-content: center;
-	}
+  /* Grid placement — right column */
+  .bento-stats {
+    grid-column: 2;
+    justify-content: center;
+  }
 
-	.bento-toolbox {
-		grid-column: 2;
-	}
+  .bento-toolbox {
+    grid-column: 2;
+  }
 
-	.bento-dev {
-		grid-column: 2;
-		grid-row: 3;
-	}
+  .bento-dev {
+    grid-column: 2;
+    grid-row: 3;
+  }
 
-	/* Full-width row below */
-	.bento-highlights {
-		grid-column: 1 / -1;
-	}
+  /* Full-width row below */
+  .bento-highlights {
+    grid-column: 1 / -1;
+  }
 
-	.bento-socials {
-		grid-column: 1 / -1;
-	}
+  .bento-socials {
+    grid-column: 1 / -1;
+  }
 
-	/* ── Status Badge: simple green pill ── */
-	.hero__header {
-		margin-bottom: 2rem;
-	}
+  /* ── Status Badge: simple green pill ── */
+  .hero__header {
+    margin-bottom: 2rem;
+  }
 
-	.status-badge {
-		display: inline-flex;
-		align-items: center;
-		gap: 0.5rem;
-		padding: 0.4rem 1rem;
-		border-radius: var(--radius-full);
-		background: rgba(34, 197, 94, 0.08);
-	}
+  .status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 1rem;
+    border-radius: var(--radius-full);
+    background: rgba(34, 197, 94, 0.08);
+  }
 
-	.ping {
-		position: relative;
-		display: flex;
-		flex-shrink: 0;
-		width: 8px;
-		height: 8px;
-	}
-	
-	.ping::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background: #22c55e;
-		border-radius: 50%;
-	}
+  .ping {
+    position: relative;
+    display: flex;
+    flex-shrink: 0;
+    width: 8px;
+    height: 8px;
+  }
 
-	.ping::after {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background: #22c55e;
-		border-radius: 50%;
-		animation: status-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-	}
+  .ping::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #22c55e;
+    border-radius: 50%;
+  }
 
-	@keyframes status-pulse {
-		0% { transform: scale(1); opacity: 0.8; }
-		70%, 100% { transform: scale(3); opacity: 0; }
-	}
+  .ping::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #22c55e;
+    border-radius: 50%;
+    animation: status-pulse 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
 
-	.status-text {
-		font-size: 0.8rem;
-		font-weight: 500;
-		color: #15803d; /* Tailwind green-700 for high contrast in light mode */
-	}
-	
-	:global(.dark) .status-text {
-		color: #86efac; /* Tailwind green-300 for high contrast in dark mode */
-	}
+  @keyframes status-pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.8;
+    }
+    70%,
+    100% {
+      transform: scale(3);
+      opacity: 0;
+    }
+  }
 
-	/* ── Typography ── */
-	.bento-main h1 {
-		font-family: inherit;
-		font-size: clamp(2.25rem, 4vw, 3.25rem);
-		margin: 0 0 1.5rem;
-		line-height: 1.15;
-		color: var(--text);
-		font-weight: 600;
-		letter-spacing: -0.02em;
-	}
+  .status-text {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #15803d; /* Tailwind green-700 for high contrast in light mode */
+  }
 
-	.lead {
-		font-size: 1.05rem;
-		color: var(--muted);
-		line-height: 1.7;
-		max-width: 90%;
-		margin-bottom: 2rem;
-	}
+  :global(.dark) .status-text {
+    color: #86efac; /* Tailwind green-300 for high contrast in dark mode */
+  }
 
-	/* ── Buttons ── */
-	.hero__cta {
-		display: flex;
-		gap: 0.75rem;
-		align-items: center;
-	}
+  /* ── Typography ── */
+  .bento-main h1 {
+    font-family: inherit;
+    font-size: clamp(2.25rem, 4vw, 3.25rem);
+    margin: 0 0 1.5rem;
+    line-height: 1.15;
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
 
-	/* ── Stats ── */
-	.stats-grid {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.25rem;
-	}
+  .lead {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.7;
+    max-width: 90%;
+    margin-bottom: 2rem;
+  }
 
-	.stat-item strong {
-		font-family: inherit;
-		font-size: 2rem;
-		line-height: 1;
-		font-weight: 600;
-		letter-spacing: -0.02em;
-		color: var(--text);
-	}
+  /* ── Buttons ── */
+  .hero__cta {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+  }
 
-	/* ── Toolbox ── */
-	.eyebrow {
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.12em;
-		color: var(--muted);
-		font-weight: 500;
-	}
+  /* ── Stats ── */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
 
-	.hero__toolbox {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
+  .stat-item strong {
+    font-family: inherit;
+    font-size: 2rem;
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
 
-	.hero__tool {
-		padding: 0.35rem 0.75rem;
-		border-radius: var(--radius-sm);
-		background: var(--bg);
-		border: none;
-		color: var(--text);
-		font-size: 0.85rem;
-	}
+  /* ── Toolbox ── */
+  .eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    font-weight: 500;
+  }
 
-	.hero__tool.ghost {
-		background: transparent;
-		color: var(--muted);
-		border: none;
-	}
+  .hero__toolbox {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
 
-	/* ── Development Activity card ── */
-	.bento-dev {
-		display: flex;
-		flex-direction: column;
-		gap: 1rem;
-	}
+  .hero__tool {
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    background: var(--bg);
+    border: none;
+    color: var(--text);
+    font-size: 0.85rem;
+  }
 
-	.dev-card__main {
-		min-width: 0;
-	}
+  .hero__tool.ghost {
+    background: transparent;
+    color: var(--muted);
+    border: none;
+  }
 
-	.dev-card__value {
-		display: flex;
-		align-items: baseline;
-		gap: 0.6rem;
-		flex-wrap: wrap;
-	}
+  /* ── Development Activity card ── */
+  .bento-dev {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
 
-	.dev-card__value strong {
-		font-size: clamp(2rem, 3vw, 2.5rem);
-		line-height: 1;
-		font-weight: 600;
-		letter-spacing: -0.02em;
-		color: var(--text);
-	}
+  .dev-card__main {
+    min-width: 0;
+  }
 
-	.dev-card__plus {
-		font-size: 0.55em;
-		color: var(--muted);
-		font-weight: 600;
-	}
+  .dev-card__value {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
 
-	.dev-card__value-label {
-		font-size: 0.9rem;
-		font-weight: 500;
-		color: var(--muted);
-	}
+  .dev-card__value strong {
+    font-size: clamp(2rem, 3vw, 2.5rem);
+    line-height: 1;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
 
-	.dev-card__sub {
-		margin-top: 0.4rem;
-		font-size: 0.85rem;
-		color: var(--muted);
-	}
+  .dev-card__plus {
+    font-size: 0.55em;
+    color: var(--muted);
+    font-weight: 600;
+  }
 
-	.dev-card__stats {
-		display: flex;
-		gap: 1.5rem;
-		margin-top: 0.25rem;
-	}
+  .dev-card__value-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
 
-	.dev-stat {
-		display: flex;
-		flex-direction: column;
-		gap: 0.15rem;
-	}
+  .dev-card__sub {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
 
-	.dev-stat strong {
-		font-size: 1.35rem;
-		line-height: 1;
-		font-weight: 600;
-		color: var(--text);
-	}
+  .dev-card__stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.25rem;
+  }
 
-	.dev-stat__label {
-		font-size: 0.7rem;
-		text-transform: uppercase;
-		letter-spacing: 0.08em;
-		color: var(--muted);
-		font-weight: 600;
-	}
+  .dev-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
 
-	.dev-card__cta {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.5rem;
-		margin-top: 0.25rem;
-		padding: 0.65rem 1.25rem;
-		border-radius: var(--radius-md);
-		background: var(--bg);
-		border: none;
-		color: var(--text);
-		font-weight: 700;
-		font-size: 0.9rem;
-		text-decoration: none;
-		white-space: nowrap;
-		transition: all 0.2s ease;
-		width: 100%;
-	}
+  .dev-stat strong {
+    font-size: 1.35rem;
+    line-height: 1;
+    font-weight: 600;
+    color: var(--text);
+  }
 
-	.dev-card__cta:hover {
-		background: var(--bg-elevated);
-		transform: translateY(-2px);
-	}
+  .dev-stat__label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    font-weight: 600;
+  }
 
-	.dev-card__arrow {
-		transition: transform 0.15s ease;
-	}
+  .dev-card__cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    border: none;
+    color: var(--text);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    width: 100%;
+  }
 
-	.dev-card__cta:hover .dev-card__arrow {
-		transform: translate(2px, -2px);
-	}
+  .dev-card__cta:hover {
+    background: var(--bg-elevated);
+    transform: translateY(-2px);
+  }
 
-	/* ── Highlights ── */
-	.highlights-list {
-		list-style: none;
-		padding: 0;
-		margin: 0;
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 1.5rem;
-	}
+  .dev-card__arrow {
+    transition: transform 0.15s ease;
+  }
 
-	/* ── Socials ── */
-	.social-list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 1rem;
-	}
+  .dev-card__cta:hover .dev-card__arrow {
+    transform: translate(2px, -2px);
+  }
 
-	.social-btn {
-		display: inline-flex;
-		align-items: center;
-		color: var(--text);
-		text-decoration: none;
-		font-size: 0.95rem;
-		font-weight: 500;
-		transition: color 0.2s ease;
-	}
+  /* ── Highlights ── */
+  .highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
 
-	.social-btn:hover {
-		color: var(--accent);
-	}
+  /* ── Socials ── */
+  .social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
 
-	/* ── Responsive ── */
-	@media (max-width: 1024px) {
-		.hero-bento {
-			grid-template-columns: 1fr;
-		}
-		.bento-main,
-		.bento-stats,
-		.bento-toolbox,
-		.bento-dev,
-		.bento-highlights,
-		.bento-socials {
-			grid-column: 1;
-		}
-		.bento-main {
-			grid-row: auto;
-		}
-	}
+  .social-btn {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+  }
 
-	@media (max-width: 768px) {
-		.highlights-list {
-			grid-template-columns: 1fr;
-		}
-		.stats-grid {
-			gap: 1rem;
-		}
-	}
+  .social-btn:hover {
+    color: var(--accent);
+  }
 
-	@media (max-width: 640px) {
-		.hero__cta {
-			flex-direction: column;
-			align-items: stretch;
-		}
-		.btn {
-			text-align: center;
-			justify-content: center;
-		}
-	}
+  /* ── Responsive ── */
+  @media (max-width: 1024px) {
+    .hero-bento {
+      grid-template-columns: 1fr;
+    }
+    .bento-main,
+    .bento-stats,
+    .bento-toolbox,
+    .bento-dev,
+    .bento-highlights,
+    .bento-socials {
+      grid-column: 1;
+    }
+    .bento-main {
+      grid-row: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .highlights-list {
+      grid-template-columns: 1fr;
+    }
+    .stats-grid {
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero__cta {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .btn {
+      text-align: center;
+      justify-content: center;
+    }
+  }
 </style>

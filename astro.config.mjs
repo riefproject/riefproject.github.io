@@ -1,14 +1,14 @@
 // @ts-check
-import { defineConfig } from "astro/config";
-import vue from "@astrojs/vue";
-import tailwind from "@astrojs/tailwind";
-import sitemap from "@astrojs/sitemap";
-import keystatic from "@keystatic/astro";
-import react from "@astrojs/react";
+import { defineConfig } from 'astro/config'
+import vue from '@astrojs/vue'
+import tailwind from '@astrojs/tailwind'
+import sitemap from '@astrojs/sitemap'
+import keystatic from '@keystatic/astro'
+import react from '@astrojs/react'
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://riefproject.my.id",
+  site: 'https://riefproject.my.id',
   integrations: [
     vue(),
     tailwind({
@@ -24,40 +24,40 @@ export default defineConfig({
           if (command === 'dev') {
             injectRoute({
               pattern: '/cv-builder',
-              entrypoint: './src/dev-tools/pages/cv-builder.astro'
-            });
+              entrypoint: './src/dev-tools/pages/cv-builder.astro',
+            })
             injectRoute({
               pattern: '/cv-composer',
-              entrypoint: './src/dev-tools/pages/cv-composer.astro'
-            });
+              entrypoint: './src/dev-tools/pages/cv-composer.astro',
+            })
             injectRoute({
               pattern: '/api/save-cv-source',
-              entrypoint: './src/dev-tools/pages/api/save-cv-source.ts'
-            });
+              entrypoint: './src/dev-tools/pages/api/save-cv-source.ts',
+            })
             injectRoute({
               pattern: '/api/upload-cv',
-              entrypoint: './src/dev-tools/pages/api/upload-cv.ts'
-            });
+              entrypoint: './src/dev-tools/pages/api/upload-cv.ts',
+            })
           }
-        }
-      }
-    }
+        },
+      },
+    },
   ].filter(Boolean),
-  output: "static",
+  output: 'static',
   build: {
-    inlineStylesheets: 'always'
+    inlineStylesheets: 'always',
   },
   vite: {
     optimizeDeps: {
       exclude: ['@keystatic/astro', '@keystatic/core'],
       esbuildOptions: {
-        external: ['virtual:keystatic-config']
-      }
+        external: ['virtual:keystatic-config'],
+      },
     },
     server: {
       watch: {
-        ignored: ['**/src/data/cv/**']
-      }
-    }
-  }
-});
+        ignored: ['**/src/data/cv/**'],
+      },
+    },
+  },
+})

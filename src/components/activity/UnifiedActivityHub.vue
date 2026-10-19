@@ -1,11 +1,10 @@
 <template>
   <div class="activity-hub">
-    <NavTabs
+    <Tabs
       v-model="heatmapFilter"
       :tabs="filterTabs"
       :isId="isId"
-      :ariaLabel="isId ? 'Filter aktivitas' : 'Activity filters'"
-    />
+      :ariaLabel="isId ? 'Filter aktivitas' : 'Activity filters'" />
 
     <!-- Clean Activity Heatmap (identical to /competitive-programming style) -->
     <ActivityHeatmap
@@ -14,45 +13,44 @@
       :title="heatmapTitle"
       :countBadge="heatmapCountBadge"
       :isId="isId"
-      :getMetrics="resolveUnifiedMetrics"
-    />
+      :getMetrics="resolveUnifiedMetrics" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import { useLocale } from '../../composables/useLocale';
-import ActivityHeatmap from '../shared/ActivityHeatmap.vue';
-import NavTabs from '../shared/NavTabs.vue';
+import { ref, computed } from 'vue'
+import { useLocale } from '../../composables/useLocale'
+import ActivityHeatmap from '../shared/ActivityHeatmap.vue'
+import Tabs from '../shared/Tabs.vue'
 import {
   buildHeatmapDays,
   toWeeks,
   buildMonths,
   type HeatmapTooltipMetric,
-} from '../../utils/heatmap';
+} from '../../utils/heatmap'
 
 const props = defineProps<{
-  initialDevData?: any;
-  initialCpData?: any;
-}>();
+  initialDevData?: any
+  initialCpData?: any
+}>()
 
-const { isId } = useLocale();
+const { isId } = useLocale()
 
-const heatmapFilter = ref<'all' | 'dev' | 'cp'>('all');
+const heatmapFilter = ref<'all' | 'dev' | 'cp'>('all')
 
 // Dev metrics
-const devPlatforms = computed(() => props.initialDevData?.platforms || {});
-const githubTotal = computed(() => devPlatforms.value.github?.overview?.totalContributions || 725);
-const gitlabTotal = computed(() => devPlatforms.value.gitlab?.stats?.totalEvents || 144);
-const devTotalContributions = computed(() => githubTotal.value + gitlabTotal.value);
+const devPlatforms = computed(() => props.initialDevData?.platforms || {})
+const githubTotal = computed(() => devPlatforms.value.github?.overview?.totalContributions || 725)
+const gitlabTotal = computed(() => devPlatforms.value.gitlab?.stats?.totalEvents || 144)
+const devTotalContributions = computed(() => githubTotal.value + gitlabTotal.value)
 
 // CP metrics
-const cpOverview = computed(() => props.initialCpData?.overview || {});
-const totalCpSolved = computed(() => cpOverview.value.totalSolved || 641);
-const totalCpSubmissions = computed(() => cpOverview.value.totalSubmissions || 1200);
+const cpOverview = computed(() => props.initialCpData?.overview || {})
+const totalCpSolved = computed(() => cpOverview.value.totalSolved || 641)
+const totalCpSubmissions = computed(() => cpOverview.value.totalSubmissions || 1200)
 
 // Total aggregate
-const totalAll = computed(() => devTotalContributions.value + totalCpSolved.value);
+const totalAll = computed(() => devTotalContributions.value + totalCpSolved.value)
 
 const filterTabs = computed(() => [
   {
@@ -76,51 +74,54 @@ const filterTabs = computed(() => [
     icon: '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg>',
     count: `${totalCpSolved.value}+`,
   },
-]);
+])
 
 // Heatmap Title & Count Badge
 const heatmapTitle = computed(() => {
   if (heatmapFilter.value === 'dev') {
-    return isId.value ? 'Kalender Aktivitas Development' : 'Development Activity Calendar';
+    return isId.value ? 'Kalender Aktivitas Development' : 'Development Activity Calendar'
   }
   if (heatmapFilter.value === 'cp') {
-    return isId.value ? 'Kalender Aktivitas Submisi CP' : 'CP Submission Activity Calendar';
+    return isId.value ? 'Kalender Aktivitas Submisi CP' : 'CP Submission Activity Calendar'
   }
-  return isId.value ? 'Kalender Aktivitas' : 'Activity Calendar';
-});
+  return isId.value ? 'Kalender Aktivitas' : 'Activity Calendar'
+})
 
 const heatmapCountBadge = computed(() => {
-  return `${activeDaysCount.value} ${isId.value ? 'hari aktif' : 'active days'}`;
-});
+  return `${activeDaysCount.value} ${isId.value ? 'hari aktif' : 'active days'}`
+})
 
 // Unified Heatmap construction
 const unifiedMap = computed<Record<string, any>>(() => {
-  const ghMap = props.initialDevData?.platforms?.github?.overview?.heatmap || {};
-  const glMap = props.initialDevData?.platforms?.gitlab?.heatmap || {};
-  const cpMap = props.initialCpData?.overview?.heatmap || {};
+  const ghMap = props.initialDevData?.platforms?.github?.overview?.heatmap || {}
+  const glMap = props.initialDevData?.platforms?.gitlab?.heatmap || {}
+  const cpMap = props.initialCpData?.overview?.heatmap || {}
 
-  const allKeys = new Set([...Object.keys(ghMap), ...Object.keys(glMap), ...Object.keys(cpMap)]);
-  const out: Record<string, any> = {};
+  const allKeys = new Set([...Object.keys(ghMap), ...Object.keys(glMap), ...Object.keys(cpMap)])
+  const out: Record<string, any> = {}
 
   allKeys.forEach((dateStr) => {
-    const ghEntry = ghMap[dateStr];
-    const glEntry = glMap[dateStr];
-    const cpEntry = cpMap[dateStr];
+    const ghEntry = ghMap[dateStr]
+    const glEntry = glMap[dateStr]
+    const cpEntry = cpMap[dateStr]
 
-    const ghCount = typeof ghEntry === 'object' ? Number(ghEntry?.count || 0) : Number(ghEntry || 0);
-    const glCount = typeof glEntry === 'object' ? Number(glEntry?.count || 0) : Number(glEntry || 0);
-    const devTotal = ghCount + glCount;
+    const ghCount = typeof ghEntry === 'object' ? Number(ghEntry?.count || 0) : Number(ghEntry || 0)
+    const glCount = typeof glEntry === 'object' ? Number(glEntry?.count || 0) : Number(glEntry || 0)
+    const devTotal = ghCount + glCount
 
-    const cpTries = typeof cpEntry === 'object' ? Number(cpEntry?.tries || 0) : (typeof cpEntry === 'number' ? cpEntry : 0);
-    const cpAc = typeof cpEntry === 'object' ? Number(cpEntry?.ac || 0) : 0;
+    const cpTries =
+      typeof cpEntry === 'object' ? Number(cpEntry?.tries || 0)
+      : typeof cpEntry === 'number' ? cpEntry
+      : 0
+    const cpAc = typeof cpEntry === 'object' ? Number(cpEntry?.ac || 0) : 0
 
-    let targetCount = 0;
+    let targetCount = 0
     if (heatmapFilter.value === 'all') {
-      targetCount = devTotal + cpTries;
+      targetCount = devTotal + cpTries
     } else if (heatmapFilter.value === 'dev') {
-      targetCount = devTotal;
+      targetCount = devTotal
     } else {
-      targetCount = cpTries;
+      targetCount = cpTries
     }
 
     out[dateStr] = {
@@ -129,11 +130,11 @@ const unifiedMap = computed<Record<string, any>>(() => {
       gitlab: heatmapFilter.value !== 'cp' ? glCount : 0,
       ac: heatmapFilter.value !== 'dev' ? cpAc : 0,
       tries: heatmapFilter.value !== 'dev' ? cpTries : 0,
-    };
-  });
+    }
+  })
 
-  return out;
-});
+  return out
+})
 
 const heatmapDays = computed(() =>
   buildHeatmapDays(unifiedMap.value, (entry) => ({
@@ -143,14 +144,14 @@ const heatmapDays = computed(() =>
     ac: entry?.ac,
     tries: entry?.tries,
   }))
-);
+)
 
-const heatmapWeeks = computed(() => toWeeks(heatmapDays.value));
-const heatmapMonths = computed(() => buildMonths(heatmapWeeks.value));
-const activeDaysCount = computed(() => heatmapDays.value.filter((d) => d.count > 0).length);
+const heatmapWeeks = computed(() => toWeeks(heatmapDays.value))
+const heatmapMonths = computed(() => buildMonths(heatmapWeeks.value))
+const activeDaysCount = computed(() => heatmapDays.value.filter((d) => d.count > 0).length)
 
 const resolveUnifiedMetrics = (day: any, isIdState: boolean): HeatmapTooltipMetric[] => {
-  const metrics: HeatmapTooltipMetric[] = [];
+  const metrics: HeatmapTooltipMetric[] = []
   if (day.github && day.github > 0) {
     metrics.push({
       value: day.github,
@@ -158,7 +159,7 @@ const resolveUnifiedMetrics = (day: any, isIdState: boolean): HeatmapTooltipMetr
       logo: '/img/stacks/github-dark.svg',
       logoLight: '/img/stacks/github-light.svg',
       color: 'slate',
-    });
+    })
   }
   if (day.gitlab && day.gitlab > 0) {
     metrics.push({
@@ -167,21 +168,21 @@ const resolveUnifiedMetrics = (day: any, isIdState: boolean): HeatmapTooltipMetr
       logo: '/img/stacks/gitlab-dark.svg',
       logoLight: '/img/stacks/gitlab-light.svg',
       color: 'orange',
-    });
+    })
   }
   if (day.ac && day.ac > 0) {
     metrics.push({
       value: day.ac,
       label: 'AC',
       color: 'emerald',
-    });
+    })
   }
   if (day.tries && day.tries > 0) {
     metrics.push({
       value: day.tries,
       label: isIdState ? 'Tries' : 'Tries',
       color: 'amber',
-    });
+    })
   }
   if (metrics.length === 0) {
     return [
@@ -189,10 +190,10 @@ const resolveUnifiedMetrics = (day: any, isIdState: boolean): HeatmapTooltipMetr
         value: isIdState ? 'Tidak ada aktivitas' : 'No activity',
         color: 'slate',
       },
-    ];
+    ]
   }
-  return metrics;
-};
+  return metrics
+}
 </script>
 
 <style scoped>
@@ -203,5 +204,4 @@ const resolveUnifiedMetrics = (day: any, isIdState: boolean): HeatmapTooltipMetr
   width: 100%;
   min-width: 0;
 }
-
 </style>

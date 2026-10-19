@@ -1,9 +1,9 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection, z } from 'astro:content'
 
 const localeTextSchema = z.object({
   en: z.string(),
   id: z.string(),
-});
+})
 
 export const collections = {
   projects: defineCollection({
@@ -32,8 +32,8 @@ export const collections = {
       period: localeTextSchema,
       summary: localeTextSchema,
       stack: z.array(z.string()),
-      achievements: z.array(localeTextSchema)
-    })
+      achievements: z.array(localeTextSchema),
+    }),
   }),
   achievements: defineCollection({
     type: 'data',
@@ -47,8 +47,8 @@ export const collections = {
       logo: z.string().optional(),
       credentialId: z.string().optional(),
       credentialUrl: z.string().optional(),
-      certificateImage: z.array(z.string()).optional()
-    })
+      certificateImage: z.array(z.string()).optional(),
+    }),
   }),
   education: defineCollection({
     type: 'data',
@@ -57,8 +57,8 @@ export const collections = {
       logo: z.string().optional(),
       program: localeTextSchema,
       period: z.string(),
-      details: z.array(localeTextSchema)
-    })
+      details: z.array(localeTextSchema),
+    }),
   }),
   'cp-profiles': defineCollection({
     type: 'data',
@@ -67,8 +67,8 @@ export const collections = {
       handle: z.string(),
       url: z.string(),
       logo: z.string().optional(),
-      note: localeTextSchema.optional()
-    })
+      note: localeTextSchema.optional(),
+    }),
   }),
   'stack-showcase': defineCollection({
     type: 'data',
@@ -76,11 +76,11 @@ export const collections = {
       name: z.string(),
       category: z.enum(['language', 'framework', 'tool']),
       logoDark: z.string().optional(),
-      logoLight: z.string().optional()
-    })
+      logoLight: z.string().optional(),
+    }),
   }),
   singletons: defineCollection({
     type: 'data',
-    schema: z.any() // Simplify schema for singletons
-  })
-};
+    schema: z.any(), // Simplify schema for singletons
+  }),
+}

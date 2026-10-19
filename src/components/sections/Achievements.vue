@@ -1,119 +1,110 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
-import type {
-  Achievement,
-  AchievementTab,
-  LocaleText,
-} from "../../types/profile.types";
-import { useLocale } from "../../composables/useLocale";
-import CertificateModal from "./CertificateModal.vue";
+import { computed, ref, watch } from 'vue'
+import type { Achievement, AchievementTab, LocaleText } from '../../types/profile.types'
+import { useLocale } from '../../composables/useLocale'
+import CertificateModal from './CertificateModal.vue'
 
 type AchievementsProps = {
-  items: Achievement[];
-  tabs?: AchievementTab[];
-};
+  items: Achievement[]
+  tabs?: AchievementTab[]
+}
 
 const props = withDefaults(defineProps<AchievementsProps>(), {
   items: () => [],
-});
+})
 
 // Modal state
-const isModalOpen = ref(false);
-const selectedAchievement = ref<Achievement | null>(null);
+const isModalOpen = ref(false)
+const selectedAchievement = ref<Achievement | null>(null)
 
 const openModal = (achievement: Achievement) => {
-  selectedAchievement.value = achievement;
-  isModalOpen.value = true;
-  document.body.style.overflow = "hidden";
-};
+  selectedAchievement.value = achievement
+  isModalOpen.value = true
+  document.body.style.overflow = 'hidden'
+}
 
 const closeModal = () => {
-  isModalOpen.value = false;
-  selectedAchievement.value = null;
-  document.body.style.overflow = "";
-};
+  isModalOpen.value = false
+  selectedAchievement.value = null
+  document.body.style.overflow = ''
+}
 
 const defaultTabs: AchievementTab[] = [
-  { id: "competitions", name: { en: "Competitions", id: "Kompetisi" } },
-  { id: "certifications", name: { en: "Certifications", id: "Sertifikasi" } },
+  { id: 'competitions', name: { en: 'Competitions', id: 'Kompetisi' } },
+  { id: 'certifications', name: { en: 'Certifications', id: 'Sertifikasi' } },
   {
-    id: "bootcamps",
-    name: { en: "Bootcamps & Courses", id: "Bootcamp & Kursus" },
+    id: 'bootcamps',
+    name: { en: 'Bootcamps & Courses', id: 'Bootcamp & Kursus' },
   },
-];
+]
 
-const tabs = computed(() => (props.tabs?.length ? props.tabs : defaultTabs));
-const activeTab = ref(tabs.value[0]?.id ?? "competitions");
+const tabs = computed(() => (props.tabs?.length ? props.tabs : defaultTabs))
+const activeTab = ref(tabs.value[0]?.id ?? 'competitions')
 
 watch(
   tabs,
   (newTabs) => {
-    if (!newTabs.length) return;
+    if (!newTabs.length) return
     if (!newTabs.find((tab) => tab.id === activeTab.value)) {
-      activeTab.value = newTabs[0].id;
+      activeTab.value = newTabs[0].id
     }
   },
   { immediate: true }
-);
+)
 
-const searchQuery = ref("");
-const { isId, resolveText } = useLocale();
+const searchQuery = ref('')
+const { isId, resolveText } = useLocale()
 
 const getHighlightTags = (value?: LocaleText) => {
-  const text = resolveText(value);
-  if (!text) return [];
+  const text = resolveText(value)
+  if (!text) return []
   return text
     .split(/[,·\|/]/)
     .map((tag) => tag.trim())
-    .filter(Boolean);
-};
+    .filter(Boolean)
+}
 
 const copy = computed(() =>
-  isId.value
-    ? {
-        heading: "Pencapaian & bukti",
-        subheading: "Kompetisi, kursus, dan badge yang memang sudah selesai.",
-        search: "Cari pencapaian...",
-        empty: "Tidak ada data pada kategori ini.",
-      }
-    : {
-        heading: "Achievements & credentials",
-        subheading: "Contests, courses, and badges that are completed.",
-        search: "Search achievements...",
-        empty: "No records match this category.",
-      }
-);
+  isId.value ?
+    {
+      heading: 'Pencapaian & bukti',
+      subheading: 'Kompetisi, kursus, dan badge yang memang sudah selesai.',
+      search: 'Cari pencapaian...',
+      empty: 'Tidak ada data pada kategori ini.',
+    }
+  : {
+      heading: 'Achievements & credentials',
+      subheading: 'Contests, courses, and badges that are completed.',
+      search: 'Search achievements...',
+      empty: 'No records match this category.',
+    }
+)
 
 const filteredAchievements = computed(() => {
-  const query = searchQuery.value.trim().toLowerCase();
-  if (!query) return props.items;
+  const query = searchQuery.value.trim().toLowerCase()
+  if (!query) return props.items
   return props.items.filter((item) => {
     const fields = [
       item.title.en,
       item.title.id,
       item.issuer.en,
       item.issuer.id,
-      item.highlight?.en ?? "",
-      item.highlight?.id ?? "",
-    ];
-    return fields.some((field) => field.toLowerCase().includes(query));
-  });
-});
+      item.highlight?.en ?? '',
+      item.highlight?.id ?? '',
+    ]
+    return fields.some((field) => field.toLowerCase().includes(query))
+  })
+})
 
 const groupedAchievements = computed(() =>
-  filteredAchievements.value.reduce<Record<string, Achievement[]>>(
-    (acc, achievement) => {
-      if (!acc[achievement.type]) acc[achievement.type] = [];
-      acc[achievement.type].push(achievement);
-      return acc;
-    },
-    {}
-  )
-);
+  filteredAchievements.value.reduce<Record<string, Achievement[]>>((acc, achievement) => {
+    if (!acc[achievement.type]) acc[achievement.type] = []
+    acc[achievement.type].push(achievement)
+    return acc
+  }, {})
+)
 
-const visibleItems = computed(
-  () => groupedAchievements.value[activeTab.value] ?? []
-);
+const visibleItems = computed(() => groupedAchievements.value[activeTab.value] ?? [])
 </script>
 
 <template>
@@ -160,9 +151,7 @@ const visibleItems = computed(
         </div>
         <p class="achievement-card__date">{{ item.date }}</p>
         <div v-if="item.highlight" class="highlight-tags">
-          <span v-for="tag in getHighlightTags(item.highlight)" :key="tag">{{
-            tag
-          }}</span>
+          <span v-for="tag in getHighlightTags(item.highlight)" :key="tag">{{ tag }}</span>
         </div>
         <!-- CTA unified: show certificate when available, otherwise open modal with details -->
         <button
@@ -170,12 +159,8 @@ const visibleItems = computed(
           type="button"
           class="credential-link"
           @click.stop="openModal(item)">
-          {{ isId ? "Lihat sertifikat" : "View certificate" }}
-          <svg
-            class="credential-icon"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24">
+          {{ isId ? 'Lihat sertifikat' : 'View certificate' }}
+          <svg class="credential-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -273,7 +258,9 @@ const visibleItems = computed(
   color: var(--muted);
   font-weight: 600;
   cursor: pointer;
-  transition: color 0.2s ease, border-color 0.2s ease;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .tab-btn:hover {
@@ -300,7 +287,9 @@ const visibleItems = computed(
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .achievement-card.clickable {

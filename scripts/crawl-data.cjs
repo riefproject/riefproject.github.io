@@ -7,74 +7,71 @@
 // Runs standalone with plain Node 18+ (global fetch) — no dependencies.
 // On any hard failure the previous JSON file is left untouched.
 
-const fs = require('fs');
-const path = require('path');
-const crypto = require('crypto');
+const fs = require('fs')
+const path = require('path')
+const crypto = require('crypto')
 
 // ---------------------------------------------------------------------------
 // Minimal .env loader (no dependency) — same format as dotenv.
 // ---------------------------------------------------------------------------
 function loadEnv(file) {
   try {
-    const content = fs.readFileSync(file, 'utf8');
+    const content = fs.readFileSync(file, 'utf8')
     for (const line of content.split('\n')) {
-      const trimmed = line.trim();
-      if (!trimmed || trimmed.startsWith('#')) continue;
-      const eq = trimmed.indexOf('=');
-      if (eq === -1) continue;
-      const key = trimmed.slice(0, eq).trim();
-      const raw = trimmed.slice(eq + 1).trim();
-      let value = raw;
-      if (
-        (value.startsWith('"') && value.endsWith('"')) ||
-        (value.startsWith("'") && value.endsWith("'"))
-      ) {
-        value = value.slice(1, -1);
+      const trimmed = line.trim()
+      if (!trimmed || trimmed.startsWith('#')) continue
+      const eq = trimmed.indexOf('=')
+      if (eq === -1) continue
+      const key = trimmed.slice(0, eq).trim()
+      const raw = trimmed.slice(eq + 1).trim()
+      let value = raw
+      if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+        value = value.slice(1, -1)
       }
-      if (!(key in process.env)) process.env[key] = value;
+      if (!(key in process.env)) process.env[key] = value
     }
   } catch {
     // ignore missing .env
   }
 }
 
-loadEnv(path.join(__dirname, '..', '.env'));
+loadEnv(path.join(__dirname, '..', '.env'))
 
 // ---------------------------------------------------------------------------
 // Helpers
-const DEV_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-initial.json');
-const CP_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-data-initial.json');
-const CP_PROBLEMS_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-problems-initial.json');
-const ARCHIVES_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-archives.json');
+const DEV_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-initial.json')
+const CP_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-data-initial.json')
+const CP_PROBLEMS_FILE = path.join(__dirname, '..', 'src', 'data', 'cp-problems-initial.json')
+const ARCHIVES_FILE = path.join(__dirname, '..', 'src', 'data', 'dev-activity-archives.json')
 
-const nowIso = () => new Date().toISOString();
+const nowIso = () => new Date().toISOString()
 
 function readExisting(file) {
   try {
-    return JSON.parse(fs.readFileSync(file, 'utf8'));
+    return JSON.parse(fs.readFileSync(file, 'utf8'))
   } catch {
-    return null;
+    return null
   }
 }
 
 function writeJson(file, payload) {
-  const next = JSON.stringify(payload, null, 2) + '\n';
-  const prev = readExisting(file) !== null ? fs.readFileSync(file, 'utf8') : null;
+  const next = JSON.stringify(payload, null, 2) + '\n'
+  const prev = readExisting(file) !== null ? fs.readFileSync(file, 'utf8') : null
   if (prev === next) {
-    console.log(`  unchanged: ${file}`);
-    return false;
+    console.log(`  unchanged: ${file}`)
+    return false
   }
-  fs.writeFileSync(file, next);
-  console.log(`  updated:   ${file}`);
-  return true;
+  fs.writeFileSync(file, next)
+  console.log(`  updated:   ${file}`)
+  return true
 }
 
 // ---------------------------------------------------------------------------
 // 1. GitHub activity (public APIs, no token) — mirrors netlify/functions/github-activity.ts
 // ---------------------------------------------------------------------------
-const GH_USERNAME = 'riefproject';
-const GITHUB_API = 'https://api.github.com';
-const CONTRIB_API = 'https://github-contributions-api.jogruber.de/v4';
+const GH_USERNAME = 'riefproject'
+const GITHUB_API = 'https://api.github.com'
+const CONTRIB_API = 'https://github-contributions-api.jogruber.de/v4'
 
 async function ghFetchJson(url, init) {
   const res = await fetch(url, {
@@ -84,77 +81,77 @@ async function ghFetchJson(url, init) {
       ...((init && init.headers) || {}),
     },
     ...(init || {}),
-  });
-  if (!res.ok) throw new Error(`GitHub API responded with ${res.status} for ${url}`);
-  return res.json();
+  })
+  if (!res.ok) throw new Error(`GitHub API responded with ${res.status} for ${url}`)
+  return res.json()
 }
 
 async function ghContributions(username) {
-  const data = await ghFetchJson(`${CONTRIB_API}/${username}`);
-  const contributions = Array.isArray(data && data.contributions) ? data.contributions : [];
+  const data = await ghFetchJson(`${CONTRIB_API}/${username}`)
+  const contributions = Array.isArray(data && data.contributions) ? data.contributions : []
 
-  const heatmap = {};
-  let total = 0;
+  const heatmap = {}
+  let total = 0
   contributions.forEach((c) => {
-    const count = Number(c.count) || 0;
-    const level = Number(c.level) || 0;
-    heatmap[c.date] = { count, level };
-    total += count;
-  });
+    const count = Number(c.count) || 0
+    const level = Number(c.level) || 0
+    heatmap[c.date] = { count, level }
+    total += count
+  })
 
-  const yearlyTotal = (data && data.total) || {};
+  const yearlyTotal = (data && data.total) || {}
 
   const sortedDates = contributions
     .filter((c) => (Number(c.count) || 0) > 0)
     .map((c) => c.date)
-    .sort();
+    .sort()
 
-  let longestStreak = 0;
-  let run = 0;
-  const msPerDay = 86400000;
-  let prev = null;
+  let longestStreak = 0
+  let run = 0
+  const msPerDay = 86400000
+  let prev = null
   sortedDates.forEach((dateStr) => {
-    const d = new Date(dateStr + 'T00:00:00Z');
+    const d = new Date(dateStr + 'T00:00:00Z')
     if (prev && d.getTime() - prev.getTime() === msPerDay) {
-      run += 1;
+      run += 1
     } else {
-      run = 1;
+      run = 1
     }
-    longestStreak = Math.max(longestStreak, run);
-    prev = d;
-  });
+    longestStreak = Math.max(longestStreak, run)
+    prev = d
+  })
 
-  const activeDays = new Set(sortedDates);
-  const today = new Date();
-  let cur = 0;
+  const activeDays = new Set(sortedDates)
+  const today = new Date()
+  let cur = 0
   for (let i = 0; i < 365; i++) {
-    const d = new Date(today);
-    d.setUTCDate(d.getUTCDate() - i);
-    const key = d.toISOString().slice(0, 10);
+    const d = new Date(today)
+    d.setUTCDate(d.getUTCDate() - i)
+    const key = d.toISOString().slice(0, 10)
     if (activeDays.has(key)) {
-      cur += 1;
+      cur += 1
     } else if (i !== 0) {
-      break;
+      break
     } else if (!activeDays.has(key)) {
-      cur = 0;
-      break;
+      cur = 0
+      break
     }
   }
-  const currentStreak = cur;
+  const currentStreak = cur
 
-  const cutoff = new Date(today);
-  cutoff.setUTCDate(cutoff.getUTCDate() - 364);
-  let lastYear = 0;
+  const cutoff = new Date(today)
+  cutoff.setUTCDate(cutoff.getUTCDate() - 364)
+  let lastYear = 0
   contributions.forEach((c) => {
-    const cd = new Date(c.date + 'T00:00:00Z');
-    if (cd >= cutoff && cd <= today) lastYear += Number(c.count) || 0;
-  });
+    const cd = new Date(c.date + 'T00:00:00Z')
+    if (cd >= cutoff && cd <= today) lastYear += Number(c.count) || 0
+  })
 
-  return { heatmap, yearlyTotal, totalContributions: total, currentStreak, longestStreak, lastYear };
+  return { heatmap, yearlyTotal, totalContributions: total, currentStreak, longestStreak, lastYear }
 }
 
 async function ghUser(username) {
-  const u = await ghFetchJson(`${GITHUB_API}/users/${username}`);
+  const u = await ghFetchJson(`${GITHUB_API}/users/${username}`)
   return {
     login: u.login,
     name: u.name || u.login,
@@ -169,44 +166,40 @@ async function ghUser(username) {
     publicRepos: u.public_repos || 0,
     publicGists: u.public_gists || 0,
     createdAt: u.created_at,
-  };
+  }
 }
 
 async function ghRepos(username) {
-  const repos = [];
-  let page = 1;
+  const repos = []
+  let page = 1
   while (true) {
-    const pageData = await ghFetchJson(
-      `${GITHUB_API}/users/${username}/repos?per_page=100&page=${page}&sort=updated`
-    );
-    if (!Array.isArray(pageData) || pageData.length === 0) break;
-    repos.push(...pageData);
-    if (pageData.length < 100) break;
-    page += 1;
-    if (page > 3) break;
+    const pageData = await ghFetchJson(`${GITHUB_API}/users/${username}/repos?per_page=100&page=${page}&sort=updated`)
+    if (!Array.isArray(pageData) || pageData.length === 0) break
+    repos.push(...pageData)
+    if (pageData.length < 100) break
+    page += 1
+    if (page > 3) break
   }
-  return repos;
+  return repos
 }
 
 async function ghLanguages(username, repos) {
-  const source = repos.filter((r) => !r.fork).slice(0, 25);
-  const totals = {};
-  const batchSize = 8;
+  const source = repos.filter((r) => !r.fork).slice(0, 25)
+  const totals = {}
+  const batchSize = 8
   for (let i = 0; i < source.length; i += batchSize) {
-    const batch = source.slice(i, i + batchSize);
-    const results = await Promise.allSettled(
-      batch.map(async (repo) => ghFetchJson(`${GITHUB_API}/repos/${repo.full_name}/languages`))
-    );
+    const batch = source.slice(i, i + batchSize)
+    const results = await Promise.allSettled(batch.map(async (repo) => ghFetchJson(`${GITHUB_API}/repos/${repo.full_name}/languages`)))
     results.forEach((res) => {
       if (res.status === 'fulfilled' && res.value) {
         Object.entries(res.value).forEach(([lang, bytes]) => {
-          totals[lang] = (totals[lang] || 0) + Number(bytes);
-        });
+          totals[lang] = (totals[lang] || 0) + Number(bytes)
+        })
       }
-    });
+    })
   }
 
-  const totalBytes = Object.values(totals).reduce((sum, v) => sum + v, 0);
+  const totalBytes = Object.values(totals).reduce((sum, v) => sum + v, 0)
   return Object.entries(totals)
     .map(([name, bytes]) => ({
       name,
@@ -214,15 +207,15 @@ async function ghLanguages(username, repos) {
       percentage: totalBytes > 0 ? Math.round((bytes / totalBytes) * 1000) / 10 : 0,
     }))
     .sort((a, b) => b.bytes - a.bytes)
-    .slice(0, 10);
+    .slice(0, 10)
 }
 
 async function ghSearchCount(query) {
   try {
-    const data = await ghFetchJson(`${GITHUB_API}/search/issues?q=${encodeURIComponent(query)}&per_page=1`);
-    return Number(data && data.total_count) || 0;
+    const data = await ghFetchJson(`${GITHUB_API}/search/issues?q=${encodeURIComponent(query)}&per_page=1`)
+    return Number(data && data.total_count) || 0
   } catch {
-    return 0;
+    return 0
   }
 }
 
@@ -242,48 +235,39 @@ function ghBuildTopRepos(repos) {
       updatedAt: r.updated_at,
       archived: r.archived,
       topics: r.topics || [],
-    }));
+    }))
 }
 
 async function crawlGithub(prevGithub = {}) {
-  const [contrib, user, repos] = await Promise.allSettled([
-    ghContributions(GH_USERNAME),
-    ghUser(GH_USERNAME),
-    ghRepos(GH_USERNAME),
-  ]);
+  const [contrib, user, repos] = await Promise.allSettled([ghContributions(GH_USERNAME), ghUser(GH_USERNAME), ghRepos(GH_USERNAME)])
 
-  const contributions = contrib.status === 'fulfilled'
-    ? contrib.value
-    : (prevGithub.overview || { heatmap: {}, yearlyTotal: {}, totalContributions: 0, currentStreak: 0, longestStreak: 0, lastYear: 0 });
+  const contributions =
+    contrib.status === 'fulfilled' ?
+      contrib.value
+    : prevGithub.overview || { heatmap: {}, yearlyTotal: {}, totalContributions: 0, currentStreak: 0, longestStreak: 0, lastYear: 0 }
 
   let userData = prevGithub.user || {
     login: GH_USERNAME,
     name: GH_USERNAME,
     avatarUrl: `https://avatars.githubusercontent.com/${GH_USERNAME}`,
     url: `https://github.com/${GH_USERNAME}`,
-  };
-  if (user.status === 'fulfilled') userData = user.value;
+  }
+  if (user.status === 'fulfilled') userData = user.value
 
-  const repoList = repos.status === 'fulfilled' ? repos.value : [];
+  const repoList = repos.status === 'fulfilled' ? repos.value : []
 
   const [languages, prStats, mergedPrs, issueStats] = await Promise.allSettled([
     ghLanguages(GH_USERNAME, repoList),
     ghSearchCount(`author:${GH_USERNAME} type:pr`),
     ghSearchCount(`author:${GH_USERNAME} type:pr is:merged`),
     ghSearchCount(`author:${GH_USERNAME} type:issue`),
-  ]);
+  ])
 
-  const fallbackTopRepos = (Array.isArray(prevGithub.topRepos) && prevGithub.topRepos.length > 0)
-    ? prevGithub.topRepos
-    : [];
+  const fallbackTopRepos = Array.isArray(prevGithub.topRepos) && prevGithub.topRepos.length > 0 ? prevGithub.topRepos : []
 
-  const topRepos = (repos.status === 'fulfilled' && repoList.length > 0)
-    ? ghBuildTopRepos(repoList)
-    : fallbackTopRepos;
+  const topRepos = repos.status === 'fulfilled' && repoList.length > 0 ? ghBuildTopRepos(repoList) : fallbackTopRepos
 
-  const fallbackLanguages = (Array.isArray(prevGithub.languages) && prevGithub.languages.length > 0)
-    ? prevGithub.languages
-    : [];
+  const fallbackLanguages = Array.isArray(prevGithub.languages) && prevGithub.languages.length > 0 ? prevGithub.languages : []
 
   return {
     meta: { updatedAt: nowIso(), username: GH_USERNAME, source: 'github-public-api' },
@@ -299,117 +283,114 @@ async function crawlGithub(prevGithub = {}) {
     languages: languages.status === 'fulfilled' ? languages.value : fallbackLanguages,
     topRepos,
     prStats: {
-      total: prStats.status === 'fulfilled' ? prStats.value : (prevGithub.prStats?.total || 0),
-      merged: mergedPrs.status === 'fulfilled' ? mergedPrs.value : (prevGithub.prStats?.merged || 0),
+      total: prStats.status === 'fulfilled' ? prStats.value : prevGithub.prStats?.total || 0,
+      merged: mergedPrs.status === 'fulfilled' ? mergedPrs.value : prevGithub.prStats?.merged || 0,
     },
     issueStats: {
-      total: issueStats.status === 'fulfilled' ? issueStats.value : (prevGithub.issueStats?.total || 0),
+      total: issueStats.status === 'fulfilled' ? issueStats.value : prevGithub.issueStats?.total || 0,
     },
-  };
+  }
 }
 
 // ---------------------------------------------------------------------------
 // 2. GitLab activity (private instance, token + URL via env) — mirrors gitlab-activity.ts
 // ---------------------------------------------------------------------------
-const GITLAB_URL = process.env.GITLAB_URL;
-const GITLAB_USER_ID = process.env.GITLAB_USER_ID;
+const GITLAB_URL = process.env.GITLAB_URL
+const GITLAB_USER_ID = process.env.GITLAB_USER_ID
 
 function getGitlabFingerprint(url, userId) {
-  if (!url || !userId) return null;
-  const cleanUrl = String(url).trim().toLowerCase().replace(/\/+$/, '');
-  const cleanUserId = String(userId).trim();
-  return crypto.createHash('sha256').update(`${cleanUrl}:${cleanUserId}`).digest('hex').slice(0, 12);
+  if (!url || !userId) return null
+  const cleanUrl = String(url).trim().toLowerCase().replace(/\/+$/, '')
+  const cleanUserId = String(userId).trim()
+  return crypto.createHash('sha256').update(`${cleanUrl}:${cleanUserId}`).digest('hex').slice(0, 12)
 }
 
 async function crawlGitlab() {
-  const token = process.env.GITLAB_PERSONAL_ACCESS_TOKEN;
+  const token = process.env.GITLAB_PERSONAL_ACCESS_TOKEN
   if (!token || !GITLAB_URL || !GITLAB_USER_ID) {
-    console.log(
-      '  [gitlab] missing or revoked env (GITLAB_PERSONAL_ACCESS_TOKEN / GITLAB_URL / GITLAB_USER_ID) — using archived snapshot'
-    );
-    return null;
+    console.log('  [gitlab] missing or revoked env (GITLAB_PERSONAL_ACCESS_TOKEN / GITLAB_URL / GITLAB_USER_ID) — using archived snapshot')
+    return null
   }
 
-  const since = new Date();
-  since.setDate(since.getDate() - 365);
-  const after = since.toISOString();
+  const since = new Date()
+  since.setDate(since.getDate() - 365)
+  const after = since.toISOString()
 
-  const events = [];
-  let page = 1;
-  const maxPages = 30;
+  const events = []
+  let page = 1
+  const maxPages = 30
   try {
     while (page <= maxPages) {
       const response = await fetch(
         `${GITLAB_URL}/api/v4/users/${GITLAB_USER_ID}/events?after=${encodeURIComponent(after)}&per_page=100&page=${page}`,
         { headers: { 'PRIVATE-TOKEN': token } }
-      );
+      )
       if (!response.ok) {
-        console.warn(`  [gitlab] API returned status ${response.status} (token expired/revoked) — using archived snapshot`);
-        return null;
+        console.warn(`  [gitlab] API returned status ${response.status} (token expired/revoked) — using archived snapshot`)
+        return null
       }
-      const pageData = await response.json();
-      if (!Array.isArray(pageData) || pageData.length === 0) break;
-      events.push(...pageData);
-      if (pageData.length < 100) break;
-      page += 1;
+      const pageData = await response.json()
+      if (!Array.isArray(pageData) || pageData.length === 0) break
+      events.push(...pageData)
+      if (pageData.length < 100) break
+      page += 1
     }
   } catch (err) {
-    console.warn(`  [gitlab] fetch error (${err.message}) — using archived snapshot`);
-    return null;
+    console.warn(`  [gitlab] fetch error (${err.message}) — using archived snapshot`)
+    return null
   }
 
-  const heatmap = {};
-  const projectIds = new Set();
-  let mrOpened = 0;
+  const heatmap = {}
+  const projectIds = new Set()
+  let mrOpened = 0
   events.forEach((ev) => {
-    if (!ev.created_at) return;
-    const date = ev.created_at.slice(0, 10);
-    heatmap[date] = (heatmap[date] || 0) + 1;
-    if (ev.project_id) projectIds.add(ev.project_id);
-    if (ev.target_type === 'MergeRequest' && ev.action_name === 'opened') mrOpened += 1;
-  });
+    if (!ev.created_at) return
+    const date = ev.created_at.slice(0, 10)
+    heatmap[date] = (heatmap[date] || 0) + 1
+    if (ev.project_id) projectIds.add(ev.project_id)
+    if (ev.target_type === 'MergeRequest' && ev.action_name === 'opened') mrOpened += 1
+  })
 
-  let mrMerged = 0;
+  let mrMerged = 0
   try {
-    const mrRes = await fetch(
-      `${GITLAB_URL}/api/v4/merge_requests?author_id=${GITLAB_USER_ID}&scope=all&state=merged&per_page=100`,
-      { headers: { 'PRIVATE-TOKEN': token } }
-    );
+    const mrRes = await fetch(`${GITLAB_URL}/api/v4/merge_requests?author_id=${GITLAB_USER_ID}&scope=all&state=merged&per_page=100`, {
+      headers: { 'PRIVATE-TOKEN': token },
+    })
     if (mrRes.ok) {
-      const mrList = await mrRes.json();
-      mrMerged = Array.isArray(mrList) ? mrList.length : 0;
+      const mrList = await mrRes.json()
+      mrMerged = Array.isArray(mrList) ? mrList.length : 0
     }
   } catch (err) {
-    console.error('Failed to fetch merged MRs:', err);
+    console.error('Failed to fetch merged MRs:', err)
   }
 
-  const uniqueProjectIds = Array.from(projectIds).slice(0, 5);
-  const languageTotals = {};
+  const uniqueProjectIds = Array.from(projectIds).slice(0, 5)
+  const languageTotals = {}
   await Promise.all(
     uniqueProjectIds.map(async (pid) => {
       try {
         const langRes = await fetch(`${GITLAB_URL}/api/v4/projects/${pid}/languages`, {
           headers: { 'PRIVATE-TOKEN': token },
-        });
+        })
         if (langRes.ok) {
-          const langs = await langRes.json();
+          const langs = await langRes.json()
           Object.entries(langs).forEach(([lang, val]) => {
-            languageTotals[lang] = (languageTotals[lang] || 0) + val;
-          });
+            languageTotals[lang] = (languageTotals[lang] || 0) + val
+          })
         }
       } catch (err) {
-        console.error(`Failed to fetch languages for project ${pid}:`, err);
+        console.error(`Failed to fetch languages for project ${pid}:`, err)
       }
     })
-  );
+  )
 
-  const totalLangValue = Object.values(languageTotals).reduce((sum, val) => sum + val, 0);
+  const totalLangValue = Object.values(languageTotals).reduce((sum, val) => sum + val, 0)
   const languages = Object.entries(languageTotals)
     .map(([name, value]) => ({
       name,
       percentage: totalLangValue > 0 ? Math.round((value / totalLangValue) * 100) : 0,
     }))
-    .sort((a, b) => b.percentage - a.percentage);
+    .sort((a, b) => b.percentage - a.percentage)
 
   return {
     heatmap,
@@ -419,49 +400,49 @@ async function crawlGitlab() {
       mergeRequests: { opened: mrOpened, merged: mrMerged },
       languages,
     },
-  };
+  }
 }
 
 function combineDevHeatmap(ghPayload, glPayload) {
-  const out = {};
-  const ghMap = (ghPayload && ghPayload.overview && ghPayload.overview.heatmap) || {};
-  const glMap = (glPayload && glPayload.heatmap) || {};
-  const keys = new Set([...Object.keys(ghMap), ...Object.keys(glMap)]);
+  const out = {}
+  const ghMap = (ghPayload && ghPayload.overview && ghPayload.overview.heatmap) || {}
+  const glMap = (glPayload && glPayload.heatmap) || {}
+  const keys = new Set([...Object.keys(ghMap), ...Object.keys(glMap)])
   keys.forEach((k) => {
-    const ghV = ghMap[k];
-    const glV = glMap[k];
+    const ghV = ghMap[k]
+    const glV = glMap[k]
     out[k] =
       (typeof ghV === 'object' ? Number((ghV && ghV.count) || 0) : Number(ghV || 0)) +
-      (typeof glV === 'object' ? Number((glV && glV.count) || 0) : Number(glV || 0));
-  });
-  return out;
+      (typeof glV === 'object' ? Number((glV && glV.count) || 0) : Number(glV || 0))
+  })
+  return out
 }
 
 function mergeGitlabWithArchives(activeGitlab) {
-  let archives = readExisting(ARCHIVES_FILE) || [];
-  if (!Array.isArray(archives)) archives = [];
+  let archives = readExisting(ARCHIVES_FILE) || []
+  if (!Array.isArray(archives)) archives = []
 
-  const activeFingerprint = getGitlabFingerprint(GITLAB_URL, GITLAB_USER_ID);
+  const activeFingerprint = getGitlabFingerprint(GITLAB_URL, GITLAB_USER_ID)
 
   // If we fetched fresh data from an active token
   if (activeGitlab && activeGitlab.stats && activeGitlab.stats.totalEvents > 0 && activeFingerprint) {
-    const existingIndex = archives.findIndex((a) => a.fingerprint === activeFingerprint);
+    const existingIndex = archives.findIndex((a) => a.fingerprint === activeFingerprint)
     if (existingIndex !== -1) {
       // MATCH FOUND: Same workplace/user — update in-place without duplicating
-      console.log(`  [gitlab-archive] matched existing archive entry (${archives[existingIndex].id}) — updating snapshot`);
-      const existing = archives[existingIndex];
+      console.log(`  [gitlab-archive] matched existing archive entry (${archives[existingIndex].id}) — updating snapshot`)
+      const existing = archives[existingIndex]
       if ((activeGitlab.stats.totalEvents || 0) >= (existing.stats?.totalEvents || 0)) {
         archives[existingIndex] = {
           ...existing,
           label: 'GitLab',
           stats: activeGitlab.stats,
           heatmap: { ...existing.heatmap, ...activeGitlab.heatmap },
-        };
+        }
       }
     } else {
       // NO MATCH: New workplace/instance detected!
-      const newId = `gitlab-archive-${archives.length + 1}`;
-      console.log(`  [gitlab-archive] new workplace detected (fingerprint: ${activeFingerprint}) — registering ${newId}`);
+      const newId = `gitlab-archive-${archives.length + 1}`
+      console.log(`  [gitlab-archive] new workplace detected (fingerprint: ${activeFingerprint}) — registering ${newId}`)
       archives.push({
         id: newId,
         fingerprint: activeFingerprint,
@@ -469,11 +450,11 @@ function mergeGitlabWithArchives(activeGitlab) {
         label: 'GitLab',
         stats: activeGitlab.stats,
         heatmap: activeGitlab.heatmap,
-      });
+      })
     }
 
     // Persist to disk so historical snapshot is always preserved even if token is revoked later
-    writeJson(ARCHIVES_FILE, archives);
+    writeJson(ARCHIVES_FILE, archives)
   }
 
   // If no archives exist and no active data, return empty
@@ -483,36 +464,36 @@ function mergeGitlabWithArchives(activeGitlab) {
         heatmap: {},
         stats: { totalEvents: 0, daysActive: 0, mergeRequests: { opened: 0, merged: 0 }, languages: [] },
       }
-    );
+    )
   }
 
   // Aggregate across ALL archives (archive-1 + archive-2 + ...)
   // This guarantees ZERO double-counting between active crawl and archives
-  const combinedHeatmap = {};
-  let totalEvents = 0;
-  let mrOpened = 0;
-  let mrMerged = 0;
-  const langTotals = {};
+  const combinedHeatmap = {}
+  let totalEvents = 0
+  let mrOpened = 0
+  let mrMerged = 0
+  const langTotals = {}
 
   archives.forEach((arch) => {
     Object.entries(arch.heatmap || {}).forEach(([date, count]) => {
-      combinedHeatmap[date] = (combinedHeatmap[date] || 0) + Number(count || 0);
-    });
-    totalEvents += Number((arch.stats && arch.stats.totalEvents) || 0);
-    mrOpened += Number((arch.stats && arch.stats.mergeRequests && arch.stats.mergeRequests.opened) || 0);
-    mrMerged += Number((arch.stats && arch.stats.mergeRequests && arch.stats.mergeRequests.merged) || 0);
-    ((arch.stats && arch.stats.languages) || []).forEach((l) => {
-      langTotals[l.name] = (langTotals[l.name] || 0) + (l.percentage || 0);
-    });
-  });
+      combinedHeatmap[date] = (combinedHeatmap[date] || 0) + Number(count || 0)
+    })
+    totalEvents += Number((arch.stats && arch.stats.totalEvents) || 0)
+    mrOpened += Number((arch.stats && arch.stats.mergeRequests && arch.stats.mergeRequests.opened) || 0)
+    mrMerged += Number((arch.stats && arch.stats.mergeRequests && arch.stats.mergeRequests.merged) || 0)
+    ;((arch.stats && arch.stats.languages) || []).forEach((l) => {
+      langTotals[l.name] = (langTotals[l.name] || 0) + (l.percentage || 0)
+    })
+  })
 
-  const totalLangSum = Object.values(langTotals).reduce((s, v) => s + v, 0);
+  const totalLangSum = Object.values(langTotals).reduce((s, v) => s + v, 0)
   const languages = Object.entries(langTotals)
     .map(([name, val]) => ({
       name,
       percentage: totalLangSum > 0 ? Math.round((val / totalLangSum) * 100) : 0,
     }))
-    .sort((a, b) => b.percentage - a.percentage);
+    .sort((a, b) => b.percentage - a.percentage)
 
   return {
     heatmap: combinedHeatmap,
@@ -522,7 +503,7 @@ function mergeGitlabWithArchives(activeGitlab) {
       mergeRequests: { opened: mrOpened, merged: mrMerged },
       languages,
     },
-  };
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -533,91 +514,115 @@ const CP_HANDLES = {
   codeforces: 'feeera',
   leetcode: 'fsaree',
   hackerrank: 'areee',
-};
+}
 
 function getTlxDifficulty(containerName) {
-  if (!containerName) return 'Medium';
-  const name = containerName.trim();
+  if (!containerName) return 'Medium'
+  const name = containerName.trim()
 
   const easyKeywords = [
-    'Keluaran dan Ekspresi', 'Variabel', 'Percabangan', 'Perulangan', 'Larik', 'Array',
-    'Fungsi', 'Tipe Data', 'Analisis Kompleksitas', 'Pencarian dan Pengurutan',
-    'Rekursi Dasar', 'Perkenalan Pemrograman',
-  ];
-  if (easyKeywords.some((k) => name.includes(k))) return 'Easy';
+    'Keluaran dan Ekspresi',
+    'Variabel',
+    'Percabangan',
+    'Perulangan',
+    'Larik',
+    'Array',
+    'Fungsi',
+    'Tipe Data',
+    'Analisis Kompleksitas',
+    'Pencarian dan Pengurutan',
+    'Rekursi Dasar',
+    'Perkenalan Pemrograman',
+  ]
+  if (easyKeywords.some((k) => name.includes(k))) return 'Easy'
 
   const hardKeywords = [
-    'Dynamic Programming', 'Lanjutan', 'Non-Linear', 'Algoritma Graf', 'OSN', 'OSN-P',
-    'ICPC', 'INC', 'NOI', 'Final', 'Senior', 'Arkavidia', 'Schematics', 'GEMASTIK',
-    'Gemastik', 'COMPFEST', 'IDEAFUSE', 'IMPACT', 'Liga Kompetitif',
-  ];
-  if (hardKeywords.some((k) => name.includes(k))) return 'Hard';
+    'Dynamic Programming',
+    'Lanjutan',
+    'Non-Linear',
+    'Algoritma Graf',
+    'OSN',
+    'OSN-P',
+    'ICPC',
+    'INC',
+    'NOI',
+    'Final',
+    'Senior',
+    'Arkavidia',
+    'Schematics',
+    'GEMASTIK',
+    'Gemastik',
+    'COMPFEST',
+    'IDEAFUSE',
+    'IMPACT',
+    'Liga Kompetitif',
+  ]
+  if (hardKeywords.some((k) => name.includes(k))) return 'Hard'
 
-  return 'Medium';
+  return 'Medium'
 }
 
 async function cpTlx(username) {
-  let allSubmissions = [];
-  let beforeId = null;
-  let isFinished = false;
-  let pageCount = 0;
+  let allSubmissions = []
+  let beforeId = null
+  let isFinished = false
+  let pageCount = 0
 
   while (!isFinished && pageCount < 50) {
-    pageCount++;
-    const url = `https://api.tlx.toki.id/v2/submissions/programming?username=${username}${beforeId ? `&beforeId=${beforeId}` : ''}`;
+    pageCount++
+    const url = `https://api.tlx.toki.id/v2/submissions/programming?username=${username}${beforeId ? `&beforeId=${beforeId}` : ''}`
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Portfolio CP Dashboard)' } });
-      if (!res.ok) break;
-      const json = await res.json();
-      const page = (json.data && json.data.page) || [];
-      if (page.length === 0) break;
+      const res = await fetch(url, { headers: { 'User-Agent': 'Mozilla/5.0 (Portfolio CP Dashboard)' } })
+      if (!res.ok) break
+      const json = await res.json()
+      const page = (json.data && json.data.page) || []
+      if (page.length === 0) break
 
       const mapped = page.map((item) => ({
         id: item.id,
         problemJid: item.problemJid,
         containerName: (json.containerNamesMap && json.containerNamesMap[item.containerJid]) || 'Latihan',
         problemName: (json.problemNamesMap && json.problemNamesMap[item.problemJid]) || 'Soal TLX',
-        problemAlias:
-          (json.problemAliasesMap && json.problemAliasesMap[`${item.containerJid}-${item.problemJid}`]) || '-',
+        problemAlias: (json.problemAliasesMap && json.problemAliasesMap[`${item.containerJid}-${item.problemJid}`]) || '-',
         language: item.gradingLanguage || 'Cpp20',
         verdict: (item.latestGrading && item.latestGrading.verdict && item.latestGrading.verdict.code) || 'N/A',
         score: (item.latestGrading && item.latestGrading.score) || 0,
         time: item.time,
         submittedAt: new Date(item.time).toISOString(),
-      }));
+      }))
 
-      allSubmissions.push(...mapped);
-      const lastId = page[page.length - 1].id;
-      beforeId = lastId - 1;
-      if (page.length < 20) isFinished = true;
+      allSubmissions.push(...mapped)
+      const lastId = page[page.length - 1].id
+      beforeId = lastId - 1
+      if (page.length < 20) isFinished = true
     } catch (err) {
-      console.error('Error fetching TLX:', err);
-      break;
+      console.error('Error fetching TLX:', err)
+      break
     }
   }
 
-  const acSubmissions = allSubmissions.filter((s) => s.verdict === 'AC' || s.score === 100);
-  const uniqueProblems = new Map();
+  const acSubmissions = allSubmissions.filter((s) => s.verdict === 'AC' || s.score === 100)
+  const uniqueProblems = new Map()
   acSubmissions.forEach((s) => {
-    if (!uniqueProblems.has(s.problemName)) uniqueProblems.set(s.problemName, s);
-  });
+    if (!uniqueProblems.has(s.problemName)) uniqueProblems.set(s.problemName, s)
+  })
 
-  const languages = {};
+  const languages = {}
   allSubmissions.forEach((s) => {
-    let langKey = s.language;
+    let langKey = s.language
     if (langKey === 'Cpp' || langKey === 'C++') {
-      langKey = 'Cpp20';
+      langKey = 'Cpp20'
     }
-    languages[langKey] = (languages[langKey] || 0) + 1;
-  });
+    languages[langKey] = (languages[langKey] || 0) + 1
+  })
 
-  const dailyCalendar = {};
+  const dailyCalendar = {}
   allSubmissions.forEach((s) => {
-    const day = s.submittedAt.slice(0, 10);
-    if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 };
-    dailyCalendar[day].tries += 1;
-    if (s.verdict === 'AC' || s.score === 100) dailyCalendar[day].ac += 1;
-  });
+    const day = s.submittedAt.slice(0, 10)
+    if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 }
+    dailyCalendar[day].tries += 1
+    if (s.verdict === 'AC' || s.score === 100) dailyCalendar[day].ac += 1
+  })
 
   const recentSolved = Array.from(uniqueProblems.values()).map((s) => ({
     id: `tlx-${s.id}`,
@@ -628,23 +633,23 @@ async function cpTlx(username) {
     difficulty: '-',
     url: `https://tlx.toki.id/submissions/${s.id}`,
     solvedAt: s.submittedAt,
-  }));
+  }))
 
-  let totalSolved = 371;
-  let totalAcSubmissions = 362;
+  let totalSolved = 371
+  let totalAcSubmissions = 362
   try {
     const statsRes = await fetch(`https://api.tlx.toki.id/v2/stats/users/?username=${username}`, {
       headers: { 'User-Agent': 'Mozilla/5.0 (Portfolio CP Dashboard)' },
-    });
+    })
     if (statsRes.ok) {
-      const statsJson = await statsRes.json();
-      if (statsJson.totalProblemsTried) totalSolved = statsJson.totalProblemsTried;
+      const statsJson = await statsRes.json()
+      if (statsJson.totalProblemsTried) totalSolved = statsJson.totalProblemsTried
       if (statsJson.totalProblemVerdictsMap && statsJson.totalProblemVerdictsMap.AC) {
-        totalAcSubmissions = statsJson.totalProblemVerdictsMap.AC;
+        totalAcSubmissions = statsJson.totalProblemVerdictsMap.AC
       }
     }
   } catch (err) {
-    console.error('Error fetching TLX user stats:', err);
+    console.error('Error fetching TLX user stats:', err)
   }
 
   return {
@@ -662,7 +667,7 @@ async function cpTlx(username) {
     },
     dailyCalendar,
     recentSolved,
-  };
+  }
 }
 
 async function cpCodeforces(handle) {
@@ -670,57 +675,55 @@ async function cpCodeforces(handle) {
     fetch(`https://codeforces.com/api/user.info?handles=${handle}`),
     fetch(`https://codeforces.com/api/user.status?handle=${handle}&from=1&count=10000`),
     fetch(`https://codeforces.com/api/user.rating?handle=${handle}`),
-  ]);
+  ])
 
-  let userInfo = { rating: 625, maxRating: 625, rank: 'newbie', maxRank: 'newbie' };
+  let userInfo = { rating: 625, maxRating: 625, rank: 'newbie', maxRank: 'newbie' }
   if (infoRes.status === 'fulfilled' && infoRes.value.ok) {
-    const data = await infoRes.value.json();
-    if (data.status === 'OK' && data.result && data.result[0]) userInfo = data.result[0];
+    const data = await infoRes.value.json()
+    if (data.status === 'OK' && data.result && data.result[0]) userInfo = data.result[0]
   }
 
-  let contestsCount = 0;
+  let contestsCount = 0
   if (ratingRes.status === 'fulfilled' && ratingRes.value.ok) {
-    const data = await ratingRes.value.json();
-    if (data.status === 'OK') contestsCount = (data.result && data.result.length) || 0;
+    const data = await ratingRes.value.json()
+    if (data.status === 'OK') contestsCount = (data.result && data.result.length) || 0
   }
 
-  let allSubs = [];
+  let allSubs = []
   if (statusRes.status === 'fulfilled' && statusRes.value.ok) {
-    const data = await statusRes.value.json();
-    if (data.status === 'OK') allSubs = data.result || [];
+    const data = await statusRes.value.json()
+    if (data.status === 'OK') allSubs = data.result || []
   }
 
-  const acSubs = allSubs.filter((s) => s.verdict === 'OK');
-  const uniqueProblems = new Map();
-  const tagsCount = {};
-  const ratingDistribution = {};
-  const dailyCalendar = {};
+  const acSubs = allSubs.filter((s) => s.verdict === 'OK')
+  const uniqueProblems = new Map()
+  const tagsCount = {}
+  const ratingDistribution = {}
+  const dailyCalendar = {}
 
   allSubs.forEach((s) => {
-    const day = new Date(s.creationTimeSeconds * 1000).toISOString().slice(0, 10);
-    if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 };
-    dailyCalendar[day].tries += 1;
-    if (s.verdict === 'OK') dailyCalendar[day].ac += 1;
-  });
+    const day = new Date(s.creationTimeSeconds * 1000).toISOString().slice(0, 10)
+    if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 }
+    dailyCalendar[day].tries += 1
+    if (s.verdict === 'OK') dailyCalendar[day].ac += 1
+  })
 
   acSubs.forEach((s) => {
-    const key = `${s.problem.contestId || 'gym'}-${s.problem.index}`;
+    const key = `${s.problem.contestId || 'gym'}-${s.problem.index}`
     if (!uniqueProblems.has(key)) {
-      uniqueProblems.set(key, s);
-      (s.problem.tags || []).forEach((t) => {
-        tagsCount[t] = (tagsCount[t] || 0) + 1;
-      });
+      uniqueProblems.set(key, s)
+      ;(s.problem.tags || []).forEach((t) => {
+        tagsCount[t] = (tagsCount[t] || 0) + 1
+      })
       if (s.problem.rating) {
-        ratingDistribution[s.problem.rating] = (ratingDistribution[s.problem.rating] || 0) + 1;
+        ratingDistribution[s.problem.rating] = (ratingDistribution[s.problem.rating] || 0) + 1
       }
     }
-  });
+  })
 
   const recentSolved = Array.from(uniqueProblems.values()).map((s) => {
-    const p = s.problem;
-    const problemUrl = p.contestId
-      ? `https://codeforces.com/contest/${p.contestId}/problem/${p.index}`
-      : `https://codeforces.com/problemset`;
+    const p = s.problem
+    const problemUrl = p.contestId ? `https://codeforces.com/contest/${p.contestId}/problem/${p.index}` : `https://codeforces.com/problemset`
     return {
       id: `cf-${s.id}`,
       platform: 'codeforces',
@@ -730,22 +733,22 @@ async function cpCodeforces(handle) {
       difficulty: p.rating ? `${p.rating}` : '800',
       url: problemUrl,
       solvedAt: new Date(s.creationTimeSeconds * 1000).toISOString(),
-    };
-  });
+    }
+  })
 
-  const languages = {};
+  const languages = {}
   allSubs.forEach((s) => {
-    let lang = s.programmingLanguage || '';
-    if (lang.includes('C++20') || lang.includes('Cpp20')) lang = 'C++20';
-    else if (lang.includes('C++23') || lang.includes('Cpp23')) lang = 'C++23';
-    else if (lang.includes('C++17') || lang.includes('Cpp17')) lang = 'C++17';
-    else if (lang.includes('C++11') || lang.includes('Cpp11')) lang = 'C++11';
-    else if (lang.includes('C++') || lang.includes('Cpp')) lang = 'C++20';
-    else if (lang.includes('Rust')) lang = 'Rust';
-    else if (lang.includes('Python')) lang = 'Python';
-    else if (lang.includes('Java')) lang = 'Java';
-    if (lang) languages[lang] = (languages[lang] || 0) + 1;
-  });
+    let lang = s.programmingLanguage || ''
+    if (lang.includes('C++20') || lang.includes('Cpp20')) lang = 'C++20'
+    else if (lang.includes('C++23') || lang.includes('Cpp23')) lang = 'C++23'
+    else if (lang.includes('C++17') || lang.includes('Cpp17')) lang = 'C++17'
+    else if (lang.includes('C++11') || lang.includes('Cpp11')) lang = 'C++11'
+    else if (lang.includes('C++') || lang.includes('Cpp')) lang = 'C++20'
+    else if (lang.includes('Rust')) lang = 'Rust'
+    else if (lang.includes('Python')) lang = 'Python'
+    else if (lang.includes('Java')) lang = 'Java'
+    if (lang) languages[lang] = (languages[lang] || 0) + 1
+  })
 
   return {
     handle,
@@ -763,7 +766,7 @@ async function cpCodeforces(handle) {
     languages,
     dailyCalendar,
     recentSolved,
-  };
+  }
 }
 
 // LeetCode question difficulty & topic metadata fetcher via GraphQL
@@ -786,17 +789,17 @@ async function fetchLeetCodeQuestionMetadata(slug) {
         }`,
         variables: { titleSlug: slug },
       }),
-    });
-    if (!res.ok) return null;
-    const json = await res.json();
-    const q = json?.data?.question;
-    if (!q) return null;
+    })
+    if (!res.ok) return null
+    const json = await res.json()
+    const q = json?.data?.question
+    if (!q) return null
     return {
       difficulty: q.difficulty || null,
       category: q.topicTags?.[0]?.name || null,
-    };
+    }
   } catch {
-    return null;
+    return null
   }
 }
 
@@ -806,53 +809,53 @@ async function cpLeetCode(username, prevLc = {}) {
       fetch(`https://alfa-leetcode-api.onrender.com/${username}`),
       fetch(`https://alfa-leetcode-api.onrender.com/${username}/solved`),
       fetch(`https://alfa-leetcode-api.onrender.com/${username}/acSubmission?limit=50`),
-    ]);
+    ])
 
-    let ranking = 2367686;
+    let ranking = 2367686
     if (profileRes.status === 'fulfilled' && profileRes.value.ok) {
-      const pJson = await profileRes.value.json();
-      if (pJson.ranking) ranking = pJson.ranking;
+      const pJson = await profileRes.value.json()
+      if (pJson.ranking) ranking = pJson.ranking
     }
 
-    let easySolved = 32;
-    let mediumSolved = 24;
-    let hardSolved = 3;
-    let totalSolved = 59;
+    let easySolved = 32
+    let mediumSolved = 24
+    let hardSolved = 3
+    let totalSolved = 59
     if (solvedRes.status === 'fulfilled' && solvedRes.value.ok) {
-      const sJson = await solvedRes.value.json();
-      if (sJson.solvedProblem) totalSolved = sJson.solvedProblem;
-      if (sJson.easySolved) easySolved = sJson.easySolved;
-      if (sJson.mediumSolved) mediumSolved = sJson.mediumSolved;
-      if (sJson.hardSolved) hardSolved = sJson.hardSolved;
+      const sJson = await solvedRes.value.json()
+      if (sJson.solvedProblem) totalSolved = sJson.solvedProblem
+      if (sJson.easySolved) easySolved = sJson.easySolved
+      if (sJson.mediumSolved) mediumSolved = sJson.mediumSolved
+      if (sJson.hardSolved) hardSolved = sJson.hardSolved
     }
 
-    let recentSolved = [];
-    const dailyCalendar = {};
+    let recentSolved = []
+    const dailyCalendar = {}
 
     if (acRes.status === 'fulfilled' && acRes.value.ok) {
-      const acJson = await acRes.value.json();
-      const submissionList = acJson.submission || [];
+      const acJson = await acRes.value.json()
+      const submissionList = acJson.submission || []
 
       // Extract existing difficulty cache from previous snapshot
-      const metaCache = new Map();
+      const metaCache = new Map()
       if (prevLc && Array.isArray(prevLc.recentSolved)) {
         prevLc.recentSolved.forEach((item) => {
-          const slug = item.url ? item.url.split('/problems/')[1]?.replace('/', '') : null;
+          const slug = item.url ? item.url.split('/problems/')[1]?.replace('/', '') : null
           if (slug && item.difficulty && item.difficulty !== '-') {
-            metaCache.set(slug, { difficulty: item.difficulty, category: item.category });
+            metaCache.set(slug, { difficulty: item.difficulty, category: item.category })
           }
-        });
+        })
       }
 
       // Fetch metadata for any uncached slugs in parallel
-      const uncachedSlugs = [...new Set(submissionList.map((s) => s.titleSlug).filter((slug) => slug && !metaCache.has(slug)))];
+      const uncachedSlugs = [...new Set(submissionList.map((s) => s.titleSlug).filter((slug) => slug && !metaCache.has(slug)))]
       if (uncachedSlugs.length > 0) {
         await Promise.allSettled(
           uncachedSlugs.map(async (slug) => {
-            const meta = await fetchLeetCodeQuestionMetadata(slug);
-            if (meta) metaCache.set(slug, meta);
+            const meta = await fetchLeetCodeQuestionMetadata(slug)
+            if (meta) metaCache.set(slug, meta)
           })
-        );
+        )
       }
 
       recentSolved = submissionList.map((item) => {
@@ -877,21 +880,27 @@ async function cpLeetCode(username, prevLc = {}) {
           mssql: 'MS SQL',
           oraclesql: 'Oracle SQL',
           pythondata: 'Pandas',
-        };
-        const rawLang = item.lang || '';
-        const lang = langMap[rawLang.toLowerCase()] || (rawLang ? (rawLang.toLowerCase() === 'cpp' ? 'C++20' : rawLang.toUpperCase()) : 'C++20');
-        const solvedAt = new Date(parseInt(item.timestamp, 10) * 1000).toISOString();
+        }
+        const rawLang = item.lang || ''
+        const lang =
+          langMap[rawLang.toLowerCase()] ||
+          (rawLang ?
+            rawLang.toLowerCase() === 'cpp' ?
+              'C++20'
+            : rawLang.toUpperCase()
+          : 'C++20')
+        const solvedAt = new Date(parseInt(item.timestamp, 10) * 1000).toISOString()
 
-        const day = solvedAt.slice(0, 10);
-        if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 };
-        dailyCalendar[day].tries += 1;
-        dailyCalendar[day].ac += 1;
+        const day = solvedAt.slice(0, 10)
+        if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 }
+        dailyCalendar[day].tries += 1
+        dailyCalendar[day].ac += 1
 
-        const meta = metaCache.get(item.titleSlug) || {};
-        const isDbLang = ['postgresql', 'mysql', 'mssql', 'oraclesql'].includes(rawLang.toLowerCase());
-        const isDbTitle = /table|database|query|join|select|department|employee|salary/i.test(item.title);
-        const category = meta.category || (isDbLang || isDbTitle ? 'Database' : 'Algorithms');
-        const difficulty = meta.difficulty || '-';
+        const meta = metaCache.get(item.titleSlug) || {}
+        const isDbLang = ['postgresql', 'mysql', 'mssql', 'oraclesql'].includes(rawLang.toLowerCase())
+        const isDbTitle = /table|database|query|join|select|department|employee|salary/i.test(item.title)
+        const category = meta.category || (isDbLang || isDbTitle ? 'Database' : 'Algorithms')
+        const difficulty = meta.difficulty || '-'
 
         return {
           id: `lc-${item.timestamp || item.titleSlug}`,
@@ -902,8 +911,8 @@ async function cpLeetCode(username, prevLc = {}) {
           difficulty,
           url: `https://leetcode.com/problems/${item.titleSlug}/`,
           solvedAt,
-        };
-      });
+        }
+      })
     }
 
     return {
@@ -916,9 +925,9 @@ async function cpLeetCode(username, prevLc = {}) {
       hardSolved,
       dailyCalendar,
       recentSolved,
-    };
+    }
   } catch (err) {
-    console.error('Failed to fetch LeetCode data via API:', err);
+    console.error('Failed to fetch LeetCode data via API:', err)
     return {
       handle: username,
       url: `https://leetcode.com/u/${username}`,
@@ -929,7 +938,7 @@ async function cpLeetCode(username, prevLc = {}) {
       hardSolved: 3,
       dailyCalendar: {},
       recentSolved: [],
-    };
+    }
   }
 }
 
@@ -937,13 +946,15 @@ async function cpHackerRank(handle) {
   const [badgeRes, scoreRes, chalRes, histRes] = await Promise.allSettled([
     fetch(`https://www.hackerrank.com/rest/hackers/${handle}/badges`, { headers: { 'User-Agent': 'Mozilla/5.0' } }),
     fetch(`https://www.hackerrank.com/rest/hackers/${handle}/scores_elo`, { headers: { 'User-Agent': 'Mozilla/5.0' } }),
-    fetch(`https://www.hackerrank.com/rest/hackers/${handle}/recent_challenges?limit=50&response_version=v2`, { headers: { 'User-Agent': 'Mozilla/5.0' } }),
+    fetch(`https://www.hackerrank.com/rest/hackers/${handle}/recent_challenges?limit=50&response_version=v2`, {
+      headers: { 'User-Agent': 'Mozilla/5.0' },
+    }),
     fetch(`https://www.hackerrank.com/rest/hackers/${handle}/submission_histories`, { headers: { 'User-Agent': 'Mozilla/5.0' } }),
-  ]);
+  ])
 
-  let badges = [];
+  let badges = []
   if (badgeRes.status === 'fulfilled' && badgeRes.value.ok) {
-    const data = await badgeRes.value.json();
+    const data = await badgeRes.value.json()
     badges = (data.models || [])
       .filter((b) => b.stars > 0 || b.current_points > 0 || b.solved > 0)
       .map((b) => ({
@@ -952,12 +963,12 @@ async function cpHackerRank(handle) {
         points: b.current_points,
         solved: b.solved,
         category: b.category_name || b.badge_type,
-      }));
+      }))
   }
 
-  let trackScores = [];
+  let trackScores = []
   if (scoreRes.status === 'fulfilled' && scoreRes.value.ok) {
-    const data = await scoreRes.value.json();
+    const data = await scoreRes.value.json()
     trackScores = (data || [])
       .filter((t) => t.practice && t.practice.score > 0)
       .map((t) => ({
@@ -965,42 +976,42 @@ async function cpHackerRank(handle) {
         slug: t.slug,
         score: Math.round(t.practice.score * 100) / 100,
         rank: t.practice.rank,
-      }));
+      }))
   }
 
-  let totalHrSubmissions = 415;
-  const dailyCalendar = {};
+  let totalHrSubmissions = 415
+  const dailyCalendar = {}
   if (histRes.status === 'fulfilled' && histRes.value.ok) {
-    const histData = await histRes.value.json();
-    let sum = 0;
+    const histData = await histRes.value.json()
+    let sum = 0
     for (const [date, count] of Object.entries(histData)) {
-      dailyCalendar[date] = { tries: Number(count), ac: 0 };
-      sum += Number(count);
+      dailyCalendar[date] = { tries: Number(count), ac: 0 }
+      sum += Number(count)
     }
-    if (sum > 0) totalHrSubmissions = sum;
+    if (sum > 0) totalHrSubmissions = sum
   }
 
-  let recentChallenges = [];
+  let recentChallenges = []
   if (chalRes.status === 'fulfilled' && chalRes.value.ok) {
-    const data = await chalRes.value.json();
+    const data = await chalRes.value.json()
     recentChallenges = (data.models || []).map((c) => {
-      const solvedAt = c.created_at || nowIso();
-      const titleLower = (c.name || '').toLowerCase();
-      const isSql = /weather observation|aggregations|population|salary|salaries|select|join|query|table|station/i.test(titleLower);
-      const isJava = /java/i.test(titleLower);
-      const isC = /\bin c\b|c program/i.test(titleLower);
+      const solvedAt = c.created_at || nowIso()
+      const titleLower = (c.name || '').toLowerCase()
+      const isSql = /weather observation|aggregations|population|salary|salaries|select|join|query|table|station/i.test(titleLower)
+      const isJava = /java/i.test(titleLower)
+      const isC = /\bin c\b|c program/i.test(titleLower)
 
-      let language = 'C++20';
-      let category = 'Algorithms & Problem Solving';
+      let language = 'C++20'
+      let category = 'Algorithms & Problem Solving'
       if (isSql) {
-        language = 'SQL';
-        category = 'Database / SQL';
+        language = 'SQL'
+        category = 'Database / SQL'
       } else if (isJava) {
-        language = 'Java';
-        category = 'Language Proficiency';
+        language = 'Java'
+        category = 'Language Proficiency'
       } else if (isC) {
-        language = 'C';
-        category = 'Language Proficiency';
+        language = 'C'
+        category = 'Language Proficiency'
       }
 
       return {
@@ -1012,22 +1023,22 @@ async function cpHackerRank(handle) {
         difficulty: 'Practice',
         url: `https://www.hackerrank.com${c.url}`,
         solvedAt,
-      };
-    });
+      }
+    })
   }
 
   recentChallenges.forEach((c) => {
     if (c.solvedAt) {
-      const day = c.solvedAt.slice(0, 10);
-      if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 };
-      dailyCalendar[day].ac += 1;
+      const day = c.solvedAt.slice(0, 10)
+      if (!dailyCalendar[day]) dailyCalendar[day] = { tries: 0, ac: 0 }
+      dailyCalendar[day].ac += 1
       if (dailyCalendar[day].tries < dailyCalendar[day].ac) {
-        dailyCalendar[day].tries = dailyCalendar[day].ac;
+        dailyCalendar[day].tries = dailyCalendar[day].ac
       }
     }
-  });
+  })
 
-  const badgeSolvedTotal = badges.reduce((acc, b) => acc + (b.solved || 0), 0) || 138;
+  const badgeSolvedTotal = badges.reduce((acc, b) => acc + (b.solved || 0), 0) || 138
 
   return {
     handle,
@@ -1038,104 +1049,101 @@ async function cpHackerRank(handle) {
     trackScores,
     dailyCalendar,
     recentSolved: recentChallenges,
-  };
+  }
 }
 
 async function crawlCp() {
-  const prevCp = readExisting(CP_FILE);
-  const prevPlatforms = (prevCp && prevCp.platforms) || {};
+  const prevCp = readExisting(CP_FILE)
+  const prevPlatforms = (prevCp && prevCp.platforms) || {}
 
   // Keep the previous snapshot for a platform when the fresh crawl looks
   // degraded (e.g. an upstream API failed and returned empty/fallback data).
   const mergePlatform = (fresh, key) => {
-    const prev = prevPlatforms[key];
-    if (!fresh) return prev || null;
-    if (!prev) return fresh;
-    const freshRecent = (fresh.recentSolved && fresh.recentSolved.length) || 0;
-    const prevRecent = (prev.recentSolved && prev.recentSolved.length) || 0;
-    if (freshRecent === 0 && prevRecent > 0) return prev;
-    if ((fresh.totalSolved || 0) < (prev.totalSolved || 0)) return prev;
-    return fresh;
-  };
+    const prev = prevPlatforms[key]
+    if (!fresh) return prev || null
+    if (!prev) return fresh
+    const freshRecent = (fresh.recentSolved && fresh.recentSolved.length) || 0
+    const prevRecent = (prev.recentSolved && prev.recentSolved.length) || 0
+    if (freshRecent === 0 && prevRecent > 0) return prev
+    if ((fresh.totalSolved || 0) < (prev.totalSolved || 0)) return prev
+    return fresh
+  }
 
   const [tlxRes, cfRes, lcRes, hrRes] = await Promise.allSettled([
     cpTlx(CP_HANDLES.tlx),
     cpCodeforces(CP_HANDLES.codeforces),
     cpLeetCode(CP_HANDLES.leetcode, prevPlatforms.leetcode),
     cpHackerRank(CP_HANDLES.hackerrank),
-  ]);
+  ])
 
-  const tlx = mergePlatform(tlxRes.status === 'fulfilled' ? tlxRes.value : null, 'tlx');
-  const cf = mergePlatform(cfRes.status === 'fulfilled' ? cfRes.value : null, 'codeforces');
-  const lc = mergePlatform(lcRes.status === 'fulfilled' ? lcRes.value : null, 'leetcode');
-  const hr = mergePlatform(hrRes.status === 'fulfilled' ? hrRes.value : null, 'hackerrank');
+  const tlx = mergePlatform(tlxRes.status === 'fulfilled' ? tlxRes.value : null, 'tlx')
+  const cf = mergePlatform(cfRes.status === 'fulfilled' ? cfRes.value : null, 'codeforces')
+  const lc = mergePlatform(lcRes.status === 'fulfilled' ? lcRes.value : null, 'leetcode')
+  const hr = mergePlatform(hrRes.status === 'fulfilled' ? hrRes.value : null, 'hackerrank')
 
-  const combinedHeatmap = {};
-  [tlx && tlx.dailyCalendar, cf && cf.dailyCalendar, lc && lc.dailyCalendar, hr && hr.dailyCalendar].forEach((cal) => {
-    if (!cal) return;
+  const combinedHeatmap = {}
+  ;[tlx && tlx.dailyCalendar, cf && cf.dailyCalendar, lc && lc.dailyCalendar, hr && hr.dailyCalendar].forEach((cal) => {
+    if (!cal) return
     Object.entries(cal).forEach(([day, entry]) => {
-      if (!combinedHeatmap[day]) combinedHeatmap[day] = { tries: 0, ac: 0 };
-      combinedHeatmap[day].tries += entry.tries || 0;
-      combinedHeatmap[day].ac += entry.ac || 0;
-    });
-  });
+      if (!combinedHeatmap[day]) combinedHeatmap[day] = { tries: 0, ac: 0 }
+      combinedHeatmap[day].tries += entry.tries || 0
+      combinedHeatmap[day].ac += entry.ac || 0
+    })
+  })
 
   const recentGlobalFeed = [
-    ...(tlx && tlx.recentSolved || []),
-    ...(cf && cf.recentSolved || []),
-    ...(lc && lc.recentSolved || []),
-    ...(hr && hr.recentSolved || []),
-  ].sort((a, b) => new Date(b.solvedAt).getTime() - new Date(a.solvedAt).getTime());
+    ...((tlx && tlx.recentSolved) || []),
+    ...((cf && cf.recentSolved) || []),
+    ...((lc && lc.recentSolved) || []),
+    ...((hr && hr.recentSolved) || []),
+  ].sort((a, b) => new Date(b.solvedAt).getTime() - new Date(a.solvedAt).getTime())
 
   const totalSolved =
-    (tlx && tlx.totalSolved || 371) +
-    (cf && cf.totalSolved || 50) +
-    (lc && lc.totalSolved || 59) +
-    (hr && hr.totalSolved || 138);
+    ((tlx && tlx.totalSolved) || 371) + ((cf && cf.totalSolved) || 50) + ((lc && lc.totalSolved) || 59) + ((hr && hr.totalSolved) || 138)
 
   const totalSubmissions =
-    (tlx && tlx.totalSubmissions || 561) +
-    (cf && cf.totalSubmissions || 148) +
-    (lc && lc.totalSolved || 70) +
-    (hr && hr.totalSubmissions || 415);
+    ((tlx && tlx.totalSubmissions) || 561) +
+    ((cf && cf.totalSubmissions) || 148) +
+    ((lc && lc.totalSolved) || 70) +
+    ((hr && hr.totalSubmissions) || 415)
 
-  const languageTotals = {};
+  const languageTotals = {}
   if (tlx && tlx.languages) {
     Object.entries(tlx.languages).forEach(([l, cnt]) => {
-      let key = l;
-      if (key === 'Cpp20' || key === 'Cpp' || key === 'C++') key = 'C++20';
-      else if (key === 'Cpp17') key = 'C++17';
-      else if (key === 'Cpp11') key = 'C++11';
-      else if (key === 'Rust2021') key = 'Rust';
-      languageTotals[key] = (languageTotals[key] || 0) + Number(cnt || 0);
-    });
+      let key = l
+      if (key === 'Cpp20' || key === 'Cpp' || key === 'C++') key = 'C++20'
+      else if (key === 'Cpp17') key = 'C++17'
+      else if (key === 'Cpp11') key = 'C++11'
+      else if (key === 'Rust2021') key = 'Rust'
+      languageTotals[key] = (languageTotals[key] || 0) + Number(cnt || 0)
+    })
   }
   if (cf && cf.languages) {
     Object.entries(cf.languages).forEach(([l, cnt]) => {
-      languageTotals[l] = (languageTotals[l] || 0) + Number(cnt || 0);
-    });
+      languageTotals[l] = (languageTotals[l] || 0) + Number(cnt || 0)
+    })
   }
   if (lc && lc.recentSolved) {
     lc.recentSolved.forEach((s) => {
-      const l = s.language || 'C++20';
-      languageTotals[l] = (languageTotals[l] || 0) + 1;
-    });
+      const l = s.language || 'C++20'
+      languageTotals[l] = (languageTotals[l] || 0) + 1
+    })
   }
   if (hr && hr.recentSolved) {
     hr.recentSolved.forEach((s) => {
-      const l = s.language || 'C++20';
-      languageTotals[l] = (languageTotals[l] || 0) + 1;
-    });
+      const l = s.language || 'C++20'
+      languageTotals[l] = (languageTotals[l] || 0) + 1
+    })
   }
 
-  let topLangName = 'C++20';
-  let topLangCount = 0;
+  let topLangName = 'C++20'
+  let topLangCount = 0
   Object.entries(languageTotals).forEach(([l, cnt]) => {
     if (cnt > topLangCount) {
-      topLangCount = cnt;
-      topLangName = l;
+      topLangCount = cnt
+      topLangName = l
     }
-  });
+  })
 
   return {
     meta: { updatedAt: nowIso(), handles: CP_HANDLES },
@@ -1151,80 +1159,76 @@ async function crawlCp() {
     },
     platforms: { tlx, codeforces: cf, leetcode: lc, hackerrank: hr },
     recentGlobalFeed,
-  };
+  }
 }
 
 // ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 async function main() {
-  console.log('Crawling activity data...');
+  console.log('Crawling activity data...')
 
   // Development activity (GitHub + GitLab)
   try {
-    console.log('· GitHub...');
-    const existingDev = readExisting(DEV_FILE) || {};
-    const prevGithub = (existingDev.platforms && existingDev.platforms.github) || {};
-    const github = await crawlGithub(prevGithub);
-    console.log('· GitLab...');
-    const rawGitlab = await crawlGitlab();
-    const gitlab = mergeGitlabWithArchives(rawGitlab);
+    console.log('· GitHub...')
+    const existingDev = readExisting(DEV_FILE) || {}
+    const prevGithub = (existingDev.platforms && existingDev.platforms.github) || {}
+    const github = await crawlGithub(prevGithub)
+    console.log('· GitLab...')
+    const rawGitlab = await crawlGitlab()
+    const gitlab = mergeGitlabWithArchives(rawGitlab)
 
     const devPayload = {
       meta: { updatedAt: nowIso(), source: 'scheduled-crawl' },
       overview: { ...github.overview, heatmap: combineDevHeatmap(github, gitlab) },
       platforms: { github, gitlab },
-    };
-    writeJson(DEV_FILE, devPayload);
+    }
+    writeJson(DEV_FILE, devPayload)
   } catch (err) {
-    console.error('Failed to crawl development activity — keeping existing file.', err);
+    console.error('Failed to crawl development activity — keeping existing file.', err)
   }
 
   // Competitive programming
   try {
-    console.log('· CP platforms (TLX, Codeforces, LeetCode, HackerRank)...');
-    const cp = await crawlCp();
+    console.log('· CP platforms (TLX, Codeforces, LeetCode, HackerRank)...')
+    const cp = await crawlCp()
 
     // 1. Accumulate problems into permanent archive (merging with existing so historical LeetCode/HackerRank are preserved)
-    const existingProblemsData = readExisting(CP_PROBLEMS_FILE) || {};
-    const existingList = Array.isArray(existingProblemsData.problems)
-      ? existingProblemsData.problems
-      : (readExisting(CP_FILE)?.recentGlobalFeed || []);
+    const existingProblemsData = readExisting(CP_PROBLEMS_FILE) || {}
+    const existingList = Array.isArray(existingProblemsData.problems) ? existingProblemsData.problems : readExisting(CP_FILE)?.recentGlobalFeed || []
 
-    const problemMap = new Map();
+    const problemMap = new Map()
     // Insert existing problems first
     existingList.forEach((p) => {
-      const key = `${p.platform || ''}::${p.title || p.id}`;
-      problemMap.set(key, p);
-    });
+      const key = `${p.platform || ''}::${p.title || p.id}`
+      problemMap.set(key, p)
+    })
     // Overlay newly crawled problems
-    (cp.recentGlobalFeed || []).forEach((p) => {
-      const key = `${p.platform || ''}::${p.title || p.id}`;
-      problemMap.set(key, p);
-    });
+    ;(cp.recentGlobalFeed || []).forEach((p) => {
+      const key = `${p.platform || ''}::${p.title || p.id}`
+      problemMap.set(key, p)
+    })
 
-    const mergedProblems = Array.from(problemMap.values()).sort(
-      (a, b) => new Date(b.solvedAt).getTime() - new Date(a.solvedAt).getTime()
-    );
+    const mergedProblems = Array.from(problemMap.values()).sort((a, b) => new Date(b.solvedAt).getTime() - new Date(a.solvedAt).getTime())
 
     const problemsPayload = {
       lastUpdated: nowIso(),
       totalProblems: mergedProblems.length,
       problems: mergedProblems,
-    };
-    writeJson(CP_PROBLEMS_FILE, problemsPayload);
+    }
+    writeJson(CP_PROBLEMS_FILE, problemsPayload)
 
     // 2. Write CP overview/summary (retaining full merged feed for rich browsing)
     const summaryPayload = {
       ...cp,
       recentGlobalFeed: mergedProblems,
-    };
-    writeJson(CP_FILE, summaryPayload);
+    }
+    writeJson(CP_FILE, summaryPayload)
   } catch (err) {
-    console.error('Failed to crawl CP stats — keeping existing file.', err);
+    console.error('Failed to crawl CP stats — keeping existing file.', err)
   }
 
-  console.log('Done.');
+  console.log('Done.')
 }
 
-main();
+main()

@@ -19,13 +19,7 @@
   },
   "categoryKey": "desktop-app",
   "featured": true,
-  "stack": [
-    "C",
-    "raylib",
-    "raygui",
-    "Data Structures",
-    "Platform APIs"
-  ],
+  "stack": ["C", "raylib", "raygui", "Data Structures", "Platform APIs"],
   "highlights": [
     {
       "en": "Non-binary tree powers directory hierarchy and sidebar navigation.",

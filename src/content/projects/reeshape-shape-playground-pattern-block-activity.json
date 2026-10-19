@@ -19,13 +19,7 @@
   },
   "categoryKey": "game",
   "featured": true,
-  "stack": [
-    "Godot 4",
-    "C#",
-    ".NET",
-    "2D Graphics",
-    "JSON"
-  ],
+  "stack": ["Godot 4", "C#", ".NET", "2D Graphics", "JSON"],
   "highlights": [
     {
       "en": "Manual 2D transform pipeline plus training-focused mechanics (snapping, hit testing, geometric composition).",

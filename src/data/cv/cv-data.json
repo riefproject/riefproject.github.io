@@ -44,10 +44,7 @@
         },
         {
           "name": "Algoritma & Struktur Data",
-          "items": [
-            "Struktur Data Tingkat Lanjut, Dynamic Programming, Graph, Binary Search",
-            "Analisis kompleksitas waktu dan memori"
-          ],
+          "items": ["Struktur Data Tingkat Lanjut, Dynamic Programming, Graph, Binary Search", "Analisis kompleksitas waktu dan memori"],
           "isList": true
         }
       ]

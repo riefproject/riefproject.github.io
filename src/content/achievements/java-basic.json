@@ -17,7 +17,5 @@
   "logo": "/img/java-basic/hackerrank.webp",
   "credentialId": "C7E8AE598DF0",
   "credentialUrl": "https://www.hackerrank.com/certificates/c7e8ae598df0",
-  "certificateImage": [
-    "/img/certs/java-basic/HackerRank_Java.webp"
-  ]
+  "certificateImage": ["/img/certs/java-basic/HackerRank_Java.webp"]
 }

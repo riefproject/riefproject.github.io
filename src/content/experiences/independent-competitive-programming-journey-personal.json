@@ -13,13 +13,7 @@
     "en": "Continuous problem-solving practice across multiple platforms while sharing knowledge through mentoring sessions.",
     "id": "Latihan problem solving berkelanjutan di berbagai platform sambil berbagi pengetahuan melalui sesi mentoring."
   },
-  "stack": [
-    "C++",
-    "Python",
-    "TLX",
-    "LeetCode",
-    "Codeforces"
-  ],
+  "stack": ["C++", "Python", "TLX", "LeetCode", "Codeforces"],
   "achievements": [
     {
       "en": "Solved 400+ problems with documented notes and reusable templates shared with peers.",

@@ -13,11 +13,7 @@
     "en": "Supporting academic program development and competition management within the Computer Science Department.",
     "id": "Mendukung pengembangan program akademik dan manajemen kompetisi di lingkungan Jurusan Teknik Informatika."
   },
-  "stack": [
-    "Program Management",
-    "Event Coordination",
-    "Academic Support"
-  ],
+  "stack": ["Program Management", "Event Coordination", "Academic Support"],
   "achievements": [
     {
       "en": "Assisted in organizing cross-program academic sharing sessions within Informatics Department.",

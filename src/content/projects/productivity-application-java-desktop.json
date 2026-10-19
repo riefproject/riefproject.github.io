@@ -19,13 +19,7 @@
   },
   "categoryKey": "desktop-app",
   "featured": true,
-  "stack": [
-    "Java",
-    "JavaFX",
-    "PostgreSQL",
-    "SQLite",
-    "Design Patterns"
-  ],
+  "stack": ["Java", "JavaFX", "PostgreSQL", "SQLite", "Design Patterns"],
   "highlights": [
     {
       "en": "Layered MVC architecture with strict separation of concerns.",

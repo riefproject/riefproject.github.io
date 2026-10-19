@@ -1,42 +1,42 @@
 ---
-import { profile } from '../../data/profile';
-import LocaleText from '../i18n/LocaleText.astro';
-import { t as locale } from '../../utils/i18n';
+import { profile } from '../../data/profile'
+import LocaleText from '../i18n/LocaleText.astro'
+import { t as locale } from '../../utils/i18n'
 
 const layoutCopy = {
-	footerThanks: locale('Thanks for stopping by', 'Terima kasih sudah mampir'),
-	footerBuilt: locale('Built with Astro · Vue · Tailwind', 'Dibuat dengan Astro · Vue · Tailwind'),
-};
+  footerThanks: locale('Thanks for stopping by', 'Terima kasih sudah mampir'),
+  footerBuilt: locale('Built with Astro · Vue · Tailwind', 'Dibuat dengan Astro · Vue · Tailwind'),
+}
 ---
 
 <footer class="site-footer section">
-	<p class="thanks-word" style="text-align: center;">
-		<LocaleText as="span" text={layoutCopy.footerThanks} />
-	</p>
-	<p class="footer-meta">
-		© {new Date().getFullYear()} {profile.name}.{' '}
-		<LocaleText as="span" text={layoutCopy.footerBuilt} />
-	</p>
+  <p class="thanks-word" style="text-align: center;">
+    <LocaleText as="span" text={layoutCopy.footerThanks} />
+  </p>
+  <p class="footer-meta">
+    © {new Date().getFullYear()} {profile.name}.{' '}
+    <LocaleText as="span" text={layoutCopy.footerBuilt} />
+  </p>
 </footer>
 
 <style>
-	.site-footer {
-		padding-bottom: 4rem;
-	}
+  .site-footer {
+    padding-bottom: 4rem;
+  }
 
-	.thanks-word {
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		font-weight: 500;
-		color: var(--muted);
-		text-align: center;
-	}
+  .thanks-word {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    color: var(--muted);
+    text-align: center;
+  }
 
-	.footer-meta {
-		margin-top: 0.5rem;
-		text-align: center;
-		font-size: 0.8rem;
-		color: var(--muted);
-	}
+  .footer-meta {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
 </style>

@@ -1,75 +1,70 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import HeroSection from '../components/sections/HeroSection.astro';
-import AboutSection from '../components/sections/AboutSection.astro';
-import SkillsSection from '../components/sections/SkillsSection.astro';
-import StackSection from '../components/sections/StackSection.astro';
-import ProjectsSection from '../components/sections/ProjectsSection.astro';
-import ExperienceSection from '../components/sections/ExperienceSection.astro';
-import AchievementsSection from '../components/sections/AchievementsSection.astro';
-import EducationSection from '../components/sections/EducationSection.astro';
-import ContactSection from '../components/sections/ContactSection.astro';
-import CPProfilesSection from '../components/sections/CPProfilesSection.astro';
-import { getCollection, getEntry } from 'astro:content';
-import { getContentSlug, sortByOrder } from '../utils/content';
+import Layout from '../layouts/Layout.astro'
+import HeroSection from '../components/sections/HeroSection.astro'
+import AboutSection from '../components/sections/AboutSection.astro'
+import SkillsSection from '../components/sections/SkillsSection.astro'
+import StackSection from '../components/sections/StackSection.astro'
+import ProjectsSection from '../components/sections/ProjectsSection.astro'
+import ExperienceSection from '../components/sections/ExperienceSection.astro'
+import AchievementsSection from '../components/sections/AchievementsSection.astro'
+import EducationSection from '../components/sections/EducationSection.astro'
+import ContactSection from '../components/sections/ContactSection.astro'
+import CPProfilesSection from '../components/sections/CPProfilesSection.astro'
+import { getEntry } from 'astro:content'
+import {
+  getSingleton,
+  getSortedProjects,
+  getSortedExperiences,
+  getSortedAchievements,
+  getEducation,
+  getCpProfiles,
+  getStackShowcase,
+} from '../utils/content-collections'
 
-const layoutEntry = await getEntry('singletons', 'layout');
-const layout = layoutEntry?.data || { projectsOrder: [], experiencesOrder: [], achievementsOrder: [] };
+const [profileEntry, contactEntry, projects, expsSorted, achievements] = await Promise.all([
+  getEntry('singletons', 'profile'),
+  getEntry('singletons', 'contact'),
+  getSortedProjects(),
+  getSortedExperiences(),
+  getSortedAchievements(),
+])
 
-const projectsCollection = await getCollection('projects');
-const projectsUnordered = projectsCollection
-  .map(p => ({ ...p.data, id: p.id }))
-  .sort((a, b) => b.year - a.year);
-const projects = sortByOrder(
-  projectsUnordered,
-  layout.projectsOrder || [],
-  getContentSlug,
-);
+const workExperiences = expsSorted.filter((e) => e.type === 'work')
+const organizationalExperiences = expsSorted.filter((e) => e.type === 'organizational')
+const personalExperiences = expsSorted.filter((e) => e.type === 'personal')
 
-const expsCollection = await getCollection('experiences');
-const expsUnordered = expsCollection.map(e => ({ ...e.data, id: e.id }));
-const expsSorted = sortByOrder(
-  expsUnordered,
-  layout.experiencesOrder || [],
-  getContentSlug,
-);
-const workExperiences = expsSorted.filter(e => e.type === 'work');
-const organizationalExperiences = expsSorted.filter(e => e.type === 'organizational');
-const personalExperiences = expsSorted.filter(e => e.type === 'personal');
+const education = await getEducation()
+const cpProfiles = await getCpProfiles()
+const stackShowcase = await getStackShowcase()
 
-const achievementsCollection = await getCollection('achievements');
-const achievementsUnordered = achievementsCollection.map(a => ({ ...a.data, id: a.id }));
-const achievements = sortByOrder(
-  achievementsUnordered,
-  layout.achievementsOrder || [],
-  getContentSlug,
-);
+const {
+  name,
+  role,
+  tagline,
+  location,
+  availability,
+  intro,
+  bio,
+  focusStack,
+  heroHighlights,
+  stats,
+  focusAreas,
+  skillCategories,
+  toolbox,
+} = profileEntry.data
+const profile = { name, role, tagline, location, availability, intro, bio, focusStack }
 
-const eduCollection = await getCollection('education');
-const education = eduCollection.map(e => e.data);
+const contact = contactEntry.data
 
-const cpProfilesCollection = await getCollection('cp-profiles');
-const cpProfiles = cpProfilesCollection.map(c => c.data);
-
-const stackCollection = await getCollection('stack-showcase');
-const stackShowcase = stackCollection.map(s => s.data);
-
-const profileEntry = await getEntry('singletons', 'profile');
-const { name, role, tagline, location, availability, intro, bio, focusStack, heroHighlights, stats, focusAreas, skillCategories, toolbox } = profileEntry.data;
-const profile = { name, role, tagline, location, availability, intro, bio, focusStack };
-
-const contactEntry = await getEntry('singletons', 'contact');
-const contact = contactEntry.data;
-
-const socialEntry = await getEntry('singletons', 'social');
-const socials = socialEntry.data.socials;
+const socialEntry = await getEntry('singletons', 'social')
+const socials = socialEntry.data.socials
 
 // We need achievementTabs fallback since it was in data
 const achievementTabs = [
   { id: 'competitions', name: { en: 'Competitions', id: 'Kompetisi' } },
   { id: 'certifications', name: { en: 'Certifications', id: 'Sertifikasi' } },
-  { id: 'bootcamps', name: { en: 'Bootcamps', id: 'Bootcamp' } }
-];
+  { id: 'bootcamps', name: { en: 'Bootcamps', id: 'Bootcamp' } },
+]
 ---
 
 <Layout>
@@ -95,4 +90,3 @@ const achievementTabs = [
   <EducationSection education={education} />
   <ContactSection contact={contact} socials={socials} />
 </Layout>
-

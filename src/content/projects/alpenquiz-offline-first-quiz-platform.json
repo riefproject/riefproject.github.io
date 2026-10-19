@@ -19,13 +19,7 @@
   },
   "categoryKey": "mobile-app",
   "featured": true,
-  "stack": [
-    "Flutter",
-    "Dart",
-    "Hive",
-    "MongoDB",
-    "WebSocket"
-  ],
+  "stack": ["Flutter", "Dart", "Hive", "MongoDB", "WebSocket"],
   "highlights": [
     {
       "en": "True offline-first: entire quiz packages downloaded to encrypted local Hive NoSQL DB, eliminating per-question network calls.",

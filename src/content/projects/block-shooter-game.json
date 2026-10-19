@@ -19,11 +19,7 @@
   },
   "categoryKey": "game",
   "featured": true,
-  "stack": [
-    "C",
-    "Raylib",
-    "Low-Level Programming"
-  ],
+  "stack": ["C", "Raylib", "Low-Level Programming"],
   "highlights": [
     {
       "en": "Manual implementation of data structures at low level.",

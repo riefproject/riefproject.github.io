@@ -2,8 +2,9 @@
   <div class="feed-footer-controls">
     <div class="feed-counter-text">
       <span class="desktop-only-text">
-        {{ isId
-          ? `Menampilkan ${rangeText} dari ${totalItems} soal (Halaman ${currentPage} dari ${totalPages})`
+        {{
+          isId ?
+            `Menampilkan ${rangeText} dari ${totalItems} soal (Halaman ${currentPage} dari ${totalPages})`
           : `Showing ${rangeText} of ${totalItems} problems (Page ${currentPage} of ${totalPages})`
         }}
       </span>
@@ -12,7 +13,9 @@
           {{ isId ? `${rangeText} dari ${totalItems}` : `${rangeText} of ${totalItems}` }}
         </div>
         <div class="mob-page-text">
-          {{ isId ? `Halaman ${currentPage} / ${totalPages}` : `Page ${currentPage} / ${totalPages}` }}
+          {{
+            isId ? `Halaman ${currentPage} / ${totalPages}` : `Page ${currentPage} / ${totalPages}`
+          }}
         </div>
       </div>
     </div>
@@ -24,8 +27,7 @@
         @click="setPage(1)"
         :disabled="currentPage === 1"
         class="pg-btn"
-        title="First Page"
-      >
+        title="First Page">
         «
       </button>
       <button
@@ -33,8 +35,7 @@
         @click="setPage(currentPage - 1)"
         :disabled="currentPage === 1"
         class="pg-btn"
-        title="Previous Page"
-      >
+        title="Previous Page">
         ‹
       </button>
 
@@ -46,8 +47,7 @@
           @click="typeof p === 'number' ? setPage(p) : null"
           class="pg-num-btn"
           :class="{ active: p === currentPage, dots: p === '...' }"
-          :disabled="p === '...'"
-        >
+          :disabled="p === '...'">
           {{ p }}
         </button>
       </div>
@@ -57,8 +57,7 @@
         @click="setPage(currentPage + 1)"
         :disabled="currentPage === totalPages"
         class="pg-btn"
-        title="Next Page"
-      >
+        title="Next Page">
         ›
       </button>
       <button
@@ -66,8 +65,7 @@
         @click="setPage(totalPages)"
         :disabled="currentPage === totalPages"
         class="pg-btn"
-        title="Last Page"
-      >
+        title="Last Page">
         »
       </button>
     </div>
@@ -75,47 +73,47 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { getPageNumbers } from '../../utils/pagination';
+import { computed } from 'vue'
+import { getPageNumbers } from '../../utils/pagination'
 
 const props = withDefaults(
   defineProps<{
-    currentPage: number;
-    totalPages: number;
-    pageSize: number;
-    totalItems: number;
-    isId?: boolean;
-    scrollToTop?: boolean;
+    currentPage: number
+    totalPages: number
+    pageSize: number
+    totalItems: number
+    isId?: boolean
+    scrollToTop?: boolean
   }>(),
   {
     isId: false,
     scrollToTop: false,
   }
-);
+)
 
 const emit = defineEmits<{
-  (e: 'update:currentPage', page: number): void;
-}>();
+  (e: 'update:currentPage', page: number): void
+}>()
 
 const rangeText = computed(() => {
-  if (props.totalItems === 0) return '0';
-  const start = (props.currentPage - 1) * props.pageSize + 1;
-  const end = Math.min(props.currentPage * props.pageSize, props.totalItems);
-  return `${start}-${end}`;
-});
+  if (props.totalItems === 0) return '0'
+  const start = (props.currentPage - 1) * props.pageSize + 1
+  const end = Math.min(props.currentPage * props.pageSize, props.totalItems)
+  return `${start}-${end}`
+})
 
 const visiblePages = computed(() => {
-  return getPageNumbers(props.totalPages, props.currentPage);
-});
+  return getPageNumbers(props.totalPages, props.currentPage)
+})
 
 const setPage = (page: number) => {
   if (page >= 1 && page <= props.totalPages && page !== props.currentPage) {
-    emit('update:currentPage', page);
+    emit('update:currentPage', page)
     if (props.scrollToTop && typeof window !== 'undefined') {
-      window.scrollTo({ top: 180, behavior: 'smooth' });
+      window.scrollTo({ top: 180, behavior: 'smooth' })
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -228,7 +226,7 @@ const setPage = (page: number) => {
     gap: 0.15rem !important;
     text-align: left !important;
   }
-  
+
   .mob-range-text {
     font-size: 0.775rem !important;
     font-weight: 700 !important;
@@ -240,13 +238,13 @@ const setPage = (page: number) => {
     font-weight: 500 !important;
     color: var(--muted) !important;
   }
-  
+
   .feed-footer-controls .pg-num-list,
-  .feed-footer-controls .pg-btn[title="First Page"],
-  .feed-footer-controls .pg-btn[title="Last Page"] {
+  .feed-footer-controls .pg-btn[title='First Page'],
+  .feed-footer-controls .pg-btn[title='Last Page'] {
     display: none !important;
   }
-  
+
   .feed-footer-controls {
     flex-direction: row !important;
     justify-content: space-between !important;
@@ -254,7 +252,7 @@ const setPage = (page: number) => {
     gap: 0.5rem !important;
     padding: 0.65rem 0.85rem !important;
   }
-  
+
   .feed-counter-text {
     font-size: 0.725rem !important;
     font-weight: 600 !important;

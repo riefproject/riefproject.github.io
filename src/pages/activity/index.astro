@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PageHeader from '../../components/layout/PageHeader.astro';
-import UnifiedActivityHub from '../../components/activity/UnifiedActivityHub.vue';
-import initialDevData from '../../data/dev-activity-initial.json';
-import initialCpData from '../../data/cp-data-initial.json';
-import { t as locale } from '../../utils/i18n';
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/layout/PageHeader.astro'
+import UnifiedActivityHub from '../../components/activity/UnifiedActivityHub.vue'
+import initialDevData from '../../data/dev-activity-initial.json'
+import initialCpData from '../../data/cp-data-initial.json'
+import { t as locale } from '../../utils/i18n'
 
 const copy = {
   title: locale('Coding Activity', 'Aktivitas Coding'),
@@ -14,13 +14,10 @@ const copy = {
     'Catatan aktivitas ngoding harian: proyek software di GitHub & GitLab, serta latihan problem solving di TLX, Codeforces, LeetCode, dan HackerRank.'
   ),
   backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
-};
+}
 ---
 
-<Layout
-  title="Activity | Arief F-sa Wijaya"
-  description={copy.description.en}
->
+<Layout title="Activity | Arief F-sa Wijaya" description={copy.description.en}>
   <main class="activity-page">
     <PageHeader
       class="activity-header"
@@ -31,7 +28,11 @@ const copy = {
     />
 
     <div class="activity-content section">
-      <UnifiedActivityHub client:load initialDevData={initialDevData} initialCpData={initialCpData} />
+      <UnifiedActivityHub
+        client:load
+        initialDevData={initialDevData}
+        initialCpData={initialCpData}
+      />
     </div>
   </main>
 </Layout>

@@ -1,55 +1,56 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import type { LocaleText, Project } from "../../types/profile.types";
-import { useLocale } from "../../composables/useLocale";
-import { useListFilter } from "../../composables/useListFilter";
-import FilterDropdown from "../shared/FilterDropdown.vue";
+import { computed, ref } from 'vue'
+import type { LocaleText, Project } from '../../types/profile.types'
+import { useLocale } from '../../composables/useLocale'
+import { useListFilter } from '../../composables/useListFilter'
+import FilterDropdown from '../shared/FilterDropdown.vue'
+import SearchInput from '../shared/SearchInput.vue'
 
-type Category = { key: string; label: LocaleText };
+type Category = { key: string; label: LocaleText }
 
 const props = defineProps<{
-  projects: Project[];
-  categories: Category[];
-}>();
+  projects: Project[]
+  categories: Category[]
+}>()
 
-const { isId, locale, resolveText } = useLocale();
+const { isId, locale, resolveText } = useLocale()
 
 const copy = computed(() =>
-  isId.value
-    ? {
-        searchPlaceholder: "Cari judul, deskripsi, atau teknologi",
-        resultSuffix: "proyek",
-        empty: "Tidak ada proyek yang cocok dengan filter saat ini.",
-        impactLabel: "Hasil",
-        viewMore: "Lihat Proyek Lainnya",
-        viewLess: "Sembunyikan",
-      }
-    : {
-        searchPlaceholder: "Search titles, descriptions, or technologies",
-        resultSuffix: "projects",
-        empty: "No projects match the current filters.",
-        impactLabel: "Result",
-        viewMore: "View More Projects",
-        viewLess: "Show Less",
-      }
-);
+  isId.value ?
+    {
+      searchPlaceholder: 'Cari judul, deskripsi, atau teknologi',
+      resultSuffix: 'proyek',
+      empty: 'Tidak ada proyek yang cocok dengan filter saat ini.',
+      impactLabel: 'Hasil',
+      viewMore: 'Lihat Proyek Lainnya',
+      viewLess: 'Sembunyikan',
+    }
+  : {
+      searchPlaceholder: 'Search titles, descriptions, or technologies',
+      resultSuffix: 'projects',
+      empty: 'No projects match the current filters.',
+      impactLabel: 'Result',
+      viewMore: 'View More Projects',
+      viewLess: 'Show Less',
+    }
+)
 
-const showAllProjects = ref(false);
+const showAllProjects = ref(false)
 
 const resolvedCategories = computed(() => {
-  return props.categories.map(c => ({
+  return props.categories.map((c) => ({
     key: c.key,
-    label: resolveText(c.label)
-  }));
-});
+    label: resolveText(c.label),
+  }))
+})
 
 const featuredProjects = computed(() => {
-  return props.projects.filter((p) => p.featured);
-});
+  return props.projects.filter((p) => p.featured)
+})
 
 const otherProjects = computed(() => {
-  return props.projects.filter((p) => !p.featured);
-});
+  return props.projects.filter((p) => !p.featured)
+})
 
 const {
   searchTerm,
@@ -66,42 +67,37 @@ const {
     project.description.en.toLowerCase().includes(term) ||
     project.description.id.toLowerCase().includes(term) ||
     project.stack.some((tech) => tech.toLowerCase().includes(term)),
-});
+})
 
 const toggleViewMore = () => {
-  showAllProjects.value = !showAllProjects.value;
-};
+  showAllProjects.value = !showAllProjects.value
+}
 
-const expandedProjects = ref(new Set<string>());
+const expandedProjects = ref(new Set<string>())
 const toggleProject = (id: string) => {
-  const newSet = new Set(expandedProjects.value);
-  if (newSet.has(id)) newSet.delete(id);
-  else newSet.add(id);
-  expandedProjects.value = newSet;
-};
+  const newSet = new Set(expandedProjects.value)
+  if (newSet.has(id)) newSet.delete(id)
+  else newSet.add(id)
+  expandedProjects.value = newSet
+}
 </script>
 
 <template>
   <div class="project-gallery flex flex-col gap-6 is-visible">
     <div class="toolbar">
-      <div class="search-input-wrap">
-        <input
-          v-model="searchTerm"
-          type="search"
-          :placeholder="copy.searchPlaceholder"
-          class="project-search-input" />
-      </div>
+      <SearchInput
+        v-model="searchTerm"
+        :placeholder="copy.searchPlaceholder"
+        :withIcon="false"
+        surface="plain" />
 
-      <FilterDropdown 
+      <FilterDropdown
         v-model="selectedCategories"
         :categories="resolvedCategories"
-        :locale="locale"
-      />
+        :locale="locale" />
     </div>
 
-    <p class="text-sm font-semibold text-muted mb-4">
-      {{ activeCount }} {{ copy.resultSuffix }}
-    </p>
+    <p class="text-sm font-semibold text-muted mb-4">{{ activeCount }} {{ copy.resultSuffix }}</p>
 
     <div
       v-if="filteredProjects.length"
@@ -122,15 +118,16 @@ const toggleProject = (id: string) => {
           </div>
         </div>
         <header class="space-y-1">
-          <p
-            class="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-accent">
             {{ project.year }} · {{ resolveText(project.category) }}
           </p>
           <h3 class="font-semibold text-text">
             {{ resolveText(project.title) }}
           </h3>
         </header>
-        <div class="relative overflow-hidden transition-[max-height] duration-500 ease-in-out" :class="expandedProjects.has(project.title.en) ? 'max-h-[3000px]' : 'max-h-[120px]'">
+        <div
+          class="relative overflow-hidden transition-[max-height] duration-500 ease-in-out"
+          :class="expandedProjects.has(project.title.en) ? 'max-h-[3000px]' : 'max-h-[120px]'">
           <p class="text-sm text-muted">
             {{ resolveText(project.description) }}
           </p>
@@ -143,12 +140,26 @@ const toggleProject = (id: string) => {
               {{ resolveText(highlight) }}
             </li>
           </ul>
-          
-          <div :class="['absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[var(--bg-elevated)] to-transparent pointer-events-none transition-opacity duration-300', expandedProjects.has(project.title.en) ? 'opacity-0' : 'opacity-100']"></div>
+
+          <div
+            :class="[
+              'absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[var(--bg-elevated)] to-transparent pointer-events-none transition-opacity duration-300',
+              expandedProjects.has(project.title.en) ? 'opacity-0' : 'opacity-100',
+            ]"></div>
         </div>
-        
-        <button type="button" @click="toggleProject(project.title.en)" class="text-left cursor-pointer text-sm font-semibold text-accent hover:underline -mt-1 w-fit">
-          {{ expandedProjects.has(project.title.en) ? (locale === 'id' ? 'Tampilkan lebih sedikit' : 'Show less') : (locale === 'id' ? 'Baca selengkapnya' : 'Read details') }}
+
+        <button
+          type="button"
+          @click="toggleProject(project.title.en)"
+          class="text-left cursor-pointer text-sm font-semibold text-accent hover:underline -mt-1 w-fit">
+          {{
+            expandedProjects.has(project.title.en) ?
+              locale === 'id' ?
+                'Tampilkan lebih sedikit'
+              : 'Show less'
+            : locale === 'id' ? 'Baca selengkapnya'
+            : 'Read details'
+          }}
         </button>
         <div class="flex flex-wrap gap-2">
           <span
@@ -158,9 +169,7 @@ const toggleProject = (id: string) => {
             {{ tool }}
           </span>
         </div>
-        <div
-          v-if="project.links && project.links.length"
-          class="mt-auto flex flex-wrap gap-2">
+        <div v-if="project.links && project.links.length" class="mt-auto flex flex-wrap gap-2">
           <a
             v-for="link in project.links"
             :key="link.url"
@@ -186,10 +195,7 @@ const toggleProject = (id: string) => {
         class="inline-flex items-center justify-center rounded-full border-2 border-accent px-6 py-3 text-base font-semibold text-accent transition hover:bg-accent hover:text-white">
         {{ showAllProjects ? copy.viewLess : copy.viewMore }}
         <svg
-          :class="[
-            'ml-2 h-5 w-5 transition-transform',
-            showAllProjects ? 'rotate-180' : '',
-          ]"
+          :class="['ml-2 h-5 w-5 transition-transform', showAllProjects ? 'rotate-180' : '']"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24">
@@ -231,7 +237,8 @@ const toggleProject = (id: string) => {
   height: 100%;
   border: 1px solid rgb(var(--accent-rgb) / 0.4);
   border-radius: var(--radius-md);
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+  box-shadow:
+    0 4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(var(--accent-rgb) / 0.15);
 }
 
@@ -239,11 +246,7 @@ const toggleProject = (id: string) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(
-    135deg,
-    rgb(var(--accent-rgb) / 0.2),
-    rgb(var(--accent-rgb) / 0.5)
-  );
+  background: linear-gradient(135deg, rgb(var(--accent-rgb) / 0.2), rgb(var(--accent-rgb) / 0.5));
   font-size: 3rem;
   font-weight: 700;
   color: var(--text);
@@ -251,10 +254,6 @@ const toggleProject = (id: string) => {
 
 .project-card h3 {
   font-size: 1.15rem;
-}
-
-.project-search {
-  background: var(--bg-elevated);
 }
 
 .project-chip {
@@ -277,21 +276,6 @@ const toggleProject = (id: string) => {
   flex: 1;
 }
 
-.project-search-input {
-  width: 100%;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  padding: 0.55rem 0.75rem;
-  background: var(--bg-elevated);
-  color: var(--text);
-  outline: none;
-  font-size: 0.9rem;
-}
-
-.project-search-input:focus {
-  border-color: var(--text);
-}
-
 @media (max-width: 640px) {
   .toolbar {
     flex-direction: column;
@@ -305,4 +289,3 @@ const toggleProject = (id: string) => {
   }
 }
 </style>
-

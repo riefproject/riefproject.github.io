@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PageHeader from '../../components/layout/PageHeader.astro';
-import DevelopmentActivity from '../../components/dev/DevelopmentActivity.vue';
-import initialDevData from '../../data/dev-activity-initial.json';
-import '../../styles/dev-shared.css';
-import { t as locale } from '../../utils/i18n';
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/layout/PageHeader.astro'
+import DevelopmentActivity from '../../components/dev/DevelopmentActivity.vue'
+import initialDevData from '../../data/dev-activity-initial.json'
+import '../../styles/dev-shared.css'
+import { t as locale } from '../../utils/i18n'
 
 const copy = {
   title: locale('Development Activity', 'Aktivitas Pengembangan'),
@@ -13,13 +13,10 @@ const copy = {
     'Dashboard live yang melacak karya pengembangan open-source dan profesional di GitHub dan GitLab — kalender kontribusi, streak, pull request, dan penggunaan bahasa.'
   ),
   backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
-};
+}
 ---
 
-<Layout
-  title="Development Activity | Arief F-sa Wijaya"
-  description={copy.description.en}
->
+<Layout title="Development Activity | Arief F-sa Wijaya" description={copy.description.en}>
   <main class="dev-page">
     <PageHeader
       class="dev-header"

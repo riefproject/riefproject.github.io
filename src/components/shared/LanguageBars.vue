@@ -20,19 +20,19 @@
 
 <script setup lang="ts">
 export interface LanguageStat {
-  name: string;
-  percentage: number;
+  name: string
+  percentage: number
 }
 
 withDefaults(
   defineProps<{
-    languages: LanguageStat[];
-    isId?: boolean;
-    titleEn?: string;
-    titleId?: string;
-    subtitleEn?: string;
-    subtitleId?: string;
-    showHeader?: boolean;
+    languages: LanguageStat[]
+    isId?: boolean
+    titleEn?: string
+    titleId?: string
+    subtitleEn?: string
+    subtitleId?: string
+    showHeader?: boolean
   }>(),
   {
     isId: false,
@@ -41,8 +41,8 @@ withDefaults(
     subtitleEn: '',
     subtitleId: '',
     showHeader: true,
-  },
-);
+  }
+)
 </script>
 
 <style scoped>

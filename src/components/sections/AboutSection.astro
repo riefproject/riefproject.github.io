@@ -1,89 +1,91 @@
 ---
-import type { FocusArea, Profile } from '../../types/profile.types';
-import LocaleText from '../i18n/LocaleText.astro';
-import SectionIntro from './SectionIntro.astro';
-import { t as locale } from '../../utils/i18n';
+import type { FocusArea, Profile } from '../../types/profile.types'
+import LocaleText from '../i18n/LocaleText.astro'
+import SectionIntro from './SectionIntro.astro'
+import { t as locale } from '../../utils/i18n'
 
 const copy = {
-	eyebrow: locale('About me', 'Tentang saya'),
-	heading: locale('Turning ideas into shipped products with clear steps.', 'Mewujudkan ide jadi produk jalan dengan langkah yang jelas.'),
-};
+  eyebrow: locale('About me', 'Tentang saya'),
+  heading: locale(
+    'Turning ideas into shipped products with clear steps.',
+    'Mewujudkan ide jadi produk jalan dengan langkah yang jelas.'
+  ),
+}
 
 type AboutProps = {
-	profile: Profile;
-	focusAreas: FocusArea[];
-};
+  profile: Profile
+  focusAreas: FocusArea[]
+}
 
-const { profile, focusAreas } = Astro.props as AboutProps;
+const { profile, focusAreas } = Astro.props as AboutProps
 ---
 
 <section id="tentang" class="section about">
-	<SectionIntro
-		class="about__intro"
-		eyebrow={copy.eyebrow}
-		heading={copy.heading}
-		body={profile.bio}
-	>
-		<p class="about__availability">
-			<LocaleText as="span" text={profile.availability} />
-		</p>
-	</SectionIntro>
-	<div class="about__areas grid">
-		{focusAreas.map((area) => (
-			<article class="surface">
-				<h3>
-					<LocaleText as="span" text={area.title} />
-				</h3>
-				<p>
-					<LocaleText as="span" text={area.description} />
-				</p>
-				<ul>
-					{area.items.map((item) => (
-						<li>
-							<LocaleText as="span" text={item} />
-						</li>
-					))}
-				</ul>
-			</article>
-		))}
-	</div>
+  <SectionIntro
+    class="about__intro"
+    eyebrow={copy.eyebrow}
+    heading={copy.heading}
+    body={profile.bio}>
+    <p class="about__availability">
+      <LocaleText as="span" text={profile.availability} />
+    </p>
+  </SectionIntro>
+  <div class="about__areas grid">
+    {focusAreas.map((area) => (
+      <article class="surface">
+        <h3>
+          <LocaleText as="span" text={area.title} />
+        </h3>
+        <p>
+          <LocaleText as="span" text={area.description} />
+        </p>
+        <ul>
+          {area.items.map((item) => (
+            <li>
+              <LocaleText as="span" text={item} />
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
 </section>
 
 <style>
-	.about__areas {
-		margin-top: 2rem;
-		grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-	}
+  .about__areas {
+    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
 
-	.about__areas article h3 {
-		font-family: inherit;
-		margin: 0 0 0.5rem;
-		font-size: 1.15rem;
-		font-weight: 600;
-		color: var(--text);
-	}
+  .about__areas article h3 {
+    font-family: inherit;
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text);
+  }
 
-	.about__areas article p {
-		color: var(--muted);
-		font-size: 0.95rem;
-		line-height: 1.6;
-	}
+  .about__areas article p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
 
-	.about__areas ul {
-		padding-left: 1.1rem;
-		margin: 0.75rem 0 0;
-		color: var(--muted);
-		font-size: 0.9rem;
-		line-height: 1.6;
-	}
+  .about__areas ul {
+    padding-left: 1.1rem;
+    margin: 0.75rem 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
 
-	.about__areas li {
-		margin-bottom: 0.25rem;
-	}
+  .about__areas li {
+    margin-bottom: 0.25rem;
+  }
 
-	.about__availability {
-		color: var(--muted);
-		font-size: 0.9rem;
-		margin-top: 1rem;
-	}
+  .about__availability {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
 </style>

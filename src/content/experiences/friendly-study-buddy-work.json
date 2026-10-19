@@ -13,12 +13,7 @@
     "en": "Teaching coding and informatics fundamentals in a part-time remote role, with personalized guidance for learners from diverse ages and backgrounds.",
     "id": "Mengajar dasar coding dan informatika secara paruh waktu jarak jauh, dengan pendampingan yang dipersonalisasi untuk pelajar dari beragam usia dan latar belakang."
   },
-  "stack": [
-    "Project-Based Learning",
-    "Computational Thinking",
-    "Problem Solving",
-    "Mentoring"
-  ],
+  "stack": ["Project-Based Learning", "Computational Thinking", "Problem Solving", "Mentoring"],
   "achievements": [
     {
       "en": "Designed adaptive learning paths based on each learner's goals, pace, and prior experience.",

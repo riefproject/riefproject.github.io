@@ -1,74 +1,74 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PageHeader from '../../components/layout/PageHeader.astro';
-import ProjectGallery from '../../components/projects/ProjectGallery.vue';
-import { getCollection } from 'astro:content';
-import { t as locale } from '../../utils/i18n';
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/layout/PageHeader.astro'
+import ProjectGallery from '../../components/projects/ProjectGallery.vue'
+import { getCollection } from 'astro:content'
+import { t as locale } from '../../utils/i18n'
 
-const projectsCollection = await getCollection('projects');
-const projects = projectsCollection.map((p) => p.data);
+const projectsCollection = await getCollection('projects')
+const projects = projectsCollection.map((p) => p.data)
 
-const categoryMap = new Map<string, typeof projects[0]['category']>();
+const categoryMap = new Map<string, (typeof projects)[0]['category']>()
 projects.forEach((project) => {
-	if (!categoryMap.has(project.categoryKey)) {
-		categoryMap.set(project.categoryKey, project.category);
-	}
-});
+  if (!categoryMap.has(project.categoryKey)) {
+    categoryMap.set(project.categoryKey, project.category)
+  }
+})
 
 const categories = [
-	{ key: 'all', label: locale('All', 'Semua') },
-	...Array.from(categoryMap.entries()).map(([key, label]) => ({ key, label })),
-];
+  { key: 'all', label: locale('All', 'Semua') },
+  ...Array.from(categoryMap.entries()).map(([key, label]) => ({ key, label })),
+]
 
 const copy = {
-	title: locale('All Projects', 'Semua Proyek'),
-	description: locale(
-		'A complete collection of projects I\'ve built—from enterprise applications to experimental builds.',
-		'Koleksi lengkap proyek yang saya bangun—dari aplikasi enterprise hingga eksperimen.'
-	),
-	backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
-};
+  title: locale('All Projects', 'Semua Proyek'),
+  description: locale(
+    "A complete collection of projects I've built—from enterprise applications to experimental builds.",
+    'Koleksi lengkap proyek yang saya bangun—dari aplikasi enterprise hingga eksperimen.'
+  ),
+  backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
+}
 ---
 
 <Layout title="Projects | Arief F-sa Wijaya" description={copy.description.en}>
-	<main class="projects-page">
-		<PageHeader
-			class="projects-header"
-			variant="flush"
-			backHref="/"
-			backLabel={copy.backToHome}
-			title={copy.title}
-			description={copy.description}
-		/>
+  <main class="projects-page">
+    <PageHeader
+      class="projects-header"
+      variant="flush"
+      backHref="/"
+      backLabel={copy.backToHome}
+      title={copy.title}
+      description={copy.description}
+    />
 
-		<div class="projects-content section">
-			<ProjectGallery client:idle projects={projects} categories={categories} />
-		</div>
-	</main>
+    <div class="projects-content section">
+      <ProjectGallery client:idle projects={projects} categories={categories} />
+    </div>
+  </main>
 </Layout>
 
 <style>
-	.projects-page {
-		min-height: 100vh;
-		padding-top: 2rem;
-		padding-bottom: 4rem;
-	}
+  .projects-page {
+    min-height: 100vh;
+    padding-top: 2rem;
+    padding-bottom: 4rem;
+  }
 
-	.projects-content {
-		max-width: 1400px;
-		margin-left: auto;
-		margin-right: auto;
-	}
+  .projects-content {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-	@media (min-width: 768px) {
-		.projects-page {
-			padding-top: 3rem;
-		}
-	}
+  @media (min-width: 768px) {
+    .projects-page {
+      padding-top: 3rem;
+    }
+  }
 
-	@media (min-width: 1024px) {
-		.projects-page {
-			padding-top: 4rem;
-		}
-	}
+  @media (min-width: 1024px) {
+    .projects-page {
+      padding-top: 4rem;
+    }
+  }
 </style>

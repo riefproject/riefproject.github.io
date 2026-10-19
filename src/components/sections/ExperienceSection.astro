@@ -1,313 +1,310 @@
 ---
-import type { Experience } from '../../types/profile.types';
-import LocaleText from '../i18n/LocaleText.astro';
-import SectionIntro from './SectionIntro.astro';
-import CollapsibleContent from './CollapsibleContent.astro';
-import EntityBadge from '../shared/EntityBadge.astro';
-import { t as locale } from '../../utils/i18n';
+import type { Experience } from '../../types/profile.types'
+import LocaleText from '../i18n/LocaleText.astro'
+import SectionIntro from './SectionIntro.astro'
+import CollapsibleContent from './CollapsibleContent.astro'
+import EntityBadge from '../shared/EntityBadge.astro'
+import { t as locale } from '../../utils/i18n'
 
 type Props = {
-	workExperiences?: Experience[];
-	organizationalExperiences?: Experience[];
-	personalExperiences?: Experience[];
-};
+  workExperiences?: Experience[]
+  organizationalExperiences?: Experience[]
+  personalExperiences?: Experience[]
+}
 
 const {
-	workExperiences = [],
-	organizationalExperiences = [],
-	personalExperiences = [],
-}: Props = Astro.props;
+  workExperiences = [],
+  organizationalExperiences = [],
+  personalExperiences = [],
+}: Props = Astro.props
 
 const copy = {
-	readDetails: locale('Read details', 'Baca selengkapnya'),
-	showLess: locale('Show less', 'Tampilkan lebih sedikit'),
-};
+  readDetails: locale('Read details', 'Baca selengkapnya'),
+  showLess: locale('Show less', 'Tampilkan lebih sedikit'),
+}
 
 const groups = [
-	{
-		key: 'work',
-		eyebrow: locale('Work Experience', 'Pengalaman Kerja'),
-		heading: locale(
-			'Professional roles with direct learner impact.',
-			'Peran profesional dengan dampak langsung untuk pelajar.',
-		),
-		body: locale(
-			'Paid and structured responsibilities focused on measurable outcomes and delivery.',
-			'Tanggung jawab berbayar dan terstruktur dengan fokus pada hasil terukur dan eksekusi.',
-		),
-		items: workExperiences,
-	},
-	{
-		key: 'organization',
-		eyebrow: locale('Organizational Experience', 'Pengalaman Organisasi'),
-		heading: locale(
-			'Leadership and contribution in academic communities.',
-			'Kepemimpinan dan kontribusi di komunitas akademik.',
-		),
-		body: locale(
-			'Committee and student-organization roles that strengthened coordination and program execution.',
-			'Peran kepanitiaan dan organisasi mahasiswa yang mengasah koordinasi serta eksekusi program.',
-		),
-		items: organizationalExperiences,
-	},
-	{
-		key: 'personal',
-		eyebrow: locale('Personal Journey', 'Perjalanan Personal'),
-		heading: locale(
-			'Independent growth through continuous problem solving.',
-			'Pertumbuhan mandiri melalui problem solving berkelanjutan.',
-		),
-		body: locale(
-			'Self-driven practice, mentoring, and long-term consistency across competitive programming platforms.',
-			'Latihan mandiri, mentoring, dan konsistensi jangka panjang di berbagai platform competitive programming.',
-		),
-		items: personalExperiences,
-	},
-].filter((group) => group.items.length > 0);
+  {
+    key: 'work',
+    eyebrow: locale('Work Experience', 'Pengalaman Kerja'),
+    heading: locale(
+      'Professional roles with direct learner impact.',
+      'Peran profesional dengan dampak langsung untuk pelajar.'
+    ),
+    body: locale(
+      'Paid and structured responsibilities focused on measurable outcomes and delivery.',
+      'Tanggung jawab berbayar dan terstruktur dengan fokus pada hasil terukur dan eksekusi.'
+    ),
+    items: workExperiences,
+  },
+  {
+    key: 'organization',
+    eyebrow: locale('Organizational Experience', 'Pengalaman Organisasi'),
+    heading: locale(
+      'Leadership and contribution in academic communities.',
+      'Kepemimpinan dan kontribusi di komunitas akademik.'
+    ),
+    body: locale(
+      'Committee and student-organization roles that strengthened coordination and program execution.',
+      'Peran kepanitiaan dan organisasi mahasiswa yang mengasah koordinasi serta eksekusi program.'
+    ),
+    items: organizationalExperiences,
+  },
+  {
+    key: 'personal',
+    eyebrow: locale('Personal Journey', 'Perjalanan Personal'),
+    heading: locale(
+      'Independent growth through continuous problem solving.',
+      'Pertumbuhan mandiri melalui problem solving berkelanjutan.'
+    ),
+    body: locale(
+      'Self-driven practice, mentoring, and long-term consistency across competitive programming platforms.',
+      'Latihan mandiri, mentoring, dan konsistensi jangka panjang di berbagai platform competitive programming.'
+    ),
+    items: personalExperiences,
+  },
+].filter((group) => group.items.length > 0)
 ---
 
 <section id="experience" class="section legacy-exp">
-	{groups.map((group) => {
-		const primary = group.items[0];
-		const secondary = group.items.slice(1);
+  {groups.map((group) => {
+    const primary = group.items[0]
+    const secondary = group.items.slice(1)
 
-		return (
-			<div class="legacy-exp__group">
-				<SectionIntro
-					class="legacy-exp__intro"
-					eyebrow={group.eyebrow}
-					heading={group.heading}
-					body={group.body}
-				/>
+    return (
+      <div class="legacy-exp__group">
+        <SectionIntro
+          class="legacy-exp__intro"
+          eyebrow={group.eyebrow}
+          heading={group.heading}
+          body={group.body}
+        />
 
-				<div class="legacy-exp__content">
-					<div class="legacy-exp__media">
-						{primary.logo ? (
-							<EntityBadge
-								logo={primary.logo}
-								name={primary.company}
-								size={180}
-								class="badge badge--image"
-							/>
-						) : (
-							<div class="badge">
-								<span>{primary.company}</span>
-							</div>
-						)}
-					</div>
-					<div class="legacy-exp__details surface">
-						<p class="eyebrow">
-							<LocaleText as="span" text={primary.role} />
-						</p>
-						<h3>{primary.company}</h3>
-						<p class="period">
-							<LocaleText as="span" text={primary.period} />
-						</p>
-						<p>
-							<LocaleText as="span" text={primary.summary} />
-						</p>
-						{primary.achievements && primary.achievements.length > 0 && (
-							<CollapsibleContent
-								class="mt-4"
-								collapsedHeight="140px"
-								fadeHeight="4rem"
-								labelSize="base"
-								labelMargin="0.5rem"
-								readMore={copy.readDetails}
-								showLess={copy.showLess}
-							>
-								<ul class="mt-3">
-									{primary.achievements.map((item) => (
-										<li class="mb-2">
-											<LocaleText as="span" text={item} />
-										</li>
-									))}
-								</ul>
-							</CollapsibleContent>
-						)}
-					</div>
-				</div>
+        <div class="legacy-exp__content">
+          <div class="legacy-exp__media">
+            {primary.logo ?
+              <EntityBadge
+                logo={primary.logo}
+                name={primary.company}
+                size={180}
+                class="badge badge--image"
+              />
+            : <div class="badge">
+                <span>{primary.company}</span>
+              </div>
+            }
+          </div>
+          <div class="legacy-exp__details surface">
+            <p class="eyebrow">
+              <LocaleText as="span" text={primary.role} />
+            </p>
+            <h3>{primary.company}</h3>
+            <p class="period">
+              <LocaleText as="span" text={primary.period} />
+            </p>
+            <p>
+              <LocaleText as="span" text={primary.summary} />
+            </p>
+            {primary.achievements && primary.achievements.length > 0 && (
+              <CollapsibleContent
+                class="mt-4"
+                collapsedHeight="140px"
+                fadeHeight="4rem"
+                labelSize="base"
+                labelMargin="0.5rem"
+                readMore={copy.readDetails}
+                showLess={copy.showLess}>
+                <ul class="mt-3">
+                  {primary.achievements.map((item) => (
+                    <li class="mb-2">
+                      <LocaleText as="span" text={item} />
+                    </li>
+                  ))}
+                </ul>
+              </CollapsibleContent>
+            )}
+          </div>
+        </div>
 
-				{secondary.length > 0 && (
-					<div class="legacy-exp__list">
-						{secondary.map((exp) => (
-							<article class="surface">
-								<header>
-									<EntityBadge
-										logo={exp.logo}
-										name={exp.company}
-										fallbackText={exp.company.slice(0, 2).toUpperCase()}
-										size={40}
-										fontSize="1rem"
-									/>
-									<div>
-										<h4>{exp.company}</h4>
-										<p class="eyebrow text-xs" style="margin: 0.15rem 0;">
-											<LocaleText as="span" text={exp.role} />
-										</p>
-										<p class="period" style="margin-top: 0;">
-											<LocaleText as="span" text={exp.period} />
-										</p>
-									</div>
-								</header>
-								<p class="text-sm">
-									<LocaleText as="span" text={exp.summary} />
-								</p>
-								{exp.achievements && exp.achievements.length > 0 && (
-									<CollapsibleContent
-										class="mt-3"
-										collapsedHeight="100px"
-										fadeHeight="3rem"
-										labelMargin="0.5rem"
-										readMore={copy.readDetails}
-										showLess={copy.showLess}
-									>
-										<ul class="mt-2 text-sm pl-4">
-											{exp.achievements.map((item) => (
-												<li class="mb-1">
-													<LocaleText as="span" text={item} />
-												</li>
-											))}
-										</ul>
-									</CollapsibleContent>
-								)}
-							</article>
-						))}
-					</div>
-				)}
-			</div>
-		);
-	})}
+        {secondary.length > 0 && (
+          <div class="legacy-exp__list">
+            {secondary.map((exp) => (
+              <article class="surface">
+                <header>
+                  <EntityBadge
+                    logo={exp.logo}
+                    name={exp.company}
+                    fallbackText={exp.company.slice(0, 2).toUpperCase()}
+                    size={40}
+                    fontSize="1rem"
+                  />
+                  <div>
+                    <h4>{exp.company}</h4>
+                    <p class="eyebrow text-xs" style="margin: 0.15rem 0;">
+                      <LocaleText as="span" text={exp.role} />
+                    </p>
+                    <p class="period" style="margin-top: 0;">
+                      <LocaleText as="span" text={exp.period} />
+                    </p>
+                  </div>
+                </header>
+                <p class="text-sm">
+                  <LocaleText as="span" text={exp.summary} />
+                </p>
+                {exp.achievements && exp.achievements.length > 0 && (
+                  <CollapsibleContent
+                    class="mt-3"
+                    collapsedHeight="100px"
+                    fadeHeight="3rem"
+                    labelMargin="0.5rem"
+                    readMore={copy.readDetails}
+                    showLess={copy.showLess}>
+                    <ul class="mt-2 text-sm pl-4">
+                      {exp.achievements.map((item) => (
+                        <li class="mb-1">
+                          <LocaleText as="span" text={item} />
+                        </li>
+                      ))}
+                    </ul>
+                  </CollapsibleContent>
+                )}
+              </article>
+            ))}
+          </div>
+        )}
+      </div>
+    )
+  })}
 </section>
 
 <style>
-	.surface:hover :global(.collapsible__fade) {
-		background: linear-gradient(to top, var(--bg-elevated), transparent);
-	}
+  .surface:hover :global(.collapsible__fade) {
+    background: linear-gradient(to top, var(--bg-elevated), transparent);
+  }
 
-	.legacy-exp {
-		display: flex;
-		flex-direction: column;
-		gap: 2rem;
-	}
+  .legacy-exp {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-	.legacy-exp__group {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
+  .legacy-exp__group {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-	.legacy-exp__content {
-		display: grid;
-		grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
-		gap: 1.5rem;
-		align-items: stretch;
-	}
+  .legacy-exp__content {
+    display: grid;
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+  }
 
-	.legacy-exp__media {
-		border-radius: var(--radius-xl);
-		background: var(--bg-soft);
-		border: none;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		padding: 2rem;
-	}
+  .legacy-exp__media {
+    border-radius: var(--radius-xl);
+    background: var(--bg-soft);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
 
-	.badge {
-		color: var(--text);
-		font-weight: 600;
-		text-align: center;
-		font-size: 1.1rem;
-		line-height: 1.4;
-		text-transform: uppercase;
-		letter-spacing: 0.04em;
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-	}
+  .badge {
+    color: var(--text);
+    font-weight: 600;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-	.badge--image {
-		border-radius: var(--radius-md);
-		padding: 0;
-		background: transparent;
-		overflow: hidden;
-	}
+  .badge--image {
+    border-radius: var(--radius-md);
+    padding: 0;
+    background: transparent;
+    overflow: hidden;
+  }
 
-	.badge--image img {
-		max-height: 180px;
-		max-width: 100%;
-		width: auto;
-		height: auto;
-		object-fit: contain;
-		display: block;
-	}
+  .badge--image img {
+    max-height: 180px;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
 
-	.legacy-exp__details h3 {
-		margin: 0 0 0.25rem;
-		font-family: inherit;
-		font-size: 1.15rem;
-	}
+  .legacy-exp__details h3 {
+    margin: 0 0 0.25rem;
+    font-family: inherit;
+    font-size: 1.15rem;
+  }
 
-	.legacy-exp__details > p:not(.period):not(.eyebrow) {
-		margin: 0;
-		font-size: 0.95rem;
-		line-height: 1.6;
-		color: var(--muted);
-	}
+  .legacy-exp__details > p:not(.period):not(.eyebrow) {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
 
-	.period {
-		margin: 0 0 1rem;
-		font-size: 0.9rem;
-		font-weight: 600;
-		color: var(--muted);
-	}
+  .period {
+    margin: 0 0 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--muted);
+  }
 
-	.legacy-exp__details ul {
-		margin: 1rem 0 0;
-		padding-left: 1.5rem;
-		color: var(--muted);
-		font-size: 0.9rem;
-		line-height: 1.6;
-	}
+  .legacy-exp__details ul {
+    margin: 1rem 0 0;
+    padding-left: 1.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
 
-	.legacy-exp__list {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 1rem;
-	}
+  .legacy-exp__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
 
-	.legacy-exp__list h4 {
-		margin: 0;
-		font-family: inherit;
-		font-size: 1.15rem;
-	}
+  .legacy-exp__list h4 {
+    margin: 0;
+    font-family: inherit;
+    font-size: 1.15rem;
+  }
 
-	.legacy-exp__list p.text-sm {
-		margin: 0.5rem 0 0;
-		font-size: 0.95rem;
-		line-height: 1.6;
-		color: var(--muted);
-	}
+  .legacy-exp__list p.text-sm {
+    margin: 0.5rem 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--muted);
+  }
 
-	.legacy-exp__list ul {
-		margin: 1rem 0 0;
-		padding-left: 1.5rem;
-		color: var(--muted);
-		font-size: 0.9rem;
-		line-height: 1.6;
-	}
+  .legacy-exp__list ul {
+    margin: 1rem 0 0;
+    padding-left: 1.5rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
 
-	.legacy-exp__list header {
-		display: grid;
-		grid-template-columns: auto 1fr;
-		align-items: center;
-		gap: 0.75rem;
-	}
+  .legacy-exp__list header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 0.75rem;
+  }
 
-	@media (max-width: 960px) {
-		.legacy-exp__content {
-			grid-template-columns: 1fr;
-		}
-	}
+  @media (max-width: 960px) {
+    .legacy-exp__content {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>

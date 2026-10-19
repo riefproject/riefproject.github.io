@@ -13,12 +13,7 @@
     "en": "Led school computer club programming division, coordinating training programs and member development initiatives.",
     "id": "Memimpin divisi pemrograman klub komputer sekolah, mengkoordinasikan program pelatihan dan inisiatif pengembangan anggota."
   },
-  "stack": [
-    "Leadership",
-    "Curriculum Design",
-    "C/C++",
-    "Mentoring"
-  ],
+  "stack": ["Leadership", "Curriculum Design", "C/C++", "Mentoring"],
   "achievements": [
     {
       "en": "Coordinated programming activities and collaborative projects among club members.",

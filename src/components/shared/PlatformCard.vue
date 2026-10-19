@@ -12,7 +12,11 @@
         </div>
         <div class="pcard-title-text">
           <h4 class="pcard-name">{{ name }}</h4>
-          <span class="pcard-handle">{{ handle.startsWith('@') ? handle : (handle.includes(' ') ? handle : `@${handle}`) }}</span>
+          <span class="pcard-handle">{{
+            handle.startsWith('@') ? handle
+            : handle.includes(' ') ? handle
+            : `@${handle}`
+          }}</span>
         </div>
       </div>
       <div class="pcard-solved-badge">
@@ -35,18 +39,18 @@
 
 <script setup lang="ts">
 defineProps<{
-  name: string;
-  handle: string;
-  logo: string;
-  logoLight?: string;
-  solvedNum: number | string;
-  solvedLabel: string;
-  footerText: string;
-}>();
+  name: string
+  handle: string
+  logo: string
+  logoLight?: string
+  solvedNum: number | string
+  solvedLabel: string
+  footerText: string
+}>()
 
 defineEmits<{
-  (e: 'select'): void;
-}>();
+  (e: 'select'): void
+}>()
 </script>
 
 <style scoped>

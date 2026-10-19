@@ -1,102 +1,166 @@
 export interface HeatmapTooltipMetric {
-  value: number | string;
-  label?: string;
-  logo?: string;
-  logoLight?: string;
-  color?: 'sky' | 'emerald' | 'orange' | 'purple' | 'amber' | 'slate' | 'neutral' | string;
+  value: number | string
+  label?: string
+  logo?: string
+  logoLight?: string
+  color?: 'sky' | 'emerald' | 'orange' | 'purple' | 'amber' | 'slate' | 'neutral' | string
 }
 
 export interface HeatmapDay {
-  date: string;
-  count: number;
-  tries?: number;
-  ac?: number;
-  github?: number;
-  gitlab?: number;
-  level: number;
-  metrics?: HeatmapTooltipMetric[];
+  date: string
+  count: number
+  tries?: number
+  ac?: number
+  github?: number
+  gitlab?: number
+  level: number
+  metrics?: HeatmapTooltipMetric[]
 }
 
 export const getHeatmapLevel = (count: number): number => {
-  if (count <= 0) return 0;
-  if (count <= 2) return 1;
-  if (count <= 6) return 2;
-  if (count <= 14) return 3;
-  return 4;
-};
+  if (count <= 0) return 0
+  if (count <= 2) return 1
+  if (count <= 6) return 2
+  if (count <= 14) return 3
+  return 4
+}
 
 export const buildHeatmapDays = (
   map: Record<string, any> = {},
   extract: (v: any) => { count: number; tries?: number; ac?: number; github?: number; gitlab?: number } = (v) => {
-    if (typeof v === 'number') return { count: v };
+    if (typeof v === 'number') return { count: v }
     if (v && typeof v === 'object') {
-      const count = Number(v.count || v.tries || 0);
-      const res: any = { count };
-      if (typeof v.tries === 'number') res.tries = v.tries;
-      if (typeof v.ac === 'number') res.ac = v.ac;
-      if (typeof v.github === 'number') res.github = v.github;
-      if (typeof v.gitlab === 'number') res.gitlab = v.gitlab;
-      return res;
+      const count = Number(v.count || v.tries || 0)
+      const res: any = { count }
+      if (typeof v.tries === 'number') res.tries = v.tries
+      if (typeof v.ac === 'number') res.ac = v.ac
+      if (typeof v.github === 'number') res.github = v.github
+      if (typeof v.gitlab === 'number') res.gitlab = v.gitlab
+      return res
     }
-    return { count: 0 };
+    return { count: 0 }
   },
   options: {
-    daysBack?: number;
-    utcDate?: boolean;
-    levelFor?: (count: number) => number;
+    daysBack?: number
+    utcDate?: boolean
+    levelFor?: (count: number) => number
   } = {}
 ): HeatmapDay[] => {
-  const { daysBack = 364, utcDate = false, levelFor = getHeatmapLevel } = options;
-  const today = new Date();
-  const days: HeatmapDay[] = [];
+  const { daysBack = 364, utcDate = false, levelFor = getHeatmapLevel } = options
+  const today = new Date()
+  const days: HeatmapDay[] = []
 
   for (let i = daysBack - 1; i >= 0; i--) {
-    const d = new Date(today);
-    d.setDate(d.getDate() - i);
-    const dateStr = utcDate
-      ? d.toISOString().slice(0, 10)
-      : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-    const entry = map?.[dateStr];
-    const data = extract(entry);
+    const d = new Date(today)
+    d.setDate(d.getDate() - i)
+    const dateStr =
+      utcDate ?
+        d.toISOString().slice(0, 10)
+      : `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`
+    const entry = map?.[dateStr]
+    const data = extract(entry)
 
     const item: HeatmapDay = {
       date: dateStr,
       count: data.count,
       level: levelFor(data.count),
-    };
-    if (typeof data.tries === 'number') item.tries = data.tries;
-    if (typeof data.ac === 'number') item.ac = data.ac;
-    if (typeof data.github === 'number') item.github = data.github;
-    if (typeof data.gitlab === 'number') item.gitlab = data.gitlab;
+    }
+    if (typeof data.tries === 'number') item.tries = data.tries
+    if (typeof data.ac === 'number') item.ac = data.ac
+    if (typeof data.github === 'number') item.github = data.github
+    if (typeof data.gitlab === 'number') item.gitlab = data.gitlab
 
-    days.push(item);
+    days.push(item)
   }
-  return days;
-};
+  return days
+}
+
+export type HeatmapEntry = number | { count?: number; github?: number; gitlab?: number }
+export type HeatmapMap = Record<string, HeatmapEntry>
+
+export const mergeHeatmaps = (
+  githubMap: HeatmapMap = {},
+  gitlabMap: HeatmapMap = {}
+): Record<string, { count: number; github: number; gitlab: number }> => {
+  const out: Record<string, { count: number; github: number; gitlab: number }> = {}
+  const keys = new Set([...Object.keys(githubMap), ...Object.keys(gitlabMap)])
+  keys.forEach((key) => {
+    const gh = githubMap[key]
+    const gl = gitlabMap[key]
+    const ghCount = typeof gh === 'object' ? Number(gh?.count || 0) : Number(gh || 0)
+    const glCount = typeof gl === 'object' ? Number(gl?.count || 0) : Number(gl || 0)
+    out[key] = { count: ghCount + glCount, github: ghCount, gitlab: glCount }
+  })
+  return out
+}
+
+export const buildPlatformHeatmapDays = (map: HeatmapMap = {}, platform: 'github' | 'gitlab'): HeatmapDay[] =>
+  buildHeatmapDays(map, (entry) => {
+    const count = typeof entry === 'object' ? Number(entry?.count || 0) : Number(entry || 0)
+    return { count, [platform]: count }
+  })
 
 export const toWeeks = <T>(days: T[], size = 7): T[][] => {
-  const weeks: T[][] = [];
+  const weeks: T[][] = []
   for (let i = 0; i < days.length; i += size) {
-    weeks.push(days.slice(i, i + size));
+    weeks.push(days.slice(i, i + size))
   }
-  return weeks;
-};
+  return weeks
+}
 
 export const buildMonths = <T extends { date: string }>(weeks: T[][]): Array<{ name: string; percent: number }> => {
-  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const res: { name: string; percent: number }[] = [];
-  const totalWeeks = weeks.length;
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+  const res: { name: string; percent: number }[] = []
+  const totalWeeks = weeks.length
 
   weeks.forEach((w, idx) => {
     if (w[0]) {
-      const d = new Date(w[0].date);
+      const d = new Date(w[0].date)
       if (d.getDate() <= 7) {
         res.push({
           name: months[d.getMonth()],
           percent: Math.round((idx / totalWeeks) * 100),
-        });
+        })
       }
     }
-  });
-  return res;
-};
+  })
+  return res
+}
+
+const DEV_LOGOS = {
+  github: { logo: '/img/stacks/github-dark.svg', logoLight: '/img/stacks/github-light.svg' },
+  gitlab: { logo: '/img/stacks/gitlab-dark.svg', logoLight: '/img/stacks/gitlab-light.svg' },
+}
+
+export const devHeatmapMetrics = (day: HeatmapDay, isId: boolean): HeatmapTooltipMetric[] => {
+  const list: HeatmapTooltipMetric[] = []
+
+  if (day.github && day.github > 0) {
+    list.push({
+      value: day.github,
+      label: isId ? 'kontribusi' : 'contributions',
+      ...DEV_LOGOS.github,
+      color: 'neutral',
+    })
+  }
+
+  if (day.gitlab && day.gitlab > 0) {
+    list.push({
+      value: day.gitlab,
+      label: isId ? 'event' : 'events',
+      ...DEV_LOGOS.gitlab,
+      color: 'orange',
+    })
+  }
+
+  if (list.length === 0) {
+    return [
+      {
+        value: isId ? 'Tidak ada kontribusi' : 'No contributions',
+        color: 'slate',
+      },
+    ]
+  }
+
+  return list
+}

@@ -1,73 +1,98 @@
-export type CpPlatformKey = 'tlx' | 'codeforces' | 'leetcode' | 'hackerrank';
-
-export type CpColumnKey = 'category' | 'difficulty' | 'language';
+import type { HeatmapDay } from '../utils/heatmap'
+export type CpPlatformKey = 'tlx' | 'codeforces' | 'leetcode' | 'hackerrank'
+export type CpColumnKey = 'category' | 'difficulty' | 'language'
 
 export interface CpColumn {
-  key: CpColumnKey;
-  labelEn: string;
-  labelId: string;
+  key: CpColumnKey
+  labelEn: string
+  labelId: string
 }
 
 export interface CpMetric {
-  label: string;
-  value: string | number;
-  sub?: string;
-  subPrefix?: string;
-  subHighlight?: string;
+  label: string
+  value: string | number
+  sub?: string
+  subPrefix?: string
+  subHighlight?: string
 }
 
 export interface CpOverview {
-  totalSolved: number;
-  totalSubmissions: number;
-  activePlatforms: number;
-  primaryLanguage: {
-    name: string;
-    count: number;
-  };
-  lastSynced?: string;
+  totalSolved?: number
+  totalSubmissions?: number
+  activePlatforms?: number
+  topLanguage?: { name: string; count: number }
+  primaryLanguage?: { name: string; count: number }
+  lastSynced?: string
+  heatmap?: Record<string, { count?: number; tries?: number; ac?: number } | number>
+}
+
+export interface CpRecentSolved {
+  id?: string | number
+  title?: string
+  url?: string
+  platform?: CpPlatformKey | string
+  category?: string
+  difficulty?: string | number
+  language?: string
+  solvedAt?: string
+}
+
+export interface CpTrackScore {
+  slug: string
+  name: string
+  score: number
+  rank?: number
+}
+
+export interface CpBadge {
+  name: string
+  stars: number
+  solved: number
 }
 
 export interface CpPlatformProfile {
-  handle: string;
-  totalSolved?: number;
-  totalSubmissions?: number;
-  rating?: number | string;
-  rank?: string;
-  maxRating?: number;
-  badgesCount?: number;
-  points?: number;
-  stars?: number;
-  easy?: number;
-  medium?: number;
-  hard?: number;
-  languages?: Record<string, number>;
+  handle?: string
+  totalSolved?: number
+  totalSubmissions?: number
+  totalAcSubmissions?: number
+  rating?: number | string
+  maxRating?: number
+  rank?: string
+  ranking?: number
+  badgesCount?: number
+  points?: number
+  stars?: number
+  easySolved?: number
+  mediumSolved?: number
+  hardSolved?: number
+  languages?: Record<string, number>
+  tagsCount?: Record<string, number>
+  trackScores?: CpTrackScore[]
+  badges?: CpBadge[]
+  recentSolved?: CpRecentSolved[]
 }
 
 export interface SubmissionItem {
-  id?: string | number;
-  title: string;
-  url?: string;
-  platform?: CpPlatformKey | string;
-  category?: string;
-  difficulty?: string | number;
-  language?: string;
-  status?: string;
-  solvedAt?: string;
+  id?: string | number
+  title: string
+  url?: string
+  platform?: CpPlatformKey | string
+  category?: string
+  difficulty?: string | number
+  language?: string
+  status?: string
+  solvedAt?: string
 }
 
-export interface CpHeatmapDay {
-  date: string;
-  count: number;
-  tries: number;
-  ac: number;
-  level: number;
+export interface CpHeatmapDay extends HeatmapDay {
+  tries: number
+  ac: number
 }
 
 export interface CpData {
-  overview?: CpOverview;
-  platforms?: Record<string, CpPlatformProfile>;
-  recentGlobalFeed?: SubmissionItem[];
-  heatmapWeeks?: any[];
-  heatmapMonths?: any[];
-  totalSubmissionsInHeatmap?: number;
+  meta?: { updatedAt?: string; version?: string }
+  overview?: CpOverview
+  platforms?: Partial<Record<CpPlatformKey, CpPlatformProfile>>
+  recentGlobalFeed?: SubmissionItem[]
+  totalSubmissionsInHeatmap?: number
 }

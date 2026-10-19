@@ -1,13 +1,8 @@
-import { getEntry } from 'astro:content';
+import { getSingleton } from '../../utils/content-collections'
+import { jsonResponse } from '../../utils/http'
 
 export async function GET() {
-  const profileEntry = await getEntry('singletons', 'profile');
-  const contactEntry = await getEntry('singletons', 'contact');
+  const [profile, contact] = await Promise.all([getSingleton('profile'), getSingleton('contact')])
 
-  return new Response(JSON.stringify({
-    profile: profileEntry?.data,
-    contact: contactEntry?.data
-  }, null, 2), {
-    status: 200, headers: { 'Content-Type': 'application/json' }
-  });
+  return jsonResponse({ profile, contact })
 }

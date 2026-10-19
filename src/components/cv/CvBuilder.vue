@@ -16,16 +16,12 @@
     <div class="workspace">
       <div class="editor-pane">
         <div class="chrome-tabs">
-          <button 
+          <button
             :class="['tab-btn', { active: activeTab === 'html' }]"
-            @click="activeTab = 'html'"
-          >
+            @click="activeTab = 'html'">
             source.html <span v-if="isHtmlDirty" class="dirty-dot">•</span>
           </button>
-          <button 
-            :class="['tab-btn', { active: activeTab === 'css' }]"
-            @click="activeTab = 'css'"
-          >
+          <button :class="['tab-btn', { active: activeTab === 'css' }]" @click="activeTab = 'css'">
             source.css <span v-if="isCssDirty" class="dirty-dot">•</span>
           </button>
         </div>
@@ -38,8 +34,7 @@
             :autofocus="true"
             :indent-with-tab="true"
             :tab-size="2"
-            :extensions="htmlExtensions"
-          />
+            :extensions="htmlExtensions" />
           <codemirror
             v-show="activeTab === 'css'"
             v-model="cssContent"
@@ -48,30 +43,47 @@
             :autofocus="true"
             :indent-with-tab="true"
             :tab-size="2"
-            :extensions="cssExtensions"
-          />
+            :extensions="cssExtensions" />
         </div>
       </div>
-      
+
       <div class="preview-pane">
         <div class="preview-header">
           <span class="pane-title">Output</span>
           <div class="zoom-controls">
             <span class="zoom-label">{{ Math.round(zoom * 100) }}%</span>
-            <input type="range" v-model.number="zoom" min="0.3" max="1.5" step="0.1" class="zoom-slider" />
+            <input
+              type="range"
+              v-model.number="zoom"
+              min="0.3"
+              max="1.5"
+              step="0.1"
+              class="zoom-slider" />
           </div>
         </div>
         <div class="preview-scroll">
-          <div class="scale-container" :style="{ width: `calc((210mm + 2rem) * ${zoom})`, margin: '0 auto' }">
-            <div class="a4-page-wrapper" :style="{ transform: `scale(${zoom})`, transformOrigin: 'top left', width: 'calc(210mm + 2rem)' }">
-              <iframe 
+          <div
+            class="scale-container"
+            :style="{ width: `calc((210mm + 2rem) * ${zoom})`, margin: '0 auto' }">
+            <div
+              class="a4-page-wrapper"
+              :style="{
+                transform: `scale(${zoom})`,
+                transformOrigin: 'top left',
+                width: 'calc(210mm + 2rem)',
+              }">
+              <iframe
                 ref="previewIframe"
                 :srcdoc="iframeSrcdoc"
                 frameborder="0"
-                style="width: 100%; height: 100%; min-height: 297mm; background: transparent;"
-              ></iframe>
+                style="
+                  width: 100%;
+                  height: 100%;
+                  min-height: 297mm;
+                  background: transparent;
+                "></iframe>
               <!-- Hidden div for html2pdf to use -->
-              <div ref="cvContent" style="display: none;">
+              <div ref="cvContent" style="display: none">
                 <div v-html="htmlContent"></div>
               </div>
             </div>
@@ -83,22 +95,22 @@
 </template>
 
 <script setup lang="ts">
-import { ref, shallowRef, watch } from 'vue';
-import { Codemirror } from 'vue-codemirror';
-import { html } from '@codemirror/lang-html';
-import { css } from '@codemirror/lang-css';
-import { oneDark } from '@codemirror/theme-one-dark';
-import html2pdf from 'html2pdf.js';
-import * as prettier from 'prettier/standalone';
-import * as parserHtml from 'prettier/plugins/html';
-import * as parserCss from 'prettier/plugins/postcss';
+import { ref, shallowRef, watch } from 'vue'
+import { Codemirror } from 'vue-codemirror'
+import { html } from '@codemirror/lang-html'
+import { css } from '@codemirror/lang-css'
+import { oneDark } from '@codemirror/theme-one-dark'
+import html2pdf from 'html2pdf.js'
+import * as prettier from 'prettier/standalone'
+import * as parserHtml from 'prettier/plugins/html'
+import * as parserCss from 'prettier/plugins/postcss'
 
 const props = defineProps<{
-  initialHtml?: string | null;
-  initialCss?: string | null;
-}>();
+  initialHtml?: string | null
+  initialCss?: string | null
+}>()
 
-const activeTab = ref<'html' | 'css'>('html');
+const activeTab = ref<'html' | 'css'>('html')
 
 const defaultHtml = `
 <div class="page">
@@ -125,7 +137,7 @@ const defaultHtml = `
     </li>
   </ul>
 </div>
-`.trim();
+`.trim()
 
 const defaultCss = `
 .page {
@@ -144,37 +156,39 @@ h1 { font-size: 24pt; margin-bottom: 4px; }
 h2 { font-size: 16pt; margin-top: 16px; border-bottom: 1px solid #ccc; }
 p { font-size: 11pt; margin: 0; }
 ul { padding-left: 20px; font-size: 11pt; }
-`.trim();
+`.trim()
 
-const htmlContent = ref(props.initialHtml || defaultHtml);
-const cssContent = ref(props.initialCss || defaultCss);
+const htmlContent = ref(props.initialHtml || defaultHtml)
+const cssContent = ref(props.initialCss || defaultCss)
 
-const baseHtml = ref(props.initialHtml || defaultHtml);
-const baseCss = ref(props.initialCss || defaultCss);
+const baseHtml = ref(props.initialHtml || defaultHtml)
+const baseCss = ref(props.initialCss || defaultCss)
 
-const isHtmlDirty = ref(false);
-const isCssDirty = ref(false);
+const isHtmlDirty = ref(false)
+const isCssDirty = ref(false)
 
 watch(htmlContent, (newVal) => {
-  isHtmlDirty.value = newVal !== baseHtml.value;
-});
+  isHtmlDirty.value = newVal !== baseHtml.value
+})
 
 watch(cssContent, (newVal) => {
-  isCssDirty.value = newVal !== baseCss.value;
-});
+  isCssDirty.value = newVal !== baseCss.value
+})
 
-const cvContent = ref<HTMLElement | null>(null);
-const isGenerating = ref(false);
-const isSavingSource = ref(false);
-const zoom = ref(0.8);
+const cvContent = ref<HTMLElement | null>(null)
+const isGenerating = ref(false)
+const isSavingSource = ref(false)
+const zoom = ref(0.8)
 
-const iframeSrcdoc = ref('');
+const iframeSrcdoc = ref('')
 
-let debounceTimer: ReturnType<typeof setTimeout>;
-watch([htmlContent, cssContent], () => {
-  clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(() => {
-    iframeSrcdoc.value = `
+let debounceTimer: ReturnType<typeof setTimeout>
+watch(
+  [htmlContent, cssContent],
+  () => {
+    clearTimeout(debounceTimer)
+    debounceTimer = setTimeout(() => {
+      iframeSrcdoc.value = `
 <!DOCTYPE html>
 <html>
 <head>
@@ -202,12 +216,14 @@ watch([htmlContent, cssContent], () => {
 <body>
   ${htmlContent.value}
 </body>
-</html>`;
-  }, 800);
-}, { immediate: true });
+</html>`
+    }, 800)
+  },
+  { immediate: true }
+)
 
-const htmlExtensions = shallowRef([html(), oneDark]);
-const cssExtensions = shallowRef([css(), oneDark]);
+const htmlExtensions = shallowRef([html(), oneDark])
+const cssExtensions = shallowRef([css(), oneDark])
 
 const formatCode = async () => {
   try {
@@ -216,22 +232,22 @@ const formatCode = async () => {
         parser: 'html',
         plugins: [parserHtml],
         printWidth: 80,
-      });
+      })
     } else {
       cssContent.value = await prettier.format(cssContent.value, {
         parser: 'css',
         plugins: [parserCss],
         printWidth: 80,
-      });
+      })
     }
   } catch (err) {
-    console.error('Failed to format code:', err);
-    alert('Failed to format code. There might be a syntax error.');
+    console.error('Failed to format code:', err)
+    alert('Failed to format code. There might be a syntax error.')
   }
-};
+}
 
 const saveSource = async () => {
-  isSavingSource.value = true;
+  isSavingSource.value = true
   try {
     // Format both tabs before saving
     try {
@@ -239,106 +255,106 @@ const saveSource = async () => {
         parser: 'html',
         plugins: [parserHtml],
         printWidth: 80,
-      });
+      })
       cssContent.value = await prettier.format(cssContent.value, {
         parser: 'css',
         plugins: [parserCss],
         printWidth: 80,
-      });
+      })
     } catch (err) {
-      console.warn('Skipping format on save due to syntax error:', err);
+      console.warn('Skipping format on save due to syntax error:', err)
     }
 
-    const formData = new FormData();
-    formData.append('html', htmlContent.value);
-    formData.append('css', cssContent.value);
-    
+    const formData = new FormData()
+    formData.append('html', htmlContent.value)
+    formData.append('css', cssContent.value)
+
     await fetch('/api/save-cv-source', {
       method: 'POST',
-      body: formData
-    });
-    
+      body: formData,
+    })
+
     // Update base state after successful save
-    baseHtml.value = htmlContent.value;
-    baseCss.value = cssContent.value;
-    
-    isHtmlDirty.value = false;
-    isCssDirty.value = false;
+    baseHtml.value = htmlContent.value
+    baseCss.value = cssContent.value
+
+    isHtmlDirty.value = false
+    isCssDirty.value = false
     // Optional: could show a tiny toast here, but we'll keep it silent for fast saving
   } catch (err) {
-    console.error('Failed to save source:', err);
-    alert('Failed to save source code.');
+    console.error('Failed to save source:', err)
+    alert('Failed to save source code.')
   } finally {
-    isSavingSource.value = false;
+    isSavingSource.value = false
   }
-};
+}
 
 const generatePdf = async () => {
-  if (!cvContent.value) return;
-  
-  isGenerating.value = true;
+  if (!cvContent.value) return
+
+  isGenerating.value = true
   try {
     const opt = {
       margin: [0, 0, 0, 0],
       filename: 'cv-arief.pdf',
       image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { 
-        scale: 2, 
+      html2canvas: {
+        scale: 2,
         useCORS: true,
         onclone: (documentClone: Document) => {
-          const style = documentClone.createElement('style');
-          style.innerHTML = cssContent.value;
-          documentClone.head.appendChild(style);
-        }
+          const style = documentClone.createElement('style')
+          style.innerHTML = cssContent.value
+          documentClone.head.appendChild(style)
+        },
       },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-    };
-    
+      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
+    }
+
     // Generate PDF as blob
-    const pdfBlob = await html2pdf().set(opt).from(cvContent.value).output('blob');
-    
+    const pdfBlob = await html2pdf().set(opt).from(cvContent.value).output('blob')
+
     // Create form data
-    const formData = new FormData();
-    formData.append('cv', pdfBlob, 'cv-arief-in.pdf');
-    formData.append('html', htmlContent.value);
-    formData.append('css', cssContent.value);
-    
+    const formData = new FormData()
+    formData.append('cv', pdfBlob, 'cv-arief-in.pdf')
+    formData.append('html', htmlContent.value)
+    formData.append('css', cssContent.value)
+
     // Upload via our local API
     const res = await fetch('/api/upload-cv', {
       method: 'POST',
-      body: formData
-    });
-    
+      body: formData,
+    })
+
     if (res.ok) {
-      alert('CV PDF successfully generated and replaced!');
+      alert('CV PDF successfully generated and replaced!')
     } else {
-      alert('Failed to replace CV PDF. Check console.');
-      console.error(await res.text());
+      alert('Failed to replace CV PDF. Check console.')
+      console.error(await res.text())
     }
   } catch (err) {
-    console.error('Error generating PDF:', err);
-    alert('Error generating PDF.');
+    console.error('Error generating PDF:', err)
+    alert('Error generating PDF.')
   } finally {
-    isGenerating.value = false;
+    isGenerating.value = false
   }
-};
+}
 
 // Add Cmd+S / Ctrl+S shortcut
-import { onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue'
 const handleKeydown = (e: KeyboardEvent) => {
   if ((e.metaKey || e.ctrlKey) && e.key === 's') {
-    e.preventDefault();
-    saveSource();
+    e.preventDefault()
+    saveSource()
   }
-};
+}
 
 onMounted(() => {
-  window.addEventListener('keydown', handleKeydown);
-});
+  window.addEventListener('keydown', handleKeydown)
+})
 onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeydown);
-});
+  window.removeEventListener('keydown', handleKeydown)
+})
 </script>
 
 <style scoped>
@@ -349,7 +365,7 @@ onUnmounted(() => {
   height: 100vh;
   background: var(--bg);
   overflow: hidden;
-  font-family: var(--font-sans, "Inter", system-ui, sans-serif);
+  font-family: var(--font-sans, 'Inter', system-ui, sans-serif);
 }
 
 .global-topbar {
@@ -379,7 +395,8 @@ onUnmounted(() => {
   background: var(--bg); /* Back to normal app background */
 }
 
-.editor-pane, .preview-pane {
+.editor-pane,
+.preview-pane {
   flex: 1 1 50%;
   width: 50%;
   min-width: 0;
@@ -394,7 +411,7 @@ onUnmounted(() => {
 
 .editor-pane {
   /* Force dark mode for the editor regardless of global theme */
-  background: #18181b; 
+  background: #18181b;
 }
 
 .preview-pane {
@@ -531,7 +548,8 @@ onUnmounted(() => {
   color: #71717a !important;
 }
 
-:deep(.cm-activeLine), :deep(.cm-activeLineGutter) {
+:deep(.cm-activeLine),
+:deep(.cm-activeLineGutter) {
   background-color: rgba(255, 255, 255, 0.05) !important;
 }
 
@@ -584,14 +602,15 @@ onUnmounted(() => {
   border-radius: 50%;
   background: var(--text);
   cursor: pointer;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 1024px) {
   .workspace {
     flex-direction: column;
   }
-  .editor-pane, .preview-pane {
+  .editor-pane,
+  .preview-pane {
     flex: none;
     width: 100%;
     height: 50vh;

@@ -1,10 +1,10 @@
 ---
 type Props = {
-  class?: string;
-  size?: number;
-};
+  class?: string
+  size?: number
+}
 
-const { class: className = '', size = 12 } = Astro.props as Props;
+const { class: className = '', size = 12 } = Astro.props as Props
 ---
 
 <svg
@@ -16,7 +16,6 @@ const { class: className = '', size = 12 } = Astro.props as Props;
   stroke-width="2"
   stroke-linecap="round"
   stroke-linejoin="round"
-  class={className}
->
+  class={className}>
   <path d="M7 17l9.2-9.2M17 17V7H7"></path>
 </svg>

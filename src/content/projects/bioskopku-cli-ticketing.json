@@ -18,11 +18,7 @@
     "id": "CLI Tool"
   },
   "categoryKey": "cli",
-  "stack": [
-    "C",
-    "Modular Architecture",
-    "CSV Storage"
-  ],
+  "stack": ["C", "Modular Architecture", "CSV Storage"],
   "highlights": [
     {
       "en": "Modular seat management with clean architecture and clear structure.",

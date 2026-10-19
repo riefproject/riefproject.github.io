@@ -19,14 +19,7 @@
   },
   "categoryKey": "mobile-app",
   "featured": true,
-  "stack": [
-    "Flutter",
-    "Dart",
-    "Google ML Kit",
-    "Supabase",
-    "Hive",
-    "Clean Architecture"
-  ],
+  "stack": ["Flutter", "Dart", "Google ML Kit", "Supabase", "Hive", "Clean Architecture"],
   "highlights": [
     {
       "en": "Real-time ghost overlay skeleton drawn via CustomPainter that color-shifts red → yellow → green as cosine-similarity score surpasses 82%.",

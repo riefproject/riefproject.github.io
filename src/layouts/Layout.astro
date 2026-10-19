@@ -1,534 +1,534 @@
 ---
-import '../styles/global.css';
-import { contact } from '../data/contact';
-import { profile } from '../data/profile';
-import BaseHead from '../components/layout/BaseHead.astro';
-import Footer from '../components/layout/Footer.astro';
-import ThemeToggle from '../components/layout/ThemeToggle.vue';
-import LangToggle from '../components/layout/LangToggle.vue';
-import CvDownloadButton from '../components/cv/CvDownloadButton.vue';
-import LocaleText from '../components/i18n/LocaleText.astro';
-import { t as locale } from '../utils/i18n';
+import '../styles/global.css'
+import { contact } from '../data/contact'
+import { profile } from '../data/profile'
+import BaseHead from '../components/layout/BaseHead.astro'
+import Footer from '../components/layout/Footer.astro'
+import ThemeToggle from '../components/layout/ThemeToggle.vue'
+import LangToggle from '../components/layout/LangToggle.vue'
+import CvDownloadButton from '../components/cv/CvDownloadButton.vue'
+import LocaleText from '../components/i18n/LocaleText.astro'
+import ArrowUpRight from '../components/shared/ArrowUpRight.astro'
+import { t as locale } from '../utils/i18n'
 
 type LayoutProps = {
-	title?: string;
-	description?: string;
-};
+  title?: string
+  description?: string
+}
 
 const navItems = [
-	{ label: locale('Home', 'Beranda'), href: '#beranda' },
-	{ label: locale('About', 'Tentang'), href: '#tentang' },
-	{ label: locale('Skills', 'Keahlian'), href: '#skills' },
-	{ label: locale('Experience', 'Pengalaman'), href: '#experience' },
-	{ label: locale('Projects', 'Proyek'), href: '#proyek' },
-	{ label: locale('Achievements', 'Pencapaian'), href: '#achievements' },
-	{ label: locale('Education', 'Pendidikan'), href: '#education' },
-	{ label: locale('CP Journey', 'Perjalanan CP'), href: '/competitive-programming', page: true },
-	{ label: locale('Dev Activity', 'Aktivitas Dev'), href: '/development-activity', page: true },
-	{ label: locale('Contact', 'Kontak'), href: '#kontak' },
+  { label: locale('Home', 'Beranda'), href: '#beranda' },
+  { label: locale('About', 'Tentang'), href: '#tentang' },
+  { label: locale('Skills', 'Keahlian'), href: '#skills' },
+  { label: locale('Experience', 'Pengalaman'), href: '#experience' },
+  { label: locale('Projects', 'Proyek'), href: '#proyek' },
+  { label: locale('Achievements', 'Pencapaian'), href: '#achievements' },
+  { label: locale('Education', 'Pendidikan'), href: '#education' },
+  { label: locale('CP Journey', 'Perjalanan CP'), href: '/competitive-programming', page: true },
+  { label: locale('Dev Activity', 'Aktivitas Dev'), href: '/development-activity', page: true },
+  { label: locale('Contact', 'Kontak'), href: '#kontak' },
 ].map((item) =>
-	item.page
-		? item
-		: {
-				...item,
-				id: item.href.replace('#', ''),
-				to: `/#${item.href.replace('#', '')}`,
-		  },
-);
+  item.page ? item : (
+    {
+      ...item,
+      id: item.href.replace('#', ''),
+      to: `/#${item.href.replace('#', '')}`,
+    }
+  )
+)
 
 const layoutCopy = {
-	skip: locale('Skip to content', 'Lewati ke konten'),
-	menu: locale('Menu', 'Menu'),
-	menuInfo: locale('navigation', 'navigasi'),
-	close: locale('Close menu', 'Tutup menu'),
-	explore: locale('Explore work', 'Jelajahi karya'),
-	cta: locale('Submit a project', 'Ajukan proyek'),
-	downloadCv: locale('Download CV', 'Unduh CV'),
-};
+  skip: locale('Skip to content', 'Lewati ke konten'),
+  menu: locale('Menu', 'Menu'),
+  menuInfo: locale('navigation', 'navigasi'),
+  close: locale('Close menu', 'Tutup menu'),
+  explore: locale('Explore work', 'Jelajahi karya'),
+  cta: locale('Submit a project', 'Ajukan proyek'),
+  downloadCv: locale('Download CV', 'Unduh CV'),
+}
 
 const {
-	title = `${profile.name} — Software Engineer & Competitive Programmer`,
-	description = profile.intro.en,
-}: LayoutProps = Astro.props;
+  title = `${profile.name} — Software Engineer & Competitive Programmer`,
+  description = profile.intro.en,
+}: LayoutProps = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
-	<body>
-		<a class="skip-link" href="#konten-utama">
-			<LocaleText as="span" text={layoutCopy.skip} />
-		</a>
-		<div class="page page-grid">
-			<aside class="sidebar" aria-label="Navigasi utama">
-				<button class="sidebar__close" type="button" data-sidebar-close aria-label="Close menu">
-					<span aria-hidden="true">×</span>
-				</button>
-				<p class="sidebar__brand">
-					{profile.name}
-				</p>
-				<p class="sidebar__focus">
-					<LocaleText as="span" text={profile.focusStack} />
-				</p>
-				<nav class="sidebar__nav">
-					{navItems.map((item) =>
-						item.page ? (
-							<a data-nav-link data-target={item.href} href={item.href} class="group">
-								<LocaleText as="span" text={item.label} />
-								<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity"><path d="M7 17l9.2-9.2M17 17V7H7"/></svg>
-							</a>
-						) : (
-							<a data-nav-link data-target={item.id} href={item.to}>
-								<LocaleText as="span" text={item.label} />
-							</a>
-						),
-					)}
-				</nav>
-				<div class="sidebar__cta">
-					<CvDownloadButton client:idle />
-					<a class="btn ghost" href="/#proyek">
-						<LocaleText as="span" text={layoutCopy.explore} />
-					</a>
-					<a class="btn ghost" href={`mailto:${contact.email}`}>
-						<LocaleText as="span" text={layoutCopy.cta} />
-					</a>
-				</div>
-			</aside>
-			<div class="page-content">
-				<main id="konten-utama">
-					<slot />
-				</main>
-				<Footer />
-			</div>
-			<div class="sidebar-overlay" data-sidebar-overlay></div>
-		</div>
-		<div class="global-toggles">
-			<button
-				class="sidebar-toggle"
-				type="button"
-				data-sidebar-toggle
-				aria-label={layoutCopy.menu.en}
-			>
-				<svg viewBox="0 0 24 24" aria-hidden="true" class="sidebar-toggle__icon">
-					<path
-						d="M4 7h16M4 12h16M4 17h16"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-					/>
-				</svg>
-			</button>
-			<div class="global-toggles__controls">
-				<ThemeToggle client:idle />
-				<LangToggle client:idle />
-			</div>
-		</div>
-		<script is:inline>
-			const root = document.documentElement;
-			const animatedItems = Array.from(new Set(document.querySelectorAll('.section, [data-animate]')))
-				.filter(item => item.id !== 'beranda'); // Exclude Hero section to prevent FCP/LCP delay
-			
-			// 1. Critical: Prevent FOUC for animations (Run immediately)
-			const maxRevealDelay = 400;
-			const revealStep = 35;
-			animatedItems.forEach((item, index) => {
-				item.classList.add('reveal');
-				item.style.setProperty(
-					'--reveal-delay',
-					`${Math.min(index * revealStep, maxRevealDelay)}ms`,
-				);
-			});
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
+  <body>
+    <a class="skip-link" href="#konten-utama">
+      <LocaleText as="span" text={layoutCopy.skip} />
+    </a>
+    <div class="page page-grid">
+      <aside class="sidebar" aria-label="Navigasi utama">
+        <button class="sidebar__close" type="button" data-sidebar-close aria-label="Close menu">
+          <span aria-hidden="true">×</span>
+        </button>
+        <p class="sidebar__brand">{profile.name}</p>
+        <p class="sidebar__focus">
+          <LocaleText as="span" text={profile.focusStack} />
+        </p>
+        <nav class="sidebar__nav">
+          {navItems.map((item) =>
+            item.page ?
+              <a data-nav-link data-target={item.href} href={item.href} class="group">
+                <LocaleText as="span" text={item.label} />
+                <ArrowUpRight class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity" />
+              </a>
+            : <a data-nav-link data-target={item.id} href={item.to}>
+                <LocaleText as="span" text={item.label} />
+              </a>
+          )}
+        </nav>
+        <div class="sidebar__cta">
+          <CvDownloadButton client:idle />
+          <a class="btn ghost" href="/#proyek">
+            <LocaleText as="span" text={layoutCopy.explore} />
+          </a>
+          <a class="btn ghost" href={`mailto:${contact.email}`}>
+            <LocaleText as="span" text={layoutCopy.cta} />
+          </a>
+        </div>
+      </aside>
+      <div class="page-content">
+        <main id="konten-utama">
+          <slot />
+        </main>
+        <Footer />
+      </div>
+      <div class="sidebar-overlay" data-sidebar-overlay></div>
+    </div>
+    <div class="global-toggles">
+      <button
+        class="sidebar-toggle"
+        type="button"
+        data-sidebar-toggle
+        aria-label={layoutCopy.menu.en}>
+        <svg viewBox="0 0 24 24" aria-hidden="true" class="sidebar-toggle__icon">
+          <path
+            d="M4 7h16M4 12h16M4 17h16"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+          />
+        </svg>
+      </button>
+      <div class="global-toggles__controls">
+        <ThemeToggle client:idle />
+        <LangToggle client:idle />
+      </div>
+    </div>
+    <script is:inline>
+      const root = document.documentElement
+      const animatedItems = Array.from(
+        new Set(document.querySelectorAll('.section, [data-animate]'))
+      ).filter((item) => item.id !== 'beranda') // Exclude Hero section to prevent FCP/LCP delay
 
-			// 2. Non-critical: Event listeners and Observers (Run after paint)
-			const initDeferred = () => {
-				const toggle = document.querySelector('[data-sidebar-toggle]');
-				const overlay = document.querySelector('[data-sidebar-overlay]');
-				const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
-				const closeButtons = Array.from(document.querySelectorAll('[data-sidebar-close]'));
+      // 1. Critical: Prevent FOUC for animations (Run immediately)
+      const maxRevealDelay = 400
+      const revealStep = 35
+      animatedItems.forEach((item, index) => {
+        item.classList.add('reveal')
+        item.style.setProperty(
+          '--reveal-delay',
+          `${Math.min(index * revealStep, maxRevealDelay)}ms`
+        )
+      })
 
-				const closeSidebar = () => {
-					root.classList.remove('sidebar-open');
-				};
+      // 2. Non-critical: Event listeners and Observers (Run after paint)
+      const initDeferred = () => {
+        const toggle = document.querySelector('[data-sidebar-toggle]')
+        const overlay = document.querySelector('[data-sidebar-overlay]')
+        const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'))
+        const closeButtons = Array.from(document.querySelectorAll('[data-sidebar-close]'))
 
-				toggle?.addEventListener('click', () => {
-					root.classList.toggle('sidebar-open');
-				});
-				overlay?.addEventListener('click', closeSidebar);
-				closeButtons.forEach((btn) => btn.addEventListener('click', closeSidebar));
-				navLinks.forEach((link) =>
-					link.addEventListener('click', () => {
-						closeSidebar();
-					}),
-				);
+        const closeSidebar = () => {
+          root.classList.remove('sidebar-open')
+        }
 
-				window.addEventListener('keydown', (event) => {
-					if (event.key === 'Escape') {
-						closeSidebar();
-					}
-				});
+        toggle?.addEventListener('click', () => {
+          root.classList.toggle('sidebar-open')
+        })
+        overlay?.addEventListener('click', closeSidebar)
+        closeButtons.forEach((btn) => btn.addEventListener('click', closeSidebar))
+        navLinks.forEach((link) =>
+          link.addEventListener('click', () => {
+            closeSidebar()
+          })
+        )
 
-				const setActiveNav = (id) => {
-					navLinks.forEach((link) => {
-						const targetId = link.getAttribute('data-target');
-						if (targetId === id) {
-							link.classList.add('active');
-							link.setAttribute('aria-current', 'true');
-						} else {
-							link.classList.remove('active');
-							link.removeAttribute('aria-current');
-						}
-					});
-				};
+        window.addEventListener('keydown', (event) => {
+          if (event.key === 'Escape') {
+            closeSidebar()
+          }
+        })
 
-				const sectionEntries = navLinks
-					.map((link) => {
-						const id = link.getAttribute('data-target');
-						if (!id) return null;
-						const element = document.getElementById(id);
-						return element ? { id, element } : null;
-					})
-					.filter(Boolean);
+        const setActiveNav = (id) => {
+          navLinks.forEach((link) => {
+            const targetId = link.getAttribute('data-target')
+            if (targetId === id) {
+              link.classList.add('active')
+              link.setAttribute('aria-current', 'true')
+            } else {
+              link.classList.remove('active')
+              link.removeAttribute('aria-current')
+            }
+          })
+        }
 
-				const hashTarget = window.location.hash?.replace('#', '');
-				if (hashTarget) {
-					setActiveNav(hashTarget);
-				} else if (window.location.pathname.startsWith('/projects')) {
-					setActiveNav('proyek');
-				} else if (window.location.pathname.startsWith('/competitive-programming')) {
-					setActiveNav('/competitive-programming');
-				} else if (window.location.pathname.startsWith('/development-activity')) {
-					setActiveNav('/development-activity');
-				}
+        const sectionEntries = navLinks
+          .map((link) => {
+            const id = link.getAttribute('data-target')
+            if (!id) return null
+            const element = document.getElementById(id)
+            return element ? { id, element } : null
+          })
+          .filter(Boolean)
 
-				if (sectionEntries.length) {
-					setActiveNav(sectionEntries[0].id);
-					const observer = new IntersectionObserver(
-						(entries) => {
-							const visible = entries
-								.filter((entry) => entry.isIntersecting)
-								.sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+        const hashTarget = window.location.hash?.replace('#', '')
+        if (hashTarget) {
+          setActiveNav(hashTarget)
+        } else if (window.location.pathname.startsWith('/projects')) {
+          setActiveNav('proyek')
+        } else if (window.location.pathname.startsWith('/competitive-programming')) {
+          setActiveNav('/competitive-programming')
+        } else if (window.location.pathname.startsWith('/development-activity')) {
+          setActiveNav('/development-activity')
+        }
 
-							if (!visible.length) {
-								return;
-							}
+        if (sectionEntries.length) {
+          setActiveNav(sectionEntries[0].id)
+          const observer = new IntersectionObserver(
+            (entries) => {
+              const visible = entries
+                .filter((entry) => entry.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
 
-							const id = visible[0].target.getAttribute('id');
-							if (id) {
-								setActiveNav(id);
-							}
-						},
-						{ rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] },
-					);
-					sectionEntries.forEach(({ element }) => observer.observe(element));
-				}
+              if (!visible.length) {
+                return
+              }
 
-				const animateObserver = 'IntersectionObserver' in window
-					? new IntersectionObserver(
-							(entries) => {
-								entries.forEach((entry) => {
-									if (entry.isIntersecting) {
-										entry.target.classList.add('is-visible');
-										animateObserver.unobserve(entry.target);
-									}
-								});
-							},
-							{ rootMargin: '0px 0px -10% 0px', threshold: 0.1 },
-					  )
-					: null;
+              const id = visible[0].target.getAttribute('id')
+              if (id) {
+                setActiveNav(id)
+              }
+            },
+            { rootMargin: '-30% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] }
+          )
+          sectionEntries.forEach(({ element }) => observer.observe(element))
+        }
 
-				animatedItems.forEach((item) => {
-					if (animateObserver) {
-						animateObserver.observe(item);
-					} else {
-						item.classList.add('is-visible');
-					}
-				});
-			};
-			
-			if (document.readyState === 'loading') {
-				document.addEventListener('DOMContentLoaded', initDeferred, { once: true });
-			} else {
-				initDeferred();
-			}
-		</script>
-	</body>
+        const animateObserver =
+          'IntersectionObserver' in window ?
+            new IntersectionObserver(
+              (entries) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible')
+                    animateObserver.unobserve(entry.target)
+                  }
+                })
+              },
+              { rootMargin: '0px 0px -10% 0px', threshold: 0.1 }
+            )
+          : null
+
+        animatedItems.forEach((item) => {
+          if (animateObserver) {
+            animateObserver.observe(item)
+          } else {
+            item.classList.add('is-visible')
+          }
+        })
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initDeferred, { once: true })
+      } else {
+        initDeferred()
+      }
+    </script>
+  </body>
 </html>
 
 <style>
-	.global-toggles {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-		position: fixed;
-		top: 1rem;
-		right: 1.25rem;
-		z-index: 20000;
-		background: transparent;
-		border: none;
-		padding: 0;
-	}
+  .global-toggles {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 20000;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
 
-	.global-toggles__controls {
-		display: flex;
-		align-items: center;
-		gap: 0.5rem;
-	}
+  .global-toggles__controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
 
-	.page-grid {
-		display: grid;
-		grid-template-columns: 260px 1fr;
-		min-height: 100svh;
-		position: relative;
-	}
+  .page-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100svh;
+    position: relative;
+  }
 
-	.sidebar {
-		position: sticky;
-		top: 0;
-		align-self: start;
-		height: 100svh;
-		max-height: 100svh;
-		padding: 2rem 1.5rem;
-		background: var(--bg);
-		border-right: 1px solid var(--border);
-		display: flex;
-		flex-direction: column;
-		gap: 1.25rem;
-	}
+  .sidebar {
+    position: sticky;
+    top: 0;
+    align-self: start;
+    height: 100svh;
+    max-height: 100svh;
+    padding: 2rem 1.5rem;
+    background: var(--bg);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
 
-	.sidebar__brand {
-		margin: 0;
-		font-size: 1.25rem;
-		font-weight: 600;
-	}
+  .sidebar__brand {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
 
-	.sidebar__tagline {
-		margin: 0;
-		color: var(--muted);
-		font-size: 0.875rem;
-	}
+  .sidebar__tagline {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.875rem;
+  }
 
-	.sidebar__location {
-		margin: 0.2rem 0 0;
-		font-size: 0.8rem;
-		color: var(--muted);
-	}
+  .sidebar__location {
+    margin: 0.2rem 0 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
 
-	.sidebar__focus {
-		font-size: 0.8rem;
-		color: var(--muted);
-	}
+  .sidebar__focus {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
 
-	.sidebar__nav {
-		display: flex;
-		flex-direction: column;
-		gap: 0.125rem;
-	}
+  .sidebar__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
 
-	.sidebar__nav a {
-		display: flex;
-		align-items: center;
-		padding: 0.5rem 0.75rem;
-		border-radius: var(--radius-md);
-		color: var(--muted);
-		font-weight: 500;
-		font-size: 0.875rem;
-		transition: background 0.15s ease, color 0.15s ease;
-	}
+  .sidebar__nav a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md);
+    color: var(--muted);
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
+  }
 
-	.sidebar__nav a:hover,
-	.sidebar__nav a.active {
-		background: var(--surface-muted);
-		color: var(--text);
-	}
+  .sidebar__nav a:hover,
+  .sidebar__nav a.active {
+    background: var(--surface-muted);
+    color: var(--text);
+  }
 
-	.sidebar__nav a:hover svg,
-	.sidebar__nav a.active svg {
-		opacity: 1;
-	}
+  .sidebar__nav a:hover svg,
+  .sidebar__nav a.active svg {
+    opacity: 1;
+  }
 
-	.sidebar__cta {
-		margin-top: auto;
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
+  .sidebar__cta {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 
-	.page-content {
-		padding: 0 0 4rem;
-		min-width: 0;
-	}
+  .page-content {
+    padding: 0 0 4rem;
+    min-width: 0;
+  }
 
-	.sidebar-toggle {
-		display: none;
-		justify-content: center;
-		padding: 0;
-		border-radius: var(--radius-md);
-		background: var(--bg);
-		color: var(--text);
-		border: 1px solid var(--border);
-		align-items: center;
-		white-space: nowrap;
-		flex-shrink: 0;
-		width: 2.5rem;
-		height: 2.5rem;
-	}
+  .sidebar-toggle {
+    display: none;
+    justify-content: center;
+    padding: 0;
+    border-radius: var(--radius-md);
+    background: var(--bg);
+    color: var(--text);
+    border: 1px solid var(--border);
+    align-items: center;
+    white-space: nowrap;
+    flex-shrink: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
 
-	.sidebar-toggle__icon {
-		width: 1.25rem;
-		height: 1.25rem;
-	}
+  .sidebar-toggle__icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 
-	.sidebar-overlay {
-		display: none;
-	}
+  .sidebar-overlay {
+    display: none;
+  }
 
-	.sidebar__close {
-		display: none;
-		align-items: center;
-		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
-		padding: 0;
-		margin: -0.5rem -0.5rem 0.5rem auto;
-		border-radius: var(--radius-md);
-		border: none;
-		background: transparent;
-		color: var(--muted);
-		transition: color 0.15s ease;
-	}
+  .sidebar__close {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    margin: -0.5rem -0.5rem 0.5rem auto;
+    border-radius: var(--radius-md);
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    transition: color 0.15s ease;
+  }
 
-	.sidebar__close:hover {
-		color: var(--text);
-	}
+  .sidebar__close:hover {
+    color: var(--text);
+  }
 
-	.sidebar__close span[aria-hidden='true'] {
-		font-size: 1.5rem;
-		line-height: 1;
-		font-weight: 300;
-	}
+  .sidebar__close span[aria-hidden='true'] {
+    font-size: 1.5rem;
+    line-height: 1;
+    font-weight: 300;
+  }
 
-	.site-footer {
-		padding-bottom: 4rem;
-	}
+  .site-footer {
+    padding-bottom: 4rem;
+  }
 
-	.thanks-word {
-		font-size: 0.8rem;
-		text-transform: uppercase;
-		letter-spacing: 0.1em;
-		font-weight: 500;
-		color: var(--muted);
-		text-align: center;
-	}
+  .thanks-word {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 500;
+    color: var(--muted);
+    text-align: center;
+  }
 
-	.footer-card {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		gap: 1.5rem;
-		flex-wrap: wrap;
-	}
+  .footer-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
 
-	.footer-card h3 {
-		margin: 0 0 0.5rem;
-		font-size: 1.15rem;
-	}
+  .footer-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.15rem;
+  }
 
-	.footer-meta {
-		margin-top: 0.5rem;
-		text-align: center;
-		font-size: 0.8rem;
-		color: var(--muted);
-	}
+  .footer-meta {
+    margin-top: 0.5rem;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
 
-	@media (max-width: 1100px) {
-		.page-grid {
-			grid-template-columns: 240px 1fr;
-		}
-	}
+  @media (max-width: 1100px) {
+    .page-grid {
+      grid-template-columns: 240px 1fr;
+    }
+  }
 
-	@media (max-width: 900px) {
-		.global-toggles {
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			width: 100%;
-			padding: 0.5rem 1rem;
-			background: var(--bg);
-			border-bottom: 1px solid var(--border);
-			justify-content: space-between;
-			z-index: 20000;
-			gap: 0.75rem;
-			border-radius: 0;
-		}
+  @media (max-width: 900px) {
+    .global-toggles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      justify-content: space-between;
+      z-index: 20000;
+      gap: 0.75rem;
+      border-radius: 0;
+    }
 
-		.global-toggles__controls {
-			display: flex;
-			align-items: center;
-			gap: 0.5rem;
-			flex: 1;
-			justify-content: flex-end;
-			flex-wrap: wrap;
-		}
+    .global-toggles__controls {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex: 1;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+    }
 
-		.page-grid {
-			grid-template-columns: 1fr;
-		}
+    .page-grid {
+      grid-template-columns: 1fr;
+    }
 
-		.sidebar {
-			position: fixed;
-			inset: 0;
-			height: 100lvh;
-			max-height: 100lvh;
-			padding: 1.5rem;
-			padding-top: 5rem;
-			overflow-y: auto;
-			-webkit-overflow-scrolling: touch;
-			transform: translateX(-100%);
-			transition: transform 0.25s ease;
-			z-index: 19000;
-			background: var(--bg);
-		}
+    .sidebar {
+      position: fixed;
+      inset: 0;
+      height: 100lvh;
+      max-height: 100lvh;
+      padding: 1.5rem;
+      padding-top: 5rem;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      transform: translateX(-100%);
+      transition: transform 0.25s ease;
+      z-index: 19000;
+      background: var(--bg);
+    }
 
-		.sidebar-toggle {
-			display: inline-flex;
-		}
+    .sidebar-toggle {
+      display: inline-flex;
+    }
 
-		.sidebar-overlay {
-			display: block;
-			position: fixed;
-			inset: 0;
-			background: rgba(0, 0, 0, 0.5);
-			opacity: 0;
-			pointer-events: none;
-			transition: opacity 0.25s ease;
-			z-index: 18900;
-		}
+    .sidebar-overlay {
+      display: block;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 18900;
+    }
 
-		html.sidebar-open .sidebar {
-			transform: translateX(0);
-		}
+    html.sidebar-open .sidebar {
+      transform: translateX(0);
+    }
 
-		html.sidebar-open .sidebar-overlay {
-			opacity: 1;
-			pointer-events: auto;
-		}
+    html.sidebar-open .sidebar-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-		.page-content {
-			padding-top: 1.5rem;
-			min-width: 0;
-		}
+    .page-content {
+      padding-top: 1.5rem;
+      min-width: 0;
+    }
 
-		.sidebar__close {
-			display: inline-flex;
-		}
+    .sidebar__close {
+      display: inline-flex;
+    }
 
-		.sidebar__nav a {
-			padding: 0.75rem 1rem;
-			font-size: 1rem;
-		}
-	}
+    .sidebar__nav a {
+      padding: 0.75rem 1rem;
+      font-size: 1rem;
+    }
+  }
 </style>

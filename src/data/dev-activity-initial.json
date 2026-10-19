@@ -5644,15 +5644,7 @@
           "forks": 0,
           "updatedAt": "2026-10-17T23:24:49Z",
           "archived": false,
-          "topics": [
-            "cv",
-            "github-pages",
-            "personal-website",
-            "portfolio",
-            "responsive",
-            "resume",
-            "showcase"
-          ]
+          "topics": ["cv", "github-pages", "personal-website", "portfolio", "responsive", "resume", "showcase"]
         },
         {
           "name": "21IF009-Project2-A5",
@@ -5689,16 +5681,7 @@
           "forks": 0,
           "updatedAt": "2025-12-30T18:31:14Z",
           "archived": false,
-          "topics": [
-            "c",
-            "data-structures",
-            "file-manager",
-            "gui-application",
-            "raygui",
-            "raylib",
-            "undo-redo",
-            "windows"
-          ]
+          "topics": ["c", "data-structures", "file-manager", "gui-application", "raygui", "raylib", "undo-redo", "windows"]
         },
         {
           "name": "MBG_002_2A_Arief",
@@ -5710,16 +5693,7 @@
           "forks": 1,
           "updatedAt": "2025-12-21T05:12:12Z",
           "archived": false,
-          "topics": [
-            "alpinejs",
-            "edu-project",
-            "food-management",
-            "inventory",
-            "laravel",
-            "php",
-            "postgresql",
-            "tailwindcss"
-          ]
+          "topics": ["alpinejs", "edu-project", "food-management", "inventory", "laravel", "php", "postgresql", "tailwindcss"]
         },
         {
           "name": "21IF1001-DDPFinalProject-Bioskopku",

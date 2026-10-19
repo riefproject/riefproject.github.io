@@ -1,15 +1,15 @@
 ---
-import type { LocaleText } from '../../types/profile.types';
-import LocaleText from '../i18n/LocaleText.astro';
+import type { LocaleText } from '../../types/profile.types'
+import LocaleText from '../i18n/LocaleText.astro'
 
 export type PageHeaderProps = {
-  backHref: string;
-  backLabel: LocaleText;
-  title: LocaleText;
-  description: LocaleText;
-  variant?: 'default' | 'compact' | 'flush';
-  class?: string;
-};
+  backHref: string
+  backLabel: LocaleText
+  title: LocaleText
+  description: LocaleText
+  variant?: 'default' | 'compact' | 'flush'
+  class?: string
+}
 
 const {
   backHref,
@@ -18,7 +18,7 @@ const {
   description,
   variant = 'default',
   class: className = '',
-} = Astro.props as PageHeaderProps;
+} = Astro.props as PageHeaderProps
 ---
 
 <header
@@ -26,8 +26,7 @@ const {
     'page-header section',
     variant !== 'default' && `page-header--${variant}`,
     className,
-  ]}
->
+  ]}>
   <div class="nav-row">
     <a href={backHref} class="back-link">
       <LocaleText as="span" text={backLabel} />

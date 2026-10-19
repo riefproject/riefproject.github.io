@@ -10,23 +10,23 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { formatRelativeTime } from '../../utils/dateFormat';
+import { computed } from 'vue'
+import { formatRelativeTime } from '../../utils/dateFormat'
 
 const props = withDefaults(
   defineProps<{
-    lastUpdated?: string;
-    isId?: boolean;
+    lastUpdated?: string
+    isId?: boolean
   }>(),
   {
     isId: false,
   }
-);
+)
 
 const formattedTime = computed(() => {
-  if (!props.lastUpdated) return '';
-  return formatRelativeTime(props.lastUpdated, props.isId);
-});
+  if (!props.lastUpdated) return ''
+  return formatRelativeTime(props.lastUpdated, props.isId)
+})
 </script>
 
 <style scoped>
@@ -55,7 +55,8 @@ const formattedTime = computed(() => {
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }

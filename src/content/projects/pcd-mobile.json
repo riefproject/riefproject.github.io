@@ -19,14 +19,7 @@
   },
   "categoryKey": "mobile-app",
   "featured": true,
-  "stack": [
-    "Flutter",
-    "Dart",
-    "OpenCV (opencv_dart)",
-    "Camera API",
-    "Image Processing",
-    "AI Vision"
-  ],
+  "stack": ["Flutter", "Dart", "OpenCV (opencv_dart)", "Camera API", "Image Processing", "AI Vision"],
   "highlights": [
     {
       "en": "Onboarding & mock-auth module with rate-limited login lockout for access-control demonstration.",

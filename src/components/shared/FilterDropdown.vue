@@ -1,122 +1,108 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref, computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    categories: { key: string; label: string; icon?: string }[];
-    modelValue: string[];
-    locale: "id" | "en";
-    itemType?: "category" | "platform";
+    categories: { key: string; label: string; icon?: string }[]
+    modelValue: string[]
+    locale: 'id' | 'en'
+    itemType?: 'category' | 'platform'
   }>(),
   {
-    itemType: "category",
-  },
-);
+    itemType: 'category',
+  }
+)
 
 const emit = defineEmits<{
-  (e: "update:modelValue", value: string[]): void;
-}>();
+  (e: 'update:modelValue', value: string[]): void
+}>()
 
-const isFilterOpen = ref(false);
+const isFilterOpen = ref(false)
 
 const allCategoryKeys = computed(() =>
-  props.categories.filter((c) => c.key !== "all").map((c) => c.key),
-);
+  props.categories.filter((c) => c.key !== 'all').map((c) => c.key)
+)
 
 const activeCategoryLabel = computed(() => {
-  const isPlatform = props.itemType === "platform";
-  const allSelected = props.modelValue.length === allCategoryKeys.value.length;
-  const noneSelected = props.modelValue.length === 0;
+  const isPlatform = props.itemType === 'platform'
+  const allSelected = props.modelValue.length === allCategoryKeys.value.length
+  const noneSelected = props.modelValue.length === 0
 
   if (allSelected) {
     if (isPlatform) {
-      return props.locale === "id" ? "Semua Platform" : "All Platforms";
+      return props.locale === 'id' ? 'Semua Platform' : 'All Platforms'
     }
-    return props.locale === "id" ? "Semua Kategori" : "All Categories";
+    return props.locale === 'id' ? 'Semua Kategori' : 'All Categories'
   }
 
   if (noneSelected) {
     if (isPlatform) {
-      return props.locale === "id" ? "Pilih Platform" : "Select Platform";
+      return props.locale === 'id' ? 'Pilih Platform' : 'Select Platform'
     }
-    return props.locale === "id" ? "Pilih Kategori" : "Select Category";
+    return props.locale === 'id' ? 'Pilih Kategori' : 'Select Category'
   }
 
   if (props.modelValue.length === 1) {
-    const cat = props.categories.find((c) => c.key === props.modelValue[0]);
+    const cat = props.categories.find((c) => c.key === props.modelValue[0])
     if (cat) {
-      return isPlatform ? cat.label.replace(/\s*\(\d+\)/, "") : cat.label;
+      return isPlatform ? cat.label.replace(/\s*\(\d+\)/, '') : cat.label
     }
     if (isPlatform) {
-      return props.locale === "id" ? "1 Platform" : "1 Platform";
+      return props.locale === 'id' ? '1 Platform' : '1 Platform'
     }
-    return props.locale === "id" ? "1 Kategori" : "1 Category";
+    return props.locale === 'id' ? '1 Kategori' : '1 Category'
   }
 
   if (isPlatform) {
-    return props.locale === "id"
-      ? `${props.modelValue.length} Platform`
-      : `${props.modelValue.length} Platforms`;
+    return props.locale === 'id' ?
+        `${props.modelValue.length} Platform`
+      : `${props.modelValue.length} Platforms`
   }
-  return props.locale === "id"
-    ? `${props.modelValue.length} Kategori`
-    : `${props.modelValue.length} Categories`;
-});
+  return props.locale === 'id' ?
+      `${props.modelValue.length} Kategori`
+    : `${props.modelValue.length} Categories`
+})
 
 const toggleAll = () => {
   if (props.modelValue.length === allCategoryKeys.value.length) {
-    emit("update:modelValue", []);
+    emit('update:modelValue', [])
   } else {
-    emit("update:modelValue", [...allCategoryKeys.value]);
+    emit('update:modelValue', [...allCategoryKeys.value])
   }
-};
+}
 
 const toggleCategory = (key: string) => {
-  if (key === "all") {
-    toggleAll();
-    return;
+  if (key === 'all') {
+    toggleAll()
+    return
   }
 
-  const newValue = [...props.modelValue];
-  const index = newValue.indexOf(key);
+  const newValue = [...props.modelValue]
+  const index = newValue.indexOf(key)
   if (index === -1) {
-    newValue.push(key);
+    newValue.push(key)
   } else {
-    newValue.splice(index, 1);
+    newValue.splice(index, 1)
   }
-  emit("update:modelValue", newValue);
-};
+  emit('update:modelValue', newValue)
+}
 </script>
 
 <template>
   <div class="filter-dropdown-container">
-    <button
-      type="button"
-      @click="isFilterOpen = !isFilterOpen"
-      class="filter-trigger-btn">
-      <svg
-        class="w-4 h-4"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2">
+    <button type="button" @click="isFilterOpen = !isFilterOpen" class="filter-trigger-btn">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
       </svg>
       <span>{{ activeCategoryLabel }}</span>
       <span
         class="active-badge"
-        v-if="
-          props.modelValue.length > 0 &&
-          props.modelValue.length < allCategoryKeys.length
-        "
+        v-if="props.modelValue.length > 0 && props.modelValue.length < allCategoryKeys.length"
         >{{ props.modelValue.length }}</span
       >
     </button>
 
-    <div
-      v-if="isFilterOpen"
-      class="filter-overlay"
-      @click="isFilterOpen = false"></div>
+    <div v-if="isFilterOpen" class="filter-overlay" @click="isFilterOpen = false"></div>
 
     <div v-if="isFilterOpen" class="filter-dropdown-menu">
       <div class="dropdown-list">
@@ -130,13 +116,9 @@ const toggleCategory = (key: string) => {
             type="checkbox"
             :checked="props.modelValue.length === allCategoryKeys.length"
             .indeterminate="
-              props.modelValue.length > 0 &&
-              props.modelValue.length < allCategoryKeys.length
+              props.modelValue.length > 0 && props.modelValue.length < allCategoryKeys.length
             " />
-          <input
-            v-else
-            type="checkbox"
-            :checked="props.modelValue.includes(category.key)" />
+          <input v-else type="checkbox" :checked="props.modelValue.includes(category.key)" />
           <img
             v-if="category.icon"
             :src="category.icon"
@@ -248,7 +230,7 @@ const toggleCategory = (key: string) => {
   background: var(--bg-elevated);
 }
 
-.dropdown-item input[type="checkbox"] {
+.dropdown-item input[type='checkbox'] {
   accent-color: var(--accent);
   cursor: pointer;
   margin: 0;

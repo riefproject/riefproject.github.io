@@ -1,14 +1,14 @@
 ---
-import type { LocaleText } from '../../types/profile.types';
-import LocaleText from '../i18n/LocaleText.astro';
+import type { LocaleText } from '../../types/profile.types'
+import LocaleText from '../i18n/LocaleText.astro'
 
 export type SectionIntroProps = {
-  eyebrow: LocaleText;
-  heading: LocaleText;
-  body?: LocaleText;
-  class?: string;
-  surface?: boolean;
-};
+  eyebrow: LocaleText
+  heading: LocaleText
+  body?: LocaleText
+  class?: string
+  surface?: boolean
+}
 
 const {
   eyebrow,
@@ -16,7 +16,7 @@ const {
   body,
   class: className = '',
   surface = true,
-} = Astro.props as SectionIntroProps;
+} = Astro.props as SectionIntroProps
 ---
 
 <div class:list={['section-intro', surface && 'surface', className]}>

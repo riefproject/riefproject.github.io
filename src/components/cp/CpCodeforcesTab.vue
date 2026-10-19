@@ -1,80 +1,58 @@
 <template>
-  <div class="platform-spotlight">
-    <CpPlatformHeader
-      name="Codeforces"
-      logo="/img/codeforces/codeforces.webp"
-      description-en="Global algorithm competition and international olympiad platform."
-      description-id="Platform kompetisi algoritma global dan olimpiade internasional."
-      archive-href="/competitive-programming/problems?platform=codeforces"
-      archive-label-en="Open CF Archive (50)"
-      archive-label-id="Buka Koleksi CF (50 Soal)"
-      :profile-href="`https://codeforces.com/profile/${cpData?.platforms?.codeforces?.handle || 'feeera'}`"
-      profile-label-en="Codeforces Profile ↗"
-      profile-label-id="Profil Codeforces ↗"
-      :isId="isId"
-    />
-
+  <CpPlatformTab
+    platform="codeforces"
+    :cpData="cpData"
+    :columns="columns"
+    :isId="isId"
+    solved-title-en="Solved Codeforces Problems"
+    solved-title-id="Soal Codeforces yang Diselesaikan"
+    archive-href="/competitive-programming/problems?platform=codeforces"
+    :cta-en="`View All ${totalCfSolved} Codeforces Problems on Dedicated Page →`"
+    :cta-id="`Lihat Seluruh ${totalCfSolved} Soal Codeforces di Halaman Khusus →`"
+    open-title-en="Open on Codeforces"
+    open-title-id="Buka di Codeforces">
     <CpMetricsGrid :metrics="metrics" />
 
     <div class="mt-8">
-      <h4 class="text-lg font-semibold mb-3 platform-subtitle">{{ isId ? 'Topik & Algoritma di Codeforces' : 'Topics & Algorithms on Codeforces' }}</h4>
+      <h4 class="text-lg font-semibold mb-3 platform-subtitle">
+        {{ isId ? 'Topik & Algoritma di Codeforces' : 'Topics & Algorithms on Codeforces' }}
+      </h4>
       <div class="flex flex-wrap gap-2">
         <div
-          v-for="(cnt, tag) in (cpData?.platforms?.codeforces?.tagsCount || {})"
+          v-for="(cnt, tag) in cpData?.platforms?.codeforces?.tagsCount || {}"
           :key="tag"
-          class="px-3 py-1.5 cf-tag-card text-sm flex items-center gap-2"
-        >
+          class="px-3 py-1.5 cf-tag-card text-sm flex items-center gap-2">
           <span class="cf-tag-name">{{ tag }}</span>
           <span class="cf-tag-count">{{ cnt }}</span>
         </div>
       </div>
     </div>
-
-    <div class="mt-8">
-      <CpSolvedProblemsPanel
-        :problems="recentSolvedList"
-        :columns="columns"
-        title-en="Solved Codeforces Problems"
-        title-id="Soal Codeforces yang Diselesaikan"
-        archive-href="/competitive-programming/problems?platform=codeforces"
-        :cta-en="`View All ${totalCfSolved} Codeforces Problems on Dedicated Page →`"
-        :cta-id="`Lihat Seluruh ${totalCfSolved} Soal Codeforces di Halaman Khusus →`"
-        open-title-en="Open on Codeforces"
-        open-title-id="Buka di Codeforces"
-        :isId="isId"
-      />
-    </div>
-  </div>
+  </CpPlatformTab>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import CpPlatformHeader from './CpPlatformHeader.vue';
-import CpMetricsGrid from './CpMetricsGrid.vue';
-import CpSolvedProblemsPanel from './CpSolvedProblemsPanel.vue';
-import type { CpColumn, CpMetric } from '../../types/cp.types';
+import { computed } from 'vue'
+import CpPlatformTab from './CpPlatformTab.vue'
+import CpMetricsGrid from './CpMetricsGrid.vue'
+import type { CpColumn, CpData, CpMetric } from '../../types/cp.types'
 
 const props = withDefaults(
   defineProps<{
-    cpData: any;
-    totalCfSolved?: number;
-    isId?: boolean;
+    cpData: CpData
+    totalCfSolved?: number
+    isId?: boolean
   }>(),
   {
     totalCfSolved: 50,
     isId: false,
-  },
-);
-
-const recentSolvedList = computed(
-  () => props.cpData?.platforms?.codeforces?.recentSolved || [],
-);
+  }
+)
 
 const columns: CpColumn[] = [
   { key: 'category', labelEn: 'Tag', labelId: 'Tag' },
   { key: 'difficulty', labelEn: 'Difficulty', labelId: 'Kesulitan' },
   { key: 'language', labelEn: 'Language', labelId: 'Bahasa' },
-];
+]
 
 const metrics = computed<CpMetric[]>(() => [
   {
@@ -93,7 +71,7 @@ const metrics = computed<CpMetric[]>(() => [
     value: props.cpData?.platforms?.codeforces?.totalSubmissions || 148,
     sub: props.isId ? 'Riwayat submisi di CF' : 'Submission history on CF',
   },
-]);
+])
 </script>
 
 <style scoped>

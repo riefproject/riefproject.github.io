@@ -23,21 +23,15 @@
 
     <Transition name="fade">
       <div v-if="isOpen" class="cv-dropdown">
-        <a
-          href="/pdf/cv-arief-en.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cv-item">
+        <a href="/pdf/cv-arief-en.pdf" target="_blank" rel="noopener noreferrer" class="cv-item">
           <span class="lang-code">EN</span>
           <span class="lang-label">{{ isId ? 'Versi Bahasa Inggris' : 'English Version' }}</span>
         </a>
-        <a
-          href="/pdf/cv-arief-in.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="cv-item">
+        <a href="/pdf/cv-arief-in.pdf" target="_blank" rel="noopener noreferrer" class="cv-item">
           <span class="lang-code">ID</span>
-          <span class="lang-label">{{ isId ? 'Versi Bahasa Indonesia' : 'Indonesian Version' }}</span>
+          <span class="lang-label">{{
+            isId ? 'Versi Bahasa Indonesia' : 'Indonesian Version'
+          }}</span>
         </a>
       </div>
     </Transition>
@@ -45,34 +39,34 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed } from "vue";
-import { useLocale } from "../../composables/useLocale";
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useLocale } from '../../composables/useLocale'
 
-const { isId } = useLocale();
-const isOpen = ref(false);
-const wrapper = ref<HTMLElement | null>(null);
+const { isId } = useLocale()
+const isOpen = ref(false)
+const wrapper = ref<HTMLElement | null>(null)
 
 const label = computed(() => {
-  return isId.value ? "Unduh CV" : "Download CV";
-});
+  return isId.value ? 'Unduh CV' : 'Download CV'
+})
 
 const toggleDropdown = () => {
-  isOpen.value = !isOpen.value;
-};
+  isOpen.value = !isOpen.value
+}
 
 const closeDropdown = (e: MouseEvent) => {
   if (wrapper.value && !wrapper.value.contains(e.target as Node)) {
-    isOpen.value = false;
+    isOpen.value = false
   }
-};
+}
 
 onMounted(() => {
-  document.addEventListener("click", closeDropdown);
-});
+  document.addEventListener('click', closeDropdown)
+})
 
 onUnmounted(() => {
-  document.removeEventListener("click", closeDropdown);
-});
+  document.removeEventListener('click', closeDropdown)
+})
 </script>
 
 <style scoped>
@@ -165,7 +159,9 @@ onUnmounted(() => {
 /* Transition */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
 
 .fade-enter-from,

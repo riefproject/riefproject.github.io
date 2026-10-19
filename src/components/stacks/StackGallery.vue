@@ -1,57 +1,55 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import FilterDropdown from "../shared/FilterDropdown.vue";
-import { useStore } from "@nanostores/vue";
-import type { LocaleText, TechStack } from "../../types/profile.types";
-import { theme as themeStore } from "../../stores/uiStore";
-import { useLocale } from "../../composables/useLocale";
-import { useListFilter } from "../../composables/useListFilter";
+import { computed } from 'vue'
+import FilterDropdown from '../shared/FilterDropdown.vue'
+import SearchInput from '../shared/SearchInput.vue'
+import { useStore } from '@nanostores/vue'
+import type { LocaleText, TechStack } from '../../types/profile.types'
+import { theme as themeStore } from '../../stores/uiStore'
+import { useLocale } from '../../composables/useLocale'
+import { useListFilter } from '../../composables/useListFilter'
 
-type Category = { key: string; label: LocaleText };
+type Category = { key: string; label: LocaleText }
 
 const props = defineProps<{
-  items: TechStack[];
-  categories: Category[];
-}>();
+  items: TechStack[]
+  categories: Category[]
+}>()
 
 const { searchTerm, selectedCategories, filteredItems } = useListFilter({
   items: () => props.items,
   categories: () => props.categories,
   getCategory: (item) => item.category,
   matchesSearch: (item, term) => item.name.toLowerCase().includes(term),
-});
-const $theme = useStore(themeStore);
-const { isId, locale, resolveText } = useLocale();
+})
+const $theme = useStore(themeStore)
+const { isId, locale, resolveText } = useLocale()
 
 const searchPlaceholder = computed(() =>
-  isId.value ? "Cari stack atau tools" : "Search stack or tools",
-);
+  isId.value ? 'Cari stack atau tools' : 'Search stack or tools'
+)
 
 const resolveLogo = (item: TechStack) => {
-  return $theme.value === "dark" ? item.logoDark : item.logoLight;
-};
+  return $theme.value === 'dark' ? item.logoDark : item.logoLight
+}
 
 const resolvedCategories = computed(() => {
   return props.categories.map((c) => ({
     key: c.key,
     label: resolveText(c.label),
-  }));
-});
+  }))
+})
 </script>
 
 <template>
   <div class="stack-shell">
     <div class="toolbar">
-      <div class="search-input-wrap">
-        <input
-          v-model="searchTerm"
-          type="search"
-          :placeholder="searchPlaceholder"
-          :aria-label="
-            locale === 'id' ? 'Cari tech stack' : 'Search tech stack'
-          "
-          class="stack-search-input" />
-      </div>
+      <SearchInput
+        v-model="searchTerm"
+        :placeholder="searchPlaceholder"
+        :aria-label="locale === 'id' ? 'Cari tech stack' : 'Search tech stack'"
+        inputType="search"
+        :withIcon="false"
+        surface="plain" />
 
       <FilterDropdown
         v-model="selectedCategories"
@@ -59,14 +57,9 @@ const resolvedCategories = computed(() => {
         :locale="locale" />
     </div>
 
-    <div
-      class="scroller"
-      :aria-label="locale === 'id' ? 'Daftar tech stack' : 'Tech stack list'">
+    <div class="scroller" :aria-label="locale === 'id' ? 'Daftar tech stack' : 'Tech stack list'">
       <div class="stack-grid">
-        <div
-          v-for="item in filteredItems"
-          :key="item.name"
-          class="stack-card surface">
+        <div v-for="item in filteredItems" :key="item.name" class="stack-card surface">
           <div class="stack-logo">
             <img
               v-if="resolveLogo(item)"
@@ -98,21 +91,6 @@ const resolvedCategories = computed(() => {
 
 .search-input-wrap {
   flex: 1;
-}
-
-.stack-search-input {
-  width: 100%;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  padding: 0.55rem 0.75rem;
-  background: var(--bg-elevated);
-  color: var(--text);
-  outline: none;
-  font-size: 0.9rem;
-}
-
-.stack-search-input:focus {
-  border-color: var(--text);
 }
 
 .count {

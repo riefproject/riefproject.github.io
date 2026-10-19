@@ -1,17 +1,11 @@
 <template>
-  <button
-    type="button"
-    class="toggle-btn"
-    :aria-label="ariaLabel"
-    @click="cycle"
-  >
+  <button type="button" class="toggle-btn" :aria-label="ariaLabel" @click="cycle">
     <span
       v-for="option in options"
       :key="option.value"
       class="segment"
       :class="{ active: modelValue === option.value }"
-      aria-hidden="true"
-    >
+      aria-hidden="true">
       <slot :name="option.value">
         <span v-if="option.label">{{ option.label }}</span>
         <span v-else-if="option.icon" v-html="option.icon"></span>
@@ -22,31 +16,31 @@
 
 <script setup lang="ts">
 export interface SegmentedOption {
-  value: string;
-  label?: string;
-  icon?: string;
+  value: string
+  label?: string
+  icon?: string
 }
 
 const props = withDefaults(
   defineProps<{
-    modelValue: string;
-    options: SegmentedOption[];
-    ariaLabel?: string;
+    modelValue: string
+    options: SegmentedOption[]
+    ariaLabel?: string
   }>(),
   {
     ariaLabel: 'Toggle',
-  },
-);
+  }
+)
 
 const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void;
-}>();
+  (e: 'update:modelValue', value: string): void
+}>()
 
 const cycle = () => {
-  const current = props.options.findIndex((option) => option.value === props.modelValue);
-  const next = props.options[(current + 1) % props.options.length];
-  if (next) emit('update:modelValue', next.value);
-};
+  const current = props.options.findIndex((option) => option.value === props.modelValue)
+  const next = props.options[(current + 1) % props.options.length]
+  if (next) emit('update:modelValue', next.value)
+}
 </script>
 
 <style scoped>
@@ -63,7 +57,9 @@ const cycle = () => {
   font-weight: 700;
   font-size: 0.75rem;
   letter-spacing: 0.02em;
-  transition: border-color 0.2s ease, background 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
   line-height: 1;
 }
 

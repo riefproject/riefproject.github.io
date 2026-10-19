@@ -1,13 +1,7 @@
 <template>
-  <div
-    class="stat-card"
-    :class="appearance !== 'default' ? `stat-card--${appearance}` : ''"
-  >
+  <div class="stat-card" :class="appearance !== 'default' ? `stat-card--${appearance}` : ''">
     <span class="stat-label">{{ label }}</span>
-    <div
-      class="stat-value"
-      :class="variant && variant !== 'none' ? `val-${variant}` : ''"
-    >
+    <div class="stat-value" :class="variant && variant !== 'none' ? `val-${variant}` : ''">
       <slot name="value">
         {{ value }}
       </slot>
@@ -22,18 +16,18 @@
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    label: string;
-    value?: number | string;
-    unit?: string;
-    helper?: string;
-    variant?: 'emerald' | 'sky' | 'amber' | 'purple' | 'none';
-    appearance?: 'default' | 'dev' | 'metric';
+    label: string
+    value?: number | string
+    unit?: string
+    helper?: string
+    variant?: 'emerald' | 'sky' | 'amber' | 'purple' | 'none'
+    appearance?: 'default' | 'dev' | 'metric'
   }>(),
   {
     variant: 'none',
     appearance: 'default',
   }
-);
+)
 </script>
 
 <style scoped>
@@ -72,10 +66,18 @@ withDefaults(
   align-items: baseline;
 }
 
-.val-emerald { color: #34d399; }
-.val-sky { color: #38bdf8; }
-.val-amber { color: #fbbf24; }
-.val-purple { color: #c084fc; }
+.val-emerald {
+  color: #34d399;
+}
+.val-sky {
+  color: #38bdf8;
+}
+.val-amber {
+  color: #fbbf24;
+}
+.val-purple {
+  color: #c084fc;
+}
 
 .stat-unit {
   font-size: var(--text-lg);
@@ -118,7 +120,7 @@ withDefaults(
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
-    "Segoe UI",
+    'Segoe UI',
     Roboto,
     sans-serif;
 }
@@ -183,10 +185,18 @@ withDefaults(
   background: var(--bg-soft);
 }
 
-:root.light .val-emerald { color: #047857; }
-:root.light .val-sky { color: #0284c7; }
-:root.light .val-amber { color: #b45309; }
-:root.light .val-purple { color: #6b21a8; }
+:root.light .val-emerald {
+  color: #047857;
+}
+:root.light .val-sky {
+  color: #0284c7;
+}
+:root.light .val-amber {
+  color: #b45309;
+}
+:root.light .val-purple {
+  color: #6b21a8;
+}
 
 :root.light .stat-label {
   color: #4b5563;

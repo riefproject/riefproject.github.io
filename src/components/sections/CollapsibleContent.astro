@@ -1,16 +1,16 @@
 ---
-import type { LocaleText } from '../../types/profile.types';
-import LocaleText from '../i18n/LocaleText.astro';
+import type { LocaleText } from '../../types/profile.types'
+import LocaleText from '../i18n/LocaleText.astro'
 
 export type CollapsibleContentProps = {
-  collapsedHeight?: string;
-  fadeHeight?: string;
-  labelSize?: 'sm' | 'base';
-  labelMargin?: string;
-  readMore?: LocaleText;
-  showLess?: LocaleText;
-  class?: string;
-};
+  collapsedHeight?: string
+  fadeHeight?: string
+  labelSize?: 'sm' | 'base'
+  labelMargin?: string
+  readMore?: LocaleText
+  showLess?: LocaleText
+  class?: string
+}
 
 const {
   collapsedHeight = '120px',
@@ -20,9 +20,9 @@ const {
   readMore = { en: 'Read details', id: 'Baca selengkapnya' },
   showLess = { en: 'Show less', id: 'Tampilkan lebih sedikit' },
   class: className = '',
-} = Astro.props as CollapsibleContentProps;
+} = Astro.props as CollapsibleContentProps
 
-const toggleId = `collapsible-${Math.random().toString(36).slice(2, 9)}`;
+const toggleId = `collapsible-${Math.random().toString(36).slice(2, 9)}`
 ---
 
 <div class:list={['collapsible', className]}>
@@ -34,8 +34,7 @@ const toggleId = `collapsible-${Math.random().toString(36).slice(2, 9)}`;
   <label
     for={toggleId}
     class:list={['collapsible__label', labelSize === 'base' && 'collapsible__label--base']}
-    style={`margin-top: ${labelMargin};`}
-  >
+    style={`margin-top: ${labelMargin};`}>
     <span class="read-more">
       <LocaleText as="span" text={readMore} />
     </span>
@@ -76,7 +75,9 @@ const toggleId = `collapsible-${Math.random().toString(36).slice(2, 9)}`;
     width: 100%;
     pointer-events: none;
     background: linear-gradient(to top, var(--bg-soft), transparent);
-    transition: opacity 0.3s, background 0.2s ease;
+    transition:
+      opacity 0.3s,
+      background 0.2s ease;
   }
 
   .collapsible__toggle:checked ~ .collapsible__body .collapsible__fade {

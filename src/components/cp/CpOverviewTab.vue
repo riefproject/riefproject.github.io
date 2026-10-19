@@ -5,91 +5,82 @@
       <!-- TLX Card -->
       <PlatformCard
         name="TOKI Learning Center"
-        :handle="cpData?.platforms?.tlx?.handle || 'aycaaa'"
-        logo="/img/tlx/tlx.webp"
+        :handle="cpData?.platforms?.tlx?.handle || CP_PLATFORMS.tlx.handleFallback"
+        :logo="CP_PLATFORMS.tlx.logo"
         :solvedNum="totalTlxSolved"
         :solvedLabel="isId ? 'selesai' : 'solved'"
         :footerText="isId ? 'Lihat Detail TLX →' : 'View TLX Details →'"
-        @select="$emit('selectPlatform', 'tlx')"
-      >
-        <div class="pcard-meta-row">
-          <span>{{ isId ? 'Submisi Total' : 'Total Submissions' }}:</span>
+        @select="$emit('selectPlatform', 'tlx')">
+        <MetaRow :label="`${isId ? 'Submisi Total' : 'Total Submissions'}:`">
           <strong>{{ cpData?.platforms?.tlx?.totalSubmissions || 561 }}</strong>
-        </div>
-        <div class="pcard-meta-row">
-          <span>{{ isId ? 'Bahasa Dominan' : 'Top Language' }}:</span>
+        </MetaRow>
+        <MetaRow :label="`${isId ? 'Bahasa Dominan' : 'Top Language'}:`">
           <strong>C++20</strong>
-        </div>
+        </MetaRow>
       </PlatformCard>
 
       <!-- Codeforces Card -->
       <PlatformCard
         name="Codeforces"
-        :handle="cpData?.platforms?.codeforces?.handle || 'feeera'"
-        logo="/img/codeforces/codeforces.webp"
+        :handle="cpData?.platforms?.codeforces?.handle || CP_PLATFORMS.codeforces.handleFallback"
+        :logo="CP_PLATFORMS.codeforces.logo"
         :solvedNum="cpData?.platforms?.codeforces?.rating || 625"
         solvedLabel="rating"
         :footerText="isId ? 'Lihat Detail Codeforces →' : 'View Codeforces Details →'"
-        @select="$emit('selectPlatform', 'codeforces')"
-      >
-        <div class="pcard-meta-row">
-          <span>{{ isId ? 'Soal Selesai' : 'Problems Solved' }}:</span>
+        @select="$emit('selectPlatform', 'codeforces')">
+        <MetaRow :label="`${isId ? 'Soal Selesai' : 'Problems Solved'}:`">
           <strong>{{ totalCfSolved }} {{ isId ? 'Soal' : 'Problems' }}</strong>
-        </div>
-        <div class="pcard-meta-row">
-          <span>Rank:</span>
-          <strong class="cf-rank-text capitalize">{{ cpData?.platforms?.codeforces?.rank || 'newbie' }}</strong>
-        </div>
+        </MetaRow>
+        <MetaRow label="Rank:">
+          <strong class="cf-rank-text capitalize">{{
+            cpData?.platforms?.codeforces?.rank || 'newbie'
+          }}</strong>
+        </MetaRow>
       </PlatformCard>
 
       <!-- LeetCode Card -->
       <PlatformCard
         name="LeetCode"
-        :handle="cpData?.platforms?.leetcode?.handle || 'fsaree'"
-        logo="/img/leetcode/leetcode.webp"
+        :handle="cpData?.platforms?.leetcode?.handle || CP_PLATFORMS.leetcode.handleFallback"
+        :logo="CP_PLATFORMS.leetcode.logo"
         :solvedNum="totalLcSolved"
         :solvedLabel="isId ? 'selesai' : 'solved'"
         :footerText="isId ? 'Lihat Detail LeetCode →' : 'View LeetCode Details →'"
-        @select="$emit('selectPlatform', 'leetcode')"
-      >
-        <div class="pcard-meta-row">
-          <span>{{ isId ? 'Tingkat Kesulitan' : 'Difficulty Split' }}:</span>
+        @select="$emit('selectPlatform', 'leetcode')">
+        <MetaRow :label="`${isId ? 'Tingkat Kesulitan' : 'Difficulty Split'}:`">
           <span class="diff-split">
             <span class="diff-cnt easy">{{ cpData?.platforms?.leetcode?.easySolved || 32 }}E</span>
             ·
-            <span class="diff-cnt medium">{{ cpData?.platforms?.leetcode?.mediumSolved || 24 }}M</span>
+            <span class="diff-cnt medium"
+              >{{ cpData?.platforms?.leetcode?.mediumSolved || 24 }}M</span
+            >
             ·
             <span class="diff-cnt hard">{{ cpData?.platforms?.leetcode?.hardSolved || 3 }}H</span>
           </span>
-        </div>
-        <div class="pcard-meta-row">
-          <span>Global Ranking:</span>
+        </MetaRow>
+        <MetaRow label="Global Ranking:">
           <strong>~{{ (cpData?.platforms?.leetcode?.ranking || 2367686).toLocaleString() }}</strong>
-        </div>
+        </MetaRow>
       </PlatformCard>
 
       <!-- HackerRank Card -->
       <PlatformCard
         name="HackerRank"
-        :handle="cpData?.platforms?.hackerrank?.handle || 'areee'"
-        logo="/img/hackerrank/HackerRank.webp"
+        :handle="cpData?.platforms?.hackerrank?.handle || CP_PLATFORMS.hackerrank.handleFallback"
+        :logo="CP_PLATFORMS.hackerrank.logo"
         :solvedNum="totalHrSolved + '+'"
         :solvedLabel="isId ? 'selesai' : 'solved'"
         :footerText="isId ? 'Lihat Detail HackerRank →' : 'View HackerRank Details →'"
-        @select="$emit('selectPlatform', 'hackerrank')"
-      >
-        <div class="pcard-meta-row">
-          <span>Algorithms Track:</span>
+        @select="$emit('selectPlatform', 'hackerrank')">
+        <MetaRow label="Algorithms Track:">
           <strong class="track-pts-emerald">1029.98 pts</strong>
-        </div>
-        <div class="pcard-meta-row">
-          <span>SQL Track:</span>
+        </MetaRow>
+        <MetaRow label="SQL Track:">
           <strong class="track-pts-sky">390 pts</strong>
-        </div>
-        <div class="pcard-meta-row">
-          <span>C++ & Java Track:</span>
+        </MetaRow>
+        <MetaRow label="C++ & Java Track:">
           <strong>430+ pts</strong>
-        </div>
+        </MetaRow>
       </PlatformCard>
     </div>
 
@@ -98,46 +89,32 @@
       <div class="feed-header">
         <div>
           <h3>
-            {{
-              isId ? "Daftar Soal yang Diselesaikan" : "Solved Problems History"
-            }}
+            {{ isId ? 'Daftar Soal yang Diselesaikan' : 'Solved Problems History' }}
           </h3>
           <p class="feed-subtitle">
             {{
-              isId
-                ? "Aktivitas penyelesaian soal lintas platform secara kronologis."
-                : "Chronological stream of solved challenges across all competitive platforms."
+              isId ?
+                'Aktivitas penyelesaian soal lintas platform secara kronologis.'
+              : 'Chronological stream of solved challenges across all competitive platforms.'
             }}
           </p>
         </div>
 
         <!-- Feed Filter Controls -->
         <div class="feed-controls">
-          <div class="search-input-wrap">
-            <svg
-              class="search-icon w-4 h-4"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-            <input
-              v-model="searchQuery"
-              type="text"
-              :placeholder="
-                isId
-                  ? 'Cari judul soal, topik, bahasa...'
-                  : 'Search problem title, topic, language...'
-              "
-              class="search-input"
-              @input="currentPage = 1" />
-          </div>
+          <SearchInput
+            v-model="searchTerm"
+            :placeholder="
+              isId ?
+                'Cari judul soal, topik, bahasa...'
+              : 'Search problem title, topic, language...'
+            "
+            surface="soft"
+            @input="currentPage = 1" />
 
           <!-- Unified Filter Popover (Desktop & Mobile) -->
           <FilterDropdown
-            v-model="feedPlatformFilter"
+            v-model="selectedCategories"
             :categories="platformCategories"
             :locale="locale"
             itemType="platform"
@@ -151,8 +128,7 @@
           :problems="paginatedFeed"
           :currentPage="currentPage"
           :pageSize="pageSize"
-          :isId="isId"
-        />
+          :isId="isId" />
 
         <!-- Reusable Pagination -->
         <CpTablePagination
@@ -166,9 +142,9 @@
       <div v-else class="empty-feed">
         <p>
           {{
-            isId
-              ? "Tidak ada soal yang cocok dengan filter pencarian."
-              : "No problems found matching your filter."
+            isId ?
+              'Tidak ada soal yang cocok dengan filter pencarian.'
+            : 'No problems found matching your filter.'
           }}
         </p>
       </div>
@@ -179,26 +155,24 @@
           <div class="flex items-center gap-2">
             <h4 class="cta-title">
               {{
-                isId
-                  ? `Jelajahi Seluruh ${totalAllSolved}+ Koleksi Soal`
-                  : `Explore Complete ${totalAllSolved}+ Solved Archive`
+                isId ?
+                  `Jelajahi Seluruh ${totalAllSolved}+ Koleksi Soal`
+                : `Explore Complete ${totalAllSolved}+ Solved Archive`
               }}
             </h4>
           </div>
           <p class="cta-desc">
             {{
-              isId
-                ? "Buka halaman arsip terfokus dengan filter komprehensif, pencarian cepat per topik, navigasi multi-halaman, dan link soal langsung."
-                : "Open the dedicated archive page with full-text search, topic filtering, multi-page pagination, and direct problem links."
+              isId ?
+                'Buka halaman arsip terfokus dengan filter komprehensif, pencarian cepat per topik, navigasi multi-halaman, dan link soal langsung.'
+              : 'Open the dedicated archive page with full-text search, topic filtering, multi-page pagination, and direct problem links.'
             }}
           </p>
         </div>
         <a
-          :href="`/competitive-programming/problems${feedPlatformFilter.length < allPlatformKeys.length ? '?platform=' + feedPlatformFilter.join(',') : ''}`"
+          :href="`/competitive-programming/problems${selectedCategories.length < allPlatformKeys.length ? '?platform=' + selectedCategories.join(',') : ''}`"
           class="cta-action-btn">
-          <span>{{
-            isId ? "Buka Halaman Arsip Soal" : "Open Solved Problems Archive"
-          }}</span>
+          <span>{{ isId ? 'Buka Halaman Arsip Soal' : 'Open Solved Problems Archive' }}</span>
           <svg
             class="w-4 h-4"
             viewBox="0 0 24 24"
@@ -215,23 +189,27 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
-import FilterDropdown from "../shared/FilterDropdown.vue";
-import CpTablePagination from "./CpTablePagination.vue";
-import CpProblemsTable from "./CpProblemsTable.vue";
-import PlatformCard from "../shared/PlatformCard.vue";
-import { cleanLanguage, getDiffClass } from "../../utils/cp/formatting";
-import { getPlatformLogo, getPlatformName } from "../../utils/cp/platforms";
+import { computed } from 'vue'
+import FilterDropdown from '../shared/FilterDropdown.vue'
+import SearchInput from '../shared/SearchInput.vue'
+import CpTablePagination from './CpTablePagination.vue'
+import CpProblemsTable from './CpProblemsTable.vue'
+import PlatformCard from '../shared/PlatformCard.vue'
+import MetaRow from '../shared/MetaRow.vue'
+import { useListFilter } from '../../composables/useListFilter'
+import { usePagination } from '../../composables/usePagination'
+import { CP_PLATFORMS, CP_PLATFORM_KEYS, buildPlatformCategories } from '../../utils/cp/platforms'
+import type { CpData, SubmissionItem } from '../../types/cp.types'
 
 const props = withDefaults(
   defineProps<{
-    cpData: any;
-    totalTlxSolved?: number;
-    totalCfSolved?: number;
-    totalLcSolved?: number;
-    totalHrSolved?: number;
-    isId?: boolean;
-    locale?: "en" | "id";
+    cpData: CpData
+    totalTlxSolved?: number
+    totalCfSolved?: number
+    totalLcSolved?: number
+    totalHrSolved?: number
+    isId?: boolean
+    locale?: 'en' | 'id'
   }>(),
   {
     totalTlxSolved: 437,
@@ -239,88 +217,62 @@ const props = withDefaults(
     totalLcSolved: 102,
     totalHrSolved: 147,
     isId: false,
-    locale: "en",
-  },
-);
+    locale: 'en',
+  }
+)
 
 defineEmits<{
-  (e: "selectPlatform", platform: string): void;
-}>();
+  (e: 'selectPlatform', platform: string): void
+}>()
 
-const allPlatformKeys = ["tlx", "codeforces", "leetcode", "hackerrank"];
-const feedPlatformFilter = ref<string[]>([...allPlatformKeys]);
-const searchQuery = ref("");
-const currentPage = ref(1);
-const pageSize = ref(10);
+const allPlatformKeys = [...CP_PLATFORM_KEYS]
 
 const totalAllSolved = computed(() => {
   return (
     props.cpData?.overview?.totalSolved ||
-    props.totalTlxSolved +
-      props.totalCfSolved +
-      props.totalLcSolved +
-      props.totalHrSolved
-  );
-});
+    props.totalTlxSolved + props.totalCfSolved + props.totalLcSolved + props.totalHrSolved
+  )
+})
 
-const platformCategories = computed(() => [
-  {
-    key: "all",
-    label: `${props.locale === "id" ? "Semua Platform" : "All Platforms"} (${totalAllSolved.value})`,
-  },
-  {
-    key: "tlx",
-    label: `TLX (${props.totalTlxSolved})`,
-    icon: "/img/tlx/tlx.webp",
-  },
-  {
-    key: "codeforces",
-    label: `Codeforces (${props.totalCfSolved})`,
-    icon: "/img/codeforces/codeforces.webp",
-  },
-  {
-    key: "leetcode",
-    label: `LeetCode (${props.totalLcSolved})`,
-    icon: "/img/leetcode/leetcode.webp",
-  },
-  {
-    key: "hackerrank",
-    label: `HackerRank (${props.totalHrSolved})`,
-    icon: "/img/hackerrank/HackerRank.webp",
-  },
-]);
+const platformCategories = computed(() =>
+  buildPlatformCategories(
+    {
+      all: totalAllSolved.value,
+      tlx: props.totalTlxSolved,
+      codeforces: props.totalCfSolved,
+      leetcode: props.totalLcSolved,
+      hackerrank: props.totalHrSolved,
+    },
+    props.locale === 'id'
+  )
+)
 
-const allRecentFeed = computed(() => {
-  return props.cpData?.recentGlobalFeed || [];
-});
+const allRecentFeed = computed<SubmissionItem[]>(() => props.cpData?.recentGlobalFeed || [])
 
-const filteredFeed = computed(() => {
-  let list = allRecentFeed.value;
-  list = list.filter((item: any) =>
-    feedPlatformFilter.value.includes(item.platform),
-  );
-  if (searchQuery.value.trim()) {
-    const q = searchQuery.value.toLowerCase();
-    list = list.filter(
-      (item: any) =>
-        (item.title && item.title.toLowerCase().includes(q)) ||
-        (item.category && item.category.toLowerCase().includes(q)) ||
-        (item.language && item.language.toLowerCase().includes(q)) ||
-        (item.platform && item.platform.toLowerCase().includes(q)) ||
-        (item.difficulty && String(item.difficulty).toLowerCase().includes(q)),
-    );
-  }
-  return list;
-});
+const {
+  searchTerm,
+  selectedCategories,
+  filteredItems: filteredFeed,
+} = useListFilter<SubmissionItem>({
+  items: () => allRecentFeed.value,
+  categories: () => allPlatformKeys.map((key) => ({ key })),
+  getCategory: (item) => item.platform as string,
+  matchesSearch: (item, term) =>
+    [
+      item.title,
+      item.category,
+      item.language,
+      item.platform,
+      item.difficulty !== undefined ? String(item.difficulty) : '',
+    ].some((value) => value && value.toLowerCase().includes(term)),
+})
 
-const totalPages = computed(() => {
-  return Math.max(1, Math.ceil(filteredFeed.value.length / pageSize.value));
-});
-
-const paginatedFeed = computed(() => {
-  const start = (currentPage.value - 1) * pageSize.value;
-  return filteredFeed.value.slice(start, start + pageSize.value);
-});
+const {
+  currentPage,
+  pageSize,
+  totalPages,
+  paginatedList: paginatedFeed,
+} = usePagination(() => filteredFeed.value, 10)
 </script>
 
 <style scoped>
@@ -386,44 +338,7 @@ const paginatedFeed = computed(() => {
 }
 
 .search-input-wrap {
-  position: relative;
-  width: auto;
   flex: 1;
-}
-
-.search-icon {
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--muted);
-}
-
-.search-input {
-  width: 100%;
-  height: 2.5rem;
-  padding: 0 1rem 0 2.2rem;
-  border-radius: var(--radius-md);
-  background: var(--bg-soft);
-  border: 1px solid var(--border);
-  color: var(--text);
-  font-size: var(--text-base);
-  outline: none;
-  box-sizing: border-box;
-}
-
-.search-input:focus {
-  border-color: var(--text);
-}
-
-:root.light .search-input {
-  background: #ffffff;
-  border-color: #cbd5e1;
-  color: #0f172a;
-}
-
-:root.light .search-input:focus {
-  border-color: #64748b;
 }
 
 @media (max-width: 640px) {

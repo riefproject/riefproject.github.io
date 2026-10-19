@@ -14,13 +14,7 @@
     "en": "Facilitated structured mentoring focused on building strong computational thinking, problem decomposition, and algorithmic reasoning skills, emphasizing transferable problem-solving frameworks over competition-specific tactics.",
     "id": "Memfasilitasi mentoring terstruktur dengan fokus pada penguatan computational thinking, dekomposisi masalah, dan penalaran algoritmik, dengan menekankan kerangka problem solving yang transferable dibandingkan sekadar taktik lomba."
   },
-  "stack": [
-    "Computational Thinking",
-    "Algorithmic Reasoning",
-    "Problem Decomposition",
-    "C++ Fundamentals",
-    "Mentorship"
-  ],
+  "stack": ["Computational Thinking", "Algorithmic Reasoning", "Problem Decomposition", "C++ Fundamentals", "Mentorship"],
   "achievements": [
     {
       "en": "Designed a learning approach that prioritizes understanding problem constraints, edge cases, and solution trade-offs before implementation.",

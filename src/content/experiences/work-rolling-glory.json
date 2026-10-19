@@ -14,14 +14,7 @@
     "en": "Drove backend development and architectural improvements to deliver high-performance, scalable business solutions, enabling streamlined operations and robust system reliability.",
     "id": "Mendorong pengembangan backend dan peningkatan arsitektur untuk menghasilkan solusi bisnis berkinerja tinggi dan terukur, mewujudkan operasional yang lebih efisien dan keandalan sistem yang kuat."
   },
-  "stack": [
-    "Typescript",
-    "Nodejs",
-    "Nest.js",
-    "Postgresql",
-    "Redis",
-    "Javascript"
-  ],
+  "stack": ["Typescript", "Nodejs", "Nest.js", "Postgresql", "Redis", "Javascript"],
   "achievements": [
     {
       "en": "Designed and implemented automated business logic systems, drastically reducing manual administrative overhead and improving overall operational efficiency.",

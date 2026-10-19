@@ -1,94 +1,91 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, computed, watch } from "vue";
-import type { Achievement } from "../../types/profile.types";
-import { useLocale } from "../../composables/useLocale";
+import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
+import type { Achievement } from '../../types/profile.types'
+import { useLocale } from '../../composables/useLocale'
 
 const props = defineProps<{
-  achievement: Achievement | null;
-  isOpen: boolean;
-}>();
+  achievement: Achievement | null
+  isOpen: boolean
+}>()
 
 const emit = defineEmits<{
-  (e: "close"): void;
-}>();
+  (e: 'close'): void
+}>()
 
-const { locale } = useLocale();
+const { locale } = useLocale()
 
-const copySuccess = ref(false);
-const currentImageIndex = ref(0);
+const copySuccess = ref(false)
+const currentImageIndex = ref(0)
 
 const highlightTags = computed(() => {
-  const raw =
-    props.achievement?.highlight?.[locale.value] ||
-    props.achievement?.highlight?.en ||
-    "";
+  const raw = props.achievement?.highlight?.[locale.value] || props.achievement?.highlight?.en || ''
   return raw
     .split(/[,·\|/]/)
     .map((tag) => tag.trim())
-    .filter(Boolean);
-});
+    .filter(Boolean)
+})
 
 const images = computed(() => {
-  if (!props.achievement?.certificateImage) return [];
-  return Array.isArray(props.achievement.certificateImage)
-    ? props.achievement.certificateImage
-    : [props.achievement.certificateImage];
-});
+  if (!props.achievement?.certificateImage) return []
+  return Array.isArray(props.achievement.certificateImage) ?
+      props.achievement.certificateImage
+    : [props.achievement.certificateImage]
+})
 
 const nextImage = () => {
   if (currentImageIndex.value < images.value.length - 1) {
-    currentImageIndex.value++;
+    currentImageIndex.value++
   } else {
-    currentImageIndex.value = 0;
+    currentImageIndex.value = 0
   }
-};
+}
 
 const prevImage = () => {
   if (currentImageIndex.value > 0) {
-    currentImageIndex.value--;
+    currentImageIndex.value--
   } else {
-    currentImageIndex.value = images.value.length - 1;
+    currentImageIndex.value = images.value.length - 1
   }
-};
+}
 
 watch(
   () => props.achievement,
   () => {
-    currentImageIndex.value = 0;
+    currentImageIndex.value = 0
   }
-);
+)
 
 const copyToClipboard = async (text: string) => {
   try {
-    await navigator.clipboard.writeText(text);
-    copySuccess.value = true;
+    await navigator.clipboard.writeText(text)
+    copySuccess.value = true
     setTimeout(() => {
-      copySuccess.value = false;
-    }, 2000);
+      copySuccess.value = false
+    }, 2000)
   } catch (err) {
-    console.error("Failed to copy:", err);
+    console.error('Failed to copy:', err)
   }
-};
+}
 
 const handleEscape = (e: KeyboardEvent) => {
-  if (e.key === "Escape" && props.isOpen) {
-    emit("close");
+  if (e.key === 'Escape' && props.isOpen) {
+    emit('close')
   }
-};
+}
 
 const handleBackdropClick = (e: MouseEvent) => {
-  if ((e.target as HTMLElement).classList.contains("modal-backdrop")) {
-    emit("close");
+  if ((e.target as HTMLElement).classList.contains('modal-backdrop')) {
+    emit('close')
   }
-};
+}
 
 onMounted(() => {
-  document.addEventListener("keydown", handleEscape);
-});
+  document.addEventListener('keydown', handleEscape)
+})
 
 onUnmounted(() => {
-  document.removeEventListener("keydown", handleEscape);
-});
+  document.removeEventListener('keydown', handleEscape)
+})
 </script>
 
 <template>
@@ -97,12 +94,7 @@ onUnmounted(() => {
       <div
         v-if="isOpen && achievement"
         class="modal-backdrop fixed inset-0 z-[18000] bg-black/70 backdrop-blur-sm"
-        style="
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 1rem;
-        "
+        style="display: flex; align-items: center; justify-content: center; padding: 1rem"
         @click="handleBackdropClick">
         <div
           class="modal-content relative bg-[var(--bg-elevated)] shadow-2xl overflow-y-auto rounded-2xl border border-[var(--border)] w-[90vw] max-h-[85vh] md:w-full md:max-w-5xl md:h-auto md:max-h-[90vh]"
@@ -145,11 +137,7 @@ onUnmounted(() => {
                       @click.stop="prevImage"
                       class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100 focus:opacity-100"
                       :aria-label="locale === 'id' ? 'Gambar sebelumnya' : 'Previous image'">
-                      <svg
-                        class="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -162,11 +150,7 @@ onUnmounted(() => {
                       @click.stop="nextImage"
                       class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100 focus:opacity-100"
                       :aria-label="locale === 'id' ? 'Gambar berikutnya' : 'Next image'">
-                      <svg
-                        class="w-5 h-5"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
+                      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           stroke-linecap="round"
                           stroke-linejoin="round"
@@ -176,19 +160,20 @@ onUnmounted(() => {
                     </button>
 
                     <!-- Indicators -->
-                    <div
-                      class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                    <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
                       <button
                         v-for="(_, idx) in images"
                         :key="idx"
                         @click.stop="currentImageIndex = idx"
                         class="w-2 h-2 rounded-full transition-all"
                         :class="
-                          idx === currentImageIndex
-                            ? 'bg-white scale-110'
-                            : 'bg-white/50 hover:bg-white/80'
+                          idx === currentImageIndex ? 'bg-white scale-110' : (
+                            'bg-white/50 hover:bg-white/80'
+                          )
                         "
-                        :aria-label="locale === 'id' ? `Ke gambar ${idx + 1}` : `Go to image ${idx + 1}`" />
+                        :aria-label="
+                          locale === 'id' ? `Ke gambar ${idx + 1}` : `Go to image ${idx + 1}`
+                        " />
                     </div>
                   </template>
                 </div>
@@ -205,18 +190,16 @@ onUnmounted(() => {
                       :alt="achievement.issuer[locale] || achievement.issuer.en"
                       class="w-8 h-8 object-contain" />
                     <div>
-                      <h2
-                        class="text-xl text-start font-bold text-[var(--text)]">
+                      <h2 class="text-xl text-start font-bold text-[var(--text)]">
                         {{ achievement.title[locale] || achievement.title.en }}
                       </h2>
                       <p class="text-xs text-start text-[var(--muted)]">
-                        {{ achievement.issuer[locale] || achievement.issuer.en }} · {{ achievement.date }}
+                        {{ achievement.issuer[locale] || achievement.issuer.en }} ·
+                        {{ achievement.date }}
                       </p>
                     </div>
                   </div>
-                  <div
-                    v-if="highlightTags.length"
-                    class="flex flex-wrap gap-1.5">
+                  <div v-if="highlightTags.length" class="flex flex-wrap gap-1.5">
                     <span
                       v-for="tag in highlightTags"
                       :key="tag"
@@ -236,18 +219,18 @@ onUnmounted(() => {
                     </label>
                     <div
                       class="flex items-center gap-2 bg-[var(--bg)] rounded-xl p-3 border border-[var(--border)]">
-                      <code
-                        class="flex-1 text-sm font-mono text-[var(--text)] break-all">
+                      <code class="flex-1 text-sm font-mono text-[var(--text)] break-all">
                         {{ achievement.credentialId }}
                       </code>
                       <button
                         @click="copyToClipboard(achievement.credentialId)"
                         class="flex-shrink-0 p-2 rounded-lg bg-[var(--bg-elevated)] hover:bg-[var(--surface-muted)] transition-all border border-[var(--border)]"
                         :class="{
-                          'bg-[var(--chip-bg)] border-[var(--accent)]':
-                            copySuccess,
+                          'bg-[var(--chip-bg)] border-[var(--accent)]': copySuccess,
                         }"
-                        :aria-label="locale === 'id' ? 'Salin ID kredensial' : 'Copy credential ID'">
+                        :aria-label="
+                          locale === 'id' ? 'Salin ID kredensial' : 'Copy credential ID'
+                        ">
                         <svg
                           v-if="!copySuccess"
                           class="w-4 h-4 text-[var(--muted)]"
@@ -283,12 +266,10 @@ onUnmounted(() => {
                       target="_blank"
                       rel="noopener noreferrer"
                       class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[var(--accent)] hover:bg-[var(--accent-strong)] text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md">
-                      <span>{{ locale === 'id' ? 'Verifikasi Kredensial' : 'Verify Credential' }}</span>
-                      <svg
-                        class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24">
+                      <span>{{
+                        locale === 'id' ? 'Verifikasi Kredensial' : 'Verify Credential'
+                      }}</span>
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           stroke-linecap="round"
                           stroke-linejoin="round"

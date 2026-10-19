@@ -1,20 +1,19 @@
-import { computed, type ComputedRef } from 'vue';
-import { useStore } from '@nanostores/vue';
-import { lang, type Locale } from '../stores/uiStore';
-import { resolveLocaleText, type LocaleText } from '../utils/i18n';
+import { computed, type ComputedRef } from 'vue'
+import { useStore } from '@nanostores/vue'
+import { lang, type Locale } from '../stores/uiStore'
+import { resolveLocaleText, type LocaleText } from '../utils/i18n'
 
 export function useLocale() {
-  const $lang = useStore(lang);
-  const isId = computed(() => $lang.value === 'id');
-  const locale = computed<Locale>(() => (isId.value ? 'id' : 'en'));
+  const $lang = useStore(lang)
+  const isId = computed(() => $lang.value === 'id')
+  const locale = computed<Locale>(() => (isId.value ? 'id' : 'en'))
 
-  const resolveText = (text?: LocaleText | string): string =>
-    resolveLocaleText(text, isId.value);
+  const resolveText = (text?: LocaleText | string): string => resolveLocaleText(text, isId.value)
 
   return { $lang, isId, locale, resolveText } as {
-    $lang: ComputedRef<Locale>;
-    isId: ComputedRef<boolean>;
-    locale: ComputedRef<Locale>;
-    resolveText: (text?: LocaleText | string) => string;
-  };
+    $lang: ComputedRef<Locale>
+    isId: ComputedRef<boolean>
+    locale: ComputedRef<Locale>
+    resolveText: (text?: LocaleText | string) => string
+  }
 }

@@ -1,9 +1,10 @@
-import { config, fields, collection, singleton } from '@keystatic/core';
+import { config, fields, collection, singleton } from '@keystatic/core'
 
-const localeText = (label: string) => fields.object({
-  en: fields.text({ label: label + ' (English)' }),
-  id: fields.text({ label: label + ' (Indonesian)' }),
-});
+const localeText = (label: string) =>
+  fields.object({
+    en: fields.text({ label: label + ' (English)' }),
+    id: fields.text({ label: label + ' (Indonesian)' }),
+  })
 
 export default config({
   storage: { kind: 'local' },
@@ -30,7 +31,7 @@ export default config({
         img: fields.image({
           label: 'Image',
           directory: 'public/img/projects',
-          publicPath: '/img/projects/'
+          publicPath: '/img/projects/',
         }),
         description: localeText('Description'),
         impact: localeText('Impact'),
@@ -40,10 +41,10 @@ export default config({
         featured: fields.checkbox({ label: 'Featured' }),
         stack: fields.array(fields.text({ label: 'Tech Stack' }), { label: 'Tech Stack', itemLabel: (p) => p.value }),
         highlights: fields.array(localeText('Highlight'), { label: 'Highlights', itemLabel: (p) => p.fields.en.value }),
-        links: fields.array(
-          fields.object({ label: localeText('Link Label'), url: fields.url({ label: 'Link URL' }) }),
-          { label: 'Links', itemLabel: (p) => p.fields.label.fields.en.value }
-        )
+        links: fields.array(fields.object({ label: localeText('Link Label'), url: fields.url({ label: 'Link URL' }) }), {
+          label: 'Links',
+          itemLabel: (p) => p.fields.label.fields.en.value,
+        }),
       },
     }),
     experiences: collection({
@@ -59,22 +60,22 @@ export default config({
           options: [
             { label: 'Work', value: 'work' },
             { label: 'Organizational', value: 'organizational' },
-            { label: 'Personal', value: 'personal' }
+            { label: 'Personal', value: 'personal' },
           ],
-          defaultValue: 'work'
+          defaultValue: 'work',
         }),
         company: fields.text({ label: 'Company / Organization' }),
         logo: fields.image({
           label: 'Logo',
           directory: 'public/img',
-          publicPath: '/img/'
+          publicPath: '/img/',
         }),
         role: localeText('Role'),
         period: localeText('Period'),
         summary: localeText('Summary'),
         stack: fields.array(fields.text({ label: 'Stack' }), { label: 'Stack', itemLabel: (p) => p.value }),
-        achievements: fields.array(localeText('Achievement'), { label: 'Achievements', itemLabel: (p) => p.fields.en.value })
-      }
+        achievements: fields.array(localeText('Achievement'), { label: 'Achievements', itemLabel: (p) => p.fields.en.value }),
+      },
     }),
     achievements: collection({
       label: 'Achievements',
@@ -89,9 +90,9 @@ export default config({
           options: [
             { label: 'Competitions', value: 'competitions' },
             { label: 'Certifications', value: 'certifications' },
-            { label: 'Bootcamps', value: 'bootcamps' }
+            { label: 'Bootcamps', value: 'bootcamps' },
           ],
-          defaultValue: 'competitions'
+          defaultValue: 'competitions',
         }),
         title: localeText('Title'),
         issuer: localeText('Issuer'),
@@ -101,16 +102,19 @@ export default config({
         logo: fields.image({
           label: 'Logo',
           directory: 'public/img',
-          publicPath: '/img/'
+          publicPath: '/img/',
         }),
         credentialId: fields.text({ label: 'Credential ID' }),
         credentialUrl: fields.text({ label: 'Credential URL' }),
-        certificateImage: fields.array(fields.image({
-          label: 'Certificate Image',
-          directory: 'public/img/certs',
-          publicPath: '/img/certs/'
-        }), { label: 'Certificate Images', itemLabel: p => (typeof p.value === 'string' ? p.value : 'Image') })
-      }
+        certificateImage: fields.array(
+          fields.image({
+            label: 'Certificate Image',
+            directory: 'public/img/certs',
+            publicPath: '/img/certs/',
+          }),
+          { label: 'Certificate Images', itemLabel: (p) => (typeof p.value === 'string' ? p.value : 'Image') }
+        ),
+      },
     }),
     education: collection({
       label: 'Education',
@@ -124,12 +128,12 @@ export default config({
         logo: fields.image({
           label: 'Logo',
           directory: 'public/img',
-          publicPath: '/img/'
+          publicPath: '/img/',
         }),
         program: localeText('Program'),
         period: fields.text({ label: 'Period' }),
-        details: fields.array(localeText('Detail'), { label: 'Details', itemLabel: p => p.fields.en.value })
-      }
+        details: fields.array(localeText('Detail'), { label: 'Details', itemLabel: (p) => p.fields.en.value }),
+      },
     }),
     cpProfiles: collection({
       label: 'CP Profiles',
@@ -145,10 +149,10 @@ export default config({
         logo: fields.image({
           label: 'Logo',
           directory: 'public/img',
-          publicPath: '/img/'
+          publicPath: '/img/',
         }),
-        note: localeText('Note')
-      }
+        note: localeText('Note'),
+      },
     }),
     stackShowcase: collection({
       label: 'Stack Showcase',
@@ -164,14 +168,14 @@ export default config({
           options: [
             { label: 'Language', value: 'language' },
             { label: 'Framework', value: 'framework' },
-            { label: 'Tool', value: 'tool' }
+            { label: 'Tool', value: 'tool' },
           ],
-          defaultValue: 'language'
+          defaultValue: 'language',
         }),
         logoDark: fields.text({ label: 'Logo SVG (Dark)', multiline: true }),
-        logoLight: fields.text({ label: 'Logo SVG (Light)', multiline: true })
-      }
-    })
+        logoLight: fields.text({ label: 'Logo SVG (Light)', multiline: true }),
+      },
+    }),
   },
   singletons: {
     profile: singleton({
@@ -191,33 +195,33 @@ export default config({
         resumeUrl: fields.file({
           label: 'Resume (PDF)',
           directory: 'public',
-          publicPath: '/'
+          publicPath: '/',
         }),
-        heroHighlights: fields.array(
-          fields.object({ label: localeText('Label'), detail: localeText('Detail') }),
-          { label: 'Hero Highlights', itemLabel: p => p.fields.label.fields.en.value }
-        ),
-        stats: fields.array(
-          fields.object({ label: localeText('Label'), value: fields.text({ label: 'Value' }), helper: localeText('Helper') }),
-          { label: 'Stats', itemLabel: p => p.fields.label.fields.en.value }
-        ),
+        heroHighlights: fields.array(fields.object({ label: localeText('Label'), detail: localeText('Detail') }), {
+          label: 'Hero Highlights',
+          itemLabel: (p) => p.fields.label.fields.en.value,
+        }),
+        stats: fields.array(fields.object({ label: localeText('Label'), value: fields.text({ label: 'Value' }), helper: localeText('Helper') }), {
+          label: 'Stats',
+          itemLabel: (p) => p.fields.label.fields.en.value,
+        }),
         focusAreas: fields.array(
           fields.object({
             title: localeText('Title'),
             description: localeText('Description'),
-            items: fields.array(localeText('Item'), { label: 'Items', itemLabel: p => p.fields.en.value })
+            items: fields.array(localeText('Item'), { label: 'Items', itemLabel: (p) => p.fields.en.value }),
           }),
-          { label: 'Focus Areas', itemLabel: p => p.fields.title.fields.en.value }
+          { label: 'Focus Areas', itemLabel: (p) => p.fields.title.fields.en.value }
         ),
         skillCategories: fields.array(
           fields.object({
             title: localeText('Title'),
-            items: fields.array(localeText('Item'), { label: 'Items', itemLabel: p => p.fields.en.value })
+            items: fields.array(localeText('Item'), { label: 'Items', itemLabel: (p) => p.fields.en.value }),
           }),
-          { label: 'Skill Categories', itemLabel: p => p.fields.title.fields.en.value }
+          { label: 'Skill Categories', itemLabel: (p) => p.fields.title.fields.en.value }
         ),
-        toolbox: fields.array(fields.text({ label: 'Tool' }), { label: 'Toolbox', itemLabel: p => p.value })
-      }
+        toolbox: fields.array(fields.text({ label: 'Tool' }), { label: 'Toolbox', itemLabel: (p) => p.value }),
+      },
     }),
     contact: singleton({
       label: 'Contact Information',
@@ -227,8 +231,8 @@ export default config({
       schema: {
         email: fields.text({ label: 'Email' }),
         message: localeText('Message'),
-        availabilityNote: localeText('Availability Note')
-      }
+        availabilityNote: localeText('Availability Note'),
+      },
     }),
     social: singleton({
       label: 'Social Links',
@@ -240,11 +244,11 @@ export default config({
           fields.object({
             label: fields.text({ label: 'Label' }),
             url: fields.text({ label: 'URL' }),
-            hint: fields.text({ label: 'Hint' })
+            hint: fields.text({ label: 'Hint' }),
           }),
-          { label: 'Socials', itemLabel: p => p.fields.label.value }
-        )
-      }
+          { label: 'Socials', itemLabel: (p) => p.fields.label.value }
+        ),
+      },
     }),
     layout: singleton({
       label: 'Homepage Layout (Sorting)',
@@ -252,19 +256,19 @@ export default config({
       format: { data: 'json' },
       previewUrl: '/',
       schema: {
-        projectsOrder: fields.array(
-          fields.relationship({ label: 'Project', collection: 'projects' }),
-          { label: 'Featured Projects Order', itemLabel: p => p.value || 'Project' }
-        ),
-        experiencesOrder: fields.array(
-          fields.relationship({ label: 'Experience', collection: 'experiences' }),
-          { label: 'Experiences Order', itemLabel: p => p.value || 'Experience' }
-        ),
-        achievementsOrder: fields.array(
-          fields.relationship({ label: 'Achievement', collection: 'achievements' }),
-          { label: 'Achievements Order', itemLabel: p => p.value || 'Achievement' }
-        )
-      }
-    })
-  }
-});
+        projectsOrder: fields.array(fields.relationship({ label: 'Project', collection: 'projects' }), {
+          label: 'Featured Projects Order',
+          itemLabel: (p) => p.value || 'Project',
+        }),
+        experiencesOrder: fields.array(fields.relationship({ label: 'Experience', collection: 'experiences' }), {
+          label: 'Experiences Order',
+          itemLabel: (p) => p.value || 'Experience',
+        }),
+        achievementsOrder: fields.array(fields.relationship({ label: 'Achievement', collection: 'achievements' }), {
+          label: 'Achievements Order',
+          itemLabel: (p) => p.value || 'Achievement',
+        }),
+      },
+    }),
+  },
+})

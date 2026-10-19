@@ -1,98 +1,101 @@
 ---
-import type { SkillCategory } from '../../types/profile.types';
-import LocaleText from '../i18n/LocaleText.astro';
-import SectionIntro from './SectionIntro.astro';
-import { t as locale } from '../../utils/i18n';
+import type { SkillCategory } from '../../types/profile.types'
+import LocaleText from '../i18n/LocaleText.astro'
+import SectionIntro from './SectionIntro.astro'
+import { t as locale } from '../../utils/i18n'
 
 const copy = {
-	eyebrow: locale('Technical Skills', 'Keahlian Teknis'),
-	heading: locale('Cross-platform development anchored by a strong algorithmic foundation.', 'Pengembangan lintas platform dengan fondasi algoritma yang kuat.'),
-	intro: locale(
-		'Building scalable backend services and responsive mobile applications through systematic software engineering practices.',
-		'Membangun layanan backend terukur dan aplikasi mobile yang responsif melalui praktik rekayasa perangkat lunak sistematis.',
-	),
-};
+  eyebrow: locale('Technical Skills', 'Keahlian Teknis'),
+  heading: locale(
+    'Cross-platform development anchored by a strong algorithmic foundation.',
+    'Pengembangan lintas platform dengan fondasi algoritma yang kuat.'
+  ),
+  intro: locale(
+    'Building scalable backend services and responsive mobile applications through systematic software engineering practices.',
+    'Membangun layanan backend terukur dan aplikasi mobile yang responsif melalui praktik rekayasa perangkat lunak sistematis.'
+  ),
+}
 
 type SkillsProps = {
-	categories?: SkillCategory[];
-};
+  categories?: SkillCategory[]
+}
 
-const { categories = [] }: SkillsProps = Astro.props;
+const { categories = [] }: SkillsProps = Astro.props
 ---
 
 <section id="skills" class="section skills">
-	<SectionIntro
-		class="skills__intro"
-		eyebrow={copy.eyebrow}
-		heading={copy.heading}
-		body={copy.intro}
-	/>
-	<div class="skills__grid">
-		{categories.map((category) => (
-			<article class="surface">
-				<header>
-					<h3>
-						<LocaleText as="span" text={category.title} />
-					</h3>
-					{category.helper && (
-						<small>
-							<LocaleText as="span" text={category.helper} />
-						</small>
-					)}
-				</header>
-				<ul>
-					{category.items.map((item) => (
-						<li>
-							<LocaleText as="span" text={item} />
-						</li>
-					))}
-				</ul>
-			</article>
-		))}
-	</div>
+  <SectionIntro
+    class="skills__intro"
+    eyebrow={copy.eyebrow}
+    heading={copy.heading}
+    body={copy.intro}
+  />
+  <div class="skills__grid">
+    {categories.map((category) => (
+      <article class="surface">
+        <header>
+          <h3>
+            <LocaleText as="span" text={category.title} />
+          </h3>
+          {category.helper && (
+            <small>
+              <LocaleText as="span" text={category.helper} />
+            </small>
+          )}
+        </header>
+        <ul>
+          {category.items.map((item) => (
+            <li>
+              <LocaleText as="span" text={item} />
+            </li>
+          ))}
+        </ul>
+      </article>
+    ))}
+  </div>
 </section>
 
 <style>
-	.skills {
-		display: flex;
-		flex-direction: column;
-		gap: 1.5rem;
-	}
+  .skills {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 
-	.skills__grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 1rem;
-	}
+  .skills__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
 
-	.skills__grid article h3 {
-		margin: 0;
-		font-size: 1.15rem;
-		font-family: inherit;
-	}
+  .skills__grid article h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    font-family: inherit;
+  }
 
-	.skills__grid article small {
-		color: var(--muted);
-		font-size: 0.85rem;
-	}
+  .skills__grid article small {
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
 
-	.skills__grid ul {
-		margin: 0.75rem 0 0;
-		padding-left: 1rem;
-		color: var(--muted);
-		font-size: 0.9rem;
-		line-height: 1.6;
-	}
+  .skills__grid ul {
+    margin: 0.75rem 0 0;
+    padding-left: 1rem;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
 
-	.skills__grid li + li {
-		margin-top: 0.25rem;
-	}
+  .skills__grid li + li {
+    margin-top: 0.25rem;
+  }
 
-	.skills__grid li {
-		transition: color 0.2s ease;
-	}
+  .skills__grid li {
+    transition: color 0.2s ease;
+  }
 
-	.skills__grid li:hover {
-		color: var(--accent);
-	}
+  .skills__grid li:hover {
+    color: var(--accent);
+  }
 </style>

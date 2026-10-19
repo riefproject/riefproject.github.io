@@ -1,12 +1,15 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   color-scheme: dark;
-  font-family: "Inter", system-ui, -apple-system, sans-serif;
-  
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    sans-serif;
+
   /* Clean Modern Dark Theme */
   --bg: #0a0a0a;
   --bg-soft: #141414;
@@ -39,13 +42,13 @@
   --text-2xl: 1.5rem;
 
   /* Border radius hierarchy */
-  --radius-xs: 0.125rem;  /* 2px  - mini dots / heat-box */
-  --radius-sm: 0.25rem;   /* 4px  - inner micro badges / inner images */
-  --radius-md: 0.375rem;  /* 6px  - small tags / inner controls */
-  --radius-lg: 0.5rem;    /* 8px  - buttons / inputs / controls / sub-cards */
-  --radius-xl: 0.75rem;   /* 12px - cards / surface containers / stat-cards / repo-cards */
-  --radius-2xl: 1rem;     /* 16px - outer large section containers / tables / heatmaps */
-  --radius-full: 9999px;  /* pills / avatar circles / badges */
+  --radius-xs: 0.125rem; /* 2px  - mini dots / heat-box */
+  --radius-sm: 0.25rem; /* 4px  - inner micro badges / inner images */
+  --radius-md: 0.375rem; /* 6px  - small tags / inner controls */
+  --radius-lg: 0.5rem; /* 8px  - buttons / inputs / controls / sub-cards */
+  --radius-xl: 0.75rem; /* 12px - cards / surface containers / stat-cards / repo-cards */
+  --radius-2xl: 1rem; /* 16px - outer large section containers / tables / heatmaps */
+  --radius-full: 9999px; /* pills / avatar circles / badges */
 }
 
 /* Light mode */
@@ -106,7 +109,12 @@ p {
   color: var(--muted);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: inherit;
   font-weight: 600;
   letter-spacing: -0.02em;
@@ -244,7 +252,9 @@ main {
   border: none;
   position: relative;
   overflow: hidden;
-  transition: background 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
 }
 
 .surface::after {
@@ -346,7 +356,9 @@ main {
 .reveal {
   opacity: 0;
   transform: translateY(12px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
   transition-delay: var(--reveal-delay, 0ms);
   will-change: opacity, transform;
 }
@@ -357,12 +369,22 @@ main {
 }
 
 @keyframes section-fade {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .section, .surface, .toggle-btn, .segment, .reveal {
+  .section,
+  .surface,
+  .toggle-btn,
+  .segment,
+  .reveal {
     animation: none !important;
     transition: none !important;
     transform: none !important;
@@ -406,7 +428,7 @@ main {
 }
 
 .link-underline::after {
-  content: "";
+  content: '';
   position: absolute;
   width: 100%;
   height: 1px;
@@ -454,7 +476,11 @@ main {
     color: #000;
   }
 
-  .global-toggles, .sidebar, .sidebar-toggle, .sidebar-overlay, .btn {
+  .global-toggles,
+  .sidebar,
+  .sidebar-toggle,
+  .sidebar-overlay,
+  .btn {
     display: none !important;
   }
 

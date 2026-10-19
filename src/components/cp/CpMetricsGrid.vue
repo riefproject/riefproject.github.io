@@ -6,8 +6,7 @@
       :label="metric.label"
       :value="metric.value"
       :helper="metric.sub"
-      appearance="metric"
-    >
+      appearance="metric">
       <template v-if="metric.subHighlight" #helper>
         {{ metric.subPrefix }}
         <span class="capitalize font-medium">{{ metric.subHighlight }}</span>
@@ -17,21 +16,21 @@
 </template>
 
 <script setup lang="ts">
-import StatCard from '../shared/StatCard.vue';
-import type { CpMetric } from '../../types/cp.types';
+import StatCard from '../shared/StatCard.vue'
+import type { CpMetric } from '../../types/cp.types'
 
-defineProps<{ metrics: CpMetric[] }>();
+defineProps<{ metrics: CpMetric[] }>()
 </script>
 
 <style scoped>
-  .metrics-grid {
+.metrics-grid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1rem;
 }
 
 @media (min-width: 640px) {
-.metrics-grid {
+  .metrics-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

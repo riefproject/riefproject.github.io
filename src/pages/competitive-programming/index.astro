@@ -1,10 +1,10 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import PageHeader from '../../components/layout/PageHeader.astro';
-import CpDashboard from '../../components/cp/CpDashboard.vue';
-import initialCpData from '../../data/cp-data-initial.json';
-import '../../styles/cp-shared.css';
-import { t as locale } from '../../utils/i18n';
+import Layout from '../../layouts/Layout.astro'
+import PageHeader from '../../components/layout/PageHeader.astro'
+import CpDashboard from '../../components/cp/CpDashboard.vue'
+import initialCpData from '../../data/cp-data-initial.json'
+import '../../styles/cp-shared.css'
+import { t as locale } from '../../utils/i18n'
 
 const copy = {
   title: locale('Competitive Programming Journey', 'Jejak Competitive Programming'),
@@ -13,13 +13,12 @@ const copy = {
     'Dashboard real-time yang melacak pencapaian problem solving, riwayat submisi, dan statistik lintas platform TOKI (TLX), Codeforces, LeetCode, dan HackerRank.'
   ),
   backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
-};
+}
 ---
 
 <Layout
   title="Competitive Programming Dashboard | Arief F-sa Wijaya"
-  description={copy.description.en}
->
+  description={copy.description.en}>
   <main class="cp-page">
     <PageHeader
       class="cp-header"

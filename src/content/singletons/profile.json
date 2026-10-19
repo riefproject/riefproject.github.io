@@ -267,17 +267,5 @@
       ]
     }
   ],
-  "toolbox": [
-    "C++",
-    "Go",
-    "Python",
-    "JavaScript",
-    "TypeScript",
-    "Flutter",
-    "Dart",
-    "Vue.js",
-    "Laravel",
-    "PostgreSQL",
-    "Git"
-  ]
+  "toolbox": ["C++", "Go", "Python", "JavaScript", "TypeScript", "Flutter", "Dart", "Vue.js", "Laravel", "PostgreSQL", "Git"]
 }

@@ -1,16 +1,16 @@
 <template>
-  <div class="cp-table-wrapper">
+  <div class="cp-table-wrapper" :class="{ 'is-bare': bare }">
     <table class="cp-table">
       <thead>
         <tr>
           <th class="col-num">#</th>
           <th v-if="showPlatform" class="col-platform">Platform</th>
-          <th class="col-title">{{ isId ? 'Judul Soal' : 'Problem Name' }}</th>
-          <th class="col-category">{{ isId ? 'Topik / Modul' : 'Topic / Module' }}</th>
-          <th v-if="showDifficulty" class="col-diff">{{ isId ? 'Kesulitan' : 'Difficulty' }}</th>
-          <th class="col-lang">{{ isId ? 'Bahasa' : 'Language' }}</th>
+          <th class="col-title">{{ isId ? titleColumnId : titleColumnEn }}</th>
+          <th v-for="col in displayColumns" :key="col.key" :class="`col-${columnClass(col.key)}`">
+            {{ isId ? col.labelId : col.labelEn }}
+          </th>
           <th class="col-status">Status</th>
-          <th class="col-time">{{ isId ? 'Waktu Selesai' : 'Solved Date' }}</th>
+          <th class="col-time">{{ isId ? timeColumnId : timeColumnEn }}</th>
           <th class="col-action"></th>
         </tr>
       </thead>
@@ -26,8 +26,7 @@
               <img
                 :src="getPlatformLogo(item.platform)"
                 :alt="item.platform"
-                class="table-logo-img"
-              />
+                class="table-logo-img" />
               <span class="platform-text-name">{{ getPlatformName(item.platform) }}</span>
             </div>
           </td>
@@ -39,41 +38,33 @@
               target="_blank"
               rel="noopener noreferrer"
               class="problem-title-link"
-              :title="item.title"
-            >
+              :title="item.title">
               <span class="title-text">{{ item.title }}</span>
-              <svg class="w-3.5 h-3.5 link-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
+              <ExternalLinkIcon class="w-3.5 h-3.5 link-arrow-icon" />
             </a>
           </td>
 
-          <!-- Category / Topic -->
-          <td class="cell-category">
-            <span class="topic-pill" v-if="item.category" :title="item.category">
-              <span>{{ item.category }}</span>
-            </span>
-            <span class="text-xs text-gray-500 font-mono" v-else>-</span>
-          </td>
-
-          <!-- Difficulty -->
-          <td v-if="showDifficulty" class="cell-diff">
-            <span
-              v-if="item.difficulty && item.difficulty !== '-'"
-              class="diff-badge"
-              :class="getDiffClass(item.difficulty)"
-            >
-              {{ item.difficulty }}
-            </span>
-            <span v-else class="text-xs text-gray-500 font-mono">-</span>
-          </td>
-
-          <!-- Language -->
-          <td class="cell-lang">
-            <span class="lang-tag" v-if="item.language">{{ cleanLanguage(item.language) }}</span>
-            <span class="text-xs text-gray-500 font-mono" v-else>-</span>
+          <!-- Dynamic Columns (Topic / Difficulty / Language) -->
+          <td v-for="col in displayColumns" :key="col.key" :class="`cell-${columnClass(col.key)}`">
+            <template v-if="col.key === 'category'">
+              <span v-if="item.category" class="topic-pill" :title="item.category">
+                <span>{{ item.category }}</span>
+              </span>
+              <span v-else class="text-xs text-gray-500 font-mono">-</span>
+            </template>
+            <template v-else-if="col.key === 'difficulty'">
+              <span
+                v-if="item.difficulty && item.difficulty !== '-'"
+                class="diff-badge"
+                :class="getDiffClass(item.difficulty)">
+                {{ item.difficulty }}
+              </span>
+              <span v-else class="text-xs text-gray-500 font-mono">-</span>
+            </template>
+            <template v-else-if="col.key === 'language'">
+              <span v-if="item.language" class="lang-tag">{{ cleanLanguage(item.language) }}</span>
+              <span v-else class="text-xs text-gray-500 font-mono">-</span>
+            </template>
           </td>
 
           <!-- Status / Verdict -->
@@ -93,13 +84,8 @@
               target="_blank"
               rel="noopener noreferrer"
               class="open-btn"
-              :title="isId ? 'Buka soal di platform' : 'Open problem on platform'"
-            >
-              <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                <polyline points="15 3 21 3 21 9" />
-                <line x1="10" y1="14" x2="21" y2="3" />
-              </svg>
+              :title="isId ? openTitleId : openTitleEn">
+              <ExternalLinkIcon class="w-4 h-4" />
             </a>
           </td>
         </tr>
@@ -109,29 +95,70 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { cleanLanguage, getDiffClass } from '../../utils/cp/formatting';
-import { getPlatformLogo, getPlatformName } from '../../utils/cp/platforms';
-import type { SubmissionItem } from '../../types/cp.types';
-import { formatExactDate } from '../../utils/dateFormat';
+import { computed } from 'vue'
+import ExternalLinkIcon from '../shared/ExternalLinkIcon.vue'
+import { cleanLanguage, getDiffClass } from '../../utils/cp/formatting'
+import { getPlatformLogo, getPlatformName } from '../../utils/cp/platforms'
+import type { CpColumn, CpColumnKey, SubmissionItem } from '../../types/cp.types'
+import { formatExactDate } from '../../utils/dateFormat'
 
 const props = withDefaults(
   defineProps<{
-    problems: SubmissionItem[];
-    currentPage?: number;
-    pageSize?: number;
-    showPlatform?: boolean;
-    showDifficulty?: boolean;
-    isId?: boolean;
+    problems: SubmissionItem[]
+    columns?: CpColumn[]
+    currentPage?: number
+    pageSize?: number
+    showPlatform?: boolean
+    showDifficulty?: boolean
+    titleColumnEn?: string
+    titleColumnId?: string
+    timeColumnEn?: string
+    timeColumnId?: string
+    openTitleEn?: string
+    openTitleId?: string
+    bare?: boolean
+    isId?: boolean
   }>(),
   {
+    columns: () => [],
     currentPage: 1,
     pageSize: 10,
     showPlatform: true,
     showDifficulty: true,
+    titleColumnEn: 'Problem Name',
+    titleColumnId: 'Judul Soal',
+    timeColumnEn: 'Solved Date',
+    timeColumnId: 'Waktu Selesai',
+    openTitleEn: 'Open problem on platform',
+    openTitleId: 'Buka soal di platform',
+    bare: false,
     isId: false,
   }
-);
+)
 
-const startIndex = computed(() => (props.currentPage - 1) * props.pageSize);
+const startIndex = computed(() => (props.currentPage - 1) * props.pageSize)
+
+const defaultColumns = computed<CpColumn[]>(() => {
+  const cols: CpColumn[] = [
+    { key: 'category', labelEn: 'Topic / Module', labelId: 'Topik / Modul' },
+  ]
+  if (props.showDifficulty) {
+    cols.push({ key: 'difficulty', labelEn: 'Difficulty', labelId: 'Kesulitan' })
+  }
+  cols.push({ key: 'language', labelEn: 'Language', labelId: 'Bahasa' })
+  return cols
+})
+
+const displayColumns = computed(() => (props.columns.length ? props.columns : defaultColumns.value))
+
+const columnClass = (key: CpColumnKey) => (key === 'difficulty' ? 'diff' : key)
 </script>
+
+<style scoped>
+.cp-table-wrapper.is-bare {
+  background: transparent;
+  border-radius: 0;
+  overflow: visible;
+  display: block;
+}
+</style>

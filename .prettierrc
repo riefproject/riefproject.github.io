@@ -1,0 +1,19 @@
+{
+  "trailingComma": "es5",
+  "tabWidth": 2,
+  "printWidth": 150,
+  "semi": false,
+  "singleQuote": true,
+  "bracketSameLine": true,
+  "arrowParens": "always",
+  "experimentalTernaries": true,
+  "plugins": ["prettier-plugin-astro"],
+  "overrides": [
+    {
+      "files": ["*.vue", "*.astro"],
+      "options": {
+        "printWidth": 100
+      }
+    }
+  ]
+}

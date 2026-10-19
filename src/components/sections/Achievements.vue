@@ -2,6 +2,8 @@
 import { computed, ref, watch } from 'vue'
 import type { Achievement, AchievementTab, LocaleText } from '../../types/profile.types'
 import { useLocale } from '../../composables/useLocale'
+import { parseHighlightTags } from '../../utils/tags'
+import { ACHIEVEMENT_TABS } from '../../data/achievementTabs'
 import CertificateModal from './CertificateModal.vue'
 
 type AchievementsProps = {
@@ -29,14 +31,7 @@ const closeModal = () => {
   document.body.style.overflow = ''
 }
 
-const defaultTabs: AchievementTab[] = [
-  { id: 'competitions', name: { en: 'Competitions', id: 'Kompetisi' } },
-  { id: 'certifications', name: { en: 'Certifications', id: 'Sertifikasi' } },
-  {
-    id: 'bootcamps',
-    name: { en: 'Bootcamps & Courses', id: 'Bootcamp & Kursus' },
-  },
-]
+const defaultTabs: AchievementTab[] = ACHIEVEMENT_TABS
 
 const tabs = computed(() => (props.tabs?.length ? props.tabs : defaultTabs))
 const activeTab = ref(tabs.value[0]?.id ?? 'competitions')
@@ -55,14 +50,7 @@ watch(
 const searchQuery = ref('')
 const { isId, resolveText } = useLocale()
 
-const getHighlightTags = (value?: LocaleText) => {
-  const text = resolveText(value)
-  if (!text) return []
-  return text
-    .split(/[,·\|/]/)
-    .map((tag) => tag.trim())
-    .filter(Boolean)
-}
+const getHighlightTags = (value?: LocaleText) => parseHighlightTags(resolveText(value))
 
 const copy = computed(() =>
   isId.value ?

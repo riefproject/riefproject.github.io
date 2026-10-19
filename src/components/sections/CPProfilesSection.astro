@@ -2,7 +2,7 @@
 import type { CPProfile } from '../../types/profile.types'
 import LocaleText from '../i18n/LocaleText.astro'
 import SectionIntro from './SectionIntro.astro'
-import ArrowUpRight from '../shared/ArrowUpRight.astro'
+import ArrowLink from '../shared/ArrowLink.astro'
 import EntityBadge from '../shared/EntityBadge.astro'
 import initialCpData from '../../data/cp-data-initial.json'
 import { t as locale } from '../../utils/i18n'
@@ -53,13 +53,11 @@ const { profiles = [] }: Props = Astro.props
         4 <LocaleText as="span" text={copy.summaryPlatforms} />
       </span>
     </div>
-    <a href="/competitive-programming" class="cp-dashboard-cta group mt-4">
-      <u>
-        {' '}
-        <LocaleText as="span" text={copy.openDashboard} />
-      </u>
-      <ArrowUpRight class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity" />
-    </a>
+    <ArrowLink
+      href="/competitive-programming"
+      label={copy.openDashboard}
+      class="cp-dashboard-cta group mt-4"
+    />
   </SectionIntro>
   <div class="cp-profiles__grid">
     {profiles.map((item) => (
@@ -83,13 +81,13 @@ const { profiles = [] }: Props = Astro.props
             <LocaleText as="span" text={item.note} />
           </p>
         )}
-        <a class="cp-card__link" href={item.url} target="_blank" rel="noreferrer">
-          <u>
-            {' '}
-            <LocaleText as="span" text={copy.viewProfile} />
-          </u>
-          <ArrowUpRight class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity" />
-        </a>
+        <ArrowLink
+          href={item.url}
+          label={copy.viewProfile}
+          class="cp-card__link"
+          target="_blank"
+          rel="noreferrer"
+        />
       </article>
     ))}
   </div>

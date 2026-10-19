@@ -11,6 +11,7 @@ import EducationSection from '../components/sections/EducationSection.astro'
 import ContactSection from '../components/sections/ContactSection.astro'
 import CPProfilesSection from '../components/sections/CPProfilesSection.astro'
 import { getEntry } from 'astro:content'
+import { ACHIEVEMENT_TABS } from '../data/achievementTabs'
 import {
   getSingleton,
   getSortedProjects,
@@ -59,12 +60,7 @@ const contact = contactEntry.data
 const socialEntry = await getEntry('singletons', 'social')
 const socials = socialEntry.data.socials
 
-// We need achievementTabs fallback since it was in data
-const achievementTabs = [
-  { id: 'competitions', name: { en: 'Competitions', id: 'Kompetisi' } },
-  { id: 'certifications', name: { en: 'Certifications', id: 'Sertifikasi' } },
-  { id: 'bootcamps', name: { en: 'Bootcamps', id: 'Bootcamp' } },
-]
+const achievementTabs = ACHIEVEMENT_TABS
 ---
 
 <Layout>

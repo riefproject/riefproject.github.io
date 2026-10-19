@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
 import type { Achievement } from '../../types/profile.types'
 import { useLocale } from '../../composables/useLocale'
+import { parseHighlightTags } from '../../utils/tags'
 
 const props = defineProps<{
   achievement: Achievement | null
@@ -17,13 +18,11 @@ const { locale } = useLocale()
 const copySuccess = ref(false)
 const currentImageIndex = ref(0)
 
-const highlightTags = computed(() => {
-  const raw = props.achievement?.highlight?.[locale.value] || props.achievement?.highlight?.en || ''
-  return raw
-    .split(/[,·\|/]/)
-    .map((tag) => tag.trim())
-    .filter(Boolean)
-})
+const highlightTags = computed(() =>
+  parseHighlightTags(
+    props.achievement?.highlight?.[locale.value] || props.achievement?.highlight?.en
+  )
+)
 
 const images = computed(() => {
   if (!props.achievement?.certificateImage) return []

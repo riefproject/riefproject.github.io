@@ -466,11 +466,11 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0)
     transform: translateY(-2px);
   }
 
-  .dev-card__arrow {
+  .dev-card__cta :global(.dev-card__arrow) {
     transition: transform 0.15s ease;
   }
 
-  .dev-card__cta:hover .dev-card__arrow {
+  .dev-card__cta:hover :global(.dev-card__arrow) {
     transform: translate(2px, -2px);
   }
 

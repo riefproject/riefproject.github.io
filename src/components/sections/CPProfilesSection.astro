@@ -145,7 +145,7 @@ const { profiles = [] }: Props = Astro.props
     font-size: 0.95rem;
   }
 
-  .cp-card__link {
+  .cp-profiles :global(.cp-card__link) {
     margin-top: auto;
     display: inline-flex;
     align-items: center;
@@ -158,11 +158,11 @@ const { profiles = [] }: Props = Astro.props
     transition: border-color 0.2s ease;
   }
 
-  .cp-card__link:hover {
+  .cp-profiles :global(.cp-card__link:hover) {
     border-color: var(--accent);
   }
 
-  .cp-dashboard-cta {
+  .cp-profiles :global(.cp-dashboard-cta) {
     display: inline-flex;
     align-items: center;
     color: var(--text);
@@ -173,7 +173,7 @@ const { profiles = [] }: Props = Astro.props
     width: fit-content;
   }
 
-  .cp-dashboard-cta:hover {
+  .cp-profiles :global(.cp-dashboard-cta:hover) {
     color: var(--accent);
   }
   .cp-handle {

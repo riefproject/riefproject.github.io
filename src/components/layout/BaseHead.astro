@@ -8,6 +8,9 @@ export interface Props {
 
 const SITE_URL = 'https://riefproject.my.id'
 
+const fontHref =
+  'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap'
+
 const {
   title = `${profile.name} — Software Engineer & Competitive Programmer`,
   description = profile.intro.en,
@@ -28,22 +31,10 @@ const {
 <!-- Google Fonts (Non-blocking) -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  rel="preload"
-  as="style"
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-/>
-<link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-  media="print"
-  onload="this.media='all'"
-/>
+<link rel="preload" as="style" href={fontHref} />
+<link rel="stylesheet" href={fontHref} media="print" onload="this.media='all'" />
 <noscript>
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-  />
+  <link rel="stylesheet" href={fontHref} />
 </noscript>
 
 <link rel="sitemap" href="/sitemap-index.xml" />

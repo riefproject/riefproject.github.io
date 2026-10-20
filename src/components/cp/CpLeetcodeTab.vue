@@ -19,6 +19,7 @@
 import { computed } from 'vue'
 import CpPlatformTab from './CpPlatformTab.vue'
 import CpMetricsGrid from './CpMetricsGrid.vue'
+import { CP_FALLBACK } from '../../utils/cp/defaults'
 import type { CpColumn, CpData, CpMetric } from '../../types/cp.types'
 
 const props = withDefaults(
@@ -28,7 +29,7 @@ const props = withDefaults(
     isId?: boolean
   }>(),
   {
-    totalLcSolved: 59,
+    totalLcSolved: CP_FALLBACK.leetcodeTotalSolved,
     isId: false,
   }
 )
@@ -38,17 +39,17 @@ const columns: CpColumn[] = [{ key: 'category', labelEn: 'Category', labelId: 'K
 const metrics = computed<CpMetric[]>(() => [
   {
     label: 'Easy Solved',
-    value: props.cpData?.platforms?.leetcode?.easySolved || 32,
+    value: props.cpData?.platforms?.leetcode?.easySolved || CP_FALLBACK.leetcodeEasySolved,
     sub: props.isId ? 'Fondasi & Dasar DSA' : 'DSA Foundations & Basics',
   },
   {
     label: 'Medium Solved',
-    value: props.cpData?.platforms?.leetcode?.mediumSolved || 24,
+    value: props.cpData?.platforms?.leetcode?.mediumSolved || CP_FALLBACK.leetcodeMediumSolved,
     sub: props.isId ? 'Problem Solving Inti' : 'Core Problem Solving',
   },
   {
     label: 'Hard Solved',
-    value: props.cpData?.platforms?.leetcode?.hardSolved || 3,
+    value: props.cpData?.platforms?.leetcode?.hardSolved || CP_FALLBACK.leetcodeHardSolved,
     sub: props.isId ? 'Kompleksitas Lanjutan' : 'Advanced Complexity',
   },
 ])

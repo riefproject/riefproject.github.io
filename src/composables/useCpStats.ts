@@ -1,16 +1,17 @@
 import { computed, type Ref } from 'vue'
 import { buildCpHeatmap, getPrimaryLanguage } from '../utils/cp/stats'
+import { CP_FALLBACK } from '../utils/cp/defaults'
 import { CP_PLATFORMS } from '../utils/cp/platforms'
 import { buildMonths, toWeeks } from '../utils/heatmap'
 import type { CpData } from '../types/cp.types'
 
 export const useCpStats = (cpData: Ref<CpData | null>) => {
-  const totalSolved = computed(() => cpData.value?.overview?.totalSolved || 754)
-  const totalSubmissions = computed(() => cpData.value?.overview?.totalSubmissions || 1528)
-  const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || 437)
-  const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || 68)
-  const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || 102)
-  const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || 147)
+  const totalSolved = computed(() => cpData.value?.overview?.totalSolved || CP_FALLBACK.overviewTotalSolved)
+  const totalSubmissions = computed(() => cpData.value?.overview?.totalSubmissions || CP_FALLBACK.overviewTotalSubmissions)
+  const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || CP_FALLBACK.tlxTotalSolved)
+  const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || CP_FALLBACK.codeforcesTotalSolved)
+  const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || CP_FALLBACK.leetcodeTotalSolved)
+  const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || CP_FALLBACK.hackerrankTotalSolved)
 
   const primaryLanguage = computed(() => getPrimaryLanguage(cpData.value))
 

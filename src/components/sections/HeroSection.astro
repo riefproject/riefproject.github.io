@@ -5,6 +5,7 @@ import CvDownloadButton from '../cv/CvDownloadButton.vue'
 import ArrowUpRight from '../shared/ArrowUpRight.astro'
 import devActivity from '../../data/dev-activity.json'
 import cpData from '../../data/cp-data.json'
+import { CP_FALLBACK } from '../../utils/cp/defaults'
 import { t as locale } from '../../utils/i18n'
 
 type HeroProps = {
@@ -19,7 +20,7 @@ type HeroProps = {
 const { profile, contact, highlights, stats, socials, toolbox }: HeroProps =
   Astro.props as HeroProps
 
-const liveTotalSolved = cpData?.overview?.totalSolved || 640
+const liveTotalSolved = cpData?.overview?.totalSolved || CP_FALLBACK.overviewTotalSolved
 const enrichedStats = stats.map((stat) => {
   const isCpStat =
     stat.label?.en?.toLowerCase().includes('problem') ||

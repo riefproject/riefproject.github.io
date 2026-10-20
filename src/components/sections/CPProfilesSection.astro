@@ -5,6 +5,7 @@ import SectionIntro from './SectionIntro.astro'
 import ArrowLink from '../shared/ArrowLink.astro'
 import EntityBadge from '../shared/EntityBadge.astro'
 import initialCpData from '../../data/cp-data.json'
+import { CP_FALLBACK } from '../../utils/cp/defaults'
 import { t as locale } from '../../utils/i18n'
 
 const copy = {
@@ -24,8 +25,9 @@ const copy = {
   summaryPlatforms: locale('Platforms', 'Platform'),
 }
 
-const totalCpSolved = initialCpData?.overview?.totalSolved || 640
-const totalCpSubmissions = initialCpData?.overview?.totalSubmissions || 1528
+const totalCpSolved = initialCpData?.overview?.totalSolved || CP_FALLBACK.overviewTotalSolved
+const totalCpSubmissions =
+  initialCpData?.overview?.totalSubmissions || CP_FALLBACK.overviewTotalSubmissions
 
 type Props = {
   profiles?: CPProfile[]

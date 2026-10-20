@@ -12,7 +12,9 @@
         :footerText="isId ? 'Lihat Detail TLX →' : 'View TLX Details →'"
         @select="$emit('selectPlatform', 'tlx')">
         <MetaRow :label="`${isId ? 'Submisi Total' : 'Total Submissions'}:`">
-          <strong>{{ cpData?.platforms?.tlx?.totalSubmissions || 561 }}</strong>
+          <strong>{{
+            cpData?.platforms?.tlx?.totalSubmissions || CP_FALLBACK.tlxTotalSubmissions
+          }}</strong>
         </MetaRow>
         <MetaRow :label="`${isId ? 'Bahasa Dominan' : 'Top Language'}:`">
           <strong>C++20</strong>
@@ -24,7 +26,7 @@
         name="Codeforces"
         :handle="cpData?.platforms?.codeforces?.handle || CP_PLATFORMS.codeforces.handleFallback"
         :logo="CP_PLATFORMS.codeforces.logo"
-        :solvedNum="cpData?.platforms?.codeforces?.rating || 625"
+        :solvedNum="cpData?.platforms?.codeforces?.rating || CP_FALLBACK.codeforcesRating"
         solvedLabel="rating"
         :footerText="isId ? 'Lihat Detail Codeforces →' : 'View Codeforces Details →'"
         @select="$emit('selectPlatform', 'codeforces')">
@@ -50,17 +52,31 @@
         @select="$emit('selectPlatform', 'leetcode')">
         <MetaRow :label="`${isId ? 'Tingkat Kesulitan' : 'Difficulty Split'}:`">
           <span class="diff-split">
-            <span class="diff-cnt easy">{{ cpData?.platforms?.leetcode?.easySolved || 32 }}E</span>
-            ·
-            <span class="diff-cnt medium"
-              >{{ cpData?.platforms?.leetcode?.mediumSolved || 24 }}M</span
+            <span class="diff-cnt easy"
+              >{{
+                cpData?.platforms?.leetcode?.easySolved || CP_FALLBACK.leetcodeEasySolved
+              }}E</span
             >
             ·
-            <span class="diff-cnt hard">{{ cpData?.platforms?.leetcode?.hardSolved || 3 }}H</span>
+            <span class="diff-cnt medium"
+              >{{
+                cpData?.platforms?.leetcode?.mediumSolved || CP_FALLBACK.leetcodeMediumSolved
+              }}M</span
+            >
+            ·
+            <span class="diff-cnt hard"
+              >{{
+                cpData?.platforms?.leetcode?.hardSolved || CP_FALLBACK.leetcodeHardSolved
+              }}H</span
+            >
           </span>
         </MetaRow>
         <MetaRow label="Global Ranking:">
-          <strong>~{{ (cpData?.platforms?.leetcode?.ranking || 2367686).toLocaleString() }}</strong>
+          <strong
+            >~{{
+              (cpData?.platforms?.leetcode?.ranking || CP_FALLBACK.leetcodeRanking).toLocaleString()
+            }}</strong
+          >
         </MetaRow>
       </PlatformCard>
 
@@ -199,6 +215,7 @@ import PlatformCard from '../shared/PlatformCard.vue'
 import MetaRow from '../shared/MetaRow.vue'
 import { useListFilter } from '../../composables/useListFilter'
 import { usePagination } from '../../composables/usePagination'
+import { CP_FALLBACK } from '../../utils/cp/defaults'
 import { CP_PLATFORMS, CP_PLATFORM_KEYS, buildPlatformCategories } from '../../utils/cp/platforms'
 import type { CpData, SubmissionItem } from '../../types/cp.types'
 
@@ -213,10 +230,10 @@ const props = withDefaults(
     locale?: 'en' | 'id'
   }>(),
   {
-    totalTlxSolved: 437,
-    totalCfSolved: 68,
-    totalLcSolved: 102,
-    totalHrSolved: 147,
+    totalTlxSolved: CP_FALLBACK.tlxTotalSolved,
+    totalCfSolved: CP_FALLBACK.codeforcesTotalSolved,
+    totalLcSolved: CP_FALLBACK.leetcodeTotalSolved,
+    totalHrSolved: CP_FALLBACK.hackerrankTotalSolved,
     isId: false,
     locale: 'en',
   }

@@ -74,6 +74,7 @@ import SearchInput from '../shared/SearchInput.vue'
 import CpTablePagination from './CpTablePagination.vue'
 import CpProblemsTable from './CpProblemsTable.vue'
 import { useLocale } from '../../composables/useLocale'
+import { useCpStats } from '../../composables/useCpStats'
 import { useListFilter } from '../../composables/useListFilter'
 import { usePagination } from '../../composables/usePagination'
 import { CP_PLATFORM_KEYS, buildPlatformCategories } from '../../utils/cp/platforms'
@@ -92,12 +93,14 @@ const cpData = ref<CpData | null>(props.initialData || null)
 const rawProblemsData = ref<ProblemsPayload | null>(props.initialProblems || null)
 const allPlatformKeys = [...CP_PLATFORM_KEYS]
 
-// Platform Total Solved counts
-const totalAllSolved = computed(() => cpData.value?.overview?.totalSolved || 754)
-const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || 437)
-const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || 68)
-const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || 102)
-const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || 147)
+// Reuse the dashboard summary composable so the counts stay in sync.
+const {
+  totalSolved: totalAllSolved,
+  totalTlxSolved,
+  totalCfSolved,
+  totalLcSolved,
+  totalHrSolved,
+} = useCpStats(cpData)
 
 const platformCategories = computed(() =>
   buildPlatformCategories(

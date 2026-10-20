@@ -19,6 +19,7 @@
 import { computed } from 'vue'
 import CpPlatformTab from './CpPlatformTab.vue'
 import CpMetricsGrid from './CpMetricsGrid.vue'
+import { CP_FALLBACK } from '../../utils/cp/defaults'
 import type { CpColumn, CpData, CpMetric } from '../../types/cp.types'
 
 const props = withDefaults(
@@ -28,7 +29,7 @@ const props = withDefaults(
     isId?: boolean
   }>(),
   {
-    totalTlxSolved: 371,
+    totalTlxSolved: CP_FALLBACK.tlxTotalSolved,
     isId: false,
   }
 )
@@ -46,12 +47,12 @@ const metrics = computed<CpMetric[]>(() => [
   },
   {
     label: props.isId ? 'Total Submisi' : 'Total Submissions',
-    value: props.cpData?.platforms?.tlx?.totalSubmissions || 561,
+    value: props.cpData?.platforms?.tlx?.totalSubmissions || CP_FALLBACK.tlxTotalSubmissions,
     sub: props.isId ? 'Riwayat submisi di TLX' : 'Submission history on TLX',
   },
   {
     label: props.isId ? 'Submisi AC' : 'Total AC Submissions',
-    value: props.cpData?.platforms?.tlx?.totalAcSubmissions || 215,
+    value: props.cpData?.platforms?.tlx?.totalAcSubmissions || CP_FALLBACK.tlxTotalAcSubmissions,
     sub: props.isId ? 'Submisi berstatus 100/AC' : 'Submissions with 100/AC score',
   },
 ])

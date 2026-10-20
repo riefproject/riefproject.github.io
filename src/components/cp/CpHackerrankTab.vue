@@ -55,6 +55,7 @@
 
 <script setup lang="ts">
 import CpPlatformTab from './CpPlatformTab.vue'
+import { CP_FALLBACK } from '../../utils/cp/defaults'
 import type { CpColumn, CpData } from '../../types/cp.types'
 
 withDefaults(
@@ -64,7 +65,7 @@ withDefaults(
     isId?: boolean
   }>(),
   {
-    totalHrSolved: 138,
+    totalHrSolved: CP_FALLBACK.hackerrankTotalSolved,
     isId: false,
   }
 )

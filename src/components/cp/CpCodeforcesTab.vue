@@ -34,6 +34,7 @@
 import { computed } from 'vue'
 import CpPlatformTab from './CpPlatformTab.vue'
 import CpMetricsGrid from './CpMetricsGrid.vue'
+import { CP_FALLBACK } from '../../utils/cp/defaults'
 import type { CpColumn, CpData, CpMetric } from '../../types/cp.types'
 
 const props = withDefaults(
@@ -43,7 +44,7 @@ const props = withDefaults(
     isId?: boolean
   }>(),
   {
-    totalCfSolved: 50,
+    totalCfSolved: CP_FALLBACK.codeforcesTotalSolved,
     isId: false,
   }
 )
@@ -57,9 +58,9 @@ const columns: CpColumn[] = [
 const metrics = computed<CpMetric[]>(() => [
   {
     label: props.isId ? 'Rating Saat Ini' : 'Current Rating',
-    value: props.cpData?.platforms?.codeforces?.rating || 625,
+    value: props.cpData?.platforms?.codeforces?.rating || CP_FALLBACK.codeforcesRating,
     subPrefix: 'Rank:',
-    subHighlight: props.cpData?.platforms?.codeforces?.rank || 'newbie',
+    subHighlight: props.cpData?.platforms?.codeforces?.rank || CP_FALLBACK.codeforcesRank,
   },
   {
     label: props.isId ? 'Soal Selesai' : 'Unique Solved',
@@ -68,7 +69,9 @@ const metrics = computed<CpMetric[]>(() => [
   },
   {
     label: props.isId ? 'Total Submisi' : 'Total Submissions',
-    value: props.cpData?.platforms?.codeforces?.totalSubmissions || 148,
+    value:
+      props.cpData?.platforms?.codeforces?.totalSubmissions ||
+      CP_FALLBACK.codeforcesTotalSubmissions,
     sub: props.isId ? 'Riwayat submisi di CF' : 'Submission history on CF',
   },
 ])

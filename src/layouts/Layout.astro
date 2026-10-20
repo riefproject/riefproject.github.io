@@ -10,10 +10,15 @@ import CvDownloadButton from '../components/cv/CvDownloadButton.vue'
 import LocaleText from '../components/i18n/LocaleText.astro'
 import ArrowUpRight from '../components/shared/ArrowUpRight.astro'
 import { t as locale } from '../utils/i18n'
+import type { JsonLd } from '../utils/seo'
 
 type LayoutProps = {
   title?: string
   description?: string
+  image?: string
+  type?: 'website' | 'profile' | 'article'
+  noindex?: boolean
+  jsonLd?: JsonLd | JsonLd[]
 }
 
 const navItems = [
@@ -48,13 +53,24 @@ const layoutCopy = {
 const {
   title = `${profile.name} — Software Engineer & Competitive Programmer`,
   description = profile.intro.en,
+  image,
+  type,
+  noindex,
+  jsonLd,
 }: LayoutProps = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      type={type}
+      noindex={noindex}
+      jsonLd={jsonLd}
+    />
   </head>
   <body>
     <a class="skip-link" href="#konten-utama">

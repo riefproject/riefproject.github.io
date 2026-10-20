@@ -1,10 +1,16 @@
 ---
 import type { LocaleText } from '../../types/profile.types'
 import Layout from '../../layouts/Layout.astro'
+import type { JsonLd } from '../../utils/seo'
 import PageHeader from './PageHeader.astro'
 
 type Props = {
   metaTitle: string
+  metaDescription?: string
+  metaImage?: string
+  metaType?: 'website' | 'profile' | 'article'
+  metaNoindex?: boolean
+  metaJsonLd?: JsonLd | JsonLd[]
   heading: LocaleText
   description: LocaleText
   backHref: string
@@ -19,6 +25,11 @@ type Props = {
 
 const {
   metaTitle,
+  metaDescription,
+  metaImage,
+  metaType,
+  metaNoindex,
+  metaJsonLd,
   heading,
   description,
   backHref,
@@ -32,7 +43,13 @@ const {
 }: Props = Astro.props
 ---
 
-<Layout title={metaTitle} description={description.en}>
+<Layout
+  title={metaTitle}
+  description={metaDescription ?? description.en}
+  image={metaImage}
+  type={metaType}
+  noindex={metaNoindex}
+  jsonLd={metaJsonLd}>
   <main
     class:list={['dashboard-page', responsiveTop && 'dashboard-page--responsive-top']}
     style={`--dashboard-bottom: ${bottomPad}`}>

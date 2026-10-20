@@ -15,7 +15,7 @@
     <div class="platform-cards-grid">
       <PlatformCard
         name="GitHub"
-        :handle="github?.user?.login || 'riefproject'"
+        :handle="github?.user?.login || GITHUB_FALLBACK_USERNAME"
         logo="/img/stacks/github-dark.svg"
         logoLight="/img/stacks/github-light.svg"
         :solvedNum="github?.overview?.totalContributions || 0"
@@ -25,7 +25,7 @@
         <MetaRow :label="`${copy.longestStreak}:`">
           <strong>{{ github?.overview?.longestStreak || 0 }} {{ copy.days }}</strong>
         </MetaRow>
-        <MetaRow label="PR Merged:">
+        <MetaRow :label="`${copy.prMergedLabel}:`">
           <strong>{{ githubPrMerged }} / {{ github?.prStats?.total || 0 }}</strong>
         </MetaRow>
       </PlatformCard>
@@ -42,7 +42,7 @@
         <MetaRow :label="`${copy.activeDays}:`">
           <strong>{{ gitlab?.stats?.daysActive || 0 }}</strong>
         </MetaRow>
-        <MetaRow label="MR Merged:">
+        <MetaRow :label="`${copy.mrMergedLabel}:`">
           <strong>{{ gitlabMrMerged }}</strong>
         </MetaRow>
       </PlatformCard>
@@ -59,6 +59,7 @@ import { devHeatmapMetrics, type HeatmapDay } from '../../utils/heatmap'
 import type { DevPlatformProfile } from '../../types/dev.types'
 import type { StatItem } from '../../types/ui.types'
 import { computed } from 'vue'
+import { GITHUB_FALLBACK_USERNAME } from '../../utils/dev'
 
 const props = defineProps<{
   totalContributions: number
@@ -92,6 +93,8 @@ const copy = computed(() => {
     events: id ? 'event' : 'events',
     days: id ? 'hari' : 'days',
     longestStreak: id ? 'Streak Terpanjang' : 'Longest Streak',
+    prMergedLabel: id ? 'PR Selesai' : 'PR Merged',
+    mrMergedLabel: id ? 'MR Selesai' : 'MR Merged',
     activeDays: id ? 'Hari Aktif' : 'Active Days',
     githubFooter: id ? 'Lihat Detail GitHub →' : 'View GitHub Details →',
     gitlabFooter: id ? 'Lihat Detail GitLab →' : 'View GitLab Details →',

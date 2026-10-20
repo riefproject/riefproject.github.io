@@ -1,8 +1,9 @@
 import { computed, ref, type Ref } from 'vue'
+import { DEFAULT_PAGE_SIZE } from '../utils/pagination'
 
 type PaginationSource<T> = Ref<T[]> | (() => T[])
 
-export function usePagination<T>(source: PaginationSource<T>, initialPageSize = 10) {
+export function usePagination<T>(source: PaginationSource<T>, initialPageSize = DEFAULT_PAGE_SIZE) {
   const currentPage = ref(1)
   const pageSize = ref(initialPageSize)
 

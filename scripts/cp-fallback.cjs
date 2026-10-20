@@ -4,6 +4,8 @@ const buildCpFallback = (cpData) => {
   return {
     overviewTotalSolved: overview.totalSolved,
     overviewTotalSubmissions: overview.totalSubmissions,
+    primaryLanguageName: overview.topLanguage?.name || 'C++20',
+    primaryLanguageCount: overview.topLanguage?.count || 0,
 
     tlxTotalSolved: platforms.tlx.totalSolved,
     tlxTotalSubmissions: platforms.tlx.totalSubmissions,

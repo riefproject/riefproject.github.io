@@ -17,12 +17,14 @@ export interface HeatmapDay {
   metrics?: HeatmapTooltipMetric[]
 }
 
+export const HEATMAP_LEVEL_THRESHOLDS = [2, 6, 14] as const
+
+export const DEFAULT_HEATMAP_DAYS = 364
+
 export const getHeatmapLevel = (count: number): number => {
   if (count <= 0) return 0
-  if (count <= 2) return 1
-  if (count <= 6) return 2
-  if (count <= 14) return 3
-  return 4
+  const level = HEATMAP_LEVEL_THRESHOLDS.findIndex((max) => count <= max)
+  return level === -1 ? 4 : level + 1
 }
 
 export type HeatmapEntryValue =
@@ -67,7 +69,7 @@ export const buildHeatmapDays = (
     levelFor?: (count: number) => number
   } = {}
 ): HeatmapDay[] => {
-  const { daysBack = 364, utcDate = false, levelFor = getHeatmapLevel } = options
+  const { daysBack = DEFAULT_HEATMAP_DAYS, utcDate = false, levelFor = getHeatmapLevel } = options
   const today = new Date()
   const days: HeatmapDay[] = []
 

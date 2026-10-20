@@ -23,9 +23,14 @@ const { searchTerm, selectedCategories, filteredItems } = useListFilter({
 const $theme = useStore(themeStore)
 const { isId, locale, resolveText } = useLocale()
 
-const searchPlaceholder = computed(() =>
-  isId.value ? 'Cari stack atau tools' : 'Search stack or tools'
-)
+const copy = computed(() => {
+  const id = isId.value
+  return {
+    searchPlaceholder: id ? 'Cari stack atau tools' : 'Search stack or tools',
+    searchAria: id ? 'Cari tech stack' : 'Search tech stack',
+    listAria: id ? 'Daftar tech stack' : 'Tech stack list',
+  }
+})
 
 const resolveLogo = (item: TechStack) => {
   return $theme.value === 'dark' ? item.logoDark : item.logoLight
@@ -44,14 +49,14 @@ const resolvedCategories = computed(() => {
     <GalleryToolbar
       v-model:search-term="searchTerm"
       v-model:selected-categories="selectedCategories"
-      :placeholder="searchPlaceholder"
-      :aria-label="locale === 'id' ? 'Cari tech stack' : 'Search tech stack'"
+      :placeholder="copy.searchPlaceholder"
+      :aria-label="copy.searchAria"
       input-type="search"
       mobile-layout="row"
       :categories="resolvedCategories"
       :locale="locale" />
 
-    <div class="scroller" :aria-label="locale === 'id' ? 'Daftar tech stack' : 'Tech stack list'">
+    <div class="scroller" :aria-label="copy.listAria">
       <div class="stack-grid">
         <div v-for="item in filteredItems" :key="item.name" class="stack-card surface">
           <div class="stack-logo">

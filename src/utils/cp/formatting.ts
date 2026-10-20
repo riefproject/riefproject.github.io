@@ -17,11 +17,13 @@ export const cleanLanguage = (lang: string): string => {
   return lang
 }
 
+const HARD_RATING_THRESHOLD = 1400
+
 export const getDiffClass = (diff: string | number | null | undefined): string => {
   if (!diff) return 'normal'
   const str = String(diff).toLowerCase()
   if (str.includes('easy') || str === '800' || str === '900') return 'easy'
   if (str.includes('medium') || str === '1000' || str === '1100' || str === '1200' || str === '1300') return 'medium'
-  if (str.includes('hard') || parseInt(str, 10) >= 1400) return 'hard'
+  if (str.includes('hard') || parseInt(str, 10) >= HARD_RATING_THRESHOLD) return 'hard'
   return 'normal'
 }

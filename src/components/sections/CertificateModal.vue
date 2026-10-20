@@ -15,6 +15,19 @@ const emit = defineEmits<{
 
 const { locale } = useLocale()
 
+const copy = computed(() => {
+  const id = locale.value === 'id'
+  return {
+    closeModal: id ? 'Tutup modal' : 'Close modal',
+    previousImage: id ? 'Gambar sebelumnya' : 'Previous image',
+    nextImage: id ? 'Gambar berikutnya' : 'Next image',
+    goToImage: (index: number) => (id ? `Ke gambar ${index}` : `Go to image ${index}`),
+    credentialId: id ? 'ID Kredensial' : 'Credential ID',
+    copyCredentialId: id ? 'Salin ID kredensial' : 'Copy credential ID',
+    verifyCredential: id ? 'Verifikasi Kredensial' : 'Verify Credential',
+  }
+})
+
 const copySuccess = ref(false)
 const currentImageIndex = ref(0)
 
@@ -102,7 +115,7 @@ onUnmounted(() => {
           <button
             @click="emit('close')"
             class="sticky top-3 right-3 z-10 p-1.5 md:p-2 rounded-full bg-[var(--surface-muted)] hover:bg-[var(--border)] transition-all hover:scale-110 active:scale-95 float-right mt-3 mr-3"
-            :aria-label="locale === 'id' ? 'Tutup modal' : 'Close modal'">
+            :aria-label="copy.closeModal">
             <svg
               class="w-5 h-5 md:w-4 md:h-4 text-[var(--muted)]"
               fill="none"
@@ -135,7 +148,7 @@ onUnmounted(() => {
                     <button
                       @click.stop="prevImage"
                       class="absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100 focus:opacity-100"
-                      :aria-label="locale === 'id' ? 'Gambar sebelumnya' : 'Previous image'">
+                      :aria-label="copy.previousImage">
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           stroke-linecap="round"
@@ -148,7 +161,7 @@ onUnmounted(() => {
                     <button
                       @click.stop="nextImage"
                       class="absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all hover:scale-110 active:scale-95 opacity-0 group-hover:opacity-100 focus:opacity-100"
-                      :aria-label="locale === 'id' ? 'Gambar berikutnya' : 'Next image'">
+                      :aria-label="copy.nextImage">
                       <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           stroke-linecap="round"
@@ -170,9 +183,7 @@ onUnmounted(() => {
                             'bg-white/50 hover:bg-white/80'
                           )
                         "
-                        :aria-label="
-                          locale === 'id' ? `Ke gambar ${idx + 1}` : `Go to image ${idx + 1}`
-                        " />
+                        :aria-label="copy.goToImage(idx + 1)" />
                     </div>
                   </template>
                 </div>
@@ -214,7 +225,7 @@ onUnmounted(() => {
                   <div v-if="achievement.credentialId">
                     <label
                       class="block text-xs font-semibold uppercase tracking-wide text-[var(--muted)] mb-2">
-                      {{ locale === 'id' ? 'ID Kredensial' : 'Credential ID' }}
+                      {{ copy.credentialId }}
                     </label>
                     <div
                       class="flex items-center gap-2 bg-[var(--bg)] rounded-xl p-3 border border-[var(--border)]">
@@ -227,9 +238,7 @@ onUnmounted(() => {
                         :class="{
                           'bg-[var(--chip-bg)] border-[var(--accent)]': copySuccess,
                         }"
-                        :aria-label="
-                          locale === 'id' ? 'Salin ID kredensial' : 'Copy credential ID'
-                        ">
+                        :aria-label="copy.copyCredentialId">
                         <svg
                           v-if="!copySuccess"
                           class="w-4 h-4 text-[var(--muted)]"
@@ -265,9 +274,7 @@ onUnmounted(() => {
                       target="_blank"
                       rel="noopener noreferrer"
                       class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[var(--accent)] hover:bg-[var(--accent-strong)] text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md">
-                      <span>{{
-                        locale === 'id' ? 'Verifikasi Kredensial' : 'Verify Credential'
-                      }}</span>
+                      <span>{{ copy.verifyCredential }}</span>
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path
                           stroke-linecap="round"

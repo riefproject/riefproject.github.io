@@ -44,6 +44,7 @@ import { computed } from 'vue'
 import CpProblemsTable from './CpProblemsTable.vue'
 import CpTablePagination from './CpTablePagination.vue'
 import { usePagination } from '../../composables/usePagination'
+import { DEFAULT_PAGE_SIZE } from '../../utils/pagination'
 import { resolveLocaleText, type LocaleText } from '../../utils/i18n'
 import type { CpColumn, CpPlatformCopy, CpTableCopy, SubmissionItem } from '../../types/cp.types'
 
@@ -60,7 +61,7 @@ const props = withDefaults(
     columns: () => [],
     archiveHref: '',
     isId: false,
-    pageSize: 10,
+    pageSize: DEFAULT_PAGE_SIZE,
   }
 )
 

@@ -19,10 +19,7 @@
         <div class="rows-per-page-select">
           <label class="text-xs text-gray-400">{{ copy.perPage }}</label>
           <select v-model.number="pageSize" @change="currentPage = 1" class="page-size-dropdown">
-            <option :value="10">10</option>
-            <option :value="20">20</option>
-            <option :value="50">50</option>
-            <option :value="100">100</option>
+            <option v-for="size in PAGE_SIZE_OPTIONS" :key="size" :value="size">{{ size }}</option>
           </select>
         </div>
       </div>
@@ -67,6 +64,7 @@ import { useListFilter } from '../../composables/useListFilter'
 import { usePagination } from '../../composables/usePagination'
 import { CP_PLATFORM_KEYS, buildPlatformCategories } from '../../utils/cp/platforms'
 import { matchesProblemSearch } from '../../utils/cp/search'
+import { DEFAULT_ARCHIVE_PAGE_SIZE, PAGE_SIZE_OPTIONS } from '../../utils/pagination'
 import type { CpData, SubmissionItem } from '../../types/cp.types'
 
 type ProblemsPayload = { problems?: SubmissionItem[] } | SubmissionItem[]
@@ -143,7 +141,7 @@ const {
   pageSize,
   totalPages,
   paginatedList: paginatedProblems,
-} = usePagination(() => filteredProblems.value, 20)
+} = usePagination(() => filteredProblems.value, DEFAULT_ARCHIVE_PAGE_SIZE)
 
 // URL Query Param handler on mounted
 onMounted(() => {

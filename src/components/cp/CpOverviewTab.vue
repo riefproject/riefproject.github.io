@@ -27,13 +27,13 @@
         :handle="cpData?.platforms?.codeforces?.handle || CP_PLATFORMS.codeforces.handleFallback"
         :logo="CP_PLATFORMS.codeforces.logo"
         :solvedNum="cpData?.platforms?.codeforces?.rating || CP_FALLBACK.codeforcesRating"
-        solvedLabel="rating"
+        :solvedLabel="copy.rating"
         :footerText="copy.codeforcesFooter"
         @select="$emit('selectPlatform', 'codeforces')">
         <MetaRow :label="`${copy.problemsSolved}:`">
           <strong>{{ totalCfSolved }} {{ copy.problems }}</strong>
         </MetaRow>
-        <MetaRow label="Rank:">
+        <MetaRow :label="`${copy.rank}:`">
           <strong class="cf-rank-text capitalize">{{
             cpData?.platforms?.codeforces?.rank || CP_FALLBACK.codeforcesRank
           }}</strong>
@@ -216,6 +216,8 @@ const copy = computed(() => {
   const id = props.isId
   return {
     solved: id ? 'selesai' : 'solved',
+    rating: 'rating',
+    rank: id ? 'Peringkat' : 'Rank',
     totalSubmissions: id ? 'Submisi Total' : 'Total Submissions',
     topLanguage: id ? 'Bahasa Dominan' : 'Top Language',
     problemsSolved: id ? 'Soal Selesai' : 'Problems Solved',
@@ -290,7 +292,7 @@ const {
   pageSize,
   totalPages,
   paginatedList: paginatedFeed,
-} = usePagination(() => filteredFeed.value, 10)
+} = usePagination(() => filteredFeed.value)
 
 const hackerrankTrackScore = (slug: string) =>
   props.cpData?.platforms?.hackerrank?.trackScores?.find((track) => track.slug === slug)?.score || 0

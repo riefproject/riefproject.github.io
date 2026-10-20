@@ -19,6 +19,20 @@ const emit = defineEmits<{
 
 const isFilterOpen = ref(false)
 
+const copy = computed(() => {
+  const id = props.locale === 'id'
+  return {
+    allPlatforms: id ? 'Semua Platform' : 'All Platforms',
+    allCategories: id ? 'Semua Kategori' : 'All Categories',
+    selectPlatform: id ? 'Pilih Platform' : 'Select Platform',
+    selectCategory: id ? 'Pilih Kategori' : 'Select Category',
+    onePlatform: '1 Platform',
+    oneCategory: id ? '1 Kategori' : '1 Category',
+    platformCount: (count: number) => (id ? `${count} Platform` : `${count} Platforms`),
+    categoryCount: (count: number) => (id ? `${count} Kategori` : `${count} Categories`),
+  }
+})
+
 const allCategoryKeys = computed(() =>
   props.categories.filter((c) => c.key !== 'all').map((c) => c.key)
 )
@@ -29,17 +43,11 @@ const activeCategoryLabel = computed(() => {
   const noneSelected = props.modelValue.length === 0
 
   if (allSelected) {
-    if (isPlatform) {
-      return props.locale === 'id' ? 'Semua Platform' : 'All Platforms'
-    }
-    return props.locale === 'id' ? 'Semua Kategori' : 'All Categories'
+    return isPlatform ? copy.value.allPlatforms : copy.value.allCategories
   }
 
   if (noneSelected) {
-    if (isPlatform) {
-      return props.locale === 'id' ? 'Pilih Platform' : 'Select Platform'
-    }
-    return props.locale === 'id' ? 'Pilih Kategori' : 'Select Category'
+    return isPlatform ? copy.value.selectPlatform : copy.value.selectCategory
   }
 
   if (props.modelValue.length === 1) {
@@ -47,20 +55,12 @@ const activeCategoryLabel = computed(() => {
     if (cat) {
       return isPlatform ? cat.label.replace(/\s*\(\d+\)/, '') : cat.label
     }
-    if (isPlatform) {
-      return props.locale === 'id' ? '1 Platform' : '1 Platform'
-    }
-    return props.locale === 'id' ? '1 Kategori' : '1 Category'
+    return isPlatform ? copy.value.onePlatform : copy.value.oneCategory
   }
 
-  if (isPlatform) {
-    return props.locale === 'id' ?
-        `${props.modelValue.length} Platform`
-      : `${props.modelValue.length} Platforms`
-  }
-  return props.locale === 'id' ?
-      `${props.modelValue.length} Kategori`
-    : `${props.modelValue.length} Categories`
+  return isPlatform ?
+      copy.value.platformCount(props.modelValue.length)
+    : copy.value.categoryCount(props.modelValue.length)
 })
 
 const toggleAll = () => {

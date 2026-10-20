@@ -15,6 +15,9 @@ export type CpTableCopy = {
   titleColumn: LocaleText
   timeColumn: LocaleText
   openTitle: LocaleText
+  platformColumn?: LocaleText
+  statusColumn?: LocaleText
+  accepted?: LocaleText
 }
 export type CpColumnKey = 'category' | 'difficulty' | 'language'
 

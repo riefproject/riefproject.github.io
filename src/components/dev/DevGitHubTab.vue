@@ -6,13 +6,13 @@
         alt="avatar"
         class="profile-avatar" />
       <div class="profile-info">
-        <h2>{{ github?.user?.name || 'riefproject' }}</h2>
+        <h2>{{ github?.user?.name || GITHUB_FALLBACK_USERNAME }}</h2>
         <p class="profile-sub">
           <a
-            :href="github?.user?.url || 'https://github.com/riefproject'"
+            :href="github?.user?.url || GITHUB_FALLBACK_URL"
             target="_blank"
             rel="noopener noreferrer">
-            @{{ github?.user?.login || 'riefproject' }} ↗
+            @{{ github?.user?.login || GITHUB_FALLBACK_USERNAME }} ↗
           </a>
           <span v-if="github?.user?.company"> · {{ github.user.company }}</span>
         </p>
@@ -99,6 +99,7 @@ import { devHeatmapMetrics, type HeatmapDay } from '../../utils/heatmap'
 import type { DevPlatformProfile } from '../../types/dev.types'
 import type { StatItem } from '../../types/ui.types'
 import { computed } from 'vue'
+import { GITHUB_FALLBACK_URL, GITHUB_FALLBACK_USERNAME } from '../../utils/dev'
 
 const props = defineProps<{
   github: DevPlatformProfile

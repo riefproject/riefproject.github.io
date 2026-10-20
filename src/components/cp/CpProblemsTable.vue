@@ -4,12 +4,12 @@
       <thead>
         <tr>
           <th class="col-num">#</th>
-          <th v-if="showPlatform" class="col-platform">Platform</th>
+          <th v-if="showPlatform" class="col-platform">{{ text(tableCopy.platformColumn) }}</th>
           <th class="col-title">{{ text(tableCopy.titleColumn) }}</th>
           <th v-for="col in displayColumns" :key="col.key" :class="`col-${columnClass(col.key)}`">
             {{ isId ? col.labelId : col.labelEn }}
           </th>
-          <th class="col-status">Status</th>
+          <th class="col-status">{{ text(tableCopy.statusColumn) }}</th>
           <th class="col-time">{{ text(tableCopy.timeColumn) }}</th>
           <th class="col-action"></th>
         </tr>
@@ -80,7 +80,7 @@
 
           <!-- Status / Verdict -->
           <td class="cell-status">
-            <span class="status-badge ac">AC</span>
+            <span class="status-badge ac">{{ text(tableCopy.accepted) }}</span>
           </td>
 
           <!-- Solved Time -->
@@ -113,6 +113,7 @@ import { getPlatformLogo, getPlatformLogoLight, getPlatformName } from '../../ut
 import type { CpColumn, CpColumnKey, CpTableCopy, SubmissionItem } from '../../types/cp.types'
 import { resolveLocaleText, type LocaleText } from '../../utils/i18n'
 import { formatExactDate } from '../../utils/dateFormat'
+import { DEFAULT_PAGE_SIZE } from '../../utils/pagination'
 
 const props = withDefaults(
   defineProps<{
@@ -129,7 +130,7 @@ const props = withDefaults(
   {
     columns: () => [],
     currentPage: 1,
-    pageSize: 10,
+    pageSize: DEFAULT_PAGE_SIZE,
     showPlatform: true,
     showDifficulty: true,
     copy: () => ({}),
@@ -140,13 +141,16 @@ const props = withDefaults(
 
 const text = (value: LocaleText) => resolveLocaleText(value, props.isId)
 
-const tableCopy = computed<CpTableCopy>(() => ({
+const tableCopy = computed<Required<CpTableCopy>>(() => ({
   titleColumn: props.copy.titleColumn || { en: 'Problem Name', id: 'Judul Soal' },
   timeColumn: props.copy.timeColumn || { en: 'Solved Date', id: 'Waktu Selesai' },
   openTitle: props.copy.openTitle || {
     en: 'Open problem on platform',
     id: 'Buka soal di platform',
   },
+  platformColumn: props.copy.platformColumn || { en: 'Platform', id: 'Platform' },
+  statusColumn: props.copy.statusColumn || { en: 'Status', id: 'Status' },
+  accepted: props.copy.accepted || { en: 'AC', id: 'AC' },
 }))
 
 const startIndex = computed(() => (props.currentPage - 1) * props.pageSize)

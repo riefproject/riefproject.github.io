@@ -21,9 +21,9 @@
 
       <StatCard
         :label="copy.activePlatforms"
-        :value="4"
+        :value="activePlatforms"
         variant="amber"
-        helper="TLX · Codeforces · LeetCode · HackerRank" />
+        :helper="copy.activePlatformsHelper" />
 
       <StatCard
         :label="copy.primaryLanguage"
@@ -106,6 +106,7 @@ import StatCard from '../shared/StatCard.vue'
 import DashboardCrosslink from '../shared/DashboardCrosslink.vue'
 import DashboardTopbar from '../shared/DashboardTopbar.vue'
 import { cpHeatmapMetrics } from '../../utils/cp/stats'
+import { CP_PLATFORM_KEYS } from '../../utils/cp/platforms'
 import type { CpData } from '../../types/cp.types'
 
 const props = defineProps<{
@@ -113,6 +114,8 @@ const props = defineProps<{
 }>()
 
 const { isId, locale } = useLocale()
+
+const activePlatforms = CP_PLATFORM_KEYS.length
 
 const cpData = ref<CpData | null>(props.initialData || null)
 const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date().toISOString())
@@ -142,6 +145,7 @@ const copy = computed(() => {
     totalSubmissionsHelper:
       id ? 'Riwayat percobaan & evaluasi juri' : 'Judged runs & submission history',
     activePlatforms: id ? 'Platform Aktif' : 'Active Platforms',
+    activePlatformsHelper: 'TLX · Codeforces · LeetCode · HackerRank',
     primaryLanguage: id ? 'Bahasa Utama' : 'Primary Language',
     heatmapTitle: id ? 'Kalender Aktivitas Submisi' : 'Submission Activity Heatmap',
     developmentCrosslink:

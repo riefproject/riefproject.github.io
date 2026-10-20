@@ -70,6 +70,9 @@ import HeatmapLegend from './HeatmapLegend.vue'
 import HeatmapTooltip from './HeatmapTooltip.vue'
 import type { HeatmapDay, HeatmapTooltipMetric } from '../../utils/heatmap'
 
+const TOOLTIP_GAP_PX = 8
+const SCROLL_TO_END_DELAY_MS = 300
+
 const props = withDefaults(
   defineProps<{
     weeks: HeatmapDay[][]
@@ -135,7 +138,7 @@ const onCellMouseEnter = (e: MouseEvent, day: HeatmapDay) => {
   if (target) {
     const rect = target.getBoundingClientRect()
     tooltipPos.value = {
-      top: rect.top - 8,
+      top: rect.top - TOOLTIP_GAP_PX,
       left: rect.left + rect.width / 2,
     }
   }
@@ -164,7 +167,7 @@ onMounted(() => {
     if (heatmapScrollEl.value) {
       heatmapScrollEl.value.scrollLeft = heatmapScrollEl.value.scrollWidth
     }
-  }, 300)
+  }, SCROLL_TO_END_DELAY_MS)
 })
 </script>
 

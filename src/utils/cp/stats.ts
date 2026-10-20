@@ -1,6 +1,7 @@
 import type { CpData, CpHeatmapDay, CpRecentSolved } from '../../types/cp.types'
-import { buildHeatmapDays as buildDays, type HeatmapMap, type HeatmapTooltipMetric } from '../heatmap'
+import { buildHeatmapDays as buildDays, DEFAULT_HEATMAP_DAYS, getHeatmapLevel, type HeatmapMap, type HeatmapTooltipMetric } from '../heatmap'
 import { cleanLanguage } from './formatting'
+import { CP_FALLBACK } from './defaults'
 
 export const cpHeatmapMetrics = (day: CpHeatmapDay, isId: boolean): HeatmapTooltipMetric[] => {
   const tries = day?.tries ?? 0
@@ -16,15 +17,7 @@ export const cpHeatmapMetrics = (day: CpHeatmapDay, isId: boolean): HeatmapToolt
   ]
 }
 
-const cpHeatmapLevel = (count: number): number => {
-  if (count > 0 && count <= 2) return 1
-  if (count > 2 && count <= 6) return 2
-  if (count > 6 && count <= 15) return 3
-  if (count > 15) return 4
-  return 0
-}
-
-export const buildCpHeatmap = (map: HeatmapMap = {}, daysBack = 364): CpHeatmapDay[] => {
+export const buildCpHeatmap = (map: HeatmapMap = {}, daysBack = DEFAULT_HEATMAP_DAYS): CpHeatmapDay[] => {
   const days = buildDays(
     map,
     (entry) => {
@@ -38,7 +31,7 @@ export const buildCpHeatmap = (map: HeatmapMap = {}, daysBack = 364): CpHeatmapD
       }
       return { count: tries, tries, ac }
     },
-    { daysBack, utcDate: true, levelFor: cpHeatmapLevel }
+    { daysBack, utcDate: true, levelFor: getHeatmapLevel }
   )
 
   return days.map(({ date, count, tries, ac, level }) => ({
@@ -50,12 +43,14 @@ export const buildCpHeatmap = (map: HeatmapMap = {}, daysBack = 364): CpHeatmapD
   }))
 }
 
+const formatCompactCount = (count: number): string => (count >= 1000 ? `${Math.floor(count / 1000)}K+` : `${count}+`)
+
 export const getPrimaryLanguage = (cpData: CpData | null | undefined) => {
   const overviewTop = cpData?.overview?.topLanguage
   if (overviewTop?.name && overviewTop?.count) {
     const name = overviewTop.name
     const count = Number(overviewTop.count)
-    const formattedCount = count >= 1000 ? `${Math.floor(count / 1000)}K+` : `${count}+`
+    const formattedCount = formatCompactCount(count)
     return { name, count, formattedCount }
   }
 
@@ -101,10 +96,10 @@ export const getPrimaryLanguage = (cpData: CpData | null | undefined) => {
   })
 
   if (maxCount <= 0) {
-    maxCount = 1137
-    maxLang = 'C++20'
+    maxCount = CP_FALLBACK.primaryLanguageCount
+    maxLang = CP_FALLBACK.primaryLanguageName
   }
 
-  const formattedCount = maxCount >= 1000 ? `${Math.floor(maxCount / 1000)}K+` : `${maxCount}+`
+  const formattedCount = formatCompactCount(maxCount)
   return { name: maxLang, count: maxCount, formattedCount }
 }

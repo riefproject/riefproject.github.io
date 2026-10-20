@@ -516,7 +516,7 @@ const CP_HANDLES = {
   hackerrank: 'areee',
 }
 
-async function cpTlx(username) {
+async function cpTlx(username, prev = {}) {
   let allSubmissions = []
   let beforeId = null
   let isFinished = false
@@ -589,8 +589,8 @@ async function cpTlx(username) {
     solvedAt: s.submittedAt,
   }))
 
-  let totalSolved = 371
-  let totalAcSubmissions = 362
+  let totalSolved = prev?.totalSolved || 0
+  let totalAcSubmissions = prev?.totalAcSubmissions || 0
   try {
     const statsRes = await fetch(`https://api.tlx.toki.id/v2/stats/users/?username=${username}`, {
       headers: { 'User-Agent': 'Mozilla/5.0 (Portfolio CP Dashboard)' },
@@ -614,9 +614,9 @@ async function cpTlx(username) {
     uniqueProblemsSolved: uniqueProblems.size || totalSolved,
     totalAcSubmissions: totalAcSubmissions,
     languages: {
-      Cpp20: languages['Cpp20'] || 538,
-      Pascal: languages['Pascal'] || 12,
-      C: languages['C'] || 11,
+      Cpp20: languages['Cpp20'] || prev?.languages?.Cpp20 || 0,
+      Pascal: languages['Pascal'] || prev?.languages?.Pascal || 0,
+      C: languages['C'] || prev?.languages?.C || 0,
       ...languages,
     },
     dailyCalendar,
@@ -624,14 +624,19 @@ async function cpTlx(username) {
   }
 }
 
-async function cpCodeforces(handle) {
+async function cpCodeforces(handle, prev = {}) {
   const [infoRes, statusRes, ratingRes] = await Promise.allSettled([
     fetch(`https://codeforces.com/api/user.info?handles=${handle}`),
     fetch(`https://codeforces.com/api/user.status?handle=${handle}&from=1&count=10000`),
     fetch(`https://codeforces.com/api/user.rating?handle=${handle}`),
   ])
 
-  let userInfo = { rating: 625, maxRating: 625, rank: 'newbie', maxRank: 'newbie' }
+  let userInfo = {
+    rating: prev?.rating || 0,
+    maxRating: prev?.maxRating || prev?.rating || 0,
+    rank: prev?.rank || 'unrated',
+    maxRank: prev?.maxRank || prev?.rank || 'unrated',
+  }
   if (infoRes.status === 'fulfilled' && infoRes.value.ok) {
     const data = await infoRes.value.json()
     if (data.status === 'OK' && data.result && data.result[0]) userInfo = data.result[0]
@@ -707,14 +712,14 @@ async function cpCodeforces(handle) {
   return {
     handle,
     url: `https://codeforces.com/profile/${handle}`,
-    rating: userInfo.rating || 625,
-    maxRating: userInfo.maxRating || 625,
-    rank: userInfo.rank || 'newbie',
-    maxRank: userInfo.maxRank || 'newbie',
+    rating: userInfo.rating || prev?.rating || 0,
+    maxRating: userInfo.maxRating || prev?.maxRating || 0,
+    rank: userInfo.rank || prev?.rank || 'unrated',
+    maxRank: userInfo.maxRank || prev?.maxRank || 'unrated',
     contestsCount,
-    totalSubmissions: allSubs.length || 148,
-    totalSolved: uniqueProblems.size || 50,
-    totalAcSubmissions: acSubs.length || 50,
+    totalSubmissions: allSubs.length || prev?.totalSubmissions || 0,
+    totalSolved: uniqueProblems.size || prev?.totalSolved || 0,
+    totalAcSubmissions: acSubs.length || prev?.totalAcSubmissions || 0,
     tagsCount,
     ratingDistribution,
     languages,
@@ -765,16 +770,16 @@ async function cpLeetCode(username, prevLc = {}) {
       fetch(`https://alfa-leetcode-api.onrender.com/${username}/acSubmission?limit=50`),
     ])
 
-    let ranking = 2367686
+    let ranking = prevLc?.ranking || 0
     if (profileRes.status === 'fulfilled' && profileRes.value.ok) {
       const pJson = await profileRes.value.json()
       if (pJson.ranking) ranking = pJson.ranking
     }
 
-    let easySolved = 32
-    let mediumSolved = 24
-    let hardSolved = 3
-    let totalSolved = 59
+    let easySolved = prevLc?.easySolved || 0
+    let mediumSolved = prevLc?.mediumSolved || 0
+    let hardSolved = prevLc?.hardSolved || 0
+    let totalSolved = prevLc?.totalSolved || 0
     if (solvedRes.status === 'fulfilled' && solvedRes.value.ok) {
       const sJson = await solvedRes.value.json()
       if (sJson.solvedProblem) totalSolved = sJson.solvedProblem
@@ -896,7 +901,7 @@ async function cpLeetCode(username, prevLc = {}) {
   }
 }
 
-async function cpHackerRank(handle) {
+async function cpHackerRank(handle, prev = {}) {
   const [badgeRes, scoreRes, chalRes, histRes] = await Promise.allSettled([
     fetch(`https://www.hackerrank.com/rest/hackers/${handle}/badges`, { headers: { 'User-Agent': 'Mozilla/5.0' } }),
     fetch(`https://www.hackerrank.com/rest/hackers/${handle}/scores_elo`, { headers: { 'User-Agent': 'Mozilla/5.0' } }),
@@ -933,7 +938,7 @@ async function cpHackerRank(handle) {
       }))
   }
 
-  let totalHrSubmissions = 415
+  let totalHrSubmissions = prev?.totalSubmissions || 0
   const dailyCalendar = {}
   if (histRes.status === 'fulfilled' && histRes.value.ok) {
     const histData = await histRes.value.json()
@@ -992,7 +997,7 @@ async function cpHackerRank(handle) {
     }
   })
 
-  const badgeSolvedTotal = badges.reduce((acc, b) => acc + (b.solved || 0), 0) || 138
+  const badgeSolvedTotal = badges.reduce((acc, b) => acc + (b.solved || 0), 0) || prev?.totalSolved || 0
 
   return {
     handle,
@@ -1019,15 +1024,15 @@ async function crawlCp() {
     const freshRecent = (fresh.recentSolved && fresh.recentSolved.length) || 0
     const prevRecent = (prev.recentSolved && prev.recentSolved.length) || 0
     if (freshRecent === 0 && prevRecent > 0) return prev
-    if ((fresh.totalSolved || 0) < (prev.totalSolved || 0)) return prev
+    if ((fresh.totalSolved || 0) < (prev?.totalSolved || 0)) return prev
     return fresh
   }
 
   const [tlxRes, cfRes, lcRes, hrRes] = await Promise.allSettled([
-    cpTlx(CP_HANDLES.tlx),
-    cpCodeforces(CP_HANDLES.codeforces),
+    cpTlx(CP_HANDLES.tlx, prevPlatforms.tlx),
+    cpCodeforces(CP_HANDLES.codeforces, prevPlatforms.codeforces),
     cpLeetCode(CP_HANDLES.leetcode, prevPlatforms.leetcode),
-    cpHackerRank(CP_HANDLES.hackerrank),
+    cpHackerRank(CP_HANDLES.hackerrank, prevPlatforms.hackerrank),
   ])
 
   const tlx = mergePlatform(tlxRes.status === 'fulfilled' ? tlxRes.value : null, 'tlx')
@@ -1052,14 +1057,10 @@ async function crawlCp() {
     ...((hr && hr.recentSolved) || []),
   ].sort((a, b) => new Date(b.solvedAt).getTime() - new Date(a.solvedAt).getTime())
 
-  const totalSolved =
-    ((tlx && tlx.totalSolved) || 371) + ((cf && cf.totalSolved) || 50) + ((lc && lc.totalSolved) || 59) + ((hr && hr.totalSolved) || 138)
+  const totalSolved = ((tlx && tlx.totalSolved) || 0) + ((cf && cf.totalSolved) || 0) + ((lc && lc.totalSolved) || 0) + ((hr && hr.totalSolved) || 0)
 
   const totalSubmissions =
-    ((tlx && tlx.totalSubmissions) || 561) +
-    ((cf && cf.totalSubmissions) || 148) +
-    ((lc && lc.totalSolved) || 70) +
-    ((hr && hr.totalSubmissions) || 415)
+    ((tlx && tlx.totalSubmissions) || 0) + ((cf && cf.totalSubmissions) || 0) + ((lc && lc.totalSolved) || 0) + ((hr && hr.totalSubmissions) || 0)
 
   const languageTotals = {}
   if (tlx && tlx.languages) {

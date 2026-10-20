@@ -15,7 +15,7 @@
         @click="setPage(1)"
         :disabled="currentPage === 1"
         class="pg-btn"
-        title="First Page">
+        :title="navCopy.firstPage">
         «
       </button>
       <button
@@ -23,7 +23,7 @@
         @click="setPage(currentPage - 1)"
         :disabled="currentPage === 1"
         class="pg-btn"
-        title="Previous Page">
+        :title="navCopy.previousPage">
         ‹
       </button>
 
@@ -45,7 +45,7 @@
         @click="setPage(currentPage + 1)"
         :disabled="currentPage === totalPages"
         class="pg-btn"
-        title="Next Page">
+        :title="navCopy.nextPage">
         ›
       </button>
       <button
@@ -53,7 +53,7 @@
         @click="setPage(totalPages)"
         :disabled="currentPage === totalPages"
         class="pg-btn"
-        title="Last Page">
+        :title="navCopy.lastPage">
         »
       </button>
     </div>
@@ -63,6 +63,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { getPageNumbers } from '../../utils/pagination'
+
+const PAGINATION_SCROLL_TOP = 180
 
 const props = withDefaults(
   defineProps<{
@@ -82,6 +84,22 @@ const props = withDefaults(
 const emit = defineEmits<{
   (e: 'update:currentPage', page: number): void
 }>()
+
+const navCopy = computed(() =>
+  props.isId ?
+    {
+      firstPage: 'Halaman Pertama',
+      previousPage: 'Halaman Sebelumnya',
+      nextPage: 'Halaman Berikutnya',
+      lastPage: 'Halaman Terakhir',
+    }
+  : {
+      firstPage: 'First Page',
+      previousPage: 'Previous Page',
+      nextPage: 'Next Page',
+      lastPage: 'Last Page',
+    }
+)
 
 const rangeText = computed(() => {
   if (props.totalItems === 0) return '0'
@@ -116,7 +134,7 @@ const setPage = (page: number) => {
   if (page >= 1 && page <= props.totalPages && page !== props.currentPage) {
     emit('update:currentPage', page)
     if (props.scrollToTop && typeof window !== 'undefined') {
-      window.scrollTo({ top: 180, behavior: 'smooth' })
+      window.scrollTo({ top: PAGINATION_SCROLL_TOP, behavior: 'smooth' })
     }
   }
 }

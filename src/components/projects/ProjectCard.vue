@@ -46,7 +46,7 @@ const extraStack = computed(() =>
   <article class="project-card">
     <slot name="media">
       <div v-if="project.img" class="project-image">
-        <img :src="project.img" :alt="resolveText(project.title)" loading="lazy" />
+        <img :src="project.img" :alt="resolveText(project.title)" loading="lazy" decoding="async" />
       </div>
       <div
         v-else

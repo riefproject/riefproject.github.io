@@ -137,6 +137,10 @@ const visibleItems = computed(() => groupedAchievements.value[activeTab.value] ?
             v-if="item.logo"
             :src="item.logo"
             :alt="resolveText(item.issuer)"
+            width="48"
+            height="48"
+            loading="lazy"
+            decoding="async"
             class="cert-logo" />
         </div>
         <p class="achievement-card__date">{{ item.date }}</p>

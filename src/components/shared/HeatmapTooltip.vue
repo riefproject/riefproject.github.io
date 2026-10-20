@@ -26,12 +26,18 @@ defineProps<{
               <img
                 :src="m.logo"
                 :alt="m.label || ''"
+                width="14"
+                height="14"
+                decoding="async"
                 class="tip-img-logo"
                 :class="{ 'logo-variant-dark': Boolean(m.logoLight) }" />
               <img
                 v-if="m.logoLight"
                 :src="m.logoLight"
                 :alt="m.label || ''"
+                width="14"
+                height="14"
+                decoding="async"
                 class="tip-img-logo logo-variant-light" />
             </span>
             <span v-else class="tip-dot" :class="`dot-${m.color || 'emerald'}`"></span>

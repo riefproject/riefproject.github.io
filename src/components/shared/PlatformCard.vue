@@ -5,10 +5,29 @@
       <div class="pcard-title-group">
         <div class="pcard-logo-box">
           <template v-if="logo && logoLight">
-            <img :src="logo" :alt="name" class="pcard-img-logo logo-variant-dark" />
-            <img :src="logoLight" :alt="name" class="pcard-img-logo logo-variant-light" />
+            <img
+              :src="logo"
+              :alt="name"
+              width="22"
+              height="22"
+              decoding="async"
+              class="pcard-img-logo logo-variant-dark" />
+            <img
+              :src="logoLight"
+              :alt="name"
+              width="22"
+              height="22"
+              decoding="async"
+              class="pcard-img-logo logo-variant-light" />
           </template>
-          <img v-else :src="logo" :alt="name" class="pcard-img-logo" />
+          <img
+            v-else
+            :src="logo"
+            :alt="name"
+            width="22"
+            height="22"
+            decoding="async"
+            class="pcard-img-logo" />
         </div>
         <div class="pcard-title-text">
           <h4 class="pcard-name">{{ name }}</h4>

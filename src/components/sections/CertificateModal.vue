@@ -141,6 +141,7 @@ onUnmounted(() => {
                   <img
                     :src="images[currentImageIndex]"
                     :alt="`${achievement.title[locale] || achievement.title.en} Certificate`"
+                    decoding="async"
                     class="w-full h-auto" />
 
                   <!-- Navigation Buttons -->

@@ -22,10 +22,29 @@ defineEmits<{
     @click="$emit('select')">
     <slot :item="item" :active="active">
       <span v-if="item.logo && item.logoLight" class="tab-logo">
-        <img :src="item.logo" :alt="item.key" class="tab-logo-img logo-variant-dark" />
-        <img :src="item.logoLight" :alt="item.key" class="tab-logo-img logo-variant-light" />
+        <img
+          :src="item.logo"
+          :alt="item.key"
+          width="18"
+          height="18"
+          decoding="async"
+          class="tab-logo-img logo-variant-dark" />
+        <img
+          :src="item.logoLight"
+          :alt="item.key"
+          width="18"
+          height="18"
+          decoding="async"
+          class="tab-logo-img logo-variant-light" />
       </span>
-      <img v-else-if="item.logo" :src="item.logo" :alt="item.key" class="tab-logo-img" />
+      <img
+        v-else-if="item.logo"
+        :src="item.logo"
+        :alt="item.key"
+        width="18"
+        height="18"
+        decoding="async"
+        class="tab-logo-img" />
 
       <span v-else-if="item.icon" class="tab-icon" v-html="item.icon"></span>
 

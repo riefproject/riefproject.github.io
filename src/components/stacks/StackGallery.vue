@@ -64,6 +64,9 @@ const resolvedCategories = computed(() => {
               v-if="resolveLogo(item)"
               :src="resolveLogo(item)"
               alt=""
+              width="64"
+              height="64"
+              decoding="async"
               class="logo-svg"
               loading="lazy" />
             <span v-else>{{ item.name.slice(0, 2).toUpperCase() }}</span>

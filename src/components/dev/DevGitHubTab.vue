@@ -4,6 +4,9 @@
       <img
         :src="github?.user?.avatarUrl || '/img/stacks/github-dark.svg'"
         alt="avatar"
+        width="56"
+        height="56"
+        decoding="async"
         class="profile-avatar" />
       <div class="profile-info">
         <h2>{{ github?.user?.name || GITHUB_FALLBACK_USERNAME }}</h2>

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-19T21:58:10.572Z",
+    "updatedAt": "2026-10-20T03:16:24.663Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 761,
-    "totalSubmissions": 1685,
+    "totalSolved": 763,
+    "totalSubmissions": 1686,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-20": {
+        "tries": 2,
+        "ac": 1
+      },
       "2026-10-17": {
         "tries": 13,
         "ac": 7
@@ -318,7 +322,7 @@
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 22,
+        "tries": 23,
         "ac": 6
       },
       "2025-12-01": {
@@ -334,16 +338,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
-        "ac": 55
+        "tries": 105,
+        "ac": 53
       },
       "2026-08-25": {
         "tries": 1,
@@ -454,8 +458,8 @@
         "ac": 2
       },
       "2026-10-14": {
-        "tries": 4,
-        "ac": 4
+        "tries": 3,
+        "ac": 3
       },
       "2024-06-23": {
         "tries": 44,
@@ -580,8 +584,8 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 907,
-      "totalSolved": 442,
-      "uniqueProblemsSolved": 389,
+      "totalSolved": 443,
+      "uniqueProblemsSolved": 387,
       "totalAcSubmissions": 437,
       "languages": {
         "Cpp20": 874,
@@ -592,6 +596,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-20": {
+          "tries": 1,
+          "ac": 0
+        },
         "2026-10-17": {
           "tries": 12,
           "ac": 6
@@ -897,7 +905,7 @@
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 22,
+          "tries": 23,
           "ac": 6
         },
         "2025-12-01": {
@@ -913,16 +921,16 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
-          "ac": 55
+          "tries": 105,
+          "ac": 53
         }
       },
       "recentSolved": [
@@ -4377,16 +4385,6 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
-          "id": "tlx-4650685",
-          "platform": "tlx",
-          "title": "Kalkulator String",
-          "category": "Tipe Data Lainnya",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650685",
-          "solvedAt": "2025-11-24T16:47:20.506Z"
-        },
-        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -4515,16 +4513,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650610",
           "solvedAt": "2025-11-24T16:04:33.451Z"
-        },
-        {
-          "id": "tlx-4650598",
-          "platform": "tlx",
-          "title": "Toko Kandang II",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650598",
-          "solvedAt": "2025-11-24T15:54:33.525Z"
         },
         {
           "id": "tlx-4650595",
@@ -5685,11 +5673,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1659207,
-      "totalSolved": 104,
+      "totalSolved": 105,
       "easySolved": 52,
       "mediumSolved": 44,
-      "hardSolved": 8,
+      "hardSolved": 9,
       "dailyCalendar": {
+        "2026-10-20": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-19": {
           "tries": 1,
           "ac": 1
@@ -5711,11 +5703,21 @@
           "ac": 2
         },
         "2026-10-14": {
-          "tries": 4,
-          "ac": 4
+          "tries": 3,
+          "ac": 3
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792456701",
+          "platform": "leetcode",
+          "title": "Sum of Sortable Integers",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/sum-of-sortable-integers/",
+          "solvedAt": "2026-10-20T00:38:21.000Z"
+        },
         {
           "id": "lc-1792414875",
           "platform": "leetcode",
@@ -5905,16 +5907,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/maximize-sum-of-squares-of-digits/",
           "solvedAt": "2026-10-14T22:51:10.000Z"
-        },
-        {
-          "id": "lc-1792017773",
-          "platform": "leetcode",
-          "title": "Number of 1 Bits",
-          "category": "Divide and Conquer",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/number-of-1-bits/",
-          "solvedAt": "2026-10-14T22:42:53.000Z"
         }
       ]
     },
@@ -6350,6 +6342,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1792456701",
+      "platform": "leetcode",
+      "title": "Sum of Sortable Integers",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/sum-of-sortable-integers/",
+      "solvedAt": "2026-10-20T00:38:21.000Z"
+    },
     {
       "id": "lc-1792414875",
       "platform": "leetcode",

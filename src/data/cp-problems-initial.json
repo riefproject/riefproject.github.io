@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-19T21:58:10.575Z",
-  "totalProblems": 711,
+  "lastUpdated": "2026-10-20T03:16:24.666Z",
+  "totalProblems": 712,
   "problems": [
+    {
+      "id": "lc-1792456701",
+      "platform": "leetcode",
+      "title": "Sum of Sortable Integers",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/sum-of-sortable-integers/",
+      "solvedAt": "2026-10-20T00:38:21.000Z"
+    },
     {
       "id": "lc-1792414875",
       "platform": "leetcode",

@@ -34,3 +34,6 @@ design-system/
 # playwright
 playwright-report/
 test-results/
+
+# lighthouse
+.lighthouseci/

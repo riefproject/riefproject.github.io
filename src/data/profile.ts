@@ -1,4 +1,4 @@
-import type { Profile, Highlight, Stat, CPProfile, FocusArea, SkillCategory } from '../types/profile.types'
+import type { Profile, Highlight, Stat, FocusArea, SkillCategory } from '../types/profile.types'
 import { t } from '../types/profile.types'
 
 export const profile: Profile = {
@@ -60,37 +60,6 @@ export const stats: Stat[] = [
     label: t('Projects delivered', 'Proyek selesai'),
     value: '10+',
     helper: t('School, club, and personal builds', 'Proyek sekolah, komunitas, dan proyek pribadi'),
-  },
-]
-
-export const cpProfiles: CPProfile[] = [
-  {
-    platform: 'Codeforces',
-    handle: 'Feeera',
-    url: 'https://codeforces.com/profile/feeera',
-    logo: '/img/codeforces.webp',
-    note: t('Regular contests and upsolving logs.', 'Kontes rutin dan catatan upsolve.'),
-  },
-  {
-    platform: 'TLX',
-    handle: 'fsarf_',
-    url: 'https://tlx.toki.id/profiles/fsarf_',
-    logo: '/img/tlx.webp',
-    note: t('Practice sets and local contests.', 'Latihan set dan kontes lokal.'),
-  },
-  {
-    platform: 'LeetCode',
-    handle: 'Fsaree',
-    url: 'https://leetcode.com/u/fsaree/',
-    logo: '/img/leetcode.webp',
-    note: t('Daily drills for data structures and algorithms.', 'Latihan harian struktur data dan algoritma.'),
-  },
-  {
-    platform: 'HackerRank',
-    handle: 'Areee',
-    url: 'https://www.hackerrank.com/profile/areee',
-    logo: '/img/HackerRank.webp',
-    note: t('Weekend rounds and speed benchmarks.', 'Round akhir pekan dan tolok ukur kecepatan.'),
   },
 ]
 

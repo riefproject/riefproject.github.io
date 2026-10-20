@@ -95,22 +95,6 @@ defineEmits<{
   object-fit: contain;
 }
 
-.logo-variant-dark {
-  display: inline-block;
-}
-
-.logo-variant-light {
-  display: none;
-}
-
-:root.light .logo-variant-dark {
-  display: none;
-}
-
-:root.light .logo-variant-light {
-  display: inline-block;
-}
-
 .tab-badge {
   font-size: var(--text-xs);
   padding: 0.15rem 0.45rem;

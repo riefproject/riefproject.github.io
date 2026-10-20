@@ -242,7 +242,23 @@ main {
   width: auto;
   height: auto;
   object-fit: contain;
-  display: block;
+}
+
+/* Theme-aware logo pairs: `dark` is the default logo shown on :root, `light` on :root.light */
+.logo-variant-dark {
+  display: inline-block;
+}
+
+.logo-variant-light {
+  display: none;
+}
+
+:root.light .logo-variant-dark {
+  display: none;
+}
+
+:root.light .logo-variant-light {
+  display: inline-block;
 }
 
 .surface {

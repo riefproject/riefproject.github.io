@@ -3,6 +3,7 @@
     <CpPlatformHeader
       :name="meta.name"
       :logo="meta.logo"
+      :logoLight="meta.logoLight"
       :description-en="meta.descriptionEn"
       :description-id="meta.descriptionId"
       :archive-href="meta.archiveHref"

@@ -3,7 +3,7 @@ import { ref, computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{
-    categories: { key: string; label: string; icon?: string }[]
+    categories: { key: string; label: string; icon?: string; iconLight?: string }[]
     modelValue: string[]
     locale: 'id' | 'en'
     itemType?: 'category' | 'platform'
@@ -123,7 +123,13 @@ const toggleCategory = (key: string) => {
             v-if="category.icon"
             :src="category.icon"
             :alt="category.key"
-            class="dropdown-item-icon" />
+            class="dropdown-item-icon"
+            :class="{ 'logo-variant-dark': Boolean(category.iconLight) }" />
+          <img
+            v-if="category.iconLight"
+            :src="category.iconLight"
+            :alt="category.key"
+            class="dropdown-item-icon logo-variant-light" />
           <span class="dropdown-item-label">{{ category.label }}</span>
         </label>
       </div>

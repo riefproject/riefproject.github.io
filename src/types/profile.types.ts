@@ -38,6 +38,7 @@ export type CPProfile = {
   handle: string
   url: string
   logo?: string
+  logoLight?: string
   note?: LocaleText
 }
 

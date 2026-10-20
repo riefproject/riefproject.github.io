@@ -6,6 +6,7 @@ export interface CpPlatformMeta {
   overviewName: string
   short: string
   logo: string
+  logoLight?: string
   handleFallback: string
   archiveHref: string
   profileUrl: (handle: string) => string
@@ -57,7 +58,8 @@ export const CP_PLATFORMS: Record<CpPlatformKey, CpPlatformMeta> = {
     name: 'LeetCode',
     overviewName: 'LeetCode',
     short: 'LeetCode',
-    logo: '/img/leetcode/leetcode.webp',
+    logo: '/img/leetcode/leetcode_dark.svg',
+    logoLight: '/img/leetcode/leetcode.svg',
     handleFallback: 'fsaree',
     archiveHref: '/competitive-programming/problems?platform=leetcode',
     profileUrl: (handle) => `https://leetcode.com/u/${handle}`,
@@ -87,9 +89,10 @@ export const CP_PLATFORMS: Record<CpPlatformKey, CpPlatformMeta> = {
 }
 
 export const getPlatformLogo = (platform: string): string => CP_PLATFORMS[platform as CpPlatformKey]?.logo ?? CP_PLATFORMS.tlx.logo
+export const getPlatformLogoLight = (platform: string): string | undefined => CP_PLATFORMS[platform as CpPlatformKey]?.logoLight
 export const getPlatformName = (platform: string): string => CP_PLATFORMS[platform as CpPlatformKey]?.short ?? platform?.toUpperCase() ?? ''
 
-export type PlatformCategory = { key: string; label: string; icon?: string }
+export type PlatformCategory = { key: string; label: string; icon?: string; iconLight?: string }
 
 export const buildPlatformCategories = (counts: Partial<Record<CpPlatformKey, number>> & { all?: number }, isId: boolean): PlatformCategory[] => [
   {
@@ -100,5 +103,6 @@ export const buildPlatformCategories = (counts: Partial<Record<CpPlatformKey, nu
     key,
     label: `${CP_PLATFORMS[key].short} (${counts[key] ?? 0})`,
     icon: CP_PLATFORMS[key].logo,
+    iconLight: CP_PLATFORMS[key].logoLight,
   })),
 ]

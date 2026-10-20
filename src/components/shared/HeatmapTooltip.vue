@@ -122,19 +122,6 @@ defineProps<{
   object-fit: contain;
 }
 
-.logo-variant-dark {
-  display: inline-block;
-}
-.logo-variant-light {
-  display: none;
-}
-:root.light .logo-variant-dark {
-  display: none;
-}
-:root.light .logo-variant-light {
-  display: inline-block;
-}
-
 .tip-dot {
   width: 6px;
   height: 6px;

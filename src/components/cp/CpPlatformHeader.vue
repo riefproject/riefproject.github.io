@@ -2,7 +2,11 @@
   <div class="spotlight-header">
     <div class="flex items-center gap-3.5">
       <div class="spotlight-logo-box">
-        <img :src="logo" :alt="name" class="spotlight-img-logo" />
+        <template v-if="logoLight">
+          <img :src="logo" :alt="name" class="spotlight-img-logo logo-variant-dark" />
+          <img :src="logoLight" :alt="name" class="spotlight-img-logo logo-variant-light" />
+        </template>
+        <img v-else :src="logo" :alt="name" class="spotlight-img-logo" />
       </div>
       <div>
         <h2>{{ name }}</h2>
@@ -38,6 +42,7 @@ withDefaults(
   defineProps<{
     name: string
     logo: string
+    logoLight?: string
     descriptionEn: string
     descriptionId: string
     archiveHref: string

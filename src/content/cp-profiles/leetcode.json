@@ -2,7 +2,8 @@
   "platform": "LeetCode",
   "handle": "fsaree",
   "url": "https://leetcode.com/u/fsaree",
-  "logo": "/img/leetcode/leetcode.webp",
+  "logo": "/img/leetcode/leetcode_dark.svg",
+  "logoLight": "/img/leetcode/leetcode.svg",
   "note": {
     "en": "Daily drills for data structures and algorithms.",
     "id": "Latihan harian struktur data dan algoritma."

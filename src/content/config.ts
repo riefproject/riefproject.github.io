@@ -67,6 +67,7 @@ export const collections = {
       handle: z.string(),
       url: z.string(),
       logo: z.string().optional(),
+      logoLight: z.string().optional(),
       note: localeTextSchema.optional(),
     }),
   }),

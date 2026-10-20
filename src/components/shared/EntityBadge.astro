@@ -1,6 +1,7 @@
 ---
 export type EntityBadgeProps = {
   logo?: string
+  logoLight?: string
   name: string
   fallbackText?: string
   initialsLength?: number
@@ -12,6 +13,7 @@ export type EntityBadgeProps = {
 
 const {
   logo,
+  logoLight,
   name,
   fallbackText,
   initialsLength = 2,
@@ -27,7 +29,12 @@ const fallback = fallbackText ?? name.slice(0, initialsLength).toUpperCase()
 <span
   class:list={['entity-badge', boxed && 'entity-badge--boxed', className]}
   style={`--entity-badge-size: ${size}px; font-size: ${fontSize};`}>
-  {logo ?
+  {logo && logoLight ?
+    <>
+      <img src={logo} alt={name} loading="lazy" class="logo-variant-dark" />
+      <img src={logoLight} alt={name} loading="lazy" class="logo-variant-light" />
+    </>
+  : logo ?
     <img src={logo} alt={name} loading="lazy" />
   : <span>{fallback}</span>}
 </span>

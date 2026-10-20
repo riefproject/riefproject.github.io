@@ -172,57 +172,6 @@ defineEmits<{
   color: var(--text);
 }
 
-:slotted(.diff-split) {
-  font-weight: 700;
-}
-
-:slotted(.diff-cnt.easy) {
-  color: #34d399;
-}
-:slotted(.diff-cnt.medium) {
-  color: #fbbf24;
-}
-:slotted(.diff-cnt.hard) {
-  color: #f43f5e;
-}
-
-:root.light :slotted(.diff-cnt.easy) {
-  color: #047857;
-  font-weight: 700;
-}
-:root.light :slotted(.diff-cnt.medium) {
-  color: #b45309;
-  font-weight: 700;
-}
-:root.light :slotted(.diff-cnt.hard) {
-  color: #be123c;
-  font-weight: 700;
-}
-
-:slotted(.cf-rank-text) {
-  color: #38bdf8;
-}
-
-:slotted(.capitalize) {
-  text-transform: capitalize;
-}
-
-:slotted(.track-pts-emerald) {
-  color: #34d399;
-}
-
-:slotted(.track-pts-sky) {
-  color: #38bdf8;
-}
-
-:root.light :slotted(.track-pts-emerald) {
-  color: #047857;
-}
-
-:root.light :slotted(.track-pts-sky) {
-  color: #0284c7;
-}
-
 .pcard-footer {
   border-top: none;
   padding-top: 0.75rem;

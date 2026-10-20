@@ -23,7 +23,18 @@
           <!-- Platform Column -->
           <td v-if="showPlatform" class="cell-platform">
             <div class="platform-badge-cell" :class="item.platform">
+              <template v-if="getPlatformLogoLight(item.platform)">
+                <img
+                  :src="getPlatformLogo(item.platform)"
+                  :alt="item.platform"
+                  class="table-logo-img logo-variant-dark" />
+                <img
+                  :src="getPlatformLogoLight(item.platform)"
+                  :alt="item.platform"
+                  class="table-logo-img logo-variant-light" />
+              </template>
               <img
+                v-else
                 :src="getPlatformLogo(item.platform)"
                 :alt="item.platform"
                 class="table-logo-img" />
@@ -98,7 +109,7 @@
 import { computed } from 'vue'
 import ExternalLinkIcon from '../shared/ExternalLinkIcon.vue'
 import { cleanLanguage, getDiffClass } from '../../utils/cp/formatting'
-import { getPlatformLogo, getPlatformName } from '../../utils/cp/platforms'
+import { getPlatformLogo, getPlatformLogoLight, getPlatformName } from '../../utils/cp/platforms'
 import type { CpColumn, CpColumnKey, SubmissionItem } from '../../types/cp.types'
 import { formatExactDate } from '../../utils/dateFormat'
 

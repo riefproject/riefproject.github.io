@@ -43,6 +43,7 @@
         name="LeetCode"
         :handle="cpData?.platforms?.leetcode?.handle || CP_PLATFORMS.leetcode.handleFallback"
         :logo="CP_PLATFORMS.leetcode.logo"
+        :logoLight="CP_PLATFORMS.leetcode.logoLight"
         :solvedNum="totalLcSolved"
         :solvedLabel="isId ? 'selesai' : 'solved'"
         :footerText="isId ? 'Lihat Detail LeetCode →' : 'View LeetCode Details →'"
@@ -277,6 +278,59 @@ const {
 .overview-tab {
   display: flex;
   flex-direction: column;
+}
+
+/*
+ * Color utilities for the platform card slot content.
+ * These live here instead of PlatformCard because `:slotted()` only scopes the
+ * direct slot child (MetaRow), not the nested spans, so the styles would not
+ * reach `.diff-cnt`, `.cf-rank-text`, or `.track-pts-*`.
+ */
+.diff-split {
+  font-weight: 700;
+}
+
+.diff-cnt.easy {
+  color: #34d399;
+}
+.diff-cnt.medium {
+  color: #fbbf24;
+}
+.diff-cnt.hard {
+  color: #f43f5e;
+}
+
+.cf-rank-text {
+  color: #38bdf8;
+}
+
+.track-pts-emerald {
+  color: #34d399;
+}
+
+.track-pts-sky {
+  color: #38bdf8;
+}
+
+:root.light .diff-cnt.easy {
+  color: #047857;
+  font-weight: 700;
+}
+:root.light .diff-cnt.medium {
+  color: #b45309;
+  font-weight: 700;
+}
+:root.light .diff-cnt.hard {
+  color: #be123c;
+  font-weight: 700;
+}
+
+:root.light .track-pts-emerald {
+  color: #047857;
+}
+
+:root.light .track-pts-sky {
+  color: #0284c7;
 }
 
 .platform-cards-grid {

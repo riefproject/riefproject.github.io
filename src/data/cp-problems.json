@@ -1,7 +1,27 @@
 {
-  "lastUpdated": "2026-10-18T02:54:10.644Z",
-  "totalProblems": 709,
+  "lastUpdated": "2026-10-19T21:58:10.575Z",
+  "totalProblems": 711,
   "problems": [
+    {
+      "id": "lc-1792414875",
+      "platform": "leetcode",
+      "title": "Find Target Indices After Sorting Array",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/find-target-indices-after-sorting-array/",
+      "solvedAt": "2026-10-19T13:01:15.000Z"
+    },
+    {
+      "id": "lc-1792353871",
+      "platform": "leetcode",
+      "title": "Number of Ways to Reorder Array to Get Same BST",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst/",
+      "solvedAt": "2026-10-18T20:04:31.000Z"
+    },
     {
       "id": "tlx-6180556",
       "platform": "tlx",

@@ -41,6 +41,7 @@ export const useCpStats = (cpData: Ref<CpData | null>) => {
       labelEn: 'LeetCode',
       labelId: 'LeetCode',
       logo: CP_PLATFORMS.leetcode.logo,
+      logoLight: CP_PLATFORMS.leetcode.logoLight,
       count: totalLcSolved.value,
     },
     {

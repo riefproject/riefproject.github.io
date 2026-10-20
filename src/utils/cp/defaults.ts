@@ -1,29 +1,32 @@
+import cpData from '../../data/cp-data.json'
+
 /**
  * Single source of truth for CP fallback values.
  *
  * These numbers are only used when live data is unavailable (initial render,
- * missing JSON fields, or standalone component usage). Keeping them in one place
- * prevents the previously inconsistent copies across tabs, composables, and
- * Astro sections.
+ * missing JSON fields, or standalone component usage). They are derived from
+ * the synced CP snapshot so they can never drift from the committed data.
  */
+const { overview, platforms } = cpData
+
 export const CP_FALLBACK = {
-  overviewTotalSolved: 754,
-  overviewTotalSubmissions: 1528,
+  overviewTotalSolved: overview.totalSolved,
+  overviewTotalSubmissions: overview.totalSubmissions,
 
-  tlxTotalSolved: 437,
-  tlxTotalSubmissions: 561,
-  tlxTotalAcSubmissions: 215,
+  tlxTotalSolved: platforms.tlx.totalSolved,
+  tlxTotalSubmissions: platforms.tlx.totalSubmissions,
+  tlxTotalAcSubmissions: platforms.tlx.totalAcSubmissions,
 
-  codeforcesTotalSolved: 68,
-  codeforcesRating: 625,
-  codeforcesRank: 'newbie',
-  codeforcesTotalSubmissions: 148,
+  codeforcesTotalSolved: platforms.codeforces.totalSolved,
+  codeforcesRating: platforms.codeforces.rating,
+  codeforcesRank: platforms.codeforces.rank,
+  codeforcesTotalSubmissions: platforms.codeforces.totalSubmissions,
 
-  leetcodeTotalSolved: 102,
-  leetcodeEasySolved: 32,
-  leetcodeMediumSolved: 24,
-  leetcodeHardSolved: 3,
-  leetcodeRanking: 2367686,
+  leetcodeTotalSolved: platforms.leetcode.totalSolved,
+  leetcodeEasySolved: platforms.leetcode.easySolved,
+  leetcodeMediumSolved: platforms.leetcode.mediumSolved,
+  leetcodeHardSolved: platforms.leetcode.hardSolved,
+  leetcodeRanking: platforms.leetcode.ranking,
 
-  hackerrankTotalSolved: 147,
+  hackerrankTotalSolved: platforms.hackerrank.totalSolved,
 } as const

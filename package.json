@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "crawl:data": "node scripts/crawl-data.cjs",
+    "validate:data": "node scripts/validate-data.cjs",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
     "test": "vitest run",
-    "verify": "npm run format:check && npm run check && npm run test && npm run build",
+    "verify": "npm run format:check && npm run check && npm run test && npm run validate:data && npm run build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "astro": "astro"

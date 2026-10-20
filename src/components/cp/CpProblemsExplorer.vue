@@ -257,19 +257,19 @@ watch(selectedCategories, (newVal) => {
 
 @media (max-width: 640px) {
   .explorer-controls-header {
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    width: 100% !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
   }
 
   .explorer-controls-header .search-input-wrap {
-    max-width: none !important;
-    flex: 1 !important;
+    max-width: none;
+    flex: 1;
   }
 
   .rows-per-page-select {
-    display: none !important;
+    display: none;
   }
 }
 </style>

@@ -96,28 +96,28 @@ const metrics = computed<CpMetric[]>(() => [
   border-radius: var(--radius-md);
 }
 :root.light .cf-tag-card {
-  background: var(--bg-soft) !important;
-  border: none !important;
+  background: var(--bg-soft);
+  border: none;
 }
 
 .cf-tag-name {
-  color: #e2e8f0;
+  color: var(--text);
   font-weight: 500;
 }
 :root.light .cf-tag-name {
-  color: #334155 !important;
+  color: var(--color-neutral-strong);
 }
 
 .cf-tag-count {
   background: rgba(56, 189, 248, 0.15);
-  color: #38bdf8;
+  color: var(--color-info);
   padding: 0.15rem 0.45rem;
   border-radius: var(--radius-sm);
   font-size: 0.725rem;
   font-weight: 700;
 }
 :root.light .cf-tag-count {
-  background: #e0f2fe !important;
-  color: #0369a1 !important;
+  background: color-mix(in srgb, var(--color-info) 15%, transparent);
+  color: var(--color-info-strong);
 }
 </style>

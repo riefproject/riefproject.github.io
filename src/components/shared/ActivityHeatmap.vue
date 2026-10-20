@@ -300,8 +300,8 @@ onMounted(() => {
 /* Responsive Styles */
 @media (max-width: 767px) {
   .heatmap-section {
-    padding: 1rem !important;
-    gap: 0.75rem !important;
+    padding: 1rem;
+    gap: 0.75rem;
   }
 }
 

@@ -69,18 +69,18 @@ defineEmits<{
 }
 
 :root.light .tab-btn {
-  color: #4b5563;
+  color: var(--muted);
 }
 
 :root.light .tab-btn:hover {
-  color: #111827;
-  background: #f3f4f6;
+  color: var(--text);
+  background: var(--bg-soft);
 }
 
 :root.light .tab-btn.active {
-  color: #111827;
-  background: #f3f4f6;
-  border-color: #cbd5e1;
+  color: var(--text);
+  background: var(--bg-soft);
+  border-color: var(--border);
 }
 
 .tab-logo,

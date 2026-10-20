@@ -56,6 +56,20 @@
   --heatmap-2: #047857;
   --heatmap-3: #10b981;
   --heatmap-4: #34d399;
+
+  /* Semantic accent colors */
+  --color-success: #34d399;
+  --color-success-strong: #047857;
+  --color-info: #38bdf8;
+  --color-info-strong: #0284c7;
+  --color-warning: #fbbf24;
+  --color-warning-strong: #b45309;
+  --color-danger: #f43f5e;
+  --color-danger-strong: #be123c;
+  --color-purple: #c084fc;
+  --color-purple-strong: #6b21a8;
+  --color-neutral: #64748b;
+  --color-neutral-strong: #334155;
 }
 
 /* Light mode */
@@ -82,6 +96,19 @@
   --scrollbar-track: rgba(0, 0, 0, 0.03);
   --scrollbar-thumb: rgba(0, 0, 0, 0.16);
   --scrollbar-thumb-hover: rgba(0, 0, 0, 0.3);
+
+  --color-success: #059669;
+  --color-success-strong: #047857;
+  --color-info: #0284c7;
+  --color-info-strong: #0369a1;
+  --color-warning: #d97706;
+  --color-warning-strong: #b45309;
+  --color-danger: #e11d48;
+  --color-danger-strong: #be123c;
+  --color-purple: #7e22ce;
+  --color-purple-strong: #6b21a8;
+  --color-neutral: #475569;
+  --color-neutral-strong: #1e293b;
 }
 
 *,

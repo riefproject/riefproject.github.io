@@ -90,30 +90,30 @@ const columns: CpColumn[] = [
   border-radius: var(--radius-xl);
 }
 :root.light .hr-track-card {
-  background: var(--bg-soft) !important;
-  border: none !important;
+  background: var(--bg-soft);
+  border: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .hr-track-name {
-  color: #e2e8f0;
+  color: var(--text);
 }
 :root.light .hr-track-name {
-  color: #334155 !important;
+  color: var(--color-neutral-strong);
 }
 
 .hr-track-score {
-  color: #34d399;
+  color: var(--color-success);
 }
 :root.light .hr-track-score {
-  color: #047857 !important;
+  color: var(--color-success-strong);
 }
 
 .hr-track-rank {
   color: var(--muted);
 }
 :root.light .hr-track-rank {
-  color: #64748b !important;
+  color: var(--color-neutral);
 }
 
 .hr-badge-card {
@@ -122,29 +122,29 @@ const columns: CpColumn[] = [
   border-radius: var(--radius-xl);
 }
 :root.light .hr-badge-card {
-  background: var(--bg-soft) !important;
-  border: none !important;
+  background: var(--bg-soft);
+  border: none;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .hr-badge-stars {
-  color: #fbbf24;
+  color: var(--color-warning);
 }
 :root.light .hr-badge-stars {
-  color: #b45309 !important;
+  color: var(--color-warning-strong);
 }
 
 .hr-badge-name {
-  color: #f3f4f6;
+  color: var(--text);
 }
 :root.light .hr-badge-name {
-  color: #1e293b !important;
+  color: var(--color-neutral-strong);
 }
 
 .hr-badge-solved {
   color: var(--muted);
 }
 :root.light .hr-badge-solved {
-  color: #64748b !important;
+  color: var(--color-neutral);
 }
 </style>

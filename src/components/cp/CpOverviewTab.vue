@@ -310,46 +310,46 @@ const {
 }
 
 .diff-cnt.easy {
-  color: #34d399;
+  color: var(--color-success);
 }
 .diff-cnt.medium {
-  color: #fbbf24;
+  color: var(--color-warning);
 }
 .diff-cnt.hard {
-  color: #f43f5e;
+  color: var(--color-danger);
 }
 
 .cf-rank-text {
-  color: #38bdf8;
+  color: var(--color-info);
 }
 
 .track-pts-emerald {
-  color: #34d399;
+  color: var(--color-success);
 }
 
 .track-pts-sky {
-  color: #38bdf8;
+  color: var(--color-info);
 }
 
 :root.light .diff-cnt.easy {
-  color: #047857;
+  color: var(--color-success-strong);
   font-weight: 700;
 }
 :root.light .diff-cnt.medium {
-  color: #b45309;
+  color: var(--color-warning-strong);
   font-weight: 700;
 }
 :root.light .diff-cnt.hard {
-  color: #be123c;
+  color: var(--color-danger-strong);
   font-weight: 700;
 }
 
 :root.light .track-pts-emerald {
-  color: #047857;
+  color: var(--color-success-strong);
 }
 
 :root.light .track-pts-sky {
-  color: #0284c7;
+  color: var(--color-info-strong);
 }
 
 .platform-cards-grid {
@@ -414,19 +414,19 @@ const {
 
 @media (max-width: 640px) {
   .feed-section {
-    margin-top: 2rem !important;
+    margin-top: 2rem;
   }
 
   .feed-controls {
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    width: 100% !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
   }
 
   .feed-controls .search-input-wrap {
-    max-width: none !important;
-    flex: 1 !important;
+    max-width: none;
+    flex: 1;
   }
 }
 </style>

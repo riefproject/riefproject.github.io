@@ -67,16 +67,16 @@ withDefaults(
 }
 
 .val-emerald {
-  color: #34d399;
+  color: var(--color-success);
 }
 .val-sky {
-  color: #38bdf8;
+  color: var(--color-info);
 }
 .val-amber {
-  color: #fbbf24;
+  color: var(--color-warning);
 }
 .val-purple {
-  color: #c084fc;
+  color: var(--color-purple);
 }
 
 .stat-unit {
@@ -186,25 +186,25 @@ withDefaults(
 }
 
 :root.light .val-emerald {
-  color: #047857;
+  color: var(--color-success-strong);
 }
 :root.light .val-sky {
-  color: #0284c7;
+  color: var(--color-info-strong);
 }
 :root.light .val-amber {
-  color: #b45309;
+  color: var(--color-warning-strong);
 }
 :root.light .val-purple {
-  color: #6b21a8;
+  color: var(--color-purple-strong);
 }
 
 :root.light .stat-label {
-  color: #4b5563;
+  color: var(--text);
   font-weight: 700;
 }
 
 :root.light .stat-helper {
-  color: #6b7280;
+  color: var(--muted);
 }
 
 @media (max-width: 640px) {

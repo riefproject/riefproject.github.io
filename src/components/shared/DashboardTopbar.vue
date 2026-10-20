@@ -79,14 +79,14 @@ const formattedTime = computed(() => {
 
 @media (max-width: 480px) {
   .dashboard-topbar {
-    flex-direction: column !important;
-    gap: 0.75rem !important;
-    align-items: stretch !important;
-    text-align: center !important;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+    text-align: center;
   }
 
   .live-indicator {
-    justify-content: center !important;
+    justify-content: center;
   }
 }
 </style>

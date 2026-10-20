@@ -3,8 +3,7 @@ import { computed, ref } from 'vue'
 import type { LocaleText, Project } from '../../types/profile.types'
 import { useLocale } from '../../composables/useLocale'
 import { useListFilter } from '../../composables/useListFilter'
-import FilterDropdown from '../shared/FilterDropdown.vue'
-import SearchInput from '../shared/SearchInput.vue'
+import GalleryToolbar from '../shared/GalleryToolbar.vue'
 import ProjectCard from './ProjectCard.vue'
 
 type Category = { key: string; label: LocaleText }
@@ -75,18 +74,12 @@ const toggleViewMore = () => {
 
 <template>
   <div class="project-gallery flex flex-col gap-6 is-visible">
-    <div class="toolbar">
-      <SearchInput
-        v-model="searchTerm"
-        :placeholder="copy.searchPlaceholder"
-        :withIcon="false"
-        surface="plain" />
-
-      <FilterDropdown
-        v-model="selectedCategories"
-        :categories="resolvedCategories"
-        :locale="locale" />
-    </div>
+    <GalleryToolbar
+      v-model:search-term="searchTerm"
+      v-model:selected-categories="selectedCategories"
+      :placeholder="copy.searchPlaceholder"
+      :categories="resolvedCategories"
+      :locale="locale" />
 
     <p class="text-sm font-semibold text-muted mb-4">{{ activeCount }} {{ copy.resultSuffix }}</p>
 
@@ -133,29 +126,5 @@ const toggleViewMore = () => {
 .project-empty {
   background: var(--bg-elevated);
   background: color-mix(in srgb, var(--bg-elevated) 70%, transparent);
-}
-
-.toolbar {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.search-input-wrap {
-  flex: 1;
-}
-
-@media (max-width: 640px) {
-  .toolbar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-  }
-
-  .search-input-wrap {
-    flex: none;
-    width: 100%;
-  }
 }
 </style>

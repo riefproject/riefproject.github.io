@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import FilterDropdown from '../shared/FilterDropdown.vue'
-import SearchInput from '../shared/SearchInput.vue'
+import GalleryToolbar from '../shared/GalleryToolbar.vue'
 import { useStore } from '@nanostores/vue'
 import type { LocaleText, TechStack } from '../../types/profile.types'
 import { theme as themeStore } from '../../stores/uiStore'
@@ -42,20 +41,15 @@ const resolvedCategories = computed(() => {
 
 <template>
   <div class="stack-shell">
-    <div class="toolbar">
-      <SearchInput
-        v-model="searchTerm"
-        :placeholder="searchPlaceholder"
-        :aria-label="locale === 'id' ? 'Cari tech stack' : 'Search tech stack'"
-        inputType="search"
-        :withIcon="false"
-        surface="plain" />
-
-      <FilterDropdown
-        v-model="selectedCategories"
-        :categories="resolvedCategories"
-        :locale="locale" />
-    </div>
+    <GalleryToolbar
+      v-model:search-term="searchTerm"
+      v-model:selected-categories="selectedCategories"
+      :placeholder="searchPlaceholder"
+      :aria-label="locale === 'id' ? 'Cari tech stack' : 'Search tech stack'"
+      input-type="search"
+      mobile-layout="row"
+      :categories="resolvedCategories"
+      :locale="locale" />
 
     <div class="scroller" :aria-label="locale === 'id' ? 'Daftar tech stack' : 'Tech stack list'">
       <div class="stack-grid">
@@ -80,17 +74,6 @@ const resolvedCategories = computed(() => {
 .stack-shell {
   display: grid;
   gap: 0.75rem;
-}
-
-.toolbar {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: 100%;
-}
-
-.search-input-wrap {
-  flex: 1;
 }
 
 .count {
@@ -154,19 +137,6 @@ img.logo-svg {
   font-weight: 600;
   color: var(--text);
   font-size: 1.15rem;
-}
-
-@media (max-width: 640px) {
-  .toolbar {
-    flex-direction: row !important;
-    align-items: center !important;
-    gap: 0.5rem !important;
-    width: 100% !important;
-  }
-
-  .search-input-wrap {
-    flex: 1 !important;
-  }
 }
 
 @media (max-width: 768px) {

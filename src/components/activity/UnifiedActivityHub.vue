@@ -4,7 +4,7 @@
       v-model="heatmapFilter"
       :tabs="filterTabs"
       :isId="isId"
-      :ariaLabel="isId ? 'Filter aktivitas' : 'Activity filters'" />
+      :ariaLabel="activityFilterLabel" />
 
     <!-- Clean Activity Heatmap (identical to /competitive-programming style) -->
     <ActivityHeatmap
@@ -42,6 +42,7 @@ const props = defineProps<{
 const { isId } = useLocale()
 
 const heatmapFilter = ref<'all' | 'dev' | 'cp'>('all')
+const activityFilterLabel = computed(() => (isId.value ? 'Filter aktivitas' : 'Activity filters'))
 
 const devData = computed(() => props.initialDevData ?? null)
 const cpData = computed(() => props.initialCpData ?? null)

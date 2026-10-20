@@ -36,21 +36,30 @@ const props = withDefaults(
 
 const columns: CpColumn[] = [{ key: 'category', labelEn: 'Category', labelId: 'Kategori' }]
 
+const copy = computed(() => {
+  const id = props.isId
+  return {
+    easySub: id ? 'Fondasi & Dasar DSA' : 'DSA Foundations & Basics',
+    mediumSub: id ? 'Problem Solving Inti' : 'Core Problem Solving',
+    hardSub: id ? 'Kompleksitas Lanjutan' : 'Advanced Complexity',
+  }
+})
+
 const metrics = computed<CpMetric[]>(() => [
   {
     label: 'Easy Solved',
     value: props.cpData?.platforms?.leetcode?.easySolved || CP_FALLBACK.leetcodeEasySolved,
-    sub: props.isId ? 'Fondasi & Dasar DSA' : 'DSA Foundations & Basics',
+    sub: copy.value.easySub,
   },
   {
     label: 'Medium Solved',
     value: props.cpData?.platforms?.leetcode?.mediumSolved || CP_FALLBACK.leetcodeMediumSolved,
-    sub: props.isId ? 'Problem Solving Inti' : 'Core Problem Solving',
+    sub: copy.value.mediumSub,
   },
   {
     label: 'Hard Solved',
     value: props.cpData?.platforms?.leetcode?.hardSolved || CP_FALLBACK.leetcodeHardSolved,
-    sub: props.isId ? 'Kompleksitas Lanjutan' : 'Advanced Complexity',
+    sub: copy.value.hardSub,
   },
 ])
 </script>

@@ -47,16 +47,14 @@
 
     <!-- Cross-link to Competitive Programming -->
     <DashboardCrosslink href="/competitive-programming">
-      <span class="crosslink-l1">{{ isId ? 'Jelajahi' : 'Explore my' }}</span>
-      <span class="crosslink-l2">{{
-        isId ? 'Competitive Programming saya →' : 'Competitive Programming →'
-      }}</span>
+      <span class="crosslink-l1">{{ copy.crosslinkPrefix }}</span>
+      <span class="crosslink-l2">{{ copy.crosslinkTarget }}</span>
     </DashboardCrosslink>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useLocale } from '../../composables/useLocale'
 import { useDevStats } from '../../composables/useDevStats'
 import DevOverviewTab from './DevOverviewTab.vue'
@@ -72,6 +70,11 @@ const props = defineProps<{
 }>()
 
 const { isId } = useLocale()
+
+const copy = computed(() => ({
+  crosslinkPrefix: isId.value ? 'Jelajahi' : 'Explore my',
+  crosslinkTarget: isId.value ? 'Competitive Programming saya →' : 'Competitive Programming →',
+}))
 
 const devData = ref<DevActivityData | null>(props.initialData || null)
 const lastUpdated = ref<string>(props.initialData?.meta?.updatedAt || new Date().toISOString())

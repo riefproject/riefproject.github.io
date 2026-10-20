@@ -6,8 +6,8 @@
     <ActivityHeatmap
       :weeks="heatmapWeeks"
       :months="heatmapMonths"
-      :title="isId ? 'Aktivitas Pengembangan' : 'Development Activity'"
-      :countBadge="`${lastYearContributions} ${isId ? 'kontribusi' : 'contributions'}`"
+      :title="copy.heatmapTitle"
+      :countBadge="heatmapBadge"
       :getMetrics="devHeatmapMetrics"
       :isId="isId" />
 
@@ -19,11 +19,11 @@
         logo="/img/stacks/github-dark.svg"
         logoLight="/img/stacks/github-light.svg"
         :solvedNum="github?.overview?.totalContributions || 0"
-        :solvedLabel="isId ? 'kontribusi' : 'contributions'"
-        :footerText="isId ? 'Lihat Detail GitHub →' : 'View GitHub Details →'"
+        :solvedLabel="copy.contributions"
+        :footerText="copy.githubFooter"
         @select="$emit('selectTab', 'github')">
-        <MetaRow :label="`${isId ? 'Streak Terpanjang' : 'Longest Streak'}:`">
-          <strong>{{ github?.overview?.longestStreak || 0 }} {{ isId ? 'hari' : 'days' }}</strong>
+        <MetaRow :label="`${copy.longestStreak}:`">
+          <strong>{{ github?.overview?.longestStreak || 0 }} {{ copy.days }}</strong>
         </MetaRow>
         <MetaRow label="PR Merged:">
           <strong>{{ githubPrMerged }} / {{ github?.prStats?.total || 0 }}</strong>
@@ -32,14 +32,14 @@
 
       <PlatformCard
         name="GitLab"
-        :handle="isId ? 'Workspace perusahaan' : 'Company workspace'"
+        :handle="copy.gitlabHandle"
         logo="/img/stacks/gitlab-dark.svg"
         logoLight="/img/stacks/gitlab-light.svg"
         :solvedNum="gitlabTotalEvents"
-        :solvedLabel="isId ? 'event' : 'events'"
-        :footerText="isId ? 'Lihat Detail GitLab →' : 'View GitLab Details →'"
+        :solvedLabel="copy.events"
+        :footerText="copy.gitlabFooter"
         @select="$emit('selectTab', 'gitlab')">
-        <MetaRow :label="`${isId ? 'Hari Aktif' : 'Active Days'}:`">
+        <MetaRow :label="`${copy.activeDays}:`">
           <strong>{{ gitlab?.stats?.daysActive || 0 }}</strong>
         </MetaRow>
         <MetaRow label="MR Merged:">
@@ -76,37 +76,62 @@ const props = defineProps<{
   isId?: boolean
 }>()
 
+const copy = computed(() => {
+  const id = props.isId
+  return {
+    totalContributions: id ? 'Total Kontribusi' : 'Total Contributions',
+    combinedSources: id ? 'Gabungan GitHub & GitLab' : 'Combined GitHub + GitLab',
+    currentStreak: id ? 'Streak Saat Ini' : 'Current Streak',
+    currentStreakUnit: id ? ' hari' : ' days',
+    activeStreakHelper: id ? 'Hari berturut-turut aktif' : 'Consecutive active days',
+    prMerged: id ? 'PR / MR Selesai' : 'PR / MR Merged',
+    topLanguage: id ? 'Bahasa Utama' : 'Top Language',
+    topLanguageHelper: id ? 'Berdasarkan bytes repo publik' : 'By public repo bytes',
+    heatmapTitle: id ? 'Aktivitas Pengembangan' : 'Development Activity',
+    contributions: id ? 'kontribusi' : 'contributions',
+    events: id ? 'event' : 'events',
+    days: id ? 'hari' : 'days',
+    longestStreak: id ? 'Streak Terpanjang' : 'Longest Streak',
+    activeDays: id ? 'Hari Aktif' : 'Active Days',
+    githubFooter: id ? 'Lihat Detail GitHub →' : 'View GitHub Details →',
+    gitlabFooter: id ? 'Lihat Detail GitLab →' : 'View GitLab Details →',
+    gitlabHandle: id ? 'Workspace perusahaan' : 'Company workspace',
+  }
+})
+
 const stats = computed<StatItem[]>(() => {
-  const { isId, githubPrMerged, gitlabMrMerged } = props
+  const { githubPrMerged, gitlabMrMerged } = props
   return [
     {
-      label: isId ? 'Total Kontribusi' : 'Total Contributions',
+      label: copy.value.totalContributions,
       value: props.totalContributions,
       unit: '+',
       variant: 'emerald',
-      helper: isId ? 'Gabungan GitHub & GitLab' : 'Combined GitHub + GitLab',
+      helper: copy.value.combinedSources,
     },
     {
-      label: isId ? 'Streak Saat Ini' : 'Current Streak',
+      label: copy.value.currentStreak,
       value: props.currentStreak,
-      unit: isId ? ' hari' : ' days',
+      unit: copy.value.currentStreakUnit,
       variant: 'sky',
-      helper: isId ? 'Hari berturut-turut aktif' : 'Consecutive active days',
+      helper: copy.value.activeStreakHelper,
     },
     {
-      label: isId ? 'PR / MR Selesai' : 'PR / MR Merged',
+      label: copy.value.prMerged,
       value: props.prMerged,
       variant: 'purple',
       helper: `GitHub ${githubPrMerged} · GitLab ${gitlabMrMerged}`,
     },
     {
-      label: isId ? 'Bahasa Utama' : 'Top Language',
+      label: copy.value.topLanguage,
       value: props.topLanguage || '—',
       variant: 'amber',
-      helper: isId ? 'Berdasarkan bytes repo publik' : 'By public repo bytes',
+      helper: copy.value.topLanguageHelper,
     },
   ]
 })
+
+const heatmapBadge = computed(() => `${props.lastYearContributions} ${copy.value.contributions}`)
 
 defineEmits<{
   (e: 'selectTab', tab: 'github' | 'gitlab'): void

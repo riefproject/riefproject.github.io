@@ -6,38 +6,38 @@
     <!-- Global Hero Stats -->
     <div class="stats-grid">
       <StatCard
-        :label="isId ? 'Total Soal Selesai' : 'Total Problems Solved'"
+        :label="copy.totalSolved"
         :value="totalSolved"
         unit="+"
         variant="emerald"
-        :helper="isId ? 'Akumulasi dari 4 platform' : 'Aggregated across 4 platforms'" />
+        :helper="copy.totalSolvedHelper" />
 
       <StatCard
-        :label="isId ? 'Total Submisi' : 'Total Submissions'"
+        :label="copy.totalSubmissions"
         :value="totalSubmissions"
         unit="+"
         variant="sky"
-        :helper="isId ? 'Riwayat percobaan & evaluasi juri' : 'Judged runs & submission history'" />
+        :helper="copy.totalSubmissionsHelper" />
 
       <StatCard
-        :label="isId ? 'Platform Aktif' : 'Active Platforms'"
+        :label="copy.activePlatforms"
         :value="4"
         variant="amber"
         helper="TLX · Codeforces · LeetCode · HackerRank" />
 
       <StatCard
-        :label="isId ? 'Bahasa Utama' : 'Primary Language'"
+        :label="copy.primaryLanguage"
         :value="primaryLanguage.name"
         variant="purple"
-        :helper="`${primaryLanguage.formattedCount} ${isId ? 'submisi ' + primaryLanguage.name : primaryLanguage.name + ' submissions'}`" />
+        :helper="languageHelper" />
     </div>
 
     <!-- Submission Activity Heatmap Component -->
     <ActivityHeatmap
       :weeks="heatmapWeeks"
       :months="heatmapMonths"
-      :title="isId ? 'Kalender Aktivitas Submisi' : 'Submission Activity Heatmap'"
-      :countBadge="`${totalSubmissionsInHeatmap} ${isId ? 'submisi 12 bulan terakhir' : 'submissions in past 12 months'}`"
+      :title="copy.heatmapTitle"
+      :countBadge="heatmapBadge"
       :getMetrics="cpHeatmapMetrics"
       :isId="isId" />
 
@@ -56,7 +56,7 @@
           :totalHrSolved="totalHrSolved"
           :isId="isId"
           :locale="locale"
-          @selectPlatform="activeTab = $event as any" />
+          @selectPlatform="activeTab = $event" />
 
         <CpTlxTab
           v-else-if="activeTab === 'tlx'"
@@ -86,13 +86,13 @@
 
     <!-- Cross-link to Development Activity -->
     <DashboardCrosslink href="/development-activity">
-      {{ isId ? 'Jelajahi Aktivitas Development saya →' : 'Explore my Development Activity →' }}
+      {{ copy.developmentCrosslink }}
     </DashboardCrosslink>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useLocale } from '../../composables/useLocale'
 import { useCpStats } from '../../composables/useCpStats'
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue'
@@ -132,6 +132,35 @@ const {
   heatmapMonths,
   totalSubmissionsInHeatmap,
 } = useCpStats(cpData)
+
+const copy = computed(() => {
+  const id = isId.value
+  return {
+    totalSolved: id ? 'Total Soal Selesai' : 'Total Problems Solved',
+    totalSolvedHelper: id ? 'Akumulasi dari 4 platform' : 'Aggregated across 4 platforms',
+    totalSubmissions: id ? 'Total Submisi' : 'Total Submissions',
+    totalSubmissionsHelper:
+      id ? 'Riwayat percobaan & evaluasi juri' : 'Judged runs & submission history',
+    activePlatforms: id ? 'Platform Aktif' : 'Active Platforms',
+    primaryLanguage: id ? 'Bahasa Utama' : 'Primary Language',
+    heatmapTitle: id ? 'Kalender Aktivitas Submisi' : 'Submission Activity Heatmap',
+    developmentCrosslink:
+      id ? 'Jelajahi Aktivitas Development saya →' : 'Explore my Development Activity →',
+  }
+})
+
+const languageHelper = computed(() =>
+  isId.value ?
+    `${primaryLanguage.value.formattedCount} submisi ${primaryLanguage.value.name}`
+  : `${primaryLanguage.value.formattedCount} ${primaryLanguage.value.name} submissions`
+)
+
+const heatmapBadge = computed(
+  () =>
+    `${totalSubmissionsInHeatmap.value} ${
+      isId.value ? 'submisi 12 bulan terakhir' : 'submissions in past 12 months'
+    }`
+)
 </script>
 
 <style scoped>

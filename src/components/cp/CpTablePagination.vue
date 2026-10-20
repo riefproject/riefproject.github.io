@@ -1,22 +1,10 @@
 <template>
   <div class="feed-footer-controls">
     <div class="feed-counter-text">
-      <span class="desktop-only-text">
-        {{
-          isId ?
-            `Menampilkan ${rangeText} dari ${totalItems} soal (Halaman ${currentPage} dari ${totalPages})`
-          : `Showing ${rangeText} of ${totalItems} problems (Page ${currentPage} of ${totalPages})`
-        }}
-      </span>
+      <span class="desktop-only-text">{{ desktopText }}</span>
       <div class="mobile-only-text-group">
-        <div class="mob-range-text">
-          {{ isId ? `${rangeText} dari ${totalItems}` : `${rangeText} of ${totalItems}` }}
-        </div>
-        <div class="mob-page-text">
-          {{
-            isId ? `Halaman ${currentPage} / ${totalPages}` : `Page ${currentPage} / ${totalPages}`
-          }}
-        </div>
+        <div class="mob-range-text">{{ mobileRangeText }}</div>
+        <div class="mob-page-text">{{ mobilePageText }}</div>
       </div>
     </div>
 
@@ -101,6 +89,24 @@ const rangeText = computed(() => {
   const end = Math.min(props.currentPage * props.pageSize, props.totalItems)
   return `${start}-${end}`
 })
+
+const desktopText = computed(() =>
+  props.isId ?
+    `Menampilkan ${rangeText.value} dari ${props.totalItems} soal (Halaman ${props.currentPage} dari ${props.totalPages})`
+  : `Showing ${rangeText.value} of ${props.totalItems} problems (Page ${props.currentPage} of ${props.totalPages})`
+)
+
+const mobileRangeText = computed(() =>
+  props.isId ?
+    `${rangeText.value} dari ${props.totalItems}`
+  : `${rangeText.value} of ${props.totalItems}`
+)
+
+const mobilePageText = computed(() =>
+  props.isId ?
+    `Halaman ${props.currentPage} / ${props.totalPages}`
+  : `Page ${props.currentPage} / ${props.totalPages}`
+)
 
 const visiblePages = computed(() => {
   return getPageNumbers(props.totalPages, props.currentPage)

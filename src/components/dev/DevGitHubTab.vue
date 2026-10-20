@@ -21,15 +21,15 @@
       <div class="profile-metrics">
         <div class="pm-item">
           <strong>{{ github?.user?.followers || 0 }}</strong
-          ><span>{{ isId ? 'Pengikut' : 'Followers' }}</span>
+          ><span>{{ copy.followers }}</span>
         </div>
         <div class="pm-item">
           <strong>{{ github?.user?.following || 0 }}</strong
-          ><span>{{ isId ? 'Mengikuti' : 'Following' }}</span>
+          ><span>{{ copy.following }}</span>
         </div>
         <div class="pm-item">
           <strong>{{ github?.user?.publicRepos || 0 }}</strong
-          ><span>{{ isId ? 'Repo Publik' : 'Public Repos' }}</span>
+          ><span>{{ copy.publicRepos }}</span>
         </div>
       </div>
     </div>
@@ -38,15 +38,15 @@
 
     <div class="yearly-chips" v-if="github?.overview?.yearlyTotal">
       <span v-for="(count, year) in github.overview.yearlyTotal" :key="year" class="year-chip">
-        <strong>{{ count }}</strong> {{ isId ? 'kontribusi' : 'contributions' }} · {{ year }}
+        <strong>{{ count }}</strong> {{ copy.contributions }} · {{ year }}
       </span>
     </div>
 
     <ActivityHeatmap
       :weeks="githubHeatmapWeeks"
       :months="githubHeatmapMonths"
-      :title="`GitHub ${isId ? 'Kalender Kontribusi' : 'Contribution Calendar'}`"
-      :countBadge="`${githubLastYear} ${isId ? 'kontribusi' : 'contributions'}`"
+      :title="`GitHub ${copy.contributionCalendar}`"
+      :countBadge="`${githubLastYear} ${copy.contributions}`"
       :getMetrics="devHeatmapMetrics"
       :isId="isId" />
 
@@ -55,18 +55,16 @@
       v-if="github?.languages?.length"
       :languages="github.languages"
       :isId="isId"
-      :titleEn="'Most Used Languages'"
-      :titleId="'Bahasa Pemrograman'"
-      :subtitleEn="'Based on public repository byte sizes'"
-      :subtitleId="'Berdasarkan ukuran bytes repo publik'" />
+      :title-en="copy.languagesTitle"
+      :title-id="copy.languagesTitle"
+      :subtitle-en="copy.languagesSubtitle"
+      :subtitle-id="copy.languagesSubtitle" />
 
     <!-- Top Repos -->
     <div class="mt-8" v-if="github?.topRepos?.length">
       <div class="block-header">
-        <h3>{{ isId ? 'Repo Teratas' : 'Top Repositories' }}</h3>
-        <span class="block-sub">{{
-          isId ? 'Diurutkan berdasarkan bintang' : 'Sorted by stars'
-        }}</span>
+        <h3>{{ copy.topRepositories }}</h3>
+        <span class="block-sub">{{ copy.sortedByStars }}</span>
       </div>
       <div class="repo-grid">
         <a
@@ -111,35 +109,60 @@ const props = defineProps<{
   isId?: boolean
 }>()
 
+const copy = computed(() => {
+  const id = props.isId
+  return {
+    followers: id ? 'Pengikut' : 'Followers',
+    following: id ? 'Mengikuti' : 'Following',
+    publicRepos: id ? 'Repo Publik' : 'Public Repos',
+    contributions: id ? 'kontribusi' : 'contributions',
+    contributionCalendar: id ? 'Kalender Kontribusi' : 'Contribution Calendar',
+    languagesTitle: id ? 'Bahasa Pemrograman' : 'Most Used Languages',
+    languagesSubtitle:
+      id ? 'Berdasarkan ukuran bytes repo publik' : 'Based on public repository byte sizes',
+    topRepositories: id ? 'Repo Teratas' : 'Top Repositories',
+    sortedByStars: id ? 'Diurutkan berdasarkan bintang' : 'Sorted by stars',
+    totalContributions: id ? 'Total Kontribusi' : 'Total Contributions',
+    allRecordedYears: id ? 'Semua tahun tercatat' : 'All recorded years',
+    currentStreak: id ? 'Streak Saat Ini' : 'Current Streak',
+    daysUnit: id ? ' hari' : ' days',
+    longest: id ? 'Terpanjang' : 'Longest',
+    pullRequests: id ? 'PR Dibuka' : 'Pull Requests',
+    publicRepositories: id ? 'Repo publik' : 'Public repositories',
+    topLanguage: id ? 'Bahasa Utama' : 'Top Language',
+    topLanguageHelper: id ? 'Berdasarkan bytes repo publik' : 'By public repo bytes',
+  }
+})
+
 const stats = computed<StatItem[]>(() => {
-  const { isId, github } = props
+  const { github } = props
   return [
     {
-      label: isId ? 'Total Kontribusi' : 'Total Contributions',
+      label: copy.value.totalContributions,
       value: github?.overview?.totalContributions || 0,
       unit: '+',
       variant: 'emerald',
-      helper: isId ? 'Semua tahun tercatat' : 'All recorded years',
+      helper: copy.value.allRecordedYears,
     },
     {
-      label: isId ? 'Streak Saat Ini' : 'Current Streak',
+      label: copy.value.currentStreak,
       value: github?.overview?.currentStreak || 0,
-      unit: isId ? ' hari' : ' days',
+      unit: copy.value.daysUnit,
       variant: 'sky',
-      helper: `${isId ? 'Terpanjang' : 'Longest'}: ${github?.overview?.longestStreak || 0} ${isId ? 'hari' : 'days'}`,
+      helper: `${copy.value.longest}: ${github?.overview?.longestStreak || 0} ${copy.value.daysUnit.trim()}`,
     },
     {
-      label: isId ? 'PR Dibuka' : 'Pull Requests',
+      label: copy.value.pullRequests,
       value: github?.prStats?.total || 0,
       unit: ` (${github?.prStats?.merged || 0} merged)`,
       variant: 'purple',
-      helper: isId ? 'Repo publik' : 'Public repositories',
+      helper: copy.value.publicRepositories,
     },
     {
-      label: isId ? 'Bahasa Utama' : 'Top Language',
+      label: copy.value.topLanguage,
       value: props.topLanguage || '—',
       variant: 'amber',
-      helper: isId ? 'Berdasarkan bytes repo publik' : 'By public repo bytes',
+      helper: copy.value.topLanguageHelper,
     },
   ]
 })

@@ -2,7 +2,7 @@
   <div class="dashboard-topbar">
     <div class="live-indicator">
       <span class="pulse-dot"></span>
-      <span class="live-text">{{ isId ? 'Terakhir Disinkronkan' : 'Last Synced' }}</span>
+      <span class="live-text">{{ liveLabel }}</span>
       <span class="updated-time" v-if="lastUpdated">• {{ formattedTime }}</span>
     </div>
     <slot />
@@ -22,6 +22,8 @@ const props = withDefaults(
     isId: false,
   }
 )
+
+const liveLabel = computed(() => (props.isId ? 'Terakhir Disinkronkan' : 'Last Synced'))
 
 const formattedTime = computed(() => {
   if (!props.lastUpdated) return ''

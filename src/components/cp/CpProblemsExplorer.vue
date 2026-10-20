@@ -5,11 +5,7 @@
       <div class="explorer-controls-header">
         <SearchInput
           v-model="searchTerm"
-          :placeholder="
-            isId ?
-              'Cari judul soal, topik, bahasa, kontes...'
-            : 'Search problem title, topic, language, contest...'
-          "
+          :placeholder="copy.searchPlaceholder"
           clearable
           @input="currentPage = 1" />
 
@@ -21,9 +17,7 @@
           itemType="platform" />
 
         <div class="rows-per-page-select">
-          <label class="text-xs text-gray-400">{{
-            isId ? 'Baris per halaman:' : 'Per page:'
-          }}</label>
+          <label class="text-xs text-gray-400">{{ copy.perPage }}</label>
           <select v-model.number="pageSize" @change="currentPage = 1" class="page-size-dropdown">
             <option :value="10">10</option>
             <option :value="20">20</option>
@@ -45,13 +39,7 @@
       </div>
 
       <div v-else class="empty-state">
-        <p>
-          {{
-            isId ?
-              'Tidak ada soal yang cocok dengan kriteria pencarian.'
-            : 'No problems match the search criteria.'
-          }}
-        </p>
+        <p>{{ copy.emptyState }}</p>
       </div>
 
       <!-- Numbered Pagination Bar -->
@@ -102,6 +90,20 @@ const {
   totalLcSolved,
   totalHrSolved,
 } = useCpStats(cpData)
+
+const copy = computed(() =>
+  isId.value ?
+    {
+      searchPlaceholder: 'Cari judul soal, topik, bahasa, kontes...',
+      perPage: 'Baris per halaman:',
+      emptyState: 'Tidak ada soal yang cocok dengan kriteria pencarian.',
+    }
+  : {
+      searchPlaceholder: 'Search problem title, topic, language, contest...',
+      perPage: 'Per page:',
+      emptyState: 'No problems match the search criteria.',
+    }
+)
 
 const platformCategories = computed(() =>
   buildPlatformCategories(

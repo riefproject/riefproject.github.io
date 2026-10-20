@@ -15,7 +15,7 @@
 
     <div class="mt-8">
       <h4 class="text-lg font-semibold mb-3 platform-subtitle">
-        {{ isId ? 'Topik & Algoritma di Codeforces' : 'Topics & Algorithms on Codeforces' }}
+        {{ copy.topicsTitle }}
       </h4>
       <div class="flex flex-wrap gap-2">
         <div
@@ -55,24 +55,36 @@ const columns: CpColumn[] = [
   { key: 'language', labelEn: 'Language', labelId: 'Bahasa' },
 ]
 
+const copy = computed(() => {
+  const id = props.isId
+  return {
+    topicsTitle: id ? 'Topik & Algoritma di Codeforces' : 'Topics & Algorithms on Codeforces',
+    currentRating: id ? 'Rating Saat Ini' : 'Current Rating',
+    uniqueSolved: id ? 'Soal Selesai' : 'Unique Solved',
+    problemsAccepted: id ? 'Soal Berhasil AC' : 'Problems Accepted',
+    totalSubmissions: id ? 'Total Submisi' : 'Total Submissions',
+    submissionHistory: id ? 'Riwayat submisi di CF' : 'Submission history on CF',
+  }
+})
+
 const metrics = computed<CpMetric[]>(() => [
   {
-    label: props.isId ? 'Rating Saat Ini' : 'Current Rating',
+    label: copy.value.currentRating,
     value: props.cpData?.platforms?.codeforces?.rating || CP_FALLBACK.codeforcesRating,
     subPrefix: 'Rank:',
     subHighlight: props.cpData?.platforms?.codeforces?.rank || CP_FALLBACK.codeforcesRank,
   },
   {
-    label: props.isId ? 'Soal Selesai' : 'Unique Solved',
+    label: copy.value.uniqueSolved,
     value: props.totalCfSolved,
-    sub: props.isId ? 'Soal Berhasil AC' : 'Problems Accepted',
+    sub: copy.value.problemsAccepted,
   },
   {
-    label: props.isId ? 'Total Submisi' : 'Total Submissions',
+    label: copy.value.totalSubmissions,
     value:
       props.cpData?.platforms?.codeforces?.totalSubmissions ||
       CP_FALLBACK.codeforcesTotalSubmissions,
-    sub: props.isId ? 'Riwayat submisi di CF' : 'Submission history on CF',
+    sub: copy.value.submissionHistory,
   },
 ])
 </script>

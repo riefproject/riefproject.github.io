@@ -59,12 +59,14 @@ const copy = computed(() =>
       subheading: 'Kompetisi, kursus, dan badge yang memang sudah selesai.',
       search: 'Cari pencapaian...',
       empty: 'Tidak ada data pada kategori ini.',
+      viewCertificate: 'Lihat sertifikat',
     }
   : {
       heading: 'Achievements & credentials',
       subheading: 'Contests, courses, and badges that are completed.',
       search: 'Search achievements...',
       empty: 'No records match this category.',
+      viewCertificate: 'View certificate',
     }
 )
 
@@ -147,7 +149,7 @@ const visibleItems = computed(() => groupedAchievements.value[activeTab.value] ?
           type="button"
           class="credential-link"
           @click.stop="openModal(item)">
-          {{ isId ? 'Lihat sertifikat' : 'View certificate' }}
+          {{ copy.viewCertificate }}
           <svg class="credential-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
               stroke-linecap="round"

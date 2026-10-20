@@ -1,8 +1,8 @@
 <template>
   <div v-if="languages.length" class="mt-8">
     <div v-if="showHeader" class="block-header">
-      <h3>{{ isId ? titleId : titleEn }}</h3>
-      <span class="block-sub">{{ isId ? subtitleId : subtitleEn }}</span>
+      <h3>{{ headerTitle }}</h3>
+      <span class="block-sub">{{ headerSubtitle }}</span>
     </div>
     <div class="lang-list">
       <div v-for="lang in languages" :key="lang.name" class="lang-row">
@@ -19,12 +19,14 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+
 export interface LanguageStat {
   name: string
   percentage: number
 }
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     languages: LanguageStat[]
     isId?: boolean
@@ -43,6 +45,9 @@ withDefaults(
     showHeader: true,
   }
 )
+
+const headerTitle = computed(() => (props.isId ? props.titleId : props.titleEn))
+const headerSubtitle = computed(() => (props.isId ? props.subtitleId : props.subtitleEn))
 </script>
 
 <style scoped>

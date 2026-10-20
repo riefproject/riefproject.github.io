@@ -8,15 +8,15 @@
         :handle="cpData?.platforms?.tlx?.handle || CP_PLATFORMS.tlx.handleFallback"
         :logo="CP_PLATFORMS.tlx.logo"
         :solvedNum="totalTlxSolved"
-        :solvedLabel="isId ? 'selesai' : 'solved'"
-        :footerText="isId ? 'Lihat Detail TLX →' : 'View TLX Details →'"
+        :solvedLabel="copy.solved"
+        :footerText="copy.tlxFooter"
         @select="$emit('selectPlatform', 'tlx')">
-        <MetaRow :label="`${isId ? 'Submisi Total' : 'Total Submissions'}:`">
+        <MetaRow :label="`${copy.totalSubmissions}:`">
           <strong>{{
             cpData?.platforms?.tlx?.totalSubmissions || CP_FALLBACK.tlxTotalSubmissions
           }}</strong>
         </MetaRow>
-        <MetaRow :label="`${isId ? 'Bahasa Dominan' : 'Top Language'}:`">
+        <MetaRow :label="`${copy.topLanguage}:`">
           <strong>C++20</strong>
         </MetaRow>
       </PlatformCard>
@@ -28,10 +28,10 @@
         :logo="CP_PLATFORMS.codeforces.logo"
         :solvedNum="cpData?.platforms?.codeforces?.rating || CP_FALLBACK.codeforcesRating"
         solvedLabel="rating"
-        :footerText="isId ? 'Lihat Detail Codeforces →' : 'View Codeforces Details →'"
+        :footerText="copy.codeforcesFooter"
         @select="$emit('selectPlatform', 'codeforces')">
-        <MetaRow :label="`${isId ? 'Soal Selesai' : 'Problems Solved'}:`">
-          <strong>{{ totalCfSolved }} {{ isId ? 'Soal' : 'Problems' }}</strong>
+        <MetaRow :label="`${copy.problemsSolved}:`">
+          <strong>{{ totalCfSolved }} {{ copy.problems }}</strong>
         </MetaRow>
         <MetaRow label="Rank:">
           <strong class="cf-rank-text capitalize">{{
@@ -47,10 +47,10 @@
         :logo="CP_PLATFORMS.leetcode.logo"
         :logoLight="CP_PLATFORMS.leetcode.logoLight"
         :solvedNum="totalLcSolved"
-        :solvedLabel="isId ? 'selesai' : 'solved'"
-        :footerText="isId ? 'Lihat Detail LeetCode →' : 'View LeetCode Details →'"
+        :solvedLabel="copy.solved"
+        :footerText="copy.leetcodeFooter"
         @select="$emit('selectPlatform', 'leetcode')">
-        <MetaRow :label="`${isId ? 'Tingkat Kesulitan' : 'Difficulty Split'}:`">
+        <MetaRow :label="`${copy.difficultySplit}:`">
           <span class="diff-split">
             <span class="diff-cnt easy"
               >{{
@@ -71,7 +71,7 @@
             >
           </span>
         </MetaRow>
-        <MetaRow label="Global Ranking:">
+        <MetaRow :label="`${copy.globalRanking}:`">
           <strong
             >~{{
               (cpData?.platforms?.leetcode?.ranking || CP_FALLBACK.leetcodeRanking).toLocaleString()
@@ -86,16 +86,16 @@
         :handle="cpData?.platforms?.hackerrank?.handle || CP_PLATFORMS.hackerrank.handleFallback"
         :logo="CP_PLATFORMS.hackerrank.logo"
         :solvedNum="totalHrSolved + '+'"
-        :solvedLabel="isId ? 'selesai' : 'solved'"
-        :footerText="isId ? 'Lihat Detail HackerRank →' : 'View HackerRank Details →'"
+        :solvedLabel="copy.solved"
+        :footerText="copy.hackerrankFooter"
         @select="$emit('selectPlatform', 'hackerrank')">
-        <MetaRow label="Algorithms Track:">
+        <MetaRow :label="`${copy.algorithmsTrack}:`">
           <strong class="track-pts-emerald">1029.98 pts</strong>
         </MetaRow>
-        <MetaRow label="SQL Track:">
+        <MetaRow :label="`${copy.sqlTrack}:`">
           <strong class="track-pts-sky">390 pts</strong>
         </MetaRow>
-        <MetaRow label="C++ & Java Track:">
+        <MetaRow :label="`${copy.cppJavaTrack}:`">
           <strong>430+ pts</strong>
         </MetaRow>
       </PlatformCard>
@@ -105,27 +105,15 @@
     <div class="feed-section">
       <div class="feed-header">
         <div>
-          <h3>
-            {{ isId ? 'Daftar Soal yang Diselesaikan' : 'Solved Problems History' }}
-          </h3>
-          <p class="feed-subtitle">
-            {{
-              isId ?
-                'Aktivitas penyelesaian soal lintas platform secara kronologis.'
-              : 'Chronological stream of solved challenges across all competitive platforms.'
-            }}
-          </p>
+          <h3>{{ copy.feedTitle }}</h3>
+          <p class="feed-subtitle">{{ copy.feedSubtitle }}</p>
         </div>
 
         <!-- Feed Filter Controls -->
         <div class="feed-controls">
           <SearchInput
             v-model="searchTerm"
-            :placeholder="
-              isId ?
-                'Cari judul soal, topik, bahasa...'
-              : 'Search problem title, topic, language...'
-            "
+            :placeholder="copy.searchPlaceholder"
             surface="soft"
             @input="currentPage = 1" />
 
@@ -157,39 +145,21 @@
       </div>
 
       <div v-else class="empty-feed">
-        <p>
-          {{
-            isId ?
-              'Tidak ada soal yang cocok dengan filter pencarian.'
-            : 'No problems found matching your filter.'
-          }}
-        </p>
+        <p>{{ copy.emptyFeed }}</p>
       </div>
 
       <!-- Dedicated Archive CTA Card -->
       <div class="view-all-archive-cta">
         <div class="cta-info">
           <div class="flex items-center gap-2">
-            <h4 class="cta-title">
-              {{
-                isId ?
-                  `Jelajahi Seluruh ${totalAllSolved}+ Koleksi Soal`
-                : `Explore Complete ${totalAllSolved}+ Solved Archive`
-              }}
-            </h4>
+            <h4 class="cta-title">{{ copy.archiveTitle(totalAllSolved) }}</h4>
           </div>
-          <p class="cta-desc">
-            {{
-              isId ?
-                'Buka halaman arsip terfokus dengan filter komprehensif, pencarian cepat per topik, navigasi multi-halaman, dan link soal langsung.'
-              : 'Open the dedicated archive page with full-text search, topic filtering, multi-page pagination, and direct problem links.'
-            }}
-          </p>
+          <p class="cta-desc">{{ copy.archiveDescription }}</p>
         </div>
         <a
           :href="`/competitive-programming/problems${selectedCategories.length < allPlatformKeys.length ? '?platform=' + selectedCategories.join(',') : ''}`"
           class="cta-action-btn">
-          <span>{{ isId ? 'Buka Halaman Arsip Soal' : 'Open Solved Problems Archive' }}</span>
+          <span>{{ copy.openArchive }}</span>
           <svg
             class="w-4 h-4"
             viewBox="0 0 24 24"
@@ -218,7 +188,7 @@ import { usePagination } from '../../composables/usePagination'
 import { CP_FALLBACK } from '../../utils/cp/defaults'
 import { CP_PLATFORMS, CP_PLATFORM_KEYS, buildPlatformCategories } from '../../utils/cp/platforms'
 import { matchesProblemSearch } from '../../utils/cp/search'
-import type { CpData, SubmissionItem } from '../../types/cp.types'
+import type { CpData, CpPlatformKey, SubmissionItem } from '../../types/cp.types'
 
 const props = withDefaults(
   defineProps<{
@@ -240,7 +210,45 @@ const props = withDefaults(
   }
 )
 
-defineEmits<{ (e: 'selectPlatform', platform: string): void }>()
+defineEmits<{ (e: 'selectPlatform', platform: CpPlatformKey): void }>()
+
+const copy = computed(() => {
+  const id = props.isId
+  return {
+    solved: id ? 'selesai' : 'solved',
+    totalSubmissions: id ? 'Submisi Total' : 'Total Submissions',
+    topLanguage: id ? 'Bahasa Dominan' : 'Top Language',
+    problemsSolved: id ? 'Soal Selesai' : 'Problems Solved',
+    problems: id ? 'Soal' : 'Problems',
+    difficultySplit: id ? 'Tingkat Kesulitan' : 'Difficulty Split',
+    globalRanking: id ? 'Peringkat Global' : 'Global Ranking',
+    algorithmsTrack: id ? 'Track Algoritma' : 'Algorithms Track',
+    sqlTrack: 'SQL Track',
+    cppJavaTrack: id ? 'Track C++ & Java' : 'C++ & Java Track',
+    tlxFooter: id ? 'Lihat Detail TLX →' : 'View TLX Details →',
+    codeforcesFooter: id ? 'Lihat Detail Codeforces →' : 'View Codeforces Details →',
+    leetcodeFooter: id ? 'Lihat Detail LeetCode →' : 'View LeetCode Details →',
+    hackerrankFooter: id ? 'Lihat Detail HackerRank →' : 'View HackerRank Details →',
+    feedTitle: id ? 'Daftar Soal yang Diselesaikan' : 'Solved Problems History',
+    feedSubtitle:
+      id ?
+        'Aktivitas penyelesaian soal lintas platform secara kronologis.'
+      : 'Chronological stream of solved challenges across all competitive platforms.',
+    searchPlaceholder:
+      id ? 'Cari judul soal, topik, bahasa...' : 'Search problem title, topic, language...',
+    emptyFeed:
+      id ?
+        'Tidak ada soal yang cocok dengan filter pencarian.'
+      : 'No problems found matching your filter.',
+    archiveTitle: (total: number) =>
+      id ? `Jelajahi Seluruh ${total}+ Koleksi Soal` : `Explore Complete ${total}+ Solved Archive`,
+    archiveDescription:
+      id ?
+        'Buka halaman arsip terfokus dengan filter komprehensif, pencarian cepat per topik, navigasi multi-halaman, dan link soal langsung.'
+      : 'Open the dedicated archive page with full-text search, topic filtering, multi-page pagination, and direct problem links.',
+    openArchive: id ? 'Buka Halaman Arsip Soal' : 'Open Solved Problems Archive',
+  }
+})
 
 const allPlatformKeys = [...CP_PLATFORM_KEYS]
 

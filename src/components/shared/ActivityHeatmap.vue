@@ -45,9 +45,7 @@
             stroke-linejoin="round">
             <path d="M15 6l-6 6 6 6" />
           </svg>
-          <span>{{
-            isId ? 'Geser untuk melihat seluruh kalender' : 'Swipe to see the full calendar'
-          }}</span>
+          <span>{{ copy.swipeHint }}</span>
         </div>
       </div>
 
@@ -67,7 +65,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import HeatmapLegend from './HeatmapLegend.vue'
 import HeatmapTooltip from './HeatmapTooltip.vue'
 import type { HeatmapDay, HeatmapTooltipMetric } from '../../utils/heatmap'
@@ -86,6 +84,22 @@ const props = withDefaults(
   }
 )
 
+const copy = computed(() =>
+  props.isId ?
+    {
+      swipeHint: 'Geser untuk melihat seluruh kalender',
+      contributions: 'kontribusi',
+      noActivity: 'Tidak ada aktivitas',
+    }
+  : {
+      swipeHint: 'Swipe to see the full calendar',
+      contributions: 'contributions',
+      noActivity: 'No activity',
+    }
+)
+
+const localeCode = computed(() => (props.isId ? 'id-ID' : 'en-US'))
+
 const hoveredDay = ref<HeatmapDay | null>(null)
 const tooltipPos = ref({ top: 0, left: 0 })
 const heatmapScrollEl = ref<HTMLElement | null>(null)
@@ -101,7 +115,7 @@ const resolveMetrics = (day: HeatmapDay): HeatmapTooltipMetric[] => {
     return [
       {
         value: day.count,
-        label: props.isId ? 'kontribusi' : 'contributions',
+        label: copy.value.contributions,
         color: 'emerald',
       },
     ]
@@ -109,7 +123,7 @@ const resolveMetrics = (day: HeatmapDay): HeatmapTooltipMetric[] => {
 
   return [
     {
-      value: props.isId ? 'Tidak ada aktivitas' : 'No activity',
+      value: copy.value.noActivity,
       color: 'slate',
     },
   ]
@@ -134,7 +148,7 @@ const onCellMouseLeave = () => {
 const formatFallbackTitle = (day: HeatmapDay) => {
   if (!day || !day.date) return ''
   const dateObj = new Date(day.date + 'T00:00:00')
-  const dateFormatted = dateObj.toLocaleDateString(props.isId ? 'id-ID' : 'en-US', {
+  const dateFormatted = dateObj.toLocaleDateString(localeCode.value, {
     weekday: 'short',
     day: 'numeric',
     month: 'short',

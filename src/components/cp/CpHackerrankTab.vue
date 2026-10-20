@@ -17,7 +17,7 @@
     open-title-id="Buka di HackerRank">
     <div class="mt-4">
       <h4 class="text-lg font-semibold mb-4 platform-subtitle">
-        {{ isId ? 'Skor & Track Domain' : 'Scores & Track Domains' }}
+        {{ copy.scoresTitle }}
       </h4>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div
@@ -35,7 +35,7 @@
 
     <div class="mt-8">
       <h4 class="text-lg font-semibold mb-4 platform-subtitle">
-        {{ isId ? 'Badge & Bintang Keahlian' : 'Badges & Skill Stars' }}
+        {{ copy.badgesTitle }}
       </h4>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div
@@ -44,9 +44,7 @@
           class="p-3.5 hr-badge-card text-center">
           <div class="hr-badge-stars font-bold text-lg">★ {{ b.stars }} Stars</div>
           <div class="text-sm font-semibold hr-badge-name mt-1">{{ b.name }}</div>
-          <div class="text-xs hr-badge-solved mt-0.5">
-            {{ b.solved }} {{ isId ? 'selesai' : 'solved' }}
-          </div>
+          <div class="text-xs hr-badge-solved mt-0.5">{{ b.solved }} {{ copy.solved }}</div>
         </div>
       </div>
     </div>
@@ -54,11 +52,12 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import CpPlatformTab from './CpPlatformTab.vue'
 import { CP_FALLBACK } from '../../utils/cp/defaults'
 import type { CpColumn, CpData } from '../../types/cp.types'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     cpData: CpData
     totalHrSolved?: number
@@ -69,6 +68,15 @@ withDefaults(
     isId: false,
   }
 )
+
+const copy = computed(() => {
+  const id = props.isId
+  return {
+    scoresTitle: id ? 'Skor & Track Domain' : 'Scores & Track Domains',
+    badgesTitle: id ? 'Badge & Bintang Keahlian' : 'Badges & Skill Stars',
+    solved: id ? 'selesai' : 'solved',
+  }
+})
 
 const columns: CpColumn[] = [
   { key: 'category', labelEn: 'Track / Domain', labelId: 'Track / Domain' },

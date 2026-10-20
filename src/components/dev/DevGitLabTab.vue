@@ -4,13 +4,7 @@
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
-      <span>
-        {{
-          isId ?
-            'Aktivitas dari workspace GitLab perusahaan — detail proyek & domain disamarkan demi kerahasiaan.'
-          : 'Activity from a company GitLab workspace — project details & domain are masked for confidentiality.'
-        }}
-      </span>
+      <span>{{ copy.maskedNote }}</span>
     </div>
 
     <StatsGrid appearance="dev" :items="stats" />
@@ -18,8 +12,8 @@
     <ActivityHeatmap
       :weeks="gitlabHeatmapWeeks"
       :months="gitlabHeatmapMonths"
-      :title="`GitLab ${isId ? 'Kalender Kontribusi' : 'Contribution Calendar'}`"
-      :countBadge="`${gitlabTotalEvents} ${isId ? 'event' : 'events'}`"
+      :title="`GitLab ${copy.contributionCalendar}`"
+      :countBadge="`${gitlabTotalEvents} ${copy.events}`"
       :getMetrics="devHeatmapMetrics"
       :isId="isId" />
 
@@ -27,10 +21,10 @@
       v-if="gitlabLanguages.length"
       :languages="gitlabLanguages"
       :isId="isId"
-      :titleEn="'Most Used Languages'"
-      :titleId="'Bahasa Pemrograman'"
-      :subtitleEn="'From active projects (details masked)'"
-      :subtitleId="'Dari proyek aktif (detail proyek disamarkan)'" />
+      :title-en="copy.languagesTitle"
+      :title-id="copy.languagesTitle"
+      :subtitle-en="copy.languagesSubtitle"
+      :subtitle-id="copy.languagesSubtitle" />
   </div>
 </template>
 
@@ -54,33 +48,55 @@ const props = defineProps<{
   isId?: boolean
 }>()
 
+const copy = computed(() => {
+  const id = props.isId
+  return {
+    maskedNote:
+      id ?
+        'Aktivitas dari workspace GitLab perusahaan — detail proyek & domain disamarkan demi kerahasiaan.'
+      : 'Activity from a company GitLab workspace — project details & domain are masked for confidentiality.',
+    contributionCalendar: id ? 'Kalender Kontribusi' : 'Contribution Calendar',
+    events: id ? 'event' : 'events',
+    languagesTitle: id ? 'Bahasa Pemrograman' : 'Most Used Languages',
+    languagesSubtitle:
+      id ? 'Dari proyek aktif (detail proyek disamarkan)' : 'From active projects (details masked)',
+    totalEvents: id ? 'Total Event' : 'Total Events',
+    gitlabActivity: id ? 'Aktivitas di GitLab' : 'GitLab activity',
+    activeDays: id ? 'Hari Aktif' : 'Active Days',
+    daysWithActivity: id ? 'Hari dengan aktivitas' : 'Days with activity',
+    mrOpened: id ? 'MR Dibuka' : 'MR Opened',
+    mrMerged: 'MR Merged',
+    mergedToMain: id ? 'Digabung ke branch utama' : 'Merged to main branch',
+  }
+})
+
 const stats = computed<StatItem[]>(() => {
-  const { isId, gitlab } = props
+  const { gitlab } = props
   return [
     {
-      label: isId ? 'Total Event' : 'Total Events',
+      label: copy.value.totalEvents,
       value: props.gitlabTotalEvents,
       unit: '+',
       variant: 'emerald',
-      helper: isId ? 'Aktivitas di GitLab' : 'GitLab activity',
+      helper: copy.value.gitlabActivity,
     },
     {
-      label: isId ? 'Hari Aktif' : 'Active Days',
+      label: copy.value.activeDays,
       value: gitlab?.stats?.daysActive || 0,
       variant: 'sky',
-      helper: isId ? 'Hari dengan aktivitas' : 'Days with activity',
+      helper: copy.value.daysWithActivity,
     },
     {
-      label: isId ? 'MR Dibuka' : 'MR Opened',
+      label: copy.value.mrOpened,
       value: props.gitlabMrOpened,
       variant: 'amber',
       helper: 'Merge Request',
     },
     {
-      label: isId ? 'MR Merged' : 'MR Merged',
+      label: copy.value.mrMerged,
       value: props.gitlabMrMerged,
       variant: 'purple',
-      helper: isId ? 'Digabung ke branch utama' : 'Merged to main branch',
+      helper: copy.value.mergedToMain,
     },
   ]
 })

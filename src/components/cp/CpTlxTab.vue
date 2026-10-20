@@ -39,21 +39,33 @@ const columns: CpColumn[] = [
   { key: 'language', labelEn: 'Language', labelId: 'Bahasa' },
 ]
 
+const copy = computed(() => {
+  const id = props.isId
+  return {
+    uniqueSolved: id ? 'Soal Selesai' : 'Unique Solved',
+    problemsAccepted: id ? 'Soal Berhasil AC' : 'Problems Accepted',
+    totalSubmissions: id ? 'Total Submisi' : 'Total Submissions',
+    submissionHistory: id ? 'Riwayat submisi di TLX' : 'Submission history on TLX',
+    acSubmissions: id ? 'Submisi AC' : 'Total AC Submissions',
+    acSubmissionsSub: id ? 'Submisi berstatus 100/AC' : 'Submissions with 100/AC score',
+  }
+})
+
 const metrics = computed<CpMetric[]>(() => [
   {
-    label: props.isId ? 'Soal Selesai' : 'Unique Solved',
+    label: copy.value.uniqueSolved,
     value: props.totalTlxSolved,
-    sub: props.isId ? 'Soal Berhasil AC' : 'Problems Accepted',
+    sub: copy.value.problemsAccepted,
   },
   {
-    label: props.isId ? 'Total Submisi' : 'Total Submissions',
+    label: copy.value.totalSubmissions,
     value: props.cpData?.platforms?.tlx?.totalSubmissions || CP_FALLBACK.tlxTotalSubmissions,
-    sub: props.isId ? 'Riwayat submisi di TLX' : 'Submission history on TLX',
+    sub: copy.value.submissionHistory,
   },
   {
-    label: props.isId ? 'Submisi AC' : 'Total AC Submissions',
+    label: copy.value.acSubmissions,
     value: props.cpData?.platforms?.tlx?.totalAcSubmissions || CP_FALLBACK.tlxTotalAcSubmissions,
-    sub: props.isId ? 'Submisi berstatus 100/AC' : 'Submissions with 100/AC score',
+    sub: copy.value.acSubmissionsSub,
   },
 ])
 </script>

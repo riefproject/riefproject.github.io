@@ -1,18 +1,24 @@
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue'
+
+const props = defineProps<{
   isId?: boolean
 }>()
+
+const copy = computed(() =>
+  props.isId ? { less: 'Sedikit', more: 'Banyak' } : { less: 'Less', more: 'More' }
+)
 </script>
 
 <template>
   <div class="heatmap-legend">
-    <span class="legend-label">{{ isId ? 'Sedikit' : 'Less' }}</span>
+    <span class="legend-label">{{ copy.less }}</span>
     <span class="heat-box lvl-0"></span>
     <span class="heat-box lvl-1"></span>
     <span class="heat-box lvl-2"></span>
     <span class="heat-box lvl-3"></span>
     <span class="heat-box lvl-4"></span>
-    <span class="legend-label">{{ isId ? 'Banyak' : 'More' }}</span>
+    <span class="legend-label">{{ copy.more }}</span>
   </div>
 </template>
 

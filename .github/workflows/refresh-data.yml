@@ -31,12 +31,15 @@ jobs:
           GITLAB_USER_ID: ${{ secrets.GITLAB_USER_ID }}
         run: node scripts/crawl-data.cjs
 
+      - name: Sync CP fallback values
+        run: node scripts/sync-cp-fallback.cjs
+
       - name: Commit updated data
         id: commit
         run: |
           git config user.name "portfolio-bot"
           git config user.email "portfolio-bot@users.noreply.github.com"
-          git add src/data/dev-activity.json src/data/cp-data.json src/data/cp-problems.json
+          git add src/data/dev-activity.json src/data/cp-data.json src/data/cp-problems.json src/data/cp-fallback.json
           if git diff --cached --quiet; then
             echo "No data changes — skipping commit."
             echo "changed=false" >> "$GITHUB_OUTPUT"

@@ -62,7 +62,7 @@ import SearchInput from '../shared/SearchInput.vue'
 import CpTablePagination from './CpTablePagination.vue'
 import CpProblemsTable from './CpProblemsTable.vue'
 import { useLocale } from '../../composables/useLocale'
-import { useCpStats } from '../../composables/useCpStats'
+import { useCpSummary } from '../../composables/useCpSummary'
 import { useListFilter } from '../../composables/useListFilter'
 import { usePagination } from '../../composables/usePagination'
 import { CP_PLATFORM_KEYS, buildPlatformCategories } from '../../utils/cp/platforms'
@@ -89,7 +89,7 @@ const {
   totalCfSolved,
   totalLcSolved,
   totalHrSolved,
-} = useCpStats(cpData)
+} = useCpSummary(cpData)
 
 const copy = computed(() =>
   isId.value ?

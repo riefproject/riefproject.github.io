@@ -1,17 +1,13 @@
 import { computed, type Ref } from 'vue'
 import { buildCpHeatmap, getPrimaryLanguage } from '../utils/cp/stats'
-import { CP_FALLBACK } from '../utils/cp/defaults'
 import { CP_PLATFORMS } from '../utils/cp/platforms'
 import { buildMonths, toWeeks } from '../utils/heatmap'
+import { useCpSummary } from './useCpSummary'
 import type { CpData } from '../types/cp.types'
 
 export const useCpStats = (cpData: Ref<CpData | null>) => {
-  const totalSolved = computed(() => cpData.value?.overview?.totalSolved || CP_FALLBACK.overviewTotalSolved)
-  const totalSubmissions = computed(() => cpData.value?.overview?.totalSubmissions || CP_FALLBACK.overviewTotalSubmissions)
-  const totalTlxSolved = computed(() => cpData.value?.platforms?.tlx?.totalSolved || CP_FALLBACK.tlxTotalSolved)
-  const totalCfSolved = computed(() => cpData.value?.platforms?.codeforces?.totalSolved || CP_FALLBACK.codeforcesTotalSolved)
-  const totalLcSolved = computed(() => cpData.value?.platforms?.leetcode?.totalSolved || CP_FALLBACK.leetcodeTotalSolved)
-  const totalHrSolved = computed(() => cpData.value?.platforms?.hackerrank?.totalSolved || CP_FALLBACK.hackerrankTotalSolved)
+  const summary = useCpSummary(cpData)
+  const { totalSolved, totalTlxSolved, totalCfSolved, totalLcSolved, totalHrSolved } = summary
 
   const primaryLanguage = computed(() => getPrimaryLanguage(cpData.value))
 
@@ -60,12 +56,7 @@ export const useCpStats = (cpData: Ref<CpData | null>) => {
   const totalSubmissionsInHeatmap = computed(() => heatmapData.value.reduce((acc, d) => acc + d.tries, 0))
 
   return {
-    totalSolved,
-    totalSubmissions,
-    totalTlxSolved,
-    totalCfSolved,
-    totalLcSolved,
-    totalHrSolved,
+    ...summary,
     primaryLanguage,
     tabs,
     heatmapWeeks,

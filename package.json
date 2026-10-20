@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "riefproject-portfolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -14,7 +14,8 @@
     "verify": "npm run format:check && npm run check && npm run test && npm run validate:data && npm run build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "astro": "astro"
+    "astro": "astro",
+    "test:e2e": "playwright test"
   },
   "dependencies": {
     "@astrojs/react": "^6.0.1",
@@ -42,6 +43,8 @@
     "@astrojs/check": "^0.9.11",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/tailwind": "^6.0.2",
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.64.1",
     "autoprefixer": "^10.4.22",
     "baseline-browser-mapping": "^2.11.12",
     "postcss": "^8.5.6",
@@ -49,5 +52,6 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.3",
     "vitest": "^5.0.5"
-  }
+  },
+  "private": true
 }

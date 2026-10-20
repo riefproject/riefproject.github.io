@@ -30,3 +30,7 @@ design-system/
 
 # local development files
 .antigravitycli/
+
+# playwright
+playwright-report/
+test-results/

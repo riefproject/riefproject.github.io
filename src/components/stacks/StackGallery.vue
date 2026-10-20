@@ -56,7 +56,7 @@ const resolvedCategories = computed(() => {
       :categories="resolvedCategories"
       :locale="locale" />
 
-    <div class="scroller" :aria-label="copy.listAria">
+    <div class="scroller" role="region" tabindex="0" :aria-label="copy.listAria">
       <div class="stack-grid">
         <div v-for="item in filteredItems" :key="item.name" class="stack-card surface">
           <div class="stack-logo">

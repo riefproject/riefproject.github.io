@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "crawl:data": "node scripts/crawl-data.cjs",
     "validate:data": "node scripts/validate-data.cjs",
+    "sync:cp-fallback": "node scripts/sync-cp-fallback.cjs",
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",

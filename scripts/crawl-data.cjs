@@ -67,7 +67,7 @@ function writeJson(file, payload) {
 }
 
 // ---------------------------------------------------------------------------
-// 1. GitHub activity (public APIs, no token) — mirrors netlify/functions/github-activity.ts
+// 1. GitHub activity (public APIs, no token)
 // ---------------------------------------------------------------------------
 const GH_USERNAME = 'riefproject'
 const GITHUB_API = 'https://api.github.com'
@@ -293,7 +293,7 @@ async function crawlGithub(prevGithub = {}) {
 }
 
 // ---------------------------------------------------------------------------
-// 2. GitLab activity (private instance, token + URL via env) — mirrors gitlab-activity.ts
+// 2. GitLab activity (private instance, token + URL via env)
 // ---------------------------------------------------------------------------
 const GITLAB_URL = process.env.GITLAB_URL
 const GITLAB_USER_ID = process.env.GITLAB_USER_ID
@@ -507,7 +507,7 @@ function mergeGitlabWithArchives(activeGitlab) {
 }
 
 // ---------------------------------------------------------------------------
-// 3. CP stats — mirrors netlify/functions/cp-stats.ts
+// 3. CP stats (TLX, Codeforces, LeetCode, HackerRank)
 // ---------------------------------------------------------------------------
 const CP_HANDLES = {
   tlx: 'aycaaa',

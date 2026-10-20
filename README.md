@@ -1,54 +1,109 @@
 # Portfolio Astro x Vue
 
-Personal portfolio siap pakai memakai Astro 5 + integrasi Vue 3. Konten di-render statis oleh
-Astro, sementara gallery proyek memakai komponen Vue yang bisa difilter dan dicari secara client
-side.
+Personal portfolio and activity dashboard built with Astro 5, Vue 3 islands, and Tailwind CSS.
+Content is rendered statically; interactive dashboards hydrate only where needed.
 
-## Pengembangan
+## Requirements
+
+- Node.js 20+
+- npm
+
+## Quick start
 
 ```sh
 npm install
 npm run dev
-npm run build
 ```
 
-## Struktur utama
+Production build:
 
-- `src/data/profile.ts` — satu sumber data untuk hero, pengalaman, proyek, kontak, dsb.
-- `src/pages/index.astro` — merakit seluruh section (Hero, About, Experience, Projects, Contact).
-- `src/components/sections/*` — blok konten Astro (Hero, About, Skills, Projects, Achievements, Education, Contact).
-- `src/components/projects/ProjectGallery.vue` — komponen Vue untuk filter + pencarian proyek.
-- `src/components/Achievements.vue` — Astro Island Vue untuk tab pencapaian & kredensial.
-- `src/components/ThemeToggle.vue` & `src/components/LangToggle.vue` — island untuk dark mode + language switch.
-- `src/stores/uiStore.js` — state global berbasis Nanostores untuk tema/bahasa.
-- `src/styles/global.css` — token warna, layout, dan utilitas global.
-- `tailwind.config.mjs` & `postcss.config.cjs` — konfigurasi Tailwind + PostCSS.
+```sh
+npm run build
+npm run preview
+```
 
-## Fitur utama
+## Commands
 
-- Sidebar modern yang lengket di desktop dan berubah jadi menu hamburger di mobile (+ overlay).
-- Smooth scrolling & highlight otomatis pada link aktif dengan Intersection Observer.
-- Section lengkap: Hero, About, Skills, Projects (Vue gallery), Achievements (Vue tabs), Education/Experience, Contact.
-- Placeholder media proyek sehingga kartu tetap konsisten walau belum ada gambar final.
-- Dark / light mode toggle dengan state tersinkron ke localStorage + dukungan CSS variable.
-- Toggle bahasa (EN/ID) yang langsung mempengaruhi teks di Achievements & komponen yang terhubung ke store.
-- Tailwind CSS + token global untuk adaptasi gaya cepat.
+| Command                    | Purpose                                                            |
+| -------------------------- | ------------------------------------------------------------------ |
+| `npm run dev`              | Start the Astro dev server.                                        |
+| `npm run build`            | Build the static site into `dist/`.                                |
+| `npm run preview`          | Preview the production build locally.                              |
+| `npm run check`            | Run `astro check` (Astro, Vue, and TypeScript diagnostics).        |
+| `npm test`                 | Run Vitest unit tests.                                             |
+| `npm run test:e2e`         | Run Playwright smoke, interaction, and axe accessibility tests.    |
+| `npm run verify`           | Format check + Astro check + unit tests + data validation + build. |
+| `npm run format`           | Format the repository with Prettier.                               |
+| `npm run crawl:data`       | Refresh GitHub, GitLab, and competitive-programming snapshots.     |
+| `npm run sync:cp-fallback` | Regenerate `src/data/cp-fallback.json` from the CP snapshot.       |
+| `npm run validate:data`    | Validate CP totals, archive problems, and fallback freshness.      |
+| `npm run lighthouse`       | Run Lighthouse CI against all public pages.                        |
 
-## Kustomisasi cepat
+## Architecture
 
-1. **Ubah profil & konten:** perbarui objek di `src/data/profile.ts`.
-2. **Form kontak:** ganti `action` Formspree pada `ContactSection.astro` bila memakai layanan lain.
-3. **Gaya visual & utility:** pakai kelas Tailwind langsung di komponen atau ubah layer kustom di
-   `src/styles/global.css` (termasuk palet light/dark yang dikontrol lewat class `dark`).
-4. **Terjemahan konten:** update string EN/ID di `src/data/profile.ts` (contoh pada objek `achievements`)
-   agar toggle bahasa menampilkan teks yang sesuai.
+- `src/content/` — content collections and singleton JSON files. This is the source of truth for
+  profile, contact, social links, projects, experience, achievements, education, CP profiles, and
+  stack showcase.
+- `src/pages/` — static routes: home, projects, competitive programming, solved problems, development
+  activity, and combined coding activity.
+- `src/components/sections/` — Astro sections used on the home page.
+- `src/components/cp/`, `src/components/dev/`, `src/components/activity/` — dashboard islands.
+- `src/components/shared/` — reusable Vue/Astro UI primitives.
+- `src/utils/` — formatting, heatmap, pagination, SEO, and content-collection helpers.
+- `src/data/` — generated runtime snapshots:
+  - `dev-activity.json`
+  - `cp-data.json`
+  - `cp-problems.json`
+  - `cp-fallback.json`
+- `scripts/` — data crawler, validators, fallback generator, and one-off asset utilities.
+- `.github/workflows/` — verification, data refresh, and Lighthouse workflows.
 
-Setelah modifikasi, jalankan `npm run build` untuk memastikan tidak ada error sebelum deploy.
+## Content
 
-## Tailwind CSS
+Content collections are configured in `src/content/config.ts`. Singleton files live in
+`src/content/singletons/`:
 
-- Utility class siap pakai karena integrasi `@astrojs/tailwind`.
-- Direktif `@tailwind base/components/utilities` dimuat di `src/styles/global.css`, jadi kamu bebas
-  menambahkan komponen kustom pada file yang sama (gunakan `@layer` bila perlu).
-- Atur token, font, atau plugin lewat `tailwind.config.mjs`. Perubahan akan otomatis diproses saat
-  menjalankan `npm run dev` atau `npm run build`.
+- `profile.json`
+- `contact.json`
+- `layout.json`
+- `social.json`
+
+Collection entries live in their respective folders, for example `src/content/projects/`,
+`src/content/experiences/`, and `src/content/achievements/`.
+
+The Keystatic admin is available in development only; it is not part of the production bundle.
+
+## Data pipeline
+
+`scripts/crawl-data.cjs` writes the activity snapshots. The scheduled workflow:
+
+1. Crawls GitHub, GitLab, TLX, Codeforces, LeetCode, and HackerRank.
+2. Regenerates `src/data/cp-fallback.json`.
+3. Runs data validation and a production build.
+4. Commits the updated JSON only when everything passes.
+
+`CP_FALLBACK` intentionally reads the small `cp-fallback.json` file rather than the full CP snapshot,
+so client components do not pull the entire dataset into their bundles.
+
+## SEO
+
+`src/components/layout/BaseHead.astro` owns canonical URLs, title/description, Open Graph, Twitter
+cards, `rel="me"` links, and JSON-LD. `src/utils/seo.ts` builds `Person`, `WebSite`, `ProfilePage`,
+`CollectionPage`, and `BreadcrumbList` schemas.
+
+The site is currently English-first for crawlers. The EN/ID toggle is client-side, so Indonesian
+content is not rendered as a separate indexable URL yet. Adding `/id/` routes with `hreflang` is a
+separate routing project.
+
+## Testing
+
+- Vitest covers pure utilities in `src/**/*.test.ts`.
+- Playwright covers page rendering, language/theme toggles, dashboard tabs, filters, and a
+  serious/critical axe accessibility check.
+- Lighthouse CI checks performance, accessibility, best practices, and SEO budgets for all public
+  pages.
+
+## Deployment
+
+The site builds to `dist/` and is deployed as static files. Netlify reads `public/_headers` for basic
+security headers and the generated sitemap is served from `/sitemap-index.xml`.

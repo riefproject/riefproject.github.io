@@ -121,3 +121,21 @@ export type Contact = {
   message: LocaleText
   availabilityNote: LocaleText
 }
+
+export type ProfileContent = Profile & {
+  heroHighlights: Highlight[]
+  stats: Stat[]
+  focusAreas: FocusArea[]
+  skillCategories: SkillCategory[]
+  toolbox: string[]
+}
+
+export type LayoutContent = {
+  projectsOrder: string[]
+  experiencesOrder: string[]
+  achievementsOrder: string[]
+}
+
+export type SocialContent = {
+  socials: SocialLink[]
+}

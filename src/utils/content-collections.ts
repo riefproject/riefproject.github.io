@@ -1,11 +1,19 @@
 import { getCollection, getEntry } from 'astro:content'
 import { getContentSlug, sortByOrder } from './content'
+import type { Contact, LayoutContent, ProfileContent, SocialContent } from '../types/profile.types'
 
 type SingletonKey = 'profile' | 'contact' | 'layout' | 'social'
 
-export const getSingleton = async <K extends SingletonKey>(id: K) => {
+type SingletonDataMap = {
+  profile: ProfileContent
+  contact: Contact
+  layout: LayoutContent
+  social: SocialContent
+}
+
+export const getSingleton = async <K extends SingletonKey>(id: K): Promise<SingletonDataMap[K] | undefined> => {
   const entry = await getEntry('singletons', id)
-  return entry?.data
+  return entry?.data as SingletonDataMap[K] | undefined
 }
 
 export const getSortedProjects = async () => {

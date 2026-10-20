@@ -5,6 +5,68 @@ const localeTextSchema = z.object({
   id: z.string(),
 })
 
+const profileSchema = z.object({
+  name: z.string(),
+  role: localeTextSchema,
+  tagline: localeTextSchema,
+  location: localeTextSchema,
+  availability: localeTextSchema,
+  intro: localeTextSchema,
+  bio: localeTextSchema,
+  focusStack: localeTextSchema,
+  resumeUrl: z.string().optional(),
+  heroHighlights: z.array(
+    z.object({
+      label: localeTextSchema,
+      detail: localeTextSchema,
+    })
+  ),
+  stats: z.array(
+    z.object({
+      label: localeTextSchema,
+      value: z.string(),
+      helper: localeTextSchema.optional(),
+    })
+  ),
+  focusAreas: z.array(
+    z.object({
+      title: localeTextSchema,
+      description: localeTextSchema,
+      items: z.array(localeTextSchema),
+    })
+  ),
+  skillCategories: z.array(
+    z.object({
+      title: localeTextSchema,
+      items: z.array(localeTextSchema),
+      helper: localeTextSchema.optional(),
+    })
+  ),
+  toolbox: z.array(z.string()),
+})
+
+const contactSchema = z.object({
+  email: z.string(),
+  message: localeTextSchema,
+  availabilityNote: localeTextSchema,
+})
+
+const layoutSchema = z.object({
+  projectsOrder: z.array(z.string()),
+  experiencesOrder: z.array(z.string()),
+  achievementsOrder: z.array(z.string()),
+})
+
+const socialSchema = z.object({
+  socials: z.array(
+    z.object({
+      label: z.string(),
+      url: z.string(),
+      hint: z.string().optional(),
+    })
+  ),
+})
+
 export const collections = {
   projects: defineCollection({
     type: 'data',
@@ -82,6 +144,6 @@ export const collections = {
   }),
   singletons: defineCollection({
     type: 'data',
-    schema: z.any(), // Simplify schema for singletons
+    schema: z.union([profileSchema, contactSchema, layoutSchema, socialSchema]),
   }),
 }

@@ -10,9 +10,9 @@ import AchievementsSection from '../components/sections/AchievementsSection.astr
 import EducationSection from '../components/sections/EducationSection.astro'
 import ContactSection from '../components/sections/ContactSection.astro'
 import CPProfilesSection from '../components/sections/CPProfilesSection.astro'
-import { getEntry } from 'astro:content'
 import { ACHIEVEMENT_TABS } from '../data/achievementTabs'
 import {
+  getSingleton,
   getSortedProjects,
   getSortedExperiences,
   getSortedAchievements,
@@ -21,15 +21,15 @@ import {
   getStackShowcase,
 } from '../utils/content-collections'
 
-const [profileEntry, contactEntry, projects, expsSorted, achievements] = await Promise.all([
-  getEntry('singletons', 'profile'),
-  getEntry('singletons', 'contact'),
+const [profileData, contactData, projects, expsSorted, achievements] = await Promise.all([
+  getSingleton('profile'),
+  getSingleton('contact'),
   getSortedProjects(),
   getSortedExperiences(),
   getSortedAchievements(),
 ])
 
-if (!profileEntry || !contactEntry) {
+if (!profileData || !contactData) {
   throw new Error('Missing profile or contact singleton content')
 }
 
@@ -55,16 +55,16 @@ const {
   focusAreas,
   skillCategories,
   toolbox,
-} = profileEntry.data
+} = profileData
 const profile = { name, role, tagline, location, availability, intro, bio, focusStack }
 
-const contact = contactEntry.data
+const contact = contactData
 
-const socialEntry = await getEntry('singletons', 'social')
-if (!socialEntry) {
+const socialData = await getSingleton('social')
+if (!socialData) {
   throw new Error('Missing social singleton content')
 }
-const socials = socialEntry.data.socials
+const socials = socialData.socials
 
 const achievementTabs = ACHIEVEMENT_TABS
 ---

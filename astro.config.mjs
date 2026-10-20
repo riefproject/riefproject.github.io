@@ -20,7 +20,10 @@ export default defineConfig({
     {
       name: 'dev-tools',
       hooks: {
-        'astro:config:setup': ({ injectRoute, command }) => {
+        'astro:config:setup': (
+          /** @type {{ injectRoute: (route: { pattern: string, entrypoint: string }) => void, command: string }} */
+          { injectRoute, command }
+        ) => {
           if (command === 'dev') {
             injectRoute({
               pattern: '/cv-builder',
@@ -50,9 +53,6 @@ export default defineConfig({
   vite: {
     optimizeDeps: {
       exclude: ['@keystatic/astro', '@keystatic/core'],
-      esbuildOptions: {
-        external: ['virtual:keystatic-config'],
-      },
     },
     server: {
       watch: {

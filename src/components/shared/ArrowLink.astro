@@ -1,6 +1,6 @@
 ---
 import type { LocaleText } from '../../types/profile.types'
-import LocaleText from '../i18n/LocaleText.astro'
+import LocaleTextSpan from '../i18n/LocaleText.astro'
 import ArrowUpRight from './ArrowUpRight.astro'
 
 type Props = {
@@ -17,7 +17,7 @@ const { href, label, class: className = '', target, rel } = Astro.props as Props
 <a href={href} class={className} target={target} rel={rel}>
   <u>
     {' '}
-    <LocaleText as="span" text={label} />
+    <LocaleTextSpan as="span" text={label} />
   </u>
   <ArrowUpRight class="ml-1 opacity-50 group-hover:opacity-100 transition-opacity" />
 </a>

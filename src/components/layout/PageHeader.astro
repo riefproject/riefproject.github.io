@@ -1,6 +1,6 @@
 ---
 import type { LocaleText } from '../../types/profile.types'
-import LocaleText from '../i18n/LocaleText.astro'
+import LocaleTextSpan from '../i18n/LocaleText.astro'
 
 export type PageHeaderProps = {
   backHref: string
@@ -29,18 +29,18 @@ const {
   ]}>
   <div class="nav-row">
     <a href={backHref} class="back-link">
-      <LocaleText as="span" text={backLabel} />
+      <LocaleTextSpan as="span" text={backLabel} />
     </a>
     <slot name="actions" />
   </div>
   <div class="title-row">
     <h1>
-      <LocaleText as="span" text={title} />
+      <LocaleTextSpan as="span" text={title} />
     </h1>
     <slot name="title" />
   </div>
   <p class="lead">
-    <LocaleText as="span" text={description} />
+    <LocaleTextSpan as="span" text={description} />
   </p>
 </header>
 

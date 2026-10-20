@@ -13,7 +13,6 @@ import CPProfilesSection from '../components/sections/CPProfilesSection.astro'
 import { getEntry } from 'astro:content'
 import { ACHIEVEMENT_TABS } from '../data/achievementTabs'
 import {
-  getSingleton,
   getSortedProjects,
   getSortedExperiences,
   getSortedAchievements,
@@ -29,6 +28,10 @@ const [profileEntry, contactEntry, projects, expsSorted, achievements] = await P
   getSortedExperiences(),
   getSortedAchievements(),
 ])
+
+if (!profileEntry || !contactEntry) {
+  throw new Error('Missing profile or contact singleton content')
+}
 
 const workExperiences = expsSorted.filter((e) => e.type === 'work')
 const organizationalExperiences = expsSorted.filter((e) => e.type === 'organizational')
@@ -58,6 +61,9 @@ const profile = { name, role, tagline, location, availability, intro, bio, focus
 const contact = contactEntry.data
 
 const socialEntry = await getEntry('singletons', 'social')
+if (!socialEntry) {
+  throw new Error('Missing social singleton content')
+}
 const socials = socialEntry.data.socials
 
 const achievementTabs = ACHIEVEMENT_TABS

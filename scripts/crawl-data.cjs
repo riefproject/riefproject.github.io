@@ -183,7 +183,7 @@ async function ghRepos(username) {
   return repos
 }
 
-async function ghLanguages(username, repos) {
+async function ghLanguages(repos) {
   const source = repos.filter((r) => !r.fork).slice(0, 25)
   const totals = {}
   const batchSize = 8
@@ -257,7 +257,7 @@ async function crawlGithub(prevGithub = {}) {
   const repoList = repos.status === 'fulfilled' ? repos.value : []
 
   const [languages, prStats, mergedPrs, issueStats] = await Promise.allSettled([
-    ghLanguages(GH_USERNAME, repoList),
+    ghLanguages(repoList),
     ghSearchCount(`author:${GH_USERNAME} type:pr`),
     ghSearchCount(`author:${GH_USERNAME} type:pr is:merged`),
     ghSearchCount(`author:${GH_USERNAME} type:issue`),
@@ -514,52 +514,6 @@ const CP_HANDLES = {
   codeforces: 'feeera',
   leetcode: 'fsaree',
   hackerrank: 'areee',
-}
-
-function getTlxDifficulty(containerName) {
-  if (!containerName) return 'Medium'
-  const name = containerName.trim()
-
-  const easyKeywords = [
-    'Keluaran dan Ekspresi',
-    'Variabel',
-    'Percabangan',
-    'Perulangan',
-    'Larik',
-    'Array',
-    'Fungsi',
-    'Tipe Data',
-    'Analisis Kompleksitas',
-    'Pencarian dan Pengurutan',
-    'Rekursi Dasar',
-    'Perkenalan Pemrograman',
-  ]
-  if (easyKeywords.some((k) => name.includes(k))) return 'Easy'
-
-  const hardKeywords = [
-    'Dynamic Programming',
-    'Lanjutan',
-    'Non-Linear',
-    'Algoritma Graf',
-    'OSN',
-    'OSN-P',
-    'ICPC',
-    'INC',
-    'NOI',
-    'Final',
-    'Senior',
-    'Arkavidia',
-    'Schematics',
-    'GEMASTIK',
-    'Gemastik',
-    'COMPFEST',
-    'IDEAFUSE',
-    'IMPACT',
-    'Liga Kompetitif',
-  ]
-  if (hardKeywords.some((k) => name.includes(k))) return 'Hard'
-
-  return 'Medium'
 }
 
 async function cpTlx(username) {

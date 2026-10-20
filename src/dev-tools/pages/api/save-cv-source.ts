@@ -39,8 +39,9 @@ export const POST = async ({ request }: { request: Request }) => {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     })
-  } catch (error: any) {
-    return new Response(JSON.stringify({ error: error.message }), {
+  } catch (error: unknown) {
+    const message = error instanceof Error ? error.message : 'Unknown error'
+    return new Response(JSON.stringify({ error: message }), {
       status: 500,
       headers: { 'Content-Type': 'application/json' },
     })

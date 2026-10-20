@@ -4,10 +4,10 @@ export const prerender = false
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import CvComposer from '../components/cv/CvComposer.vue'
+import CvComposer from '../../components/cv/CvComposer.vue'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const cvDir = path.resolve(__dirname, '../data/cv')
+const cvDir = path.resolve(__dirname, '../../data/cv')
 
 const lang = Astro.url.searchParams.get('lang') || 'id'
 const htmlFileName = lang === 'en' ? 'source-en.html' : 'source-id.html'

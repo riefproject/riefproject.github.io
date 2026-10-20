@@ -5,13 +5,12 @@ type Props = {
   text: LocaleText
   as?: keyof HTMLElementTagNameMap
   class?: string
-  [key: string]: any
 }
 
-const { text, as = 'span', class: className, ...rest } = Astro.props as Props
+const { text, as = 'span', class: className } = Astro.props as Props
 const Tag = as
 ---
 
-<Tag data-i18n data-i18n-en={text.en} data-i18n-id={text.id} class={className} {...rest}>
+<Tag data-i18n data-i18n-en={text.en} data-i18n-id={text.id} class={className}>
   {text.en}
 </Tag>

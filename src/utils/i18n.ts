@@ -1,6 +1,7 @@
-import type { LocaleText } from '../types/profile.types'
-
-export type { LocaleText }
+export type LocaleText = {
+  en: string
+  id: string
+}
 
 export const t = (en: string, id: string): LocaleText => ({ en, id })
 

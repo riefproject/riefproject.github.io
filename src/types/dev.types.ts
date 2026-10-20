@@ -5,8 +5,9 @@ export interface GitUser {
   name?: string
   avatarUrl?: string
   url?: string
-  company?: string
-  bio?: string
+  company?: string | null
+  bio?: string | null
+  location?: string | null
   followers?: number
   following?: number
   publicRepos?: number
@@ -50,7 +51,7 @@ export interface GitPlatformStats {
   }
   mergeRequestsMerged?: number
   mergeRequestsOpened?: number
-  languages?: Record<string, number>
+  languages?: GitLanguage[]
   heatmap?: Record<string, { count?: number; github?: number; gitlab?: number } | number>
 }
 
@@ -77,9 +78,13 @@ export interface DevActivityData {
   }
   overview?: {
     totalContributions?: number
+    lastYearContributions?: number
     currentStreak?: number
+    longestStreak?: number
     prMerged?: number
     topLanguage?: string
+    heatmap?: Record<string, number>
+    yearlyTotal?: Record<string, number>
   }
   platforms?: {
     github?: DevPlatformProfile

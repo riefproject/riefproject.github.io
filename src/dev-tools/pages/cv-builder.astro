@@ -4,10 +4,10 @@ export const prerender = false
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import CvBuilder from '../components/cv/CvBuilder.vue'
+import CvBuilder from '../../components/cv/CvBuilder.vue'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const cvDir = path.resolve(__dirname, '../data/cv')
+const cvDir = path.resolve(__dirname, '../../data/cv')
 
 const htmlPath = path.join(cvDir, 'source.html')
 const cssPath = path.join(cvDir, 'source.css')

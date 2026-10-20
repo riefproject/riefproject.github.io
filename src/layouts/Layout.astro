@@ -27,15 +27,13 @@ const navItems = [
   { label: locale('CP Journey', 'Perjalanan CP'), href: '/competitive-programming', page: true },
   { label: locale('Dev Activity', 'Aktivitas Dev'), href: '/development-activity', page: true },
   { label: locale('Contact', 'Kontak'), href: '#kontak' },
-].map((item) =>
-  item.page ? item : (
-    {
-      ...item,
-      id: item.href.replace('#', ''),
-      to: `/#${item.href.replace('#', '')}`,
-    }
-  )
-)
+].map((item) => ({
+  label: item.label,
+  href: item.href,
+  page: Boolean(item.page),
+  id: item.href.replace('#', ''),
+  to: `/#${item.href.replace('#', '')}`,
+}))
 
 const layoutCopy = {
   skip: locale('Skip to content', 'Lewati ke konten'),

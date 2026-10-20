@@ -1,5 +1,5 @@
-import type { CpHeatmapDay } from '../../types/cp.types'
-import { buildHeatmapDays as buildDays, type HeatmapTooltipMetric } from '../heatmap'
+import type { CpData, CpHeatmapDay, CpRecentSolved } from '../../types/cp.types'
+import { buildHeatmapDays as buildDays, type HeatmapMap, type HeatmapTooltipMetric } from '../heatmap'
 import { cleanLanguage } from './formatting'
 
 export const cpHeatmapMetrics = (day: CpHeatmapDay, isId: boolean): HeatmapTooltipMetric[] => {
@@ -24,7 +24,7 @@ const cpHeatmapLevel = (count: number): number => {
   return 0
 }
 
-export const buildCpHeatmap = (map: Record<string, any> = {}, daysBack = 364): CpHeatmapDay[] => {
+export const buildCpHeatmap = (map: HeatmapMap = {}, daysBack = 364): CpHeatmapDay[] => {
   const days = buildDays(
     map,
     (entry) => {
@@ -50,7 +50,7 @@ export const buildCpHeatmap = (map: Record<string, any> = {}, daysBack = 364): C
   }))
 }
 
-export const getPrimaryLanguage = (cpData: any) => {
+export const getPrimaryLanguage = (cpData: CpData | null | undefined) => {
   const overviewTop = cpData?.overview?.topLanguage
   if (overviewTop?.name && overviewTop?.count) {
     const name = overviewTop.name
@@ -77,16 +77,16 @@ export const getPrimaryLanguage = (cpData: any) => {
     counts['C++20'] = (counts['C++20'] || 0) + cfSubs
   }
 
-  ;(cpData?.platforms?.leetcode?.recentSolved || []).forEach((s: any) => {
-    if (s.language) {
-      const cleaned = cleanLanguage(s.language)
+  ;(cpData?.platforms?.leetcode?.recentSolved || []).forEach((submission: CpRecentSolved) => {
+    if (submission.language) {
+      const cleaned = cleanLanguage(submission.language)
       counts[cleaned] = (counts[cleaned] || 0) + 1
     }
   })
 
-  ;(cpData?.platforms?.hackerrank?.recentSolved || []).forEach((s: any) => {
-    if (s.language) {
-      const cleaned = cleanLanguage(s.language)
+  ;(cpData?.platforms?.hackerrank?.recentSolved || []).forEach((submission: CpRecentSolved) => {
+    if (submission.language) {
+      const cleaned = cleanLanguage(submission.language)
       counts[cleaned] = (counts[cleaned] || 0) + 1
     }
   })

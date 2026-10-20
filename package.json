@@ -7,6 +7,8 @@
     "crawl:data": "node scripts/crawl-data.cjs",
     "build": "astro build",
     "preview": "astro preview",
+    "check": "astro check",
+    "verify": "npm run format:check && npm run check && npm run build",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "astro": "astro"
@@ -34,12 +36,14 @@
     "vue-codemirror": "^6.1.1"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.11",
     "@astrojs/sitemap": "^3.6.0",
     "@astrojs/tailwind": "^6.0.2",
     "autoprefixer": "^10.4.22",
     "baseline-browser-mapping": "^2.11.12",
     "postcss": "^8.5.6",
     "prettier-plugin-astro": "^1.1.1",
-    "tailwindcss": "^3.4.17"
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3"
   }
 }

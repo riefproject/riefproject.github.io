@@ -1,6 +1,6 @@
 ---
 import type { LocaleText } from '../../types/profile.types'
-import LocaleText from '../i18n/LocaleText.astro'
+import LocaleTextSpan from '../i18n/LocaleText.astro'
 
 export type FormFieldProps = {
   label: LocaleText
@@ -31,7 +31,7 @@ const placeholderAttrs =
 
 <label>
   <span>
-    <LocaleText as="span" text={label} />
+    <LocaleTextSpan as="span" text={label} />
   </span>
   {type === 'textarea' ?
     <textarea

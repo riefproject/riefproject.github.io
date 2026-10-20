@@ -17,7 +17,7 @@ export const cleanLanguage = (lang: string): string => {
   return lang
 }
 
-export const getDiffClass = (diff: any): string => {
+export const getDiffClass = (diff: string | number | null | undefined): string => {
   if (!diff) return 'normal'
   const str = String(diff).toLowerCase()
   if (str.includes('easy') || str === '800' || str === '900') return 'easy'

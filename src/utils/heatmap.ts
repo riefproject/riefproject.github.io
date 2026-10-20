@@ -25,21 +25,42 @@ export const getHeatmapLevel = (count: number): number => {
   return 4
 }
 
-export const buildHeatmapDays = (
-  map: Record<string, any> = {},
-  extract: (v: any) => { count: number; tries?: number; ac?: number; github?: number; gitlab?: number } = (v) => {
-    if (typeof v === 'number') return { count: v }
-    if (v && typeof v === 'object') {
-      const count = Number(v.count || v.tries || 0)
-      const res: any = { count }
-      if (typeof v.tries === 'number') res.tries = v.tries
-      if (typeof v.ac === 'number') res.ac = v.ac
-      if (typeof v.github === 'number') res.github = v.github
-      if (typeof v.gitlab === 'number') res.gitlab = v.gitlab
-      return res
+export type HeatmapEntryValue =
+  | number
+  | {
+      count?: number
+      tries?: number
+      ac?: number
+      github?: number
+      gitlab?: number
     }
-    return { count: 0 }
-  },
+
+export type HeatmapMap = Record<string, HeatmapEntryValue>
+
+type HeatmapExtracted = {
+  count: number
+  tries?: number
+  ac?: number
+  github?: number
+  gitlab?: number
+}
+
+const defaultExtract = (v: HeatmapEntryValue | undefined): HeatmapExtracted => {
+  if (typeof v === 'number') return { count: v }
+  if (v && typeof v === 'object') {
+    const result: HeatmapExtracted = { count: Number(v.count || v.tries || 0) }
+    if (typeof v.tries === 'number') result.tries = v.tries
+    if (typeof v.ac === 'number') result.ac = v.ac
+    if (typeof v.github === 'number') result.github = v.github
+    if (typeof v.gitlab === 'number') result.gitlab = v.gitlab
+    return result
+  }
+  return { count: 0 }
+}
+
+export const buildHeatmapDays = (
+  map: HeatmapMap = {},
+  extract: (v: HeatmapEntryValue | undefined) => HeatmapExtracted = defaultExtract,
   options: {
     daysBack?: number
     utcDate?: boolean
@@ -74,9 +95,6 @@ export const buildHeatmapDays = (
   }
   return days
 }
-
-export type HeatmapEntry = number | { count?: number; github?: number; gitlab?: number }
-export type HeatmapMap = Record<string, HeatmapEntry>
 
 export const mergeHeatmaps = (
   githubMap: HeatmapMap = {},

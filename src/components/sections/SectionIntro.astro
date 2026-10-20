@@ -1,6 +1,6 @@
 ---
 import type { LocaleText } from '../../types/profile.types'
-import LocaleText from '../i18n/LocaleText.astro'
+import LocaleTextSpan from '../i18n/LocaleText.astro'
 
 export type SectionIntroProps = {
   eyebrow: LocaleText
@@ -21,14 +21,14 @@ const {
 
 <div class:list={['section-intro', surface && 'surface', className]}>
   <p class="eyebrow">
-    <LocaleText as="span" text={eyebrow} />
+    <LocaleTextSpan as="span" text={eyebrow} />
   </p>
   <h2>
-    <LocaleText as="span" text={heading} />
+    <LocaleTextSpan as="span" text={heading} />
   </h2>
   {body && (
     <p>
-      <LocaleText as="span" text={body} />
+      <LocaleTextSpan as="span" text={body} />
     </p>
   )}
   <slot />

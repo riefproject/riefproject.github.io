@@ -59,7 +59,7 @@ const { contact, socials } = Astro.props
     </p>
     <div class="social-list">
       {socials.map((social: SocialLink) => (
-        <a href={social.url} target="_blank" rel="noreferrer">
+        <a href={social.url} target="_blank" rel="me noopener noreferrer">
           {social.label}
         </a>
       ))}

@@ -18,6 +18,7 @@ export const buildPersonSchema = (siteUrl: string): JsonLd => ({
   '@type': 'Person',
   name: profile.name,
   url: `${siteUrl}/`,
+  mainEntityOfPage: `${siteUrl}/`,
   image: `${siteUrl}/img/me.webp`,
   jobTitle: 'Software Engineer & Competitive Programmer',
   description: profile.intro.en,

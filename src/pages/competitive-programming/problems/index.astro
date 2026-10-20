@@ -5,6 +5,13 @@ import initialCpData from '../../../data/cp-data.json'
 import initialProblemsData from '../../../data/cp-problems.json'
 import '../../../styles/cp-shared.css'
 import { t as locale } from '../../../utils/i18n'
+import {
+  buildBreadcrumbSchema,
+  buildCollectionPageSchema,
+  normalizeSiteUrl,
+} from '../../../utils/seo'
+
+const siteUrl = normalizeSiteUrl(Astro.site)
 
 const copy = {
   title: locale('Solved Competitive Programming Problems', 'Arsip Soal Competitive Programming'),
@@ -17,7 +24,20 @@ const copy = {
 ---
 
 <DashboardPage
-  metaTitle="Solved Problems Archive | Competitive Programming | Arief F-sa Wijaya"
+  metaTitle="Solved Problems Archive | Arief F-sa Wijaya"
+  metaJsonLd={[
+    buildCollectionPageSchema(
+      siteUrl,
+      '/competitive-programming/problems',
+      copy.title.en,
+      copy.description.en
+    ),
+    buildBreadcrumbSchema(siteUrl, [
+      { name: 'Home', path: '/' },
+      { name: 'Competitive Programming', path: '/competitive-programming' },
+      { name: 'Solved Problems', path: '/competitive-programming/problems' },
+    ]),
+  ]}
   heading={copy.title}
   description={copy.description}
   backHref="/competitive-programming"

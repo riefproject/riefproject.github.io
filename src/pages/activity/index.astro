@@ -4,6 +4,9 @@ import UnifiedActivityHub from '../../components/activity/UnifiedActivityHub.vue
 import initialDevData from '../../data/dev-activity.json'
 import initialCpData from '../../data/cp-data.json'
 import { t as locale } from '../../utils/i18n'
+import { buildBreadcrumbSchema, buildCollectionPageSchema, normalizeSiteUrl } from '../../utils/seo'
+
+const siteUrl = normalizeSiteUrl(Astro.site)
 
 const copy = {
   title: locale('Coding Activity', 'Aktivitas Coding'),
@@ -17,7 +20,14 @@ const copy = {
 ---
 
 <DashboardPage
-  metaTitle="Activity | Arief F-sa Wijaya"
+  metaTitle="Coding Activity | Arief F-sa Wijaya"
+  metaJsonLd={[
+    buildCollectionPageSchema(siteUrl, '/activity', copy.title.en, copy.description.en),
+    buildBreadcrumbSchema(siteUrl, [
+      { name: 'Home', path: '/' },
+      { name: 'Coding Activity', path: '/activity' },
+    ]),
+  ]}
   heading={copy.title}
   description={copy.description}
   backHref="/"

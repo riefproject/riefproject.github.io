@@ -3,7 +3,9 @@ import DashboardPage from '../../components/layout/DashboardPage.astro'
 import ProjectGallery from '../../components/projects/ProjectGallery.vue'
 import { getCollection } from 'astro:content'
 import { t as locale } from '../../utils/i18n'
+import { buildBreadcrumbSchema, buildCollectionPageSchema, normalizeSiteUrl } from '../../utils/seo'
 
+const siteUrl = normalizeSiteUrl(Astro.site)
 const projectsCollection = await getCollection('projects')
 const projects = projectsCollection.map((p) => p.data)
 
@@ -22,15 +24,22 @@ const categories = [
 const copy = {
   title: locale('All Projects', 'Semua Proyek'),
   description: locale(
-    "A complete collection of projects I've built—from enterprise applications to experimental builds.",
-    'Koleksi lengkap proyek yang saya bangun—dari aplikasi enterprise hingga eksperimen.'
+    "A complete collection of software projects I've built—from enterprise applications and web platforms to experimental side projects.",
+    'Koleksi lengkap proyek software yang saya bangun—dari aplikasi enterprise dan platform web hingga eksperimen sampingan.'
   ),
   backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
 }
 ---
 
 <DashboardPage
-  metaTitle="Projects | Arief F-sa Wijaya"
+  metaTitle="Software Projects | Arief F-sa Wijaya"
+  metaJsonLd={[
+    buildCollectionPageSchema(siteUrl, '/projects', copy.title.en, copy.description.en),
+    buildBreadcrumbSchema(siteUrl, [
+      { name: 'Home', path: '/' },
+      { name: 'Projects', path: '/projects' },
+    ]),
+  ]}
   heading={copy.title}
   description={copy.description}
   backHref="/"

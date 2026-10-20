@@ -1,7 +1,12 @@
 ---
 import socialData from '../../content/singletons/social.json'
 import { profile } from '../../data/profile'
-import { buildPersonSchema, buildWebSiteSchema, type JsonLd } from '../../utils/seo'
+import {
+  buildPersonSchema,
+  buildWebSiteSchema,
+  DEFAULT_DESCRIPTION,
+  type JsonLd,
+} from '../../utils/seo'
 
 export interface Props {
   title?: string
@@ -17,7 +22,7 @@ const fontHref =
 
 const {
   title = `${profile.name} — Software Engineer & Competitive Programmer`,
-  description = profile.intro.en,
+  description = DEFAULT_DESCRIPTION,
   image = '/og-image.jpg',
   type = 'website',
   noindex = false,

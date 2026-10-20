@@ -11,6 +11,7 @@ import EducationSection from '../components/sections/EducationSection.astro'
 import ContactSection from '../components/sections/ContactSection.astro'
 import CPProfilesSection from '../components/sections/CPProfilesSection.astro'
 import { ACHIEVEMENT_TABS } from '../data/achievementTabs'
+import { buildProfilePageSchema, DEFAULT_DESCRIPTION, normalizeSiteUrl } from '../utils/seo'
 import {
   getSingleton,
   getSortedProjects,
@@ -67,9 +68,14 @@ if (!socialData) {
 const socials = socialData.socials
 
 const achievementTabs = ACHIEVEMENT_TABS
+const siteUrl = normalizeSiteUrl(Astro.site)
 ---
 
-<Layout>
+<Layout
+  title="Arief F-sa Wijaya — Software Engineer & Competitive Programmer"
+  description={DEFAULT_DESCRIPTION}
+  type="profile"
+  jsonLd={buildProfilePageSchema(siteUrl)}>
   <HeroSection
     profile={profile}
     contact={contact}

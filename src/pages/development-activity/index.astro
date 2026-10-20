@@ -4,11 +4,14 @@ import DevelopmentActivity from '../../components/dev/DevelopmentActivity.vue'
 import initialDevData from '../../data/dev-activity.json'
 import '../../styles/dev-shared.css'
 import { t as locale } from '../../utils/i18n'
+import { buildBreadcrumbSchema, buildCollectionPageSchema, normalizeSiteUrl } from '../../utils/seo'
+
+const siteUrl = normalizeSiteUrl(Astro.site)
 
 const copy = {
   title: locale('Development Activity', 'Aktivitas Pengembangan'),
   description: locale(
-    'Live dashboard tracking open-source and professional development work across GitHub and GitLab — contribution calendars, streaks, pull requests, and language usage.',
+    'Live dashboard tracking open-source and professional work across GitHub and GitLab — contribution calendars, streaks, pull requests, and language usage.',
     'Dashboard live yang melacak karya pengembangan open-source dan profesional di GitHub dan GitLab — kalender kontribusi, streak, pull request, dan penggunaan bahasa.'
   ),
   backToHome: locale('← Back to Home', '← Kembali ke Beranda'),
@@ -17,6 +20,13 @@ const copy = {
 
 <DashboardPage
   metaTitle="Development Activity | Arief F-sa Wijaya"
+  metaJsonLd={[
+    buildCollectionPageSchema(siteUrl, '/development-activity', copy.title.en, copy.description.en),
+    buildBreadcrumbSchema(siteUrl, [
+      { name: 'Home', path: '/' },
+      { name: 'Development Activity', path: '/development-activity' },
+    ]),
+  ]}
   heading={copy.title}
   description={copy.description}
   backHref="/"

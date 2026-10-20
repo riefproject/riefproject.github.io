@@ -3,6 +3,9 @@ import { profile } from '../data/profile'
 
 export type JsonLd = Record<string, unknown>
 
+export const DEFAULT_DESCRIPTION =
+  'Software engineer and competitive programmer from Bandung, Indonesia. Explore projects, experience, achievements, and coding activity across GitHub and CP platforms.'
+
 export const normalizeSiteUrl = (site?: URL | string | null): string => {
   const value = site?.toString() || 'https://riefproject.my.id'
   return value.endsWith('/') ? value.slice(0, -1) : value

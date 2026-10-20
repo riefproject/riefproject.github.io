@@ -104,13 +104,16 @@ const unifiedMap = computed(() =>
 )
 
 const heatmapDays = computed(() =>
-  buildHeatmapDays(unifiedMap.value, (entry) => ({
-    count: entry?.count || 0,
-    github: entry?.github,
-    gitlab: entry?.gitlab,
-    ac: entry?.ac,
-    tries: entry?.tries,
-  }))
+  buildHeatmapDays(unifiedMap.value, (entry) => {
+    if (typeof entry === 'number') return { count: entry }
+    return {
+      count: entry?.count || entry?.tries || 0,
+      github: entry?.github,
+      gitlab: entry?.gitlab,
+      ac: entry?.ac,
+      tries: entry?.tries,
+    }
+  })
 )
 
 const heatmapWeeks = computed(() => toWeeks(heatmapDays.value))

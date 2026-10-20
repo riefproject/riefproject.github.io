@@ -1,7 +1,27 @@
 {
-  "lastUpdated": "2026-10-20T03:16:24.666Z",
-  "totalProblems": 712,
+  "lastUpdated": "2026-10-20T10:53:43.351Z",
+  "totalProblems": 714,
   "problems": [
+    {
+      "id": "tlx-6190845",
+      "platform": "tlx",
+      "title": "Tennis Game",
+      "category": "INC 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6190845",
+      "solvedAt": "2026-10-20T03:32:00.626Z"
+    },
+    {
+      "id": "tlx-6190827",
+      "platform": "tlx",
+      "title": "Wooden Fence",
+      "category": "INC 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6190827",
+      "solvedAt": "2026-10-20T03:21:08.113Z"
+    },
     {
       "id": "lc-1792456701",
       "platform": "leetcode",
@@ -428,7 +448,7 @@
       "title": "Target Infection (2271D)",
       "category": "binary search",
       "language": "C++23 (GCC 14-64, msys2)",
-      "difficulty": "800",
+      "difficulty": "1700",
       "url": "https://codeforces.com/contest/2271/problem/D",
       "solvedAt": "2026-10-10T15:39:01.000Z"
     },
@@ -438,7 +458,7 @@
       "title": "XOR Problem (2271C)",
       "category": "bitmasks",
       "language": "C++23 (GCC 14-64, msys2)",
-      "difficulty": "800",
+      "difficulty": "1400",
       "url": "https://codeforces.com/contest/2271/problem/C",
       "solvedAt": "2026-10-10T15:24:26.000Z"
     },
@@ -448,7 +468,7 @@
       "title": "MEX Game (2271B)",
       "category": "games",
       "language": "C++23 (GCC 14-64, msys2)",
-      "difficulty": "800",
+      "difficulty": "1000",
       "url": "https://codeforces.com/contest/2271/problem/B",
       "solvedAt": "2026-10-10T15:19:29.000Z"
     },

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-20T03:16:24.663Z",
+    "updatedAt": "2026-10-20T10:53:43.347Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,13 +9,13 @@
     }
   },
   "overview": {
-    "totalSolved": 763,
+    "totalSolved": 764,
     "totalSubmissions": 1686,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-20": {
-        "tries": 2,
-        "ac": 1
+        "tries": 5,
+        "ac": 3
       },
       "2026-10-17": {
         "tries": 13,
@@ -50,7 +50,7 @@
         "ac": 3
       },
       "2026-10-01": {
-        "tries": 9,
+        "tries": 8,
         "ac": 6
       },
       "2026-09-30": {
@@ -90,7 +90,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
+        "tries": 24,
         "ac": 13
       },
       "2026-09-19": {
@@ -126,7 +126,7 @@
         "ac": 18
       },
       "2026-09-06": {
-        "tries": 7,
+        "tries": 6,
         "ac": 4
       },
       "2026-09-03": {
@@ -210,7 +210,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 41,
+        "tries": 40,
         "ac": 12
       },
       "2026-07-16": {
@@ -330,7 +330,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 26,
+        "tries": 25,
         "ac": 6
       },
       "2025-11-27": {
@@ -584,9 +584,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 907,
-      "totalSolved": 443,
-      "uniqueProblemsSolved": 387,
-      "totalAcSubmissions": 437,
+      "totalSolved": 444,
+      "uniqueProblemsSolved": 389,
+      "totalAcSubmissions": 439,
       "languages": {
         "Cpp20": 874,
         "Pascal": 17,
@@ -597,8 +597,8 @@
       },
       "dailyCalendar": {
         "2026-10-20": {
-          "tries": 1,
-          "ac": 0
+          "tries": 4,
+          "ac": 2
         },
         "2026-10-17": {
           "tries": 12,
@@ -633,7 +633,7 @@
           "ac": 2
         },
         "2026-10-01": {
-          "tries": 9,
+          "tries": 8,
           "ac": 6
         },
         "2026-09-30": {
@@ -673,7 +673,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
+          "tries": 24,
           "ac": 13
         },
         "2026-09-19": {
@@ -709,7 +709,7 @@
           "ac": 18
         },
         "2026-09-06": {
-          "tries": 7,
+          "tries": 6,
           "ac": 4
         },
         "2026-09-03": {
@@ -793,7 +793,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 41,
+          "tries": 40,
           "ac": 12
         },
         "2026-07-16": {
@@ -913,7 +913,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 26,
+          "tries": 25,
           "ac": 6
         },
         "2025-11-27": {
@@ -934,6 +934,26 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6190845",
+          "platform": "tlx",
+          "title": "Tennis Game",
+          "category": "INC 2021",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6190845",
+          "solvedAt": "2026-10-20T03:32:00.626Z"
+        },
+        {
+          "id": "tlx-6190827",
+          "platform": "tlx",
+          "title": "Wooden Fence",
+          "category": "INC 2021",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6190827",
+          "solvedAt": "2026-10-20T03:21:08.113Z"
+        },
         {
           "id": "tlx-6180556",
           "platform": "tlx",
@@ -4842,13 +4862,15 @@
         "*special": 1
       },
       "ratingDistribution": {
-        "800": 27,
+        "800": 28,
         "900": 1,
-        "1000": 4,
+        "1000": 5,
         "1100": 2,
         "1200": 1,
+        "1400": 1,
         "1500": 1,
         "1600": 1,
+        "1700": 1,
         "1800": 1,
         "2100": 1,
         "2200": 1,
@@ -4993,7 +5015,7 @@
           "title": "Target Infection (2271D)",
           "category": "binary search",
           "language": "C++23 (GCC 14-64, msys2)",
-          "difficulty": "800",
+          "difficulty": "1700",
           "url": "https://codeforces.com/contest/2271/problem/D",
           "solvedAt": "2026-10-10T15:39:01.000Z"
         },
@@ -5003,7 +5025,7 @@
           "title": "XOR Problem (2271C)",
           "category": "bitmasks",
           "language": "C++23 (GCC 14-64, msys2)",
-          "difficulty": "800",
+          "difficulty": "1400",
           "url": "https://codeforces.com/contest/2271/problem/C",
           "solvedAt": "2026-10-10T15:24:26.000Z"
         },
@@ -5013,7 +5035,7 @@
           "title": "MEX Game (2271B)",
           "category": "games",
           "language": "C++23 (GCC 14-64, msys2)",
-          "difficulty": "800",
+          "difficulty": "1000",
           "url": "https://codeforces.com/contest/2271/problem/B",
           "solvedAt": "2026-10-10T15:19:29.000Z"
         },
@@ -5672,7 +5694,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1659207,
+      "ranking": 1633024,
       "totalSolved": 105,
       "easySolved": 52,
       "mediumSolved": 44,
@@ -6343,6 +6365,26 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "tlx-6190845",
+      "platform": "tlx",
+      "title": "Tennis Game",
+      "category": "INC 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6190845",
+      "solvedAt": "2026-10-20T03:32:00.626Z"
+    },
+    {
+      "id": "tlx-6190827",
+      "platform": "tlx",
+      "title": "Wooden Fence",
+      "category": "INC 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6190827",
+      "solvedAt": "2026-10-20T03:21:08.113Z"
+    },
+    {
       "id": "lc-1792456701",
       "platform": "leetcode",
       "title": "Sum of Sortable Integers",
@@ -6768,7 +6810,7 @@
       "title": "Target Infection (2271D)",
       "category": "binary search",
       "language": "C++23 (GCC 14-64, msys2)",
-      "difficulty": "800",
+      "difficulty": "1700",
       "url": "https://codeforces.com/contest/2271/problem/D",
       "solvedAt": "2026-10-10T15:39:01.000Z"
     },
@@ -6778,7 +6820,7 @@
       "title": "XOR Problem (2271C)",
       "category": "bitmasks",
       "language": "C++23 (GCC 14-64, msys2)",
-      "difficulty": "800",
+      "difficulty": "1400",
       "url": "https://codeforces.com/contest/2271/problem/C",
       "solvedAt": "2026-10-10T15:24:26.000Z"
     },
@@ -6788,7 +6830,7 @@
       "title": "MEX Game (2271B)",
       "category": "games",
       "language": "C++23 (GCC 14-64, msys2)",
-      "difficulty": "800",
+      "difficulty": "1000",
       "url": "https://codeforces.com/contest/2271/problem/B",
       "solvedAt": "2026-10-10T15:19:29.000Z"
     },

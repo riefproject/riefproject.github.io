@@ -96,6 +96,8 @@ export const buildHeatmapDays = (
   return days
 }
 
+const entryCount = (entry: HeatmapEntryValue | undefined): number => (typeof entry === 'object' ? Number(entry?.count || 0) : Number(entry || 0))
+
 export const mergeHeatmaps = (
   githubMap: HeatmapMap = {},
   gitlabMap: HeatmapMap = {}
@@ -103,12 +105,60 @@ export const mergeHeatmaps = (
   const out: Record<string, { count: number; github: number; gitlab: number }> = {}
   const keys = new Set([...Object.keys(githubMap), ...Object.keys(gitlabMap)])
   keys.forEach((key) => {
-    const gh = githubMap[key]
-    const gl = gitlabMap[key]
-    const ghCount = typeof gh === 'object' ? Number(gh?.count || 0) : Number(gh || 0)
-    const glCount = typeof gl === 'object' ? Number(gl?.count || 0) : Number(gl || 0)
+    const ghCount = entryCount(githubMap[key])
+    const glCount = entryCount(gitlabMap[key])
     out[key] = { count: ghCount + glCount, github: ghCount, gitlab: glCount }
   })
+  return out
+}
+
+export type ActivityHeatmapFilter = 'all' | 'dev' | 'cp'
+
+export interface ActivityHeatmapEntry {
+  count: number
+  github: number
+  gitlab: number
+  ac: number
+  tries: number
+}
+
+/**
+ * Merges GitHub, GitLab, and CP heatmaps for the unified activity page.
+ * CP maps use `tries`/`ac`, while dev maps use `count` (or a plain number).
+ */
+export const mergeActivityHeatmaps = (
+  githubMap: HeatmapMap = {},
+  gitlabMap: HeatmapMap = {},
+  cpMap: HeatmapMap = {},
+  filter: ActivityHeatmapFilter = 'all'
+): Record<string, ActivityHeatmapEntry> => {
+  const out: Record<string, ActivityHeatmapEntry> = {}
+  const keys = new Set([...Object.keys(githubMap), ...Object.keys(gitlabMap), ...Object.keys(cpMap)])
+
+  keys.forEach((key) => {
+    const ghCount = entryCount(githubMap[key])
+    const glCount = entryCount(gitlabMap[key])
+    const cpEntry = cpMap[key]
+    const cpIsObject = typeof cpEntry === 'object' && cpEntry !== null
+    const cpTries =
+      cpIsObject ? Number(cpEntry.tries || 0)
+      : typeof cpEntry === 'number' ? cpEntry
+      : 0
+    const cpAc = cpIsObject ? Number(cpEntry.ac || 0) : 0
+    const devTotal = ghCount + glCount
+
+    out[key] = {
+      count:
+        filter === 'all' ? devTotal + cpTries
+        : filter === 'dev' ? devTotal
+        : cpTries,
+      github: filter !== 'cp' ? ghCount : 0,
+      gitlab: filter !== 'cp' ? glCount : 0,
+      ac: filter !== 'dev' ? cpAc : 0,
+      tries: filter !== 'dev' ? cpTries : 0,
+    }
+  })
+
   return out
 }
 

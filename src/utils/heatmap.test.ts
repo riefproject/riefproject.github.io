@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { buildHeatmapDays, buildPlatformHeatmapDays, getHeatmapLevel, mergeHeatmaps, toWeeks } from './heatmap'
+import { buildHeatmapDays, buildPlatformHeatmapDays, getHeatmapLevel, mergeActivityHeatmaps, mergeHeatmaps, toWeeks } from './heatmap'
 
 describe('getHeatmapLevel', () => {
   it('maps counts to the five intensity levels', () => {
@@ -41,6 +41,39 @@ describe('mergeHeatmaps', () => {
     expect(mergeHeatmaps({ '2026-01-01': 2 }, { '2026-01-01': { count: 3 }, '2026-01-02': 1 })).toEqual({
       '2026-01-01': { count: 5, github: 2, gitlab: 3 },
       '2026-01-02': { count: 1, github: 0, gitlab: 1 },
+    })
+  })
+})
+
+describe('mergeActivityHeatmaps', () => {
+  const github = { '2026-01-01': 2 }
+  const gitlab = { '2026-01-01': 3 }
+  const cp = { '2026-01-01': { tries: 4, ac: 1 } }
+
+  it('combines dev and CP activity for the all filter', () => {
+    expect(mergeActivityHeatmaps(github, gitlab, cp, 'all')['2026-01-01']).toEqual({
+      count: 9,
+      github: 2,
+      gitlab: 3,
+      ac: 1,
+      tries: 4,
+    })
+  })
+
+  it('keeps only the selected source for dev and cp filters', () => {
+    expect(mergeActivityHeatmaps(github, gitlab, cp, 'dev')['2026-01-01']).toEqual({
+      count: 5,
+      github: 2,
+      gitlab: 3,
+      ac: 0,
+      tries: 0,
+    })
+    expect(mergeActivityHeatmaps(github, gitlab, cp, 'cp')['2026-01-01']).toEqual({
+      count: 4,
+      github: 0,
+      gitlab: 0,
+      ac: 1,
+      tries: 4,
     })
   })
 })

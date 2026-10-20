@@ -26,6 +26,7 @@ import ActivityHeatmap from '../shared/ActivityHeatmap.vue'
 import Tabs from '../shared/Tabs.vue'
 import {
   buildHeatmapDays,
+  mergeActivityHeatmaps,
   toWeeks,
   buildMonths,
   type HeatmapDay,
@@ -91,58 +92,15 @@ const heatmapCountBadge = computed(() => {
   return `${activeDaysCount.value} ${isId.value ? 'hari aktif' : 'active days'}`
 })
 
-interface UnifiedHeatmapEntry {
-  count: number
-  github: number
-  gitlab: number
-  ac: number
-  tries: number
-}
-
 // Unified Heatmap construction
-const unifiedMap = computed<Record<string, UnifiedHeatmapEntry>>(() => {
-  const ghMap = props.initialDevData?.platforms?.github?.overview?.heatmap || {}
-  const glMap = props.initialDevData?.platforms?.gitlab?.heatmap || {}
-  const cpMap = props.initialCpData?.overview?.heatmap || {}
-
-  const allKeys = new Set([...Object.keys(ghMap), ...Object.keys(glMap), ...Object.keys(cpMap)])
-  const out: Record<string, UnifiedHeatmapEntry> = {}
-
-  allKeys.forEach((dateStr) => {
-    const ghEntry = ghMap[dateStr]
-    const glEntry = glMap[dateStr]
-    const cpEntry = cpMap[dateStr]
-
-    const ghCount = typeof ghEntry === 'object' ? Number(ghEntry?.count || 0) : Number(ghEntry || 0)
-    const glCount = typeof glEntry === 'object' ? Number(glEntry?.count || 0) : Number(glEntry || 0)
-    const devTotal = ghCount + glCount
-
-    const cpTries =
-      typeof cpEntry === 'object' ? Number(cpEntry?.tries || 0)
-      : typeof cpEntry === 'number' ? cpEntry
-      : 0
-    const cpAc = typeof cpEntry === 'object' ? Number(cpEntry?.ac || 0) : 0
-
-    let targetCount = 0
-    if (heatmapFilter.value === 'all') {
-      targetCount = devTotal + cpTries
-    } else if (heatmapFilter.value === 'dev') {
-      targetCount = devTotal
-    } else {
-      targetCount = cpTries
-    }
-
-    out[dateStr] = {
-      count: targetCount,
-      github: heatmapFilter.value !== 'cp' ? ghCount : 0,
-      gitlab: heatmapFilter.value !== 'cp' ? glCount : 0,
-      ac: heatmapFilter.value !== 'dev' ? cpAc : 0,
-      tries: heatmapFilter.value !== 'dev' ? cpTries : 0,
-    }
-  })
-
-  return out
-})
+const unifiedMap = computed(() =>
+  mergeActivityHeatmaps(
+    props.initialDevData?.platforms?.github?.overview?.heatmap || {},
+    props.initialDevData?.platforms?.gitlab?.heatmap || {},
+    props.initialCpData?.overview?.heatmap || {},
+    heatmapFilter.value
+  )
+)
 
 const heatmapDays = computed(() =>
   buildHeatmapDays(unifiedMap.value, (entry) => ({
@@ -163,7 +121,7 @@ const resolveUnifiedMetrics = (day: HeatmapDay, isIdState: boolean): HeatmapTool
   if (day.github && day.github > 0) {
     metrics.push({
       value: day.github,
-      label: isIdState ? 'GitHub' : 'GitHub',
+      label: 'GitHub',
       logo: '/img/stacks/github-dark.svg',
       logoLight: '/img/stacks/github-light.svg',
       color: 'slate',
@@ -172,7 +130,7 @@ const resolveUnifiedMetrics = (day: HeatmapDay, isIdState: boolean): HeatmapTool
   if (day.gitlab && day.gitlab > 0) {
     metrics.push({
       value: day.gitlab,
-      label: isIdState ? 'GitLab' : 'GitLab',
+      label: 'GitLab',
       logo: '/img/stacks/gitlab-dark.svg',
       logoLight: '/img/stacks/gitlab-light.svg',
       color: 'orange',
@@ -188,7 +146,7 @@ const resolveUnifiedMetrics = (day: HeatmapDay, isIdState: boolean): HeatmapTool
   if (day.tries && day.tries > 0) {
     metrics.push({
       value: day.tries,
-      label: isIdState ? 'Tries' : 'Tries',
+      label: 'Tries',
       color: 'amber',
     })
   }

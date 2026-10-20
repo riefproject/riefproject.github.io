@@ -4,8 +4,11 @@ import ProjectGallery from '../../components/projects/ProjectGallery.vue'
 import { getCollection } from 'astro:content'
 import { t as locale } from '../../utils/i18n'
 import { buildBreadcrumbSchema, buildCollectionPageSchema, normalizeSiteUrl } from '../../utils/seo'
+import { localeFromPath, localizePath } from '../../utils/routing'
 
 const siteUrl = normalizeSiteUrl(Astro.site)
+const currentLocale = localeFromPath(Astro.url.pathname)
+const isId = currentLocale === 'id'
 const projectsCollection = await getCollection('projects')
 const projects = projectsCollection.map((p) => p.data)
 
@@ -32,12 +35,18 @@ const copy = {
 ---
 
 <DashboardPage
-  metaTitle="Software Projects | Arief F-sa Wijaya"
+  metaTitle={isId ? 'Proyek Software | Arief F-sa Wijaya' : 'Software Projects | Arief F-sa Wijaya'}
   metaJsonLd={[
-    buildCollectionPageSchema(siteUrl, '/projects', copy.title.en, copy.description.en),
+    buildCollectionPageSchema(
+      siteUrl,
+      localizePath('/projects', currentLocale),
+      copy.title[currentLocale],
+      copy.description[currentLocale],
+      currentLocale
+    ),
     buildBreadcrumbSchema(siteUrl, [
-      { name: 'Home', path: '/' },
-      { name: 'Projects', path: '/projects' },
+      { name: isId ? 'Beranda' : 'Home', path: localizePath('/', currentLocale) },
+      { name: isId ? 'Proyek' : 'Projects', path: localizePath('/projects', currentLocale) },
     ]),
   ]}
   heading={copy.title}
@@ -49,5 +58,10 @@ const copy = {
   contentWidth="1400px"
   contentPadding={false}
   bottomPad="4rem">
-  <ProjectGallery client:idle projects={projects} categories={categories} />
+  <ProjectGallery
+    client:idle
+    projects={projects}
+    categories={categories}
+    initialLocale={currentLocale}
+  />
 </DashboardPage>

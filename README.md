@@ -91,9 +91,9 @@ so client components do not pull the entire dataset into their bundles.
 cards, `rel="me"` links, and JSON-LD. `src/utils/seo.ts` builds `Person`, `WebSite`, `ProfilePage`,
 `CollectionPage`, and `BreadcrumbList` schemas.
 
-The site is currently English-first for crawlers. The EN/ID toggle is client-side, so Indonesian
-content is not rendered as a separate indexable URL yet. Adding `/id/` routes with `hreflang` is a
-separate routing project.
+English and Indonesian content are served from separate static routes: `/` and `/id/`. Astro renders
+the Indonesian copy at build time, each page emits `hreflang` alternates for both locales, and the
+language toggle navigates between the localized URLs instead of only swapping text client-side.
 
 ## Testing
 

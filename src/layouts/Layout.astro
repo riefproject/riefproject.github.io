@@ -10,7 +10,8 @@ import CvDownloadButton from '../components/cv/CvDownloadButton.vue'
 import LocaleText from '../components/i18n/LocaleText.astro'
 import ArrowUpRight from '../components/shared/ArrowUpRight.astro'
 import { t as locale } from '../utils/i18n'
-import { DEFAULT_DESCRIPTION, type JsonLd } from '../utils/seo'
+import { DEFAULT_DESCRIPTION, DEFAULT_DESCRIPTION_ID, type JsonLd } from '../utils/seo'
+import { localeFromPath, localizePath } from '../utils/routing'
 
 type LayoutProps = {
   title?: string
@@ -20,6 +21,9 @@ type LayoutProps = {
   noindex?: boolean
   jsonLd?: JsonLd | JsonLd[]
 }
+
+const currentLocale = localeFromPath(Astro.url.pathname)
+const isId = currentLocale === 'id'
 
 const navItems = [
   { label: locale('Home', 'Beranda'), href: '#beranda' },
@@ -34,10 +38,10 @@ const navItems = [
   { label: locale('Contact', 'Kontak'), href: '#kontak' },
 ].map((item) => ({
   label: item.label,
-  href: item.href,
+  href: item.page ? localizePath(item.href, currentLocale) : item.href,
   page: Boolean(item.page),
   id: item.href.replace('#', ''),
-  to: `/#${item.href.replace('#', '')}`,
+  to: localizePath(`/#${item.href.replace('#', '')}`, currentLocale),
 }))
 
 const layoutCopy = {
@@ -45,6 +49,7 @@ const layoutCopy = {
   menu: locale('Menu', 'Menu'),
   menuInfo: locale('navigation', 'navigasi'),
   close: locale('Close menu', 'Tutup menu'),
+  navLabel: locale('Main navigation', 'Navigasi utama'),
   explore: locale('Explore work', 'Jelajahi karya'),
   cta: locale('Submit a project', 'Ajukan proyek'),
   downloadCv: locale('Download CV', 'Unduh CV'),
@@ -52,7 +57,7 @@ const layoutCopy = {
 
 const {
   title = `${profile.name} — Software Engineer & Competitive Programmer`,
-  description = DEFAULT_DESCRIPTION,
+  description = isId ? DEFAULT_DESCRIPTION_ID : DEFAULT_DESCRIPTION,
   image,
   type,
   noindex,
@@ -61,7 +66,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={currentLocale}>
   <head>
     <BaseHead
       title={title}
@@ -77,8 +82,12 @@ const {
       <LocaleText as="span" text={layoutCopy.skip} />
     </a>
     <div class="page page-grid">
-      <aside class="sidebar" aria-label="Navigasi utama">
-        <button class="sidebar__close" type="button" data-sidebar-close aria-label="Close menu">
+      <aside class="sidebar" aria-label={layoutCopy.navLabel[currentLocale]}>
+        <button
+          class="sidebar__close"
+          type="button"
+          data-sidebar-close
+          aria-label={layoutCopy.close[currentLocale]}>
           <span aria-hidden="true">×</span>
         </button>
         <p class="sidebar__brand">{profile.name}</p>
@@ -98,8 +107,8 @@ const {
           )}
         </nav>
         <div class="sidebar__cta">
-          <CvDownloadButton client:idle />
-          <a class="btn ghost" href="/#proyek">
+          <CvDownloadButton client:idle initialLocale={currentLocale} />
+          <a class="btn ghost" href={localizePath('/#proyek', currentLocale)}>
             <LocaleText as="span" text={layoutCopy.explore} />
           </a>
           <a class="btn ghost" href={`mailto:${contact.email}`}>
@@ -120,7 +129,7 @@ const {
         class="sidebar-toggle"
         type="button"
         data-sidebar-toggle
-        aria-label={layoutCopy.menu.en}>
+        aria-label={layoutCopy.menu[currentLocale]}>
         <svg viewBox="0 0 24 24" aria-hidden="true" class="sidebar-toggle__icon">
           <path
             d="M4 7h16M4 12h16M4 17h16"
@@ -133,7 +142,7 @@ const {
       </button>
       <div class="global-toggles__controls">
         <ThemeToggle client:idle />
-        <LangToggle client:idle />
+        <LangToggle client:idle initialLocale={currentLocale} />
       </div>
     </div>
     <script is:inline>

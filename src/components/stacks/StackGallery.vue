@@ -12,6 +12,7 @@ type Category = { key: string; label: LocaleText }
 const props = defineProps<{
   items: TechStack[]
   categories: Category[]
+  initialLocale?: 'en' | 'id'
 }>()
 
 const { searchTerm, selectedCategories, filteredItems } = useListFilter({
@@ -21,7 +22,7 @@ const { searchTerm, selectedCategories, filteredItems } = useListFilter({
   matchesSearch: (item, term) => item.name.toLowerCase().includes(term),
 })
 const $theme = useStore(themeStore)
-const { isId, locale, resolveText } = useLocale()
+const { isId, locale, resolveText } = useLocale(props.initialLocale)
 
 const copy = computed(() => {
   const id = isId.value

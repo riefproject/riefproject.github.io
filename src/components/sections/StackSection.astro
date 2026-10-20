@@ -3,6 +3,7 @@ import type { TechStack } from '../../types/profile.types'
 import SectionIntro from './SectionIntro.astro'
 import StackGallery from '../stacks/StackGallery.vue'
 import { t as locale } from '../../utils/i18n'
+import { localeFromPath } from '../../utils/routing'
 
 const copy = {
   eyebrow: locale('Stacks & tools', 'Stack & tools'),
@@ -18,6 +19,7 @@ type Props = {
 }
 
 const { items }: Props = Astro.props
+const currentLocale = localeFromPath(Astro.url.pathname)
 
 const categoriesMap: Record<TechStack['category'], { en: string; id: string }> = {
   language: { en: 'Languages', id: 'Bahasa' },
@@ -41,7 +43,12 @@ const categories = [
     heading={copy.heading}
     body={copy.body}
   />
-  <StackGallery client:visible items={items} categories={categories} />
+  <StackGallery
+    client:visible
+    items={items}
+    categories={categories}
+    initialLocale={currentLocale}
+  />
 </section>
 
 <style>

@@ -39,9 +39,10 @@ import { OVERVIEW_ICON } from '../../utils/icons'
 const props = defineProps<{
   initialDevData?: DevActivityData | null
   initialCpData?: CpData | null
+  initialLocale?: 'en' | 'id'
 }>()
 
-const { isId } = useLocale()
+const { isId } = useLocale(props.initialLocale)
 
 const heatmapFilter = ref<'all' | 'dev' | 'cp'>('all')
 const activityFilterLabel = computed(() => (isId.value ? 'Filter aktivitas' : 'Activity filters'))

@@ -156,9 +156,7 @@
           </div>
           <p class="cta-desc">{{ copy.archiveDescription }}</p>
         </div>
-        <a
-          :href="`/competitive-programming/problems${selectedCategories.length < allPlatformKeys.length ? '?platform=' + selectedCategories.join(',') : ''}`"
-          class="cta-action-btn">
+        <a :href="archiveHref" class="cta-action-btn">
           <span>{{ copy.openArchive }}</span>
           <svg
             class="w-4 h-4"
@@ -177,6 +175,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { localizePath } from '../../utils/routing'
 import FilterDropdown from '../shared/FilterDropdown.vue'
 import SearchInput from '../shared/SearchInput.vue'
 import CpTablePagination from './CpTablePagination.vue'
@@ -293,6 +292,17 @@ const {
   totalPages,
   paginatedList: paginatedFeed,
 } = usePagination(() => filteredFeed.value)
+
+const archiveHref = computed(() =>
+  localizePath(
+    `/competitive-programming/problems${
+      selectedCategories.value.length < allPlatformKeys.length ?
+        `?platform=${selectedCategories.value.join(',')}`
+      : ''
+    }`,
+    props.isId ? 'id' : 'en'
+  )
+)
 
 const hackerrankTrackScore = (slug: string) =>
   props.cpData?.platforms?.hackerrank?.trackScores?.find((track) => track.slug === slug)?.score || 0

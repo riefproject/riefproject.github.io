@@ -5,8 +5,11 @@ import initialDevData from '../../data/dev-activity.json'
 import initialCpData from '../../data/cp-data.json'
 import { t as locale } from '../../utils/i18n'
 import { buildBreadcrumbSchema, buildCollectionPageSchema, normalizeSiteUrl } from '../../utils/seo'
+import { localeFromPath, localizePath } from '../../utils/routing'
 
 const siteUrl = normalizeSiteUrl(Astro.site)
+const currentLocale = localeFromPath(Astro.url.pathname)
+const isId = currentLocale === 'id'
 
 const copy = {
   title: locale('Coding Activity', 'Aktivitas Coding'),
@@ -20,12 +23,21 @@ const copy = {
 ---
 
 <DashboardPage
-  metaTitle="Coding Activity | Arief F-sa Wijaya"
+  metaTitle={isId ? 'Aktivitas Coding | Arief F-sa Wijaya' : 'Coding Activity | Arief F-sa Wijaya'}
   metaJsonLd={[
-    buildCollectionPageSchema(siteUrl, '/activity', copy.title.en, copy.description.en),
+    buildCollectionPageSchema(
+      siteUrl,
+      localizePath('/activity', currentLocale),
+      copy.title[currentLocale],
+      copy.description[currentLocale],
+      currentLocale
+    ),
     buildBreadcrumbSchema(siteUrl, [
-      { name: 'Home', path: '/' },
-      { name: 'Coding Activity', path: '/activity' },
+      { name: isId ? 'Beranda' : 'Home', path: localizePath('/', currentLocale) },
+      {
+        name: isId ? 'Aktivitas Coding' : 'Coding Activity',
+        path: localizePath('/activity', currentLocale),
+      },
     ]),
   ]}
   heading={copy.title}
@@ -34,5 +46,10 @@ const copy = {
   backLabel={copy.backToHome}
   headerClass="activity-header"
   responsiveTop={false}>
-  <UnifiedActivityHub client:load initialDevData={initialDevData} initialCpData={initialCpData} />
+  <UnifiedActivityHub
+    client:load
+    initialDevData={initialDevData}
+    initialCpData={initialCpData}
+    initialLocale={currentLocale}
+  />
 </DashboardPage>

@@ -2,6 +2,7 @@
 import type { LocaleText } from '../../types/profile.types'
 import Layout from '../../layouts/Layout.astro'
 import type { JsonLd } from '../../utils/seo'
+import { localeFromPath, localizePath } from '../../utils/routing'
 import PageHeader from './PageHeader.astro'
 
 type Props = {
@@ -41,11 +42,13 @@ const {
   bottomPad = '5rem',
   responsiveTop = true,
 }: Props = Astro.props
+
+const currentLocale = localeFromPath(Astro.url.pathname)
 ---
 
 <Layout
   title={metaTitle}
-  description={metaDescription ?? description.en}
+  description={metaDescription ?? description[currentLocale]}
   image={metaImage}
   type={metaType}
   noindex={metaNoindex}
@@ -56,7 +59,7 @@ const {
     <PageHeader
       class={headerClass}
       variant={headerVariant}
-      backHref={backHref}
+      backHref={localizePath(backHref, currentLocale)}
       backLabel={backLabel}
       title={heading}
       description={description}

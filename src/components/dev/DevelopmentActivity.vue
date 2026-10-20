@@ -46,7 +46,7 @@
       :isId="isId" />
 
     <!-- Cross-link to Competitive Programming -->
-    <DashboardCrosslink href="/competitive-programming">
+    <DashboardCrosslink :href="localizePath('/competitive-programming', isId ? 'id' : 'en')">
       <span class="crosslink-l1">{{ copy.crosslinkPrefix }}</span>
       <span class="crosslink-l2">{{ copy.crosslinkTarget }}</span>
     </DashboardCrosslink>
@@ -56,6 +56,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useLocale } from '../../composables/useLocale'
+import { localizePath } from '../../utils/routing'
 import { useDevStats } from '../../composables/useDevStats'
 import DevOverviewTab from './DevOverviewTab.vue'
 import DevGitHubTab from './DevGitHubTab.vue'
@@ -67,9 +68,10 @@ import type { DevActivityData } from '../../types/dev.types'
 
 const props = defineProps<{
   initialData?: DevActivityData
+  initialLocale?: 'en' | 'id'
 }>()
 
-const { isId } = useLocale()
+const { isId } = useLocale(props.initialLocale)
 
 const copy = computed(() => ({
   crosslinkPrefix: isId.value ? 'Jelajahi' : 'Explore my',

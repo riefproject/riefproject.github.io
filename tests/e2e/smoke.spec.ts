@@ -18,13 +18,34 @@ test.describe('public pages', () => {
     expect(schema.some((item) => item['@type'] === 'ProfilePage')).toBe(true)
   })
 
-  test('language toggle updates the document language', async ({ page }) => {
+  test('language toggle navigates to the Indonesian route', async ({ page }) => {
     await page.goto('/')
 
     await page.getByRole('button', { name: 'Switch language to Indonesian' }).click()
 
+    await expect(page).toHaveURL(/\/id\/$/)
     await expect(page.locator('html')).toHaveAttribute('lang', 'id')
     await expect(page.getByRole('button', { name: 'Change language to English' })).toBeVisible()
+  })
+
+  test('Indonesian route is server-rendered with hreflang alternates', async ({ page }) => {
+    await page.goto('/id/')
+
+    await expect(page.locator('html')).toHaveAttribute('lang', 'id')
+    await expect(page.locator('h1')).toContainText('Mahasiswa')
+    await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', 'https://riefproject.my.id/id/')
+    await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveAttribute('href', 'https://riefproject.my.id/')
+    await expect(page.locator('link[rel="alternate"][hreflang="id"]')).toHaveAttribute('href', 'https://riefproject.my.id/id/')
+    await expect(page.locator('link[rel="alternate"][hreflang="x-default"]')).toHaveAttribute('href', 'https://riefproject.my.id/')
+  })
+
+  test('language toggle returns from Indonesian to English', async ({ page }) => {
+    await page.goto('/id/')
+
+    await page.getByRole('button', { name: 'Change language to English' }).click()
+
+    await expect(page).toHaveURL(/\/$/)
+    await expect(page.locator('html')).toHaveAttribute('lang', 'en')
   })
 
   test('theme toggle switches between light and dark', async ({ page }) => {

@@ -11,7 +11,13 @@ import EducationSection from '../components/sections/EducationSection.astro'
 import ContactSection from '../components/sections/ContactSection.astro'
 import CPProfilesSection from '../components/sections/CPProfilesSection.astro'
 import { ACHIEVEMENT_TABS } from '../data/achievementTabs'
-import { buildProfilePageSchema, DEFAULT_DESCRIPTION, normalizeSiteUrl } from '../utils/seo'
+import {
+  buildProfilePageSchema,
+  DEFAULT_DESCRIPTION,
+  DEFAULT_DESCRIPTION_ID,
+  normalizeSiteUrl,
+} from '../utils/seo'
+import { localeFromPath, localizePath } from '../utils/routing'
 import {
   getSingleton,
   getSortedProjects,
@@ -69,13 +75,16 @@ const socials = socialData.socials
 
 const achievementTabs = ACHIEVEMENT_TABS
 const siteUrl = normalizeSiteUrl(Astro.site)
+const currentLocale = localeFromPath(Astro.url.pathname)
+const description = currentLocale === 'id' ? DEFAULT_DESCRIPTION_ID : DEFAULT_DESCRIPTION
+const homePath = localizePath('/', currentLocale)
 ---
 
 <Layout
   title="Arief F-sa Wijaya — Software Engineer & Competitive Programmer"
-  description={DEFAULT_DESCRIPTION}
+  description={description}
   type="profile"
-  jsonLd={buildProfilePageSchema(siteUrl)}>
+  jsonLd={buildProfilePageSchema(siteUrl, homePath, currentLocale)}>
   <HeroSection
     profile={profile}
     contact={contact}

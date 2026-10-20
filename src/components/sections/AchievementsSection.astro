@@ -1,6 +1,7 @@
 ---
 import type { Achievement, AchievementTab } from '../../types/profile.types'
 import Achievements from './Achievements.vue'
+import { localeFromPath } from '../../utils/routing'
 
 type AchievementsProps = {
   items: Achievement[]
@@ -8,10 +9,11 @@ type AchievementsProps = {
 }
 
 const { items, tabs } = Astro.props as AchievementsProps
+const currentLocale = localeFromPath(Astro.url.pathname)
 ---
 
 <section id="achievements" class="section achievements">
-  <Achievements client:visible items={items} tabs={tabs} />
+  <Achievements client:visible items={items} tabs={tabs} initialLocale={currentLocale} />
 </section>
 
 <style>

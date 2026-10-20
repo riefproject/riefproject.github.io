@@ -1,10 +1,10 @@
 <template>
   <SegmentedToggle
     data-lang-toggle-fallback
-    :modelValue="$lang"
+    :modelValue="activeLang"
     :options="options"
     :aria-label="ariaLabel"
-    @update:modelValue="setLang($event)" />
+    @update:modelValue="switchLanguage($event)" />
 </template>
 
 <script setup lang="ts">
@@ -16,8 +16,12 @@ declare global {
 
 import { useStore } from '@nanostores/vue'
 import { computed, watchEffect } from 'vue'
-import { lang, setLang } from '../../stores/uiStore'
+import { lang, switchLanguage } from '../../stores/uiStore'
 import SegmentedToggle from '../shared/SegmentedToggle.vue'
+
+const props = defineProps<{
+  initialLocale?: 'en' | 'id'
+}>()
 
 const options = [
   { value: 'en', label: 'EN' },
@@ -25,8 +29,9 @@ const options = [
 ]
 
 const $lang = useStore(lang)
+const activeLang = computed(() => props.initialLocale ?? $lang.value)
 const ariaLabel = computed(() =>
-  $lang.value === 'en' ? 'Switch language to Indonesian' : 'Change language to English'
+  activeLang.value === 'en' ? 'Switch language to Indonesian' : 'Change language to English'
 )
 
 watchEffect(() => {

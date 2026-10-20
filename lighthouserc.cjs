@@ -8,9 +8,11 @@ module.exports = {
         'http://127.0.0.1:4321/development-activity/',
         'http://127.0.0.1:4321/activity/',
         'http://127.0.0.1:4321/projects/',
+        'http://127.0.0.1:4321/id/',
       ],
       startServerCommand: 'node scripts/preview-lighthouse.cjs',
       startServerReadyPattern: 'Lighthouse preview ready',
+      startServerReadyTimeout: 120000,
       numberOfRuns: 1,
       settings: {
         preset: 'desktop',

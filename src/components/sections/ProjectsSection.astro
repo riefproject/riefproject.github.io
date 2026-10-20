@@ -4,12 +4,14 @@ import LocaleText from '../i18n/LocaleText.astro'
 import SectionIntro from './SectionIntro.astro'
 import FeaturedProjects from '../projects/FeaturedProjects.vue'
 import { t as locale } from '../../utils/i18n'
+import { localeFromPath, localizePath } from '../../utils/routing'
 
 type ProjectsProps = {
   projects?: Project[]
 }
 
 const { projects = [] }: ProjectsProps = Astro.props
+const currentLocale = localeFromPath(Astro.url.pathname)
 
 // Get only featured projects (max 3)
 const featuredProjects = projects.filter((p) => p.featured).slice(0, 3)
@@ -36,10 +38,10 @@ const copy = {
     body={copy.body}
   />
 
-  <FeaturedProjects client:visible projects={featuredProjects} />
+  <FeaturedProjects client:visible projects={featuredProjects} initialLocale={currentLocale} />
 
   <div class="projects-cta">
-    <a href="/projects" class="cta-link">
+    <a href={localizePath('/projects', currentLocale)} class="cta-link">
       <LocaleText as="span" text={copy.viewAll} />
       <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path

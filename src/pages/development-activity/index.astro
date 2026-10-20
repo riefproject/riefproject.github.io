@@ -5,8 +5,11 @@ import initialDevData from '../../data/dev-activity.json'
 import '../../styles/dev-shared.css'
 import { t as locale } from '../../utils/i18n'
 import { buildBreadcrumbSchema, buildCollectionPageSchema, normalizeSiteUrl } from '../../utils/seo'
+import { localeFromPath, localizePath } from '../../utils/routing'
 
 const siteUrl = normalizeSiteUrl(Astro.site)
+const currentLocale = localeFromPath(Astro.url.pathname)
+const isId = currentLocale === 'id'
 
 const copy = {
   title: locale('Development Activity', 'Aktivitas Pengembangan'),
@@ -19,12 +22,23 @@ const copy = {
 ---
 
 <DashboardPage
-  metaTitle="Development Activity | Arief F-sa Wijaya"
+  metaTitle={
+    isId ? 'Aktivitas Pengembangan | Arief F-sa Wijaya' : 'Development Activity | Arief F-sa Wijaya'
+  }
   metaJsonLd={[
-    buildCollectionPageSchema(siteUrl, '/development-activity', copy.title.en, copy.description.en),
+    buildCollectionPageSchema(
+      siteUrl,
+      localizePath('/development-activity', currentLocale),
+      copy.title[currentLocale],
+      copy.description[currentLocale],
+      currentLocale
+    ),
     buildBreadcrumbSchema(siteUrl, [
-      { name: 'Home', path: '/' },
-      { name: 'Development Activity', path: '/development-activity' },
+      { name: isId ? 'Beranda' : 'Home', path: localizePath('/', currentLocale) },
+      {
+        name: isId ? 'Aktivitas Pengembangan' : 'Development Activity',
+        path: localizePath('/development-activity', currentLocale),
+      },
     ]),
   ]}
   heading={copy.title}
@@ -32,5 +46,5 @@ const copy = {
   backHref="/"
   backLabel={copy.backToHome}
   headerClass="dev-header">
-  <DevelopmentActivity client:load initialData={initialDevData} />
+  <DevelopmentActivity client:load initialData={initialDevData} initialLocale={currentLocale} />
 </DashboardPage>

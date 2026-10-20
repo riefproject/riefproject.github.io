@@ -11,9 +11,10 @@ type Category = { key: string; label: LocaleText }
 const props = defineProps<{
   projects: Project[]
   categories: Category[]
+  initialLocale?: 'en' | 'id'
 }>()
 
-const { isId, locale, resolveText } = useLocale()
+const { isId, locale, resolveText } = useLocale(props.initialLocale)
 
 const copy = computed(() =>
   isId.value ?
@@ -86,7 +87,11 @@ const toggleViewMore = () => {
     <div
       v-if="filteredProjects.length"
       class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
-      <ProjectCard v-for="project in filteredProjects" :key="project.title.en" :project="project" />
+      <ProjectCard
+        v-for="project in filteredProjects"
+        :key="project.title.en"
+        :project="project"
+        :initial-locale="initialLocale" />
     </div>
     <div
       v-else

@@ -7,13 +7,14 @@ import { parseHighlightTags } from '../../utils/tags'
 const props = defineProps<{
   achievement: Achievement | null
   isOpen: boolean
+  initialLocale?: 'en' | 'id'
 }>()
 
 const emit = defineEmits<{
   (e: 'close'): void
 }>()
 
-const { locale } = useLocale()
+const { locale } = useLocale(props.initialLocale)
 
 const copy = computed(() => {
   const id = locale.value === 'id'

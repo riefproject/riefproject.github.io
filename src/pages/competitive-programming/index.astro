@@ -5,8 +5,11 @@ import initialCpData from '../../data/cp-data.json'
 import '../../styles/cp-shared.css'
 import { t as locale } from '../../utils/i18n'
 import { buildBreadcrumbSchema, buildCollectionPageSchema, normalizeSiteUrl } from '../../utils/seo'
+import { localeFromPath, localizePath } from '../../utils/routing'
 
 const siteUrl = normalizeSiteUrl(Astro.site)
+const currentLocale = localeFromPath(Astro.url.pathname)
+const isId = currentLocale === 'id'
 
 const copy = {
   title: locale('Competitive Programming Journey', 'Jejak Competitive Programming'),
@@ -19,17 +22,25 @@ const copy = {
 ---
 
 <DashboardPage
-  metaTitle="Competitive Programming Dashboard | Arief F-sa Wijaya"
+  metaTitle={
+    isId ?
+      'Dashboard Competitive Programming | Arief F-sa Wijaya'
+    : 'Competitive Programming Dashboard | Arief F-sa Wijaya'
+  }
   metaJsonLd={[
     buildCollectionPageSchema(
       siteUrl,
-      '/competitive-programming',
-      copy.title.en,
-      copy.description.en
+      localizePath('/competitive-programming', currentLocale),
+      copy.title[currentLocale],
+      copy.description[currentLocale],
+      currentLocale
     ),
     buildBreadcrumbSchema(siteUrl, [
-      { name: 'Home', path: '/' },
-      { name: 'Competitive Programming', path: '/competitive-programming' },
+      { name: isId ? 'Beranda' : 'Home', path: localizePath('/', currentLocale) },
+      {
+        name: isId ? 'Competitive Programming' : 'Competitive Programming',
+        path: localizePath('/competitive-programming', currentLocale),
+      },
     ]),
   ]}
   heading={copy.title}
@@ -37,5 +48,5 @@ const copy = {
   backHref="/"
   backLabel={copy.backToHome}
   headerClass="cp-header">
-  <CpDashboard client:load initialData={initialCpData} />
+  <CpDashboard client:load initialData={initialCpData} initialLocale={currentLocale} />
 </DashboardPage>

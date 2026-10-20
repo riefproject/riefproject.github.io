@@ -4,6 +4,7 @@ import ProjectCard from './ProjectCard.vue'
 
 defineProps<{
   projects: Project[]
+  initialLocale?: 'en' | 'id'
 }>()
 </script>
 
@@ -15,7 +16,8 @@ defineProps<{
       :project="project"
       :maxHighlights="3"
       :maxLinks="2"
-      :maxStack="5" />
+      :maxStack="5"
+      :initial-locale="initialLocale" />
   </div>
 </template>
 

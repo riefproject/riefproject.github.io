@@ -42,7 +42,7 @@ export function initLayoutBehavior(): void {
     })
     .filter((entry): entry is { id: string; element: HTMLElement } => entry !== null)
 
-  const path = window.location.pathname
+  const path = window.location.pathname.replace(/^\/id(?=\/|$)/, '') || '/'
   const hashTarget = window.location.hash?.replace('#', '')
   if (hashTarget) {
     setActiveNav(hashTarget)

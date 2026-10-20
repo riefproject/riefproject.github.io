@@ -1,4 +1,5 @@
 import { atom } from 'nanostores'
+import { localeFromPath, localizePath } from '../utils/routing'
 
 export type Locale = 'en' | 'id'
 export type Theme = 'light' | 'dark'
@@ -47,8 +48,9 @@ const writeStorage = (key: string, value: string): void => {
   }
 }
 
-// Always start with SSR-compatible state to prevent Vue hydration mismatches.
-export const lang = atom<Locale>('en')
+// The URL is the source of truth for the locale. Keep the SSR default stable,
+// then hydrate to the path-based locale on the client.
+export const lang = atom<Locale>(typeof window !== 'undefined' ? localeFromPath(window.location.pathname) : 'en')
 export const theme = atom<Theme>('light')
 
 if (typeof window !== 'undefined') {
@@ -58,19 +60,18 @@ if (typeof window !== 'undefined') {
     const actualTheme = readStorage(THEME_KEY, prefersDark ? 'dark' : 'light')
     theme.set(actualTheme === 'dark' ? 'dark' : 'light')
 
-    const actualLang = normalizeLang(readStorage(LANG_KEY, 'en'))
-    if (actualLang !== 'en') lang.set(actualLang)
+    const pathLang = localeFromPath(window.location.pathname)
+    if (pathLang !== lang.get()) lang.set(pathLang)
   }, 0)
 }
 
-export const setLang = (newLang: string): void => {
+export const switchLanguage = (newLang: string): void => {
   const normalized = normalizeLang(newLang)
-  lang.set(normalized)
   writeStorage(LANG_KEY, normalized)
-  if (typeof window !== 'undefined') {
-    window.__applyLanguage?.(normalized)
-    window.dispatchEvent(new CustomEvent('portfolio:lang-change', { detail: normalized }))
-  }
+  if (typeof window === 'undefined') return
+
+  const target = localizePath(`${window.location.pathname}${window.location.search}${window.location.hash}`, normalized)
+  window.location.assign(target)
 }
 
 export const setTheme = (newTheme: Theme): void => {

@@ -42,7 +42,11 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useLocale } from '../../composables/useLocale'
 
-const { isId } = useLocale()
+const props = defineProps<{
+  initialLocale?: 'en' | 'id'
+}>()
+
+const { isId } = useLocale(props.initialLocale)
 const isOpen = ref(false)
 const wrapper = ref<HTMLElement | null>(null)
 

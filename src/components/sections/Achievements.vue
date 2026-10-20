@@ -9,6 +9,7 @@ import CertificateModal from './CertificateModal.vue'
 type AchievementsProps = {
   items: Achievement[]
   tabs?: AchievementTab[]
+  initialLocale?: 'en' | 'id'
 }
 
 const props = withDefaults(defineProps<AchievementsProps>(), {
@@ -48,7 +49,7 @@ watch(
 )
 
 const searchQuery = ref('')
-const { isId, resolveText } = useLocale()
+const { isId, resolveText } = useLocale(props.initialLocale)
 
 const getHighlightTags = (value?: LocaleText) => parseHighlightTags(resolveText(value))
 
@@ -177,6 +178,7 @@ const visibleItems = computed(() => groupedAchievements.value[activeTab.value] ?
     <CertificateModal
       :achievement="selectedAchievement"
       :is-open="isModalOpen"
+      :initial-locale="initialLocale"
       @close="closeModal" />
   </div>
 </template>

@@ -7,6 +7,7 @@ import devActivity from '../../data/dev-activity.json'
 import cpData from '../../data/cp-data.json'
 import { CP_FALLBACK } from '../../utils/cp/defaults'
 import { t as locale } from '../../utils/i18n'
+import { localeFromPath, localizePath } from '../../utils/routing'
 
 type HeroProps = {
   profile: Profile
@@ -19,6 +20,7 @@ type HeroProps = {
 
 const { profile, contact, highlights, stats, socials, toolbox }: HeroProps =
   Astro.props as HeroProps
+const currentLocale = localeFromPath(Astro.url.pathname)
 
 const liveTotalSolved = cpData?.overview?.totalSolved || CP_FALLBACK.overviewTotalSolved
 const enrichedStats = stats.map((stat) => {
@@ -94,7 +96,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0)
       <a class="btn ghost" href={`mailto:${contact.email}`}>
         <LocaleText as="span" text={heroCopy.contact} />
       </a>
-      <CvDownloadButton client:idle />
+      <CvDownloadButton client:idle initialLocale={currentLocale} />
     </div>
   </div>
 
@@ -104,9 +106,13 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0)
       {enrichedStats.map((stat) =>
         stat.isCp ?
           <a
-            href="/competitive-programming"
+            href={localizePath('/competitive-programming', currentLocale)}
             class="stat-item stat-item--link group"
-            title="View Competitive Programming Journey">
+            title={
+              currentLocale === 'id' ?
+                'Lihat perjalanan Competitive Programming'
+              : 'View Competitive Programming Journey'
+            }>
             <strong class="text-text group-hover:text-accent transition-colors">
               {stat.value}
             </strong>
@@ -157,7 +163,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0)
         <LocaleText as="span" text={devCopy.sub} />
       </p>
     </div>
-    <a href="/development-activity" class="dev-card__cta">
+    <a href={localizePath('/development-activity', currentLocale)} class="dev-card__cta">
       <LocaleText as="span" text={devCopy.cta} />
       <ArrowUpRight size={14} class="dev-card__arrow" />
     </a>

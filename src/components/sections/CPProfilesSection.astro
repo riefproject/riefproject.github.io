@@ -7,6 +7,7 @@ import EntityBadge from '../shared/EntityBadge.astro'
 import initialCpData from '../../data/cp-data.json'
 import { CP_FALLBACK } from '../../utils/cp/defaults'
 import { t as locale } from '../../utils/i18n'
+import { localeFromPath, localizePath } from '../../utils/routing'
 
 const copy = {
   eyebrow: locale('Competitive programming', 'Competitive programming'),
@@ -34,6 +35,7 @@ type Props = {
 }
 
 const { profiles = [] }: Props = Astro.props
+const currentLocale = localeFromPath(Astro.url.pathname)
 ---
 
 <section id="cp-profiles" class="section cp-profiles">
@@ -56,7 +58,7 @@ const { profiles = [] }: Props = Astro.props
       </span>
     </div>
     <ArrowLink
-      href="/competitive-programming"
+      href={localizePath('/competitive-programming', currentLocale)}
       label={copy.openDashboard}
       class="cp-dashboard-cta group mt-4"
     />

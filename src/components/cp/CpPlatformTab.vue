@@ -26,6 +26,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { localizePath } from '../../utils/routing'
 import CpPlatformHeader from './CpPlatformHeader.vue'
 import CpSolvedProblemsPanel from './CpSolvedProblemsPanel.vue'
 import { CP_PLATFORMS } from '../../utils/cp/platforms'
@@ -48,7 +49,12 @@ const meta = computed(() => CP_PLATFORMS[props.platform])
 
 const description = computed(() => ({ en: meta.value.descriptionEn, id: meta.value.descriptionId }))
 
-const archiveHref = computed(() => `/competitive-programming/problems?platform=${props.platform}`)
+const archiveHref = computed(() =>
+  localizePath(
+    `/competitive-programming/problems?platform=${props.platform}`,
+    props.isId ? 'id' : 'en'
+  )
+)
 
 const archiveLabel = computed(() => ({
   en: meta.value.archiveLabelEn,

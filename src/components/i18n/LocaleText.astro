@@ -1,5 +1,6 @@
 ---
 import type { LocaleText } from '../../types/profile.types'
+import { localeFromPath } from '../../utils/routing'
 
 type Props = {
   text: LocaleText
@@ -9,8 +10,9 @@ type Props = {
 
 const { text, as = 'span', class: className } = Astro.props as Props
 const Tag = as
+const locale = localeFromPath(Astro.url.pathname)
 ---
 
 <Tag data-i18n data-i18n-en={text.en} data-i18n-id={text.id} class={className}>
-  {text.en}
+  {text[locale] || text.en}
 </Tag>

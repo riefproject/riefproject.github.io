@@ -10,8 +10,11 @@ import {
   buildCollectionPageSchema,
   normalizeSiteUrl,
 } from '../../../utils/seo'
+import { localeFromPath, localizePath } from '../../../utils/routing'
 
 const siteUrl = normalizeSiteUrl(Astro.site)
+const currentLocale = localeFromPath(Astro.url.pathname)
+const isId = currentLocale === 'id'
 
 const copy = {
   title: locale('Solved Competitive Programming Problems', 'Arsip Soal Competitive Programming'),
@@ -24,18 +27,27 @@ const copy = {
 ---
 
 <DashboardPage
-  metaTitle="Solved Problems Archive | Arief F-sa Wijaya"
+  metaTitle={
+    isId ? 'Arsip Soal | Arief F-sa Wijaya' : 'Solved Problems Archive | Arief F-sa Wijaya'
+  }
   metaJsonLd={[
     buildCollectionPageSchema(
       siteUrl,
-      '/competitive-programming/problems',
-      copy.title.en,
-      copy.description.en
+      localizePath('/competitive-programming/problems', currentLocale),
+      copy.title[currentLocale],
+      copy.description[currentLocale],
+      currentLocale
     ),
     buildBreadcrumbSchema(siteUrl, [
-      { name: 'Home', path: '/' },
-      { name: 'Competitive Programming', path: '/competitive-programming' },
-      { name: 'Solved Problems', path: '/competitive-programming/problems' },
+      { name: isId ? 'Beranda' : 'Home', path: localizePath('/', currentLocale) },
+      {
+        name: 'Competitive Programming',
+        path: localizePath('/competitive-programming', currentLocale),
+      },
+      {
+        name: isId ? 'Arsip Soal' : 'Solved Problems',
+        path: localizePath('/competitive-programming/problems', currentLocale),
+      },
     ]),
   ]}
   heading={copy.title}

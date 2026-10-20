@@ -5,8 +5,10 @@ import {
   buildPersonSchema,
   buildWebSiteSchema,
   DEFAULT_DESCRIPTION,
+  DEFAULT_DESCRIPTION_ID,
   type JsonLd,
 } from '../../utils/seo'
+import { localeFromPath, localizePath, stripLocalePath } from '../../utils/routing'
 
 export interface Props {
   title?: string
@@ -22,24 +24,29 @@ const fontHref =
 
 const {
   title = `${profile.name} — Software Engineer & Competitive Programmer`,
-  description = DEFAULT_DESCRIPTION,
+  description,
   image = '/og-image.jpg',
   type = 'website',
   noindex = false,
   jsonLd,
 } = Astro.props
 
+const locale = localeFromPath(Astro.url.pathname)
+const isId = locale === 'id'
+const resolvedDescription = description ?? (isId ? DEFAULT_DESCRIPTION_ID : DEFAULT_DESCRIPTION)
 const site = Astro.site ?? new URL(Astro.url.origin)
 const siteUrl = site.href.replace(/\/$/, '')
 const canonical = new URL(Astro.url.pathname, site)
+const enPath = stripLocalePath(Astro.url.pathname)
+const idPath = localizePath(enPath, 'id')
 const ogImage = new URL(image, canonical)
 const robots = noindex ? 'noindex, nofollow' : 'index, follow'
 const meLinks = socialData.socials
   .map((social) => social.url)
   .filter((url) => url.startsWith('http'))
 const schemas = [
-  buildPersonSchema(siteUrl),
-  buildWebSiteSchema(siteUrl),
+  buildPersonSchema(siteUrl, locale),
+  buildWebSiteSchema(siteUrl, locale),
   ...(Array.isArray(jsonLd) ? jsonLd
   : jsonLd ? [jsonLd]
   : []),
@@ -68,6 +75,9 @@ const schemas = [
 
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="canonical" href={canonical} />
+<link rel="alternate" hreflang="en" href={new URL(enPath, site)} />
+<link rel="alternate" hreflang="id" href={new URL(idPath, site)} />
+<link rel="alternate" hreflang="x-default" href={new URL(enPath, site)} />
 {meLinks.map((url) => (
   <link rel="me" href={url} />
 ))}
@@ -78,15 +88,16 @@ const schemas = [
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
-<meta name="description" content={description} />
+<meta name="description" content={resolvedDescription} />
 <meta name="author" content={profile.name} />
 
 <meta property="og:type" content={type} />
 <meta property="og:url" content={canonical} />
 <meta property="og:site_name" content={profile.name} />
-<meta property="og:locale" content="en_US" />
+<meta property="og:locale" content={isId ? 'id_ID' : 'en_US'} />
+<meta property="og:locale:alternate" content={isId ? 'en_US' : 'id_ID'} />
 <meta property="og:title" content={title} />
-<meta property="og:description" content={description} />
+<meta property="og:description" content={resolvedDescription} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
@@ -95,7 +106,7 @@ const schemas = [
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={canonical} />
 <meta name="twitter:title" content={title} />
-<meta name="twitter:description" content={description} />
+<meta name="twitter:description" content={resolvedDescription} />
 <meta name="twitter:image" content={ogImage} />
 <meta name="twitter:image:alt" content={title} />
 
@@ -179,14 +190,22 @@ const schemas = [
       })
     }
     const fallbackToggleLanguage = () => {
-      const current = normalizeLang(
-        (typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : null) ??
-          document.documentElement.getAttribute('lang') ??
-          'en'
-      )
+      const current = normalizeLang(document.documentElement.getAttribute('lang') ?? 'en')
       const next = current === 'en' ? 'id' : 'en'
       persistLang(next)
-      applyLanguage(next)
+
+      const path = window.location.pathname
+      const basePath =
+        path === '/id' ? '/'
+        : path.startsWith('/id/') ? path.slice(3) || '/'
+        : path || '/'
+      const targetPath =
+        next === 'id' ?
+          basePath === '/' ?
+            '/id/'
+          : `/id${basePath}`
+        : basePath || '/'
+      window.location.assign(`${targetPath}${window.location.search}${window.location.hash}`)
     }
 
     window.__applyLanguage = applyLanguage
@@ -215,15 +234,8 @@ const schemas = [
       })
     }
 
-    let initial = 'en'
-    try {
-      const stored = typeof localStorage !== 'undefined' ? localStorage.getItem(storageKey) : null
-      if (stored) {
-        initial = normalizeLang(stored)
-      }
-    } catch (err) {
-      initial = 'en'
-    }
+    const path = window.location.pathname
+    const initial = normalizeLang(path === '/id' || path.startsWith('/id/') ? 'id' : 'en')
 
     const init = () => {
       applyLanguage(initial)

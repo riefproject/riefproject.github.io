@@ -13,6 +13,7 @@ const props = withDefaults(
     maxStack?: number
     collapsedHeight?: string
     fadeHeight?: string
+    initialLocale?: 'en' | 'id'
   }>(),
   {
     collapsedHeight: '120px',
@@ -20,7 +21,7 @@ const props = withDefaults(
   }
 )
 
-const { resolveText } = useLocale()
+const { resolveText } = useLocale(props.initialLocale)
 
 const highlightItems = computed(() =>
   props.maxHighlights != null ?

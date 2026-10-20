@@ -85,7 +85,7 @@
     </section>
 
     <!-- Cross-link to Development Activity -->
-    <DashboardCrosslink href="/development-activity">
+    <DashboardCrosslink :href="localizePath('/development-activity', isId ? 'id' : 'en')">
       {{ copy.developmentCrosslink }}
     </DashboardCrosslink>
   </div>
@@ -94,6 +94,7 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
 import { useLocale } from '../../composables/useLocale'
+import { localizePath } from '../../utils/routing'
 import { useCpStats } from '../../composables/useCpStats'
 import ActivityHeatmap from '../shared/ActivityHeatmap.vue'
 import CpOverviewTab from './CpOverviewTab.vue'
@@ -111,9 +112,10 @@ import type { CpData } from '../../types/cp.types'
 
 const props = defineProps<{
   initialData?: CpData
+  initialLocale?: 'en' | 'id'
 }>()
 
-const { isId, locale } = useLocale()
+const { isId, locale } = useLocale(props.initialLocale)
 
 const activePlatforms = CP_PLATFORM_KEYS.length
 

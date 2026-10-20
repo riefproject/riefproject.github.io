@@ -3,6 +3,7 @@ import { buildCpHeatmap, getPrimaryLanguage } from '../utils/cp/stats'
 import { CP_PLATFORMS } from '../utils/cp/platforms'
 import { buildMonths, toWeeks } from '../utils/heatmap'
 import { useCpSummary } from './useCpSummary'
+import { OVERVIEW_ICON } from '../utils/icons'
 import type { CpData } from '../types/cp.types'
 
 export const useCpStats = (cpData: Ref<CpData | null>) => {
@@ -16,7 +17,7 @@ export const useCpStats = (cpData: Ref<CpData | null>) => {
       key: 'overview' as const,
       labelEn: 'All Overview',
       labelId: 'Ringkasan Utama',
-      icon: '<svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>',
+      icon: OVERVIEW_ICON,
       count: `${totalSolved.value}+`,
     },
     {

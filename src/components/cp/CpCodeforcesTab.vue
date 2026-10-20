@@ -3,14 +3,8 @@
     platform="codeforces"
     :cpData="cpData"
     :columns="columns"
-    :isId="isId"
-    solved-title-en="Solved Codeforces Problems"
-    solved-title-id="Soal Codeforces yang Diselesaikan"
-    archive-href="/competitive-programming/problems?platform=codeforces"
-    :cta-en="`View All ${totalCfSolved} Codeforces Problems on Dedicated Page →`"
-    :cta-id="`Lihat Seluruh ${totalCfSolved} Soal Codeforces di Halaman Khusus →`"
-    open-title-en="Open on Codeforces"
-    open-title-id="Buka di Codeforces">
+    :copy="platformCopy"
+    :isId="isId">
     <CpMetricsGrid :metrics="metrics" />
 
     <div class="mt-8">
@@ -35,7 +29,7 @@ import { computed } from 'vue'
 import CpPlatformTab from './CpPlatformTab.vue'
 import CpMetricsGrid from './CpMetricsGrid.vue'
 import { CP_FALLBACK } from '../../utils/cp/defaults'
-import type { CpColumn, CpData, CpMetric } from '../../types/cp.types'
+import type { CpColumn, CpData, CpMetric, CpPlatformCopy } from '../../types/cp.types'
 
 const props = withDefaults(
   defineProps<{
@@ -66,6 +60,15 @@ const copy = computed(() => {
     submissionHistory: id ? 'Riwayat submisi di CF' : 'Submission history on CF',
   }
 })
+
+const platformCopy = computed<CpPlatformCopy>(() => ({
+  solvedTitle: { en: 'Solved Codeforces Problems', id: 'Soal Codeforces yang Diselesaikan' },
+  cta: {
+    en: `View All ${props.totalCfSolved} Codeforces Problems on Dedicated Page →`,
+    id: `Lihat Seluruh ${props.totalCfSolved} Soal Codeforces di Halaman Khusus →`,
+  },
+  openTitle: { en: 'Open on Codeforces', id: 'Buka di Codeforces' },
+}))
 
 const metrics = computed<CpMetric[]>(() => [
   {

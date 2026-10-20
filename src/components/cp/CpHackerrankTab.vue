@@ -3,18 +3,8 @@
     platform="hackerrank"
     :cpData="cpData"
     :columns="columns"
-    :isId="isId"
-    solved-title-en="Solved HackerRank Challenges"
-    solved-title-id="Tantangan HackerRank yang Diselesaikan"
-    title-column-en="Challenge"
-    title-column-id="Tantangan"
-    item-noun-en="challenges"
-    item-noun-id="tantangan"
-    archive-href="/competitive-programming/problems?platform=hackerrank"
-    :cta-en="`View All ${totalHrSolved}+ HackerRank Challenges on Dedicated Page →`"
-    :cta-id="`Lihat Seluruh ${totalHrSolved}+ Tantangan HackerRank di Halaman Khusus →`"
-    open-title-en="Open on HackerRank"
-    open-title-id="Buka di HackerRank">
+    :copy="platformCopy"
+    :isId="isId">
     <div class="mt-4">
       <h4 class="text-lg font-semibold mb-4 platform-subtitle">
         {{ copy.scoresTitle }}
@@ -55,7 +45,7 @@
 import { computed } from 'vue'
 import CpPlatformTab from './CpPlatformTab.vue'
 import { CP_FALLBACK } from '../../utils/cp/defaults'
-import type { CpColumn, CpData } from '../../types/cp.types'
+import type { CpColumn, CpData, CpPlatformCopy } from '../../types/cp.types'
 
 const props = withDefaults(
   defineProps<{
@@ -68,6 +58,20 @@ const props = withDefaults(
     isId: false,
   }
 )
+
+const platformCopy = computed<CpPlatformCopy>(() => ({
+  solvedTitle: {
+    en: 'Solved HackerRank Challenges',
+    id: 'Tantangan HackerRank yang Diselesaikan',
+  },
+  titleColumn: { en: 'Challenge', id: 'Tantangan' },
+  itemNoun: { en: 'challenges', id: 'tantangan' },
+  cta: {
+    en: `View All ${props.totalHrSolved}+ HackerRank Challenges on Dedicated Page →`,
+    id: `Lihat Seluruh ${props.totalHrSolved}+ Tantangan HackerRank di Halaman Khusus →`,
+  },
+  openTitle: { en: 'Open on HackerRank', id: 'Buka di HackerRank' },
+}))
 
 const copy = computed(() => {
   const id = props.isId

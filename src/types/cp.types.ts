@@ -1,5 +1,21 @@
 import type { HeatmapDay } from '../utils/heatmap'
+import type { LocaleText } from '../utils/i18n'
+
 export type CpPlatformKey = 'tlx' | 'codeforces' | 'leetcode' | 'hackerrank'
+
+export type CpPlatformCopy = {
+  solvedTitle: LocaleText
+  cta: LocaleText
+  titleColumn?: LocaleText
+  itemNoun?: LocaleText
+  openTitle?: LocaleText
+}
+
+export type CpTableCopy = {
+  titleColumn: LocaleText
+  timeColumn: LocaleText
+  openTitle: LocaleText
+}
 export type CpColumnKey = 'category' | 'difficulty' | 'language'
 
 export interface CpColumn {

@@ -3,14 +3,8 @@
     platform="leetcode"
     :cpData="cpData"
     :columns="columns"
-    :isId="isId"
-    solved-title-en="Solved LeetCode Problems"
-    solved-title-id="Soal LeetCode yang Diselesaikan"
-    archive-href="/competitive-programming/problems?platform=leetcode"
-    :cta-en="`View All ${totalLcSolved} LeetCode Problems on Dedicated Page →`"
-    :cta-id="`Lihat Seluruh ${totalLcSolved} Soal LeetCode di Halaman Khusus →`"
-    open-title-en="Open on LeetCode"
-    open-title-id="Buka di LeetCode">
+    :copy="platformCopy"
+    :isId="isId">
     <CpMetricsGrid :metrics="metrics" />
   </CpPlatformTab>
 </template>
@@ -20,7 +14,7 @@ import { computed } from 'vue'
 import CpPlatformTab from './CpPlatformTab.vue'
 import CpMetricsGrid from './CpMetricsGrid.vue'
 import { CP_FALLBACK } from '../../utils/cp/defaults'
-import type { CpColumn, CpData, CpMetric } from '../../types/cp.types'
+import type { CpColumn, CpData, CpMetric, CpPlatformCopy } from '../../types/cp.types'
 
 const props = withDefaults(
   defineProps<{
@@ -44,6 +38,15 @@ const copy = computed(() => {
     hardSub: id ? 'Kompleksitas Lanjutan' : 'Advanced Complexity',
   }
 })
+
+const platformCopy = computed<CpPlatformCopy>(() => ({
+  solvedTitle: { en: 'Solved LeetCode Problems', id: 'Soal LeetCode yang Diselesaikan' },
+  cta: {
+    en: `View All ${props.totalLcSolved} LeetCode Problems on Dedicated Page →`,
+    id: `Lihat Seluruh ${props.totalLcSolved} Soal LeetCode di Halaman Khusus →`,
+  },
+  openTitle: { en: 'Open on LeetCode', id: 'Buka di LeetCode' },
+}))
 
 const metrics = computed<CpMetric[]>(() => [
   {

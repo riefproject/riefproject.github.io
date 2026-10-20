@@ -4,14 +4,11 @@
       :name="meta.name"
       :logo="meta.logo"
       :logoLight="meta.logoLight"
-      :description-en="meta.descriptionEn"
-      :description-id="meta.descriptionId"
-      :archive-href="meta.archiveHref"
-      :archive-label-en="meta.archiveLabelEn"
-      :archive-label-id="meta.archiveLabelId"
+      :description="description"
+      :archive-href="archiveHref"
+      :archive-label="archiveLabel"
       :profile-href="profileHref"
-      :profile-label-en="meta.profileLabelEn"
-      :profile-label-id="meta.profileLabelId"
+      :profile-label="profileLabel"
       :isId="isId" />
 
     <slot />
@@ -20,17 +17,8 @@
       <CpSolvedProblemsPanel
         :problems="recentSolved"
         :columns="columns"
-        :title-en="solvedTitleEn"
-        :title-id="solvedTitleId"
-        :title-column-en="titleColumnEn"
-        :title-column-id="titleColumnId"
-        :item-noun-en="itemNounEn"
-        :item-noun-id="itemNounId"
+        :copy="copy"
         :archive-href="archiveHref"
-        :cta-en="ctaEn"
-        :cta-id="ctaId"
-        :open-title-en="openTitleEn"
-        :open-title-id="openTitleId"
         :isId="isId" />
     </div>
   </div>
@@ -41,38 +29,36 @@ import { computed } from 'vue'
 import CpPlatformHeader from './CpPlatformHeader.vue'
 import CpSolvedProblemsPanel from './CpSolvedProblemsPanel.vue'
 import { CP_PLATFORMS } from '../../utils/cp/platforms'
-import type { CpColumn, CpData, CpPlatformKey } from '../../types/cp.types'
+import type { CpColumn, CpData, CpPlatformCopy, CpPlatformKey } from '../../types/cp.types'
 
 const props = withDefaults(
   defineProps<{
     platform: CpPlatformKey
     cpData: CpData
     columns: CpColumn[]
-    solvedTitleEn: string
-    solvedTitleId: string
-    archiveHref: string
-    ctaEn: string
-    ctaId: string
-    openTitleEn?: string
-    openTitleId?: string
-    titleColumnEn?: string
-    titleColumnId?: string
-    itemNounEn?: string
-    itemNounId?: string
+    copy: CpPlatformCopy
     isId?: boolean
   }>(),
   {
-    openTitleEn: 'Open submission',
-    openTitleId: 'Buka submisi',
-    titleColumnEn: 'Problem Name',
-    titleColumnId: 'Judul Soal',
-    itemNounEn: 'problems',
-    itemNounId: 'soal',
     isId: false,
   }
 )
 
 const meta = computed(() => CP_PLATFORMS[props.platform])
+
+const description = computed(() => ({ en: meta.value.descriptionEn, id: meta.value.descriptionId }))
+
+const archiveHref = computed(() => `/competitive-programming/problems?platform=${props.platform}`)
+
+const archiveLabel = computed(() => ({
+  en: meta.value.archiveLabelEn,
+  id: meta.value.archiveLabelId,
+}))
+
+const profileLabel = computed(() => ({
+  en: meta.value.profileLabelEn,
+  id: meta.value.profileLabelId,
+}))
 
 const profileHref = computed(() => {
   const handle = props.cpData?.platforms?.[props.platform]?.handle

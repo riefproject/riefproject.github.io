@@ -10,12 +10,12 @@
       </div>
       <div>
         <h2>{{ name }}</h2>
-        <p>{{ isId ? descriptionId : descriptionEn }}</p>
+        <p>{{ text(description) }}</p>
       </div>
     </div>
     <div class="flex items-center gap-2 flex-wrap">
       <a :href="archiveHref" class="dedicated-page-header-btn">
-        <span>{{ isId ? archiveLabelId : archiveLabelEn }}</span>
+        <span>{{ text(archiveLabel) }}</span>
         <svg
           class="w-3.5 h-3.5"
           viewBox="0 0 24 24"
@@ -31,33 +31,33 @@
         target="_blank"
         rel="noopener noreferrer"
         class="external-profile-btn">
-        {{ isId ? profileLabelId : profileLabelEn }}
+        {{ text(profileLabel) }}
       </a>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-withDefaults(
+import { resolveLocaleText, type LocaleText } from '../../utils/i18n'
+
+const props = withDefaults(
   defineProps<{
     name: string
     logo: string
     logoLight?: string
-    descriptionEn: string
-    descriptionId: string
+    description: LocaleText
     archiveHref: string
-    archiveLabelEn: string
-    archiveLabelId: string
+    archiveLabel: LocaleText
     profileHref?: string
-    profileLabelEn?: string
-    profileLabelId?: string
+    profileLabel?: LocaleText
     isId?: boolean
   }>(),
   {
     profileHref: '',
-    profileLabelEn: 'Profile ↗',
-    profileLabelId: 'Profil ↗',
+    profileLabel: () => ({ en: 'Profile ↗', id: 'Profil ↗' }),
     isId: false,
   }
 )
+
+const text = (value: LocaleText) => resolveLocaleText(value, props.isId)
 </script>

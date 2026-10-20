@@ -5,12 +5,12 @@
         <tr>
           <th class="col-num">#</th>
           <th v-if="showPlatform" class="col-platform">Platform</th>
-          <th class="col-title">{{ isId ? titleColumnId : titleColumnEn }}</th>
+          <th class="col-title">{{ text(tableCopy.titleColumn) }}</th>
           <th v-for="col in displayColumns" :key="col.key" :class="`col-${columnClass(col.key)}`">
             {{ isId ? col.labelId : col.labelEn }}
           </th>
           <th class="col-status">Status</th>
-          <th class="col-time">{{ isId ? timeColumnId : timeColumnEn }}</th>
+          <th class="col-time">{{ text(tableCopy.timeColumn) }}</th>
           <th class="col-action"></th>
         </tr>
       </thead>
@@ -95,7 +95,7 @@
               target="_blank"
               rel="noopener noreferrer"
               class="open-btn"
-              :title="isId ? openTitleId : openTitleEn">
+              :title="text(tableCopy.openTitle)">
               <ExternalLinkIcon class="w-4 h-4" />
             </a>
           </td>
@@ -110,7 +110,8 @@ import { computed } from 'vue'
 import ExternalLinkIcon from '../shared/ExternalLinkIcon.vue'
 import { cleanLanguage, getDiffClass } from '../../utils/cp/formatting'
 import { getPlatformLogo, getPlatformLogoLight, getPlatformName } from '../../utils/cp/platforms'
-import type { CpColumn, CpColumnKey, SubmissionItem } from '../../types/cp.types'
+import type { CpColumn, CpColumnKey, CpTableCopy, SubmissionItem } from '../../types/cp.types'
+import { resolveLocaleText, type LocaleText } from '../../utils/i18n'
 import { formatExactDate } from '../../utils/dateFormat'
 
 const props = withDefaults(
@@ -121,12 +122,7 @@ const props = withDefaults(
     pageSize?: number
     showPlatform?: boolean
     showDifficulty?: boolean
-    titleColumnEn?: string
-    titleColumnId?: string
-    timeColumnEn?: string
-    timeColumnId?: string
-    openTitleEn?: string
-    openTitleId?: string
+    copy?: Partial<CpTableCopy>
     bare?: boolean
     isId?: boolean
   }>(),
@@ -136,16 +132,22 @@ const props = withDefaults(
     pageSize: 10,
     showPlatform: true,
     showDifficulty: true,
-    titleColumnEn: 'Problem Name',
-    titleColumnId: 'Judul Soal',
-    timeColumnEn: 'Solved Date',
-    timeColumnId: 'Waktu Selesai',
-    openTitleEn: 'Open problem on platform',
-    openTitleId: 'Buka soal di platform',
+    copy: () => ({}),
     bare: false,
     isId: false,
   }
 )
+
+const text = (value: LocaleText) => resolveLocaleText(value, props.isId)
+
+const tableCopy = computed<CpTableCopy>(() => ({
+  titleColumn: props.copy.titleColumn || { en: 'Problem Name', id: 'Judul Soal' },
+  timeColumn: props.copy.timeColumn || { en: 'Solved Date', id: 'Waktu Selesai' },
+  openTitle: props.copy.openTitle || {
+    en: 'Open problem on platform',
+    id: 'Buka soal di platform',
+  },
+}))
 
 const startIndex = computed(() => (props.currentPage - 1) * props.pageSize)
 

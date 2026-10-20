@@ -3,14 +3,8 @@
     platform="tlx"
     :cpData="cpData"
     :columns="columns"
-    :isId="isId"
-    solved-title-en="Solved TLX Problems"
-    solved-title-id="Soal TLX yang Diselesaikan"
-    archive-href="/competitive-programming/problems?platform=tlx"
-    :cta-en="`View All ${totalTlxSolved} TLX Problems on Dedicated Page →`"
-    :cta-id="`Lihat Seluruh ${totalTlxSolved} Soal TLX di Halaman Khusus →`"
-    open-title-en="Open Submission / Answer on TLX"
-    open-title-id="Buka Submisi / Jawaban di TLX">
+    :copy="platformCopy"
+    :isId="isId">
     <CpMetricsGrid :metrics="metrics" />
   </CpPlatformTab>
 </template>
@@ -20,7 +14,7 @@ import { computed } from 'vue'
 import CpPlatformTab from './CpPlatformTab.vue'
 import CpMetricsGrid from './CpMetricsGrid.vue'
 import { CP_FALLBACK } from '../../utils/cp/defaults'
-import type { CpColumn, CpData, CpMetric } from '../../types/cp.types'
+import type { CpColumn, CpData, CpMetric, CpPlatformCopy } from '../../types/cp.types'
 
 const props = withDefaults(
   defineProps<{
@@ -50,6 +44,18 @@ const copy = computed(() => {
     acSubmissionsSub: id ? 'Submisi berstatus 100/AC' : 'Submissions with 100/AC score',
   }
 })
+
+const platformCopy = computed<CpPlatformCopy>(() => ({
+  solvedTitle: { en: 'Solved TLX Problems', id: 'Soal TLX yang Diselesaikan' },
+  cta: {
+    en: `View All ${props.totalTlxSolved} TLX Problems on Dedicated Page →`,
+    id: `Lihat Seluruh ${props.totalTlxSolved} Soal TLX di Halaman Khusus →`,
+  },
+  openTitle: {
+    en: 'Open Submission / Answer on TLX',
+    id: 'Buka Submisi / Jawaban di TLX',
+  },
+}))
 
 const metrics = computed<CpMetric[]>(() => [
   {

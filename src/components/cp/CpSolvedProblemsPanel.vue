@@ -1,12 +1,12 @@
 <template>
   <div>
     <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
-      <h4 class="text-lg font-semibold platform-subtitle">{{ isId ? titleId : titleEn }}</h4>
+      <h4 class="text-lg font-semibold platform-subtitle">{{ text(copy.solvedTitle) }}</h4>
       <span class="text-xs platform-count-text">
         {{
           isId ?
-            `Total ${problems.length} ${itemNounId} tercatat`
-          : `Total ${problems.length} recorded ${itemNounEn}`
+            `Total ${problems.length} ${text(itemNoun)} tercatat`
+          : `Total ${problems.length} recorded ${text(itemNoun)}`
         }}
       </span>
     </div>
@@ -19,12 +19,7 @@
         :pageSize="pageSize"
         :showPlatform="false"
         :showDifficulty="false"
-        :titleColumnEn="titleColumnEn"
-        :titleColumnId="titleColumnId"
-        timeColumnEn="Solved"
-        timeColumnId="Waktu"
-        :openTitleEn="openTitleEn"
-        :openTitleId="openTitleId"
+        :copy="tableCopy"
         bare
         :isId="isId" />
 
@@ -37,7 +32,7 @@
 
       <div v-if="archiveHref" class="tab-bottom-cta">
         <a :href="archiveHref" class="tab-cta-btn">
-          <span>{{ isId ? ctaId : ctaEn }}</span>
+          <span>{{ text(copy.cta) }}</span>
         </a>
       </div>
     </div>
@@ -45,44 +40,39 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import CpProblemsTable from './CpProblemsTable.vue'
 import CpTablePagination from './CpTablePagination.vue'
 import { usePagination } from '../../composables/usePagination'
-import type { CpColumn, SubmissionItem } from '../../types/cp.types'
+import { resolveLocaleText, type LocaleText } from '../../utils/i18n'
+import type { CpColumn, CpPlatformCopy, CpTableCopy, SubmissionItem } from '../../types/cp.types'
 
 const props = withDefaults(
   defineProps<{
     problems: SubmissionItem[]
     columns?: CpColumn[]
-    titleEn: string
-    titleId: string
-    itemNounEn?: string
-    itemNounId?: string
-    titleColumnEn?: string
-    titleColumnId?: string
-    openTitleEn?: string
-    openTitleId?: string
+    copy: CpPlatformCopy
     archiveHref?: string
-    ctaEn?: string
-    ctaId?: string
     isId?: boolean
     pageSize?: number
   }>(),
   {
     columns: () => [],
-    itemNounEn: 'problems',
-    itemNounId: 'soal',
-    titleColumnEn: 'Problem Name',
-    titleColumnId: 'Judul Soal',
-    openTitleEn: 'Open submission',
-    openTitleId: 'Buka submisi',
     archiveHref: '',
-    ctaEn: '',
-    ctaId: '',
     isId: false,
     pageSize: 10,
   }
 )
+
+const text = (value: LocaleText) => resolveLocaleText(value, props.isId)
+
+const itemNoun = computed<LocaleText>(() => props.copy.itemNoun || { en: 'problems', id: 'soal' })
+
+const tableCopy = computed<CpTableCopy>(() => ({
+  titleColumn: props.copy.titleColumn || { en: 'Problem Name', id: 'Judul Soal' },
+  timeColumn: { en: 'Solved', id: 'Waktu' },
+  openTitle: props.copy.openTitle || { en: 'Open submission', id: 'Buka submisi' },
+}))
 
 const { currentPage, pageSize, totalPages, paginatedList } = usePagination(
   () => props.problems,

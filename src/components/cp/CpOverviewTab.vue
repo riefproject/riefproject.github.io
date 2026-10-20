@@ -35,7 +35,7 @@
         </MetaRow>
         <MetaRow label="Rank:">
           <strong class="cf-rank-text capitalize">{{
-            cpData?.platforms?.codeforces?.rank || 'newbie'
+            cpData?.platforms?.codeforces?.rank || CP_FALLBACK.codeforcesRank
           }}</strong>
         </MetaRow>
       </PlatformCard>
@@ -90,13 +90,13 @@
         :footerText="copy.hackerrankFooter"
         @select="$emit('selectPlatform', 'hackerrank')">
         <MetaRow :label="`${copy.algorithmsTrack}:`">
-          <strong class="track-pts-emerald">1029.98 pts</strong>
+          <strong class="track-pts-emerald">{{ hrAlgorithmsPoints }}</strong>
         </MetaRow>
         <MetaRow :label="`${copy.sqlTrack}:`">
-          <strong class="track-pts-sky">390 pts</strong>
+          <strong class="track-pts-sky">{{ hrSqlPoints }}</strong>
         </MetaRow>
         <MetaRow :label="`${copy.cppJavaTrack}:`">
-          <strong>430+ pts</strong>
+          <strong>{{ hrCppJavaPoints }}</strong>
         </MetaRow>
       </PlatformCard>
     </div>
@@ -291,6 +291,17 @@ const {
   totalPages,
   paginatedList: paginatedFeed,
 } = usePagination(() => filteredFeed.value, 10)
+
+const hackerrankTrackScore = (slug: string) =>
+  props.cpData?.platforms?.hackerrank?.trackScores?.find((track) => track.slug === slug)?.score || 0
+
+const formatPoints = (score: number) => `${Number(score.toFixed(2)).toLocaleString('en-US')} pts`
+
+const hrAlgorithmsPoints = computed(() => formatPoints(hackerrankTrackScore('algorithms')))
+const hrSqlPoints = computed(() => formatPoints(hackerrankTrackScore('sql')))
+const hrCppJavaPoints = computed(() =>
+  formatPoints(hackerrankTrackScore('cpp') + hackerrankTrackScore('java'))
+)
 </script>
 
 <style scoped>

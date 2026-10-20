@@ -49,6 +49,13 @@
   --radius-xl: 0.75rem; /* 12px - cards / surface containers / stat-cards / repo-cards */
   --radius-2xl: 1rem; /* 16px - outer large section containers / tables / heatmaps */
   --radius-full: 9999px; /* pills / avatar circles / badges */
+
+  /* Heatmap intensity scale (shared by cells and legend) */
+  --heatmap-0: var(--bg-elevated);
+  --heatmap-1: #064e3b;
+  --heatmap-2: #047857;
+  --heatmap-3: #10b981;
+  --heatmap-4: #34d399;
 }
 
 /* Light mode */

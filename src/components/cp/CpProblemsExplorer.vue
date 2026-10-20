@@ -78,6 +78,7 @@ import { useCpStats } from '../../composables/useCpStats'
 import { useListFilter } from '../../composables/useListFilter'
 import { usePagination } from '../../composables/usePagination'
 import { CP_PLATFORM_KEYS, buildPlatformCategories } from '../../utils/cp/platforms'
+import { matchesProblemSearch } from '../../utils/cp/search'
 import type { CpData, SubmissionItem } from '../../types/cp.types'
 
 type ProblemsPayload = { problems?: SubmissionItem[] } | SubmissionItem[]
@@ -132,14 +133,7 @@ const {
   items: () => allProblems.value,
   categories: () => allPlatformKeys.map((key) => ({ key })),
   getCategory: (item) => item.platform as string,
-  matchesSearch: (item, term) =>
-    [
-      item.title,
-      item.category,
-      item.language,
-      item.platform,
-      item.difficulty !== undefined ? String(item.difficulty) : '',
-    ].some((value) => value && value.toLowerCase().includes(term)),
+  matchesSearch: matchesProblemSearch,
 })
 
 const {

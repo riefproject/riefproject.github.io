@@ -242,20 +242,20 @@ onMounted(() => {
 }
 
 .heatmap-cell.lvl-0 {
-  background: var(--bg-elevated);
+  background: var(--heatmap-0);
   opacity: 0.6;
 }
 .heatmap-cell.lvl-1 {
-  background: #064e3b;
+  background: var(--heatmap-1);
 }
 .heatmap-cell.lvl-2 {
-  background: #047857;
+  background: var(--heatmap-2);
 }
 .heatmap-cell.lvl-3 {
-  background: #10b981;
+  background: var(--heatmap-3);
 }
 .heatmap-cell.lvl-4 {
-  background: #34d399;
+  background: var(--heatmap-4);
 }
 
 .heatmap-months {

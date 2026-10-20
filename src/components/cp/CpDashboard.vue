@@ -85,14 +85,9 @@
     </section>
 
     <!-- Cross-link to Development Activity -->
-    <div class="dashboard-crosslink">
-      <a href="/development-activity" class="crosslink-btn">
-        <ArrowUpRight class="crosslink-ico" :size="16" />
-        <span>{{
-          isId ? 'Jelajahi Aktivitas Development saya →' : 'Explore my Development Activity →'
-        }}</span>
-      </a>
-    </div>
+    <DashboardCrosslink href="/development-activity">
+      {{ isId ? 'Jelajahi Aktivitas Development saya →' : 'Explore my Development Activity →' }}
+    </DashboardCrosslink>
   </div>
 </template>
 
@@ -107,8 +102,8 @@ import CpCodeforcesTab from './CpCodeforcesTab.vue'
 import CpLeetcodeTab from './CpLeetcodeTab.vue'
 import CpHackerrankTab from './CpHackerrankTab.vue'
 import Tabs from '../shared/Tabs.vue'
-import ArrowUpRight from '../shared/ArrowUpRight.vue'
 import StatCard from '../shared/StatCard.vue'
+import DashboardCrosslink from '../shared/DashboardCrosslink.vue'
 import DashboardTopbar from '../shared/DashboardTopbar.vue'
 import { cpHeatmapMetrics } from '../../utils/cp/stats'
 import type { CpData } from '../../types/cp.types'
@@ -180,47 +175,5 @@ const {
   flex-direction: column;
   gap: 1.5rem;
   margin-top: 0.5rem;
-}
-
-.dashboard-crosslink {
-  display: flex;
-  justify-content: center;
-  border-top: 1px solid var(--border);
-  padding-top: 1.5rem;
-  margin-top: 0.5rem;
-}
-
-.crosslink-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--link);
-  text-decoration: none;
-  transition: all 0.15s;
-}
-
-.crosslink-btn:hover {
-  text-decoration: underline;
-  transform: translateX(2px);
-}
-
-.crosslink-ico {
-  width: 1rem;
-  height: 1rem;
-  opacity: 0.8;
-}
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.5;
-    transform: scale(0.85);
-  }
 }
 </style>

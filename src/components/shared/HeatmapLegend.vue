@@ -32,18 +32,18 @@ defineProps<{
 }
 
 .heat-box.lvl-0 {
-  background: var(--bg-elevated);
+  background: var(--heatmap-0);
 }
 .heat-box.lvl-1 {
-  background: #064e3b;
+  background: var(--heatmap-1);
 }
 .heat-box.lvl-2 {
-  background: #047857;
+  background: var(--heatmap-2);
 }
 .heat-box.lvl-3 {
-  background: #10b981;
+  background: var(--heatmap-3);
 }
 .heat-box.lvl-4 {
-  background: #34d399;
+  background: var(--heatmap-4);
 }
 </style>

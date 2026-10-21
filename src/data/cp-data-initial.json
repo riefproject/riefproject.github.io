@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-20T21:12:53.654Z",
+    "updatedAt": "2026-10-21T03:11:22.197Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 764,
-    "totalSubmissions": 1686,
+    "totalSolved": 765,
+    "totalSubmissions": 1687,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-20": {
@@ -441,6 +441,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-21": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-10-19": {
         "tries": 1,
         "ac": 1
@@ -458,8 +462,8 @@
         "ac": 2
       },
       "2026-10-14": {
-        "tries": 3,
-        "ac": 3
+        "tries": 2,
+        "ac": 2
       },
       "2024-06-23": {
         "tries": 44,
@@ -5695,11 +5699,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1633024,
-      "totalSolved": 105,
+      "totalSolved": 106,
       "easySolved": 52,
-      "mediumSolved": 44,
+      "mediumSolved": 45,
       "hardSolved": 9,
       "dailyCalendar": {
+        "2026-10-21": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-20": {
           "tries": 1,
           "ac": 1
@@ -5725,11 +5733,21 @@
           "ac": 2
         },
         "2026-10-14": {
-          "tries": 3,
-          "ac": 3
+          "tries": 2,
+          "ac": 2
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792542077",
+          "platform": "leetcode",
+          "title": "Minimum Operations to Sort a String",
+          "category": "String",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-string/",
+          "solvedAt": "2026-10-21T00:21:17.000Z"
+        },
         {
           "id": "lc-1792456701",
           "platform": "leetcode",
@@ -5919,16 +5937,6 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/smallest-index-with-digit-sum-equal-to-index/",
           "solvedAt": "2026-10-14T22:59:05.000Z"
-        },
-        {
-          "id": "lc-1792018270",
-          "platform": "leetcode",
-          "title": "Maximize Sum of Squares of Digits",
-          "category": "Math",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/maximize-sum-of-squares-of-digits/",
-          "solvedAt": "2026-10-14T22:51:10.000Z"
         }
       ]
     },
@@ -6364,6 +6372,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1792542077",
+      "platform": "leetcode",
+      "title": "Minimum Operations to Sort a String",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-string/",
+      "solvedAt": "2026-10-21T00:21:17.000Z"
+    },
     {
       "id": "tlx-6190845",
       "platform": "tlx",

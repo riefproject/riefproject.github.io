@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-20T21:12:53.657Z",
-  "totalProblems": 714,
+  "lastUpdated": "2026-10-21T03:11:22.200Z",
+  "totalProblems": 715,
   "problems": [
+    {
+      "id": "lc-1792542077",
+      "platform": "leetcode",
+      "title": "Minimum Operations to Sort a String",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-string/",
+      "solvedAt": "2026-10-21T00:21:17.000Z"
+    },
     {
       "id": "tlx-6190845",
       "platform": "tlx",

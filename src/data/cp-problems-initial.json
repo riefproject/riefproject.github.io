@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-21T03:11:22.200Z",
-  "totalProblems": 715,
+  "lastUpdated": "2026-10-21T11:06:25.960Z",
+  "totalProblems": 716,
   "problems": [
+    {
+      "id": "tlx-6197670",
+      "platform": "tlx",
+      "title": "Tempat Wisata",
+      "category": "OSN Informatika 2019",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6197670",
+      "solvedAt": "2026-10-21T09:33:26.309Z"
+    },
     {
       "id": "lc-1792542077",
       "platform": "leetcode",

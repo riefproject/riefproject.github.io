@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-21T03:11:22.197Z",
+    "updatedAt": "2026-10-21T11:06:25.956Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 765,
+    "totalSolved": 766,
     "totalSubmissions": 1687,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-21": {
+        "tries": 2,
+        "ac": 2
+      },
       "2026-10-20": {
         "tries": 5,
         "ac": 3
@@ -50,7 +54,7 @@
         "ac": 3
       },
       "2026-10-01": {
-        "tries": 8,
+        "tries": 9,
         "ac": 6
       },
       "2026-09-30": {
@@ -90,8 +94,8 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
-        "ac": 13
+        "tries": 23,
+        "ac": 12
       },
       "2026-09-19": {
         "tries": 7,
@@ -102,7 +106,7 @@
         "ac": 5
       },
       "2026-09-14": {
-        "tries": 11,
+        "tries": 10,
         "ac": 6
       },
       "2026-09-13": {
@@ -441,10 +445,6 @@
         "tries": 17,
         "ac": 10
       },
-      "2026-10-21": {
-        "tries": 1,
-        "ac": 1
-      },
       "2026-10-19": {
         "tries": 1,
         "ac": 1
@@ -588,9 +588,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 907,
-      "totalSolved": 444,
+      "totalSolved": 445,
       "uniqueProblemsSolved": 389,
-      "totalAcSubmissions": 439,
+      "totalAcSubmissions": 440,
       "languages": {
         "Cpp20": 874,
         "Pascal": 17,
@@ -600,6 +600,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-21": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-20": {
           "tries": 4,
           "ac": 2
@@ -637,7 +641,7 @@
           "ac": 2
         },
         "2026-10-01": {
-          "tries": 8,
+          "tries": 9,
           "ac": 6
         },
         "2026-09-30": {
@@ -677,8 +681,8 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
-          "ac": 13
+          "tries": 23,
+          "ac": 12
         },
         "2026-09-19": {
           "tries": 7,
@@ -689,7 +693,7 @@
           "ac": 5
         },
         "2026-09-14": {
-          "tries": 11,
+          "tries": 10,
           "ac": 6
         },
         "2026-09-13": {
@@ -938,6 +942,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6197670",
+          "platform": "tlx",
+          "title": "Tempat Wisata",
+          "category": "OSN Informatika 2019",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6197670",
+          "solvedAt": "2026-10-21T09:33:26.309Z"
+        },
         {
           "id": "tlx-6190845",
           "platform": "tlx",
@@ -1677,16 +1691,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/6050715",
           "solvedAt": "2026-09-21T22:41:02.907Z"
-        },
-        {
-          "id": "tlx-6050714",
-          "platform": "tlx",
-          "title": "Kalkulator Rusak",
-          "category": "BNPCHS 2011 - Penyisihan",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6050714",
-          "solvedAt": "2026-09-21T22:34:41.425Z"
         },
         {
           "id": "tlx-6050706",
@@ -6372,6 +6376,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6197670",
+      "platform": "tlx",
+      "title": "Tempat Wisata",
+      "category": "OSN Informatika 2019",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6197670",
+      "solvedAt": "2026-10-21T09:33:26.309Z"
+    },
     {
       "id": "lc-1792542077",
       "platform": "leetcode",

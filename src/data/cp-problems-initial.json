@@ -1,7 +1,97 @@
 {
-  "lastUpdated": "2026-10-22T03:09:43.553Z",
-  "totalProblems": 717,
+  "lastUpdated": "2026-10-22T11:06:38.354Z",
+  "totalProblems": 726,
   "problems": [
+    {
+      "id": "tlx-6201481",
+      "platform": "tlx",
+      "title": "Zuma Bergembira",
+      "category": "GEMASTIK 2023 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6201481",
+      "solvedAt": "2026-10-22T07:17:46.805Z"
+    },
+    {
+      "id": "tlx-6201368",
+      "platform": "tlx",
+      "title": "Lampu Gemastik",
+      "category": "GEMASTIK 2023 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6201368",
+      "solvedAt": "2026-10-22T06:53:10.397Z"
+    },
+    {
+      "id": "tlx-6201271",
+      "platform": "tlx",
+      "title": "Kompetisi Pemrograman",
+      "category": "GEMASTIK 2023 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6201271",
+      "solvedAt": "2026-10-22T06:17:10.469Z"
+    },
+    {
+      "id": "tlx-6201147",
+      "platform": "tlx",
+      "title": "Pesan Berantai",
+      "category": "GEMASTIK 2023 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6201147",
+      "solvedAt": "2026-10-22T05:24:33.612Z"
+    },
+    {
+      "id": "lc-1792643886",
+      "platform": "leetcode",
+      "title": "Missing Number",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/missing-number/",
+      "solvedAt": "2026-10-22T04:38:06.000Z"
+    },
+    {
+      "id": "lc-1792642764",
+      "platform": "leetcode",
+      "title": "Single Number II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/single-number-ii/",
+      "solvedAt": "2026-10-22T04:19:24.000Z"
+    },
+    {
+      "id": "lc-1792641347",
+      "platform": "leetcode",
+      "title": "Range Sum Query - Immutable",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/range-sum-query-immutable/",
+      "solvedAt": "2026-10-22T03:55:47.000Z"
+    },
+    {
+      "id": "lc-1792640829",
+      "platform": "leetcode",
+      "title": "Tenth Line",
+      "category": "Shell",
+      "language": "BASH",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/tenth-line/",
+      "solvedAt": "2026-10-22T03:47:09.000Z"
+    },
+    {
+      "id": "lc-1792640620",
+      "platform": "leetcode",
+      "title": "Transpose File",
+      "category": "Shell",
+      "language": "BASH",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/transpose-file/",
+      "solvedAt": "2026-10-22T03:43:40.000Z"
+    },
     {
       "id": "lc-1792628795",
       "platform": "leetcode",
@@ -1943,16 +2033,6 @@
       "solvedAt": "2026-09-02T11:43:28.425Z"
     },
     {
-      "id": "tlx-5939699",
-      "platform": "tlx",
-      "title": "Amateur Architect",
-      "category": "COMPFEST 18 - Penyisihan CPC Junior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/5939699",
-      "solvedAt": "2026-09-02T11:42:53.591Z"
-    },
-    {
       "id": "tlx-5938804",
       "platform": "tlx",
       "title": "Pembangkit Listrik",
@@ -2121,6 +2201,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5889874",
       "solvedAt": "2026-08-26T05:12:02.898Z"
+    },
+    {
+      "id": "tlx-5875341",
+      "platform": "tlx",
+      "title": "Amateur Architect",
+      "category": "COMPFEST 18 - Penyisihan CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5875341",
+      "solvedAt": "2026-08-23T15:19:24.446Z"
     },
     {
       "id": "tlx-5875280",

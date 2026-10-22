@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-21T21:13:09.024Z",
-  "totalProblems": 716,
+  "lastUpdated": "2026-10-22T03:09:43.553Z",
+  "totalProblems": 717,
   "problems": [
+    {
+      "id": "lc-1792628795",
+      "platform": "leetcode",
+      "title": "Minimum Operations to Sort a Permutation",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
+      "solvedAt": "2026-10-22T00:26:35.000Z"
+    },
     {
       "id": "tlx-6197670",
       "platform": "tlx",

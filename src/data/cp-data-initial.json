@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-21T21:13:09.021Z",
+    "updatedAt": "2026-10-22T03:09:43.550Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 766,
-    "totalSubmissions": 1687,
+    "totalSolved": 767,
+    "totalSubmissions": 1688,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-21": {
@@ -445,6 +445,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-22": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-10-19": {
         "tries": 1,
         "ac": 1
@@ -462,8 +466,8 @@
         "ac": 2
       },
       "2026-10-14": {
-        "tries": 2,
-        "ac": 2
+        "tries": 1,
+        "ac": 1
       },
       "2024-06-23": {
         "tries": 44,
@@ -5703,11 +5707,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1620744,
-      "totalSolved": 106,
+      "totalSolved": 107,
       "easySolved": 52,
-      "mediumSolved": 45,
+      "mediumSolved": 46,
       "hardSolved": 9,
       "dailyCalendar": {
+        "2026-10-22": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-21": {
           "tries": 1,
           "ac": 1
@@ -5737,11 +5745,21 @@
           "ac": 2
         },
         "2026-10-14": {
-          "tries": 2,
-          "ac": 2
+          "tries": 1,
+          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792628795",
+          "platform": "leetcode",
+          "title": "Minimum Operations to Sort a Permutation",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
+          "solvedAt": "2026-10-22T00:26:35.000Z"
+        },
         {
           "id": "lc-1792542077",
           "platform": "leetcode",
@@ -5931,16 +5949,6 @@
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/count-array-pairs-divisible-by-k/",
           "solvedAt": "2026-10-14T23:11:19.000Z"
-        },
-        {
-          "id": "lc-1792018745",
-          "platform": "leetcode",
-          "title": "Smallest Index With Digit Sum Equal to Index",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/smallest-index-with-digit-sum-equal-to-index/",
-          "solvedAt": "2026-10-14T22:59:05.000Z"
         }
       ]
     },
@@ -6376,6 +6384,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1792628795",
+      "platform": "leetcode",
+      "title": "Minimum Operations to Sort a Permutation",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
+      "solvedAt": "2026-10-22T00:26:35.000Z"
+    },
     {
       "id": "tlx-6197670",
       "platform": "tlx",

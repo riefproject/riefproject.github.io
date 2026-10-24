@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-24T03:09:09.718Z",
-  "totalProblems": 727,
+  "lastUpdated": "2026-10-24T10:14:19.874Z",
+  "totalProblems": 728,
   "problems": [
+    {
+      "id": "lc-1792814014",
+      "platform": "leetcode",
+      "title": "Count Days Spent Together",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/count-days-spent-together/",
+      "solvedAt": "2026-10-24T03:53:34.000Z"
+    },
     {
       "id": "lc-1792770429",
       "platform": "leetcode",

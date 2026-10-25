@@ -1,26 +1,10 @@
 import { atom } from 'nanostores'
-import { localeFromPath, localizePath } from '../utils/routing'
+import { localeFromPath } from '../utils/routing'
 
 export type Locale = 'en' | 'id'
 export type Theme = 'light' | 'dark'
 
-const THEME_KEY = 'portfolio-theme'
-const LANG_KEY = 'portfolio-lang'
-
-declare global {
-  interface Window {
-    __applyLanguage?: (lang: Locale) => void
-  }
-}
-
-const normalizeLang = (value: unknown): Locale => {
-  if (typeof value !== 'string') return 'en'
-  const normalized = value.toLowerCase()
-  if (normalized === 'id' || normalized === 'in' || normalized.startsWith('id-')) {
-    return 'id'
-  }
-  return 'en'
-}
+export const THEME_STORAGE_KEY = 'portfolio-theme'
 
 const hasStorage = (): boolean => {
   try {
@@ -54,15 +38,10 @@ export const lang = atom<Locale>(typeof window !== 'undefined' ? localeFromPath(
 export const theme = atom<Theme>('light')
 
 if (typeof window !== 'undefined') {
-  window.addEventListener('portfolio:theme-change', (event) => {
-    const next = event instanceof CustomEvent && event.detail === 'dark' ? 'dark' : 'light'
-    theme.set(next)
-  })
-
   // Sync with client-side storage after a tick to allow hydration to complete
   setTimeout(() => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const actualTheme = readStorage(THEME_KEY, prefersDark ? 'dark' : 'light')
+    const actualTheme = readStorage(THEME_STORAGE_KEY, prefersDark ? 'dark' : 'light')
     theme.set(actualTheme === 'dark' ? 'dark' : 'light')
 
     const pathLang = localeFromPath(window.location.pathname)
@@ -70,21 +49,7 @@ if (typeof window !== 'undefined') {
   }, 0)
 }
 
-export const switchLanguage = (newLang: string): void => {
-  const normalized = normalizeLang(newLang)
-  writeStorage(LANG_KEY, normalized)
-  if (typeof window === 'undefined') return
-
-  const target = localizePath(`${window.location.pathname}${window.location.search}${window.location.hash}`, normalized)
-  window.location.assign(target)
-}
-
 export const setTheme = (newTheme: Theme): void => {
   theme.set(newTheme)
-  writeStorage(THEME_KEY, newTheme)
-}
-
-export const toggleTheme = (): void => {
-  const next: Theme = theme.get() === 'light' ? 'dark' : 'light'
-  setTheme(next)
+  writeStorage(THEME_STORAGE_KEY, newTheme)
 }

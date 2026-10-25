@@ -40,28 +40,6 @@ const indonesianLabel = isId ? 'Versi Bahasa Indonesia' : 'Indonesian Version'
   </div>
 </details>
 
-<script is:inline>
-  ;(() => {
-    if (window.__cvDownloadReady) return
-    window.__cvDownloadReady = true
-
-    document.addEventListener('click', (event) => {
-      const target = event.target
-      if (!(target instanceof Element)) return
-      document.querySelectorAll('details[data-cv-download][open]').forEach((details) => {
-        if (!details.contains(target)) details.removeAttribute('open')
-      })
-    })
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape') return
-      document.querySelectorAll('details[data-cv-download][open]').forEach((details) => {
-        details.removeAttribute('open')
-      })
-    })
-  })()
-</script>
-
 <style>
   .cv-download-wrapper {
     position: relative;

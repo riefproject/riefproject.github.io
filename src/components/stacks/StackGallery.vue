@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import GalleryToolbar from '../shared/GalleryToolbar.vue'
 import { useStore } from '@nanostores/vue'
 import type { LocaleText, TechStack } from '../../types/profile.types'
@@ -22,7 +22,12 @@ const { searchTerm, selectedCategories, filteredItems } = useListFilter({
   matchesSearch: (item, term) => item.name.toLowerCase().includes(term),
 })
 const $theme = useStore(themeStore)
+const mounted = ref(false)
 const { isId, locale, resolveText } = useLocale(props.initialLocale)
+
+onMounted(() => {
+  mounted.value = true
+})
 
 const copy = computed(() => {
   const id = isId.value
@@ -33,8 +38,12 @@ const copy = computed(() => {
   }
 })
 
+// SSR renders the default light logo. Re-evaluate after hydration so a
+// persisted dark theme replaces it instead of being hidden by Vue hydration.
+const logoTheme = computed(() => (mounted.value ? $theme.value : 'light'))
+
 const resolveLogo = (item: TechStack) => {
-  return $theme.value === 'dark' ? item.logoDark : item.logoLight
+  return logoTheme.value === 'dark' ? item.logoDark : item.logoLight
 }
 
 const resolvedCategories = computed(() => {

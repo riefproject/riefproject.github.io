@@ -1,8 +1,4 @@
----
-const themeLabel = 'Switch to dark mode'
----
-
-<button type="button" class="toggle-btn" data-theme-toggle aria-label={themeLabel}>
+<button type="button" class="toggle-btn" data-theme-toggle aria-label="Switch to dark mode">
   <span class="segment" data-theme-value="light" aria-hidden="true">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -34,65 +30,3 @@ const themeLabel = 'Switch to dark mode'
     </svg>
   </span>
 </button>
-
-<script is:inline>
-  ;(() => {
-    const storageKey = 'portfolio-theme'
-    const root = document.documentElement
-    const buttons = Array.from(document.querySelectorAll('[data-theme-toggle]'))
-    if (!buttons.length) return
-
-    const readTheme = () => (root.classList.contains('dark') ? 'dark' : 'light')
-
-    const render = (theme) => {
-      const isDark = theme === 'dark'
-      buttons.forEach((button) => {
-        button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode')
-        button.querySelectorAll('[data-theme-value]').forEach((segment) => {
-          segment.classList.toggle('active', segment.getAttribute('data-theme-value') === theme)
-        })
-      })
-    }
-
-    const persist = (theme) => {
-      try {
-        localStorage.setItem(storageKey, theme)
-      } catch {
-        // ignore storage write failure
-      }
-    }
-
-    const apply = (theme) => {
-      const next = theme === 'dark' ? 'dark' : 'light'
-      root.classList.toggle('dark', next === 'dark')
-      root.classList.toggle('light', next === 'light')
-      persist(next)
-      render(next)
-      window.dispatchEvent(new CustomEvent('portfolio:theme-change', { detail: next }))
-    }
-
-    const init = () => {
-      render(readTheme())
-      buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-          apply(readTheme() === 'dark' ? 'light' : 'dark')
-        })
-      })
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', init, { once: true })
-    } else {
-      init()
-    }
-
-    window.addEventListener('storage', (event) => {
-      if (event.key !== storageKey || !event.newValue) return
-      const next = event.newValue === 'dark' ? 'dark' : 'light'
-      root.classList.toggle('dark', next === 'dark')
-      root.classList.toggle('light', next === 'light')
-      render(next)
-      window.dispatchEvent(new CustomEvent('portfolio:theme-change', { detail: next }))
-    })
-  })()
-</script>

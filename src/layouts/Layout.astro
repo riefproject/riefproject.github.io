@@ -162,12 +162,18 @@ const {
       })
     </script>
     <script>
+      import { initHeaderControls } from '../scripts/header-controls'
       import { initLayoutBehavior } from '../scripts/layout-behavior'
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initLayoutBehavior, { once: true })
-      } else {
+      const init = () => {
+        initHeaderControls()
         initLayoutBehavior()
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init, { once: true })
+      } else {
+        init()
       }
     </script>
   </body>

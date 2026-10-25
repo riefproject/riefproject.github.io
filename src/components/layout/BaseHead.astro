@@ -208,8 +208,6 @@ const schemas = [
       window.location.assign(`${targetPath}${window.location.search}${window.location.hash}`)
     }
 
-    window.__applyLanguage = applyLanguage
-
     const initDeferredLang = () => {
       window.addEventListener('portfolio:lang-change', (event) => {
         const langFromEvent =

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-19T21:58:10.572Z",
+    "updatedAt": "2026-10-25T10:39:27.041Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,22 @@
     }
   },
   "overview": {
-    "totalSolved": 761,
-    "totalSubmissions": 1685,
+    "totalSolved": 779,
+    "totalSubmissions": 1703,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-22": {
+        "tries": 11,
+        "ac": 10
+      },
+      "2026-10-21": {
+        "tries": 2,
+        "ac": 2
+      },
+      "2026-10-20": {
+        "tries": 5,
+        "ac": 3
+      },
       "2026-10-17": {
         "tries": 13,
         "ac": 7
@@ -58,8 +70,8 @@
         "ac": 3
       },
       "2026-09-28": {
-        "tries": 17,
-        "ac": 12
+        "tries": 16,
+        "ac": 11
       },
       "2026-09-27": {
         "tries": 5,
@@ -86,7 +98,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
+        "tries": 24,
         "ac": 13
       },
       "2026-09-19": {
@@ -106,8 +118,8 @@
         "ac": 1
       },
       "2026-09-11": {
-        "tries": 7,
-        "ac": 6
+        "tries": 6,
+        "ac": 5
       },
       "2026-09-09": {
         "tries": 3,
@@ -130,8 +142,8 @@
         "ac": 7
       },
       "2026-09-02": {
-        "tries": 7,
-        "ac": 3
+        "tries": 6,
+        "ac": 2
       },
       "2026-08-29": {
         "tries": 12,
@@ -274,7 +286,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 12,
+        "tries": 11,
         "ac": 3
       },
       "2026-02-27": {
@@ -310,15 +322,15 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 3,
-        "ac": 2
+        "tries": 2,
+        "ac": 1
       },
       "2025-12-03": {
         "tries": 1,
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 22,
+        "tries": 23,
         "ac": 6
       },
       "2025-12-01": {
@@ -334,15 +346,15 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
+        "tries": 108,
         "ac": 55
       },
       "2026-08-25": {
@@ -437,6 +449,14 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-24": {
+        "tries": 1,
+        "ac": 1
+      },
+      "2026-10-23": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-10-19": {
         "tries": 1,
         "ac": 1
@@ -446,16 +466,8 @@
         "ac": 1
       },
       "2026-10-16": {
-        "tries": 11,
-        "ac": 11
-      },
-      "2026-10-15": {
-        "tries": 2,
-        "ac": 2
-      },
-      "2026-10-14": {
-        "tries": 4,
-        "ac": 4
+        "tries": 7,
+        "ac": 7
       },
       "2024-06-23": {
         "tries": 44,
@@ -572,19 +584,19 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 962
+      "count": 969
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 907,
-      "totalSolved": 442,
-      "uniqueProblemsSolved": 389,
-      "totalAcSubmissions": 437,
+      "totalSubmissions": 915,
+      "totalSolved": 450,
+      "uniqueProblemsSolved": 396,
+      "totalAcSubmissions": 444,
       "languages": {
-        "Cpp20": 874,
+        "Cpp20": 882,
         "Pascal": 17,
         "C": 9,
         "Cpp17": 2,
@@ -592,6 +604,18 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-22": {
+          "tries": 5,
+          "ac": 4
+        },
+        "2026-10-21": {
+          "tries": 1,
+          "ac": 1
+        },
+        "2026-10-20": {
+          "tries": 4,
+          "ac": 2
+        },
         "2026-10-17": {
           "tries": 12,
           "ac": 6
@@ -637,8 +661,8 @@
           "ac": 3
         },
         "2026-09-28": {
-          "tries": 17,
-          "ac": 12
+          "tries": 16,
+          "ac": 11
         },
         "2026-09-27": {
           "tries": 5,
@@ -665,7 +689,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
+          "tries": 24,
           "ac": 13
         },
         "2026-09-19": {
@@ -685,8 +709,8 @@
           "ac": 1
         },
         "2026-09-11": {
-          "tries": 7,
-          "ac": 6
+          "tries": 6,
+          "ac": 5
         },
         "2026-09-09": {
           "tries": 3,
@@ -709,8 +733,8 @@
           "ac": 7
         },
         "2026-09-02": {
-          "tries": 7,
-          "ac": 3
+          "tries": 6,
+          "ac": 2
         },
         "2026-08-29": {
           "tries": 12,
@@ -853,7 +877,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 12,
+          "tries": 11,
           "ac": 3
         },
         "2026-02-27": {
@@ -889,15 +913,15 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 3,
-          "ac": 2
+          "tries": 2,
+          "ac": 1
         },
         "2025-12-03": {
           "tries": 1,
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 22,
+          "tries": 23,
           "ac": 6
         },
         "2025-12-01": {
@@ -913,19 +937,89 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
+          "tries": 108,
           "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6201481",
+          "platform": "tlx",
+          "title": "Zuma Bergembira",
+          "category": "GEMASTIK 2023 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6201481",
+          "solvedAt": "2026-10-22T07:17:46.805Z"
+        },
+        {
+          "id": "tlx-6201368",
+          "platform": "tlx",
+          "title": "Lampu Gemastik",
+          "category": "GEMASTIK 2023 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6201368",
+          "solvedAt": "2026-10-22T06:53:10.397Z"
+        },
+        {
+          "id": "tlx-6201271",
+          "platform": "tlx",
+          "title": "Kompetisi Pemrograman",
+          "category": "GEMASTIK 2023 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6201271",
+          "solvedAt": "2026-10-22T06:17:10.469Z"
+        },
+        {
+          "id": "tlx-6201147",
+          "platform": "tlx",
+          "title": "Pesan Berantai",
+          "category": "GEMASTIK 2023 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6201147",
+          "solvedAt": "2026-10-22T05:24:33.612Z"
+        },
+        {
+          "id": "tlx-6197670",
+          "platform": "tlx",
+          "title": "Tempat Wisata",
+          "category": "OSN Informatika 2019",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6197670",
+          "solvedAt": "2026-10-21T09:33:26.309Z"
+        },
+        {
+          "id": "tlx-6190845",
+          "platform": "tlx",
+          "title": "Tennis Game",
+          "category": "INC 2021",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6190845",
+          "solvedAt": "2026-10-20T03:32:00.626Z"
+        },
+        {
+          "id": "tlx-6190827",
+          "platform": "tlx",
+          "title": "Wooden Fence",
+          "category": "INC 2021",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6190827",
+          "solvedAt": "2026-10-20T03:21:08.113Z"
+        },
         {
           "id": "tlx-6180556",
           "platform": "tlx",
@@ -2327,16 +2421,6 @@
           "solvedAt": "2026-09-02T11:43:28.425Z"
         },
         {
-          "id": "tlx-5939699",
-          "platform": "tlx",
-          "title": "Amateur Architect",
-          "category": "COMPFEST 18 - Penyisihan CPC Junior",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/5939699",
-          "solvedAt": "2026-09-02T11:42:53.591Z"
-        },
-        {
           "id": "tlx-5938804",
           "platform": "tlx",
           "title": "Pembangkit Listrik",
@@ -2505,6 +2589,16 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/5889874",
           "solvedAt": "2026-08-26T05:12:02.898Z"
+        },
+        {
+          "id": "tlx-5875341",
+          "platform": "tlx",
+          "title": "Amateur Architect",
+          "category": "COMPFEST 18 - Penyisihan CPC Senior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5875341",
+          "solvedAt": "2026-08-23T15:19:24.446Z"
         },
         {
           "id": "tlx-5875280",
@@ -4821,8 +4915,8 @@
     "codeforces": {
       "handle": "feeera",
       "url": "https://codeforces.com/profile/feeera",
-      "rating": 1861,
-      "maxRating": 1861,
+      "rating": 1874,
+      "maxRating": 1874,
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 5,
@@ -4854,13 +4948,15 @@
         "*special": 1
       },
       "ratingDistribution": {
-        "800": 27,
+        "800": 28,
         "900": 1,
-        "1000": 4,
+        "1000": 5,
         "1100": 2,
         "1200": 1,
+        "1400": 1,
         "1500": 1,
         "1600": 1,
+        "1700": 1,
         "1800": 1,
         "2100": 1,
         "2200": 1,
@@ -5005,7 +5101,7 @@
           "title": "Target Infection (2271D)",
           "category": "binary search",
           "language": "C++23 (GCC 14-64, msys2)",
-          "difficulty": "800",
+          "difficulty": "1700",
           "url": "https://codeforces.com/contest/2271/problem/D",
           "solvedAt": "2026-10-10T15:39:01.000Z"
         },
@@ -5015,7 +5111,7 @@
           "title": "XOR Problem (2271C)",
           "category": "bitmasks",
           "language": "C++23 (GCC 14-64, msys2)",
-          "difficulty": "800",
+          "difficulty": "1400",
           "url": "https://codeforces.com/contest/2271/problem/C",
           "solvedAt": "2026-10-10T15:24:26.000Z"
         },
@@ -5025,7 +5121,7 @@
           "title": "MEX Game (2271B)",
           "category": "games",
           "language": "C++23 (GCC 14-64, msys2)",
-          "difficulty": "800",
+          "difficulty": "1000",
           "url": "https://codeforces.com/contest/2271/problem/B",
           "solvedAt": "2026-10-10T15:19:29.000Z"
         },
@@ -5684,12 +5780,32 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1659207,
-      "totalSolved": 104,
-      "easySolved": 52,
-      "mediumSolved": 44,
-      "hardSolved": 8,
+      "ranking": 1524938,
+      "totalSolved": 114,
+      "easySolved": 56,
+      "mediumSolved": 49,
+      "hardSolved": 9,
       "dailyCalendar": {
+        "2026-10-24": {
+          "tries": 1,
+          "ac": 1
+        },
+        "2026-10-23": {
+          "tries": 1,
+          "ac": 1
+        },
+        "2026-10-22": {
+          "tries": 6,
+          "ac": 6
+        },
+        "2026-10-21": {
+          "tries": 1,
+          "ac": 1
+        },
+        "2026-10-20": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-19": {
           "tries": 1,
           "ac": 1
@@ -5703,19 +5819,111 @@
           "ac": 1
         },
         "2026-10-16": {
-          "tries": 11,
-          "ac": 11
-        },
-        "2026-10-15": {
-          "tries": 2,
-          "ac": 2
-        },
-        "2026-10-14": {
-          "tries": 4,
-          "ac": 4
+          "tries": 7,
+          "ac": 7
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792814014",
+          "platform": "leetcode",
+          "title": "Count Days Spent Together",
+          "category": "Math",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/count-days-spent-together/",
+          "solvedAt": "2026-10-24T03:53:34.000Z"
+        },
+        {
+          "id": "lc-1792770429",
+          "platform": "leetcode",
+          "title": "Maximum K to Sort a Permutation",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/maximum-k-to-sort-a-permutation/",
+          "solvedAt": "2026-10-23T15:47:09.000Z"
+        },
+        {
+          "id": "lc-1792643886",
+          "platform": "leetcode",
+          "title": "Missing Number",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/missing-number/",
+          "solvedAt": "2026-10-22T04:38:06.000Z"
+        },
+        {
+          "id": "lc-1792642764",
+          "platform": "leetcode",
+          "title": "Single Number II",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/single-number-ii/",
+          "solvedAt": "2026-10-22T04:19:24.000Z"
+        },
+        {
+          "id": "lc-1792641347",
+          "platform": "leetcode",
+          "title": "Range Sum Query - Immutable",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/range-sum-query-immutable/",
+          "solvedAt": "2026-10-22T03:55:47.000Z"
+        },
+        {
+          "id": "lc-1792640829",
+          "platform": "leetcode",
+          "title": "Tenth Line",
+          "category": "Shell",
+          "language": "BASH",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/tenth-line/",
+          "solvedAt": "2026-10-22T03:47:09.000Z"
+        },
+        {
+          "id": "lc-1792640620",
+          "platform": "leetcode",
+          "title": "Transpose File",
+          "category": "Shell",
+          "language": "BASH",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/transpose-file/",
+          "solvedAt": "2026-10-22T03:43:40.000Z"
+        },
+        {
+          "id": "lc-1792628795",
+          "platform": "leetcode",
+          "title": "Minimum Operations to Sort a Permutation",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
+          "solvedAt": "2026-10-22T00:26:35.000Z"
+        },
+        {
+          "id": "lc-1792542077",
+          "platform": "leetcode",
+          "title": "Minimum Operations to Sort a String",
+          "category": "String",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-string/",
+          "solvedAt": "2026-10-21T00:21:17.000Z"
+        },
+        {
+          "id": "lc-1792456701",
+          "platform": "leetcode",
+          "title": "Sum of Sortable Integers",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/sum-of-sortable-integers/",
+          "solvedAt": "2026-10-20T00:38:21.000Z"
+        },
         {
           "id": "lc-1792414875",
           "platform": "leetcode",
@@ -5815,106 +6023,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/word-frequency/",
           "solvedAt": "2026-10-16T03:55:40.000Z"
-        },
-        {
-          "id": "lc-1792122869",
-          "platform": "leetcode",
-          "title": "Valid Phone Numbers",
-          "category": "Shell",
-          "language": "BASH",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/valid-phone-numbers/",
-          "solvedAt": "2026-10-16T03:54:29.000Z"
-        },
-        {
-          "id": "lc-1792111664",
-          "platform": "leetcode",
-          "title": "Reverse Bits",
-          "category": "Divide and Conquer",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/reverse-bits/",
-          "solvedAt": "2026-10-16T00:47:44.000Z"
-        },
-        {
-          "id": "lc-1792110515",
-          "platform": "leetcode",
-          "title": "Subarrays Distinct Element Sum of Squares II",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-ii/",
-          "solvedAt": "2026-10-16T00:28:35.000Z"
-        },
-        {
-          "id": "lc-1792109449",
-          "platform": "leetcode",
-          "title": "Valid Parenthesis String",
-          "category": "String",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/valid-parenthesis-string/",
-          "solvedAt": "2026-10-16T00:10:49.000Z"
-        },
-        {
-          "id": "lc-1792108398",
-          "platform": "leetcode",
-          "title": "Maximum Alternating Sum of Squares",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/maximum-alternating-sum-of-squares/",
-          "solvedAt": "2026-10-15T23:53:18.000Z"
-        },
-        {
-          "id": "lc-1792105917",
-          "platform": "leetcode",
-          "title": "Subarrays Distinct Element Sum of Squares I",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/subarrays-distinct-element-sum-of-squares-i/",
-          "solvedAt": "2026-10-15T23:11:57.000Z"
-        },
-        {
-          "id": "lc-1792019479",
-          "platform": "leetcode",
-          "title": "Count Array Pairs Divisible by K",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/count-array-pairs-divisible-by-k/",
-          "solvedAt": "2026-10-14T23:11:19.000Z"
-        },
-        {
-          "id": "lc-1792018745",
-          "platform": "leetcode",
-          "title": "Smallest Index With Digit Sum Equal to Index",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/smallest-index-with-digit-sum-equal-to-index/",
-          "solvedAt": "2026-10-14T22:59:05.000Z"
-        },
-        {
-          "id": "lc-1792018270",
-          "platform": "leetcode",
-          "title": "Maximize Sum of Squares of Digits",
-          "category": "Math",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/maximize-sum-of-squares-of-digits/",
-          "solvedAt": "2026-10-14T22:51:10.000Z"
-        },
-        {
-          "id": "lc-1792017773",
-          "platform": "leetcode",
-          "title": "Number of 1 Bits",
-          "category": "Divide and Conquer",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/number-of-1-bits/",
-          "solvedAt": "2026-10-14T22:42:53.000Z"
         }
       ]
     },
@@ -6351,6 +6459,176 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "lc-1792814014",
+      "platform": "leetcode",
+      "title": "Count Days Spent Together",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/count-days-spent-together/",
+      "solvedAt": "2026-10-24T03:53:34.000Z"
+    },
+    {
+      "id": "lc-1792770429",
+      "platform": "leetcode",
+      "title": "Maximum K to Sort a Permutation",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/maximum-k-to-sort-a-permutation/",
+      "solvedAt": "2026-10-23T15:47:09.000Z"
+    },
+    {
+      "id": "tlx-6201481",
+      "platform": "tlx",
+      "title": "Zuma Bergembira",
+      "category": "GEMASTIK 2023 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6201481",
+      "solvedAt": "2026-10-22T07:17:46.805Z"
+    },
+    {
+      "id": "tlx-6201368",
+      "platform": "tlx",
+      "title": "Lampu Gemastik",
+      "category": "GEMASTIK 2023 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6201368",
+      "solvedAt": "2026-10-22T06:53:10.397Z"
+    },
+    {
+      "id": "tlx-6201271",
+      "platform": "tlx",
+      "title": "Kompetisi Pemrograman",
+      "category": "GEMASTIK 2023 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6201271",
+      "solvedAt": "2026-10-22T06:17:10.469Z"
+    },
+    {
+      "id": "tlx-6201147",
+      "platform": "tlx",
+      "title": "Pesan Berantai",
+      "category": "GEMASTIK 2023 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6201147",
+      "solvedAt": "2026-10-22T05:24:33.612Z"
+    },
+    {
+      "id": "lc-1792643886",
+      "platform": "leetcode",
+      "title": "Missing Number",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/missing-number/",
+      "solvedAt": "2026-10-22T04:38:06.000Z"
+    },
+    {
+      "id": "lc-1792642764",
+      "platform": "leetcode",
+      "title": "Single Number II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/single-number-ii/",
+      "solvedAt": "2026-10-22T04:19:24.000Z"
+    },
+    {
+      "id": "lc-1792641347",
+      "platform": "leetcode",
+      "title": "Range Sum Query - Immutable",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/range-sum-query-immutable/",
+      "solvedAt": "2026-10-22T03:55:47.000Z"
+    },
+    {
+      "id": "lc-1792640829",
+      "platform": "leetcode",
+      "title": "Tenth Line",
+      "category": "Shell",
+      "language": "BASH",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/tenth-line/",
+      "solvedAt": "2026-10-22T03:47:09.000Z"
+    },
+    {
+      "id": "lc-1792640620",
+      "platform": "leetcode",
+      "title": "Transpose File",
+      "category": "Shell",
+      "language": "BASH",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/transpose-file/",
+      "solvedAt": "2026-10-22T03:43:40.000Z"
+    },
+    {
+      "id": "lc-1792628795",
+      "platform": "leetcode",
+      "title": "Minimum Operations to Sort a Permutation",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
+      "solvedAt": "2026-10-22T00:26:35.000Z"
+    },
+    {
+      "id": "tlx-6197670",
+      "platform": "tlx",
+      "title": "Tempat Wisata",
+      "category": "OSN Informatika 2019",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6197670",
+      "solvedAt": "2026-10-21T09:33:26.309Z"
+    },
+    {
+      "id": "lc-1792542077",
+      "platform": "leetcode",
+      "title": "Minimum Operations to Sort a String",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-string/",
+      "solvedAt": "2026-10-21T00:21:17.000Z"
+    },
+    {
+      "id": "tlx-6190845",
+      "platform": "tlx",
+      "title": "Tennis Game",
+      "category": "INC 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6190845",
+      "solvedAt": "2026-10-20T03:32:00.626Z"
+    },
+    {
+      "id": "tlx-6190827",
+      "platform": "tlx",
+      "title": "Wooden Fence",
+      "category": "INC 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6190827",
+      "solvedAt": "2026-10-20T03:21:08.113Z"
+    },
+    {
+      "id": "lc-1792456701",
+      "platform": "leetcode",
+      "title": "Sum of Sortable Integers",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/sum-of-sortable-integers/",
+      "solvedAt": "2026-10-20T00:38:21.000Z"
+    },
+    {
       "id": "lc-1792414875",
       "platform": "leetcode",
       "title": "Find Target Indices After Sorting Array",
@@ -6766,7 +7044,7 @@
       "title": "Target Infection (2271D)",
       "category": "binary search",
       "language": "C++23 (GCC 14-64, msys2)",
-      "difficulty": "800",
+      "difficulty": "1700",
       "url": "https://codeforces.com/contest/2271/problem/D",
       "solvedAt": "2026-10-10T15:39:01.000Z"
     },
@@ -6776,7 +7054,7 @@
       "title": "XOR Problem (2271C)",
       "category": "bitmasks",
       "language": "C++23 (GCC 14-64, msys2)",
-      "difficulty": "800",
+      "difficulty": "1400",
       "url": "https://codeforces.com/contest/2271/problem/C",
       "solvedAt": "2026-10-10T15:24:26.000Z"
     },
@@ -6786,7 +7064,7 @@
       "title": "MEX Game (2271B)",
       "category": "games",
       "language": "C++23 (GCC 14-64, msys2)",
-      "difficulty": "800",
+      "difficulty": "1000",
       "url": "https://codeforces.com/contest/2271/problem/B",
       "solvedAt": "2026-10-10T15:19:29.000Z"
     },
@@ -8231,16 +8509,6 @@
       "solvedAt": "2026-09-02T11:43:28.425Z"
     },
     {
-      "id": "tlx-5939699",
-      "platform": "tlx",
-      "title": "Amateur Architect",
-      "category": "COMPFEST 18 - Penyisihan CPC Junior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/5939699",
-      "solvedAt": "2026-09-02T11:42:53.591Z"
-    },
-    {
       "id": "tlx-5938804",
       "platform": "tlx",
       "title": "Pembangkit Listrik",
@@ -8409,6 +8677,16 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5889874",
       "solvedAt": "2026-08-26T05:12:02.898Z"
+    },
+    {
+      "id": "tlx-5875341",
+      "platform": "tlx",
+      "title": "Amateur Architect",
+      "category": "COMPFEST 18 - Penyisihan CPC Senior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5875341",
+      "solvedAt": "2026-08-23T15:19:24.446Z"
     },
     {
       "id": "tlx-5875280",

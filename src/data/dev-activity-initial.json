@@ -1,11 +1,11 @@
 {
   "meta": {
-    "updatedAt": "2026-10-24T20:09:25.077Z",
+    "updatedAt": "2026-10-25T03:03:55.703Z",
     "source": "scheduled-crawl"
   },
   "overview": {
     "totalContributions": 744,
-    "lastYearContributions": 355,
+    "lastYearContributions": 354,
     "currentStreak": 0,
     "longestStreak": 13,
     "heatmap": {
@@ -1115,13 +1115,13 @@
   "platforms": {
     "github": {
       "meta": {
-        "updatedAt": "2026-10-24T20:09:21.898Z",
+        "updatedAt": "2026-10-25T03:03:51.914Z",
         "username": "riefproject",
         "source": "github-public-api"
       },
       "overview": {
         "totalContributions": 744,
-        "lastYearContributions": 355,
+        "lastYearContributions": 354,
         "currentStreak": 0,
         "longestStreak": 13,
         "heatmap": {
@@ -5531,7 +5531,58 @@
         "publicGists": 1,
         "createdAt": "2024-06-23T18:12:47Z"
       },
-      "languages": [],
+      "languages": [
+        {
+          "name": "C",
+          "bytes": 3630085,
+          "percentage": 38
+        },
+        {
+          "name": "PHP",
+          "bytes": 1164717,
+          "percentage": 12.2
+        },
+        {
+          "name": "Dart",
+          "bytes": 1087627,
+          "percentage": 11.4
+        },
+        {
+          "name": "Vue",
+          "bytes": 1040103,
+          "percentage": 10.9
+        },
+        {
+          "name": "C++",
+          "bytes": 509490,
+          "percentage": 5.3
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 395303,
+          "percentage": 4.1
+        },
+        {
+          "name": "Java",
+          "bytes": 293744,
+          "percentage": 3.1
+        },
+        {
+          "name": "Blade",
+          "bytes": 263159,
+          "percentage": 2.8
+        },
+        {
+          "name": "C#",
+          "bytes": 228720,
+          "percentage": 2.4
+        },
+        {
+          "name": "Go",
+          "bytes": 194034,
+          "percentage": 2
+        }
+      ],
       "topRepos": [
         {
           "name": "21IF1001-DasarDasarPemrograman",
@@ -5591,7 +5642,7 @@
           "language": "Vue",
           "stars": 1,
           "forks": 0,
-          "updatedAt": "2026-10-24T10:14:24Z",
+          "updatedAt": "2026-10-24T20:09:42Z",
           "archived": false,
           "topics": [
             "cv",

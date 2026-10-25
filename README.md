@@ -5,7 +5,7 @@ Content is rendered statically; interactive dashboards hydrate only where needed
 
 ## Requirements
 
-- Node.js 20+
+- Node.js 24.22.1+ (LTS), or 22.23.4+ on the 22.x line. Node 20 is EOL.
 - npm
 
 ## Quick start

@@ -49,13 +49,11 @@ test.describe('public pages', () => {
   })
 
   test('theme toggle switches between light and dark', async ({ page }) => {
+    await page.emulateMedia({ colorScheme: 'light' })
     await page.goto('/')
-    await page.waitForFunction(() => {
-      const island = Array.from(document.querySelectorAll('astro-island')).find((item) => item.getAttribute('component-url')?.includes('ThemeToggle'))
-      return Boolean(island && !island.hasAttribute('ssr'))
-    })
 
     const toggle = page.getByRole('button', { name: 'Switch to dark mode' })
+    await expect(toggle).toBeVisible()
     await toggle.click()
 
     await expect(page.locator('html')).toHaveClass(/dark/)

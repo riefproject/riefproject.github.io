@@ -1,0 +1,18 @@
+---
+type Props = {
+  initialLocale?: 'en' | 'id'
+}
+
+const { initialLocale = 'en' } = Astro.props
+const isId = initialLocale === 'id'
+const label = isId ? 'Change language to English' : 'Switch language to Indonesian'
+---
+
+<button type="button" class="toggle-btn" data-lang-toggle-fallback aria-label={label}>
+  <span class={`segment${isId ? '' : ' active'}`} aria-hidden="true">
+    <span>EN</span>
+  </span>
+  <span class={`segment${isId ? ' active' : ''}`} aria-hidden="true">
+    <span>ID</span>
+  </span>
+</button>

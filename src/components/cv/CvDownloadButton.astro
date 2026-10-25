@@ -1,0 +1,196 @@
+---
+type Props = {
+  initialLocale?: 'en' | 'id'
+}
+
+const { initialLocale = 'en' } = Astro.props
+const isId = initialLocale === 'id'
+const label = isId ? 'Unduh CV' : 'Download CV'
+const englishLabel = isId ? 'Versi Bahasa Inggris' : 'English Version'
+const indonesianLabel = isId ? 'Versi Bahasa Indonesia' : 'Indonesian Version'
+---
+
+<details class="cv-download-wrapper" data-cv-download>
+  <summary class="btn ghost cv-trigger">
+    <span>{label}</span>
+    <svg
+      class="chevron"
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true">
+      <polyline points="6 9 12 15 18 9"></polyline>
+    </svg>
+  </summary>
+
+  <div class="cv-dropdown">
+    <a href="/pdf/cv-arief-en.pdf" target="_blank" rel="noopener noreferrer" class="cv-item">
+      <span class="lang-code">EN</span>
+      <span class="lang-label">{englishLabel}</span>
+    </a>
+    <a href="/pdf/cv-arief-in.pdf" target="_blank" rel="noopener noreferrer" class="cv-item">
+      <span class="lang-code">ID</span>
+      <span class="lang-label">{indonesianLabel}</span>
+    </a>
+  </div>
+</details>
+
+<script is:inline>
+  ;(() => {
+    if (window.__cvDownloadReady) return
+    window.__cvDownloadReady = true
+
+    document.addEventListener('click', (event) => {
+      const target = event.target
+      if (!(target instanceof Element)) return
+      document.querySelectorAll('details[data-cv-download][open]').forEach((details) => {
+        if (!details.contains(target)) details.removeAttribute('open')
+      })
+    })
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return
+      document.querySelectorAll('details[data-cv-download][open]').forEach((details) => {
+        details.removeAttribute('open')
+      })
+    })
+  })()
+</script>
+
+<style>
+  .cv-download-wrapper {
+    position: relative;
+    display: inline-block;
+    width: auto;
+  }
+
+  .cv-download-wrapper > summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .cv-download-wrapper > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .cv-trigger {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .cv-trigger:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+
+  .chevron {
+    transition: transform 0.2s ease;
+  }
+
+  .cv-download-wrapper[open] .chevron {
+    transform: rotate(180deg);
+  }
+
+  .cv-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .cv-download-wrapper:not([open]) .cv-dropdown {
+    display: none;
+  }
+
+  .cv-download-wrapper[open] .cv-dropdown {
+    animation: cv-dropdown-in 160ms ease;
+  }
+
+  .cv-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.9rem;
+    background: transparent !important;
+    transition: all 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .cv-item:visited {
+    background: transparent !important;
+  }
+
+  .cv-item:focus-visible {
+    outline: 2px solid var(--text);
+    outline-offset: 2px;
+  }
+
+  @media (hover: hover) {
+    .cv-item:hover {
+      background: transparent !important;
+      transform: translateX(4px);
+    }
+  }
+
+  .cv-item:active {
+    background: transparent !important;
+    transform: translateX(2px);
+  }
+
+  .lang-code {
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding: 0.125rem 0;
+    color: var(--text);
+    transition: all 0.2s ease;
+  }
+
+  .cv-item:hover .lang-code {
+    background: transparent;
+  }
+
+  @keyframes cv-dropdown-in {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chevron,
+    .cv-item {
+      transition: none;
+    }
+
+    .cv-download-wrapper[open] .cv-dropdown {
+      animation: none;
+    }
+  }
+</style>

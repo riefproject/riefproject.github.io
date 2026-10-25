@@ -1,0 +1,98 @@
+---
+const themeLabel = 'Switch to dark mode'
+---
+
+<button type="button" class="toggle-btn" data-theme-toggle aria-label={themeLabel}>
+  <span class="segment" data-theme-value="light" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.75"
+      stroke="currentColor"
+      aria-hidden="true">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
+      />
+    </svg>
+  </span>
+  <span class="segment" data-theme-value="dark" aria-hidden="true">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke-width="1.75"
+      stroke="currentColor"
+      aria-hidden="true">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
+      />
+    </svg>
+  </span>
+</button>
+
+<script is:inline>
+  ;(() => {
+    const storageKey = 'portfolio-theme'
+    const root = document.documentElement
+    const buttons = Array.from(document.querySelectorAll('[data-theme-toggle]'))
+    if (!buttons.length) return
+
+    const readTheme = () => (root.classList.contains('dark') ? 'dark' : 'light')
+
+    const render = (theme) => {
+      const isDark = theme === 'dark'
+      buttons.forEach((button) => {
+        button.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode')
+        button.querySelectorAll('[data-theme-value]').forEach((segment) => {
+          segment.classList.toggle('active', segment.getAttribute('data-theme-value') === theme)
+        })
+      })
+    }
+
+    const persist = (theme) => {
+      try {
+        localStorage.setItem(storageKey, theme)
+      } catch {
+        // ignore storage write failure
+      }
+    }
+
+    const apply = (theme) => {
+      const next = theme === 'dark' ? 'dark' : 'light'
+      root.classList.toggle('dark', next === 'dark')
+      root.classList.toggle('light', next === 'light')
+      persist(next)
+      render(next)
+      window.dispatchEvent(new CustomEvent('portfolio:theme-change', { detail: next }))
+    }
+
+    const init = () => {
+      render(readTheme())
+      buttons.forEach((button) => {
+        button.addEventListener('click', () => {
+          apply(readTheme() === 'dark' ? 'light' : 'dark')
+        })
+      })
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init, { once: true })
+    } else {
+      init()
+    }
+
+    window.addEventListener('storage', (event) => {
+      if (event.key !== storageKey || !event.newValue) return
+      const next = event.newValue === 'dark' ? 'dark' : 'light'
+      root.classList.toggle('dark', next === 'dark')
+      root.classList.toggle('light', next === 'light')
+      render(next)
+      window.dispatchEvent(new CustomEvent('portfolio:theme-change', { detail: next }))
+    })
+  })()
+</script>

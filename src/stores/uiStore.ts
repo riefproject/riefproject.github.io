@@ -54,6 +54,11 @@ export const lang = atom<Locale>(typeof window !== 'undefined' ? localeFromPath(
 export const theme = atom<Theme>('light')
 
 if (typeof window !== 'undefined') {
+  window.addEventListener('portfolio:theme-change', (event) => {
+    const next = event instanceof CustomEvent && event.detail === 'dark' ? 'dark' : 'light'
+    theme.set(next)
+  })
+
   // Sync with client-side storage after a tick to allow hydration to complete
   setTimeout(() => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches

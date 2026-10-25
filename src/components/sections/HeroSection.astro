@@ -1,7 +1,7 @@
 ---
 import type { Contact, Highlight, Profile, SocialLink, Stat } from '../../types/profile.types'
 import LocaleText from '../i18n/LocaleText.astro'
-import CvDownloadButton from '../cv/CvDownloadButton.vue'
+import CvDownloadButton from '../cv/CvDownloadButton.astro'
 import ArrowUpRight from '../shared/ArrowUpRight.astro'
 import devActivity from '../../data/dev-activity.json'
 import cpData from '../../data/cp-data.json'
@@ -96,7 +96,7 @@ const extraTools = Math.max(toolbox.length - toolboxPreview.length, 0)
       <a class="btn ghost" href={`mailto:${contact.email}`}>
         <LocaleText as="span" text={heroCopy.contact} />
       </a>
-      <CvDownloadButton client:idle initialLocale={currentLocale} />
+      <CvDownloadButton initialLocale={currentLocale} />
     </div>
   </div>
 

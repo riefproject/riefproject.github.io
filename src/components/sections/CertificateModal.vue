@@ -275,7 +275,7 @@ onUnmounted(() => {
                       :href="achievement.credentialUrl"
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[var(--accent)] hover:bg-[var(--accent-strong)] text-white font-semibold rounded-xl transition-all shadow-sm hover:shadow-md">
+                      class="w-full inline-flex items-center justify-center gap-2 px-5 py-3 bg-[var(--accent)] hover:bg-[var(--accent-strong)] text-accent-contrast font-semibold rounded-xl transition-all shadow-sm hover:shadow-md">
                       <span>{{ copy.verifyCredential }}</span>
                       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path

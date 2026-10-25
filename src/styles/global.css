@@ -20,6 +20,7 @@
   --muted: #a3a3a3;
   --accent: #ededed;
   --accent-strong: #ffffff;
+  --accent-contrast: #0a0a0a;
   --border: #262626;
   --shadow-soft: none;
   --sidebar-bg: #0a0a0a;
@@ -84,6 +85,7 @@
   --muted: #525252;
   --accent: #171717;
   --accent-strong: #000000;
+  --accent-contrast: #ffffff;
   --border: #e5e5e5;
   --shadow-soft: 0 4px 14px rgba(0, 0, 0, 0.06);
   --sidebar-bg: #ffffff;

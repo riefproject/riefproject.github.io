@@ -11,6 +11,7 @@ export default {
         muted: 'var(--muted)',
         accent: 'var(--accent)',
         'accent-strong': 'var(--accent-strong)',
+        'accent-contrast': 'var(--accent-contrast)',
         border: 'var(--border)',
       },
       fontFamily: {

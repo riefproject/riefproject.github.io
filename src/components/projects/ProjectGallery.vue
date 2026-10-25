@@ -104,7 +104,7 @@ const toggleViewMore = () => {
       class="flex justify-center mt-4">
       <button
         @click="toggleViewMore"
-        class="inline-flex items-center justify-center rounded-full border-2 border-accent px-6 py-3 text-base font-semibold text-accent transition hover:bg-accent hover:text-white">
+        class="inline-flex items-center justify-center rounded-full border-2 border-accent px-6 py-3 text-base font-semibold text-accent transition hover:bg-accent hover:text-accent-contrast">
         {{ showAllProjects ? copy.viewLess : copy.viewMore }}
         <svg
           :class="['ml-2 h-5 w-5 transition-transform', showAllProjects ? 'rotate-180' : '']"

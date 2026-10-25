@@ -82,7 +82,6 @@ withDefaults(
 .stat-unit {
   font-size: var(--text-lg);
   font-weight: 600;
-  opacity: 0.75;
   margin-left: 2px;
 }
 
@@ -127,7 +126,6 @@ withDefaults(
 
 .stat-card--dev .stat-unit {
   font-weight: 700;
-  opacity: 0.85;
   margin-left: 1px;
 }
 

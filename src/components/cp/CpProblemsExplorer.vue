@@ -17,8 +17,12 @@
           itemType="platform" />
 
         <div class="rows-per-page-select">
-          <label class="text-xs text-gray-400">{{ copy.perPage }}</label>
-          <select v-model.number="pageSize" @change="currentPage = 1" class="page-size-dropdown">
+          <label for="cp-page-size" class="text-xs text-muted">{{ copy.perPage }}</label>
+          <select
+            id="cp-page-size"
+            v-model.number="pageSize"
+            @change="currentPage = 1"
+            class="page-size-dropdown">
             <option v-for="size in PAGE_SIZE_OPTIONS" :key="size" :value="size">{{ size }}</option>
           </select>
         </div>

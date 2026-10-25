@@ -26,18 +26,14 @@
               <template v-if="getPlatformLogoLight(item.platform)">
                 <img
                   :src="getPlatformLogo(item.platform)"
-                  :alt="item.platform"
+                  alt=""
                   class="table-logo-img logo-variant-dark" />
                 <img
                   :src="getPlatformLogoLight(item.platform)"
-                  :alt="item.platform"
+                  alt=""
                   class="table-logo-img logo-variant-light" />
               </template>
-              <img
-                v-else
-                :src="getPlatformLogo(item.platform)"
-                :alt="item.platform"
-                class="table-logo-img" />
+              <img v-else :src="getPlatformLogo(item.platform)" alt="" class="table-logo-img" />
               <span class="platform-text-name">{{ getPlatformName(item.platform) }}</span>
             </div>
           </td>

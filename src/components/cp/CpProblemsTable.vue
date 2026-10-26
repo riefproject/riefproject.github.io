@@ -164,7 +164,11 @@ const defaultColumns = computed<CpColumn[]>(() => {
 
 const displayColumns = computed(() => (props.columns.length ? props.columns : defaultColumns.value))
 
-const columnClass = (key: CpColumnKey) => (key === 'difficulty' ? 'diff' : key)
+const columnClass = (key: CpColumnKey) => {
+  if (key === 'difficulty') return 'diff'
+  if (key === 'language') return 'lang'
+  return key
+}
 </script>
 
 <style scoped>

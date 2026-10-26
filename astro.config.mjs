@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config'
 import vue from '@astrojs/vue'
-import tailwind from '@astrojs/tailwind'
+import tailwindcss from '@tailwindcss/vite'
 import sitemap from '@astrojs/sitemap'
 import keystatic from '@keystatic/astro'
 import react from '@astrojs/react'
@@ -11,9 +11,6 @@ export default defineConfig({
   site: 'https://riefproject.my.id',
   integrations: [
     vue(),
-    tailwind({
-      applyBaseStyles: true,
-    }),
     sitemap(),
     react(),
     process.env.NODE_ENV === 'production' ? null : keystatic(),
@@ -51,6 +48,7 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
   vite: {
+    plugins: [tailwindcss()],
     optimizeDeps: {
       exclude: ['@keystatic/astro', '@keystatic/core'],
     },

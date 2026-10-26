@@ -1,6 +1,23 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@source '../**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}';
+
+@theme {
+  --color-background: var(--bg);
+  --color-background-soft: var(--bg-soft);
+  --color-surface: var(--bg-elevated);
+  --color-text: var(--text);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-contrast: var(--accent-contrast);
+  --color-border: var(--border);
+
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: monospace;
+
+  --shadow-soft: none;
+}
 
 :root {
   color-scheme: dark;
@@ -34,13 +51,13 @@
   --scrollbar-thumb: rgba(255, 255, 255, 0.14);
   --scrollbar-thumb-hover: rgba(255, 255, 255, 0.26);
 
-  /* Typography scale */
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 0.9rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
+  /* Typography scale (custom; avoid Tailwind's --text-* namespace) */
+  --type-xs: 0.75rem;
+  --type-sm: 0.875rem;
+  --type-base: 0.9rem;
+  --type-lg: 1.125rem;
+  --type-xl: 1.25rem;
+  --type-2xl: 1.5rem;
 
   /* Border radius hierarchy */
   --radius-xs: 0.125rem; /* 2px  - mini dots / heat-box */

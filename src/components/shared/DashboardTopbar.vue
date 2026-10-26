@@ -43,7 +43,7 @@ const formattedTime = computed(() => {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   color: var(--muted);
 }
 

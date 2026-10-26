@@ -192,11 +192,11 @@ watch(selectedCategories, (newVal) => {
   flex-direction: column;
   gap: 1.5rem;
   width: 100%;
-  --text-2xl: 1.75rem;
-  --text-lg: 1.125rem;
-  --text-base: 0.875rem;
-  --text-sm: 0.75rem;
-  --text-xs: 0.7rem;
+  --type-2xl: 1.75rem;
+  --type-lg: 1.125rem;
+  --type-base: 0.875rem;
+  --type-sm: 0.75rem;
+  --type-xs: 0.7rem;
 }
 
 .explorer-card {
@@ -234,7 +234,7 @@ watch(selectedCategories, (newVal) => {
   background: var(--bg-elevated);
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: var(--text-base);
+  font-size: var(--type-base);
   outline: none;
   box-sizing: border-box;
   cursor: pointer;
@@ -254,7 +254,7 @@ watch(selectedCategories, (newVal) => {
   padding: 3rem;
   text-align: center;
   color: var(--muted);
-  font-size: var(--text-base);
+  font-size: var(--type-base);
 }
 
 @media (max-width: 640px) {

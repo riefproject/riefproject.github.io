@@ -136,14 +136,14 @@ defineEmits<{
 }
 
 .pcard-name {
-  font-size: var(--text-base);
+  font-size: var(--type-base);
   font-weight: 700;
   margin: 0;
   color: var(--text);
 }
 
 .pcard-handle {
-  font-size: var(--text-xs);
+  font-size: var(--type-xs);
   color: var(--muted);
   margin-top: 0.15rem;
 }
@@ -159,14 +159,14 @@ defineEmits<{
 }
 
 .pcard-solved-num {
-  font-size: var(--text-lg);
+  font-size: var(--type-lg);
   font-weight: 700;
   color: var(--text);
   letter-spacing: -0.02em;
 }
 
 .pcard-solved-label {
-  font-size: var(--text-xs);
+  font-size: var(--type-xs);
   color: var(--muted);
   font-weight: 400;
 }
@@ -175,7 +175,7 @@ defineEmits<{
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   color: var(--muted);
   margin-bottom: 1.25rem;
 }
@@ -197,7 +197,7 @@ defineEmits<{
 }
 
 .view-details-link {
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   font-weight: 600;
   color: var(--link);
 }

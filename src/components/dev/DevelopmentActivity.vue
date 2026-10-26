@@ -113,10 +113,10 @@ const {
   gap: 2rem;
   width: 100%;
   min-width: 0;
-  --text-2xl: 1.75rem;
-  --text-lg: 1.125rem;
-  --text-base: 0.875rem;
-  --text-sm: 0.75rem;
-  --text-xs: 0.7rem;
+  --type-2xl: 1.75rem;
+  --type-lg: 1.125rem;
+  --type-base: 0.875rem;
+  --type-sm: 0.75rem;
+  --type-xs: 0.7rem;
 }
 </style>

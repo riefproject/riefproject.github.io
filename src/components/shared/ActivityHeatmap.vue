@@ -204,14 +204,14 @@ onMounted(() => {
 }
 
 .title-with-badge h3 {
-  font-size: var(--text-lg);
+  font-size: var(--type-lg);
   font-weight: 700;
   margin: 0;
   color: var(--text);
 }
 
 .activity-count-badge {
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-full);
   color: var(--muted);
@@ -285,7 +285,7 @@ onMounted(() => {
 
 .month-label {
   position: absolute;
-  font-size: var(--text-xs);
+  font-size: var(--type-xs);
   color: var(--muted);
 }
 
@@ -327,7 +327,7 @@ onMounted(() => {
     justify-content: center;
     gap: 0.35rem;
     margin-top: 0.35rem;
-    font-size: var(--text-xs);
+    font-size: var(--type-xs);
     color: var(--muted);
     opacity: 0.75;
   }

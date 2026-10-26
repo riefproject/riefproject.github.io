@@ -411,14 +411,14 @@ const hrCppJavaPoints = computed(() =>
 }
 
 .feed-header h3 {
-  font-size: var(--text-lg);
+  font-size: var(--type-lg);
   font-weight: 700;
   margin: 0;
   color: var(--text);
 }
 
 .feed-subtitle {
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   color: var(--muted);
   margin: 0.2rem 0 0 0;
 }

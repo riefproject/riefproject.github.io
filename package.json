@@ -43,15 +43,13 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.11",
     "@astrojs/sitemap": "^3.6.0",
-    "@astrojs/tailwind": "^6.0.2",
     "@axe-core/playwright": "^4.14.0",
     "@lhci/cli": "^0.15.1",
     "@playwright/test": "^1.64.1",
-    "autoprefixer": "^10.4.22",
+    "@tailwindcss/vite": "^4.3.3",
     "baseline-browser-mapping": "^2.11.12",
-    "postcss": "^8.5.6",
     "prettier-plugin-astro": "^1.1.1",
-    "tailwindcss": "^3.4.17",
+    "tailwindcss": "^4.3.3",
     "typescript": "^5.9.3",
     "vitest": "^5.0.5"
   },

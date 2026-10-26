@@ -66,7 +66,7 @@ defineProps<{
   box-shadow:
     0 10px 25px -5px rgba(0, 0, 0, 0.5),
     0 8px 10px -6px rgba(0, 0, 0, 0.5);
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   white-space: nowrap;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@ defineProps<{
 .tip-date {
   color: var(--muted, #94a3b8);
   font-weight: 500;
-  font-size: var(--text-xs);
+  font-size: var(--type-xs);
   border-bottom: 1px solid var(--border, rgba(255, 255, 255, 0.08));
   padding-bottom: 0.25rem;
 }
@@ -105,7 +105,7 @@ defineProps<{
   gap: 0.35rem;
   padding: 0.15rem 0.45rem;
   border-radius: var(--radius-sm);
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   font-weight: 500;
 }
 

@@ -49,7 +49,7 @@ withDefaults(
 }
 
 .stat-label {
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   font-weight: 500;
   color: var(--muted);
   white-space: nowrap;
@@ -58,7 +58,7 @@ withDefaults(
 }
 
 .stat-value {
-  font-size: var(--text-2xl);
+  font-size: var(--type-2xl);
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
@@ -80,13 +80,13 @@ withDefaults(
 }
 
 .stat-unit {
-  font-size: var(--text-lg);
+  font-size: var(--type-lg);
   font-weight: 600;
   margin-left: 2px;
 }
 
 .stat-helper {
-  font-size: var(--text-xs);
+  font-size: var(--type-xs);
   color: var(--muted);
   line-height: 1.3;
   margin-top: 0.2rem;
@@ -102,7 +102,7 @@ withDefaults(
 }
 
 .stat-card--dev .stat-label {
-  font-size: var(--text-xs);
+  font-size: var(--type-xs);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -130,7 +130,7 @@ withDefaults(
 }
 
 .stat-card--dev .stat-helper {
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   line-height: 1.35;
   margin-top: 0;
 }

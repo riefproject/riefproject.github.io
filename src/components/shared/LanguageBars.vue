@@ -66,7 +66,7 @@ const headerSubtitle = computed(() => (props.isId ? props.subtitleId : props.sub
 .lang-head {
   display: flex;
   justify-content: space-between;
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
 }
 
 .lang-name {

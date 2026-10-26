@@ -69,7 +69,7 @@ defineEmits<{
   border: 1px solid transparent;
   background: transparent;
   color: var(--muted);
-  font-size: var(--text-base);
+  font-size: var(--type-base);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s;
@@ -115,7 +115,7 @@ defineEmits<{
 }
 
 .tab-badge {
-  font-size: var(--text-xs);
+  font-size: var(--type-xs);
   padding: 0.15rem 0.45rem;
   border-radius: var(--radius-full);
   background: var(--bg-elevated);

@@ -161,7 +161,7 @@ const setPage = (page: number) => {
 }
 
 .feed-counter-text {
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   color: var(--muted);
   font-weight: 500;
 }
@@ -180,7 +180,7 @@ const setPage = (page: number) => {
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s;
@@ -213,7 +213,7 @@ const setPage = (page: number) => {
   background: var(--bg-soft);
   border: 1px solid var(--border);
   color: var(--text);
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s;

@@ -27,7 +27,7 @@ const copy = computed(() =>
   display: flex;
   align-items: center;
   gap: 0.35rem;
-  font-size: var(--text-sm);
+  font-size: var(--type-sm);
   color: var(--muted);
 }
 

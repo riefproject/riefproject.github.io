@@ -84,7 +84,7 @@ const clear = () => {
   border: 1px solid var(--border);
   background: var(--bg-elevated);
   color: var(--text);
-  font-size: var(--text-base);
+  font-size: var(--type-base);
   outline: none;
   box-sizing: border-box;
 }
@@ -124,7 +124,7 @@ const clear = () => {
   background: transparent;
   border: none;
   color: var(--muted);
-  font-size: var(--text-base);
+  font-size: var(--type-base);
   cursor: pointer;
 }
 

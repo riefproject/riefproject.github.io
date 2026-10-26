@@ -49,9 +49,6 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
-    optimizeDeps: {
-      exclude: ['@keystatic/astro', '@keystatic/core'],
-    },
     server: {
       watch: {
         ignored: ['**/src/data/cv/**'],

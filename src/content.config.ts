@@ -1,4 +1,6 @@
-import { defineCollection, z } from 'astro:content'
+import { defineCollection } from 'astro:content'
+import { glob } from 'astro/loaders'
+import { z } from 'astro/zod'
 
 const localeTextSchema = z.object({
   en: z.string(),
@@ -69,7 +71,7 @@ const socialSchema = z.object({
 
 export const collections = {
   projects: defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: './src/content/projects' }),
     schema: z.object({
       title: localeTextSchema,
       img: z.string().optional(),
@@ -85,7 +87,7 @@ export const collections = {
     }),
   }),
   experiences: defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: './src/content/experiences' }),
     schema: z.object({
       type: z.enum(['work', 'organizational', 'personal']),
       company: z.string(),
@@ -98,7 +100,7 @@ export const collections = {
     }),
   }),
   achievements: defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: './src/content/achievements' }),
     schema: z.object({
       type: z.enum(['competitions', 'certifications', 'bootcamps']),
       title: localeTextSchema,
@@ -113,7 +115,7 @@ export const collections = {
     }),
   }),
   education: defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: './src/content/education' }),
     schema: z.object({
       institution: z.string(),
       logo: z.string().optional(),
@@ -123,7 +125,7 @@ export const collections = {
     }),
   }),
   'cp-profiles': defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: './src/content/cp-profiles' }),
     schema: z.object({
       platform: z.string(),
       handle: z.string(),
@@ -134,7 +136,7 @@ export const collections = {
     }),
   }),
   'stack-showcase': defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: './src/content/stack-showcase' }),
     schema: z.object({
       name: z.string(),
       category: z.enum(['language', 'framework', 'tool']),
@@ -143,7 +145,7 @@ export const collections = {
     }),
   }),
   singletons: defineCollection({
-    type: 'data',
+    loader: glob({ pattern: '*.json', base: './src/content/singletons' }),
     schema: z.union([profileSchema, contactSchema, layoutSchema, socialSchema]),
   }),
 }

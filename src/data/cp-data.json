@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-25T10:39:27.041Z",
+    "updatedAt": "2026-10-26T03:03:46.495Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 779,
-    "totalSubmissions": 1703,
+    "totalSolved": 785,
+    "totalSubmissions": 1709,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-22": {
@@ -449,6 +449,14 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-26": {
+        "tries": 5,
+        "ac": 5
+      },
+      "2026-10-25": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-10-24": {
         "tries": 1,
         "ac": 1
@@ -466,8 +474,8 @@
         "ac": 1
       },
       "2026-10-16": {
-        "tries": 7,
-        "ac": 7
+        "tries": 1,
+        "ac": 1
       },
       "2024-06-23": {
         "tries": 44,
@@ -584,7 +592,7 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 969
+      "count": 970
     }
   },
   "platforms": {
@@ -5780,12 +5788,20 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1524938,
-      "totalSolved": 114,
-      "easySolved": 56,
-      "mediumSolved": 49,
-      "hardSolved": 9,
+      "ranking": 1525748,
+      "totalSolved": 120,
+      "easySolved": 58,
+      "mediumSolved": 52,
+      "hardSolved": 10,
       "dailyCalendar": {
+        "2026-10-26": {
+          "tries": 5,
+          "ac": 5
+        },
+        "2026-10-25": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-24": {
           "tries": 1,
           "ac": 1
@@ -5819,11 +5835,71 @@
           "ac": 1
         },
         "2026-10-16": {
-          "tries": 7,
-          "ac": 7
+          "tries": 1,
+          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1792983024",
+          "platform": "leetcode",
+          "title": "Kth Largest Element in a Stream",
+          "category": "Tree",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+          "solvedAt": "2026-10-26T02:50:24.000Z"
+        },
+        {
+          "id": "lc-1792982814",
+          "platform": "leetcode",
+          "title": "1-bit and 2-bit Characters",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/1-bit-and-2-bit-characters/",
+          "solvedAt": "2026-10-26T02:46:54.000Z"
+        },
+        {
+          "id": "lc-1792982316",
+          "platform": "leetcode",
+          "title": "Word Search II",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/word-search-ii/",
+          "solvedAt": "2026-10-26T02:38:36.000Z"
+        },
+        {
+          "id": "lc-1792981805",
+          "platform": "leetcode",
+          "title": "Word Search",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/word-search/",
+          "solvedAt": "2026-10-26T02:30:05.000Z"
+        },
+        {
+          "id": "lc-1792979221",
+          "platform": "leetcode",
+          "title": "Count Islands With Total Value Divisible by K",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/",
+          "solvedAt": "2026-10-26T01:47:01.000Z"
+        },
+        {
+          "id": "lc-1792965501",
+          "platform": "leetcode",
+          "title": "Number of Closed Islands",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/number-of-closed-islands/",
+          "solvedAt": "2026-10-25T21:58:21.000Z"
+        },
         {
           "id": "lc-1792814014",
           "platform": "leetcode",
@@ -5963,66 +6039,6 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
           "solvedAt": "2026-10-16T22:28:05.000Z"
-        },
-        {
-          "id": "lc-1792188955",
-          "platform": "leetcode",
-          "title": "Subsets",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/subsets/",
-          "solvedAt": "2026-10-16T22:15:55.000Z"
-        },
-        {
-          "id": "lc-1792188399",
-          "platform": "leetcode",
-          "title": "Rotate Image",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/rotate-image/",
-          "solvedAt": "2026-10-16T22:06:39.000Z"
-        },
-        {
-          "id": "lc-1792188192",
-          "platform": "leetcode",
-          "title": "Permutations",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/permutations/",
-          "solvedAt": "2026-10-16T22:03:12.000Z"
-        },
-        {
-          "id": "lc-1792123667",
-          "platform": "leetcode",
-          "title": "Sum of Digits of String After Convert",
-          "category": "String",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/sum-of-digits-of-string-after-convert/",
-          "solvedAt": "2026-10-16T04:07:47.000Z"
-        },
-        {
-          "id": "lc-1792123158",
-          "platform": "leetcode",
-          "title": "Happy Number",
-          "category": "Hash Table",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/happy-number/",
-          "solvedAt": "2026-10-16T03:59:18.000Z"
-        },
-        {
-          "id": "lc-1792122940",
-          "platform": "leetcode",
-          "title": "Word Frequency",
-          "category": "Shell",
-          "language": "BASH",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/word-frequency/",
-          "solvedAt": "2026-10-16T03:55:40.000Z"
         }
       ]
     },
@@ -6458,6 +6474,66 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1792983024",
+      "platform": "leetcode",
+      "title": "Kth Largest Element in a Stream",
+      "category": "Tree",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+      "solvedAt": "2026-10-26T02:50:24.000Z"
+    },
+    {
+      "id": "lc-1792982814",
+      "platform": "leetcode",
+      "title": "1-bit and 2-bit Characters",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/1-bit-and-2-bit-characters/",
+      "solvedAt": "2026-10-26T02:46:54.000Z"
+    },
+    {
+      "id": "lc-1792982316",
+      "platform": "leetcode",
+      "title": "Word Search II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/word-search-ii/",
+      "solvedAt": "2026-10-26T02:38:36.000Z"
+    },
+    {
+      "id": "lc-1792981805",
+      "platform": "leetcode",
+      "title": "Word Search",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/word-search/",
+      "solvedAt": "2026-10-26T02:30:05.000Z"
+    },
+    {
+      "id": "lc-1792979221",
+      "platform": "leetcode",
+      "title": "Count Islands With Total Value Divisible by K",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/",
+      "solvedAt": "2026-10-26T01:47:01.000Z"
+    },
+    {
+      "id": "lc-1792965501",
+      "platform": "leetcode",
+      "title": "Number of Closed Islands",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/number-of-closed-islands/",
+      "solvedAt": "2026-10-25T21:58:21.000Z"
+    },
     {
       "id": "lc-1792814014",
       "platform": "leetcode",

@@ -1,7 +1,67 @@
 {
-  "lastUpdated": "2026-10-25T10:39:27.044Z",
-  "totalProblems": 728,
+  "lastUpdated": "2026-10-26T03:03:46.497Z",
+  "totalProblems": 734,
   "problems": [
+    {
+      "id": "lc-1792983024",
+      "platform": "leetcode",
+      "title": "Kth Largest Element in a Stream",
+      "category": "Tree",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
+      "solvedAt": "2026-10-26T02:50:24.000Z"
+    },
+    {
+      "id": "lc-1792982814",
+      "platform": "leetcode",
+      "title": "1-bit and 2-bit Characters",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/1-bit-and-2-bit-characters/",
+      "solvedAt": "2026-10-26T02:46:54.000Z"
+    },
+    {
+      "id": "lc-1792982316",
+      "platform": "leetcode",
+      "title": "Word Search II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/word-search-ii/",
+      "solvedAt": "2026-10-26T02:38:36.000Z"
+    },
+    {
+      "id": "lc-1792981805",
+      "platform": "leetcode",
+      "title": "Word Search",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/word-search/",
+      "solvedAt": "2026-10-26T02:30:05.000Z"
+    },
+    {
+      "id": "lc-1792979221",
+      "platform": "leetcode",
+      "title": "Count Islands With Total Value Divisible by K",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/",
+      "solvedAt": "2026-10-26T01:47:01.000Z"
+    },
+    {
+      "id": "lc-1792965501",
+      "platform": "leetcode",
+      "title": "Number of Closed Islands",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/number-of-closed-islands/",
+      "solvedAt": "2026-10-25T21:58:21.000Z"
+    },
     {
       "id": "lc-1792814014",
       "platform": "leetcode",

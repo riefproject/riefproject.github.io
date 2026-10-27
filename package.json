@@ -19,8 +19,8 @@
     "lighthouse": "lhci autorun"
   },
   "dependencies": {
-    "@astrojs/react": "^6.0.6",
-    "@astrojs/vue": "^6.0.1",
+    "@astrojs/react": "^7.1.1",
+    "@astrojs/vue": "^7.1.2",
     "@codemirror/lang-css": "^6.3.1",
     "@codemirror/lang-html": "^6.4.11",
     "@codemirror/state": "^6.7.1",
@@ -29,7 +29,7 @@
     "@keystatic/astro": "^6.0.0",
     "@keystatic/core": "^0.6.9",
     "@nanostores/vue": "^1.0.1",
-    "astro": "^6.4.8",
+    "astro": "^7.4.2",
     "codemirror": "^6.0.2",
     "html2pdf.js": "^0.14.0",
     "nanostores": "^1.0.1",

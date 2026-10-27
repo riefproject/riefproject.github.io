@@ -48,7 +48,18 @@ export default defineConfig({
     inlineStylesheets: 'always',
   },
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss(),
+      {
+        // Astro 7 + Vite 8 workaround: the React Fast Refresh transform leaks into
+        // `.vue` SFCs during SSR, injecting `$RefreshSig$` and breaking `astro dev`.
+        // React is only used by the dev-only Keystatic admin here, so turning the
+        // refresh transform off is safe. Remove once @astrojs/react scopes it.
+        name: 'disable-react-refresh',
+        enforce: 'post',
+        config: () => ({ oxc: { jsx: { refresh: false } } }),
+      },
+    ],
     server: {
       watch: {
         ignored: ['**/src/data/cv/**'],

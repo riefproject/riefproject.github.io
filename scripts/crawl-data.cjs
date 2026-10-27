@@ -5,6 +5,7 @@
 //   src/data/dev-activity.json
 //   src/data/cp-data.json
 // Runs standalone with plain Node 18+ (global fetch) — no dependencies.
+// Generated JSON is formatted with the repo's Prettier config when available.
 // On any hard failure the previous JSON file is left untouched.
 
 const fs = require('fs')
@@ -54,8 +55,22 @@ function readExisting(file) {
   }
 }
 
-function writeJson(file, payload) {
-  const next = JSON.stringify(payload, null, 2) + '\n'
+// Format the generated JSON with the repo's Prettier config so committed
+// snapshots stay `format:check` clean. Falls back to plain JSON when Prettier
+// is unavailable (the crawler also runs standalone in CI).
+async function formatJson(file, payload) {
+  const raw = JSON.stringify(payload, null, 2) + '\n'
+  try {
+    const prettier = await import('prettier')
+    const config = (await prettier.resolveConfig(file)) || {}
+    return await prettier.format(raw, { ...config, filepath: file })
+  } catch {
+    return raw
+  }
+}
+
+async function writeJson(file, payload) {
+  const next = await formatJson(file, payload)
   const prev = readExisting(file) !== null ? fs.readFileSync(file, 'utf8') : null
   if (prev === next) {
     console.log(`  unchanged: ${file}`)
@@ -418,7 +433,7 @@ function combineDevHeatmap(ghPayload, glPayload) {
   return out
 }
 
-function mergeGitlabWithArchives(activeGitlab) {
+async function mergeGitlabWithArchives(activeGitlab) {
   let archives = readExisting(ARCHIVES_FILE) || []
   if (!Array.isArray(archives)) archives = []
 
@@ -454,7 +469,7 @@ function mergeGitlabWithArchives(activeGitlab) {
     }
 
     // Persist to disk so historical snapshot is always preserved even if token is revoked later
-    writeJson(ARCHIVES_FILE, archives)
+    await writeJson(ARCHIVES_FILE, archives)
   }
 
   // If no archives exist and no active data, return empty
@@ -1131,14 +1146,14 @@ async function main() {
     const github = await crawlGithub(prevGithub)
     console.log('· GitLab...')
     const rawGitlab = await crawlGitlab()
-    const gitlab = mergeGitlabWithArchives(rawGitlab)
+    const gitlab = await mergeGitlabWithArchives(rawGitlab)
 
     const devPayload = {
       meta: { updatedAt: nowIso(), source: 'scheduled-crawl' },
       overview: { ...github.overview, heatmap: combineDevHeatmap(github, gitlab) },
       platforms: { github, gitlab },
     }
-    writeJson(DEV_FILE, devPayload)
+    await writeJson(DEV_FILE, devPayload)
   } catch (err) {
     console.error('Failed to crawl development activity — keeping existing file.', err)
   }
@@ -1171,14 +1186,14 @@ async function main() {
       totalProblems: mergedProblems.length,
       problems: mergedProblems,
     }
-    writeJson(CP_PROBLEMS_FILE, problemsPayload)
+    await writeJson(CP_PROBLEMS_FILE, problemsPayload)
 
     // 2. Write CP overview/summary (retaining full merged feed for rich browsing)
     const summaryPayload = {
       ...cp,
       recentGlobalFeed: mergedProblems,
     }
-    writeJson(CP_FILE, summaryPayload)
+    await writeJson(CP_FILE, summaryPayload)
   } catch (err) {
     console.error('Failed to crawl CP stats — keeping existing file.', err)
   }

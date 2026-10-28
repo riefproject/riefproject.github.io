@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-28T03:51:34.009Z",
-  "totalProblems": 735,
+  "lastUpdated": "2026-10-28T12:03:27.424Z",
+  "totalProblems": 736,
   "problems": [
+    {
+      "id": "lc-1793148693",
+      "platform": "leetcode",
+      "title": "Minimum XOR Path in a Grid",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-xor-path-in-a-grid/",
+      "solvedAt": "2026-10-28T00:51:33.000Z"
+    },
     {
       "id": "lc-1793060739",
       "platform": "leetcode",

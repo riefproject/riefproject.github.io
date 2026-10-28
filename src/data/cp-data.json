@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-28T03:51:34.006Z",
+    "updatedAt": "2026-10-28T12:03:27.421Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 786,
-    "totalSubmissions": 1710,
+    "totalSolved": 787,
+    "totalSubmissions": 1711,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-22": {
@@ -26,8 +26,8 @@
         "ac": 3
       },
       "2026-10-17": {
-        "tries": 13,
-        "ac": 7
+        "tries": 12,
+        "ac": 6
       },
       "2026-10-10": {
         "tries": 16,
@@ -448,6 +448,10 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
+      },
+      "2026-10-28": {
+        "tries": 1,
+        "ac": 1
       },
       "2026-10-27": {
         "tries": 1,
@@ -5788,12 +5792,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1449692,
-      "totalSolved": 121,
+      "ranking": 1439906,
+      "totalSolved": 122,
       "easySolved": 59,
-      "mediumSolved": 52,
+      "mediumSolved": 53,
       "hardSolved": 10,
       "dailyCalendar": {
+        "2026-10-28": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-27": {
           "tries": 1,
           "ac": 1
@@ -5833,13 +5841,19 @@
         "2026-10-18": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-10-17": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1793148693",
+          "platform": "leetcode",
+          "title": "Minimum XOR Path in a Grid",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-xor-path-in-a-grid/",
+          "solvedAt": "2026-10-28T00:51:33.000Z"
+        },
         {
           "id": "lc-1793060739",
           "platform": "leetcode",
@@ -6029,16 +6043,6 @@
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/number-of-ways-to-reorder-array-to-get-same-bst/",
           "solvedAt": "2026-10-18T20:04:31.000Z"
-        },
-        {
-          "id": "lc-1792197584",
-          "platform": "leetcode",
-          "title": "Minimum Swaps to Sort by Digit Sum",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/minimum-swaps-to-sort-by-digit-sum/",
-          "solvedAt": "2026-10-17T00:39:44.000Z"
         }
       ]
     },
@@ -6474,6 +6478,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1793148693",
+      "platform": "leetcode",
+      "title": "Minimum XOR Path in a Grid",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-xor-path-in-a-grid/",
+      "solvedAt": "2026-10-28T00:51:33.000Z"
+    },
     {
       "id": "lc-1793060739",
       "platform": "leetcode",

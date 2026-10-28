@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-26T03:03:46.495Z",
+    "updatedAt": "2026-10-27T21:47:26.263Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 785,
-    "totalSubmissions": 1709,
+    "totalSolved": 786,
+    "totalSubmissions": 1710,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-22": {
@@ -449,6 +449,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-27": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-10-26": {
         "tries": 5,
         "ac": 5
@@ -470,10 +474,6 @@
         "ac": 1
       },
       "2026-10-18": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-10-16": {
         "tries": 1,
         "ac": 1
       },
@@ -5788,12 +5788,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1525748,
-      "totalSolved": 120,
-      "easySolved": 58,
+      "ranking": 1449692,
+      "totalSolved": 121,
+      "easySolved": 59,
       "mediumSolved": 52,
       "hardSolved": 10,
       "dailyCalendar": {
+        "2026-10-27": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-26": {
           "tries": 5,
           "ac": 5
@@ -5833,13 +5837,19 @@
         "2026-10-17": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-10-16": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1793060739",
+          "platform": "leetcode",
+          "title": "Create Grid With Exactly One Path",
+          "category": "Algorithms",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/create-grid-with-exactly-one-path/",
+          "solvedAt": "2026-10-27T00:25:39.000Z"
+        },
         {
           "id": "lc-1792983024",
           "platform": "leetcode",
@@ -6029,16 +6039,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/minimum-swaps-to-sort-by-digit-sum/",
           "solvedAt": "2026-10-17T00:39:44.000Z"
-        },
-        {
-          "id": "lc-1792189685",
-          "platform": "leetcode",
-          "title": "Binary Tree Inorder Traversal",
-          "category": "Stack",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/binary-tree-inorder-traversal/",
-          "solvedAt": "2026-10-16T22:28:05.000Z"
         }
       ]
     },
@@ -6474,6 +6474,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1793060739",
+      "platform": "leetcode",
+      "title": "Create Grid With Exactly One Path",
+      "category": "Algorithms",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/create-grid-with-exactly-one-path/",
+      "solvedAt": "2026-10-27T00:25:39.000Z"
+    },
     {
       "id": "lc-1792983024",
       "platform": "leetcode",

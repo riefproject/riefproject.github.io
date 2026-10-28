@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-26T03:03:46.497Z",
-  "totalProblems": 734,
+  "lastUpdated": "2026-10-27T21:47:26.265Z",
+  "totalProblems": 735,
   "problems": [
+    {
+      "id": "lc-1793060739",
+      "platform": "leetcode",
+      "title": "Create Grid With Exactly One Path",
+      "category": "Algorithms",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/create-grid-with-exactly-one-path/",
+      "solvedAt": "2026-10-27T00:25:39.000Z"
+    },
     {
       "id": "lc-1792983024",
       "platform": "leetcode",

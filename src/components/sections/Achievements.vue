@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import type { Achievement, AchievementTab, LocaleText } from '../../types/profile.types'
 import { useLocale } from '../../composables/useLocale'
 import { parseHighlightTags } from '../../utils/tags'
@@ -19,6 +19,13 @@ const props = withDefaults(defineProps<AchievementsProps>(), {
 // Modal state
 const isModalOpen = ref(false)
 const selectedAchievement = ref<Achievement | null>(null)
+
+// Render the modal only after hydration. It uses <Teleport> + <Transition>, whose
+// SSR comment anchors can mismatch during hydration and wipe the whole island.
+const isHydrated = ref(false)
+onMounted(() => {
+  isHydrated.value = true
+})
 
 const openModal = (achievement: Achievement) => {
   selectedAchievement.value = achievement
@@ -176,6 +183,7 @@ const visibleItems = computed(() => groupedAchievements.value[activeTab.value] ?
 
     <!-- Certificate Modal -->
     <CertificateModal
+      v-if="isHydrated"
       :achievement="selectedAchievement"
       :is-open="isModalOpen"
       :initial-locale="initialLocale"

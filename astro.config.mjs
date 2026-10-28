@@ -44,6 +44,9 @@ export default defineConfig({
     },
   ].filter(Boolean),
   output: 'static',
+  // Astro 7's default `'jsx'` compression drops empty HTML comments that Vue needs
+  // as hydration anchors. Keep Astro 6's HTML-aware compression instead.
+  compressHTML: true,
   build: {
     inlineStylesheets: 'always',
   },

@@ -4,7 +4,7 @@ import '../../styles/collapsible.css'
 import type { LocaleText } from '../../types/profile.types'
 import { useLocale } from '../../composables/useLocale'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     collapsedHeight?: string
     fadeHeight?: string
@@ -12,6 +12,7 @@ withDefaults(
     labelMargin?: string
     readMore?: LocaleText
     showLess?: LocaleText
+    initialLocale?: 'en' | 'id'
   }>(),
   {
     collapsedHeight: '120px',
@@ -24,7 +25,7 @@ withDefaults(
 )
 
 const toggleId = `collapsible-${useId()}`
-const { resolveText } = useLocale()
+const { resolveText } = useLocale(props.initialLocale)
 </script>
 
 <template>

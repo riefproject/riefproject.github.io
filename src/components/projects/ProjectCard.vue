@@ -62,7 +62,11 @@ const extraStack = computed(() =>
         <slot name="header-actions" />
       </header>
 
-      <CollapsibleContent class="mt-2" :collapsedHeight="collapsedHeight" :fadeHeight="fadeHeight">
+      <CollapsibleContent
+        class="mt-2"
+        :collapsedHeight="collapsedHeight"
+        :fadeHeight="fadeHeight"
+        :initialLocale="initialLocale">
         <slot name="body">
           <p class="project-description">{{ resolveText(project.description) }}</p>
           <p v-if="project.impact" class="project-impact">{{ resolveText(project.impact) }}</p>

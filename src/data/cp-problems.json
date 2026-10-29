@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-28T22:08:49.100Z",
-  "totalProblems": 736,
+  "lastUpdated": "2026-10-29T04:14:28.105Z",
+  "totalProblems": 737,
   "problems": [
+    {
+      "id": "lc-1793238536",
+      "platform": "leetcode",
+      "title": "Palindromic Path Queries in a Tree",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/palindromic-path-queries-in-a-tree/",
+      "solvedAt": "2026-10-29T01:48:56.000Z"
+    },
     {
       "id": "lc-1793148693",
       "platform": "leetcode",

@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-29T22:24:07.561Z",
-  "totalProblems": 737,
+  "lastUpdated": "2026-10-30T04:14:24.075Z",
+  "totalProblems": 738,
   "problems": [
+    {
+      "id": "lc-1793331040",
+      "platform": "leetcode",
+      "title": "Shortest Path With At Most K Consecutive Identical Characters",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/shortest-path-with-at-most-k-consecutive-identical-characters/",
+      "solvedAt": "2026-10-30T03:30:40.000Z"
+    },
     {
       "id": "lc-1793238536",
       "platform": "leetcode",

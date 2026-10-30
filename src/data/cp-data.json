@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-29T22:24:07.559Z",
+    "updatedAt": "2026-10-30T04:14:24.073Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -449,6 +449,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-10-30": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-10-29": {
         "tries": 1,
         "ac": 1
@@ -474,10 +478,6 @@
         "ac": 1
       },
       "2026-10-23": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-10-19": {
         "tries": 1,
         "ac": 1
       },
@@ -5798,6 +5798,10 @@
       "mediumSolved": 53,
       "hardSolved": 11,
       "dailyCalendar": {
+        "2026-10-30": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-29": {
           "tries": 1,
           "ac": 1
@@ -5837,13 +5841,19 @@
         "2026-10-20": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-10-19": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1793331040",
+          "platform": "leetcode",
+          "title": "Shortest Path With At Most K Consecutive Identical Characters",
+          "category": "String",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/shortest-path-with-at-most-k-consecutive-identical-characters/",
+          "solvedAt": "2026-10-30T03:30:40.000Z"
+        },
         {
           "id": "lc-1793238536",
           "platform": "leetcode",
@@ -6033,16 +6043,6 @@
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/sum-of-sortable-integers/",
           "solvedAt": "2026-10-20T00:38:21.000Z"
-        },
-        {
-          "id": "lc-1792414875",
-          "platform": "leetcode",
-          "title": "Find Target Indices After Sorting Array",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/find-target-indices-after-sorting-array/",
-          "solvedAt": "2026-10-19T13:01:15.000Z"
         }
       ]
     },
@@ -6478,6 +6478,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1793331040",
+      "platform": "leetcode",
+      "title": "Shortest Path With At Most K Consecutive Identical Characters",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/shortest-path-with-at-most-k-consecutive-identical-characters/",
+      "solvedAt": "2026-10-30T03:30:40.000Z"
+    },
     {
       "id": "lc-1793238536",
       "platform": "leetcode",

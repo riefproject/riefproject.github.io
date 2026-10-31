@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-31T03:55:53.666Z",
+    "updatedAt": "2026-10-31T11:39:04.280Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 789,
-    "totalSubmissions": 1713,
+    "totalSolved": 791,
+    "totalSubmissions": 1719,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-10-31": {
+        "tries": 3,
+        "ac": 2
+      },
       "2026-10-22": {
         "tries": 11,
         "ac": 10
@@ -70,8 +74,8 @@
         "ac": 3
       },
       "2026-09-28": {
-        "tries": 16,
-        "ac": 11
+        "tries": 17,
+        "ac": 12
       },
       "2026-09-27": {
         "tries": 5,
@@ -118,8 +122,8 @@
         "ac": 1
       },
       "2026-09-11": {
-        "tries": 6,
-        "ac": 5
+        "tries": 7,
+        "ac": 6
       },
       "2026-09-09": {
         "tries": 3,
@@ -142,8 +146,8 @@
         "ac": 7
       },
       "2026-09-02": {
-        "tries": 6,
-        "ac": 2
+        "tries": 7,
+        "ac": 3
       },
       "2026-08-29": {
         "tries": 12,
@@ -286,7 +290,7 @@
         "ac": 2
       },
       "2026-03-19": {
-        "tries": 11,
+        "tries": 12,
         "ac": 3
       },
       "2026-02-27": {
@@ -322,8 +326,8 @@
         "ac": 4
       },
       "2025-12-06": {
-        "tries": 2,
-        "ac": 1
+        "tries": 3,
+        "ac": 2
       },
       "2025-12-03": {
         "tries": 1,
@@ -346,16 +350,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -596,19 +600,19 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 970
+      "count": 976
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 915,
-      "totalSolved": 450,
-      "uniqueProblemsSolved": 396,
-      "totalAcSubmissions": 444,
+      "totalSubmissions": 921,
+      "totalSolved": 452,
+      "uniqueProblemsSolved": 397,
+      "totalAcSubmissions": 446,
       "languages": {
-        "Cpp20": 882,
+        "Cpp20": 888,
         "Pascal": 17,
         "C": 9,
         "Cpp17": 2,
@@ -616,6 +620,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-10-31": {
+          "tries": 3,
+          "ac": 2
+        },
         "2026-10-22": {
           "tries": 5,
           "ac": 4
@@ -673,8 +681,8 @@
           "ac": 3
         },
         "2026-09-28": {
-          "tries": 16,
-          "ac": 11
+          "tries": 17,
+          "ac": 12
         },
         "2026-09-27": {
           "tries": 5,
@@ -721,8 +729,8 @@
           "ac": 1
         },
         "2026-09-11": {
-          "tries": 6,
-          "ac": 5
+          "tries": 7,
+          "ac": 6
         },
         "2026-09-09": {
           "tries": 3,
@@ -745,8 +753,8 @@
           "ac": 7
         },
         "2026-09-02": {
-          "tries": 6,
-          "ac": 2
+          "tries": 7,
+          "ac": 3
         },
         "2026-08-29": {
           "tries": 12,
@@ -889,7 +897,7 @@
           "ac": 2
         },
         "2026-03-19": {
-          "tries": 11,
+          "tries": 12,
           "ac": 3
         },
         "2026-02-27": {
@@ -925,8 +933,8 @@
           "ac": 4
         },
         "2025-12-06": {
-          "tries": 2,
-          "ac": 1
+          "tries": 3,
+          "ac": 2
         },
         "2025-12-03": {
           "tries": 1,
@@ -949,19 +957,39 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6242724",
+          "platform": "tlx",
+          "title": "Deliberating Independence",
+          "category": "INC 2026",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6242724",
+          "solvedAt": "2026-10-31T08:50:52.036Z"
+        },
+        {
+          "id": "tlx-6241880",
+          "platform": "tlx",
+          "title": "3-A. Nihilation",
+          "category": "INC 2026",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6241880",
+          "solvedAt": "2026-10-31T06:05:14.911Z"
+        },
         {
           "id": "tlx-6201481",
           "platform": "tlx",
@@ -2433,6 +2461,16 @@
           "solvedAt": "2026-09-02T11:43:28.425Z"
         },
         {
+          "id": "tlx-5939699",
+          "platform": "tlx",
+          "title": "Amateur Architect",
+          "category": "COMPFEST 18 - Penyisihan CPC Junior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/5939699",
+          "solvedAt": "2026-09-02T11:42:53.591Z"
+        },
+        {
           "id": "tlx-5938804",
           "platform": "tlx",
           "title": "Pembangkit Listrik",
@@ -2601,16 +2639,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/5889874",
           "solvedAt": "2026-08-26T05:12:02.898Z"
-        },
-        {
-          "id": "tlx-5875341",
-          "platform": "tlx",
-          "title": "Amateur Architect",
-          "category": "COMPFEST 18 - Penyisihan CPC Senior",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/5875341",
-          "solvedAt": "2026-08-23T15:19:24.446Z"
         },
         {
           "id": "tlx-5875280",
@@ -4663,16 +4691,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -5792,7 +5810,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1420600,
+      "ranking": 1421183,
       "totalSolved": 124,
       "easySolved": 59,
       "mediumSolved": 54,
@@ -6478,6 +6496,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6242724",
+      "platform": "tlx",
+      "title": "Deliberating Independence",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6242724",
+      "solvedAt": "2026-10-31T08:50:52.036Z"
+    },
+    {
+      "id": "tlx-6241880",
+      "platform": "tlx",
+      "title": "3-A. Nihilation",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6241880",
+      "solvedAt": "2026-10-31T06:05:14.911Z"
+    },
     {
       "id": "lc-1793331040",
       "platform": "leetcode",
@@ -8629,6 +8667,16 @@
       "solvedAt": "2026-09-02T11:43:28.425Z"
     },
     {
+      "id": "tlx-5939699",
+      "platform": "tlx",
+      "title": "Amateur Architect",
+      "category": "COMPFEST 18 - Penyisihan CPC Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5939699",
+      "solvedAt": "2026-09-02T11:42:53.591Z"
+    },
+    {
       "id": "tlx-5938804",
       "platform": "tlx",
       "title": "Pembangkit Listrik",
@@ -8797,16 +8845,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5889874",
       "solvedAt": "2026-08-26T05:12:02.898Z"
-    },
-    {
-      "id": "tlx-5875341",
-      "platform": "tlx",
-      "title": "Amateur Architect",
-      "category": "COMPFEST 18 - Penyisihan CPC Senior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/5875341",
-      "solvedAt": "2026-08-23T15:19:24.446Z"
     },
     {
       "id": "tlx-5875280",

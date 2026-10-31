@@ -1,7 +1,27 @@
 {
-  "lastUpdated": "2026-10-31T03:55:53.669Z",
-  "totalProblems": 738,
+  "lastUpdated": "2026-10-31T11:39:04.283Z",
+  "totalProblems": 740,
   "problems": [
+    {
+      "id": "tlx-6242724",
+      "platform": "tlx",
+      "title": "Deliberating Independence",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6242724",
+      "solvedAt": "2026-10-31T08:50:52.036Z"
+    },
+    {
+      "id": "tlx-6241880",
+      "platform": "tlx",
+      "title": "3-A. Nihilation",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6241880",
+      "solvedAt": "2026-10-31T06:05:14.911Z"
+    },
     {
       "id": "lc-1793331040",
       "platform": "leetcode",
@@ -2153,6 +2173,16 @@
       "solvedAt": "2026-09-02T11:43:28.425Z"
     },
     {
+      "id": "tlx-5939699",
+      "platform": "tlx",
+      "title": "Amateur Architect",
+      "category": "COMPFEST 18 - Penyisihan CPC Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/5939699",
+      "solvedAt": "2026-09-02T11:42:53.591Z"
+    },
+    {
       "id": "tlx-5938804",
       "platform": "tlx",
       "title": "Pembangkit Listrik",
@@ -2321,16 +2351,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/5889874",
       "solvedAt": "2026-08-26T05:12:02.898Z"
-    },
-    {
-      "id": "tlx-5875341",
-      "platform": "tlx",
-      "title": "Amateur Architect",
-      "category": "COMPFEST 18 - Penyisihan CPC Senior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/5875341",
-      "solvedAt": "2026-08-23T15:19:24.446Z"
     },
     {
       "id": "tlx-5875280",

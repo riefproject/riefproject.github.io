@@ -1,7 +1,27 @@
 {
-  "lastUpdated": "2026-10-31T11:39:04.283Z",
-  "totalProblems": 740,
+  "lastUpdated": "2026-10-31T16:46:25.736Z",
+  "totalProblems": 742,
   "problems": [
+    {
+      "id": "lc-1793451171",
+      "platform": "leetcode",
+      "title": "Permutations II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/permutations-ii/",
+      "solvedAt": "2026-10-31T12:52:51.000Z"
+    },
+    {
+      "id": "lc-1793450922",
+      "platform": "leetcode",
+      "title": "Twisted Mirror Path Count",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/twisted-mirror-path-count/",
+      "solvedAt": "2026-10-31T12:48:42.000Z"
+    },
     {
       "id": "tlx-6242724",
       "platform": "tlx",

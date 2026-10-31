@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-31T11:39:04.280Z",
+    "updatedAt": "2026-10-31T16:46:25.734Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,25 +9,25 @@
     }
   },
   "overview": {
-    "totalSolved": 791,
-    "totalSubmissions": 1719,
+    "totalSolved": 793,
+    "totalSubmissions": 1721,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-31": {
-        "tries": 3,
-        "ac": 2
+        "tries": 5,
+        "ac": 4
       },
       "2026-10-22": {
         "tries": 11,
         "ac": 10
       },
       "2026-10-21": {
-        "tries": 2,
-        "ac": 2
+        "tries": 1,
+        "ac": 1
       },
       "2026-10-20": {
-        "tries": 5,
-        "ac": 3
+        "tries": 4,
+        "ac": 2
       },
       "2026-10-17": {
         "tries": 12,
@@ -5811,11 +5811,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1421183,
-      "totalSolved": 124,
+      "totalSolved": 126,
       "easySolved": 59,
-      "mediumSolved": 54,
+      "mediumSolved": 56,
       "hardSolved": 11,
       "dailyCalendar": {
+        "2026-10-31": {
+          "tries": 2,
+          "ac": 2
+        },
         "2026-10-30": {
           "tries": 1,
           "ac": 1
@@ -5851,17 +5855,29 @@
         "2026-10-22": {
           "tries": 6,
           "ac": 6
-        },
-        "2026-10-21": {
-          "tries": 1,
-          "ac": 1
-        },
-        "2026-10-20": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1793451171",
+          "platform": "leetcode",
+          "title": "Permutations II",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/permutations-ii/",
+          "solvedAt": "2026-10-31T12:52:51.000Z"
+        },
+        {
+          "id": "lc-1793450922",
+          "platform": "leetcode",
+          "title": "Twisted Mirror Path Count",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/twisted-mirror-path-count/",
+          "solvedAt": "2026-10-31T12:48:42.000Z"
+        },
         {
           "id": "lc-1793331040",
           "platform": "leetcode",
@@ -6041,26 +6057,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
           "solvedAt": "2026-10-22T00:26:35.000Z"
-        },
-        {
-          "id": "lc-1792542077",
-          "platform": "leetcode",
-          "title": "Minimum Operations to Sort a String",
-          "category": "String",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-string/",
-          "solvedAt": "2026-10-21T00:21:17.000Z"
-        },
-        {
-          "id": "lc-1792456701",
-          "platform": "leetcode",
-          "title": "Sum of Sortable Integers",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/sum-of-sortable-integers/",
-          "solvedAt": "2026-10-20T00:38:21.000Z"
         }
       ]
     },
@@ -6496,6 +6492,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1793451171",
+      "platform": "leetcode",
+      "title": "Permutations II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/permutations-ii/",
+      "solvedAt": "2026-10-31T12:52:51.000Z"
+    },
+    {
+      "id": "lc-1793450922",
+      "platform": "leetcode",
+      "title": "Twisted Mirror Path Count",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/twisted-mirror-path-count/",
+      "solvedAt": "2026-10-31T12:48:42.000Z"
+    },
     {
       "id": "tlx-6242724",
       "platform": "tlx",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-10-31T20:56:59.885Z",
+    "updatedAt": "2026-11-01T04:11:04.948Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 793,
-    "totalSubmissions": 1721,
+    "totalSolved": 794,
+    "totalSubmissions": 1722,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-31": {
@@ -18,8 +18,8 @@
         "ac": 4
       },
       "2026-10-22": {
-        "tries": 11,
-        "ac": 10
+        "tries": 10,
+        "ac": 9
       },
       "2026-10-21": {
         "tries": 1,
@@ -452,6 +452,10 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
+      },
+      "2026-11-01": {
+        "tries": 1,
+        "ac": 1
       },
       "2026-10-30": {
         "tries": 1,
@@ -5811,11 +5815,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1421183,
-      "totalSolved": 126,
+      "totalSolved": 127,
       "easySolved": 59,
-      "mediumSolved": 56,
+      "mediumSolved": 57,
       "hardSolved": 11,
       "dailyCalendar": {
+        "2026-11-01": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-10-31": {
           "tries": 2,
           "ac": 2
@@ -5853,11 +5861,21 @@
           "ac": 1
         },
         "2026-10-22": {
-          "tries": 6,
-          "ac": 6
+          "tries": 5,
+          "ac": 5
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1793504012",
+          "platform": "leetcode",
+          "title": "Minimum Moves to Equal Array Elements",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/",
+          "solvedAt": "2026-11-01T03:33:32.000Z"
+        },
         {
           "id": "lc-1793451171",
           "platform": "leetcode",
@@ -6047,16 +6065,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/transpose-file/",
           "solvedAt": "2026-10-22T03:43:40.000Z"
-        },
-        {
-          "id": "lc-1792628795",
-          "platform": "leetcode",
-          "title": "Minimum Operations to Sort a Permutation",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/minimum-operations-to-sort-a-permutation/",
-          "solvedAt": "2026-10-22T00:26:35.000Z"
         }
       ]
     },
@@ -6492,6 +6500,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1793504012",
+      "platform": "leetcode",
+      "title": "Minimum Moves to Equal Array Elements",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/",
+      "solvedAt": "2026-11-01T03:33:32.000Z"
+    },
     {
       "id": "lc-1793451171",
       "platform": "leetcode",

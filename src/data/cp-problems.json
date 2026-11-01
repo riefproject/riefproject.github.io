@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-10-31T20:56:59.887Z",
-  "totalProblems": 742,
+  "lastUpdated": "2026-11-01T04:11:04.951Z",
+  "totalProblems": 743,
   "problems": [
+    {
+      "id": "lc-1793504012",
+      "platform": "leetcode",
+      "title": "Minimum Moves to Equal Array Elements",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/",
+      "solvedAt": "2026-11-01T03:33:32.000Z"
+    },
     {
       "id": "lc-1793451171",
       "platform": "leetcode",

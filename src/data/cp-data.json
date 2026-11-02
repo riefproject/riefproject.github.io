@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-01T21:39:22.194Z",
+    "updatedAt": "2026-11-02T04:14:18.882Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 794,
-    "totalSubmissions": 1722,
+    "totalSolved": 795,
+    "totalSubmissions": 1723,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-10-31": {
@@ -18,8 +18,8 @@
         "ac": 4
       },
       "2026-10-22": {
-        "tries": 10,
-        "ac": 9
+        "tries": 9,
+        "ac": 8
       },
       "2026-10-21": {
         "tries": 1,
@@ -453,6 +453,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-11-02": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-11-01": {
         "tries": 1,
         "ac": 1
@@ -604,7 +608,7 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 976
+      "count": 977
     }
   },
   "platforms": {
@@ -5815,11 +5819,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1391478,
-      "totalSolved": 127,
+      "totalSolved": 128,
       "easySolved": 59,
-      "mediumSolved": 57,
+      "mediumSolved": 58,
       "hardSolved": 11,
       "dailyCalendar": {
+        "2026-11-02": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-01": {
           "tries": 1,
           "ac": 1
@@ -5861,11 +5869,21 @@
           "ac": 1
         },
         "2026-10-22": {
-          "tries": 5,
-          "ac": 5
+          "tries": 4,
+          "ac": 4
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1793586887",
+          "platform": "leetcode",
+          "title": "Minimum Moves to Equal Array Elements II",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/",
+          "solvedAt": "2026-11-02T02:34:47.000Z"
+        },
         {
           "id": "lc-1793504012",
           "platform": "leetcode",
@@ -6055,16 +6073,6 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/tenth-line/",
           "solvedAt": "2026-10-22T03:47:09.000Z"
-        },
-        {
-          "id": "lc-1792640620",
-          "platform": "leetcode",
-          "title": "Transpose File",
-          "category": "Shell",
-          "language": "BASH",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/transpose-file/",
-          "solvedAt": "2026-10-22T03:43:40.000Z"
         }
       ]
     },
@@ -6500,6 +6508,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1793586887",
+      "platform": "leetcode",
+      "title": "Minimum Moves to Equal Array Elements II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/",
+      "solvedAt": "2026-11-02T02:34:47.000Z"
+    },
     {
       "id": "lc-1793504012",
       "platform": "leetcode",

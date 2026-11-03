@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-03T13:34:25.742Z",
+    "updatedAt": "2026-11-03T22:52:00.273Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 796,
-    "totalSubmissions": 1724,
+    "totalSolved": 800,
+    "totalSubmissions": 1730,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-03": {
+        "tries": 8,
+        "ac": 6
+      },
       "2026-10-31": {
         "tries": 5,
         "ac": 4
@@ -102,7 +106,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
+        "tries": 23,
         "ac": 13
       },
       "2026-09-19": {
@@ -334,7 +338,7 @@
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 23,
+        "tries": 22,
         "ac": 6
       },
       "2025-12-01": {
@@ -358,8 +362,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 106,
-        "ac": 54
+        "tries": 107,
+        "ac": 55
       },
       "2026-08-25": {
         "tries": 1,
@@ -452,10 +456,6 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
-      },
-      "2026-11-03": {
-        "tries": 1,
-        "ac": 1
       },
       "2026-11-02": {
         "tries": 1,
@@ -612,26 +612,30 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 978
+      "count": 982
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 921,
-      "totalSolved": 452,
-      "uniqueProblemsSolved": 397,
-      "totalAcSubmissions": 446,
+      "totalSubmissions": 927,
+      "totalSolved": 456,
+      "uniqueProblemsSolved": 402,
+      "totalAcSubmissions": 450,
       "languages": {
-        "Cpp20": 888,
-        "Pascal": 17,
-        "C": 9,
+        "Cpp20": 892,
+        "Pascal": 18,
+        "C": 10,
         "Cpp17": 2,
         "Cpp11": 2,
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-03": {
+          "tries": 7,
+          "ac": 5
+        },
         "2026-10-31": {
           "tries": 3,
           "ac": 2
@@ -721,7 +725,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
+          "tries": 23,
           "ac": 13
         },
         "2026-09-19": {
@@ -953,7 +957,7 @@
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 23,
+          "tries": 22,
           "ac": 6
         },
         "2025-12-01": {
@@ -977,11 +981,51 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 106,
-          "ac": 54
+          "tries": 107,
+          "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6256647",
+          "platform": "tlx",
+          "title": "Can't Let You Through",
+          "category": "INC 2026",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6256647",
+          "solvedAt": "2026-11-03T16:14:01.072Z"
+        },
+        {
+          "id": "tlx-6256594",
+          "platform": "tlx",
+          "title": "Ai Game",
+          "category": "INC 2026",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6256594",
+          "solvedAt": "2026-11-03T15:45:07.904Z"
+        },
+        {
+          "id": "tlx-6256579",
+          "platform": "tlx",
+          "title": "Skysplitter",
+          "category": "INC 2026",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6256579",
+          "solvedAt": "2026-11-03T15:32:55.675Z"
+        },
+        {
+          "id": "tlx-6256565",
+          "platform": "tlx",
+          "title": "Call for Tasks",
+          "category": "INC 2026",
+          "language": "Pascal",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6256565",
+          "solvedAt": "2026-11-03T15:25:14.296Z"
+        },
         {
           "id": "tlx-6242724",
           "platform": "tlx",
@@ -4703,6 +4747,16 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
+          "id": "tlx-4650590",
+          "platform": "tlx",
+          "title": "Perkenalan Larik (Array)",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650590",
+          "solvedAt": "2025-11-24T15:46:02.359Z"
+        },
+        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -6516,6 +6570,46 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6256647",
+      "platform": "tlx",
+      "title": "Can't Let You Through",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6256647",
+      "solvedAt": "2026-11-03T16:14:01.072Z"
+    },
+    {
+      "id": "tlx-6256594",
+      "platform": "tlx",
+      "title": "Ai Game",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6256594",
+      "solvedAt": "2026-11-03T15:45:07.904Z"
+    },
+    {
+      "id": "tlx-6256579",
+      "platform": "tlx",
+      "title": "Skysplitter",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6256579",
+      "solvedAt": "2026-11-03T15:32:55.675Z"
+    },
+    {
+      "id": "tlx-6256565",
+      "platform": "tlx",
+      "title": "Call for Tasks",
+      "category": "INC 2026",
+      "language": "Pascal",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6256565",
+      "solvedAt": "2026-11-03T15:25:14.296Z"
+    },
     {
       "id": "lc-1793693074",
       "platform": "leetcode",

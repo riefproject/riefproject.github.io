@@ -1,7 +1,47 @@
 {
-  "lastUpdated": "2026-11-03T13:34:25.745Z",
-  "totalProblems": 745,
+  "lastUpdated": "2026-11-03T22:52:00.275Z",
+  "totalProblems": 749,
   "problems": [
+    {
+      "id": "tlx-6256647",
+      "platform": "tlx",
+      "title": "Can't Let You Through",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6256647",
+      "solvedAt": "2026-11-03T16:14:01.072Z"
+    },
+    {
+      "id": "tlx-6256594",
+      "platform": "tlx",
+      "title": "Ai Game",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6256594",
+      "solvedAt": "2026-11-03T15:45:07.904Z"
+    },
+    {
+      "id": "tlx-6256579",
+      "platform": "tlx",
+      "title": "Skysplitter",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6256579",
+      "solvedAt": "2026-11-03T15:32:55.675Z"
+    },
+    {
+      "id": "tlx-6256565",
+      "platform": "tlx",
+      "title": "Call for Tasks",
+      "category": "INC 2026",
+      "language": "Pascal",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6256565",
+      "solvedAt": "2026-11-03T15:25:14.296Z"
+    },
     {
       "id": "lc-1793693074",
       "platform": "leetcode",

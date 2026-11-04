@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-04T04:42:59.306Z",
+    "updatedAt": "2026-11-04T13:43:48.233Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 800,
-    "totalSubmissions": 1730,
+    "totalSolved": 802,
+    "totalSubmissions": 1731,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-04": {
+        "tries": 4,
+        "ac": 2
+      },
       "2026-11-03": {
         "tries": 8,
         "ac": 6
@@ -22,8 +26,8 @@
         "ac": 4
       },
       "2026-10-22": {
-        "tries": 8,
-        "ac": 7
+        "tries": 7,
+        "ac": 6
       },
       "2026-10-21": {
         "tries": 1,
@@ -106,7 +110,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
+        "tries": 24,
         "ac": 13
       },
       "2026-09-19": {
@@ -142,7 +146,7 @@
         "ac": 18
       },
       "2026-09-06": {
-        "tries": 7,
+        "tries": 6,
         "ac": 4
       },
       "2026-09-03": {
@@ -226,7 +230,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 41,
+        "tries": 40,
         "ac": 12
       },
       "2026-07-16": {
@@ -338,7 +342,7 @@
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 22,
+        "tries": 23,
         "ac": 6
       },
       "2025-12-01": {
@@ -346,7 +350,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 26,
+        "tries": 25,
         "ac": 6
       },
       "2025-11-27": {
@@ -354,16 +358,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
-        "ac": 55
+        "tries": 105,
+        "ac": 53
       },
       "2026-08-25": {
         "tries": 1,
@@ -620,9 +624,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 927,
-      "totalSolved": 456,
-      "uniqueProblemsSolved": 402,
-      "totalAcSubmissions": 450,
+      "totalSolved": 457,
+      "uniqueProblemsSolved": 401,
+      "totalAcSubmissions": 451,
       "languages": {
         "Cpp20": 892,
         "Pascal": 18,
@@ -632,6 +636,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-04": {
+          "tries": 3,
+          "ac": 1
+        },
         "2026-11-03": {
           "tries": 7,
           "ac": 5
@@ -725,7 +733,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
+          "tries": 24,
           "ac": 13
         },
         "2026-09-19": {
@@ -761,7 +769,7 @@
           "ac": 18
         },
         "2026-09-06": {
-          "tries": 7,
+          "tries": 6,
           "ac": 4
         },
         "2026-09-03": {
@@ -845,7 +853,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 41,
+          "tries": 40,
           "ac": 12
         },
         "2026-07-16": {
@@ -957,7 +965,7 @@
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 22,
+          "tries": 23,
           "ac": 6
         },
         "2025-12-01": {
@@ -965,7 +973,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 26,
+          "tries": 25,
           "ac": 6
         },
         "2025-11-27": {
@@ -973,19 +981,29 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
-          "ac": 55
+          "tries": 105,
+          "ac": 53
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6258261",
+          "platform": "tlx",
+          "title": "Please Wait to Be Seated",
+          "category": "INC 2026",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6258261",
+          "solvedAt": "2026-11-04T07:41:10.739Z"
+        },
         {
           "id": "tlx-6256647",
           "platform": "tlx",
@@ -4567,16 +4585,6 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
-          "id": "tlx-4650685",
-          "platform": "tlx",
-          "title": "Kalkulator String",
-          "category": "Tipe Data Lainnya",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650685",
-          "solvedAt": "2025-11-24T16:47:20.506Z"
-        },
-        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -4705,16 +4713,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650610",
           "solvedAt": "2025-11-24T16:04:33.451Z"
-        },
-        {
-          "id": "tlx-4650598",
-          "platform": "tlx",
-          "title": "Toko Kandang II",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650598",
-          "solvedAt": "2025-11-24T15:54:33.525Z"
         },
         {
           "id": "tlx-4650595",
@@ -5876,12 +5874,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1373206,
-      "totalSolved": 129,
+      "ranking": 1373893,
+      "totalSolved": 130,
       "easySolved": 60,
       "mediumSolved": 58,
-      "hardSolved": 11,
+      "hardSolved": 12,
       "dailyCalendar": {
+        "2026-11-04": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-03": {
           "tries": 1,
           "ac": 1
@@ -5931,11 +5933,21 @@
           "ac": 1
         },
         "2026-10-22": {
-          "tries": 3,
-          "ac": 3
+          "tries": 2,
+          "ac": 2
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1793792505",
+          "platform": "leetcode",
+          "title": "Minimum Operations to Make Elements Within K Subarrays Equal",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/minimum-operations-to-make-elements-within-k-subarrays-equal/",
+          "solvedAt": "2026-11-04T11:41:45.000Z"
+        },
         {
           "id": "lc-1793693074",
           "platform": "leetcode",
@@ -6125,16 +6137,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/single-number-ii/",
           "solvedAt": "2026-10-22T04:19:24.000Z"
-        },
-        {
-          "id": "lc-1792641347",
-          "platform": "leetcode",
-          "title": "Range Sum Query - Immutable",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/range-sum-query-immutable/",
-          "solvedAt": "2026-10-22T03:55:47.000Z"
         }
       ]
     },
@@ -6570,6 +6572,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1793792505",
+      "platform": "leetcode",
+      "title": "Minimum Operations to Make Elements Within K Subarrays Equal",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/minimum-operations-to-make-elements-within-k-subarrays-equal/",
+      "solvedAt": "2026-11-04T11:41:45.000Z"
+    },
+    {
+      "id": "tlx-6258261",
+      "platform": "tlx",
+      "title": "Please Wait to Be Seated",
+      "category": "INC 2026",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6258261",
+      "solvedAt": "2026-11-04T07:41:10.739Z"
+    },
     {
       "id": "tlx-6256647",
       "platform": "tlx",

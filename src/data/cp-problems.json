@@ -1,7 +1,77 @@
 {
-  "lastUpdated": "2026-11-05T04:58:07.553Z",
-  "totalProblems": 751,
+  "lastUpdated": "2026-11-05T13:56:37.934Z",
+  "totalProblems": 757,
   "problems": [
+    {
+      "id": "tlx-6264811",
+      "platform": "tlx",
+      "title": "Organisasi Kemahasiswaan",
+      "category": "GEMASTIK 2017 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264811",
+      "solvedAt": "2026-11-05T10:32:33.826Z"
+    },
+    {
+      "id": "tlx-6264679",
+      "platform": "tlx",
+      "title": "Faktorisasi Prima",
+      "category": "GEMASTIK 2021 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264679",
+      "solvedAt": "2026-11-05T09:48:05.049Z"
+    },
+    {
+      "id": "tlx-6264571",
+      "platform": "tlx",
+      "title": "BELAJAR DARI RUMAH",
+      "category": "GEMASTIK 2021 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264571",
+      "solvedAt": "2026-11-05T09:22:54.456Z"
+    },
+    {
+      "id": "tlx-6264432",
+      "platform": "tlx",
+      "title": "Persamaan",
+      "category": "GEMASTIK 2022 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264432",
+      "solvedAt": "2026-11-05T09:06:22.527Z"
+    },
+    {
+      "id": "tlx-6264208",
+      "platform": "tlx",
+      "title": "Pesta",
+      "category": "GEMASTIK 2022 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264208",
+      "solvedAt": "2026-11-05T08:14:00.594Z"
+    },
+    {
+      "id": "tlx-6264110",
+      "platform": "tlx",
+      "title": "Pemenang",
+      "category": "GEMASTIK 2022 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264110",
+      "solvedAt": "2026-11-05T07:59:36.944Z"
+    },
+    {
+      "id": "lc-1793863923",
+      "platform": "leetcode",
+      "title": "Find the Distance Value Between Two Arrays",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/find-the-distance-value-between-two-arrays/",
+      "solvedAt": "2026-11-05T07:32:03.000Z"
+    },
     {
       "id": "lc-1793792505",
       "platform": "leetcode",
@@ -4481,16 +4551,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4655198",
       "solvedAt": "2025-11-27T02:11:51.825Z"
-    },
-    {
-      "id": "tlx-4655143",
-      "platform": "tlx",
-      "title": "Faktorisasi Prima",
-      "category": "Matematika Diskret Dasar",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4655143",
-      "solvedAt": "2025-11-27T01:45:35.624Z"
     },
     {
       "id": "tlx-4655104",

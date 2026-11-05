@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-05T04:58:07.551Z",
+    "updatedAt": "2026-11-05T13:56:37.930Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 802,
-    "totalSubmissions": 1731,
+    "totalSolved": 809,
+    "totalSubmissions": 1746,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-05": {
+        "tries": 11,
+        "ac": 7
+      },
       "2026-11-04": {
         "tries": 4,
         "ac": 2
@@ -26,8 +30,8 @@
         "ac": 4
       },
       "2026-10-22": {
-        "tries": 7,
-        "ac": 6
+        "tries": 6,
+        "ac": 5
       },
       "2026-10-21": {
         "tries": 1,
@@ -146,7 +150,7 @@
         "ac": 18
       },
       "2026-09-06": {
-        "tries": 6,
+        "tries": 7,
         "ac": 4
       },
       "2026-09-03": {
@@ -230,7 +234,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 40,
+        "tries": 41,
         "ac": 12
       },
       "2026-07-16": {
@@ -350,7 +354,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 25,
+        "tries": 26,
         "ac": 6
       },
       "2025-11-27": {
@@ -358,16 +362,16 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 105,
-        "ac": 53
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -616,19 +620,19 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 982
+      "count": 996
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 927,
-      "totalSolved": 457,
-      "uniqueProblemsSolved": 401,
-      "totalAcSubmissions": 451,
+      "totalSubmissions": 941,
+      "totalSolved": 463,
+      "uniqueProblemsSolved": 407,
+      "totalAcSubmissions": 457,
       "languages": {
-        "Cpp20": 892,
+        "Cpp20": 906,
         "Pascal": 18,
         "C": 10,
         "Cpp17": 2,
@@ -636,6 +640,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-05": {
+          "tries": 10,
+          "ac": 6
+        },
         "2026-11-04": {
           "tries": 3,
           "ac": 1
@@ -769,7 +777,7 @@
           "ac": 18
         },
         "2026-09-06": {
-          "tries": 6,
+          "tries": 7,
           "ac": 4
         },
         "2026-09-03": {
@@ -853,7 +861,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 40,
+          "tries": 41,
           "ac": 12
         },
         "2026-07-16": {
@@ -973,7 +981,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 25,
+          "tries": 26,
           "ac": 6
         },
         "2025-11-27": {
@@ -981,19 +989,79 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 105,
-          "ac": 53
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6264811",
+          "platform": "tlx",
+          "title": "Organisasi Kemahasiswaan",
+          "category": "GEMASTIK 2017 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6264811",
+          "solvedAt": "2026-11-05T10:32:33.826Z"
+        },
+        {
+          "id": "tlx-6264679",
+          "platform": "tlx",
+          "title": "Faktorisasi Prima",
+          "category": "GEMASTIK 2021 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6264679",
+          "solvedAt": "2026-11-05T09:48:05.049Z"
+        },
+        {
+          "id": "tlx-6264571",
+          "platform": "tlx",
+          "title": "BELAJAR DARI RUMAH",
+          "category": "GEMASTIK 2021 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6264571",
+          "solvedAt": "2026-11-05T09:22:54.456Z"
+        },
+        {
+          "id": "tlx-6264432",
+          "platform": "tlx",
+          "title": "Persamaan",
+          "category": "GEMASTIK 2022 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6264432",
+          "solvedAt": "2026-11-05T09:06:22.527Z"
+        },
+        {
+          "id": "tlx-6264208",
+          "platform": "tlx",
+          "title": "Pesta",
+          "category": "GEMASTIK 2022 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6264208",
+          "solvedAt": "2026-11-05T08:14:00.594Z"
+        },
+        {
+          "id": "tlx-6264110",
+          "platform": "tlx",
+          "title": "Pemenang",
+          "category": "GEMASTIK 2022 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6264110",
+          "solvedAt": "2026-11-05T07:59:36.944Z"
+        },
         {
           "id": "tlx-6258261",
           "platform": "tlx",
@@ -4335,16 +4403,6 @@
           "solvedAt": "2025-11-27T02:11:51.825Z"
         },
         {
-          "id": "tlx-4655143",
-          "platform": "tlx",
-          "title": "Faktorisasi Prima",
-          "category": "Matematika Diskret Dasar",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4655143",
-          "solvedAt": "2025-11-27T01:45:35.624Z"
-        },
-        {
           "id": "tlx-4655104",
           "platform": "tlx",
           "title": "Bilangan Agak Prima",
@@ -4585,6 +4643,16 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
+          "id": "tlx-4650685",
+          "platform": "tlx",
+          "title": "Kalkulator String",
+          "category": "Tipe Data Lainnya",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650685",
+          "solvedAt": "2025-11-24T16:47:20.506Z"
+        },
+        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -4715,6 +4783,16 @@
           "solvedAt": "2025-11-24T16:04:33.451Z"
         },
         {
+          "id": "tlx-4650598",
+          "platform": "tlx",
+          "title": "Toko Kandang II",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650598",
+          "solvedAt": "2025-11-24T15:54:33.525Z"
+        },
+        {
           "id": "tlx-4650595",
           "platform": "tlx",
           "title": "Bermain Lampu Kandang",
@@ -4743,16 +4821,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650592",
           "solvedAt": "2025-11-24T15:46:54.665Z"
-        },
-        {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
         },
         {
           "id": "tlx-4650587",
@@ -5874,12 +5942,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1373893,
-      "totalSolved": 130,
-      "easySolved": 60,
+      "ranking": 1354936,
+      "totalSolved": 131,
+      "easySolved": 61,
       "mediumSolved": 58,
       "hardSolved": 12,
       "dailyCalendar": {
+        "2026-11-05": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-04": {
           "tries": 1,
           "ac": 1
@@ -5933,11 +6005,21 @@
           "ac": 1
         },
         "2026-10-22": {
-          "tries": 2,
-          "ac": 2
+          "tries": 1,
+          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1793863923",
+          "platform": "leetcode",
+          "title": "Find the Distance Value Between Two Arrays",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/find-the-distance-value-between-two-arrays/",
+          "solvedAt": "2026-11-05T07:32:03.000Z"
+        },
         {
           "id": "lc-1793792505",
           "platform": "leetcode",
@@ -6127,16 +6209,6 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/missing-number/",
           "solvedAt": "2026-10-22T04:38:06.000Z"
-        },
-        {
-          "id": "lc-1792642764",
-          "platform": "leetcode",
-          "title": "Single Number II",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/single-number-ii/",
-          "solvedAt": "2026-10-22T04:19:24.000Z"
         }
       ]
     },
@@ -6572,6 +6644,76 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6264811",
+      "platform": "tlx",
+      "title": "Organisasi Kemahasiswaan",
+      "category": "GEMASTIK 2017 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264811",
+      "solvedAt": "2026-11-05T10:32:33.826Z"
+    },
+    {
+      "id": "tlx-6264679",
+      "platform": "tlx",
+      "title": "Faktorisasi Prima",
+      "category": "GEMASTIK 2021 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264679",
+      "solvedAt": "2026-11-05T09:48:05.049Z"
+    },
+    {
+      "id": "tlx-6264571",
+      "platform": "tlx",
+      "title": "BELAJAR DARI RUMAH",
+      "category": "GEMASTIK 2021 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264571",
+      "solvedAt": "2026-11-05T09:22:54.456Z"
+    },
+    {
+      "id": "tlx-6264432",
+      "platform": "tlx",
+      "title": "Persamaan",
+      "category": "GEMASTIK 2022 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264432",
+      "solvedAt": "2026-11-05T09:06:22.527Z"
+    },
+    {
+      "id": "tlx-6264208",
+      "platform": "tlx",
+      "title": "Pesta",
+      "category": "GEMASTIK 2022 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264208",
+      "solvedAt": "2026-11-05T08:14:00.594Z"
+    },
+    {
+      "id": "tlx-6264110",
+      "platform": "tlx",
+      "title": "Pemenang",
+      "category": "GEMASTIK 2022 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6264110",
+      "solvedAt": "2026-11-05T07:59:36.944Z"
+    },
+    {
+      "id": "lc-1793863923",
+      "platform": "leetcode",
+      "title": "Find the Distance Value Between Two Arrays",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/find-the-distance-value-between-two-arrays/",
+      "solvedAt": "2026-11-05T07:32:03.000Z"
+    },
     {
       "id": "lc-1793792505",
       "platform": "leetcode",
@@ -11051,16 +11193,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/4655198",
       "solvedAt": "2025-11-27T02:11:51.825Z"
-    },
-    {
-      "id": "tlx-4655143",
-      "platform": "tlx",
-      "title": "Faktorisasi Prima",
-      "category": "Matematika Diskret Dasar",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/4655143",
-      "solvedAt": "2025-11-27T01:45:35.624Z"
     },
     {
       "id": "tlx-4655104",

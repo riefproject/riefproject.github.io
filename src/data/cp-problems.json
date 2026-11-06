@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-06T04:58:01.877Z",
-  "totalProblems": 757,
+  "lastUpdated": "2026-11-06T13:42:20.603Z",
+  "totalProblems": 758,
   "problems": [
+    {
+      "id": "lc-1793960874",
+      "platform": "leetcode",
+      "title": "Count Zero Request Servers",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/count-zero-request-servers/",
+      "solvedAt": "2026-11-06T10:27:54.000Z"
+    },
     {
       "id": "tlx-6264811",
       "platform": "tlx",

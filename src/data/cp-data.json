@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-06T04:58:01.873Z",
+    "updatedAt": "2026-11-06T13:42:20.600Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 809,
-    "totalSubmissions": 1746,
+    "totalSolved": 810,
+    "totalSubmissions": 1747,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-05": {
@@ -30,8 +30,8 @@
         "ac": 4
       },
       "2026-10-22": {
-        "tries": 6,
-        "ac": 5
+        "tries": 5,
+        "ac": 4
       },
       "2026-10-21": {
         "tries": 1,
@@ -464,6 +464,10 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
+      },
+      "2026-11-06": {
+        "tries": 1,
+        "ac": 1
       },
       "2026-11-02": {
         "tries": 1,
@@ -5942,12 +5946,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1354936,
-      "totalSolved": 131,
+      "ranking": 1345780,
+      "totalSolved": 132,
       "easySolved": 61,
-      "mediumSolved": 58,
+      "mediumSolved": 59,
       "hardSolved": 12,
       "dailyCalendar": {
+        "2026-11-06": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-05": {
           "tries": 1,
           "ac": 1
@@ -6003,13 +6011,19 @@
         "2026-10-23": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-10-22": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1793960874",
+          "platform": "leetcode",
+          "title": "Count Zero Request Servers",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/count-zero-request-servers/",
+          "solvedAt": "2026-11-06T10:27:54.000Z"
+        },
         {
           "id": "lc-1793863923",
           "platform": "leetcode",
@@ -6199,16 +6213,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/maximum-k-to-sort-a-permutation/",
           "solvedAt": "2026-10-23T15:47:09.000Z"
-        },
-        {
-          "id": "lc-1792643886",
-          "platform": "leetcode",
-          "title": "Missing Number",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/missing-number/",
-          "solvedAt": "2026-10-22T04:38:06.000Z"
         }
       ]
     },
@@ -6644,6 +6648,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1793960874",
+      "platform": "leetcode",
+      "title": "Count Zero Request Servers",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/count-zero-request-servers/",
+      "solvedAt": "2026-11-06T10:27:54.000Z"
+    },
     {
       "id": "tlx-6264811",
       "platform": "tlx",

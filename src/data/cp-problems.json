@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-07T04:30:21.514Z",
-  "totalProblems": 758,
+  "lastUpdated": "2026-11-07T12:23:57.414Z",
+  "totalProblems": 759,
   "problems": [
+    {
+      "id": "lc-1794027693",
+      "platform": "leetcode",
+      "title": "Process Tasks Using Servers",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/process-tasks-using-servers/",
+      "solvedAt": "2026-11-07T05:01:33.000Z"
+    },
     {
       "id": "lc-1793960874",
       "platform": "leetcode",

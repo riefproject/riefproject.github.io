@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-08T12:42:49.904Z",
+    "updatedAt": "2026-11-08T21:38:55.549Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 811,
-    "totalSubmissions": 1748,
+    "totalSolved": 812,
+    "totalSubmissions": 1749,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-05": {
@@ -465,6 +465,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-11-08": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-11-07": {
         "tries": 1,
         "ac": 1
@@ -502,10 +506,6 @@
         "ac": 5
       },
       "2026-10-25": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-10-24": {
         "tries": 1,
         "ac": 1
       },
@@ -5947,11 +5947,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1337367,
-      "totalSolved": 133,
+      "totalSolved": 134,
       "easySolved": 61,
-      "mediumSolved": 60,
+      "mediumSolved": 61,
       "hardSolved": 12,
       "dailyCalendar": {
+        "2026-11-08": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-07": {
           "tries": 1,
           "ac": 1
@@ -6007,13 +6011,19 @@
         "2026-10-25": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-10-24": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1794150639",
+          "platform": "leetcode",
+          "title": "Count Servers that Communicate",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/count-servers-that-communicate/",
+          "solvedAt": "2026-11-08T15:10:39.000Z"
+        },
         {
           "id": "lc-1794027693",
           "platform": "leetcode",
@@ -6203,16 +6213,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/number-of-closed-islands/",
           "solvedAt": "2026-10-25T21:58:21.000Z"
-        },
-        {
-          "id": "lc-1792814014",
-          "platform": "leetcode",
-          "title": "Count Days Spent Together",
-          "category": "Math",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/count-days-spent-together/",
-          "solvedAt": "2026-10-24T03:53:34.000Z"
         }
       ]
     },
@@ -6648,6 +6648,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1794150639",
+      "platform": "leetcode",
+      "title": "Count Servers that Communicate",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/count-servers-that-communicate/",
+      "solvedAt": "2026-11-08T15:10:39.000Z"
+    },
     {
       "id": "lc-1794027693",
       "platform": "leetcode",

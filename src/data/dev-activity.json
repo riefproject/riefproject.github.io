@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-08T21:38:42.515Z",
+    "updatedAt": "2026-11-09T04:30:22.039Z",
     "source": "scheduled-crawl"
   },
   "overview": {
@@ -1115,7 +1115,7 @@
   "platforms": {
     "github": {
       "meta": {
-        "updatedAt": "2026-11-08T21:38:41.834Z",
+        "updatedAt": "2026-11-09T04:30:21.307Z",
         "username": "riefproject",
         "source": "github-public-api"
       },
@@ -5531,7 +5531,58 @@
         "publicGists": 1,
         "createdAt": "2024-06-23T18:12:47Z"
       },
-      "languages": [],
+      "languages": [
+        {
+          "name": "C",
+          "bytes": 3630085,
+          "percentage": 37.9
+        },
+        {
+          "name": "PHP",
+          "bytes": 1164717,
+          "percentage": 12.2
+        },
+        {
+          "name": "Dart",
+          "bytes": 1087627,
+          "percentage": 11.4
+        },
+        {
+          "name": "Vue",
+          "bytes": 1023118,
+          "percentage": 10.7
+        },
+        {
+          "name": "C++",
+          "bytes": 509490,
+          "percentage": 5.3
+        },
+        {
+          "name": "JavaScript",
+          "bytes": 397384,
+          "percentage": 4.1
+        },
+        {
+          "name": "Java",
+          "bytes": 293744,
+          "percentage": 3.1
+        },
+        {
+          "name": "Blade",
+          "bytes": 263159,
+          "percentage": 2.7
+        },
+        {
+          "name": "C#",
+          "bytes": 228720,
+          "percentage": 2.4
+        },
+        {
+          "name": "Go",
+          "bytes": 194034,
+          "percentage": 2
+        }
+      ],
       "topRepos": [
         {
           "name": "21IF1001-DasarDasarPemrograman",
@@ -5591,7 +5642,7 @@
           "language": "Vue",
           "stars": 1,
           "forks": 0,
-          "updatedAt": "2026-11-08T04:16:22Z",
+          "updatedAt": "2026-11-08T21:39:17Z",
           "archived": false,
           "topics": [
             "cv",

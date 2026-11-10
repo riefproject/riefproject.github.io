@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-10T01:08:42.588Z",
+    "updatedAt": "2026-11-10T14:16:29.766Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 816,
-    "totalSubmissions": 1749,
+    "totalSolved": 818,
+    "totalSubmissions": 1751,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-05": {
@@ -465,6 +465,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-11-10": {
+        "tries": 2,
+        "ac": 2
+      },
       "2026-11-08": {
         "tries": 1,
         "ac": 1
@@ -502,12 +506,8 @@
         "ac": 1
       },
       "2026-10-26": {
-        "tries": 5,
-        "ac": 5
-      },
-      "2026-10-25": {
-        "tries": 1,
-        "ac": 1
+        "tries": 4,
+        "ac": 4
       },
       "2024-06-23": {
         "tries": 44,
@@ -5946,12 +5946,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1328520,
-      "totalSolved": 134,
+      "ranking": 1328996,
+      "totalSolved": 136,
       "easySolved": 61,
-      "mediumSolved": 61,
-      "hardSolved": 12,
+      "mediumSolved": 62,
+      "hardSolved": 13,
       "dailyCalendar": {
+        "2026-11-10": {
+          "tries": 2,
+          "ac": 2
+        },
         "2026-11-08": {
           "tries": 1,
           "ac": 1
@@ -6005,15 +6009,31 @@
           "ac": 1
         },
         "2026-10-26": {
-          "tries": 5,
-          "ac": 5
-        },
-        "2026-10-25": {
-          "tries": 1,
-          "ac": 1
+          "tries": 4,
+          "ac": 4
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1794306899",
+          "platform": "leetcode",
+          "title": "Climbing Stairs II",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/climbing-stairs-ii/",
+          "solvedAt": "2026-11-10T10:34:59.000Z"
+        },
+        {
+          "id": "lc-1794306837",
+          "platform": "leetcode",
+          "title": "Find Servers That Handled Most Number of Requests",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/",
+          "solvedAt": "2026-11-10T10:33:57.000Z"
+        },
         {
           "id": "lc-1794150639",
           "platform": "leetcode",
@@ -6193,26 +6213,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/word-search/",
           "solvedAt": "2026-10-26T02:30:05.000Z"
-        },
-        {
-          "id": "lc-1792979221",
-          "platform": "leetcode",
-          "title": "Count Islands With Total Value Divisible by K",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/count-islands-with-total-value-divisible-by-k/",
-          "solvedAt": "2026-10-26T01:47:01.000Z"
-        },
-        {
-          "id": "lc-1792965501",
-          "platform": "leetcode",
-          "title": "Number of Closed Islands",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/number-of-closed-islands/",
-          "solvedAt": "2026-10-25T21:58:21.000Z"
         }
       ]
     },
@@ -6648,6 +6648,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1794306899",
+      "platform": "leetcode",
+      "title": "Climbing Stairs II",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/climbing-stairs-ii/",
+      "solvedAt": "2026-11-10T10:34:59.000Z"
+    },
+    {
+      "id": "lc-1794306837",
+      "platform": "leetcode",
+      "title": "Find Servers That Handled Most Number of Requests",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/",
+      "solvedAt": "2026-11-10T10:33:57.000Z"
+    },
     {
       "id": "lc-1794150639",
       "platform": "leetcode",

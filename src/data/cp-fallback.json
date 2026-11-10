@@ -1,6 +1,6 @@
 {
-  "overviewTotalSolved": 816,
-  "overviewTotalSubmissions": 1749,
+  "overviewTotalSolved": 818,
+  "overviewTotalSubmissions": 1751,
   "primaryLanguageName": "C++20",
   "primaryLanguageCount": 996,
   "tlxTotalSolved": 467,
@@ -10,10 +10,10 @@
   "codeforcesRating": 1874,
   "codeforcesRank": "expert",
   "codeforcesTotalSubmissions": 259,
-  "leetcodeTotalSolved": 134,
+  "leetcodeTotalSolved": 136,
   "leetcodeEasySolved": 61,
-  "leetcodeMediumSolved": 61,
-  "leetcodeHardSolved": 12,
-  "leetcodeRanking": 1328520,
+  "leetcodeMediumSolved": 62,
+  "leetcodeHardSolved": 13,
+  "leetcodeRanking": 1328996,
   "hackerrankTotalSolved": 147
 }

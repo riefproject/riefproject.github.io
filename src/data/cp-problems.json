@@ -1,7 +1,27 @@
 {
-  "lastUpdated": "2026-11-11T13:29:59.617Z",
-  "totalProblems": 762,
+  "lastUpdated": "2026-11-11T23:59:54.718Z",
+  "totalProblems": 764,
   "problems": [
+    {
+      "id": "lc-1794437957",
+      "platform": "leetcode",
+      "title": "Minimum Cost to Acquire Required Items",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-cost-to-acquire-required-items/",
+      "solvedAt": "2026-11-11T22:59:17.000Z"
+    },
+    {
+      "id": "tlx-6290516",
+      "platform": "tlx",
+      "title": "Festival Musik",
+      "category": "GEMASTIK 2025 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6290516",
+      "solvedAt": "2026-11-11T16:24:18.302Z"
+    },
     {
       "id": "lc-1794306899",
       "platform": "leetcode",

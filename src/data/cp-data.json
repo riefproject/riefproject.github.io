@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-11T13:29:59.614Z",
+    "updatedAt": "2026-11-11T23:59:54.716Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 818,
-    "totalSubmissions": 1751,
+    "totalSolved": 820,
+    "totalSubmissions": 1752,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-11": {
+        "tries": 2,
+        "ac": 2
+      },
       "2026-11-05": {
         "tries": 11,
         "ac": 7
@@ -122,7 +126,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 9,
+        "tries": 8,
         "ac": 5
       },
       "2026-09-14": {
@@ -506,8 +510,8 @@
         "ac": 1
       },
       "2026-10-26": {
-        "tries": 4,
-        "ac": 4
+        "tries": 3,
+        "ac": 3
       },
       "2024-06-23": {
         "tries": 44,
@@ -632,9 +636,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 941,
-      "totalSolved": 467,
-      "uniqueProblemsSolved": 407,
-      "totalAcSubmissions": 461,
+      "totalSolved": 468,
+      "uniqueProblemsSolved": 408,
+      "totalAcSubmissions": 462,
       "languages": {
         "Cpp20": 906,
         "Pascal": 18,
@@ -644,6 +648,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-11": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-05": {
           "tries": 10,
           "ac": 6
@@ -753,7 +761,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 9,
+          "tries": 8,
           "ac": 5
         },
         "2026-09-14": {
@@ -1006,6 +1014,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6290516",
+          "platform": "tlx",
+          "title": "Festival Musik",
+          "category": "GEMASTIK 2025 - Final Pemrograman",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6290516",
+          "solvedAt": "2026-11-11T16:24:18.302Z"
+        },
         {
           "id": "tlx-6264811",
           "platform": "tlx",
@@ -5946,12 +5964,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1328996,
-      "totalSolved": 136,
+      "ranking": 1311280,
+      "totalSolved": 137,
       "easySolved": 61,
-      "mediumSolved": 62,
+      "mediumSolved": 63,
       "hardSolved": 13,
       "dailyCalendar": {
+        "2026-11-11": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-10": {
           "tries": 2,
           "ac": 2
@@ -6009,11 +6031,21 @@
           "ac": 1
         },
         "2026-10-26": {
-          "tries": 4,
-          "ac": 4
+          "tries": 3,
+          "ac": 3
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1794437957",
+          "platform": "leetcode",
+          "title": "Minimum Cost to Acquire Required Items",
+          "category": "Math",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-cost-to-acquire-required-items/",
+          "solvedAt": "2026-11-11T22:59:17.000Z"
+        },
         {
           "id": "lc-1794306899",
           "platform": "leetcode",
@@ -6203,16 +6235,6 @@
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/word-search-ii/",
           "solvedAt": "2026-10-26T02:38:36.000Z"
-        },
-        {
-          "id": "lc-1792981805",
-          "platform": "leetcode",
-          "title": "Word Search",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/word-search/",
-          "solvedAt": "2026-10-26T02:30:05.000Z"
         }
       ]
     },
@@ -6648,6 +6670,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1794437957",
+      "platform": "leetcode",
+      "title": "Minimum Cost to Acquire Required Items",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-cost-to-acquire-required-items/",
+      "solvedAt": "2026-11-11T22:59:17.000Z"
+    },
+    {
+      "id": "tlx-6290516",
+      "platform": "tlx",
+      "title": "Festival Musik",
+      "category": "GEMASTIK 2025 - Final Pemrograman",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6290516",
+      "solvedAt": "2026-11-11T16:24:18.302Z"
+    },
     {
       "id": "lc-1794306899",
       "platform": "leetcode",

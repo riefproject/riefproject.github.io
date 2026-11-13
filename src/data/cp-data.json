@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-13T04:55:37.680Z",
+    "updatedAt": "2026-11-13T13:52:42.591Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -14,8 +14,8 @@
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-13": {
-        "tries": 1,
-        "ac": 0
+        "tries": 3,
+        "ac": 2
       },
       "2026-11-11": {
         "tries": 2,
@@ -30,7 +30,7 @@
         "ac": 2
       },
       "2026-11-03": {
-        "tries": 8,
+        "tries": 7,
         "ac": 6
       },
       "2026-10-31": {
@@ -122,7 +122,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
+        "tries": 23,
         "ac": 13
       },
       "2026-09-19": {
@@ -641,8 +641,8 @@
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 941,
       "totalSolved": 469,
-      "uniqueProblemsSolved": 408,
-      "totalAcSubmissions": 462,
+      "uniqueProblemsSolved": 409,
+      "totalAcSubmissions": 463,
       "languages": {
         "Cpp20": 906,
         "Pascal": 18,
@@ -653,8 +653,8 @@
       },
       "dailyCalendar": {
         "2026-11-13": {
-          "tries": 1,
-          "ac": 0
+          "tries": 3,
+          "ac": 2
         },
         "2026-11-11": {
           "tries": 1,
@@ -669,7 +669,7 @@
           "ac": 1
         },
         "2026-11-03": {
-          "tries": 7,
+          "tries": 6,
           "ac": 5
         },
         "2026-10-31": {
@@ -761,7 +761,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
+          "tries": 23,
           "ac": 13
         },
         "2026-09-19": {
@@ -1022,6 +1022,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6298130",
+          "platform": "tlx",
+          "title": "Travelling Taro Trains",
+          "category": "ICPC Jakarta 2025",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6298130",
+          "solvedAt": "2026-11-13T09:59:02.037Z"
+        },
         {
           "id": "tlx-6290516",
           "platform": "tlx",
@@ -6678,6 +6688,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6298130",
+      "platform": "tlx",
+      "title": "Travelling Taro Trains",
+      "category": "ICPC Jakarta 2025",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6298130",
+      "solvedAt": "2026-11-13T09:59:02.037Z"
+    },
     {
       "id": "lc-1794437957",
       "platform": "leetcode",

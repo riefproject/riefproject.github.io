@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-13T04:55:37.682Z",
-  "totalProblems": 764,
+  "lastUpdated": "2026-11-13T13:52:42.593Z",
+  "totalProblems": 765,
   "problems": [
+    {
+      "id": "tlx-6298130",
+      "platform": "tlx",
+      "title": "Travelling Taro Trains",
+      "category": "ICPC Jakarta 2025",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6298130",
+      "solvedAt": "2026-11-13T09:59:02.037Z"
+    },
     {
       "id": "lc-1794437957",
       "platform": "leetcode",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-14T12:55:49.117Z",
+    "updatedAt": "2026-11-14T21:56:47.302Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 821,
-    "totalSubmissions": 1752,
+    "totalSolved": 823,
+    "totalSubmissions": 1754,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-13": {
@@ -473,6 +473,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-11-14": {
+        "tries": 2,
+        "ac": 2
+      },
       "2026-11-10": {
         "tries": 2,
         "ac": 2
@@ -514,8 +518,8 @@
         "ac": 1
       },
       "2026-10-26": {
-        "tries": 3,
-        "ac": 3
+        "tries": 1,
+        "ac": 1
       },
       "2024-06-23": {
         "tries": 44,
@@ -5982,12 +5986,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1303454,
-      "totalSolved": 137,
-      "easySolved": 61,
+      "ranking": 1295015,
+      "totalSolved": 139,
+      "easySolved": 62,
       "mediumSolved": 63,
-      "hardSolved": 13,
+      "hardSolved": 14,
       "dailyCalendar": {
+        "2026-11-14": {
+          "tries": 2,
+          "ac": 2
+        },
         "2026-11-11": {
           "tries": 1,
           "ac": 1
@@ -6049,11 +6057,31 @@
           "ac": 1
         },
         "2026-10-26": {
-          "tries": 3,
-          "ac": 3
+          "tries": 1,
+          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1794657179",
+          "platform": "leetcode",
+          "title": "Split Array Largest Sum",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/split-array-largest-sum/",
+          "solvedAt": "2026-11-14T11:52:59.000Z"
+        },
+        {
+          "id": "lc-1794633226",
+          "platform": "leetcode",
+          "title": "Minimum Positive Sum Subarray ",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/minimum-positive-sum-subarray/",
+          "solvedAt": "2026-11-14T05:13:46.000Z"
+        },
         {
           "id": "lc-1794437957",
           "platform": "leetcode",
@@ -6233,26 +6261,6 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
           "solvedAt": "2026-10-26T02:50:24.000Z"
-        },
-        {
-          "id": "lc-1792982814",
-          "platform": "leetcode",
-          "title": "1-bit and 2-bit Characters",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/1-bit-and-2-bit-characters/",
-          "solvedAt": "2026-10-26T02:46:54.000Z"
-        },
-        {
-          "id": "lc-1792982316",
-          "platform": "leetcode",
-          "title": "Word Search II",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/word-search-ii/",
-          "solvedAt": "2026-10-26T02:38:36.000Z"
         }
       ]
     },
@@ -6688,6 +6696,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1794657179",
+      "platform": "leetcode",
+      "title": "Split Array Largest Sum",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/split-array-largest-sum/",
+      "solvedAt": "2026-11-14T11:52:59.000Z"
+    },
+    {
+      "id": "lc-1794633226",
+      "platform": "leetcode",
+      "title": "Minimum Positive Sum Subarray ",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/minimum-positive-sum-subarray/",
+      "solvedAt": "2026-11-14T05:13:46.000Z"
+    },
     {
       "id": "tlx-6298130",
       "platform": "tlx",

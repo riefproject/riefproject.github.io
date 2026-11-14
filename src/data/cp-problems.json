@@ -1,7 +1,27 @@
 {
-  "lastUpdated": "2026-11-14T12:55:49.118Z",
-  "totalProblems": 765,
+  "lastUpdated": "2026-11-14T21:56:47.304Z",
+  "totalProblems": 767,
   "problems": [
+    {
+      "id": "lc-1794657179",
+      "platform": "leetcode",
+      "title": "Split Array Largest Sum",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/split-array-largest-sum/",
+      "solvedAt": "2026-11-14T11:52:59.000Z"
+    },
+    {
+      "id": "lc-1794633226",
+      "platform": "leetcode",
+      "title": "Minimum Positive Sum Subarray ",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/minimum-positive-sum-subarray/",
+      "solvedAt": "2026-11-14T05:13:46.000Z"
+    },
     {
       "id": "tlx-6298130",
       "platform": "tlx",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-15T04:40:46.078Z",
+    "updatedAt": "2026-11-15T13:24:10.125Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 823,
-    "totalSubmissions": 1754,
+    "totalSolved": 831,
+    "totalSubmissions": 1762,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-13": {
@@ -34,8 +34,8 @@
         "ac": 6
       },
       "2026-10-31": {
-        "tries": 5,
-        "ac": 4
+        "tries": 3,
+        "ac": 2
       },
       "2026-10-22": {
         "tries": 5,
@@ -473,6 +473,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-11-15": {
+        "tries": 8,
+        "ac": 8
+      },
       "2026-11-14": {
         "tries": 2,
         "ac": 2
@@ -494,30 +498,6 @@
         "ac": 1
       },
       "2026-11-02": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-11-01": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-10-30": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-10-29": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-10-28": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-10-27": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-10-26": {
         "tries": 1,
         "ac": 1
       },
@@ -5986,12 +5966,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1295015,
-      "totalSolved": 139,
+      "ranking": 1220219,
+      "totalSolved": 147,
       "easySolved": 62,
-      "mediumSolved": 63,
-      "hardSolved": 14,
+      "mediumSolved": 67,
+      "hardSolved": 18,
       "dailyCalendar": {
+        "2026-11-15": {
+          "tries": 8,
+          "ac": 8
+        },
         "2026-11-14": {
           "tries": 2,
           "ac": 2
@@ -6031,37 +6015,89 @@
         "2026-11-02": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-11-01": {
-          "tries": 1,
-          "ac": 1
-        },
-        "2026-10-31": {
-          "tries": 2,
-          "ac": 2
-        },
-        "2026-10-30": {
-          "tries": 1,
-          "ac": 1
-        },
-        "2026-10-29": {
-          "tries": 1,
-          "ac": 1
-        },
-        "2026-10-28": {
-          "tries": 1,
-          "ac": 1
-        },
-        "2026-10-27": {
-          "tries": 1,
-          "ac": 1
-        },
-        "2026-10-26": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1794735174",
+          "platform": "leetcode",
+          "title": "Maximum Subarray",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/maximum-subarray/",
+          "solvedAt": "2026-11-15T09:32:54.000Z"
+        },
+        {
+          "id": "lc-1794733923",
+          "platform": "leetcode",
+          "title": "N-Queens II",
+          "category": "Backtracking",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/n-queens-ii/",
+          "solvedAt": "2026-11-15T09:12:03.000Z"
+        },
+        {
+          "id": "lc-1794733810",
+          "platform": "leetcode",
+          "title": "N-Queens",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/n-queens/",
+          "solvedAt": "2026-11-15T09:10:10.000Z"
+        },
+        {
+          "id": "lc-1794731999",
+          "platform": "leetcode",
+          "title": "First Missing Positive",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/first-missing-positive/",
+          "solvedAt": "2026-11-15T08:39:59.000Z"
+        },
+        {
+          "id": "lc-1794730144",
+          "platform": "leetcode",
+          "title": "Find First and Last Position of Element in Sorted Array",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+          "solvedAt": "2026-11-15T08:09:04.000Z"
+        },
+        {
+          "id": "lc-1794729415",
+          "platform": "leetcode",
+          "title": "Sudoku Solver",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/sudoku-solver/",
+          "solvedAt": "2026-11-15T07:56:55.000Z"
+        },
+        {
+          "id": "lc-1794727662",
+          "platform": "leetcode",
+          "title": "Valid Sudoku",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/valid-sudoku/",
+          "solvedAt": "2026-11-15T07:27:42.000Z"
+        },
+        {
+          "id": "lc-1794724025",
+          "platform": "leetcode",
+          "title": "Number of Sub-arrays With Odd Sum",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/",
+          "solvedAt": "2026-11-15T06:27:05.000Z"
+        },
         {
           "id": "lc-1794657179",
           "platform": "leetcode",
@@ -6181,86 +6217,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-ii/",
           "solvedAt": "2026-11-02T02:34:47.000Z"
-        },
-        {
-          "id": "lc-1793504012",
-          "platform": "leetcode",
-          "title": "Minimum Moves to Equal Array Elements",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements/",
-          "solvedAt": "2026-11-01T03:33:32.000Z"
-        },
-        {
-          "id": "lc-1793451171",
-          "platform": "leetcode",
-          "title": "Permutations II",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/permutations-ii/",
-          "solvedAt": "2026-10-31T12:52:51.000Z"
-        },
-        {
-          "id": "lc-1793450922",
-          "platform": "leetcode",
-          "title": "Twisted Mirror Path Count",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/twisted-mirror-path-count/",
-          "solvedAt": "2026-10-31T12:48:42.000Z"
-        },
-        {
-          "id": "lc-1793331040",
-          "platform": "leetcode",
-          "title": "Shortest Path With At Most K Consecutive Identical Characters",
-          "category": "String",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/shortest-path-with-at-most-k-consecutive-identical-characters/",
-          "solvedAt": "2026-10-30T03:30:40.000Z"
-        },
-        {
-          "id": "lc-1793238536",
-          "platform": "leetcode",
-          "title": "Palindromic Path Queries in a Tree",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/palindromic-path-queries-in-a-tree/",
-          "solvedAt": "2026-10-29T01:48:56.000Z"
-        },
-        {
-          "id": "lc-1793148693",
-          "platform": "leetcode",
-          "title": "Minimum XOR Path in a Grid",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/minimum-xor-path-in-a-grid/",
-          "solvedAt": "2026-10-28T00:51:33.000Z"
-        },
-        {
-          "id": "lc-1793060739",
-          "platform": "leetcode",
-          "title": "Create Grid With Exactly One Path",
-          "category": "Algorithms",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/create-grid-with-exactly-one-path/",
-          "solvedAt": "2026-10-27T00:25:39.000Z"
-        },
-        {
-          "id": "lc-1792983024",
-          "platform": "leetcode",
-          "title": "Kth Largest Element in a Stream",
-          "category": "Tree",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/kth-largest-element-in-a-stream/",
-          "solvedAt": "2026-10-26T02:50:24.000Z"
         }
       ]
     },
@@ -6696,6 +6652,86 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1794735174",
+      "platform": "leetcode",
+      "title": "Maximum Subarray",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/maximum-subarray/",
+      "solvedAt": "2026-11-15T09:32:54.000Z"
+    },
+    {
+      "id": "lc-1794733923",
+      "platform": "leetcode",
+      "title": "N-Queens II",
+      "category": "Backtracking",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/n-queens-ii/",
+      "solvedAt": "2026-11-15T09:12:03.000Z"
+    },
+    {
+      "id": "lc-1794733810",
+      "platform": "leetcode",
+      "title": "N-Queens",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/n-queens/",
+      "solvedAt": "2026-11-15T09:10:10.000Z"
+    },
+    {
+      "id": "lc-1794731999",
+      "platform": "leetcode",
+      "title": "First Missing Positive",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/first-missing-positive/",
+      "solvedAt": "2026-11-15T08:39:59.000Z"
+    },
+    {
+      "id": "lc-1794730144",
+      "platform": "leetcode",
+      "title": "Find First and Last Position of Element in Sorted Array",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/",
+      "solvedAt": "2026-11-15T08:09:04.000Z"
+    },
+    {
+      "id": "lc-1794729415",
+      "platform": "leetcode",
+      "title": "Sudoku Solver",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/sudoku-solver/",
+      "solvedAt": "2026-11-15T07:56:55.000Z"
+    },
+    {
+      "id": "lc-1794727662",
+      "platform": "leetcode",
+      "title": "Valid Sudoku",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/valid-sudoku/",
+      "solvedAt": "2026-11-15T07:27:42.000Z"
+    },
+    {
+      "id": "lc-1794724025",
+      "platform": "leetcode",
+      "title": "Number of Sub-arrays With Odd Sum",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/",
+      "solvedAt": "2026-11-15T06:27:05.000Z"
+    },
     {
       "id": "lc-1794657179",
       "platform": "leetcode",

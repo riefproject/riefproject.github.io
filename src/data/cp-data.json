@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-15T13:24:10.125Z",
+    "updatedAt": "2026-11-15T22:27:03.993Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 831,
-    "totalSubmissions": 1762,
+    "totalSolved": 834,
+    "totalSubmissions": 1768,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-15": {
+        "tries": 12,
+        "ac": 11
+      },
       "2026-11-13": {
         "tries": 3,
         "ac": 2
@@ -30,7 +34,7 @@
         "ac": 2
       },
       "2026-11-03": {
-        "tries": 7,
+        "tries": 8,
         "ac": 6
       },
       "2026-10-31": {
@@ -266,7 +270,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 17,
+        "tries": 18,
         "ac": 5
       },
       "2026-05-25": {
@@ -370,7 +374,7 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
@@ -378,8 +382,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 106,
-        "ac": 54
+        "tries": 105,
+        "ac": 53
       },
       "2026-08-25": {
         "tries": 1,
@@ -472,10 +476,6 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
-      },
-      "2026-11-15": {
-        "tries": 8,
-        "ac": 8
       },
       "2026-11-14": {
         "tries": 2,
@@ -616,19 +616,19 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 996
+      "count": 1002
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 941,
-      "totalSolved": 469,
+      "totalSubmissions": 947,
+      "totalSolved": 472,
       "uniqueProblemsSolved": 409,
-      "totalAcSubmissions": 463,
+      "totalAcSubmissions": 466,
       "languages": {
-        "Cpp20": 906,
+        "Cpp20": 912,
         "Pascal": 18,
         "C": 10,
         "Cpp17": 2,
@@ -636,6 +636,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-15": {
+          "tries": 4,
+          "ac": 3
+        },
         "2026-11-13": {
           "tries": 3,
           "ac": 2
@@ -653,7 +657,7 @@
           "ac": 1
         },
         "2026-11-03": {
-          "tries": 6,
+          "tries": 7,
           "ac": 5
         },
         "2026-10-31": {
@@ -889,7 +893,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 17,
+          "tries": 18,
           "ac": 5
         },
         "2026-05-25": {
@@ -993,7 +997,7 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
@@ -1001,11 +1005,41 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 106,
-          "ac": 54
+          "tries": 105,
+          "ac": 53
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6306041",
+          "platform": "tlx",
+          "title": "Break the Bill",
+          "category": "COMPFEST 18 - Final CPC Junior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6306041",
+          "solvedAt": "2026-11-15T14:21:50.346Z"
+        },
+        {
+          "id": "tlx-6306039",
+          "platform": "tlx",
+          "title": "A Fate-Defying Chanek",
+          "category": "COMPFEST 18 - Final CPC Junior",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6306039",
+          "solvedAt": "2026-11-15T14:20:42.254Z"
+        },
+        {
+          "id": "tlx-6306023",
+          "platform": "tlx",
+          "title": "Perkenalan Knapsack",
+          "category": "Dynamic Programming",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6306023",
+          "solvedAt": "2026-11-15T14:12:40.000Z"
+        },
         {
           "id": "tlx-6298130",
           "platform": "tlx",
@@ -1597,16 +1631,6 @@
           "solvedAt": "2026-09-28T06:10:31.869Z"
         },
         {
-          "id": "tlx-6078512",
-          "platform": "tlx",
-          "title": "Break the Bill",
-          "category": "COMPFEST 18 - Final CPC Senior",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6078512",
-          "solvedAt": "2026-09-27T16:59:07.575Z"
-        },
-        {
           "id": "tlx-6078508",
           "platform": "tlx",
           "title": "Laying Flowers",
@@ -1615,16 +1639,6 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/6078508",
           "solvedAt": "2026-09-27T16:58:22.157Z"
-        },
-        {
-          "id": "tlx-6078507",
-          "platform": "tlx",
-          "title": "A Fate-Defying Chanek",
-          "category": "COMPFEST 18 - Final CPC Senior",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/6078507",
-          "solvedAt": "2026-09-27T16:57:50.273Z"
         },
         {
           "id": "tlx-6078506",
@@ -4667,16 +4681,6 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
-          "id": "tlx-4650685",
-          "platform": "tlx",
-          "title": "Kalkulator String",
-          "category": "Tipe Data Lainnya",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650685",
-          "solvedAt": "2025-11-24T16:47:20.506Z"
-        },
-        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -4807,16 +4811,6 @@
           "solvedAt": "2025-11-24T16:04:33.451Z"
         },
         {
-          "id": "tlx-4650598",
-          "platform": "tlx",
-          "title": "Toko Kandang II",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650598",
-          "solvedAt": "2025-11-24T15:54:33.525Z"
-        },
-        {
           "id": "tlx-4650595",
           "platform": "tlx",
           "title": "Bermain Lampu Kandang",
@@ -4845,6 +4839,16 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650592",
           "solvedAt": "2025-11-24T15:46:54.665Z"
+        },
+        {
+          "id": "tlx-4650590",
+          "platform": "tlx",
+          "title": "Perkenalan Larik (Array)",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650590",
+          "solvedAt": "2025-11-24T15:46:02.359Z"
         },
         {
           "id": "tlx-4650587",
@@ -6653,6 +6657,36 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "tlx-6306041",
+      "platform": "tlx",
+      "title": "Break the Bill",
+      "category": "COMPFEST 18 - Final CPC Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6306041",
+      "solvedAt": "2026-11-15T14:21:50.346Z"
+    },
+    {
+      "id": "tlx-6306039",
+      "platform": "tlx",
+      "title": "A Fate-Defying Chanek",
+      "category": "COMPFEST 18 - Final CPC Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6306039",
+      "solvedAt": "2026-11-15T14:20:42.254Z"
+    },
+    {
+      "id": "tlx-6306023",
+      "platform": "tlx",
+      "title": "Perkenalan Knapsack",
+      "category": "Dynamic Programming",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6306023",
+      "solvedAt": "2026-11-15T14:12:40.000Z"
+    },
+    {
       "id": "lc-1794735174",
       "platform": "leetcode",
       "title": "Maximum Subarray",
@@ -8073,16 +8107,6 @@
       "solvedAt": "2026-09-28T06:10:31.869Z"
     },
     {
-      "id": "tlx-6078512",
-      "platform": "tlx",
-      "title": "Break the Bill",
-      "category": "COMPFEST 18 - Final CPC Senior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6078512",
-      "solvedAt": "2026-09-27T16:59:07.575Z"
-    },
-    {
       "id": "tlx-6078508",
       "platform": "tlx",
       "title": "Laying Flowers",
@@ -8091,16 +8115,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/6078508",
       "solvedAt": "2026-09-27T16:58:22.157Z"
-    },
-    {
-      "id": "tlx-6078507",
-      "platform": "tlx",
-      "title": "A Fate-Defying Chanek",
-      "category": "COMPFEST 18 - Final CPC Senior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6078507",
-      "solvedAt": "2026-09-27T16:57:50.273Z"
     },
     {
       "id": "tlx-6078506",

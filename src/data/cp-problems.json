@@ -1,7 +1,37 @@
 {
-  "lastUpdated": "2026-11-15T13:24:10.127Z",
-  "totalProblems": 775,
+  "lastUpdated": "2026-11-15T22:27:03.995Z",
+  "totalProblems": 776,
   "problems": [
+    {
+      "id": "tlx-6306041",
+      "platform": "tlx",
+      "title": "Break the Bill",
+      "category": "COMPFEST 18 - Final CPC Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6306041",
+      "solvedAt": "2026-11-15T14:21:50.346Z"
+    },
+    {
+      "id": "tlx-6306039",
+      "platform": "tlx",
+      "title": "A Fate-Defying Chanek",
+      "category": "COMPFEST 18 - Final CPC Junior",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6306039",
+      "solvedAt": "2026-11-15T14:20:42.254Z"
+    },
+    {
+      "id": "tlx-6306023",
+      "platform": "tlx",
+      "title": "Perkenalan Knapsack",
+      "category": "Dynamic Programming",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6306023",
+      "solvedAt": "2026-11-15T14:12:40.000Z"
+    },
     {
       "id": "lc-1794735174",
       "platform": "leetcode",
@@ -1423,16 +1453,6 @@
       "solvedAt": "2026-09-28T06:10:31.869Z"
     },
     {
-      "id": "tlx-6078512",
-      "platform": "tlx",
-      "title": "Break the Bill",
-      "category": "COMPFEST 18 - Final CPC Senior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6078512",
-      "solvedAt": "2026-09-27T16:59:07.575Z"
-    },
-    {
       "id": "tlx-6078508",
       "platform": "tlx",
       "title": "Laying Flowers",
@@ -1441,16 +1461,6 @@
       "difficulty": "-",
       "url": "https://tlx.toki.id/submissions/6078508",
       "solvedAt": "2026-09-27T16:58:22.157Z"
-    },
-    {
-      "id": "tlx-6078507",
-      "platform": "tlx",
-      "title": "A Fate-Defying Chanek",
-      "category": "COMPFEST 18 - Final CPC Senior",
-      "language": "Cpp20",
-      "difficulty": "-",
-      "url": "https://tlx.toki.id/submissions/6078507",
-      "solvedAt": "2026-09-27T16:57:50.273Z"
     },
     {
       "id": "tlx-6078506",

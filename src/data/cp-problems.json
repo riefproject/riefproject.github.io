@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-16T04:37:26.765Z",
-  "totalProblems": 776,
+  "lastUpdated": "2026-11-16T14:40:39.487Z",
+  "totalProblems": 777,
   "problems": [
+    {
+      "id": "lc-1794806833",
+      "platform": "leetcode",
+      "title": "Calculate Digit Sum of a String",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/calculate-digit-sum-of-a-string/",
+      "solvedAt": "2026-11-16T05:27:13.000Z"
+    },
     {
       "id": "tlx-6306041",
       "platform": "tlx",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-18T00:28:36.538Z",
+    "updatedAt": "2026-11-18T15:02:07.709Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -30,8 +30,8 @@
         "ac": 7
       },
       "2026-11-04": {
-        "tries": 4,
-        "ac": 2
+        "tries": 3,
+        "ac": 1
       },
       "2026-11-03": {
         "tries": 7,
@@ -476,6 +476,10 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
+      },
+      "2026-11-18": {
+        "tries": 1,
+        "ac": 1
       },
       "2026-11-17": {
         "tries": 1,
@@ -5974,12 +5978,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1212770,
+      "ranking": 1197365,
       "totalSolved": 149,
       "easySolved": 63,
       "mediumSolved": 67,
       "hardSolved": 19,
       "dailyCalendar": {
+        "2026-11-18": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-17": {
           "tries": 1,
           "ac": 1
@@ -6019,13 +6027,19 @@
         "2026-11-05": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-11-04": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1794976794",
+          "platform": "leetcode",
+          "title": "Minimum Number of Changes to Make Binary String Beautiful",
+          "category": "String",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-number-of-changes-to-make-binary-string-beautiful/",
+          "solvedAt": "2026-11-18T04:39:54.000Z"
+        },
         {
           "id": "lc-1794915793",
           "platform": "leetcode",
@@ -6215,16 +6229,6 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/find-the-distance-value-between-two-arrays/",
           "solvedAt": "2026-11-05T07:32:03.000Z"
-        },
-        {
-          "id": "lc-1793792505",
-          "platform": "leetcode",
-          "title": "Minimum Operations to Make Elements Within K Subarrays Equal",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/minimum-operations-to-make-elements-within-k-subarrays-equal/",
-          "solvedAt": "2026-11-04T11:41:45.000Z"
         }
       ]
     },
@@ -6660,6 +6664,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1794976794",
+      "platform": "leetcode",
+      "title": "Minimum Number of Changes to Make Binary String Beautiful",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-number-of-changes-to-make-binary-string-beautiful/",
+      "solvedAt": "2026-11-18T04:39:54.000Z"
+    },
     {
       "id": "lc-1794915793",
       "platform": "leetcode",

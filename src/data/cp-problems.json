@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-18T00:28:36.540Z",
-  "totalProblems": 778,
+  "lastUpdated": "2026-11-18T15:02:07.712Z",
+  "totalProblems": 779,
   "problems": [
+    {
+      "id": "lc-1794976794",
+      "platform": "leetcode",
+      "title": "Minimum Number of Changes to Make Binary String Beautiful",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-number-of-changes-to-make-binary-string-beautiful/",
+      "solvedAt": "2026-11-18T04:39:54.000Z"
+    },
     {
       "id": "lc-1794915793",
       "platform": "leetcode",

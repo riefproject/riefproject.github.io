@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-17T15:27:53.707Z",
+    "updatedAt": "2026-11-18T00:28:36.538Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 835,
-    "totalSubmissions": 1769,
+    "totalSolved": 836,
+    "totalSubmissions": 1770,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-15": {
@@ -34,8 +34,8 @@
         "ac": 2
       },
       "2026-11-03": {
-        "tries": 8,
-        "ac": 6
+        "tries": 7,
+        "ac": 5
       },
       "2026-10-31": {
         "tries": 3,
@@ -476,6 +476,10 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
+      },
+      "2026-11-17": {
+        "tries": 1,
+        "ac": 1
       },
       "2026-11-16": {
         "tries": 1,
@@ -5971,11 +5975,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1212770,
-      "totalSolved": 148,
+      "totalSolved": 149,
       "easySolved": 63,
       "mediumSolved": 67,
-      "hardSolved": 18,
+      "hardSolved": 19,
       "dailyCalendar": {
+        "2026-11-17": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-16": {
           "tries": 1,
           "ac": 1
@@ -6015,13 +6023,19 @@
         "2026-11-04": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-11-03": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1794915793",
+          "platform": "leetcode",
+          "title": "Minimum Changes to Make K Semi-palindromes",
+          "category": "Two Pointers",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/minimum-changes-to-make-k-semi-palindromes/",
+          "solvedAt": "2026-11-17T11:43:13.000Z"
+        },
         {
           "id": "lc-1794806833",
           "platform": "leetcode",
@@ -6211,16 +6225,6 @@
           "difficulty": "Hard",
           "url": "https://leetcode.com/problems/minimum-operations-to-make-elements-within-k-subarrays-equal/",
           "solvedAt": "2026-11-04T11:41:45.000Z"
-        },
-        {
-          "id": "lc-1793693074",
-          "platform": "leetcode",
-          "title": "Minimum Moves to Equal Array Elements III",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/minimum-moves-to-equal-array-elements-iii/",
-          "solvedAt": "2026-11-03T08:04:34.000Z"
         }
       ]
     },
@@ -6656,6 +6660,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1794915793",
+      "platform": "leetcode",
+      "title": "Minimum Changes to Make K Semi-palindromes",
+      "category": "Two Pointers",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/minimum-changes-to-make-k-semi-palindromes/",
+      "solvedAt": "2026-11-17T11:43:13.000Z"
+    },
     {
       "id": "lc-1794806833",
       "platform": "leetcode",

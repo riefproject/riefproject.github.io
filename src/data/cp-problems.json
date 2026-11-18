@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-17T15:27:53.710Z",
-  "totalProblems": 777,
+  "lastUpdated": "2026-11-18T00:28:36.540Z",
+  "totalProblems": 778,
   "problems": [
+    {
+      "id": "lc-1794915793",
+      "platform": "leetcode",
+      "title": "Minimum Changes to Make K Semi-palindromes",
+      "category": "Two Pointers",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/minimum-changes-to-make-k-semi-palindromes/",
+      "solvedAt": "2026-11-17T11:43:13.000Z"
+    },
     {
       "id": "lc-1794806833",
       "platform": "leetcode",

@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-19T05:47:55.541Z",
-  "totalProblems": 779,
+  "lastUpdated": "2026-11-19T15:11:55.096Z",
+  "totalProblems": 780,
   "problems": [
+    {
+      "id": "lc-1795068252",
+      "platform": "leetcode",
+      "title": "Minimum Score by Changing Two Elements",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-score-by-changing-two-elements/",
+      "solvedAt": "2026-11-19T06:04:12.000Z"
+    },
     {
       "id": "lc-1794976794",
       "platform": "leetcode",

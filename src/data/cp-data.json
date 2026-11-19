@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-19T05:47:55.539Z",
+    "updatedAt": "2026-11-19T15:11:55.094Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 837,
-    "totalSubmissions": 1771,
+    "totalSolved": 838,
+    "totalSubmissions": 1772,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-15": {
@@ -26,8 +26,8 @@
         "ac": 2
       },
       "2026-11-05": {
-        "tries": 11,
-        "ac": 7
+        "tries": 10,
+        "ac": 6
       },
       "2026-11-04": {
         "tries": 3,
@@ -476,6 +476,10 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
+      },
+      "2026-11-19": {
+        "tries": 1,
+        "ac": 1
       },
       "2026-11-18": {
         "tries": 1,
@@ -5979,11 +5983,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1197365,
-      "totalSolved": 150,
+      "totalSolved": 151,
       "easySolved": 63,
-      "mediumSolved": 68,
+      "mediumSolved": 69,
       "hardSolved": 19,
       "dailyCalendar": {
+        "2026-11-19": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-18": {
           "tries": 1,
           "ac": 1
@@ -6023,13 +6031,19 @@
         "2026-11-06": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-11-05": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1795068252",
+          "platform": "leetcode",
+          "title": "Minimum Score by Changing Two Elements",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/minimum-score-by-changing-two-elements/",
+          "solvedAt": "2026-11-19T06:04:12.000Z"
+        },
         {
           "id": "lc-1794976794",
           "platform": "leetcode",
@@ -6219,16 +6233,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/count-zero-request-servers/",
           "solvedAt": "2026-11-06T10:27:54.000Z"
-        },
-        {
-          "id": "lc-1793863923",
-          "platform": "leetcode",
-          "title": "Find the Distance Value Between Two Arrays",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/find-the-distance-value-between-two-arrays/",
-          "solvedAt": "2026-11-05T07:32:03.000Z"
         }
       ]
     },
@@ -6664,6 +6668,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1795068252",
+      "platform": "leetcode",
+      "title": "Minimum Score by Changing Two Elements",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/minimum-score-by-changing-two-elements/",
+      "solvedAt": "2026-11-19T06:04:12.000Z"
+    },
     {
       "id": "lc-1794976794",
       "platform": "leetcode",

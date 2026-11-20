@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-20T00:15:25.547Z",
-  "totalProblems": 780,
+  "lastUpdated": "2026-11-20T14:51:08.035Z",
+  "totalProblems": 781,
   "problems": [
+    {
+      "id": "lc-1795148386",
+      "platform": "leetcode",
+      "title": "Maximize Consecutive Elements in an Array After Modification",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/maximize-consecutive-elements-in-an-array-after-modification/",
+      "solvedAt": "2026-11-20T04:19:46.000Z"
+    },
     {
       "id": "lc-1795068252",
       "platform": "leetcode",

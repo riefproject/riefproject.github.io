@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-20T00:15:25.544Z",
+    "updatedAt": "2026-11-20T14:51:08.032Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 838,
-    "totalSubmissions": 1772,
+    "totalSolved": 839,
+    "totalSubmissions": 1773,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-15": {
@@ -477,6 +477,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-11-20": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-11-19": {
         "tries": 1,
         "ac": 1
@@ -506,10 +510,6 @@
         "ac": 1
       },
       "2026-11-07": {
-        "tries": 1,
-        "ac": 1
-      },
-      "2026-11-06": {
         "tries": 1,
         "ac": 1
       },
@@ -5982,12 +5982,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1189198,
-      "totalSolved": 151,
+      "ranking": 1181005,
+      "totalSolved": 152,
       "easySolved": 63,
       "mediumSolved": 69,
-      "hardSolved": 19,
+      "hardSolved": 20,
       "dailyCalendar": {
+        "2026-11-20": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-19": {
           "tries": 1,
           "ac": 1
@@ -6027,13 +6031,19 @@
         "2026-11-07": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-11-06": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1795148386",
+          "platform": "leetcode",
+          "title": "Maximize Consecutive Elements in an Array After Modification",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/maximize-consecutive-elements-in-an-array-after-modification/",
+          "solvedAt": "2026-11-20T04:19:46.000Z"
+        },
         {
           "id": "lc-1795068252",
           "platform": "leetcode",
@@ -6223,16 +6233,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/process-tasks-using-servers/",
           "solvedAt": "2026-11-07T05:01:33.000Z"
-        },
-        {
-          "id": "lc-1793960874",
-          "platform": "leetcode",
-          "title": "Count Zero Request Servers",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/count-zero-request-servers/",
-          "solvedAt": "2026-11-06T10:27:54.000Z"
         }
       ]
     },
@@ -6668,6 +6668,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1795148386",
+      "platform": "leetcode",
+      "title": "Maximize Consecutive Elements in an Array After Modification",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/maximize-consecutive-elements-in-an-array-after-modification/",
+      "solvedAt": "2026-11-20T04:19:46.000Z"
+    },
     {
       "id": "lc-1795068252",
       "platform": "leetcode",

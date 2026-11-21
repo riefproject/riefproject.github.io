@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-21T05:30:07.453Z",
+    "updatedAt": "2026-11-21T14:09:39.044Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 839,
-    "totalSubmissions": 1773,
+    "totalSolved": 843,
+    "totalSubmissions": 1782,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-21": {
+        "tries": 6,
+        "ac": 3
+      },
       "2026-11-15": {
         "tries": 12,
         "ac": 11
@@ -126,7 +130,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
+        "tries": 24,
         "ac": 13
       },
       "2026-09-19": {
@@ -246,7 +250,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 41,
+        "tries": 40,
         "ac": 12
       },
       "2026-07-16": {
@@ -382,8 +386,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 105,
-        "ac": 53
+        "tries": 108,
+        "ac": 55
       },
       "2026-08-25": {
         "tries": 1,
@@ -509,10 +513,6 @@
         "tries": 1,
         "ac": 1
       },
-      "2026-11-07": {
-        "tries": 1,
-        "ac": 1
-      },
       "2024-06-23": {
         "tries": 44,
         "ac": 0
@@ -628,19 +628,19 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 1002
+      "count": 1010
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 947,
-      "totalSolved": 472,
-      "uniqueProblemsSolved": 409,
-      "totalAcSubmissions": 466,
+      "totalSubmissions": 955,
+      "totalSolved": 475,
+      "uniqueProblemsSolved": 413,
+      "totalAcSubmissions": 468,
       "languages": {
-        "Cpp20": 912,
+        "Cpp20": 920,
         "Pascal": 18,
         "C": 10,
         "Cpp17": 2,
@@ -648,6 +648,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-21": {
+          "tries": 5,
+          "ac": 2
+        },
         "2026-11-15": {
           "tries": 4,
           "ac": 3
@@ -761,7 +765,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
+          "tries": 24,
           "ac": 13
         },
         "2026-09-19": {
@@ -881,7 +885,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 41,
+          "tries": 40,
           "ac": 12
         },
         "2026-07-16": {
@@ -1017,11 +1021,31 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 105,
-          "ac": 53
+          "tries": 108,
+          "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6327529",
+          "platform": "tlx",
+          "title": "Saraga",
+          "category": "ICPC Jakarta 2024",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6327529",
+          "solvedAt": "2026-11-21T12:43:55.801Z"
+        },
+        {
+          "id": "tlx-6327296",
+          "platform": "tlx",
+          "title": "Scrambled Scrabble",
+          "category": "ICPC Jakarta 2024",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6327296",
+          "solvedAt": "2026-11-21T11:23:23.862Z"
+        },
         {
           "id": "tlx-6306041",
           "platform": "tlx",
@@ -4693,6 +4717,16 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
+          "id": "tlx-4650685",
+          "platform": "tlx",
+          "title": "Kalkulator String",
+          "category": "Tipe Data Lainnya",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650685",
+          "solvedAt": "2025-11-24T16:47:20.506Z"
+        },
+        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -4821,6 +4855,16 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650610",
           "solvedAt": "2025-11-24T16:04:33.451Z"
+        },
+        {
+          "id": "tlx-4650598",
+          "platform": "tlx",
+          "title": "Toko Kandang II",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650598",
+          "solvedAt": "2025-11-24T15:54:33.525Z"
         },
         {
           "id": "tlx-4650595",
@@ -5982,12 +6026,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1181005,
-      "totalSolved": 152,
+      "ranking": 1173310,
+      "totalSolved": 153,
       "easySolved": 63,
-      "mediumSolved": 69,
+      "mediumSolved": 70,
       "hardSolved": 20,
       "dailyCalendar": {
+        "2026-11-21": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-20": {
           "tries": 1,
           "ac": 1
@@ -6027,13 +6075,19 @@
         "2026-11-08": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-11-07": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1795240301",
+          "platform": "leetcode",
+          "title": "Find Subtree Sizes After Changes",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/find-subtree-sizes-after-changes/",
+          "solvedAt": "2026-11-21T05:51:41.000Z"
+        },
         {
           "id": "lc-1795148386",
           "platform": "leetcode",
@@ -6223,16 +6277,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/count-servers-that-communicate/",
           "solvedAt": "2026-11-08T15:10:39.000Z"
-        },
-        {
-          "id": "lc-1794027693",
-          "platform": "leetcode",
-          "title": "Process Tasks Using Servers",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/process-tasks-using-servers/",
-          "solvedAt": "2026-11-07T05:01:33.000Z"
         }
       ]
     },
@@ -6668,6 +6712,36 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6327529",
+      "platform": "tlx",
+      "title": "Saraga",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327529",
+      "solvedAt": "2026-11-21T12:43:55.801Z"
+    },
+    {
+      "id": "tlx-6327296",
+      "platform": "tlx",
+      "title": "Scrambled Scrabble",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327296",
+      "solvedAt": "2026-11-21T11:23:23.862Z"
+    },
+    {
+      "id": "lc-1795240301",
+      "platform": "leetcode",
+      "title": "Find Subtree Sizes After Changes",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-subtree-sizes-after-changes/",
+      "solvedAt": "2026-11-21T05:51:41.000Z"
+    },
     {
       "id": "lc-1795148386",
       "platform": "leetcode",

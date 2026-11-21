@@ -1,7 +1,37 @@
 {
-  "lastUpdated": "2026-11-21T05:30:07.456Z",
-  "totalProblems": 781,
+  "lastUpdated": "2026-11-21T14:09:39.047Z",
+  "totalProblems": 784,
   "problems": [
+    {
+      "id": "tlx-6327529",
+      "platform": "tlx",
+      "title": "Saraga",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327529",
+      "solvedAt": "2026-11-21T12:43:55.801Z"
+    },
+    {
+      "id": "tlx-6327296",
+      "platform": "tlx",
+      "title": "Scrambled Scrabble",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327296",
+      "solvedAt": "2026-11-21T11:23:23.862Z"
+    },
+    {
+      "id": "lc-1795240301",
+      "platform": "leetcode",
+      "title": "Find Subtree Sizes After Changes",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/find-subtree-sizes-after-changes/",
+      "solvedAt": "2026-11-21T05:51:41.000Z"
+    },
     {
       "id": "lc-1795148386",
       "platform": "leetcode",

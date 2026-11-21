@@ -1,7 +1,37 @@
 {
-  "lastUpdated": "2026-11-21T14:09:39.047Z",
-  "totalProblems": 784,
+  "lastUpdated": "2026-11-21T22:44:37.904Z",
+  "totalProblems": 787,
   "problems": [
+    {
+      "id": "tlx-6327920",
+      "platform": "tlx",
+      "title": "Microwavable Subsequence",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327920",
+      "solvedAt": "2026-11-21T15:47:26.162Z"
+    },
+    {
+      "id": "tlx-6327847",
+      "platform": "tlx",
+      "title": "ICPC Square",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327847",
+      "solvedAt": "2026-11-21T15:05:17.016Z"
+    },
+    {
+      "id": "tlx-6327791",
+      "platform": "tlx",
+      "title": "Mirror Maze",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327791",
+      "solvedAt": "2026-11-21T14:29:19.547Z"
+    },
     {
       "id": "tlx-6327529",
       "platform": "tlx",

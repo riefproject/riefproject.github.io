@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-21T14:09:39.044Z",
+    "updatedAt": "2026-11-21T22:44:37.900Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,13 +9,13 @@
     }
   },
   "overview": {
-    "totalSolved": 843,
-    "totalSubmissions": 1782,
+    "totalSolved": 845,
+    "totalSubmissions": 1788,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-21": {
-        "tries": 6,
-        "ac": 3
+        "tries": 12,
+        "ac": 7
       },
       "2026-11-15": {
         "tries": 12,
@@ -106,8 +106,8 @@
         "ac": 12
       },
       "2026-09-27": {
-        "tries": 5,
-        "ac": 5
+        "tries": 4,
+        "ac": 4
       },
       "2026-09-26": {
         "tries": 1,
@@ -250,7 +250,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 40,
+        "tries": 41,
         "ac": 12
       },
       "2026-07-16": {
@@ -330,7 +330,7 @@
         "ac": 1
       },
       "2026-01-30": {
-        "tries": 7,
+        "tries": 6,
         "ac": 2
       },
       "2026-01-13": {
@@ -370,7 +370,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 26,
+        "tries": 25,
         "ac": 6
       },
       "2025-11-27": {
@@ -382,11 +382,11 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 22,
+        "tries": 23,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 108,
+        "tries": 109,
         "ac": 55
       },
       "2026-08-25": {
@@ -628,19 +628,19 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 1010
+      "count": 1016
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 955,
-      "totalSolved": 475,
-      "uniqueProblemsSolved": 413,
-      "totalAcSubmissions": 468,
+      "totalSubmissions": 961,
+      "totalSolved": 477,
+      "uniqueProblemsSolved": 416,
+      "totalAcSubmissions": 471,
       "languages": {
-        "Cpp20": 920,
+        "Cpp20": 926,
         "Pascal": 18,
         "C": 10,
         "Cpp17": 2,
@@ -649,8 +649,8 @@
       },
       "dailyCalendar": {
         "2026-11-21": {
-          "tries": 5,
-          "ac": 2
+          "tries": 11,
+          "ac": 6
         },
         "2026-11-15": {
           "tries": 4,
@@ -741,8 +741,8 @@
           "ac": 12
         },
         "2026-09-27": {
-          "tries": 5,
-          "ac": 5
+          "tries": 4,
+          "ac": 4
         },
         "2026-09-26": {
           "tries": 1,
@@ -885,7 +885,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 40,
+          "tries": 41,
           "ac": 12
         },
         "2026-07-16": {
@@ -965,7 +965,7 @@
           "ac": 1
         },
         "2026-01-30": {
-          "tries": 7,
+          "tries": 6,
           "ac": 2
         },
         "2026-01-13": {
@@ -1005,7 +1005,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 26,
+          "tries": 25,
           "ac": 6
         },
         "2025-11-27": {
@@ -1017,15 +1017,45 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 22,
+          "tries": 23,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 108,
+          "tries": 109,
           "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6327920",
+          "platform": "tlx",
+          "title": "Microwavable Subsequence",
+          "category": "ICPC Jakarta 2024",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6327920",
+          "solvedAt": "2026-11-21T15:47:26.162Z"
+        },
+        {
+          "id": "tlx-6327847",
+          "platform": "tlx",
+          "title": "ICPC Square",
+          "category": "ICPC Jakarta 2024",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6327847",
+          "solvedAt": "2026-11-21T15:05:17.016Z"
+        },
+        {
+          "id": "tlx-6327791",
+          "platform": "tlx",
+          "title": "Mirror Maze",
+          "category": "ICPC Jakarta 2024",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6327791",
+          "solvedAt": "2026-11-21T14:29:19.547Z"
+        },
         {
           "id": "tlx-6327529",
           "platform": "tlx",
@@ -6712,6 +6742,36 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6327920",
+      "platform": "tlx",
+      "title": "Microwavable Subsequence",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327920",
+      "solvedAt": "2026-11-21T15:47:26.162Z"
+    },
+    {
+      "id": "tlx-6327847",
+      "platform": "tlx",
+      "title": "ICPC Square",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327847",
+      "solvedAt": "2026-11-21T15:05:17.016Z"
+    },
+    {
+      "id": "tlx-6327791",
+      "platform": "tlx",
+      "title": "Mirror Maze",
+      "category": "ICPC Jakarta 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6327791",
+      "solvedAt": "2026-11-21T14:29:19.547Z"
+    },
     {
       "id": "tlx-6327529",
       "platform": "tlx",

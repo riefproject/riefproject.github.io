@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-22T04:56:01.639Z",
+    "updatedAt": "2026-11-22T13:59:33.769Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 845,
-    "totalSubmissions": 1788,
+    "totalSolved": 847,
+    "totalSubmissions": 1790,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-21": {
@@ -481,6 +481,10 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-11-22": {
+        "tries": 2,
+        "ac": 2
+      },
       "2026-11-20": {
         "tries": 1,
         "ac": 1
@@ -506,10 +510,6 @@
         "ac": 2
       },
       "2026-11-10": {
-        "tries": 2,
-        "ac": 2
-      },
-      "2026-11-08": {
         "tries": 1,
         "ac": 1
       },
@@ -6056,12 +6056,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1173310,
-      "totalSolved": 153,
-      "easySolved": 63,
+      "ranking": 1158144,
+      "totalSolved": 155,
+      "easySolved": 65,
       "mediumSolved": 70,
       "hardSolved": 20,
       "dailyCalendar": {
+        "2026-11-22": {
+          "tries": 2,
+          "ac": 2
+        },
         "2026-11-21": {
           "tries": 1,
           "ac": 1
@@ -6099,15 +6103,31 @@
           "ac": 1
         },
         "2026-11-10": {
-          "tries": 2,
-          "ac": 2
-        },
-        "2026-11-08": {
           "tries": 1,
           "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1795341894",
+          "platform": "leetcode",
+          "title": "Longest Strictly Increasing or Strictly Decreasing Subarray",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/",
+          "solvedAt": "2026-11-22T10:04:54.000Z"
+        },
+        {
+          "id": "lc-1795339475",
+          "platform": "leetcode",
+          "title": "Check if All A's Appears Before All B's",
+          "category": "String",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/check-if-all-as-appears-before-all-bs/",
+          "solvedAt": "2026-11-22T09:24:35.000Z"
+        },
         {
           "id": "lc-1795240301",
           "platform": "leetcode",
@@ -6287,26 +6307,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/climbing-stairs-ii/",
           "solvedAt": "2026-11-10T10:34:59.000Z"
-        },
-        {
-          "id": "lc-1794306837",
-          "platform": "leetcode",
-          "title": "Find Servers That Handled Most Number of Requests",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/find-servers-that-handled-most-number-of-requests/",
-          "solvedAt": "2026-11-10T10:33:57.000Z"
-        },
-        {
-          "id": "lc-1794150639",
-          "platform": "leetcode",
-          "title": "Count Servers that Communicate",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/count-servers-that-communicate/",
-          "solvedAt": "2026-11-08T15:10:39.000Z"
         }
       ]
     },
@@ -6742,6 +6742,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1795341894",
+      "platform": "leetcode",
+      "title": "Longest Strictly Increasing or Strictly Decreasing Subarray",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/longest-strictly-increasing-or-strictly-decreasing-subarray/",
+      "solvedAt": "2026-11-22T10:04:54.000Z"
+    },
+    {
+      "id": "lc-1795339475",
+      "platform": "leetcode",
+      "title": "Check if All A's Appears Before All B's",
+      "category": "String",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/check-if-all-as-appears-before-all-bs/",
+      "solvedAt": "2026-11-22T09:24:35.000Z"
+    },
     {
       "id": "tlx-6327920",
       "platform": "tlx",

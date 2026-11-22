@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-22T13:59:33.772Z",
-  "totalProblems": 789,
+  "lastUpdated": "2026-11-22T23:11:08.537Z",
+  "totalProblems": 790,
   "problems": [
+    {
+      "id": "tlx-6330627",
+      "platform": "tlx",
+      "title": "Easy As ABC",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6330627",
+      "solvedAt": "2026-11-22T23:10:31.350Z"
+    },
     {
       "id": "lc-1795341894",
       "platform": "leetcode",

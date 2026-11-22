@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-22T13:59:33.769Z",
+    "updatedAt": "2026-11-22T23:11:08.534Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 847,
+    "totalSolved": 848,
     "totalSubmissions": 1790,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-22": {
+        "tries": 4,
+        "ac": 3
+      },
       "2026-11-21": {
         "tries": 12,
         "ac": 7
@@ -106,8 +110,8 @@
         "ac": 12
       },
       "2026-09-27": {
-        "tries": 4,
-        "ac": 4
+        "tries": 5,
+        "ac": 5
       },
       "2026-09-26": {
         "tries": 1,
@@ -138,7 +142,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 9,
+        "tries": 8,
         "ac": 5
       },
       "2026-09-14": {
@@ -330,7 +334,7 @@
         "ac": 1
       },
       "2026-01-30": {
-        "tries": 6,
+        "tries": 7,
         "ac": 2
       },
       "2026-01-13": {
@@ -370,7 +374,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 25,
+        "tries": 26,
         "ac": 6
       },
       "2025-11-27": {
@@ -378,7 +382,7 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 25,
+        "tries": 24,
         "ac": 7
       },
       "2025-11-25": {
@@ -386,8 +390,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 109,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -480,10 +484,6 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
-      },
-      "2026-11-22": {
-        "tries": 2,
-        "ac": 2
       },
       "2026-11-20": {
         "tries": 1,
@@ -636,9 +636,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 961,
-      "totalSolved": 477,
+      "totalSolved": 478,
       "uniqueProblemsSolved": 416,
-      "totalAcSubmissions": 471,
+      "totalAcSubmissions": 472,
       "languages": {
         "Cpp20": 926,
         "Pascal": 18,
@@ -648,6 +648,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-22": {
+          "tries": 2,
+          "ac": 1
+        },
         "2026-11-21": {
           "tries": 11,
           "ac": 6
@@ -741,8 +745,8 @@
           "ac": 12
         },
         "2026-09-27": {
-          "tries": 4,
-          "ac": 4
+          "tries": 5,
+          "ac": 5
         },
         "2026-09-26": {
           "tries": 1,
@@ -773,7 +777,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 9,
+          "tries": 8,
           "ac": 5
         },
         "2026-09-14": {
@@ -965,7 +969,7 @@
           "ac": 1
         },
         "2026-01-30": {
-          "tries": 6,
+          "tries": 7,
           "ac": 2
         },
         "2026-01-13": {
@@ -1005,7 +1009,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 25,
+          "tries": 26,
           "ac": 6
         },
         "2025-11-27": {
@@ -1013,7 +1017,7 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 25,
+          "tries": 24,
           "ac": 7
         },
         "2025-11-25": {
@@ -1021,11 +1025,21 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 109,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6330627",
+          "platform": "tlx",
+          "title": "Easy As ABC",
+          "category": "ICPC Jakarta 2023",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6330627",
+          "solvedAt": "2026-11-22T23:10:31.350Z"
+        },
         {
           "id": "tlx-6327920",
           "platform": "tlx",
@@ -4927,16 +4941,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -6742,6 +6746,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6330627",
+      "platform": "tlx",
+      "title": "Easy As ABC",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6330627",
+      "solvedAt": "2026-11-22T23:10:31.350Z"
+    },
     {
       "id": "lc-1795341894",
       "platform": "leetcode",

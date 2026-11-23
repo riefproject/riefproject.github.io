@@ -1,7 +1,47 @@
 {
-  "lastUpdated": "2026-11-22T23:11:08.537Z",
-  "totalProblems": 790,
+  "lastUpdated": "2026-11-23T05:37:01.607Z",
+  "totalProblems": 794,
   "problems": [
+    {
+      "id": "tlx-6331103",
+      "platform": "tlx",
+      "title": "Palindromic Parentheses",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6331103",
+      "solvedAt": "2026-11-23T01:16:50.006Z"
+    },
+    {
+      "id": "tlx-6330677",
+      "platform": "tlx",
+      "title": "Triangle Construction",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6330677",
+      "solvedAt": "2026-11-23T00:31:59.479Z"
+    },
+    {
+      "id": "lc-1795393349",
+      "platform": "leetcode",
+      "title": "Product of the Last K Numbers",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/product-of-the-last-k-numbers/",
+      "solvedAt": "2026-11-23T00:22:29.000Z"
+    },
+    {
+      "id": "tlx-6330635",
+      "platform": "tlx",
+      "title": "Maximize The Value",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6330635",
+      "solvedAt": "2026-11-23T00:19:51.323Z"
+    },
     {
       "id": "tlx-6330627",
       "platform": "tlx",

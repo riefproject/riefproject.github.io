@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-22T23:11:08.534Z",
+    "updatedAt": "2026-11-23T05:37:01.604Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 848,
-    "totalSubmissions": 1790,
+    "totalSolved": 852,
+    "totalSubmissions": 1797,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-23": {
+        "tries": 7,
+        "ac": 4
+      },
       "2026-11-22": {
         "tries": 4,
         "ac": 3
@@ -134,7 +138,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
+        "tries": 23,
         "ac": 13
       },
       "2026-09-19": {
@@ -142,7 +146,7 @@
         "ac": 4
       },
       "2026-09-15": {
-        "tries": 8,
+        "tries": 9,
         "ac": 5
       },
       "2026-09-14": {
@@ -366,7 +370,7 @@
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 23,
+        "tries": 22,
         "ac": 6
       },
       "2025-12-01": {
@@ -390,8 +394,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 106,
-        "ac": 54
+        "tries": 107,
+        "ac": 55
       },
       "2026-08-25": {
         "tries": 1,
@@ -509,10 +513,6 @@
         "tries": 2,
         "ac": 2
       },
-      "2026-11-10": {
-        "tries": 1,
-        "ac": 1
-      },
       "2024-06-23": {
         "tries": 44,
         "ac": 0
@@ -628,19 +628,19 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 1016
+      "count": 1022
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 961,
-      "totalSolved": 478,
-      "uniqueProblemsSolved": 416,
-      "totalAcSubmissions": 472,
+      "totalSubmissions": 967,
+      "totalSolved": 481,
+      "uniqueProblemsSolved": 420,
+      "totalAcSubmissions": 475,
       "languages": {
-        "Cpp20": 926,
+        "Cpp20": 932,
         "Pascal": 18,
         "C": 10,
         "Cpp17": 2,
@@ -648,6 +648,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-23": {
+          "tries": 6,
+          "ac": 3
+        },
         "2026-11-22": {
           "tries": 2,
           "ac": 1
@@ -769,7 +773,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
+          "tries": 23,
           "ac": 13
         },
         "2026-09-19": {
@@ -777,7 +781,7 @@
           "ac": 4
         },
         "2026-09-15": {
-          "tries": 8,
+          "tries": 9,
           "ac": 5
         },
         "2026-09-14": {
@@ -1001,7 +1005,7 @@
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 23,
+          "tries": 22,
           "ac": 6
         },
         "2025-12-01": {
@@ -1025,11 +1029,41 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 106,
-          "ac": 54
+          "tries": 107,
+          "ac": 55
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6331103",
+          "platform": "tlx",
+          "title": "Palindromic Parentheses",
+          "category": "ICPC Jakarta 2023",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6331103",
+          "solvedAt": "2026-11-23T01:16:50.006Z"
+        },
+        {
+          "id": "tlx-6330677",
+          "platform": "tlx",
+          "title": "Triangle Construction",
+          "category": "ICPC Jakarta 2023",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6330677",
+          "solvedAt": "2026-11-23T00:31:59.479Z"
+        },
+        {
+          "id": "tlx-6330635",
+          "platform": "tlx",
+          "title": "Maximize The Value",
+          "category": "ICPC Jakarta 2023",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6330635",
+          "solvedAt": "2026-11-23T00:19:51.323Z"
+        },
         {
           "id": "tlx-6330627",
           "platform": "tlx",
@@ -4941,6 +4975,16 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
+          "id": "tlx-4650590",
+          "platform": "tlx",
+          "title": "Perkenalan Larik (Array)",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650590",
+          "solvedAt": "2025-11-24T15:46:02.359Z"
+        },
+        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -6061,11 +6105,15 @@
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
       "ranking": 1158144,
-      "totalSolved": 155,
+      "totalSolved": 156,
       "easySolved": 65,
-      "mediumSolved": 70,
+      "mediumSolved": 71,
       "hardSolved": 20,
       "dailyCalendar": {
+        "2026-11-23": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-22": {
           "tries": 2,
           "ac": 2
@@ -6105,13 +6153,19 @@
         "2026-11-11": {
           "tries": 1,
           "ac": 1
-        },
-        "2026-11-10": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1795393349",
+          "platform": "leetcode",
+          "title": "Product of the Last K Numbers",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/product-of-the-last-k-numbers/",
+          "solvedAt": "2026-11-23T00:22:29.000Z"
+        },
         {
           "id": "lc-1795341894",
           "platform": "leetcode",
@@ -6301,16 +6355,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/minimum-cost-to-acquire-required-items/",
           "solvedAt": "2026-11-11T22:59:17.000Z"
-        },
-        {
-          "id": "lc-1794306899",
-          "platform": "leetcode",
-          "title": "Climbing Stairs II",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/climbing-stairs-ii/",
-          "solvedAt": "2026-11-10T10:34:59.000Z"
         }
       ]
     },
@@ -6746,6 +6790,46 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6331103",
+      "platform": "tlx",
+      "title": "Palindromic Parentheses",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6331103",
+      "solvedAt": "2026-11-23T01:16:50.006Z"
+    },
+    {
+      "id": "tlx-6330677",
+      "platform": "tlx",
+      "title": "Triangle Construction",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6330677",
+      "solvedAt": "2026-11-23T00:31:59.479Z"
+    },
+    {
+      "id": "lc-1795393349",
+      "platform": "leetcode",
+      "title": "Product of the Last K Numbers",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/product-of-the-last-k-numbers/",
+      "solvedAt": "2026-11-23T00:22:29.000Z"
+    },
+    {
+      "id": "tlx-6330635",
+      "platform": "tlx",
+      "title": "Maximize The Value",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6330635",
+      "solvedAt": "2026-11-23T00:19:51.323Z"
+    },
     {
       "id": "tlx-6330627",
       "platform": "tlx",

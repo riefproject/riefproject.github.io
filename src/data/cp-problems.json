@@ -1,7 +1,77 @@
 {
-  "lastUpdated": "2026-11-23T05:37:01.607Z",
-  "totalProblems": 794,
+  "lastUpdated": "2026-11-23T17:17:33.474Z",
+  "totalProblems": 801,
   "problems": [
+    {
+      "id": "tlx-6333634",
+      "platform": "tlx",
+      "title": "Djio and Combo",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333634",
+      "solvedAt": "2026-11-23T14:29:55.806Z"
+    },
+    {
+      "id": "tlx-6333579",
+      "platform": "tlx",
+      "title": "Djio and Fruit Stand",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333579",
+      "solvedAt": "2026-11-23T14:07:18.812Z"
+    },
+    {
+      "id": "tlx-6333539",
+      "platform": "tlx",
+      "title": "Djio and Agents",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333539",
+      "solvedAt": "2026-11-23T13:48:26.857Z"
+    },
+    {
+      "id": "tlx-6333424",
+      "platform": "tlx",
+      "title": "Djio and Domino Effect",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333424",
+      "solvedAt": "2026-11-23T12:55:30.930Z"
+    },
+    {
+      "id": "tlx-6333316",
+      "platform": "tlx",
+      "title": "Djio and Stone Masks",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333316",
+      "solvedAt": "2026-11-23T12:06:11.421Z"
+    },
+    {
+      "id": "tlx-6333257",
+      "platform": "tlx",
+      "title": "One Who Nails",
+      "category": "TROC #44",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333257",
+      "solvedAt": "2026-11-23T11:20:10.421Z"
+    },
+    {
+      "id": "tlx-6332907",
+      "platform": "tlx",
+      "title": "Button Pressing",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6332907",
+      "solvedAt": "2026-11-23T07:49:25.600Z"
+    },
     {
       "id": "tlx-6331103",
       "platform": "tlx",

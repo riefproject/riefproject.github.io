@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-23T05:37:01.604Z",
+    "updatedAt": "2026-11-23T17:17:33.472Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,13 +9,13 @@
     }
   },
   "overview": {
-    "totalSolved": 852,
-    "totalSubmissions": 1797,
+    "totalSolved": 859,
+    "totalSubmissions": 1811,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-23": {
-        "tries": 7,
-        "ac": 4
+        "tries": 23,
+        "ac": 11
       },
       "2026-11-22": {
         "tries": 4,
@@ -30,8 +30,8 @@
         "ac": 11
       },
       "2026-11-13": {
-        "tries": 3,
-        "ac": 2
+        "tries": 2,
+        "ac": 1
       },
       "2026-11-11": {
         "tries": 2,
@@ -138,7 +138,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
+        "tries": 24,
         "ac": 13
       },
       "2026-09-19": {
@@ -282,7 +282,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 18,
+        "tries": 17,
         "ac": 5
       },
       "2026-05-25": {
@@ -370,7 +370,7 @@
         "ac": 1
       },
       "2025-12-02": {
-        "tries": 22,
+        "tries": 23,
         "ac": 6
       },
       "2025-12-01": {
@@ -390,12 +390,12 @@
         "ac": 7
       },
       "2025-11-25": {
-        "tries": 23,
+        "tries": 22,
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 107,
-        "ac": 55
+        "tries": 106,
+        "ac": 54
       },
       "2026-08-25": {
         "tries": 1,
@@ -628,19 +628,19 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 1022
+      "count": 1036
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 967,
-      "totalSolved": 481,
-      "uniqueProblemsSolved": 420,
-      "totalAcSubmissions": 475,
+      "totalSubmissions": 981,
+      "totalSolved": 488,
+      "uniqueProblemsSolved": 426,
+      "totalAcSubmissions": 482,
       "languages": {
-        "Cpp20": 932,
+        "Cpp20": 946,
         "Pascal": 18,
         "C": 10,
         "Cpp17": 2,
@@ -649,8 +649,8 @@
       },
       "dailyCalendar": {
         "2026-11-23": {
-          "tries": 6,
-          "ac": 3
+          "tries": 22,
+          "ac": 10
         },
         "2026-11-22": {
           "tries": 2,
@@ -665,8 +665,8 @@
           "ac": 3
         },
         "2026-11-13": {
-          "tries": 3,
-          "ac": 2
+          "tries": 2,
+          "ac": 1
         },
         "2026-11-11": {
           "tries": 1,
@@ -773,7 +773,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
+          "tries": 24,
           "ac": 13
         },
         "2026-09-19": {
@@ -917,7 +917,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 18,
+          "tries": 17,
           "ac": 5
         },
         "2026-05-25": {
@@ -1005,7 +1005,7 @@
           "ac": 1
         },
         "2025-12-02": {
-          "tries": 22,
+          "tries": 23,
           "ac": 6
         },
         "2025-12-01": {
@@ -1025,15 +1025,85 @@
           "ac": 7
         },
         "2025-11-25": {
-          "tries": 23,
+          "tries": 22,
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 107,
-          "ac": 55
+          "tries": 106,
+          "ac": 54
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6333634",
+          "platform": "tlx",
+          "title": "Djio and Combo",
+          "category": "BNPCHS 2023 - Penyisihan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6333634",
+          "solvedAt": "2026-11-23T14:29:55.806Z"
+        },
+        {
+          "id": "tlx-6333579",
+          "platform": "tlx",
+          "title": "Djio and Fruit Stand",
+          "category": "BNPCHS 2023 - Penyisihan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6333579",
+          "solvedAt": "2026-11-23T14:07:18.812Z"
+        },
+        {
+          "id": "tlx-6333539",
+          "platform": "tlx",
+          "title": "Djio and Agents",
+          "category": "BNPCHS 2023 - Penyisihan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6333539",
+          "solvedAt": "2026-11-23T13:48:26.857Z"
+        },
+        {
+          "id": "tlx-6333424",
+          "platform": "tlx",
+          "title": "Djio and Domino Effect",
+          "category": "BNPCHS 2023 - Penyisihan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6333424",
+          "solvedAt": "2026-11-23T12:55:30.930Z"
+        },
+        {
+          "id": "tlx-6333316",
+          "platform": "tlx",
+          "title": "Djio and Stone Masks",
+          "category": "BNPCHS 2023 - Penyisihan",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6333316",
+          "solvedAt": "2026-11-23T12:06:11.421Z"
+        },
+        {
+          "id": "tlx-6333257",
+          "platform": "tlx",
+          "title": "One Who Nails",
+          "category": "TROC #44",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6333257",
+          "solvedAt": "2026-11-23T11:20:10.421Z"
+        },
+        {
+          "id": "tlx-6332907",
+          "platform": "tlx",
+          "title": "Button Pressing",
+          "category": "ICPC Jakarta 2023",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6332907",
+          "solvedAt": "2026-11-23T07:49:25.600Z"
+        },
         {
           "id": "tlx-6331103",
           "platform": "tlx",
@@ -4975,16 +5045,6 @@
           "solvedAt": "2025-11-24T15:46:54.665Z"
         },
         {
-          "id": "tlx-4650590",
-          "platform": "tlx",
-          "title": "Perkenalan Larik (Array)",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650590",
-          "solvedAt": "2025-11-24T15:46:02.359Z"
-        },
-        {
           "id": "tlx-4650587",
           "platform": "tlx",
           "title": "Toko Kandang",
@@ -6790,6 +6850,76 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6333634",
+      "platform": "tlx",
+      "title": "Djio and Combo",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333634",
+      "solvedAt": "2026-11-23T14:29:55.806Z"
+    },
+    {
+      "id": "tlx-6333579",
+      "platform": "tlx",
+      "title": "Djio and Fruit Stand",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333579",
+      "solvedAt": "2026-11-23T14:07:18.812Z"
+    },
+    {
+      "id": "tlx-6333539",
+      "platform": "tlx",
+      "title": "Djio and Agents",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333539",
+      "solvedAt": "2026-11-23T13:48:26.857Z"
+    },
+    {
+      "id": "tlx-6333424",
+      "platform": "tlx",
+      "title": "Djio and Domino Effect",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333424",
+      "solvedAt": "2026-11-23T12:55:30.930Z"
+    },
+    {
+      "id": "tlx-6333316",
+      "platform": "tlx",
+      "title": "Djio and Stone Masks",
+      "category": "BNPCHS 2023 - Penyisihan",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333316",
+      "solvedAt": "2026-11-23T12:06:11.421Z"
+    },
+    {
+      "id": "tlx-6333257",
+      "platform": "tlx",
+      "title": "One Who Nails",
+      "category": "TROC #44",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333257",
+      "solvedAt": "2026-11-23T11:20:10.421Z"
+    },
+    {
+      "id": "tlx-6332907",
+      "platform": "tlx",
+      "title": "Button Pressing",
+      "category": "ICPC Jakarta 2023",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6332907",
+      "solvedAt": "2026-11-23T07:49:25.600Z"
+    },
     {
       "id": "tlx-6331103",
       "platform": "tlx",

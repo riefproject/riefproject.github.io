@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-23T17:17:33.474Z",
-  "totalProblems": 801,
+  "lastUpdated": "2026-11-24T03:45:47.560Z",
+  "totalProblems": 802,
   "problems": [
+    {
+      "id": "tlx-6333832",
+      "platform": "tlx",
+      "title": "Kereta Rel Listrik",
+      "category": "OSN Informatika 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333832",
+      "solvedAt": "2026-11-23T23:05:29.294Z"
+    },
     {
       "id": "tlx-6333634",
       "platform": "tlx",

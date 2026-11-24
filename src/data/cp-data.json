@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-23T17:17:33.472Z",
+    "updatedAt": "2026-11-24T03:45:47.558Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,13 +9,13 @@
     }
   },
   "overview": {
-    "totalSolved": 859,
+    "totalSolved": 860,
     "totalSubmissions": 1811,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-23": {
-        "tries": 23,
-        "ac": 11
+        "tries": 24,
+        "ac": 12
       },
       "2026-11-22": {
         "tries": 4,
@@ -30,8 +30,8 @@
         "ac": 11
       },
       "2026-11-13": {
-        "tries": 2,
-        "ac": 1
+        "tries": 3,
+        "ac": 2
       },
       "2026-11-11": {
         "tries": 2,
@@ -46,7 +46,7 @@
         "ac": 1
       },
       "2026-11-03": {
-        "tries": 7,
+        "tries": 6,
         "ac": 5
       },
       "2026-10-31": {
@@ -138,7 +138,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 24,
+        "tries": 23,
         "ac": 13
       },
       "2026-09-19": {
@@ -636,9 +636,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 981,
-      "totalSolved": 488,
-      "uniqueProblemsSolved": 426,
-      "totalAcSubmissions": 482,
+      "totalSolved": 489,
+      "uniqueProblemsSolved": 427,
+      "totalAcSubmissions": 483,
       "languages": {
         "Cpp20": 946,
         "Pascal": 18,
@@ -649,8 +649,8 @@
       },
       "dailyCalendar": {
         "2026-11-23": {
-          "tries": 22,
-          "ac": 10
+          "tries": 23,
+          "ac": 11
         },
         "2026-11-22": {
           "tries": 2,
@@ -665,8 +665,8 @@
           "ac": 3
         },
         "2026-11-13": {
-          "tries": 2,
-          "ac": 1
+          "tries": 3,
+          "ac": 2
         },
         "2026-11-11": {
           "tries": 1,
@@ -681,7 +681,7 @@
           "ac": 1
         },
         "2026-11-03": {
-          "tries": 7,
+          "tries": 6,
           "ac": 5
         },
         "2026-10-31": {
@@ -773,7 +773,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 24,
+          "tries": 23,
           "ac": 13
         },
         "2026-09-19": {
@@ -1034,6 +1034,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6333832",
+          "platform": "tlx",
+          "title": "Kereta Rel Listrik",
+          "category": "OSN Informatika 2024",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6333832",
+          "solvedAt": "2026-11-23T23:05:29.294Z"
+        },
         {
           "id": "tlx-6333634",
           "platform": "tlx",
@@ -6164,7 +6174,7 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1158144,
+      "ranking": 1151080,
       "totalSolved": 156,
       "easySolved": 65,
       "mediumSolved": 71,
@@ -6850,6 +6860,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6333832",
+      "platform": "tlx",
+      "title": "Kereta Rel Listrik",
+      "category": "OSN Informatika 2024",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6333832",
+      "solvedAt": "2026-11-23T23:05:29.294Z"
+    },
     {
       "id": "tlx-6333634",
       "platform": "tlx",

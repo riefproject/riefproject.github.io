@@ -1,11 +1,11 @@
 {
-  "overviewTotalSolved": 859,
+  "overviewTotalSolved": 860,
   "overviewTotalSubmissions": 1811,
   "primaryLanguageName": "C++20",
   "primaryLanguageCount": 1036,
-  "tlxTotalSolved": 488,
+  "tlxTotalSolved": 489,
   "tlxTotalSubmissions": 981,
-  "tlxTotalAcSubmissions": 482,
+  "tlxTotalAcSubmissions": 483,
   "codeforcesTotalSolved": 68,
   "codeforcesRating": 1874,
   "codeforcesRank": "expert",
@@ -14,6 +14,6 @@
   "leetcodeEasySolved": 65,
   "leetcodeMediumSolved": 71,
   "leetcodeHardSolved": 20,
-  "leetcodeRanking": 1158144,
+  "leetcodeRanking": 1151080,
   "hackerrankTotalSolved": 147
 }

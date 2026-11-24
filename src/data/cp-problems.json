@@ -1,7 +1,47 @@
 {
-  "lastUpdated": "2026-11-24T03:45:47.560Z",
-  "totalProblems": 802,
+  "lastUpdated": "2026-11-24T16:55:48.677Z",
+  "totalProblems": 806,
   "problems": [
+    {
+      "id": "cf-399711726",
+      "platform": "codeforces",
+      "title": "Trace of Product of Sparse Square Matrices (106262L)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/106262/problem/L",
+      "solvedAt": "2026-11-24T14:30:34.000Z"
+    },
+    {
+      "id": "cf-399709779",
+      "platform": "codeforces",
+      "title": "Alphabet Chocolate (106262A)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/106262/problem/A",
+      "solvedAt": "2026-11-24T14:12:25.000Z"
+    },
+    {
+      "id": "tlx-6335667",
+      "platform": "tlx",
+      "title": "Nightmare Brother",
+      "category": "ICPC Jakarta 2022",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6335667",
+      "solvedAt": "2026-11-24T12:50:36.172Z"
+    },
+    {
+      "id": "tlx-6335136",
+      "platform": "tlx",
+      "title": "Penyebaran Hoaks",
+      "category": "OSN Informatika 2019",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6335136",
+      "solvedAt": "2026-11-24T08:36:40.750Z"
+    },
     {
       "id": "tlx-6333832",
       "platform": "tlx",

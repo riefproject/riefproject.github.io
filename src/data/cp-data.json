@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-24T03:45:47.558Z",
+    "updatedAt": "2026-11-24T16:55:48.674Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 860,
-    "totalSubmissions": 1811,
+    "totalSolved": 865,
+    "totalSubmissions": 1820,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-24": {
+        "tries": 8,
+        "ac": 4
+      },
       "2026-11-23": {
         "tries": 24,
         "ac": 12
@@ -42,11 +46,11 @@
         "ac": 6
       },
       "2026-11-04": {
-        "tries": 3,
+        "tries": 2,
         "ac": 1
       },
       "2026-11-03": {
-        "tries": 6,
+        "tries": 7,
         "ac": 5
       },
       "2026-10-31": {
@@ -282,7 +286,7 @@
         "ac": 3
       },
       "2026-06-02": {
-        "tries": 17,
+        "tries": 18,
         "ac": 5
       },
       "2026-05-25": {
@@ -386,7 +390,7 @@
         "ac": 12
       },
       "2025-11-26": {
-        "tries": 24,
+        "tries": 25,
         "ac": 7
       },
       "2025-11-25": {
@@ -394,8 +398,8 @@
         "ac": 7
       },
       "2025-11-24": {
-        "tries": 106,
-        "ac": 54
+        "tries": 105,
+        "ac": 53
       },
       "2026-08-25": {
         "tries": 1,
@@ -628,19 +632,19 @@
     },
     "topLanguage": {
       "name": "C++20",
-      "count": 1036
+      "count": 1042
     }
   },
   "platforms": {
     "tlx": {
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
-      "totalSubmissions": 981,
-      "totalSolved": 489,
-      "uniqueProblemsSolved": 427,
-      "totalAcSubmissions": 483,
+      "totalSubmissions": 987,
+      "totalSolved": 492,
+      "uniqueProblemsSolved": 428,
+      "totalAcSubmissions": 485,
       "languages": {
-        "Cpp20": 946,
+        "Cpp20": 952,
         "Pascal": 18,
         "C": 10,
         "Cpp17": 2,
@@ -648,6 +652,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-24": {
+          "tries": 5,
+          "ac": 2
+        },
         "2026-11-23": {
           "tries": 23,
           "ac": 11
@@ -677,11 +685,11 @@
           "ac": 6
         },
         "2026-11-04": {
-          "tries": 3,
+          "tries": 2,
           "ac": 1
         },
         "2026-11-03": {
-          "tries": 6,
+          "tries": 7,
           "ac": 5
         },
         "2026-10-31": {
@@ -917,7 +925,7 @@
           "ac": 3
         },
         "2026-06-02": {
-          "tries": 17,
+          "tries": 18,
           "ac": 5
         },
         "2026-05-25": {
@@ -1021,7 +1029,7 @@
           "ac": 12
         },
         "2025-11-26": {
-          "tries": 24,
+          "tries": 25,
           "ac": 7
         },
         "2025-11-25": {
@@ -1029,11 +1037,31 @@
           "ac": 7
         },
         "2025-11-24": {
-          "tries": 106,
-          "ac": 54
+          "tries": 105,
+          "ac": 53
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6335667",
+          "platform": "tlx",
+          "title": "Nightmare Brother",
+          "category": "ICPC Jakarta 2022",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6335667",
+          "solvedAt": "2026-11-24T12:50:36.172Z"
+        },
+        {
+          "id": "tlx-6335136",
+          "platform": "tlx",
+          "title": "Penyebaran Hoaks",
+          "category": "OSN Informatika 2019",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6335136",
+          "solvedAt": "2026-11-24T08:36:40.750Z"
+        },
         {
           "id": "tlx-6333832",
           "platform": "tlx",
@@ -4875,16 +4903,6 @@
           "solvedAt": "2025-11-24T16:47:51.765Z"
         },
         {
-          "id": "tlx-4650685",
-          "platform": "tlx",
-          "title": "Kalkulator String",
-          "category": "Tipe Data Lainnya",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650685",
-          "solvedAt": "2025-11-24T16:47:20.506Z"
-        },
-        {
           "id": "tlx-4650682",
           "platform": "tlx",
           "title": "Tipe Data std::vector",
@@ -5015,16 +5033,6 @@
           "solvedAt": "2025-11-24T16:04:33.451Z"
         },
         {
-          "id": "tlx-4650598",
-          "platform": "tlx",
-          "title": "Toko Kandang II",
-          "category": "Larik (Array)",
-          "language": "Cpp20",
-          "difficulty": "-",
-          "url": "https://tlx.toki.id/submissions/4650598",
-          "solvedAt": "2025-11-24T15:54:33.525Z"
-        },
-        {
           "id": "tlx-4650595",
           "platform": "tlx",
           "title": "Bermain Lampu Kandang",
@@ -5053,6 +5061,16 @@
           "difficulty": "-",
           "url": "https://tlx.toki.id/submissions/4650592",
           "solvedAt": "2025-11-24T15:46:54.665Z"
+        },
+        {
+          "id": "tlx-4650590",
+          "platform": "tlx",
+          "title": "Perkenalan Larik (Array)",
+          "category": "Larik (Array)",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/4650590",
+          "solvedAt": "2025-11-24T15:46:02.359Z"
         },
         {
           "id": "tlx-4650587",
@@ -5314,9 +5332,9 @@
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 5,
-      "totalSubmissions": 259,
-      "totalSolved": 68,
-      "totalAcSubmissions": 74,
+      "totalSubmissions": 262,
+      "totalSolved": 70,
+      "totalAcSubmissions": 76,
       "tagsCount": {
         "binary search": 3,
         "brute force": 11,
@@ -5358,11 +5376,15 @@
         "2600": 1
       },
       "languages": {
-        "C++23": 193,
+        "C++23": 196,
         "C++20": 65,
         "Rust": 1
       },
       "dailyCalendar": {
+        "2026-11-24": {
+          "tries": 3,
+          "ac": 2
+        },
         "2026-10-10": {
           "tries": 9,
           "ac": 4
@@ -5489,6 +5511,26 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "cf-399711726",
+          "platform": "codeforces",
+          "title": "Trace of Product of Sparse Square Matrices (106262L)",
+          "category": "Problem Solving",
+          "language": "C++23 (GCC 14-64, msys2)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/106262/problem/L",
+          "solvedAt": "2026-11-24T14:30:34.000Z"
+        },
+        {
+          "id": "cf-399709779",
+          "platform": "codeforces",
+          "title": "Alphabet Chocolate (106262A)",
+          "category": "Problem Solving",
+          "language": "C++23 (GCC 14-64, msys2)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/106262/problem/A",
+          "solvedAt": "2026-11-24T14:12:25.000Z"
+        },
         {
           "id": "cf-393994284",
           "platform": "codeforces",
@@ -6860,6 +6902,46 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "cf-399711726",
+      "platform": "codeforces",
+      "title": "Trace of Product of Sparse Square Matrices (106262L)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/106262/problem/L",
+      "solvedAt": "2026-11-24T14:30:34.000Z"
+    },
+    {
+      "id": "cf-399709779",
+      "platform": "codeforces",
+      "title": "Alphabet Chocolate (106262A)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/106262/problem/A",
+      "solvedAt": "2026-11-24T14:12:25.000Z"
+    },
+    {
+      "id": "tlx-6335667",
+      "platform": "tlx",
+      "title": "Nightmare Brother",
+      "category": "ICPC Jakarta 2022",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6335667",
+      "solvedAt": "2026-11-24T12:50:36.172Z"
+    },
+    {
+      "id": "tlx-6335136",
+      "platform": "tlx",
+      "title": "Penyebaran Hoaks",
+      "category": "OSN Informatika 2019",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6335136",
+      "solvedAt": "2026-11-24T08:36:40.750Z"
+    },
     {
       "id": "tlx-6333832",
       "platform": "tlx",

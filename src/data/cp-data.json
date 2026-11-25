@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-24T16:55:48.674Z",
+    "updatedAt": "2026-11-25T01:53:14.488Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,13 +9,13 @@
     }
   },
   "overview": {
-    "totalSolved": 865,
-    "totalSubmissions": 1820,
+    "totalSolved": 868,
+    "totalSubmissions": 1824,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-24": {
-        "tries": 8,
-        "ac": 4
+        "tries": 12,
+        "ac": 7
       },
       "2026-11-23": {
         "tries": 24,
@@ -38,8 +38,8 @@
         "ac": 2
       },
       "2026-11-11": {
-        "tries": 2,
-        "ac": 2
+        "tries": 1,
+        "ac": 1
       },
       "2026-11-05": {
         "tries": 10,
@@ -5332,9 +5332,9 @@
       "rank": "expert",
       "maxRank": "expert",
       "contestsCount": 5,
-      "totalSubmissions": 262,
-      "totalSolved": 70,
-      "totalAcSubmissions": 76,
+      "totalSubmissions": 265,
+      "totalSolved": 72,
+      "totalAcSubmissions": 78,
       "tagsCount": {
         "binary search": 3,
         "brute force": 11,
@@ -5376,14 +5376,14 @@
         "2600": 1
       },
       "languages": {
-        "C++23": 196,
+        "C++23": 199,
         "C++20": 65,
         "Rust": 1
       },
       "dailyCalendar": {
         "2026-11-24": {
-          "tries": 3,
-          "ac": 2
+          "tries": 6,
+          "ac": 4
         },
         "2026-10-10": {
           "tries": 9,
@@ -5511,6 +5511,26 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "cf-399728757",
+          "platform": "codeforces",
+          "title": "Max Cut Min Flow (106262G)",
+          "category": "Problem Solving",
+          "language": "C++23 (GCC 14-64, msys2)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/106262/problem/G",
+          "solvedAt": "2026-11-24T17:20:39.000Z"
+        },
+        {
+          "id": "cf-399727018",
+          "platform": "codeforces",
+          "title": "Long Distance Examination (106262E)",
+          "category": "Problem Solving",
+          "language": "C++23 (GCC 14-64, msys2)",
+          "difficulty": "800",
+          "url": "https://codeforces.com/contest/106262/problem/E",
+          "solvedAt": "2026-11-24T17:01:03.000Z"
+        },
         {
           "id": "cf-399711726",
           "platform": "codeforces",
@@ -6216,12 +6236,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1151080,
-      "totalSolved": 156,
-      "easySolved": 65,
+      "ranking": 1151591,
+      "totalSolved": 157,
+      "easySolved": 66,
       "mediumSolved": 71,
       "hardSolved": 20,
       "dailyCalendar": {
+        "2026-11-24": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-23": {
           "tries": 1,
           "ac": 1
@@ -6261,13 +6285,19 @@
         "2026-11-14": {
           "tries": 2,
           "ac": 2
-        },
-        "2026-11-11": {
-          "tries": 1,
-          "ac": 1
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1795527680",
+          "platform": "leetcode",
+          "title": "Maximum Subarray With Equal Products",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/maximum-subarray-with-equal-products/",
+          "solvedAt": "2026-11-24T13:41:20.000Z"
+        },
         {
           "id": "lc-1795393349",
           "platform": "leetcode",
@@ -6457,16 +6487,6 @@
           "difficulty": "Easy",
           "url": "https://leetcode.com/problems/minimum-positive-sum-subarray/",
           "solvedAt": "2026-11-14T05:13:46.000Z"
-        },
-        {
-          "id": "lc-1794437957",
-          "platform": "leetcode",
-          "title": "Minimum Cost to Acquire Required Items",
-          "category": "Math",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/minimum-cost-to-acquire-required-items/",
-          "solvedAt": "2026-11-11T22:59:17.000Z"
         }
       ]
     },
@@ -6903,6 +6923,26 @@
   },
   "recentGlobalFeed": [
     {
+      "id": "cf-399728757",
+      "platform": "codeforces",
+      "title": "Max Cut Min Flow (106262G)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/106262/problem/G",
+      "solvedAt": "2026-11-24T17:20:39.000Z"
+    },
+    {
+      "id": "cf-399727018",
+      "platform": "codeforces",
+      "title": "Long Distance Examination (106262E)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/106262/problem/E",
+      "solvedAt": "2026-11-24T17:01:03.000Z"
+    },
+    {
       "id": "cf-399711726",
       "platform": "codeforces",
       "title": "Trace of Product of Sparse Square Matrices (106262L)",
@@ -6921,6 +6961,16 @@
       "difficulty": "800",
       "url": "https://codeforces.com/contest/106262/problem/A",
       "solvedAt": "2026-11-24T14:12:25.000Z"
+    },
+    {
+      "id": "lc-1795527680",
+      "platform": "leetcode",
+      "title": "Maximum Subarray With Equal Products",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/maximum-subarray-with-equal-products/",
+      "solvedAt": "2026-11-24T13:41:20.000Z"
     },
     {
       "id": "tlx-6335667",

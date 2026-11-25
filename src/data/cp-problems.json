@@ -1,7 +1,27 @@
 {
-  "lastUpdated": "2026-11-24T16:55:48.677Z",
-  "totalProblems": 806,
+  "lastUpdated": "2026-11-25T01:53:14.492Z",
+  "totalProblems": 809,
   "problems": [
+    {
+      "id": "cf-399728757",
+      "platform": "codeforces",
+      "title": "Max Cut Min Flow (106262G)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/106262/problem/G",
+      "solvedAt": "2026-11-24T17:20:39.000Z"
+    },
+    {
+      "id": "cf-399727018",
+      "platform": "codeforces",
+      "title": "Long Distance Examination (106262E)",
+      "category": "Problem Solving",
+      "language": "C++23 (GCC 14-64, msys2)",
+      "difficulty": "800",
+      "url": "https://codeforces.com/contest/106262/problem/E",
+      "solvedAt": "2026-11-24T17:01:03.000Z"
+    },
     {
       "id": "cf-399711726",
       "platform": "codeforces",
@@ -21,6 +41,16 @@
       "difficulty": "800",
       "url": "https://codeforces.com/contest/106262/problem/A",
       "solvedAt": "2026-11-24T14:12:25.000Z"
+    },
+    {
+      "id": "lc-1795527680",
+      "platform": "leetcode",
+      "title": "Maximum Subarray With Equal Products",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/maximum-subarray-with-equal-products/",
+      "solvedAt": "2026-11-24T13:41:20.000Z"
     },
     {
       "id": "tlx-6335667",

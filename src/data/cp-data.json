@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-26T01:30:28.650Z",
+    "updatedAt": "2026-11-26T16:19:58.838Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -493,6 +493,14 @@
         "tries": 17,
         "ac": 10
       },
+      "2026-11-26": {
+        "tries": 1,
+        "ac": 1
+      },
+      "2026-11-25": {
+        "tries": 1,
+        "ac": 1
+      },
       "2026-11-20": {
         "tries": 1,
         "ac": 1
@@ -512,10 +520,6 @@
       "2026-11-16": {
         "tries": 1,
         "ac": 1
-      },
-      "2026-11-14": {
-        "tries": 2,
-        "ac": 2
       },
       "2024-06-23": {
         "tries": 44,
@@ -6236,12 +6240,20 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1151591,
+      "ranking": 1130408,
       "totalSolved": 157,
       "easySolved": 66,
       "mediumSolved": 71,
       "hardSolved": 20,
       "dailyCalendar": {
+        "2026-11-26": {
+          "tries": 1,
+          "ac": 1
+        },
+        "2026-11-25": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-24": {
           "tries": 1,
           "ac": 1
@@ -6281,13 +6293,29 @@
         "2026-11-15": {
           "tries": 8,
           "ac": 8
-        },
-        "2026-11-14": {
-          "tries": 2,
-          "ac": 2
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1795658176",
+          "platform": "leetcode",
+          "title": "Stone Removal Game",
+          "category": "Math",
+          "language": "C++20",
+          "difficulty": "Easy",
+          "url": "https://leetcode.com/problems/stone-removal-game/",
+          "solvedAt": "2026-11-26T01:56:16.000Z"
+        },
+        {
+          "id": "lc-1795586899",
+          "platform": "leetcode",
+          "title": "Smallest Unique Subarray",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Hard",
+          "url": "https://leetcode.com/problems/smallest-unique-subarray/",
+          "solvedAt": "2026-11-25T06:08:19.000Z"
+        },
         {
           "id": "lc-1795527680",
           "platform": "leetcode",
@@ -6467,26 +6495,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/",
           "solvedAt": "2026-11-15T06:27:05.000Z"
-        },
-        {
-          "id": "lc-1794657179",
-          "platform": "leetcode",
-          "title": "Split Array Largest Sum",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Hard",
-          "url": "https://leetcode.com/problems/split-array-largest-sum/",
-          "solvedAt": "2026-11-14T11:52:59.000Z"
-        },
-        {
-          "id": "lc-1794633226",
-          "platform": "leetcode",
-          "title": "Minimum Positive Sum Subarray ",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Easy",
-          "url": "https://leetcode.com/problems/minimum-positive-sum-subarray/",
-          "solvedAt": "2026-11-14T05:13:46.000Z"
         }
       ]
     },
@@ -6922,6 +6930,26 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1795658176",
+      "platform": "leetcode",
+      "title": "Stone Removal Game",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/stone-removal-game/",
+      "solvedAt": "2026-11-26T01:56:16.000Z"
+    },
+    {
+      "id": "lc-1795586899",
+      "platform": "leetcode",
+      "title": "Smallest Unique Subarray",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/smallest-unique-subarray/",
+      "solvedAt": "2026-11-25T06:08:19.000Z"
+    },
     {
       "id": "cf-399728757",
       "platform": "codeforces",

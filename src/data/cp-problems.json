@@ -1,7 +1,27 @@
 {
-  "lastUpdated": "2026-11-26T01:30:28.653Z",
-  "totalProblems": 809,
+  "lastUpdated": "2026-11-26T16:19:58.841Z",
+  "totalProblems": 811,
   "problems": [
+    {
+      "id": "lc-1795658176",
+      "platform": "leetcode",
+      "title": "Stone Removal Game",
+      "category": "Math",
+      "language": "C++20",
+      "difficulty": "Easy",
+      "url": "https://leetcode.com/problems/stone-removal-game/",
+      "solvedAt": "2026-11-26T01:56:16.000Z"
+    },
+    {
+      "id": "lc-1795586899",
+      "platform": "leetcode",
+      "title": "Smallest Unique Subarray",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Hard",
+      "url": "https://leetcode.com/problems/smallest-unique-subarray/",
+      "solvedAt": "2026-11-25T06:08:19.000Z"
+    },
     {
       "id": "cf-399728757",
       "platform": "codeforces",

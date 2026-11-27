@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-27T01:27:49.974Z",
-  "totalProblems": 811,
+  "lastUpdated": "2026-11-27T16:04:31.113Z",
+  "totalProblems": 812,
   "problems": [
+    {
+      "id": "lc-1795752456",
+      "platform": "leetcode",
+      "title": "Maximum Number of Items From Sale I",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/maximum-number-of-items-from-sale-i/",
+      "solvedAt": "2026-11-27T04:07:36.000Z"
+    },
     {
       "id": "lc-1795658176",
       "platform": "leetcode",

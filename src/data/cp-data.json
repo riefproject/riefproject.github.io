@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-27T01:27:49.971Z",
+    "updatedAt": "2026-11-27T16:04:31.109Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,8 +9,8 @@
     }
   },
   "overview": {
-    "totalSolved": 868,
-    "totalSubmissions": 1824,
+    "totalSolved": 871,
+    "totalSubmissions": 1827,
     "activePlatformsCount": 4,
     "heatmap": {
       "2026-11-24": {
@@ -30,8 +30,8 @@
         "ac": 7
       },
       "2026-11-15": {
-        "tries": 12,
-        "ac": 11
+        "tries": 11,
+        "ac": 10
       },
       "2026-11-13": {
         "tries": 3,
@@ -492,6 +492,10 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
+      },
+      "2026-11-27": {
+        "tries": 1,
+        "ac": 1
       },
       "2026-11-26": {
         "tries": 1,
@@ -6240,12 +6244,16 @@
     "leetcode": {
       "handle": "fsaree",
       "url": "https://leetcode.com/u/fsaree",
-      "ranking": 1130408,
-      "totalSolved": 157,
-      "easySolved": 66,
-      "mediumSolved": 71,
-      "hardSolved": 20,
+      "ranking": 1123768,
+      "totalSolved": 160,
+      "easySolved": 67,
+      "mediumSolved": 72,
+      "hardSolved": 21,
       "dailyCalendar": {
+        "2026-11-27": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-26": {
           "tries": 1,
           "ac": 1
@@ -6291,11 +6299,21 @@
           "ac": 1
         },
         "2026-11-15": {
-          "tries": 8,
-          "ac": 8
+          "tries": 7,
+          "ac": 7
         }
       },
       "recentSolved": [
+        {
+          "id": "lc-1795752456",
+          "platform": "leetcode",
+          "title": "Maximum Number of Items From Sale I",
+          "category": "Array",
+          "language": "C++20",
+          "difficulty": "Medium",
+          "url": "https://leetcode.com/problems/maximum-number-of-items-from-sale-i/",
+          "solvedAt": "2026-11-27T04:07:36.000Z"
+        },
         {
           "id": "lc-1795658176",
           "platform": "leetcode",
@@ -6485,16 +6503,6 @@
           "difficulty": "Medium",
           "url": "https://leetcode.com/problems/valid-sudoku/",
           "solvedAt": "2026-11-15T07:27:42.000Z"
-        },
-        {
-          "id": "lc-1794724025",
-          "platform": "leetcode",
-          "title": "Number of Sub-arrays With Odd Sum",
-          "category": "Array",
-          "language": "C++20",
-          "difficulty": "Medium",
-          "url": "https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/",
-          "solvedAt": "2026-11-15T06:27:05.000Z"
         }
       ]
     },
@@ -6930,6 +6938,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "lc-1795752456",
+      "platform": "leetcode",
+      "title": "Maximum Number of Items From Sale I",
+      "category": "Array",
+      "language": "C++20",
+      "difficulty": "Medium",
+      "url": "https://leetcode.com/problems/maximum-number-of-items-from-sale-i/",
+      "solvedAt": "2026-11-27T04:07:36.000Z"
+    },
     {
       "id": "lc-1795658176",
       "platform": "leetcode",

@@ -1,6 +1,6 @@
 {
   "meta": {
-    "updatedAt": "2026-11-27T16:04:31.109Z",
+    "updatedAt": "2026-11-28T01:02:02.149Z",
     "handles": {
       "tlx": "aycaaa",
       "codeforces": "feeera",
@@ -9,10 +9,14 @@
     }
   },
   "overview": {
-    "totalSolved": 871,
+    "totalSolved": 872,
     "totalSubmissions": 1827,
     "activePlatformsCount": 4,
     "heatmap": {
+      "2026-11-27": {
+        "tries": 2,
+        "ac": 2
+      },
       "2026-11-24": {
         "tries": 12,
         "ac": 7
@@ -46,7 +50,7 @@
         "ac": 6
       },
       "2026-11-04": {
-        "tries": 2,
+        "tries": 3,
         "ac": 1
       },
       "2026-11-03": {
@@ -142,7 +146,7 @@
         "ac": 5
       },
       "2026-09-21": {
-        "tries": 23,
+        "tries": 24,
         "ac": 13
       },
       "2026-09-19": {
@@ -178,7 +182,7 @@
         "ac": 18
       },
       "2026-09-06": {
-        "tries": 7,
+        "tries": 6,
         "ac": 4
       },
       "2026-09-03": {
@@ -262,7 +266,7 @@
         "ac": 1
       },
       "2026-07-17": {
-        "tries": 41,
+        "tries": 40,
         "ac": 12
       },
       "2026-07-16": {
@@ -382,7 +386,7 @@
         "ac": 1
       },
       "2025-11-28": {
-        "tries": 26,
+        "tries": 25,
         "ac": 6
       },
       "2025-11-27": {
@@ -492,10 +496,6 @@
       "2024-10-29": {
         "tries": 17,
         "ac": 10
-      },
-      "2026-11-27": {
-        "tries": 1,
-        "ac": 1
       },
       "2026-11-26": {
         "tries": 1,
@@ -648,9 +648,9 @@
       "handle": "aycaaa",
       "url": "https://tlx.toki.id/profiles/aycaaa",
       "totalSubmissions": 987,
-      "totalSolved": 492,
-      "uniqueProblemsSolved": 428,
-      "totalAcSubmissions": 485,
+      "totalSolved": 493,
+      "uniqueProblemsSolved": 429,
+      "totalAcSubmissions": 486,
       "languages": {
         "Cpp20": 952,
         "Pascal": 18,
@@ -660,6 +660,10 @@
         "Rust2021": 3
       },
       "dailyCalendar": {
+        "2026-11-27": {
+          "tries": 1,
+          "ac": 1
+        },
         "2026-11-24": {
           "tries": 5,
           "ac": 2
@@ -693,7 +697,7 @@
           "ac": 6
         },
         "2026-11-04": {
-          "tries": 2,
+          "tries": 3,
           "ac": 1
         },
         "2026-11-03": {
@@ -789,7 +793,7 @@
           "ac": 5
         },
         "2026-09-21": {
-          "tries": 23,
+          "tries": 24,
           "ac": 13
         },
         "2026-09-19": {
@@ -825,7 +829,7 @@
           "ac": 18
         },
         "2026-09-06": {
-          "tries": 7,
+          "tries": 6,
           "ac": 4
         },
         "2026-09-03": {
@@ -909,7 +913,7 @@
           "ac": 1
         },
         "2026-07-17": {
-          "tries": 41,
+          "tries": 40,
           "ac": 12
         },
         "2026-07-16": {
@@ -1029,7 +1033,7 @@
           "ac": 1
         },
         "2025-11-28": {
-          "tries": 26,
+          "tries": 25,
           "ac": 6
         },
         "2025-11-27": {
@@ -1050,6 +1054,16 @@
         }
       },
       "recentSolved": [
+        {
+          "id": "tlx-6343842",
+          "platform": "tlx",
+          "title": "Fibonacci XOR 1",
+          "category": "Recursion 2.0 - Final CP",
+          "language": "Cpp20",
+          "difficulty": "-",
+          "url": "https://tlx.toki.id/submissions/6343842",
+          "solvedAt": "2026-11-27T20:18:26.123Z"
+        },
         {
           "id": "tlx-6335667",
           "platform": "tlx",
@@ -6938,6 +6952,16 @@
     }
   },
   "recentGlobalFeed": [
+    {
+      "id": "tlx-6343842",
+      "platform": "tlx",
+      "title": "Fibonacci XOR 1",
+      "category": "Recursion 2.0 - Final CP",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6343842",
+      "solvedAt": "2026-11-27T20:18:26.123Z"
+    },
     {
       "id": "lc-1795752456",
       "platform": "leetcode",

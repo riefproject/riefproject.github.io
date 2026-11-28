@@ -1,7 +1,17 @@
 {
-  "lastUpdated": "2026-11-28T01:02:02.151Z",
-  "totalProblems": 813,
+  "lastUpdated": "2026-11-28T14:59:34.854Z",
+  "totalProblems": 814,
   "problems": [
+    {
+      "id": "tlx-6346772",
+      "platform": "tlx",
+      "title": "Maxdifficent Group",
+      "category": "ICPC Jakarta 2021",
+      "language": "Cpp20",
+      "difficulty": "-",
+      "url": "https://tlx.toki.id/submissions/6346772",
+      "solvedAt": "2026-11-28T14:50:01.997Z"
+    },
     {
       "id": "tlx-6343842",
       "platform": "tlx",
